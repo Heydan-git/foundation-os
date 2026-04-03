@@ -1,0 +1,120 @@
+# FOS-MONITORING.md
+> Métriques et santé de Foundation OS
+> À uploader dans Knowledge base du projet Claude.ai
+> Mettre à jour à chaque session significative
+
+---
+
+## Statut global
+
+| Indicateur | Valeur | Cible | Statut |
+|-----------|--------|-------|--------|
+| OS Readiness | 10% | 100% | ⏳ P0 ✅ · P1 en cours |
+| Artifacts livrés | 3/6 fos-* | 6/6 | ⏳ (+scale-orchestrator) |
+| MD pairs complets | 2/6 | 6/6 | ⏳ |
+| Stack L1-L4 active | 0/4 | 4/4 | ⏳ |
+| Foundation OS App | 0% | Deployée | ⏳ |
+| DA compliance | 2/6 | 6/6 | ⏳ |
+
+---
+
+## Santé artifacts
+
+| Artifact | Lignes | MD pair | DA | Storage | Statut |
+|----------|--------|---------|-----|---------|--------|
+| fos-commander.jsx | 571 | ✅ | ✅ | ✅ | Livré |
+| fos-knowledge.jsx | 330 | ✅ | ✅ | — | Livré |
+| fos-graph.jsx | — | ⏳ | — | — | À produire |
+| fos-sync.jsx | — | ⏳ | — | — | À produire |
+| fos-index.jsx | — | ⏳ | — | — | À produire |
+| fos-pipeline.jsx | — | ⏳ | — | — | À produire |
+
+**Règle :** artifact sain = lignes < 700 · MD pair ✅ · DA ✅ · storage key unique
+
+---
+
+## Santé stack
+
+| Couche | Composant | Statut | Prérequis |
+|--------|-----------|--------|-----------|
+| L0 | Void Glass DS | ✅ Défini | — |
+| L1a | Claude.ai Projects (Knowledge base) | ⏳ À créer | — |
+| L1a | Knowledge base (~20 MD uploadés) | ⏳ À uploader | Projet créé |
+| L1b | Cowork desktop (folder foundation-os/) | ⏳ À configurer | Après e09 |
+| L2 | Claude Code CLI | ⏳ À installer | Node.js ≥ 18 |
+| L2 | CLAUDE.md + hooks | ⏳ À déployer | Claude Code |
+| L2 | oh-my-claudecode | ⏳ À installer | Claude Code |
+| L3 | BMAD v6 (_bmad/) | ⏳ À installer | Node.js + terminal |
+| L4 | Notion wiki | ✅ Créé (e01 ✅) | — |
+| L4 | Asana projet | ⏳ À créer (MCP) | — |
+| L5 | Foundation OS App | ⏳ Phase P5 | L1-L4 ok |
+| L6 | GitHub repo | ⏳ À créer | — |
+
+---
+
+## Métriques contexte
+
+| Source | Tokens estimés | % sur 200K |
+|--------|---------------|-----------|
+| fos-commander.jsx (571L) | ~14 000 | 7% |
+| fos-knowledge.jsx (330L) | ~8 000 | 4% |
+| fos-scale-orchestrator.jsx (435L) | ~11 000 | 5.5% |
+| System prompt Anthropic | ~13 000 | 6.5% |
+| Memories utilisateur | ~800 | 0.4% |
+| Conversation courante | ~8 000 | 4% (croît) |
+| **Total estimé avec 3 artifacts** | **~55 000** | **~28%** |
+
+**Seuils :** Attention > 50% · Compact > 70% · Clear > 90%
+
+---
+
+## Métriques pipeline iOS (futur)
+
+| Phase | Statut | Bloqueur |
+|-------|--------|---------|
+| 00 Validation | ⏳ | App iOS cible non définie |
+| 01 Design | ⏳ | Phase 00 |
+| 02 Architecture | ⏳ | Phase 00 |
+| 03 Dev | ⏳ | Phase 00-02 |
+| 04 Qualité | ⏳ | Phase 03 |
+| 05 Launch | ⏳ | Phase 04 |
+| 06 Monétisation | ⏳ | Phase 05 |
+| 07 Growth | ⏳ | Phase 06 |
+
+---
+
+## Checklist santé — à vérifier chaque session
+
+```
+□ Artifacts < 700L chacun
+□ Tous les JSX ont leur MD pair
+□ Stack L5 = Vite + React + Supabase + Vercel (pas Railway)
+□ L1a = Claude.ai Projects · L1b = Cowork Desktop · L2 = Claude Code
+□ BMAD = _bmad/ (underscore, pas dot)
+□ DA = #06070C fond, Figtree UI, JetBrains Mono code
+□ Context budget < 70%
+□ Journal session mis à jour
+□ Prochaine étape identifiée dans SCALE-ORCHESTRATOR
+□ Aucune mention de stack incorrecte dans les fichiers
+□ MD pairs à jour après toute modification JSX
+```
+
+---
+
+## Risques actifs
+
+| ID | Risque | Impact | Proba | Mitigation | Statut |
+|----|--------|--------|-------|------------|--------|
+| R-01 | Context saturation (artifacts > 200K tokens) | high | medium | Compaction stratégique + Foundation OS App | open |
+| R-02 | Drift MD/JSX (oubli sync) | medium | medium | FOUNDATION-OS-SKILL + review systématique | open |
+| R-03 | DA regression (mauvais fond ou font) | low | low | Void Glass checklist dans skill | open |
+| R-04 | Supabase pause 7j inactif | low | low | GitHub Actions cron ping hebdo | open |
+| R-05 | oh-my-claudecode rate limit mid-session | medium | high | Auto-resume natif OMC | mitigated |
+
+---
+
+## Changelog
+
+| Date | Session | Modification |
+|------|---------|-------------|
+| 2026-04-03 | CONV-10 | Création — métriques initiales |

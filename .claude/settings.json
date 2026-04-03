@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[FOS] Bash → vérifier : pas de suppression non voulue, _bmad/ (underscore), MD avant JSX'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[FOS] Fichier modifié → penser à mettre à jour FOS-JOURNAL.md si décision importante'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[FOS] Fin session → /session-end pour journaliser + next step'"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)"
+    ],
+    "deny": []
+  },
+  "model": "claude-sonnet-4-20250514"
+}
