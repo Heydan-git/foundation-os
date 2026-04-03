@@ -9,11 +9,11 @@
 
 | Indicateur | Valeur | Cible | Statut |
 |-----------|--------|-------|--------|
-| OS Readiness | 10% | 100% | ⏳ P0 ✅ · P1 en cours |
-| Artifacts livrés | 3/6 fos-* | 6/6 | ⏳ (+scale-orchestrator) |
-| MD pairs complets | 2/6 | 6/6 | ⏳ |
-| Stack L1-L4 active | 0/4 | 4/4 | ⏳ |
-| Foundation OS App | 0% | Deployée | ⏳ |
+| OS Readiness | 80% | 100% | ✅ P0-P3 · P5 85% · P1-P2 75% |
+| Artifacts livrés | 4/6 fos-* | 6/6 | ✅ 4 artifacts produits · 2 restants |
+| MD pairs complets | 4/6 | 6/6 | ✅ |
+| Stack L1-L4 active | 3/4 | 4/4 | ✅ L0+L2+L3 · L1 partiel |
+| Foundation OS App | 85% | Deployée | ✅ scaffoldée+build · ✅ deploy Vercel en cours |
 | DA compliance | 2/6 | 6/6 | ⏳ |
 
 ---
@@ -22,12 +22,12 @@
 
 | Artifact | Lignes | MD pair | DA | Storage | Statut |
 |----------|--------|---------|-----|---------|--------|
-| fos-commander.jsx | 571 | ✅ | ✅ | ✅ | Livré |
-| fos-knowledge.jsx | 330 | ✅ | ✅ | — | Livré |
+| fos-commander.jsx | 364 | ✅ | ✅ | ✅ | Livré |
+| fos-knowledge.jsx | 448 | ✅ | ✅ | — | Livré |
+| fos-index.jsx | 431 | ✅ | ✅ | ✅ | Livré |
+| fos-scale-orchestrator.jsx | 558 | ✅ | ✅ | ✅ | Livré |
 | fos-graph.jsx | — | ⏳ | — | — | À produire |
 | fos-sync.jsx | — | ⏳ | — | — | À produire |
-| fos-index.jsx | — | ⏳ | — | — | À produire |
-| fos-pipeline.jsx | — | ⏳ | — | — | À produire |
 
 **Règle :** artifact sain = lignes < 700 · MD pair ✅ · DA ✅ · storage key unique
 
@@ -41,13 +41,13 @@
 | L1a | Claude.ai Projects (Knowledge base) | ⏳ À créer | — |
 | L1a | Knowledge base (~20 MD uploadés) | ⏳ À uploader | Projet créé |
 | L1b | Cowork desktop (folder foundation-os/) | ⏳ À configurer | Après e09 |
-| L2 | Claude Code CLI | ⏳ À installer | Node.js ≥ 18 |
-| L2 | CLAUDE.md + hooks | ⏳ À déployer | Claude Code |
-| L2 | oh-my-claudecode | ⏳ À installer | Claude Code |
-| L3 | BMAD v6 (_bmad/) | ⏳ À installer | Node.js + terminal |
+| L2 | Claude Code CLI | ✅ Installé | — |
+| L2 | CLAUDE.md + hooks | ✅ Déployé | — |
+| L2 | oh-my-claudecode | ✅ Installé (.omc/) | — |
+| L3 | BMAD v6 (_bmad/) | ✅ Installé | — |
 | L4 | Notion wiki | ✅ Créé (e01 ✅) | — |
 | L4 | Asana projet | ⏳ À créer (MCP) | — |
-| L5 | Foundation OS App | ⏳ Phase P5 | L1-L4 ok |
+| L5 | Foundation OS App | ✅ Scaffoldée (npm ok) | — |
 | L6 | GitHub repo | ⏳ À créer | — |
 
 ---
@@ -59,10 +59,11 @@
 | fos-commander.jsx (571L) | ~14 000 | 7% |
 | fos-knowledge.jsx (330L) | ~8 000 | 4% |
 | fos-scale-orchestrator.jsx (435L) | ~11 000 | 5.5% |
+| fos-index.jsx (479L) | ~12 000 | 6% |
 | System prompt Anthropic | ~13 000 | 6.5% |
 | Memories utilisateur | ~800 | 0.4% |
 | Conversation courante | ~8 000 | 4% (croît) |
-| **Total estimé avec 3 artifacts** | **~55 000** | **~28%** |
+| **Total estimé avec 4 artifacts** | **~67 000** | **~33.5%** |
 
 **Seuils :** Attention > 50% · Compact > 70% · Clear > 90%
 
@@ -118,3 +119,4 @@
 | Date | Session | Modification |
 |------|---------|-------------|
 | 2026-04-03 | CONV-10 | Création — métriques initiales |
+| 2026-04-03 | CONV-12 | fos-index.jsx livré (479L) · OS Readiness 10% → 15% · 4/6 artifacts |

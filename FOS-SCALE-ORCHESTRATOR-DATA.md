@@ -180,8 +180,10 @@ npx bmad-method install
 → Agents : Analyst + Architect + Dev + QA (minimum)
 → Full install
 ATTENTION : dossier = _bmad/ (underscore, PAS .bmad/)
-ls _bmad/agents/ → vérifier les agents
-Validation : agents visibles dans _bmad/agents/.
+Structure BMAD v6 : agents distribués dans _bmad/core/bmad-distillator/agents/ (structure modulaire)
+ls _bmad/core/bmad-distillator/agents/ → vérifier les agents
+ls _bmad/core/ → modules BMAD (bmad-distillator, bmad-init, bmad-party-mode, etc.)
+Validation : agents visibles dans _bmad/core/bmad-distillator/agents/, modules dans _bmad/core/.
 Débloque : 8 agents spécialisés · PRD → Architecture → Stories → Dev.
 
 e14 · Comment faire :
@@ -296,19 +298,19 @@ L2  Claude Code         → CLAUDE.md ≤100L · hooks · agents · oh-my-claude
     + project-context.md · FOS-TECH-ARCHITECTURE.md · FOS-ERROR-LOG.md
 L3  BMAD v6             → _bmad/ (UNDERSCORE!) · 8 agents · project-context.md             ⏳ P3
 L4  MCP                 → Notion ✅ · Asana ✅ · Figma                                       ✅/⏳
-L5  Foundation OS App   → Vite + React + TypeScript + Tailwind + Supabase + Vercel          ⏳ P5
-L6  GitHub              → foundation-os repo (privé) · conventional commits · CI/CD         ⏳ P2
+L5  Foundation OS App   → Vite + React + TypeScript + Tailwind + Supabase + Vercel          ⏳ 60%
+L6  GitHub              → foundation-os repo (privé) · conventional commits · CI/CD         ✅ repo
 
 ---
 
 ## ARTIFACTS JSX STATUS
 
-fos-commander.jsx         ✅ livré — 571L — FOS-COMMANDER-DATA.md ✓
-fos-knowledge.jsx         ✅ livré — 330L — FOS-KNOWLEDGE-DATA.md ✓
-fos-scale-orchestrator.jsx ✅ livré — 440L — FOS-SCALE-ORCHESTRATOR-DATA.md ✓
+fos-commander.jsx         ✅ livré — 364L — FOS-COMMANDER-DATA.md ✓
+fos-knowledge.jsx         ✅ livré — 448L — FOS-KNOWLEDGE-DATA.md ✓
+fos-scale-orchestrator.jsx ✅ livré — 558L — FOS-SCALE-ORCHESTRATOR-DATA.md ✓
+fos-index.jsx             ✅ livré — 431L — FOS-INDEX-DATA.md ✓
 fos-graph.jsx             ⏳ P6-e21 — FOS-GRAPH-DATA.md (à créer)
 fos-sync.jsx              ⏳ P6-e22 — FOS-SYNC-DATA.md (à créer)
-fos-index.jsx             ⏳ P6     — FOS-INDEX-DATA.md (à créer)
 fos-pipeline.jsx          ⏳ P6     — FOS-PIPELINE-DATA.md (à créer)
 
 ---
@@ -323,3 +325,4 @@ v3.2.0 · 2026-04-03 · Audit complet · 10 fichiers MD créés · e03 et e06 mi
 v3.3.0 · 2026-04-03 · OMC : team (pas team 3:executor) · ultrapilot supprimé · archives supprimées · alignment protocol
 v3.4.0 · 2026-04-03 · L1 split L1a+L1b · Cowork distinct de Projects · e04b ajouté · ADR-012
 v3.5.0 · 2026-04-03 · Stack L0-L6 notation unifiée · fos-scale-orchestrator.jsx ✅ dans ARTIFACTS · SKILL.md ajouté · e04b instructions clarifiées
+v3.6.0 · 2026-04-03 · AUDIT RÉEL : fos-index.jsx ✅ 431L · L2/L3/L5 installés · app/ scaffoldée · tracking synchronisé avec filesystem

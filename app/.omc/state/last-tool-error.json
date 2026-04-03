@@ -1,0 +1,7 @@
+{
+  "tool_name": "mcp__neon-browser__click",
+  "tool_input_preview": "{\"tabId\":636504404,\"elementId\":\"EcWZ5d1SG\"}",
+  "error": "Element with id EcWZ5d1SG not found",
+  "timestamp": "2026-04-03T20:58:42.628Z",
+  "retry_count": 2
+}

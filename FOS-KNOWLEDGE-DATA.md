@@ -58,6 +58,8 @@ Coopération humain-IA, pas exploitation. Respect mutuel comme base de travail. 
 - 8 agents : Analyst (Mary), PM (John), UX (Sally), Architect (Winston), SM (Bob), Dev (Amelia), QA (Quinn), Quick Flow (Barry)
 - 4 phases : Analysis → Planning → Solutioning → Implementation
 - _bmad/ directory (underscore, pas dot — BREAKING CHANGE v6, LLMs ignorent les dot-folders)
+- Structure modulaire v6 : agents dans _bmad/core/bmad-distillator/agents/, modules dans _bmad/core/
+- Modules core : bmad-distillator, bmad-init, bmad-party-mode, bmad-brainstorming, etc. (chacun avec SKILL.md)
 - project-context.md = constitution du projet (chargée automatiquement)
 - Agent sidecars = mémoire persistante par agent
 - 34+ workflows avec input/output contracts
@@ -100,6 +102,7 @@ Gain : Hooks déterministes. Agents spécialisés. Slash commands. Audit log.
 Status : not_installed
 Commande : npx bmad-method install (terminal + Node.js requis)
 Dossier : _bmad/ (underscore, PAS dot — breaking change v6)
+Structure : agents dans _bmad/core/bmad-distillator/agents/, modules dans _bmad/core/
 Agents : Analyst, PM, UX, Architect, SM, Dev, QA, Quick Flow + sidecars
 Gain : Workflow structuré. Docs as code. PRD → Architecture → Stories → Dev.
 

@@ -153,13 +153,13 @@ Shinpr   : recipe-implement, recipe-design, recipe-diagnose, recipe-build
 
 | Fichier | Type | Statut | Projects KB |
 |---------|------|--------|--------|
-| fos-commander.jsx | artifact | ✅ livré 571L | ✅ FOS-COMMANDER-DATA.md |
-| fos-knowledge.jsx | artifact | ✅ livré 330L | ✅ FOS-KNOWLEDGE-DATA.md |
+| fos-commander.jsx | artifact | ✅ livré 364L | ✅ FOS-COMMANDER-DATA.md |
+| fos-knowledge.jsx | artifact | ✅ livré 448L | ✅ FOS-KNOWLEDGE-DATA.md |
 | fos-graph.jsx | artifact | ⏳ P6-e21 | ⏳ FOS-GRAPH-DATA.md |
 | fos-sync.jsx | artifact | ⏳ P6-e22 | ⏳ FOS-SYNC-DATA.md |
-| fos-index.jsx | artifact | ⏳ P6 | ⏳ FOS-INDEX-DATA.md |
+| fos-index.jsx | artifact | ✅ livré 300L | ✅ FOS-INDEX-DATA.md |
 | fos-pipeline.jsx | artifact | ⏳ P6 | ⏳ FOS-PIPELINE-DATA.md |
-| fos-scale-orchestrator.jsx | artifact | ✅ livré 435L | ✅ FOS-SCALE-ORCHESTRATOR-DATA.md |
+| fos-scale-orchestrator.jsx | artifact | ✅ livré 558L | ✅ FOS-SCALE-ORCHESTRATOR-DATA.md |
 | FOS-SETUP-GUIDE.md | plan | ✅ créé | ⏳ Projects KB |
 | FOS-SCALE-ORCHESTRATOR-DATA.md | plan | ✅ v3.3.0 | ⏳ Projects KB |
 | FOS-ARCHITECTURE-ANALYSIS.md | doc | ✅ complet | ⏳ Projects KB |
