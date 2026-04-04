@@ -101,7 +101,7 @@ const FosGraph = () => {
       <div className="flex">
         {/* Main Graph Area */}
         <div className="flex-1 p-6">
-          <svg width="900" height="600" className="border border-gray-800 rounded-lg bg-[#0A0B0D]">
+          <svg width="900" height="600" className="border border-gray-800 rounded-lg bg-[#06070C]">
             {/* Grid background */}
             <defs>
               <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
