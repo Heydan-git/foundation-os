@@ -139,6 +139,36 @@
       "type": "file"
     },
     {
+      "path": "src/pages/SyncPage.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775289264273,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/GraphPage.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775289265049,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/KnowledgePage.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775289265859,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/ScaleOrchestratorPage.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775289266794,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 4,
+      "lastAccessed": 1775289306902,
+      "type": "file"
+    },
+    {
       "path": "src/lib/database.types.ts",
       "accessCount": 2,
       "lastAccessed": 1775286378636,
@@ -163,45 +193,15 @@
       "type": "file"
     },
     {
-      "path": "src/pages/KnowledgePage.tsx",
+      "path": "",
       "accessCount": 2,
-      "lastAccessed": 1775288712855,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/ScaleOrchestratorPage.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288713721,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/GraphPage.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288714257,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/SyncPage.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288715486,
-      "type": "file"
+      "lastAccessed": 1775289180585,
+      "type": "directory"
     },
     {
       "path": "package.json",
       "accessCount": 1,
       "lastAccessed": 1775254543458,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 1,
-      "lastAccessed": 1775254545147,
-      "type": "directory"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775254550531,
       "type": "file"
     },
     {
