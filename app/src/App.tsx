@@ -12,6 +12,7 @@ import ToolboxPage from '@/pages/ToolboxPage'
 import FigmaValidationPage from '@/pages/FigmaValidationPage'
 import DeveloperEcosystemPage from '@/pages/DeveloperEcosystemPage'
 import Phase2Demo from '@/pages/Phase2Demo'
+import Phase5ConnectedDemo from '@/pages/Phase5ConnectedDemo'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="/toolbox" element={<ToolboxPage />} />
           <Route path="/developer-ecosystem" element={<DeveloperEcosystemPage />} />
           <Route path="/phase2-demo" element={<Phase2Demo />} />
+          <Route path="/phase5-connected" element={<Phase5ConnectedDemo />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell>
