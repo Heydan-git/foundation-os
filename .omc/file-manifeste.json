@@ -1,0 +1,178 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-04T10:46:02Z",
+  "critical_files": {
+    "mutations.ts": {
+      "status": "missing",
+      "priority": "critical",
+      "location": "app/src/lib/supabase/"
+    },
+    "forms/": {
+      "status": "missing",
+      "priority": "critical",
+      "location": "app/src/components/"
+    },
+    "auth/": {
+      "status": "missing",
+      "priority": "critical",
+      "location": "app/src/lib/"
+    }
+  },
+  "artifacts": {},
+  "config_files": {},
+  "completion_score": 0,
+  "gaps_detected": [],
+  "promises_made": [],
+  "filesystem_reality": {
+    "./FOS-SAFEGUARDS-SYSTEM.md": {
+      "exists": true,
+      "size_lines": 215,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-SCALE-ORCHESTRATOR-DATA.md": {
+      "exists": true,
+      "size_lines": 336,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-ERROR-LOG.md": {
+      "exists": true,
+      "size_lines": 96,
+      "last_modified": "2026-04-04 12:46"
+    },
+    "./FOS-COMMANDER-DATA.md": {
+      "exists": true,
+      "size_lines": 231,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-JOURNAL.md": {
+      "exists": true,
+      "size_lines": 356,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-sync.jsx": {
+      "exists": true,
+      "size_lines": 390,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-INDEX-DATA.md": {
+      "exists": true,
+      "size_lines": 138,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-TOOLBOX-DATA.md": {
+      "exists": true,
+      "size_lines": 149,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-SYNC-DATA.md": {
+      "exists": true,
+      "size_lines": 227,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-PIPELINE-DATA.md": {
+      "exists": true,
+      "size_lines": 247,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-SETUP-GUIDE.md": {
+      "exists": true,
+      "size_lines": 218,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-commander.jsx": {
+      "exists": true,
+      "size_lines": 364,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-graph.jsx": {
+      "exists": true,
+      "size_lines": 309,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-scale-orchestrator.jsx": {
+      "exists": true,
+      "size_lines": 558,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-MONITORING.md": {
+      "exists": true,
+      "size_lines": 124,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-META-PLAN.md": {
+      "exists": true,
+      "size_lines": 345,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-AUDIT-REVOLUTIONNAIRE-v2.md": {
+      "exists": true,
+      "size_lines": 169,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-KNOWLEDGE-DATA.md": {
+      "exists": true,
+      "size_lines": 156,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-MEMORY-STRATEGY.md": {
+      "exists": true,
+      "size_lines": 239,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-GRAPH-DATA.md": {
+      "exists": true,
+      "size_lines": 196,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-MANIFESTE.md": {
+      "exists": true,
+      "size_lines": 215,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-PROJECT-INSTRUCTIONS.md": {
+      "exists": true,
+      "size_lines": 179,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-PLAN-MASTER-v2.md": {
+      "exists": true,
+      "size_lines": 259,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-TECH-ARCHITECTURE.md": {
+      "exists": true,
+      "size_lines": 196,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-knowledge.jsx": {
+      "exists": true,
+      "size_lines": 448,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-index.jsx": {
+      "exists": true,
+      "size_lines": 431,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-SAFEGUARDS-STATUS.md": {
+      "exists": true,
+      "size_lines": 139,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./fos-toolbox.jsx": {
+      "exists": true,
+      "size_lines": 534,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-SKILL-ORCHESTRATOR.md": {
+      "exists": true,
+      "size_lines": 339,
+      "last_modified": "2026-04-04 12:43"
+    },
+    "./FOS-ARCHITECTURE-ANALYSIS.md": {
+      "exists": true,
+      "size_lines": 152,
+      "last_modified": "2026-04-04 12:43"
+    }
+  }
+}

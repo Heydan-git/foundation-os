@@ -25,24 +25,21 @@ fi
 if [[ "$TARGET_FILE" =~ \.(jsx|tsx)$ ]]; then
     BASE_NAME=$(basename "$TARGET_FILE" .jsx)
     BASE_NAME=$(basename "$BASE_NAME" .tsx)
-
-    # Résoudre project root pour paths absolus
-    PROJECT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo ".")
-
-    # Chercher MD pair avec paths absolus
+    
+    # Chercher MD pair
     MD_PAIR=""
     for pattern in "${BASE_NAME}-DATA.md" "$(echo ${BASE_NAME} | tr '[:lower:]' '[:upper:]')-DATA.md" "FOS-$(echo ${BASE_NAME#fos-} | tr '[:lower:]' '[:upper:]')-DATA.md"; do
-        if [ -f "$PROJECT_ROOT/$pattern" ]; then
+        if [ -f "$pattern" ]; then
             MD_PAIR="$pattern"
             break
         fi
     done
-
+    
     if [ -z "$MD_PAIR" ]; then
         echo -e "${RED}[FOS Hook] ERREUR: MD pair manquant pour $TARGET_FILE${NC}"
         exit 1
     fi
-
+    
     echo -e "${GREEN}[FOS Hook] ✅ MD-first OK: $MD_PAIR${NC}"
 fi
 

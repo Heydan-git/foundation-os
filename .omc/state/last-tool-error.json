@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"mv /Users/kevinnoel/foundation-os/fos-toolbox.jsx /Users/kevinnoel/foundation-os/app/src/artifacts/ && echo \\\"✅ fos-toolbox.jsx migré vers app/src/artifacts/\\\"\",\"description\":\"Move fos-too...",
-  "error": "Exit code 1\nmv: /Users/kevinnoel/foundation-os/fos-toolbox.jsx: No such file or directory",
-  "timestamp": "2026-04-04T10:05:25.047Z",
+  "tool_input_preview": "{\"command\":\"git checkout 5ada5f6 -- FOS-*-DATA.md FOS-ARCHITECTURE-ANALYSIS.md FOS-AUDIT-REVOLUTIONNAIRE-v2.md FOS-TECH-ARCHITECTURE.md FOS-MANIFESTE.md FOS-PROJECT-INSTRUCTIONS.md FOS-PIPELINE-DATA.m...",
+  "error": "Exit code 1\n(eval):1: no matches found: FOS-*-DATA.md",
+  "timestamp": "2026-04-04T11:15:31.819Z",
   "retry_count": 1
 }

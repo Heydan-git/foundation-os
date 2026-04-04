@@ -16,31 +16,69 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/check-md-pair.sh"
+            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/check-md-pair.sh \"${file_path:-}\""
           },
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/validate-void-glass.sh"
+            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/validate-void-glass.sh \"${file_path:-}\""
+          },
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/checkpoint-manager.sh auto"
+          },
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/execution-validator.sh pre-edit \"${file_path:-}\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/error-monitor.sh health"
           }
         ]
       }
     ],
     "PostToolUse": [
       {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/execution-validator.sh post-edit \"${file_path:-}\""
+          },
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/file-tracker.sh update"
+          },
+          {
+            "type": "command",
+            "command": "echo '[FOS] ✅ Garde-fous BULLETPROOF validation passed → Système opérationnel'"
+          }
+        ]
+      },
+      {
         "matcher": "Bash(git commit*)",
         "hooks": [
           {
             "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/hooks/conventional-commit.sh"
+          },
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/checkpoint-manager.sh create"
           }
         ]
       },
       {
-        "matcher": "Write|Edit|MultiEdit",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "echo '[FOS] Fichier modifié → penser à mettre à jour FOS-JOURNAL.md si décision importante'"
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/error-monitor.sh monitor-command"
           }
         ]
       }
@@ -50,7 +88,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '[FOS] Fin session → /session-end pour journaliser + next step'"
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/recovery-manager.sh health"
+          },
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/file-tracker.sh status"
+          },
+          {
+            "type": "command",
+            "command": "echo '[FOS] 🛡️ Session terminée → Système garde-fous BULLETPROOF surveillera la prochaine session'"
           }
         ]
       }

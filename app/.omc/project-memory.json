@@ -133,6 +133,12 @@
   },
   "hotPaths": [
     {
+      "path": "src/artifacts",
+      "accessCount": 10,
+      "lastAccessed": 1775297707501,
+      "type": "directory"
+    },
+    {
       "path": "src/pages/GraphPage.tsx",
       "accessCount": 8,
       "lastAccessed": 1775289898097,
@@ -157,12 +163,6 @@
       "type": "file"
     },
     {
-      "path": "src/artifacts",
-      "accessCount": 8,
-      "lastAccessed": 1775290667871,
-      "type": "directory"
-    },
-    {
       "path": "src/App.tsx",
       "accessCount": 7,
       "lastAccessed": 1775297300550,
@@ -172,6 +172,12 @@
       "path": "vite.config.ts",
       "accessCount": 5,
       "lastAccessed": 1775289929148,
+      "type": "file"
+    },
+    {
+      "path": "src/artifacts/fos-graph.jsx",
+      "accessCount": 3,
+      "lastAccessed": 1775297772659,
       "type": "file"
     },
     {
@@ -331,12 +337,6 @@
       "type": "file"
     },
     {
-      "path": "src/artifacts/fos-graph.jsx",
-      "accessCount": 1,
-      "lastAccessed": 1775290697347,
-      "type": "file"
-    },
-    {
       "path": "src/artifacts/fos-sync.jsx",
       "accessCount": 1,
       "lastAccessed": 1775290697419,
@@ -346,6 +346,42 @@
       "path": "src/pages/ToolboxPage.tsx",
       "accessCount": 1,
       "lastAccessed": 1775297300346,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/EditDecisionModal.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775300814268,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/NextStepActions.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775300862102,
+      "type": "file"
+    },
+    {
+      "path": "src/contexts/AuthContext.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775300902005,
+      "type": "file"
+    },
+    {
+      "path": "src/hooks/useAuth.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775300919046,
+      "type": "file"
+    },
+    {
+      "path": "src/components/auth/LoginForm.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775300974665,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ProtectedRoute.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775301050830,
       "type": "file"
     }
   ],

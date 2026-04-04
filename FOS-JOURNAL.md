@@ -307,23 +307,6 @@
 - OS Readiness 98% → 100%
 - Foundation OS entièrement opérationnel
 
-### CONV-16 · 2026-04-04 · Phase 0 Final Corrections — AUDIT RÉVOLUTIONNAIRE
-**Items :**
-- Fix violation Void Glass critique: fos-graph.jsx couleur interdite #0A0B0D
-- Métriques monitoring incohérentes: OS Readiness 75% vs Plan "terminé"
-- Audit review-agent révèle 3 problèmes critiques blockers Phase 1
-- Build validation npm run build (520KB bundle, warnings optimisation)
-
-**Décisions :**
-- ADR-014: Zéro tolérance violations design system (Void Glass #06070C obligatoire)
-- ADR-015: Monitoring honnête > métriques optimistes (90-95% réaliste vs 100%)
-- ADR-016: Review-agent obligatoire avant validation phase completion
-
-**Livrables :**
-- fos-graph.jsx ligne 104: bg-[#0A0B0D] → bg-[#06070C]
-- FOS-MONITORING.md: OS Readiness 75% → 95% (cohérence plan)
-- Session CONV-16 documentée (traçabilité corrections)
-
 ---
 
 ## ADR — Architecture Decision Records

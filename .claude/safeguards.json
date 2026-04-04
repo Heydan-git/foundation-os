@@ -1,0 +1,47 @@
+{
+  "enabled": true,
+  "level": "bulletproof",
+  "performance_impact": "zero",
+  "recovery_timeout": 30,
+  "checkpoint_frequency": 10,
+  "validation_mode": "strict",
+  "auto_correction": true,
+  "emergency_backup": true,
+  "context_thresholds": {
+    "warning": 50,
+    "backup": 70,
+    "emergency": 85,
+    "force_clear": 90
+  },
+  "file_tracking": {
+    "critical_files": [
+      "mutations.ts",
+      "forms/",
+      "auth/",
+      "fos-*.jsx",
+      "FOS-*-DATA.md"
+    ],
+    "manifeste_path": ".omc/file-manifeste.json",
+    "status_update_frequency": "real_time"
+  },
+  "error_patterns": {
+    "edit_without_read": {
+      "action": "mandatory_read_first",
+      "auto_retry": true
+    },
+    "build_failures": {
+      "action": "auto_diagnostics",
+      "rollback_on_critical": true
+    },
+    "void_glass_violations": {
+      "action": "auto_correction",
+      "target_color": "#06070C"
+    }
+  },
+  "backup_strategy": {
+    "local_checkpoints": ".omc/checkpoints/",
+    "notion_backup": true,
+    "asana_tracking": true,
+    "git_snapshots": true
+  }
+}
