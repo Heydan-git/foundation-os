@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-04T11:13:45.526Z",
+  "updatedAt": "2026-04-04T11:56:58.968Z",
   "missions": [
     {
       "id": "session:12479fe8-0990-4838-8db2-146889adf9dd:none",
@@ -7,15 +7,15 @@
       "name": "none",
       "objective": "Session mission",
       "createdAt": "2026-04-04T10:48:47.221Z",
-      "updatedAt": "2026-04-04T11:13:45.526Z",
-      "status": "done",
-      "workerCount": 2,
+      "updatedAt": "2026-04-04T11:56:58.968Z",
+      "status": "running",
+      "workerCount": 5,
       "taskCounts": {
-        "total": 2,
+        "total": 5,
         "pending": 0,
         "blocked": 0,
-        "inProgress": 0,
-        "completed": 2,
+        "inProgress": 1,
+        "completed": 4,
         "failed": 0
       },
       "agents": [
@@ -27,7 +27,7 @@
           "currentStep": null,
           "latestUpdate": "completed",
           "completedSummary": null,
-          "updatedAt": "2026-04-04T10:50:25.595Z"
+          "updatedAt": "2026-04-04T11:47:50.737Z"
         },
         {
           "name": "review-agent:ad05366",
@@ -38,40 +38,62 @@
           "latestUpdate": "completed",
           "completedSummary": null,
           "updatedAt": "2026-04-04T11:13:45.526Z"
+        },
+        {
+          "name": "doc-agent:a42eaf8",
+          "role": "doc-agent",
+          "ownership": "a42eaf8ef02c54eb1",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-04-04T11:54:41.054Z"
+        },
+        {
+          "name": "os-architect:adcfadb",
+          "role": "os-architect",
+          "ownership": "adcfadb54ffceccc1",
+          "status": "done",
+          "currentStep": null,
+          "latestUpdate": "completed",
+          "completedSummary": null,
+          "updatedAt": "2026-04-04T11:56:43.468Z"
+        },
+        {
+          "name": "dev-agent:afcc953",
+          "role": "dev-agent",
+          "ownership": "afcc953431ab955a2",
+          "status": "running",
+          "currentStep": null,
+          "latestUpdate": null,
+          "completedSummary": null,
+          "updatedAt": "2026-04-04T11:56:58.968Z"
         }
       ],
       "timeline": [
         {
-          "id": "session-start:a70f4618223953635:2026-04-04T10:48:47.221Z",
-          "at": "2026-04-04T10:48:47.221Z",
+          "id": "session-start:adcfadb54ffceccc1:2026-04-04T11:54:56.094Z",
+          "at": "2026-04-04T11:54:56.094Z",
           "kind": "update",
-          "agent": "os-architect:a70f461",
-          "detail": "started os-architect:a70f461",
-          "sourceKey": "session-start:a70f4618223953635"
+          "agent": "os-architect:adcfadb",
+          "detail": "started os-architect:adcfadb",
+          "sourceKey": "session-start:adcfadb54ffceccc1"
         },
         {
-          "id": "session-stop:a70f4618223953635:2026-04-04T10:50:25.595Z",
-          "at": "2026-04-04T10:50:25.595Z",
+          "id": "session-stop:adcfadb54ffceccc1:2026-04-04T11:56:43.468Z",
+          "at": "2026-04-04T11:56:43.468Z",
           "kind": "completion",
-          "agent": "os-architect:a70f461",
+          "agent": "os-architect:adcfadb",
           "detail": "completed",
-          "sourceKey": "session-stop:a70f4618223953635"
+          "sourceKey": "session-stop:adcfadb54ffceccc1"
         },
         {
-          "id": "session-start:ad053668639258cb8:2026-04-04T11:11:58.882Z",
-          "at": "2026-04-04T11:11:58.882Z",
+          "id": "session-start:afcc953431ab955a2:2026-04-04T11:56:58.968Z",
+          "at": "2026-04-04T11:56:58.968Z",
           "kind": "update",
-          "agent": "review-agent:ad05366",
-          "detail": "started review-agent:ad05366",
-          "sourceKey": "session-start:ad053668639258cb8"
-        },
-        {
-          "id": "session-stop:ad053668639258cb8:2026-04-04T11:13:45.526Z",
-          "at": "2026-04-04T11:13:45.526Z",
-          "kind": "completion",
-          "agent": "review-agent:ad05366",
-          "detail": "completed",
-          "sourceKey": "session-stop:ad053668639258cb8"
+          "agent": "dev-agent:afcc953",
+          "detail": "started dev-agent:afcc953",
+          "sourceKey": "session-start:afcc953431ab955a2"
         }
       ]
     }

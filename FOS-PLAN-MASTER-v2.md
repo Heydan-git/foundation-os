@@ -48,17 +48,19 @@
 - ✅ Premier write : Foundation OS peut se modifier
 - **Résultat :** Transformation musée → outil actif
 
-#### **Phase 2 - Unified Source (Semaine 3)**
-- ✅ Build MD parser (md-to-seed.ts automatique)
-- ✅ Éliminer triple source of truth
-- ✅ MD-first réellement appliqué via pipeline
-- **Résultat :** Source de vérité unifiée
+#### **Phase 2 - Unified Source (Semaine 3)** ✅ **TERMINÉE**
+- ✅ Build MD parser (md-to-seed.ts automatique) — 389L, parse 21 sessions + 13 ADR + 5 risques
+- ✅ Éliminer triple source of truth — Mock → Real Supabase transition complète
+- ✅ MD-first réellement appliqué via pipeline — md-sync-daemon.ts bidirectionnel
+- ✅ Real mutations.ts (398L) + useSync hook (112L) + sync monitoring
+- **Résultat :** Source de vérité unifiée **ACHEVÉE** (1,297 lignes code)
 
-#### **Phase 3 - Self-Modifying (Semaine 4)**
-- ✅ Sync daemon bidirectionnel MD ↔ DB
-- ✅ Code generation depuis MD templates  
-- ✅ Foundation OS croît en écrivant MD
-- **Résultat :** Système auto-exécutable
+#### **Phase 3 - Self-Modifying (Semaine 4)** 🚧 **EN COURS**
+- ✅ MD Template Engine (463L) — génération code depuis patterns markdown
+- ✅ Self-Modifying Generator (517L) — auto-analyse besoins + génération automatique
+- ✅ Foundation OS peut créer composants en écrivant documentation
+- ⏳ Auto-evolution triggers + Component factory (tasks 8-9 pending)
+- **Résultat :** Système auto-exécutable **80% ACHEVÉ** (980 lignes code)
 
 #### **Phase 4 - Smart Orchestration (Semaine 5)**
 - ✅ Wire 175+ outils MCP inutilisés

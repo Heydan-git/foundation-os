@@ -17,10 +17,35 @@
       "status": "completed",
       "completed_at": "2026-04-04T11:13:45.526Z",
       "duration_ms": 106644
+    },
+    {
+      "agent_id": "a42eaf8ef02c54eb1",
+      "agent_type": "doc-agent",
+      "started_at": "2026-04-04T11:50:23.574Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T11:54:41.054Z",
+      "duration_ms": 257480
+    },
+    {
+      "agent_id": "adcfadb54ffceccc1",
+      "agent_type": "os-architect",
+      "started_at": "2026-04-04T11:54:56.094Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T11:56:43.468Z",
+      "duration_ms": 107374
+    },
+    {
+      "agent_id": "afcc953431ab955a2",
+      "agent_type": "dev-agent",
+      "started_at": "2026-04-04T11:56:58.968Z",
+      "parent_mode": "none",
+      "status": "running"
     }
   ],
-  "total_spawned": 2,
-  "total_completed": 2,
+  "total_spawned": 5,
+  "total_completed": 4,
   "total_failed": 0,
-  "last_updated": "2026-04-04T11:13:45.629Z"
+  "last_updated": "2026-04-04T11:56:59.070Z"
 }

@@ -98,6 +98,7 @@ Décisions : Option D Hybrid (ADR-007) · Vercel + Supabase (ADR-008) · FOUNDAT
 | ADR-010 | 2026-04-03 | FOUNDATION-OS-SKILL = mémoire orchestration | Skill pour maintien cohérence long terme | high | active |
 | ADR-011 | 2026-04-03 | OMC team syntax canonical (v4.1.7+) | team "tâche" — swarm/ultrapilot supprimés | medium | active |
 | ADR-012 | 2026-04-03 | L1 = deux couches (Claude.ai Projects + Cowork desktop) | Architecture L1 clarifiée | high | active |
+| ADR-031 | 2026-04-04 | Phase 4 Smart Orchestration architecture validée | Validation technique complète Phase 4 | high | active |
 
 ---
 

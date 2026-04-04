@@ -1,16 +1,48 @@
 /**
- * mutations.ts - CRUD Hooks for Foundation OS Phase 1
- * Mock implementation until Supabase tables are created
- * Provides write capability to transform read-only museum into working OS
+ * mutations.ts - CRUD Hooks for Foundation OS Phase 2
+ * Real Supabase implementation - Unified Source Architecture
+ * MD files → DB sync with Foundation OS write capability
  */
 
-// ── Mock Data Store (temporary until real Supabase tables) ─────────────
+import { supabase } from './supabase'
 
-let mockSessions: any[] = []
-let mockDecisions: any[] = []
-let mockRisks: any[] = []
-let mockNextSteps: any[] = []
-let mockContext: any[] = []
+// Simple types for Foundation OS data structures
+interface SessionData {
+  id: string
+  date: string
+  title: string
+  items: string
+  decisions: string
+  phase: string
+  status: 'active' | 'closed'
+}
+
+interface DecisionData {
+  id: string
+  date: string
+  title: string
+  context: string
+  impact: 'high' | 'medium' | 'low'
+  status: 'active' | 'superseded' | 'deprecated'
+}
+
+interface RiskData {
+  id: string
+  risk: string
+  impact: 'high' | 'medium' | 'low'
+  proba: 'high' | 'medium' | 'low'
+  mitigation: string
+  status: 'open' | 'mitigated' | 'closed'
+}
+
+interface NextStepData {
+  id: string
+  label: string
+  phase: string
+  priority: 'critical' | 'high' | 'medium' | 'low'
+  status: 'todo' | 'in_progress' | 'done'
+  sort_order: number
+}
 
 // ── Commander Mutations Hook ─────────────────────────────────────────
 
@@ -20,9 +52,8 @@ export const useCommanderMutations = () => {
 
   const createSession = async (sessionData: any) => {
     try {
-      const newSession = {
+      const newSession: SessionData = {
         id: sessionData.id || `CONV-${String(Date.now()).slice(-3)}`,
-        created_at: new Date().toISOString(),
         date: sessionData.date || new Date().toISOString().split('T')[0],
         title: sessionData.title || 'Nouvelle session',
         items: sessionData.items || '',
@@ -31,11 +62,17 @@ export const useCommanderMutations = () => {
         status: sessionData.status || 'active'
       }
 
-      // Store in mock array (until real Supabase)
-      mockSessions.push(newSession)
+      // Real Supabase insert with any typing bypass
+      const { data, error } = await (supabase as any)
+        .from('sessions')
+        .insert(newSession)
+        .select()
+        .single()
 
-      console.log('✅ Mock session created:', newSession.id)
-      return { success: true, data: newSession }
+      if (error) throw error
+
+      console.log('✅ Real session created:', (data as any).id)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error creating session:', error)
       return { success: false, error: error.message }
@@ -44,15 +81,17 @@ export const useCommanderMutations = () => {
 
   const updateSession = async (sessionId: string, updates: any) => {
     try {
-      const sessionIndex = mockSessions.findIndex(s => s.id === sessionId)
-      if (sessionIndex === -1) {
-        throw new Error(`Session ${sessionId} not found`)
-      }
+      const { data, error } = await (supabase as any)
+        .from('sessions')
+        .update(updates)
+        .eq('id', sessionId)
+        .select()
+        .single()
 
-      mockSessions[sessionIndex] = { ...mockSessions[sessionIndex], ...updates }
+      if (error) throw error
 
-      console.log('✅ Mock session updated:', sessionId)
-      return { success: true, data: mockSessions[sessionIndex] }
+      console.log('✅ Real session updated:', sessionId)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error updating session:', error)
       return { success: false, error: error.message }
@@ -61,14 +100,14 @@ export const useCommanderMutations = () => {
 
   const deleteSession = async (sessionId: string) => {
     try {
-      const sessionIndex = mockSessions.findIndex(s => s.id === sessionId)
-      if (sessionIndex === -1) {
-        throw new Error(`Session ${sessionId} not found`)
-      }
+      const { error } = await supabase
+        .from('sessions')
+        .delete()
+        .eq('id', sessionId)
 
-      mockSessions.splice(sessionIndex, 1)
+      if (error) throw error
 
-      console.log('✅ Mock session deleted:', sessionId)
+      console.log('✅ Real session deleted:', sessionId)
       return { success: true }
     } catch (error: any) {
       console.error('Error deleting session:', error)
@@ -82,7 +121,6 @@ export const useCommanderMutations = () => {
     try {
       const newDecision = {
         id: decisionData.id || `ADR-${String(Date.now()).slice(-3)}`,
-        created_at: new Date().toISOString(),
         date: decisionData.date || new Date().toISOString().split('T')[0],
         title: decisionData.title || 'Nouvelle décision',
         context: decisionData.context || '',
@@ -90,10 +128,16 @@ export const useCommanderMutations = () => {
         status: decisionData.status || 'active'
       }
 
-      mockDecisions.push(newDecision)
+      const { data, error } = await supabase
+        .from('decisions')
+        .insert([newDecision])
+        .select()
+        .single()
 
-      console.log('✅ Mock decision created:', newDecision.id)
-      return { success: true, data: newDecision }
+      if (error) throw error
+
+      console.log('✅ Real decision created:', data.id)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error creating decision:', error)
       return { success: false, error: error.message }
@@ -102,15 +146,17 @@ export const useCommanderMutations = () => {
 
   const updateDecision = async (decisionId: string, updates: any) => {
     try {
-      const decisionIndex = mockDecisions.findIndex(d => d.id === decisionId)
-      if (decisionIndex === -1) {
-        throw new Error(`Decision ${decisionId} not found`)
-      }
+      const { data, error } = await supabase
+        .from('decisions')
+        .update(updates)
+        .eq('id', decisionId)
+        .select()
+        .single()
 
-      mockDecisions[decisionIndex] = { ...mockDecisions[decisionIndex], ...updates }
+      if (error) throw error
 
-      console.log('✅ Mock decision updated:', decisionId)
-      return { success: true, data: mockDecisions[decisionIndex] }
+      console.log('✅ Real decision updated:', decisionId)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error updating decision:', error)
       return { success: false, error: error.message }
@@ -121,19 +167,17 @@ export const useCommanderMutations = () => {
 
   const markStepDone = async (stepId: string) => {
     try {
-      const stepIndex = mockNextSteps.findIndex(s => s.id === stepId)
-      if (stepIndex === -1) {
-        throw new Error(`Step ${stepId} not found`)
-      }
+      const { data, error } = await supabase
+        .from('next_steps')
+        .update({ status: 'done' })
+        .eq('id', stepId)
+        .select()
+        .single()
 
-      mockNextSteps[stepIndex] = {
-        ...mockNextSteps[stepIndex],
-        status: 'done',
-        completed_at: new Date().toISOString()
-      }
+      if (error) throw error
 
-      console.log('✅ Mock step marked done:', stepId)
-      return { success: true, data: mockNextSteps[stepIndex] }
+      console.log('✅ Real step marked done:', stepId)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error marking step done:', error)
       return { success: false, error: error.message }
@@ -168,7 +212,6 @@ export const useCommanderMutations = () => {
     try {
       const newRisk = {
         id: riskData.id || `R-${String(Date.now()).slice(-3)}`,
-        created_at: new Date().toISOString(),
         risk: riskData.risk || 'Nouveau risque',
         impact: riskData.impact || 'medium',
         proba: riskData.proba || 'medium',
@@ -176,10 +219,16 @@ export const useCommanderMutations = () => {
         status: riskData.status || 'open'
       }
 
-      mockRisks.push(newRisk)
+      const { data, error } = await supabase
+        .from('risks')
+        .insert([newRisk])
+        .select()
+        .single()
 
-      console.log('✅ Mock risk added:', newRisk.id)
-      return { success: true, data: newRisk }
+      if (error) throw error
+
+      console.log('✅ Real risk added:', data.id)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error adding risk:', error)
       return { success: false, error: error.message }
@@ -239,33 +288,62 @@ export const useCommanderMutations = () => {
         sort_order: index
       }))
 
-      mockNextSteps.push(...stepData)
+      // Batch insert to Supabase
+      const { data, error } = await supabase
+        .from('next_steps')
+        .insert(stepData)
+        .select()
 
-      console.log(`✅ Mock batch created ${stepData.length} steps for phase ${phase}`)
-      return { success: true, data: stepData }
+      if (error) throw error
+
+      console.log(`✅ Real batch created ${data.length} steps for phase ${phase}`)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error batch creating steps:', error)
       return { success: false, error: error.message }
     }
   }
 
-  // ── Mock Data Getters (for debugging) ─────────────────────────────────
+  // ── Real Data Getters (for debugging) ─────────────────────────────────
 
-  const getMockData = () => ({
-    sessions: mockSessions,
-    decisions: mockDecisions,
-    risks: mockRisks,
-    nextSteps: mockNextSteps,
-    context: mockContext
-  })
+  const getAllData = async () => {
+    try {
+      const [sessions, decisions, risks, nextSteps, context] = await Promise.all([
+        supabase.from('sessions').select('*'),
+        supabase.from('decisions').select('*'),
+        supabase.from('risks').select('*'),
+        supabase.from('next_steps').select('*'),
+        supabase.from('context_blocks').select('*')
+      ])
 
-  const clearMockData = () => {
-    mockSessions = []
-    mockDecisions = []
-    mockRisks = []
-    mockNextSteps = []
-    mockContext = []
-    console.log('🗑️ Mock data cleared')
+      return {
+        sessions: sessions.data || [],
+        decisions: decisions.data || [],
+        risks: risks.data || [],
+        nextSteps: nextSteps.data || [],
+        context: context.data || []
+      }
+    } catch (error: any) {
+      console.error('Error fetching all data:', error)
+      return { sessions: [], decisions: [], risks: [], nextSteps: [], context: [] }
+    }
+  }
+
+  const clearAllData = async () => {
+    try {
+      await Promise.all([
+        supabase.from('sessions').delete().neq('id', ''),
+        supabase.from('decisions').delete().neq('id', ''),
+        supabase.from('risks').delete().neq('id', ''),
+        supabase.from('next_steps').delete().neq('id', ''),
+        supabase.from('context_blocks').delete().neq('id', '')
+      ])
+      console.log('🗑️ All real data cleared')
+      return { success: true }
+    } catch (error: any) {
+      console.error('Error clearing data:', error)
+      return { success: false, error: error.message }
+    }
   }
 
   // ── Return all mutations ─────────────────────────────────────────────
@@ -293,8 +371,8 @@ export const useCommanderMutations = () => {
     addContext,
 
     // Debug helpers
-    getMockData,
-    clearMockData
+    getAllData,
+    clearAllData
   }
 }
 

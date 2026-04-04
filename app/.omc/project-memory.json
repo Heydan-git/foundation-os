@@ -164,8 +164,14 @@
     },
     {
       "path": "src/App.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1775297300550,
+      "accessCount": 8,
+      "lastAccessed": 1775301665290,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/mutations.ts",
+      "accessCount": 8,
+      "lastAccessed": 1775302114925,
       "type": "file"
     },
     {
@@ -175,15 +181,15 @@
       "type": "file"
     },
     {
-      "path": "src/artifacts/fos-graph.jsx",
-      "accessCount": 3,
-      "lastAccessed": 1775297772659,
+      "path": "src/lib/database.types.ts",
+      "accessCount": 4,
+      "lastAccessed": 1775302086412,
       "type": "file"
     },
     {
-      "path": "src/lib/database.types.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775286378636,
+      "path": "src/artifacts/fos-graph.jsx",
+      "accessCount": 3,
+      "lastAccessed": 1775297772659,
       "type": "file"
     },
     {
@@ -209,6 +215,12 @@
       "accessCount": 2,
       "lastAccessed": 1775289180585,
       "type": "directory"
+    },
+    {
+      "path": "src/lib/md-sync-daemon.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775302128095,
+      "type": "file"
     },
     {
       "path": "package.json",
@@ -382,6 +394,18 @@
       "path": "src/components/ProtectedRoute.tsx",
       "accessCount": 1,
       "lastAccessed": 1775301050830,
+      "type": "file"
+    },
+    {
+      "path": ".env.local.example",
+      "accessCount": 1,
+      "lastAccessed": 1775301724106,
+      "type": "file"
+    },
+    {
+      "path": ".env.local",
+      "accessCount": 1,
+      "lastAccessed": 1775301739431,
       "type": "file"
     }
   ],

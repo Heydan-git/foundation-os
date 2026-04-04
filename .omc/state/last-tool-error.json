@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"git checkout 5ada5f6 -- FOS-*-DATA.md FOS-ARCHITECTURE-ANALYSIS.md FOS-AUDIT-REVOLUTIONNAIRE-v2.md FOS-TECH-ARCHITECTURE.md FOS-MANIFESTE.md FOS-PROJECT-INSTRUCTIONS.md FOS-PIPELINE-DATA.m...",
-  "error": "Exit code 1\n(eval):1: no matches found: FOS-*-DATA.md",
-  "timestamp": "2026-04-04T11:15:31.819Z",
-  "retry_count": 1
+  "tool_input_preview": "{\"command\":\"cd /Users/kevinnoel/foundation-os/app && npx tsc --noEmit --skipLibCheck src/lib/mcp-orchestrator.ts src/lib/workflow-routing-engine.ts src/lib/security-framework.ts src/lib/memory-manager...",
+  "error": "Exit code 2\nsrc/lib/workflow-routing-engine.ts(888,38): error TS2552: Cannot find name 'MCPParameter'. Did you mean 'Parameters'?",
+  "timestamp": "2026-04-04T12:05:39.465Z",
+  "retry_count": 3
 }

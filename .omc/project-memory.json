@@ -1,0 +1,315 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775301503889,
+  "projectRoot": "/Users/kevinnoel/foundation-os",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "app",
+      "scripts"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "_bmad": {
+      "path": "_bmad",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775301503871,
+      "keyFiles": []
+    },
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 12,
+      "lastAccessed": 1775301503871,
+      "keyFiles": [
+        "index.html",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.js",
+        "tailwind.config.js"
+      ]
+    },
+    "old artefacts": {
+      "path": "old artefacts",
+      "purpose": null,
+      "fileCount": 11,
+      "lastAccessed": 1775301503872,
+      "keyFiles": [
+        "ARTIFACT-ANALYZER-DATA.md",
+        "FONDATION-CC-DATA.md",
+        "FONDATION_OPS.md",
+        "INDEX-DATA.md",
+        "artifact-analyzer.jsx"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 0,
+      "lastAccessed": 1775301503872,
+      "keyFiles": []
+    },
+    "supabase": {
+      "path": "supabase",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1775301503872,
+      "keyFiles": []
+    },
+    "app/dist": {
+      "path": "app/dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 1,
+      "lastAccessed": 1775301503872,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "app/node_modules": {
+      "path": "app/node_modules",
+      "purpose": "Dependencies",
+      "fileCount": 1,
+      "lastAccessed": 1775301503872,
+      "keyFiles": []
+    },
+    "supabase/migrations": {
+      "path": "supabase/migrations",
+      "purpose": "Database migrations",
+      "fileCount": 1,
+      "lastAccessed": 1775301503873,
+      "keyFiles": [
+        "001_create_tables.sql"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "app/src/lib/workflow-routing-engine.ts",
+      "accessCount": 16,
+      "lastAccessed": 1775304343254,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/mutations.ts",
+      "accessCount": 13,
+      "lastAccessed": 1775302046678,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/mcp-orchestrator.ts",
+      "accessCount": 13,
+      "lastAccessed": 1775304334548,
+      "type": "file"
+    },
+    {
+      "path": "FOS-JOURNAL.md",
+      "accessCount": 10,
+      "lastAccessed": 1775303712483,
+      "type": "file"
+    },
+    {
+      "path": "FOS-MONITORING.md",
+      "accessCount": 8,
+      "lastAccessed": 1775303712642,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PLAN-MASTER-v2.md",
+      "accessCount": 6,
+      "lastAccessed": 1775303430525,
+      "type": "file"
+    },
+    {
+      "path": "FOS-EVOLUTION-LOG.md",
+      "accessCount": 5,
+      "lastAccessed": 1775303479073,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE4-ROADMAP.md",
+      "accessCount": 4,
+      "lastAccessed": 1775303835021,
+      "type": "file"
+    },
+    {
+      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+      "accessCount": 3,
+      "lastAccessed": 1775303706560,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE4-EXECUTIVE-SUMMARY.md",
+      "accessCount": 3,
+      "lastAccessed": 1775303824428,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/security-framework.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775304311543,
+      "type": "file"
+    },
+    {
+      "path": "FOS-TECH-ARCHITECTURE.md",
+      "accessCount": 2,
+      "lastAccessed": 1775303703104,
+      "type": "file"
+    },
+    {
+      "path": "FOS-TOOLBOX-DATA.md",
+      "accessCount": 2,
+      "lastAccessed": 1775303707805,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/supabase.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775303716907,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 2,
+      "lastAccessed": 1775303718964,
+      "type": "directory"
+    },
+    {
+      "path": "FOS-COMMANDER-DATA.md",
+      "accessCount": 2,
+      "lastAccessed": 1775303732083,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/memory-manager.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775304295163,
+      "type": "file"
+    },
+    {
+      "path": "app/src/components/forms/AddSessionForm.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775301558781,
+      "type": "file"
+    },
+    {
+      "path": "scripts/hooks/check-md-pair.sh",
+      "accessCount": 1,
+      "lastAccessed": 1775301643334,
+      "type": "file"
+    },
+    {
+      "path": "supabase/migrations/001_create_tables.sql",
+      "accessCount": 1,
+      "lastAccessed": 1775301832371,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/md-to-seed.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775301890858,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/md-sync-daemon.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775301958816,
+      "type": "file"
+    },
+    {
+      "path": "app/src/hooks/useSync.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775301973631,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/md-template-engine.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775302378885,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/self-modifying-generator.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775302442793,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/auto-evolution-triggers.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775302788803,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/md-component-factory.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775302875202,
+      "type": "file"
+    },
+    {
+      "path": "app/src/hooks/useSelfModifying.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775302903674,
+      "type": "file"
+    },
+    {
+      "path": "FOS-MEMORY-STRATEGY.md",
+      "accessCount": 1,
+      "lastAccessed": 1775303367449,
+      "type": "file"
+    },
+    {
+      "path": "SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1775303436780,
+      "type": "file"
+    },
+    {
+      "path": "app/package.json",
+      "accessCount": 1,
+      "lastAccessed": 1775303717413,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/__tests__/phase4-optimizations.test.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775304177469,
+      "type": "file"
+    },
+    {
+      "path": "app/src/artifacts/fos-phase4-demo.jsx",
+      "accessCount": 1,
+      "lastAccessed": 1775304231465,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE4-OPTIMIZATIONS.md",
+      "accessCount": 1,
+      "lastAccessed": 1775304277842,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

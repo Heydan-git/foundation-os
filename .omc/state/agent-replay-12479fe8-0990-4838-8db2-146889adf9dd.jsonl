@@ -3,3 +3,11 @@
 {"t":0,"agent":"a70f461","agent_type":"os-architect","event":"agent_stop","success":true,"duration_ms":98374}
 {"t":0,"agent":"ad05366","agent_type":"review-agent","event":"agent_start","parent_mode":"none"}
 {"t":0,"agent":"ad05366","agent_type":"review-agent","event":"agent_stop","success":true,"duration_ms":106644}
+{"t":0,"agent":"acf8812","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a446439","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"system","event":"skill_invoked","skill_name":"session-start"}
+{"t":0,"agent":"a42eaf8","agent_type":"doc-agent","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a42eaf8","agent_type":"doc-agent","event":"agent_stop","success":true,"duration_ms":257480}
+{"t":0,"agent":"adcfadb","agent_type":"os-architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"adcfadb","agent_type":"os-architect","event":"agent_stop","success":true,"duration_ms":107374}
+{"t":0,"agent":"afcc953","agent_type":"dev-agent","event":"agent_start","parent_mode":"none"}
