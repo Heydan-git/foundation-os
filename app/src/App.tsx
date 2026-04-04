@@ -10,6 +10,7 @@ import NotionSyncPage from '@/pages/NotionSyncPage'
 import AsanaAutomationPage from '@/pages/AsanaAutomationPage'
 import ToolboxPage from '@/pages/ToolboxPage'
 import FigmaValidationPage from '@/pages/FigmaValidationPage'
+import DeveloperEcosystemPage from '@/pages/DeveloperEcosystemPage'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -57,6 +58,7 @@ export default function App() {
           <Route path="/asana-automation" element={<AsanaAutomationPage />} />
           <Route path="/figma-validation" element={<FigmaValidationPage />} />
           <Route path="/toolbox" element={<ToolboxPage />} />
+          <Route path="/developer-ecosystem" element={<DeveloperEcosystemPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell>
