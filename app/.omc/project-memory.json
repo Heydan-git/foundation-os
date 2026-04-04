@@ -131,6 +131,187 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "src/App.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1775288699384,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/database.types.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775286378636,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Dashboard.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288610307,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Commander.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288647703,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Layout.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288654308,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/KnowledgePage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288712855,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/ScaleOrchestratorPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288713721,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/GraphPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288714257,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/SyncPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775288715486,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1775254543458,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1775254545147,
+      "type": "directory"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775254550531,
+      "type": "file"
+    },
+    {
+      "path": "vercel.json",
+      "accessCount": 1,
+      "lastAccessed": 1775285801395,
+      "type": "file"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 1,
+      "lastAccessed": 1775286340328,
+      "type": "file"
+    },
+    {
+      "path": "tailwind.config.js",
+      "accessCount": 1,
+      "lastAccessed": 1775286340381,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/supabase.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775286349628,
+      "type": "file"
+    },
+    {
+      "path": "src/components/index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775286351259,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Card.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286351375,
+      "type": "file"
+    },
+    {
+      "path": "src/components/TabBar.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286351584,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Badge.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286351800,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/useCommander.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775286441507,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/StatsBar.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286457529,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/SessionsPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286469049,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/DecisionsPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286469174,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/RisksPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286474042,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/DocsPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286478197,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/ContextPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286482095,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/NextStepsPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775286488602,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775286488767,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/IndexPage.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775288693084,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
