@@ -1,38 +1,35 @@
 #!/bin/bash
-# validate-void-glass.sh - Vérifie Void Glass compliance
+# FOS Hook — Void Glass compliance enforcement
+# Vérifie la conformité design system
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
+set -euo pipefail
 
-echo -e "${YELLOW}[FOS Hook] Vérification Void Glass...${NC}"
-
-TARGET_FILE="$1"
-if [ -z "$TARGET_FILE" ]; then
-    TARGET_FILE=$(git diff --cached --name-only | head -1 2>/dev/null || echo "")
+# Si aucun argument, pas d'erreur
+if [[ $# -eq 0 ]]; then
+    exit 0
 fi
 
-if [[ "$TARGET_FILE" =~ \.(jsx|tsx|css|scss)$ ]]; then
-    VIOLATIONS=""
-    
-    # Couleurs interdites
-    if grep -q "#0A0A0B\|#08080A" "$TARGET_FILE" 2>/dev/null; then
-        VIOLATIONS="${VIOLATIONS}❌ Couleur interdite (#0A0A0B/#08080A)\n"
+file_path="$1"
+
+# Vérifie seulement les fichiers JSX/TSX
+if [[ "$file_path" == *.jsx ]] || [[ "$file_path" == *.tsx ]]; then
+    if [[ -f "$file_path" ]]; then
+        # Couleurs interdites
+        if grep -q "#0A0A0B\|#08080A\|#0A0B0D" "$file_path"; then
+            echo "❌ ERREUR VOID GLASS: Couleur interdite dans $file_path"
+            echo "🎨 Utilisez #06070C pour le fond"
+            exit 1
+        fi
+
+        # Fonts interdites
+        if grep -q "font.*Outfit\|font.*Inter\|font.*system-ui" "$file_path"; then
+            echo "❌ ERREUR VOID GLASS: Font interdite dans $file_path"
+            echo "🔤 Utilisez Figtree (UI) ou JetBrains Mono (code)"
+            exit 1
+        fi
+
+        echo "✅ Void Glass OK: $file_path conforme"
     fi
-    
-    # Fonts interdites
-    if grep -q "font.*Outfit\|font.*Inter\|fontFamily.*Outfit\|fontFamily.*Inter" "$TARGET_FILE" 2>/dev/null; then
-        VIOLATIONS="${VIOLATIONS}❌ Font interdite (Outfit/Inter)\n"
-    fi
-    
-    if [ ! -z "$VIOLATIONS" ]; then
-        echo -e "${RED}[FOS Hook] Violations Void Glass:${NC}"
-        echo -e "${RED}$VIOLATIONS${NC}"
-        exit 1
-    fi
-    
-    echo -e "${GREEN}[FOS Hook] ✅ Void Glass OK${NC}"
 fi
 
 exit 0

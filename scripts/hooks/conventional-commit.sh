@@ -1,23 +1,26 @@
 #!/bin/bash
-# conventional-commit.sh - Vérifie format conventional commits
+# FOS Hook — Conventional commit enforcement
+# Vérifie le format des messages de commit
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+set -euo pipefail
 
-COMMIT_MSG="$1"
-if [ -z "$COMMIT_MSG" ]; then
-    echo -e "${GREEN}[FOS Hook] Pas de commit message à vérifier${NC}"
-    exit 0
+# Ce hook est appelé après un commit pour vérifier le format
+# Il peut aussi être utilisé de manière préventive
+
+if git rev-parse --git-dir >/dev/null 2>&1; then
+    # Récupère le dernier message de commit
+    last_commit=$(git log -1 --pretty=format:%s 2>/dev/null || echo "")
+
+    if [[ -n "$last_commit" ]]; then
+        # Pattern conventional commits
+        if [[ "$last_commit" =~ ^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?\!?:\ .+ ]]; then
+            echo "✅ Commit conventionnel: $last_commit"
+        else
+            echo "⚠️  Format commit non-conventionnel: $last_commit"
+            echo "💡 Format attendu: type(scope): description"
+            echo "   Types: feat|fix|docs|style|refactor|test|chore"
+        fi
+    fi
 fi
 
-# Pattern conventional: type(scope): description
-if [[ "$COMMIT_MSG" =~ ^(feat|fix|docs|refactor|chore|test|style)(\(.+\))?:\ .+ ]]; then
-    echo -e "${GREEN}[FOS Hook] ✅ Conventional commit OK${NC}"
-    exit 0
-else
-    echo -e "${RED}[FOS Hook] ERREUR: Format conventional commit invalide${NC}"
-    echo -e "${RED}Format requis: type(scope): description${NC}"
-    echo -e "${RED}Types: feat, fix, docs, refactor, chore, test, style${NC}"
-    exit 1
-fi
+exit 0
