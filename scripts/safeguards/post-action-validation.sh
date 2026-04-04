@@ -71,14 +71,14 @@ case "$ACTION" in
         # Score attendu vs réel
         if [ "$PHASE" = "Phase0" ]; then
             # Vérifier artifacts
-            ARTIFACTS_COUNT=$(find /Users/kevinnoel/foundation-os/app/src/artifacts -name "*.jsx" | wc -l)
+            ARTIFACTS_COUNT=$(find /Users/kevinnoel/foundation-os/app/src/artifacts -name "*.jsx" 2>/dev/null | wc -l)
             if [ "$ARTIFACTS_COUNT" -lt 7 ]; then
                 echo -e "${RED}[FAIL] Phase 0: Only $ARTIFACTS_COUNT/7 artifacts found${NC}"
                 exit 1
             fi
 
             # Vérifier hooks
-            HOOKS_COUNT=$(find /Users/kevinnoel/foundation-os/scripts/hooks -name "*.sh" | wc -l)
+            HOOKS_COUNT=$(find /Users/kevinnoel/foundation-os/scripts/hooks -name "*.sh" 2>/dev/null | wc -l)
             if [ "$HOOKS_COUNT" -lt 3 ]; then
                 echo -e "${RED}[FAIL] Phase 0: Only $HOOKS_COUNT/3 hooks found${NC}"
                 exit 1

@@ -1,35 +1,61 @@
 #!/bin/bash
-# FOS Hook — Void Glass compliance enforcement
-# Vérifie la conformité design system
+# validate-void-glass.sh - Validation design system Void Glass
+# Hook PreToolUse(Write|Edit) pour Foundation OS
 
-set -euo pipefail
+set -e
 
-# Si aucun argument, pas d'erreur
-if [[ $# -eq 0 ]]; then
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}[Void Glass] Validation design system...${NC}"
+
+TARGET_FILE="$1"
+if [ -z "$TARGET_FILE" ]; then
     exit 0
 fi
 
-file_path="$1"
+# Vérifier si fichier JSX/TSX/CSS
+if [[ "$TARGET_FILE" =~ \.(jsx|tsx|css)$ ]]; then
 
-# Vérifie seulement les fichiers JSX/TSX
-if [[ "$file_path" == *.jsx ]] || [[ "$file_path" == *.tsx ]]; then
-    if [[ -f "$file_path" ]]; then
-        # Couleurs interdites
-        if grep -q "#0A0A0B\|#08080A\|#0A0B0D" "$file_path"; then
-            echo "❌ ERREUR VOID GLASS: Couleur interdite dans $file_path"
-            echo "🎨 Utilisez #06070C pour le fond"
+    # Couleurs interdites
+    FORBIDDEN_COLORS=(
+        "#0A0A0B"
+        "#08080A"
+        "#0A0B0D"
+        "#000000"
+        "rgb(10,10,11)"
+        "rgb(8,8,10)"
+    )
+
+    # Fonts interdites
+    FORBIDDEN_FONTS=(
+        "Outfit"
+        "Inter"
+        "system-ui"
+        "sans-serif"
+    )
+
+    # Scanner couleurs interdites
+    for color in "${FORBIDDEN_COLORS[@]}"; do
+        if grep -q "$color" "$TARGET_FILE" 2>/dev/null; then
+            echo -e "${RED}[Void Glass] ERREUR: Couleur interdite '$color' dans $TARGET_FILE${NC}"
+            echo -e "${RED}[Void Glass] Utilisez #06070C pour les fonds${NC}"
             exit 1
         fi
+    done
 
-        # Fonts interdites
-        if grep -q "font.*Outfit\|font.*Inter\|font.*system-ui" "$file_path"; then
-            echo "❌ ERREUR VOID GLASS: Font interdite dans $file_path"
-            echo "🔤 Utilisez Figtree (UI) ou JetBrains Mono (code)"
+    # Scanner fonts interdites
+    for font in "${FORBIDDEN_FONTS[@]}"; do
+        if grep -q "$font" "$TARGET_FILE" 2>/dev/null; then
+            echo -e "${RED}[Void Glass] ERREUR: Font interdite '$font' dans $TARGET_FILE${NC}"
+            echo -e "${RED}[Void Glass] Utilisez Figtree pour UI, JetBrains Mono pour code${NC}"
             exit 1
         fi
+    done
 
-        echo "✅ Void Glass OK: $file_path conforme"
-    fi
+    echo -e "${GREEN}[Void Glass] ✅ Design system compliance OK${NC}"
 fi
 
 exit 0

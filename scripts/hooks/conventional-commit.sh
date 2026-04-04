@@ -1,26 +1,31 @@
 #!/bin/bash
-# FOS Hook — Conventional commit enforcement
-# Vérifie le format des messages de commit
+# conventional-commit.sh - Validation format conventional commits
+# Hook PreToolUse(git commit) pour Foundation OS
 
-set -euo pipefail
+set -e
 
-# Ce hook est appelé après un commit pour vérifier le format
-# Il peut aussi être utilisé de manière préventive
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
 
-if git rev-parse --git-dir >/dev/null 2>&1; then
-    # Récupère le dernier message de commit
-    last_commit=$(git log -1 --pretty=format:%s 2>/dev/null || echo "")
+echo -e "${YELLOW}[Conventional] Validation format commit...${NC}"
 
-    if [[ -n "$last_commit" ]]; then
-        # Pattern conventional commits
-        if [[ "$last_commit" =~ ^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?\!?:\ .+ ]]; then
-            echo "✅ Commit conventionnel: $last_commit"
-        else
-            echo "⚠️  Format commit non-conventionnel: $last_commit"
-            echo "💡 Format attendu: type(scope): description"
-            echo "   Types: feat|fix|docs|style|refactor|test|chore"
-        fi
-    fi
+COMMIT_MSG="$1"
+if [ -z "$COMMIT_MSG" ]; then
+    exit 0
 fi
 
-exit 0
+# Pattern conventional commit
+PATTERN="^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,50}"
+
+if [[ "$COMMIT_MSG" =~ $PATTERN ]]; then
+    echo -e "${GREEN}[Conventional] ✅ Format commit OK${NC}"
+    exit 0
+else
+    echo -e "${RED}[Conventional] ERREUR: Format commit incorrect${NC}"
+    echo -e "${RED}Format attendu: type(scope): description${NC}"
+    echo -e "${RED}Types: feat, fix, docs, style, refactor, test, chore${NC}"
+    echo -e "${RED}Exemple: feat(auth): add login functionality${NC}"
+    exit 1
+fi
