@@ -5,10 +5,8 @@
  */
 
 import { selfModifyingGenerator } from './self-modifying-generator'
-import { mdSyncDaemon } from './md-sync-daemon'
 import { supabase } from './supabase'
-import { readFileSync, writeFileSync, existsSync } from 'fs'
-import { join } from 'path'
+import { writeFileSync } from 'fs'
 
 // ── Evolution Trigger Types ───────────────────────────────────────────────
 

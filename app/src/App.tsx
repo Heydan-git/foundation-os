@@ -7,7 +7,9 @@ import ScaleOrchestratorPage from '@/pages/ScaleOrchestratorPage'
 import GraphPage from '@/pages/GraphPage'
 import SyncPage from '@/pages/SyncPage'
 import NotionSyncPage from '@/pages/NotionSyncPage'
+import AsanaAutomationPage from '@/pages/AsanaAutomationPage'
 import ToolboxPage from '@/pages/ToolboxPage'
+import FigmaValidationPage from '@/pages/FigmaValidationPage'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -52,6 +54,8 @@ export default function App() {
           <Route path="/graph" element={<GraphPage />} />
           <Route path="/sync" element={<SyncPage />} />
           <Route path="/notion-sync" element={<NotionSyncPage />} />
+          <Route path="/asana-automation" element={<AsanaAutomationPage />} />
+          <Route path="/figma-validation" element={<FigmaValidationPage />} />
           <Route path="/toolbox" element={<ToolboxPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

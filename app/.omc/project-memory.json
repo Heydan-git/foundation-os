@@ -175,9 +175,21 @@
       "type": "file"
     },
     {
+      "path": "src/lib/figma-design-validator.ts",
+      "accessCount": 8,
+      "lastAccessed": 1775308046280,
+      "type": "file"
+    },
+    {
       "path": "vite.config.ts",
       "accessCount": 5,
       "lastAccessed": 1775289929148,
+      "type": "file"
+    },
+    {
+      "path": "src/components/FigmaValidationDashboard.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1775308043025,
       "type": "file"
     },
     {
@@ -190,6 +202,12 @@
       "path": "src/artifacts/fos-graph.jsx",
       "accessCount": 3,
       "lastAccessed": 1775297772659,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/FigmaValidationPage.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775307919349,
       "type": "file"
     },
     {
@@ -220,6 +238,12 @@
       "path": "src/lib/md-sync-daemon.ts",
       "accessCount": 2,
       "lastAccessed": 1775302128095,
+      "type": "file"
+    },
+    {
+      "path": "src/hooks/useFigmaDesignValidation.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775307865943,
       "type": "file"
     },
     {
