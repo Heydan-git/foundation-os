@@ -80,10 +80,62 @@
       "status": "completed",
       "completed_at": "2026-04-04T13:03:31.529Z",
       "duration_ms": 472186
+    },
+    {
+      "agent_id": "ab0ebe1c8e996d330",
+      "agent_type": "dev-agent",
+      "started_at": "2026-04-04T15:10:21.731Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T15:18:07.434Z",
+      "duration_ms": 465703
+    },
+    {
+      "agent_id": "a14f276d75929deec",
+      "agent_type": "doc-agent",
+      "started_at": "2026-04-04T15:18:22.777Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T15:21:50.406Z",
+      "duration_ms": 207629
+    },
+    {
+      "agent_id": "a2480b07e8e347469",
+      "agent_type": "review-agent",
+      "started_at": "2026-04-04T15:54:28.020Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T15:55:50.266Z",
+      "duration_ms": 82246
+    },
+    {
+      "agent_id": "ab08d95cc8d0366b5",
+      "agent_type": "os-architect",
+      "started_at": "2026-04-04T15:54:32.094Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T15:55:46.539Z",
+      "duration_ms": 74445
+    },
+    {
+      "agent_id": "ad6315cdff07ed4a6",
+      "agent_type": "dev-agent",
+      "started_at": "2026-04-04T15:58:11.840Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-04T16:05:41.299Z",
+      "duration_ms": 449459
+    },
+    {
+      "agent_id": "a22fcc4bca76df5c1",
+      "agent_type": "dev-agent",
+      "started_at": "2026-04-04T15:58:16.277Z",
+      "parent_mode": "none",
+      "status": "running"
     }
   ],
-  "total_spawned": 9,
-  "total_completed": 9,
+  "total_spawned": 15,
+  "total_completed": 14,
   "total_failed": 0,
-  "last_updated": "2026-04-04T13:03:31.632Z"
+  "last_updated": "2026-04-04T16:05:41.400Z"
 }
