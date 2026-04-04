@@ -107,15 +107,15 @@
   },
   "hotPaths": [
     {
-      "path": "app/src/lib/workflow-routing-engine.ts",
-      "accessCount": 16,
-      "lastAccessed": 1775304343254,
+      "path": "app/src/lib/mutations.ts",
+      "accessCount": 17,
+      "lastAccessed": 1775306244206,
       "type": "file"
     },
     {
-      "path": "app/src/lib/mutations.ts",
-      "accessCount": 13,
-      "lastAccessed": 1775302046678,
+      "path": "app/src/lib/workflow-routing-engine.ts",
+      "accessCount": 16,
+      "lastAccessed": 1775304343254,
       "type": "file"
     },
     {
@@ -126,32 +126,62 @@
     },
     {
       "path": "FOS-JOURNAL.md",
-      "accessCount": 10,
-      "lastAccessed": 1775303712483,
+      "accessCount": 12,
+      "lastAccessed": 1775305775810,
       "type": "file"
     },
     {
       "path": "FOS-MONITORING.md",
-      "accessCount": 8,
-      "lastAccessed": 1775303712642,
+      "accessCount": 11,
+      "lastAccessed": 1775305817722,
       "type": "file"
     },
     {
-      "path": "FOS-PLAN-MASTER-v2.md",
-      "accessCount": 6,
-      "lastAccessed": 1775303430525,
+      "path": "app/src/App.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775307733457,
       "type": "file"
     },
     {
       "path": "FOS-EVOLUTION-LOG.md",
-      "accessCount": 5,
-      "lastAccessed": 1775303479073,
+      "accessCount": 8,
+      "lastAccessed": 1775306676733,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PLAN-MASTER-v2.md",
+      "accessCount": 7,
+      "lastAccessed": 1775305591043,
       "type": "file"
     },
     {
       "path": "FOS-PHASE4-ROADMAP.md",
       "accessCount": 4,
       "lastAccessed": 1775303835021,
+      "type": "file"
+    },
+    {
+      "path": "FOS-COMMANDER-DATA.md",
+      "accessCount": 4,
+      "lastAccessed": 1775305847454,
+      "type": "file"
+    },
+    {
+      "path": "app/src/hooks/useNotionSync.ts",
+      "accessCount": 4,
+      "lastAccessed": 1775306501520,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/notion-sync-engine.ts",
+      "accessCount": 4,
+      "lastAccessed": 1775306696661,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE5-ROADMAP.md",
+      "accessCount": 4,
+      "lastAccessed": 1775307347990,
       "type": "file"
     },
     {
@@ -173,39 +203,87 @@
       "type": "file"
     },
     {
+      "path": "app/src/lib/supabase.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775305906107,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 3,
+      "lastAccessed": 1775306688830,
+      "type": "directory"
+    },
+    {
+      "path": "FOS-TOOLBOX-DATA.md",
+      "accessCount": 3,
+      "lastAccessed": 1775306690736,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE5-NOTION-SYNC-IMPLEMENTATION.md",
+      "accessCount": 3,
+      "lastAccessed": 1775307352223,
+      "type": "file"
+    },
+    {
       "path": "FOS-TECH-ARCHITECTURE.md",
       "accessCount": 2,
       "lastAccessed": 1775303703104,
       "type": "file"
     },
     {
-      "path": "FOS-TOOLBOX-DATA.md",
-      "accessCount": 2,
-      "lastAccessed": 1775303707805,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/supabase.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775303716907,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 2,
-      "lastAccessed": 1775303718964,
-      "type": "directory"
-    },
-    {
-      "path": "FOS-COMMANDER-DATA.md",
-      "accessCount": 2,
-      "lastAccessed": 1775303732083,
-      "type": "file"
-    },
-    {
       "path": "app/src/lib/memory-manager.ts",
       "accessCount": 2,
       "lastAccessed": 1775304295163,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE4-IMPLEMENTATION-COMPLETE.md",
+      "accessCount": 2,
+      "lastAccessed": 1775305590599,
+      "type": "file"
+    },
+    {
+      "path": "app/src/hooks/useSync.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775305915235,
+      "type": "file"
+    },
+    {
+      "path": "app/src/components/NotionSyncDashboard.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775306506186,
+      "type": "file"
+    },
+    {
+      "path": "app/src/pages/NotionSyncPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775306509747,
+      "type": "file"
+    },
+    {
+      "path": "app/src/components/AsanaAutomationDashboard.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775307111549,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/asana-automation.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775307205331,
+      "type": "file"
+    },
+    {
+      "path": "FOS-ASANA-AUTOMATION-DATA.md",
+      "accessCount": 2,
+      "lastAccessed": 1775307355568,
+      "type": "file"
+    },
+    {
+      "path": "app/package.json",
+      "accessCount": 2,
+      "lastAccessed": 1775307375181,
       "type": "file"
     },
     {
@@ -236,12 +314,6 @@
       "path": "app/src/lib/md-sync-daemon.ts",
       "accessCount": 1,
       "lastAccessed": 1775301958816,
-      "type": "file"
-    },
-    {
-      "path": "app/src/hooks/useSync.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775301973631,
       "type": "file"
     },
     {
@@ -287,12 +359,6 @@
       "type": "file"
     },
     {
-      "path": "app/package.json",
-      "accessCount": 1,
-      "lastAccessed": 1775303717413,
-      "type": "file"
-    },
-    {
       "path": "app/src/lib/__tests__/phase4-optimizations.test.ts",
       "accessCount": 1,
       "lastAccessed": 1775304177469,
@@ -308,6 +374,36 @@
       "path": "FOS-PHASE4-OPTIMIZATIONS.md",
       "accessCount": 1,
       "lastAccessed": 1775304277842,
+      "type": "file"
+    },
+    {
+      "path": "FOS-SYNC-DATA.md",
+      "accessCount": 1,
+      "lastAccessed": 1775305905627,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/database.types.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775305915836,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/__tests__/notion-sync.test.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775306312530,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/notion-config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775306457109,
+      "type": "file"
+    },
+    {
+      "path": "app/src/hooks/useAsanaAutomation.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775306893367,
       "type": "file"
     }
   ],

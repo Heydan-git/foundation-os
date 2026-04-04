@@ -4,7 +4,7 @@
  * Revolutionary intelligent tool orchestration system
  */
 
-import { readFileSync } from 'fs'
+// fs import removed — not needed in browser context
 
 // ── MCP Tool Types ────────────────────────────────────────────────────────
 
@@ -84,9 +84,6 @@ interface OrchestrationPlan {
 export class MCPOrchestrator {
   private tools: Map<string, MCPTool> = new Map()
   private categories: Map<MCPCategory, MCPTool[]> = new Map()
-  private usageHistory: Map<string, number> = new Map()
-  private performanceCache: Map<string, PerformanceMetrics> = new Map()
-
   constructor() {
     this.initializeKnownTools()
   }
@@ -650,7 +647,7 @@ export class MCPOrchestrator {
           console.error(`❌ Tool execution failed: ${tool.name}`, error)
           this.updateToolMetrics(tool, 0, false)
           completedTools.add(toolId) // Mark as completed to unblock dependencies
-          return { toolId, result: null, success: false, error: error.message }
+          return { toolId, result: null, success: false, error: (error as Error).message }
         } finally {
           inProgressTools.delete(toolId)
           remainingTools.delete(toolId)
@@ -675,7 +672,7 @@ export class MCPOrchestrator {
             console.log(`✅ Sequential tool completed: ${tool.name}`)
           } catch (error) {
             console.error(`❌ Sequential tool failed: ${tool.name}`, error)
-            results.push({ toolId, result: null, success: false, error: error.message })
+            results.push({ toolId, result: null, success: false, error: (error as Error).message })
           }
         }
       }
@@ -684,7 +681,7 @@ export class MCPOrchestrator {
     return results
   }
 
-  private async executeTool(tool: MCPTool, request: WorkflowRequest): Promise<any> {
+  private async executeTool(tool: MCPTool, _request: WorkflowRequest): Promise<any> {
     // Placeholder for actual tool execution
     // This would use the actual MCP protocol to call tools
 

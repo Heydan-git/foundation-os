@@ -443,7 +443,7 @@ export class NotionSyncEngine {
     data: any
   ): Promise<any> {
     const tableName = this.getTableName(entityType)
-    const { data: newEntity, error } = await supabase
+    const { data: newEntity, error } = await (supabase as any)
       .from(tableName)
       .insert([data])
       .select()
@@ -459,7 +459,7 @@ export class NotionSyncEngine {
     data: any
   ): Promise<any> {
     const tableName = this.getTableName(entityType)
-    const { data: updatedEntity, error } = await supabase
+    const { data: updatedEntity, error } = await (supabase as any)
       .from(tableName)
       .update(data)
       .eq('id', id)

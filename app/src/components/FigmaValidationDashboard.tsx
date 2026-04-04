@@ -4,7 +4,7 @@
  * Dashboard temps réel pour monitoring + contrôle de la validation Figma
  */
 
-import React from 'react'
+// React import not needed with modern JSX transform
 import useFigmaDesignValidation, { FigmaValidationConfig } from '../hooks/useFigmaDesignValidation'
 import { ValidationResult, ComponentMapping } from '../lib/figma-design-validator'
 

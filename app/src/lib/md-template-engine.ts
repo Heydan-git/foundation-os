@@ -122,7 +122,7 @@ export class MDTemplateEngine {
   // ── Extract Context from Regex Match ───────────────────────────────
 
   private extractContextFromMatch(match: RegExpMatchArray, template: CodeTemplate): TemplateContext | null {
-    const [fullMatch, name, content] = match
+    const [_fullMatch, name, content] = match
 
     if (!name || !content) return null
 
@@ -243,7 +243,7 @@ export class MDTemplateEngine {
 
   processDirectory(mdDirectory: string, outputDir: string = '.'): string[] {
     const { readdirSync } = require('fs')
-    const files = readdirSync(mdDirectory).filter(f => f.endsWith('.md'))
+    const files = readdirSync(mdDirectory).filter((f: string) => f.endsWith('.md'))
 
     const allGeneratedFiles: string[] = []
 

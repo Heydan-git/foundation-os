@@ -5,8 +5,8 @@
  */
 
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
-import { join, dirname, basename } from 'path'
-import { mdTemplateEngine } from './md-template-engine'
+import { join, dirname } from 'path'
+// md-template-engine import available if needed for future template processing
 
 // ── Component Factory Types ───────────────────────────────────────────────
 
@@ -291,7 +291,7 @@ export class MDComponentFactory {
   // ── Generate Component Code ──────────────────────────────────────────
 
   private generateComponentCode(spec: ComponentSpec): string {
-    const { name, description, props, hooks, dependencies, styling, features } = spec
+    const { name, description, props, hooks, dependencies, styling } = spec
 
     // Generate imports
     const imports = ['React']
@@ -567,7 +567,7 @@ ${(spec.dependencies || []).map(dep => `- ${dep}`).join('\n')}
     const results: GenerationResult[] = []
 
     // Look for multiple component specs in one file
-    const componentSections = content.split(/^# /m).filter(section => section.trim())
+    const componentSections = content.split(/^# /m).filter((section: string) => section.trim())
 
     for (const section of componentSections) {
       const spec = this.parseComponentFromMarkdown('# ' + section)

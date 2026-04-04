@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /Users/kevinnoel/foundation-os/app && npx tsc --noEmit --skipLibCheck src/lib/mcp-orchestrator.ts src/lib/workflow-routing-engine.ts src/lib/security-framework.ts src/lib/memory-manager...",
-  "error": "Exit code 2\nsrc/lib/workflow-routing-engine.ts(888,38): error TS2552: Cannot find name 'MCPParameter'. Did you mean 'Parameters'?",
-  "timestamp": "2026-04-04T12:05:39.465Z",
-  "retry_count": 3
+  "tool_input_preview": "{\"command\":\"cd /Users/kevinnoel/foundation-os/app && npm run build\",\"description\":\"Test build of Foundation OS app with new Figma validation system\"}",
+  "error": "Exit code 2\n\n> foundation-os@0.1.0 build\n> tsc && vite build\n\nsrc/components/FigmaValidationDashboard.tsx(7,8): error TS6133: 'React' is declared but its value is never read.\nsrc/components/FigmaValidationDashboard.tsx(7,27): error TS6133: 'useEffect' is declared but its value is never read.\nsrc/components/FigmaValidationDashboard.tsx(153,3): error TS6133: 'successRate' is declared but its value is never read.\nsrc/components/FigmaValidationDashboard.tsx(475,10): error TS6133: 'showExportOptions'...",
+  "timestamp": "2026-04-04T13:03:18.655Z",
+  "retry_count": 1
 }

@@ -259,7 +259,7 @@ class MDSyncDaemon {
       status: v[5]
     }))
 
-    await supabase.from('decisions').upsert(decisions)
+    await (supabase as any).from('decisions').upsert(decisions)
     console.log(`📋 Upserted ${decisions.length} decisions`)
   }
 
@@ -276,7 +276,7 @@ class MDSyncDaemon {
       status: v[5]
     }))
 
-    await supabase.from('risks').upsert(risks)
+    await (supabase as any).from('risks').upsert(risks)
     console.log(`⚠️ Upserted ${risks.length} risks`)
   }
 
@@ -293,7 +293,7 @@ class MDSyncDaemon {
       sort_order: parseInt(v[5])
     }))
 
-    await supabase.from('next_steps').upsert(nextSteps)
+    await (supabase as any).from('next_steps').upsert(nextSteps)
     console.log(`📋 Upserted ${nextSteps.length} next steps`)
   }
 
@@ -308,7 +308,7 @@ class MDSyncDaemon {
       sort_order: parseInt(v[3])
     }))
 
-    await supabase.from('context_blocks').upsert(contextBlocks)
+    await (supabase as any).from('context_blocks').upsert(contextBlocks)
     console.log(`📄 Upserted ${contextBlocks.length} context blocks`)
   }
 

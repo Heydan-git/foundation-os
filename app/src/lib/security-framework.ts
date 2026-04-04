@@ -81,8 +81,6 @@ export class SecurityFramework {
   private securityPolicies: Map<string, SecurityPolicy> = new Map()
   private toolProfiles: Map<string, ToolSecurityProfile> = new Map()
   private auditLog: AuditEvent[] = []
-  private activeRestrictions: Map<string, SecurityRestriction[]> = new Map()
-
   constructor() {
     this.initializeSecurityPolicies()
     this.initializeToolProfiles()
@@ -471,7 +469,7 @@ export class SecurityFramework {
   }
 
   private generateSecurityFlags(
-    tool: MCPTool,
+    _tool: MCPTool,
     context: SecurityContext,
     action: string,
     parameters: Record<string, any>

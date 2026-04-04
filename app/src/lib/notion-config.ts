@@ -632,7 +632,7 @@ export function generateNotionSetupScript(config: NotionWorkspaceConfig): string
 
 ## 2. Create Databases:
 
-${Object.entries(config.databases).map(([key, db]) => `
+${Object.entries(config.databases).map(([_key, db]) => `
 ### ${db.name}
 ${db.schema}
 

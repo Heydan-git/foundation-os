@@ -104,7 +104,7 @@ describe('Foundation OS Phase 4 - Critical Optimizations', () => {
       // Test blocked access (insufficient permissions)
       const restrictedContext = {
         ...testSecurityContext,
-        permissions: ['read'] // No write permission
+        permissions: ['read' as const] // No write permission
       }
 
       const blockedResult = await securityFramework.validateAccess(

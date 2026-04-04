@@ -133,6 +133,12 @@
   },
   "hotPaths": [
     {
+      "path": "src/lib/mutations.ts",
+      "accessCount": 18,
+      "lastAccessed": 1775308604048,
+      "type": "file"
+    },
+    {
       "path": "src/artifacts",
       "accessCount": 10,
       "lastAccessed": 1775297707501,
@@ -169,15 +175,21 @@
       "type": "file"
     },
     {
-      "path": "src/lib/mutations.ts",
-      "accessCount": 8,
-      "lastAccessed": 1775302114925,
-      "type": "file"
-    },
-    {
       "path": "src/lib/figma-design-validator.ts",
       "accessCount": 8,
       "lastAccessed": 1775308046280,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/md-sync-daemon.ts",
+      "accessCount": 7,
+      "lastAccessed": 1775308613100,
+      "type": "file"
+    },
+    {
+      "path": "src/components/FigmaValidationDashboard.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1775308637527,
       "type": "file"
     },
     {
@@ -187,9 +199,9 @@
       "type": "file"
     },
     {
-      "path": "src/components/FigmaValidationDashboard.tsx",
+      "path": "package.json",
       "accessCount": 5,
-      "lastAccessed": 1775308043025,
+      "lastAccessed": 1775315208789,
       "type": "file"
     },
     {
@@ -235,27 +247,21 @@
       "type": "directory"
     },
     {
-      "path": "src/lib/md-sync-daemon.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775302128095,
-      "type": "file"
-    },
-    {
       "path": "src/hooks/useFigmaDesignValidation.ts",
       "accessCount": 2,
       "lastAccessed": 1775307865943,
       "type": "file"
     },
     {
-      "path": "package.json",
-      "accessCount": 1,
-      "lastAccessed": 1775254543458,
+      "path": "vercel.json",
+      "accessCount": 2,
+      "lastAccessed": 1775314828558,
       "type": "file"
     },
     {
-      "path": "vercel.json",
-      "accessCount": 1,
-      "lastAccessed": 1775285801395,
+      "path": ".env.local.example",
+      "accessCount": 2,
+      "lastAccessed": 1775314829650,
       "type": "file"
     },
     {
@@ -418,12 +424,6 @@
       "path": "src/components/ProtectedRoute.tsx",
       "accessCount": 1,
       "lastAccessed": 1775301050830,
-      "type": "file"
-    },
-    {
-      "path": ".env.local.example",
-      "accessCount": 1,
-      "lastAccessed": 1775301724106,
       "type": "file"
     },
     {

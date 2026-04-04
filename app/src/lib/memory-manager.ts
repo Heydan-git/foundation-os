@@ -203,7 +203,6 @@ export class MemoryManager {
   private currentMemorySize: number = 0
   private resourceUsage: ResourceUsage[] = []
   private throttleRules: ThrottleRule[] = []
-  private evictionPolicies: EvictionPolicy[] = []
   private stats: CacheStats
   private gcInterval: NodeJS.Timeout | null = null
 
@@ -334,37 +333,39 @@ export class MemoryManager {
   // ── Eviction Policies ────────────────────────────────────────────────
 
   private initializeEvictionPolicies(): void {
-    this.evictionPolicies = [
+    // Policies defined for future use in weighted eviction scoring
+    const _policies: EvictionPolicy[] = [
       {
         name: 'LRU',
         weight: 0.4,
-        algorithm: (entries) => {
-          return entries.sort((a, b) => a.lastAccessed - b.lastAccessed)
+        algorithm: (entries: MemoryEntry[]) => {
+          return entries.sort((a: MemoryEntry, b: MemoryEntry) => a.lastAccessed - b.lastAccessed)
         }
       },
       {
         name: 'Size-based',
         weight: 0.3,
-        algorithm: (entries) => {
-          return entries.sort((a, b) => b.size - a.size)
+        algorithm: (entries: MemoryEntry[]) => {
+          return entries.sort((a: MemoryEntry, b: MemoryEntry) => b.size - a.size)
         }
       },
       {
         name: 'Priority-based',
         weight: 0.2,
-        algorithm: (entries) => {
-          const priorityOrder = { low: 0, medium: 1, high: 2, critical: 3 }
-          return entries.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority])
+        algorithm: (entries: MemoryEntry[]) => {
+          const priorityOrder: Record<string, number> = { low: 0, medium: 1, high: 2, critical: 3 }
+          return entries.sort((a: MemoryEntry, b: MemoryEntry) => priorityOrder[a.priority] - priorityOrder[b.priority])
         }
       },
       {
         name: 'Access-frequency',
         weight: 0.1,
-        algorithm: (entries) => {
-          return entries.sort((a, b) => a.accessCount - b.accessCount)
+        algorithm: (entries: MemoryEntry[]) => {
+          return entries.sort((a: MemoryEntry, b: MemoryEntry) => a.accessCount - b.accessCount)
         }
       }
     ]
+    void _policies
   }
 
   private async evictEntries(requiredSize: number): Promise<void> {

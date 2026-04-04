@@ -98,7 +98,23 @@ Décisions : Option D Hybrid (ADR-007) · Vercel + Supabase (ADR-008) · FOUNDAT
 | ADR-010 | 2026-04-03 | FOUNDATION-OS-SKILL = mémoire orchestration | Skill pour maintien cohérence long terme | high | active |
 | ADR-011 | 2026-04-03 | OMC team syntax canonical (v4.1.7+) | team "tâche" — swarm/ultrapilot supprimés | medium | active |
 | ADR-012 | 2026-04-03 | L1 = deux couches (Claude.ai Projects + Cowork desktop) | Architecture L1 clarifiée | high | active |
-| ADR-031 | 2026-04-04 | Phase 4 Smart Orchestration architecture validée | Validation technique complète Phase 4 | high | active |
+| ADR-034 | 2026-04-04 | ML-powered conflict resolution + cross-platform analytics | Révolution intelligence écosystème Phase 5 | high | active |
+| ADR-033 | 2026-04-04 | Sync bidirectionnel Notion↔Asana↔Figma↔Foundation OS | Architecture Connected temps réel Phase 5 | high | active |
+| ADR-032 | 2026-04-04 | Architecture Ecosystem Sync Engine v5.0 comme foundation | Core architecture Phase 5 Connected | high | active |
+| ADR-031 | 2026-04-04 | Transition Phase 4→5 Connected approuvée | Stratégie transition Smart Orchestration vers Connected | high | active |
+| ADR-030 | 2026-04-04 | Context7 integration pour documentation live anti-hallucination | Phase 4 anti-hallucination massive | medium | active |
+| ADR-029 | 2026-04-04 | Integration massive 235+ outils MCP déférés via auto-discovery | Phase 4 tool discovery automatique | high | active |
+| ADR-028 | 2026-04-04 | ML-Powered Workflow Routing Engine comme cœur intelligence | Phase 4 architecture ML routing | high | active |
+| ADR-027 | 2026-04-04 | Transition Phase 3→4 Smart Orchestration approuvée | Phase 4 Smart Orchestration démarrage | high | active |
+| ADR-026 | 2026-04-04 | Mock→Real Supabase transition complète | Phase 2-3 production database | high | active |
+| ADR-025 | 2026-04-04 | Self-Modifying Generator pour évolution autonome Foundation OS | Phase 3 auto-évolution IA | high | active |
+| ADR-024 | 2026-04-04 | MD Template Engine pour génération code automatique depuis markdown | Phase 3 code generation automatique | high | active |
+| ADR-039 | 2026-04-04 | International Expansion strategy — 20+ langues + partnerships + social impact | Phase 6 expansion mondiale | high | active |
+| ADR-038 | 2026-04-04 | Business Model révolutionnaire — Freemium + Enterprise + Marketplace + Research Institute | Phase 6 monetization strategy | high | active |
+| ADR-037 | 2026-04-04 | Scaling Architecture mondiale — Multi-tenant SaaS + infrastructure 50+ pays | Phase 6 global infrastructure | high | active |
+| ADR-036 | 2026-04-04 | Open Source Foundation strategy — Community-driven development + dual licensing | Phase 6 community strategy | high | active |
+| ADR-035 | 2026-04-04 | Transition Phase 5→6 Foundation approuvée — De l'excellence technique vers impact global | Phase 6 Foundation démarrage | high | active |
+| ADR-023 | 2026-04-04 | Phase 2 Unified Source architecture validée | Phase 2 MD single source truth | high | active |
 
 ---
 

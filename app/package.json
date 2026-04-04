@@ -6,8 +6,22 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:production": "NODE_ENV=production tsc && vite build --mode production",
     "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest",
+    "test:unit": "vitest run --reporter=verbose",
+    "test:coverage": "vitest --coverage",
+    "deploy:staging": "vercel --target staging",
+    "deploy:production": "vercel --prod --regions iad1,dub1,sin1",
+    "deploy:global": "npm run build:production && npm run deploy:production",
+    "health-check": "curl -f https://foundation-os.com/health || exit 1",
+    "security:scan": "npm audit && snyk test",
+    "performance:test": "lighthouse https://foundation-os.com --output json --quiet",
+    "db:migrate": "supabase migration up",
+    "db:reset": "supabase db reset",
+    "monitoring:setup": "node scripts/setup-monitoring.js",
+    "infrastructure:validate": "node scripts/validate-infrastructure.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",

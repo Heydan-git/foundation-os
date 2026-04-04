@@ -5,7 +5,7 @@
  */
 
 import { mcpOrchestrator } from './mcp-orchestrator'
-import type { MCPTool, WorkflowRequest, OrchestrationPlan, MCPParameter } from './mcp-orchestrator'
+import type { MCPTool, WorkflowRequest, MCPParameter } from './mcp-orchestrator'
 import { securityFramework } from './security-framework'
 import { memoryManager } from './memory-manager'
 import type { SecurityContext } from './security-framework'
@@ -103,8 +103,6 @@ export class WorkflowRoutingEngine {
   private routingPatterns: Map<string, RoutingPattern> = new Map()
   private learningData: LearningData[] = []
   private routeTemplates: Map<string, WorkflowRoute> = new Map()
-  private performanceMetrics: Map<string, number> = new Map()
-
   constructor() {
     this.initializeRouteTemplates()
     this.loadLearningData()
@@ -457,7 +455,7 @@ export class WorkflowRoutingEngine {
   }
 
   private getComplexityMatch(routeComplexity: string, requestComplexity: number): number {
-    const complexityMap = { simple: 0.2, moderate: 0.5, complex: 0.8, expert: 1.0 }
+    const complexityMap: Record<string, number> = { simple: 0.2, moderate: 0.5, complex: 0.8, expert: 1.0 }
     const routeScore = complexityMap[routeComplexity] || 0.5
 
     // Perfect match gets 1.0, decreasing as difference increases
@@ -778,7 +776,7 @@ export class WorkflowRoutingEngine {
     }
   }
 
-  private async executeRouteStep(step: RouteStep, request: WorkflowRequest, context: SecurityContext): Promise<any> {
+  private async executeRouteStep(step: RouteStep, _request: WorkflowRequest, _context: SecurityContext): Promise<any> {
     try {
       // Execute the tool for this step
       const result = await this.executeToolAction(step.tool, step.action, step.parameters)
@@ -801,7 +799,7 @@ export class WorkflowRoutingEngine {
     }
   }
 
-  private async executeToolAction(tool: MCPTool, action: string, parameters: Record<string, any>): Promise<any> {
+  private async executeToolAction(tool: MCPTool, action: string, _parameters: Record<string, any>): Promise<any> {
     // Placeholder for actual tool execution
     // This would use the actual MCP protocol
 
@@ -1127,3 +1125,7 @@ export class WorkflowRoutingEngine {
 export const workflowRoutingEngine = new WorkflowRoutingEngine()
 
 export default workflowRoutingEngine
+
+// Re-export types used by tests and consumers
+export type { WorkflowRequest } from './mcp-orchestrator'
+export type { SecurityContext } from './security-framework'
