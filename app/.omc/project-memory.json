@@ -133,39 +133,39 @@
   },
   "hotPaths": [
     {
+      "path": "src/pages/GraphPage.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1775289898097,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/SyncPage.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1775289903905,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/KnowledgePage.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1775289908383,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/ScaleOrchestratorPage.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1775289913303,
+      "type": "file"
+    },
+    {
       "path": "src/App.tsx",
       "accessCount": 6,
       "lastAccessed": 1775288699384,
       "type": "file"
     },
     {
-      "path": "src/pages/SyncPage.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1775289264273,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/GraphPage.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1775289265049,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/KnowledgePage.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1775289265859,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/ScaleOrchestratorPage.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1775289266794,
-      "type": "file"
-    },
-    {
       "path": "vite.config.ts",
-      "accessCount": 4,
-      "lastAccessed": 1775289306902,
+      "accessCount": 5,
+      "lastAccessed": 1775289929148,
       "type": "file"
     },
     {

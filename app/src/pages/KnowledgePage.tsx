@@ -1,5 +1,5 @@
-// @ts-ignore — JSX artifact outside src/, no type declarations
-import FOSKnowledge from '../../../fos-knowledge.jsx'
+// @ts-ignore — JSX artifact, no type declarations
+import FOSKnowledge from '../artifacts/fos-knowledge.jsx'
 
 export default function KnowledgePage() {
   return <FOSKnowledge />

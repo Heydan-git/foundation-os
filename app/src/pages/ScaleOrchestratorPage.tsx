@@ -1,5 +1,5 @@
-// @ts-ignore — JSX artifact outside src/, no type declarations
-import FOSScaleOrchestrator from '../../../fos-scale-orchestrator.jsx'
+// @ts-ignore — JSX artifact, no type declarations
+import FOSScaleOrchestrator from '../artifacts/fos-scale-orchestrator.jsx'
 
 export default function ScaleOrchestratorPage() {
   return <FOSScaleOrchestrator />
