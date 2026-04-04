@@ -6,6 +6,7 @@ import KnowledgePage from '@/pages/KnowledgePage'
 import ScaleOrchestratorPage from '@/pages/ScaleOrchestratorPage'
 import GraphPage from '@/pages/GraphPage'
 import SyncPage from '@/pages/SyncPage'
+import ToolboxPage from '@/pages/ToolboxPage'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/scale" element={<ScaleOrchestratorPage />} />
           <Route path="/graph" element={<GraphPage />} />
           <Route path="/sync" element={<SyncPage />} />
+          <Route path="/toolbox" element={<ToolboxPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell>

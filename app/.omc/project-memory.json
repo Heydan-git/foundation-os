@@ -157,9 +157,15 @@
       "type": "file"
     },
     {
+      "path": "src/artifacts",
+      "accessCount": 8,
+      "lastAccessed": 1775290667871,
+      "type": "directory"
+    },
+    {
       "path": "src/App.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1775288699384,
+      "accessCount": 7,
+      "lastAccessed": 1775297300550,
       "type": "file"
     },
     {
@@ -310,6 +316,36 @@
       "path": "src/pages/IndexPage.tsx",
       "accessCount": 1,
       "lastAccessed": 1775288693084,
+      "type": "file"
+    },
+    {
+      "path": "src/artifacts/fos-commander.jsx",
+      "accessCount": 1,
+      "lastAccessed": 1775290696392,
+      "type": "file"
+    },
+    {
+      "path": "src/artifacts/fos-knowledge.jsx",
+      "accessCount": 1,
+      "lastAccessed": 1775290696878,
+      "type": "file"
+    },
+    {
+      "path": "src/artifacts/fos-graph.jsx",
+      "accessCount": 1,
+      "lastAccessed": 1775290697347,
+      "type": "file"
+    },
+    {
+      "path": "src/artifacts/fos-sync.jsx",
+      "accessCount": 1,
+      "lastAccessed": 1775290697419,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/ToolboxPage.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775297300346,
       "type": "file"
     }
   ],

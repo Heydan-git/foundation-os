@@ -4,10 +4,14 @@
 > Si le JSX est perdu, ce fichier suffit à reconstruire intégralement.
 
 ```
-DATA_VERSION : 1.2.0
-LAST_SYNC    : 2026-04-03 (CONV-10 complet)
+DATA_VERSION : 1.3.0
+LAST_SYNC    : 2026-04-04 (CONV-005 — App Commander page)
 STORAGE_KEY  : fos-commander-v1
 JSX_CTRL     : fos-commander.jsx
+APP_CTRL     : app/src/pages/Commander.tsx
+APP_ROUTE    : /commander
+SUPABASE     : tables: sessions, decisions, risks, docs, context_blocks, next_steps
+STACK        : Vite + React + TypeScript + Tailwind + react-router-dom + Supabase
 ```
 
 ---

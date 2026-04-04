@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"mv /Users/kevinnoel/foundation-os/fos-toolbox.jsx /Users/kevinnoel/foundation-os/app/src/artifacts/ && echo \\\"✅ fos-toolbox.jsx migré vers app/src/artifacts/\\\"\",\"description\":\"Move fos-too...",
+  "error": "Exit code 1\nmv: /Users/kevinnoel/foundation-os/fos-toolbox.jsx: No such file or directory",
+  "timestamp": "2026-04-04T10:05:25.047Z",
+  "retry_count": 1
+}

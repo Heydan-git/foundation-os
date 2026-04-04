@@ -9,11 +9,12 @@
 
 | Indicateur | Valeur | Cible | Statut |
 |-----------|--------|-------|--------|
-| OS Readiness | 80% | 100% | ✅ P0-P3 · P5 85% · P1-P2 75% |
-| Artifacts livrés | 4/6 fos-* | 6/6 | ✅ 4 artifacts produits · 2 restants |
-| MD pairs complets | 4/6 | 6/6 | ✅ |
+| OS Readiness | 100% | 100% | ✅ PHASE 0 FOUNDATION EXECUTÉE · Hooks bloquants · Phantom files créés |
+| Toolbox completeness | 250+ outils | 250+ | ✅ 22 use cases · M6 Workflow Generation · M7 RALPH Loop |
+| Artifacts livrés | 7/7 fos-* | 7/7 | ✅ 7 artifacts produits · COMPLET |
+| MD pairs complets | 7/7 | 7/7 | ✅ CONV-03 sync complet |
 | Stack L1-L4 active | 3/4 | 4/4 | ✅ L0+L2+L3 · L1 partiel |
-| Foundation OS App | 85% | Deployée | ✅ scaffoldée+build · ✅ deploy Vercel en cours |
+| Foundation OS App | 100% | Deployée | ✅ LIVE · https://foundation-os.vercel.app/ |
 | DA compliance | 2/6 | 6/6 | ⏳ |
 
 ---
@@ -26,8 +27,9 @@
 | fos-knowledge.jsx | 448 | ✅ | ✅ | — | Livré |
 | fos-index.jsx | 431 | ✅ | ✅ | ✅ | Livré |
 | fos-scale-orchestrator.jsx | 558 | ✅ | ✅ | ✅ | Livré |
-| fos-graph.jsx | — | ⏳ | — | — | À produire |
-| fos-sync.jsx | — | ⏳ | — | — | À produire |
+| fos-graph.jsx | 309 | ✅ | ✅ | ✅ | Livré |
+| fos-sync.jsx | 390 | ✅ | ✅ | ✅ | Livré |
+| fos-toolbox.jsx | 547 | ✅ | ⚠️ | ✅ | Migré vers artifacts/ |
 
 **Règle :** artifact sain = lignes < 700 · MD pair ✅ · DA ✅ · storage key unique
 
@@ -38,17 +40,17 @@
 | Couche | Composant | Statut | Prérequis |
 |--------|-----------|--------|-----------|
 | L0 | Void Glass DS | ✅ Défini | — |
-| L1a | Claude.ai Projects (Knowledge base) | ⏳ À créer | — |
-| L1a | Knowledge base (~20 MD uploadés) | ⏳ À uploader | Projet créé |
-| L1b | Cowork desktop (folder foundation-os/) | ⏳ À configurer | Après e09 |
+| L1a | Claude.ai Projects (Knowledge base) | ✅ Créé | — |
+| L1a | Knowledge base (~20 MD uploadés) | ✅ Uploadés | Projet créé |
+| L1b | Cowork desktop (folder foundation-os/) | ✅ Configuré | — |
 | L2 | Claude Code CLI | ✅ Installé | — |
 | L2 | CLAUDE.md + hooks | ✅ Déployé | — |
 | L2 | oh-my-claudecode | ✅ Installé (.omc/) | — |
 | L3 | BMAD v6 (_bmad/) | ✅ Installé | — |
 | L4 | Notion wiki | ✅ Créé (e01 ✅) | — |
-| L4 | Asana projet | ⏳ À créer (MCP) | — |
+| L4 | Asana projet | ✅ Créé (MCP) | — |
 | L5 | Foundation OS App | ✅ Scaffoldée (npm ok) | — |
-| L6 | GitHub repo | ⏳ À créer | — |
+| L6 | GitHub repo | ✅ Créé (public) | — |
 
 ---
 

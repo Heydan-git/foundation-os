@@ -1,7 +1,7 @@
 ---
 name: foundation-os-orchestrator
-version: 2.0.0
-last_updated: 2026-04-03
+version: 3.0.0
+last_updated: 2026-04-04
 description: >
   Orchestrateur principal de Foundation OS — le système de travail IA-driven de Kévin.
   ACTIVE CE SKILL IMMÉDIATEMENT pour tout ce qui touche Foundation OS, de près ou de loin :
@@ -259,7 +259,75 @@ Cowork ne rend pas les JSX → Foundation OS App les remplace (L5)
 
 ---
 
-## 10 · Changelog
+## 10 · Toolbox complète — Référence outils (250+)
+
+> **Quand Kévin dit ce qu'il veut → Claude compose un workflow avec TOUS les outils ci-dessous.**
+> Référence détaillée : lire `fos-toolbox.jsx` + `FOS-TOOLBOX-DATA.md`
+
+### Outils natifs Claude (14)
+Read · Write · Edit · Glob · Grep · Bash · Agent(general/Explore/Plan) · WebSearch · WebFetch · TodoWrite · AskUserQuestion · NotebookEdit · ToolSearch · Skill
+
+### Frameworks (7)
+- **Claudify (L2)** — CLAUDE.md ≤100L · hooks · agents · commands · Research→Plan→Execute→Review→Ship
+- **BMAD v6.2.2 (L3)** — _bmad/ · 12 modules core · 62 brainstorm · 50 elicitation · party mode · distillator
+- **OMC (L2)** — team "tâche" · autopilot: scaffold/fix/refactor/test/review · /deep-interview · checkpoints · HUD
+- **Void Glass DS (L0)** — #06070C · #5EEAD4 · Figtree · JetBrains Mono · cards .025 · orbes blur(80px)
+- **Foundation OS App (L5)** — Vite+React+TS+Tailwind+Supabase+Vercel LIVE
+- **Context7 MCP (L4)** — resolve-library-id + get-library-docs · doc live anti-hallucination toute lib
+- **Shinpr Workflows (L2)** — recipe-implement · recipe-design · recipe-diagnose · recipe-build · recipe-refactor
+
+### BMAD v6 Modules (12)
+brainstorming(62 tech) · party-mode · advanced-elicitation(50 méthodes) · distillator · editorial-review-prose · editorial-review-structure · review-adversarial-general · review-edge-case-hunter · help · index-docs · init · shard-doc
+
+### MCP Connecteurs (15 · 228+ cmd)
+Notion(14) · Asana(22) · Figma(16) · Monday(42) · ClickUp(48) · Computer Use(27) · Claude in Chrome(19) · Control Chrome(10) · Apple Notes(4) · Pencil(15) · Scheduled Tasks(3) · Cowork Internal(3) · MCP Registry(2) · Plugins(2) · Session Info(2)
+
+### Agents (17)
+Claude Code: @os-architect · @doc-agent · @review-agent · @dev-agent
+BMAD Party: Analyst(Mary) · PM(John) · UX(Sally) · Architect(Winston) · SM(Bob) · Dev(Amelia) · QA(Quinn) · Quick Flow(Barry)
+Distillator: compressor · reconstructor | OMC: team · autopilot · /deep-interview
+
+### Commandes (9) + Hooks (3)
+/session-start · /session-end · /new-project · /sync-md · /bmad-help · /compact · /clear · /deep-interview · /omc-setup
+Hooks: PreToolUse(Bash) · PostToolUse(Write|Edit) · Stop
+
+### Skills Cowork (28+)
+🔴 foundation-os-orchestrator · fullstack-dev · ios-dev · product-design-uxui · design-system-manager
+🟠 lead-dev · devops-specialist · database-architect · specialiste-ai · n8n-specialist
+🟡 ui-expert · ux-ergonome · audit-ux-complet · a11y-specialist · security-engineer · qa-specialist · app-store-publisher · data-analyst · copywriter-ux · da-direction-artistique · motion-designer · hierarchie-information · doc-coauthoring · lead-design
+⚪ skill-supervisor · project-skill-director · skill-creator · web-artifacts-builder · canvas-design · theme-factory
+
+---
+
+## 11 · M6 — Workflow Generation (Claude comme moteur)
+
+```
+1. Kévin décrit l'objectif en langage naturel
+2. Claude identifie : domaine (create/maintain/monitor) · complexité · contraintes
+3. Claude sélectionne les outils pertinents dans la toolbox (section 10)
+4. Claude compose le workflow : outils + séquence + dépendances + cascades
+5. Mode 6 : 📍 Workflow → 🎯 Étapes → ❓ Tu valides ?
+6. Exécution étape par étape · adaptation en temps réel
+7. Si erreur → FOS-ERROR-LOG → CLAUDE.md · Si imprévu → edge-case-hunter
+8. Post-exécution → RALPH Loop (M7) si amélioration continue souhaitée
+```
+
+---
+
+## 12 · M7 — RALPH Loop (amélioration continue)
+
+```
+R — Read      : deep-read ALL project files (MD, JSX, _bmad/, .omc/, app/, DB)
+A — Analyze   : cross-reference · adversarial review · find gaps/debt/violations
+L — Learn     : erreurs → FOS-ERROR-LOG → CLAUDE.md · patterns → conventions
+P — Propose   : Mode 6 · fichiers impactés · cascade · risques · effort RICE
+H — Harmonize : /sync-md · Notion · Asana · MONITORING · KB · zéro désync
+→ Recommencer le cycle. Chaque boucle rend le système plus robuste.
+```
+
+---
+
+## 13 · Changelog
 
 | Version | Date | Changement |
 |---|---|---|
@@ -268,3 +336,4 @@ Cowork ne rend pas les JSX → Foundation OS App les remplace (L5)
 | 1.2.0 | 2026-04-03 | L1 split L1a+L1b · Cowork desktop |
 | 1.3.0 | 2026-04-03 | L2b→L2 · ADR-009/010 · archive note corrigée |
 | 2.0.0 | 2026-04-03 | Refonte complète — modulaire · update protocol · fichier unique · M/L notation |
+| 3.0.0 | 2026-04-04 | Toolbox 250+ intégrée · M6 Workflow Generation · M7 RALPH Loop · 28 skills · 15 MCP · Context7 · Shinpr |

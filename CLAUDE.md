@@ -15,6 +15,7 @@ Repo  : foundation-os (GitHub privé) · Phase : 00 — Setup
 4. SYNC — livrer MD + JSX ensemble, jamais l'un sans l'autre
 5. BMAD — dossier _bmad/ (UNDERSCORE, jamais .bmad/)
 6. ZÉRO NUISANCE — aucun mal volontaire ou involontaire
+7. TOOLBOX FIRST — lire 100% fichiers projet avant workflow optimal
 
 ## Patterns obligatoires
 
@@ -24,6 +25,39 @@ Repo  : foundation-os (GitHub privé) · Phase : 00 — Setup
 - JSON repair : tryParse 4 passes si réponse AI tronquée
 - Supabase : supabase-js SDK direct depuis React, pas de backend custom
 - Error log : toute erreur Claude → ajouter dans FOS-ERROR-LOG.md puis CLAUDE.md
+
+## Protocole d'exécution optimal (R7 TOOLBOX FIRST — EXHAUSTIVITÉ TOTALE)
+
+Quand Kévin demande quelque chose :
+1. **READ ULTRA-COMPLET** 
+   - Glob(FOS-*) → liste TOUS les fichiers
+   - Read(CHAQUE fichier) ligne par ligne, SANS limite, SANS offset
+   - Read(SKILL.md) complet + Read(project-context.md) + Read(.omc/*, app/*, _bmad/*)
+   - Agent(Explore thoroughness=very thorough) pour patterns cachés
+   - Grep(patterns critiques) dans TOUT le codebase
+
+2. **ANALYSE EXHAUSTIVE LIGNE PAR LIGNE**
+   - Agent(Plan) + BMAD advanced-elicitation (50 méthodes) + OMC /deep-interview
+   - @os-architect + BMAD @architect + BMAD review-adversarial-general
+   - Cross-référence CHAQUE décision ADR, CHAQUE pattern, CHAQUE dépendance
+   - Analyse contradictions, gaps, optimisations possibles ligne par ligne
+
+3. **TOOLBOX SELECTION OPTIMALE** 
+   - Read(fos-toolbox.jsx) complet + Read(FOS-TOOLBOX-DATA.md) complet
+   - Mapping précis besoin → 250+ outils disponibles → sélection optimale
+   - Validation croisée agents pour s'assurer aucun outil manqué
+
+4. **WORKFLOW COMPOSITION ARCHITECTURALE**
+   - @os-architect + BMAD @architect + bmad-review-edge-case-hunter
+   - Séquence optimale + toutes dépendances + estimation RICE + cascades
+   - Simulation mentale du workflow complet avec edge cases
+
+5. **MODE 6 VALIDATION DÉTAILLÉE**
+   - 📍 Workflow exhaustif → 🎯 CHAQUE étape détaillée → ❓ Tu valides ?
+
+6. **EXÉCUTION AVEC SURVEILLANCE CONTINUE**
+   - Outils sélectionnés + agents + adaptation temps réel
+   - RALPH Loop automatique si amélioration continue détectée
 
 ## Gestion du contexte
 

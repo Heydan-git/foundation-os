@@ -3,8 +3,8 @@
 > Règle absolue : modifier CE fichier EN PREMIER, puis syncer le JSX.
 
 ```
-DATA_VERSION : 1.0.3
-LAST_SYNC    : 2026-04-03 16:00
+DATA_VERSION : 1.1.0
+LAST_SYNC    : 2026-04-04 16:00
 STORAGE_KEY  : --- (artifact statique, pas de storage requis)
 JSX_CTRL     : fos-index.jsx
 ```
@@ -21,14 +21,16 @@ JSX_CTRL     : fos-index.jsx
 | fos-commander.jsx | Commandes · ADR · sessions · decisions | 364 | FOS-COMMANDER-DATA.md | delivered |
 | fos-knowledge.jsx | Contextes · méta · mémoire structurée | 448 | FOS-KNOWLEDGE-DATA.md | delivered |
 | fos-scale-orchestrator.jsx | Pipeline 22 étapes · stack L0-L6 | 558 | FOS-SCALE-ORCHESTRATOR-DATA.md | delivered |
+| fos-graph.jsx | Graphe SVG interactif · audit metrics | 309 | FOS-GRAPH-DATA.md | delivered |
+| fos-sync.jsx | Monitoring sync · compliance tracker | 390 | FOS-SYNC-DATA.md | delivered |
+| fos-toolbox.jsx | Workflow Generator · 250+ outils · 22 use cases | 416 | FOS-TOOLBOX-DATA.md | delivered |
+| fos-toolbox.jsx | Workflow Generator · 250+ outils · 22 use cases | 416 | FOS-TOOLBOX-DATA.md | delivered |
 
-### Category 2: ARTIFACTS PLANIFIÉS (planned)
+### Category 2: ARTIFACTS FUTURS (future)
 
 | Fichier | Rôle | MD Pair | Statut |
 |---------|------|---------|--------|
-| fos-graph.jsx | Graphe SVG · audit artifacts | FOS-GRAPH-DATA.md | planned (P6-e21) |
-| fos-sync.jsx | Projects KB · DA compliance · overlaps | FOS-SYNC-DATA.md | planned (P6-e22) |
-| fos-pipeline.jsx | Pipeline 8 phases × 3 budgets | FOS-PIPELINE-DATA.md | planned (P6) |
+| fos-pipeline.jsx | Pipeline 8 phases × 3 budgets | FOS-PIPELINE-DATA.md | future |
 
 ### Category 3: DONNÉES MD (data files)
 
@@ -38,6 +40,9 @@ JSX_CTRL     : fos-index.jsx
 | FOS-COMMANDER-DATA.md | data | Source de vérité fos-commander |
 | FOS-KNOWLEDGE-DATA.md | data | Source de vérité fos-knowledge |
 | FOS-SCALE-ORCHESTRATOR-DATA.md | data | Source de vérité fos-scale-orchestrator |
+| FOS-TOOLBOX-DATA.md | data | Source de vérité fos-toolbox |
+| FOS-GRAPH-DATA.md | data | Source de vérité fos-graph |
+| FOS-SYNC-DATA.md | data | Source de vérité fos-sync |
 | FOS-ERROR-LOG.md | error-log | Log des erreurs Foundation OS |
 | FOS-JOURNAL.md | historique | Journal des sessions |
 | FOS-MONITORING.md | monitoring | Métriques et santé projet |
@@ -72,18 +77,26 @@ JSX_CTRL     : fos-index.jsx
 ## STATS
 
 ```
-Total fichiers : 28
-Artifacts livrés : 4
-Artifacts planifiés : 3
-Fichiers MD : 15
+Total fichiers : 30
+Artifacts livrés : 7
+Artifacts planifiés : 1
+Fichiers MD : 17
 Agents : 4
 Commands : 4
-Couverture MD-pair : 4/4 livrés (100%)
+Use cases toolbox : 22 (10 create + 12 maintain)
+Couverture MD-pair : 7/7 livrés (100%)
 ```
 
 ---
 
 ## CHANGELOG
+
+### 2026-04-04 — Version 1.1.0 (Toolbox Integration v5.0.0)
+- **TOOLBOX INTEGRATION** — fos-toolbox.jsx (416L) ajouté avec FOS-TOOLBOX-DATA.md v5.0.0
+- **USE CASES EXPANSION** — 22 use cases documentés (10 create + 12 maintain)
+- **WORKFLOW GENERATION** — M6 Workflow Generation + M7 RALPH Loop intégrés
+- **STATS UPDATE** — Artifacts livrés 6 → 7 · Total fichiers 28 → 30
+- **250+ TOOLS** — Inventory complet : 14 natifs + 7 frameworks + 15 MCP + 17 agents + 28 skills
 
 ### 2026-04-03 — Version 1.0.3 (Phantom Artifacts Resolution)
 - **ARTIFACTS DELIVERED** — Création effective des 3 artifacts manquants : fos-commander.jsx (364L), fos-knowledge.jsx (448L), fos-scale-orchestrator.jsx (558L)

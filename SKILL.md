@@ -1,7 +1,7 @@
 ---
 name: foundation-os-orchestrator
-version: 2.0.0
-last_updated: 2026-04-03
+version: 3.0.0
+last_updated: 2026-04-04
 description: >
   Orchestrateur principal de Foundation OS — le système de travail IA-driven de Kévin.
   ACTIVE CE SKILL IMMÉDIATEMENT pour tout ce qui touche Foundation OS, de près ou de loin :
@@ -259,7 +259,76 @@ Cowork ne rend pas les JSX → Foundation OS App les remplace (L5)
 
 ---
 
-## 10 · Changelog
+## 10 · Toolbox complète — Référence outils (250+)
+
+> **Quand Kévin dit ce qu'il veut → Claude compose un workflow avec TOUS les outils ci-dessous.**
+> Référence détaillée : lire `fos-toolbox.jsx` + `FOS-TOOLBOX-DATA.md`
+
+### Outils natifs Claude (14)
+Read · Write · Edit · Glob · Grep · Bash · Agent(general/Explore/Plan) · WebSearch · WebFetch · TodoWrite · AskUserQuestion · NotebookEdit · ToolSearch · Skill
+
+### Frameworks (7)
+- **Claudify (L2)** — CLAUDE.md ≤100L · hooks · agents · commands · Research→Plan→Execute→Review→Ship
+- **BMAD v6.2.2 (L3)** — _bmad/ · 12 modules core · 62 brainstorm · 50 elicitation · party mode · distillator
+- **OMC (L2)** — team "tâche" · autopilot: scaffold/fix/refactor/test/review · /deep-interview · checkpoints · HUD
+- **Void Glass DS (L0)** — #06070C · #5EEAD4 · Figtree · JetBrains Mono · cards .025 · orbes blur(80px)
+- **Foundation OS App (L5)** — Vite+React+TS+Tailwind+Supabase+Vercel LIVE
+- **Context7 MCP (L4)** — resolve-library-id + get-library-docs · doc live anti-hallucination toute lib
+- **Shinpr Workflows (L2)** — recipe-implement · recipe-design · recipe-diagnose · recipe-build · recipe-refactor
+
+### BMAD v6 Modules (12)
+brainstorming(62 tech) · party-mode · advanced-elicitation(50 méthodes) · distillator · editorial-review-prose · editorial-review-structure · review-adversarial-general · review-edge-case-hunter · help · index-docs · init · shard-doc
+
+### MCP Connecteurs (15 · 228+ cmd)
+Notion(14) · Asana(22) · Figma(16) · Monday(42) · ClickUp(48) · Computer Use(27) · Claude in Chrome(19) · Control Chrome(10) · Apple Notes(4) · Pencil(15) · Scheduled Tasks(3) · Cowork Internal(3) · MCP Registry(2) · Plugins(2) · Session Info(2)
+
+### Agents (17)
+Claude Code: @os-architect · @doc-agent · @review-agent · @dev-agent
+BMAD Party: Analyst(Mary) · PM(John) · UX(Sally) · Architect(Winston) · SM(Bob) · Dev(Amelia) · QA(Quinn) · Quick Flow(Barry)
+Distillator: compressor · reconstructor | OMC: team · autopilot · /deep-interview
+
+### Commandes (9) + Hooks (3)
+/session-start · /session-end · /new-project · /sync-md · /bmad-help · /compact · /clear · /deep-interview · /omc-setup
+Hooks: PreToolUse(Bash) · PostToolUse(Write|Edit) · Stop
+
+### Skills Cowork (28+)
+🔴 foundation-os-orchestrator · fullstack-dev · ios-dev · product-design-uxui · design-system-manager
+🟠 lead-dev · devops-specialist · database-architect · specialiste-ai · n8n-specialist
+🟡 ui-expert · ux-ergonome · audit-ux-complet · a11y-specialist · security-engineer · qa-specialist · app-store-publisher · data-analyst · copywriter-ux · da-direction-artistique · motion-designer · hierarchie-information · doc-coauthoring · lead-design
+⚪ skill-supervisor · project-skill-director · skill-creator · web-artifacts-builder · canvas-design · theme-factory
+
+---
+
+## 11 · M6 — Workflow Generation ULTRA-EXHAUSTIF (Claude comme moteur)
+
+```
+1. Kévin décrit l'objectif en langage naturel
+2. Claude READ ULTRA-COMPLET : Glob(TOUS fichiers) → Read(CHAQUE fichier, ligne par ligne, SANS limite) → Agent(Explore very thorough) → Grep(patterns critiques)
+3. Claude ANALYSE EXHAUSTIVE : domaine + complexité + contraintes + cross-référence CHAQUE ADR/pattern/dépendance ligne par ligne + BMAD advanced-elicitation(50 méthodes) + OMC deep-interview
+4. Claude sélectionne outils optimaux parmi 250+ avec validation croisée agents + Read(fos-toolbox.jsx complet) + Read(FOS-TOOLBOX-DATA.md complet)
+5. Claude compose workflow architecturé : @os-architect + BMAD @architect + edge-case-hunter + séquence + dépendances + cascades + simulation mentale complète
+6. Mode 6 : 📍 Workflow exhaustif → 🎯 CHAQUE étape détaillée → ❓ Tu valides ?
+7. Exécution avec surveillance continue + adaptation temps réel
+8. Si erreur → FOS-ERROR-LOG → CLAUDE.md · Si imprévu → edge-case-hunter
+9. RALPH Loop automatique si amélioration continue détectée
+```
+
+---
+
+## 12 · M7 — RALPH Loop ULTRA-EXHAUSTIF (amélioration continue)
+
+```
+R — Read      : ULTRA-COMPLET ligne par ligne (FOS-*, SKILL.md, .omc/, app/, _bmad/, project-context.md) + Agent(Explore very thorough) + Glob(TOUS fichiers) + Read(CHAQUE fichier sans limite)
+A — Analyze   : EXHAUSTIF ligne par ligne · cross-référence CHAQUE ADR/pattern/dépendance · BMAD adversarial review + edge-case-hunter + advanced-elicitation · find gaps/debt/violations/optimisations
+L — Learn     : erreurs → FOS-ERROR-LOG → CLAUDE.md · patterns → conventions · optimisations détectées ligne par ligne
+P — Propose   : Mode 6 architecturé · CHAQUE fichier impacté · TOUTES cascades · TOUS risques · effort RICE détaillé + simulation mentale
+H — Harmonize : /sync-md · Notion · Asana · MONITORING · KB · zéro désync · validation agents croisée
+→ Recommencer le cycle. Chaque boucle rend le système exponentiellement plus robuste.
+```
+
+---
+
+## 13 · Changelog
 
 | Version | Date | Changement |
 |---|---|---|
@@ -268,3 +337,4 @@ Cowork ne rend pas les JSX → Foundation OS App les remplace (L5)
 | 1.2.0 | 2026-04-03 | L1 split L1a+L1b · Cowork desktop |
 | 1.3.0 | 2026-04-03 | L2b→L2 · ADR-009/010 · archive note corrigée |
 | 2.0.0 | 2026-04-03 | Refonte complète — modulaire · update protocol · fichier unique · M/L notation |
+| 3.0.0 | 2026-04-04 | Toolbox 250+ intégrée · M6 Workflow Generation · M7 RALPH Loop · 28 skills · 15 MCP · Context7 · Shinpr |

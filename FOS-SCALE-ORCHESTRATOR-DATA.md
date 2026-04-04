@@ -275,6 +275,7 @@ Débloque : premier module de la vraie Foundation OS App.
 |----|-------|-----|-----|
 | e21 | fos-graph.jsx + FOS-GRAPH-DATA.md | Claude | ARTIFACT |
 | e22 | fos-sync.jsx + FOS-SYNC-DATA.md | Claude | ARTIFACT |
+| e23 | Toolbox opérationnelle — M6 + M7 | Claude | WORKFLOW |
 
 e21 · Comment faire :
 Dire à Claude dans ce chat : "Produis fos-graph.jsx"
@@ -286,6 +287,13 @@ e22 · Comment faire :
 Dire à Claude dans ce chat : "Produis fos-sync.jsx"
 Claude construit l'artifact (Cowork tracker + DA + overlaps) + son MD pair
 Validation : artifact sous 700L · DA compliance et overlaps visibles.
+
+e23 · Comment faire :
+FOS-TOOLBOX-DATA.md v5.0.0 + fos-toolbox.jsx intégrés dans Foundation OS
+M6 Workflow Generation ULTRA-EXHAUSTIF : Kévin décrit → Claude READ COMPLET ligne par ligne (Glob TOUS fichiers + Read CHAQUE fichier sans limite + Agent Explore very thorough + Grep patterns) → ANALYSE EXHAUSTIVE ligne par ligne (Plan+BMAD advanced-elicitation 50 méthodes+OMC deep-interview+cross-référence CHAQUE ADR/pattern/dépendance) → sélectionne outils optimaux (250+) validation croisée → compose workflow architecturé (@os-architect+@architect+edge-case-hunter+simulation mentale) → Mode 6 validation détaillée → exécution avec surveillance continue
+M7 RALPH Loop : Read → Analyze → Learn → Propose → Harmonize → cycle amélioration continue
+Validation : toute demande de Kévin déclanche protocole optimal toolbox-first · zéro workflow sous-optimal.
+Débloque : exécution optimale automatique · Foundation OS comme moteur IA intelligent.
 
 ---
 
