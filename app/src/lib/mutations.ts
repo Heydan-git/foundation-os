@@ -1,10 +1,11 @@
 /**
- * mutations.ts - CRUD Hooks for Foundation OS Phase 2
- * Real Supabase implementation - Unified Source Architecture
- * MD files → DB sync with Foundation OS write capability
+ * mutations.ts - CRUD Hooks for Foundation OS Phase 5
+ * Real Supabase implementation + Notion Sync Integration
+ * Foundation OS ↔ Notion bidirectional sync with conflict resolution
  */
 
 import { supabase } from './supabase'
+import { notionSyncEngine } from './notion-sync-engine'
 
 // Simple types for Foundation OS data structures
 interface SessionData {
@@ -72,6 +73,17 @@ export const useCommanderMutations = () => {
       if (error) throw error
 
       console.log('✅ Real session created:', (data as any).id)
+
+      // Trigger Notion sync for new session
+      try {
+        if (notionSyncEngine.getStatus().isRunning) {
+          await notionSyncEngine.forceSyncAll()
+          console.log('🔄 Notion sync triggered for new session')
+        }
+      } catch (error) {
+        console.warn('⚠️ Notion sync failed for session:', error)
+      }
+
       return { success: true, data }
     } catch (error: any) {
       console.error('Error creating session:', error)

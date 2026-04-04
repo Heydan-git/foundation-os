@@ -6,6 +6,7 @@ import KnowledgePage from '@/pages/KnowledgePage'
 import ScaleOrchestratorPage from '@/pages/ScaleOrchestratorPage'
 import GraphPage from '@/pages/GraphPage'
 import SyncPage from '@/pages/SyncPage'
+import NotionSyncPage from '@/pages/NotionSyncPage'
 import ToolboxPage from '@/pages/ToolboxPage'
 
 const globalStyles = `
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/scale" element={<ScaleOrchestratorPage />} />
           <Route path="/graph" element={<GraphPage />} />
           <Route path="/sync" element={<SyncPage />} />
+          <Route path="/notion-sync" element={<NotionSyncPage />} />
           <Route path="/toolbox" element={<ToolboxPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
