@@ -107,27 +107,27 @@
   },
   "hotPaths": [
     {
-      "path": "FOS-MONITORING.md",
-      "accessCount": 32,
-      "lastAccessed": 1775381636333,
-      "type": "file"
-    },
-    {
       "path": "",
-      "accessCount": 31,
-      "lastAccessed": 1775380876622,
+      "accessCount": 53,
+      "lastAccessed": 1775387086794,
       "type": "directory"
     },
     {
+      "path": "FOS-MONITORING.md",
+      "accessCount": 36,
+      "lastAccessed": 1775385619402,
+      "type": "file"
+    },
+    {
       "path": "FOS-JOURNAL.md",
-      "accessCount": 31,
-      "lastAccessed": 1775381649260,
+      "accessCount": 35,
+      "lastAccessed": 1775385619428,
       "type": "file"
     },
     {
       "path": "app/src/App.tsx",
-      "accessCount": 28,
-      "lastAccessed": 1775381619681,
+      "accessCount": 30,
+      "lastAccessed": 1775385528525,
       "type": "file"
     },
     {
@@ -161,6 +161,12 @@
       "type": "file"
     },
     {
+      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+      "accessCount": 10,
+      "lastAccessed": 1775385611542,
+      "type": "file"
+    },
+    {
       "path": "FOS-PLAN-MASTER-v2.md",
       "accessCount": 8,
       "lastAccessed": 1775318076355,
@@ -168,20 +174,20 @@
     },
     {
       "path": "app/package.json",
-      "accessCount": 7,
-      "lastAccessed": 1775340265762,
+      "accessCount": 8,
+      "lastAccessed": 1775385519434,
+      "type": "file"
+    },
+    {
+      "path": "FOS-TECH-ARCHITECTURE.md",
+      "accessCount": 8,
+      "lastAccessed": 1775385524354,
       "type": "file"
     },
     {
       "path": "app/src/lib/supabase.ts",
-      "accessCount": 7,
-      "lastAccessed": 1775340395684,
-      "type": "file"
-    },
-    {
-      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
-      "accessCount": 7,
-      "lastAccessed": 1775377395582,
+      "accessCount": 8,
+      "lastAccessed": 1775385532555,
       "type": "file"
     },
     {
@@ -191,21 +197,15 @@
       "type": "file"
     },
     {
-      "path": "FOS-TECH-ARCHITECTURE.md",
+      "path": "FOS-MEMORY-STRATEGY.md",
       "accessCount": 6,
-      "lastAccessed": 1775377392668,
+      "lastAccessed": 1775385524553,
       "type": "file"
     },
     {
       "path": "FOS-PHASE5-ROADMAP.md",
       "accessCount": 5,
       "lastAccessed": 1775319085199,
-      "type": "file"
-    },
-    {
-      "path": "FOS-MEMORY-STRATEGY.md",
-      "accessCount": 5,
-      "lastAccessed": 1775380882545,
       "type": "file"
     },
     {

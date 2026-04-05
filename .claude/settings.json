@@ -8,7 +8,6 @@
     ],
     "deny": []
   },
-  "model": "claude-sonnet-4-20250514",
   "hooks": {
     "PreToolUse": [
       {
@@ -16,85 +15,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/check-md-pair.sh \"${file_path:-}\""
-          },
-          {
-            "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/hooks/validate-void-glass.sh \"${file_path:-}\""
-          }
-        ]
-      },
-      {
-        "matcher": "Bash(*/compact*|*/clear*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/pre-compactage-backup.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/error-monitor.sh health"
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/file-tracker.sh update"
-          },
-          {
-            "type": "command",
-            "command": "echo '[FOS] ✅ Garde-fous BULLETPROOF validation passed → Système opérationnel'"
-          }
-        ]
-      },
-      {
-        "matcher": "Read",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/post-read-checkpoint.sh"
-          }
-        ]
-      },
-      {
         "matcher": "Bash(git commit*)",
         "hooks": [
           {
             "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/hooks/conventional-commit.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/error-monitor.sh monitor-command"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/session-end-archive.sh"
-          },
-          {
-            "type": "command",
-            "command": "echo '[FOS] 🛡️ Session terminée → Foundation OS garde-fous actifs'"
           }
         ]
       }
