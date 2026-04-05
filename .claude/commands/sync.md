@@ -1,0 +1,50 @@
+# /sync — Verifier la coherence du projet
+
+Audit complet de coherence Foundation OS. Remplace l'ancien /sync-md.
+
+## Workflow
+
+### 1. Structure racine
+- Racine = seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore (+ dossiers attendus)
+- Signaler tout fichier orphelin
+
+### 2. Modules
+- Lister modules/ sur le filesystem
+- Comparer avec CONTEXT.md section Modules
+- Signaler : module present sur disk mais pas dans CONTEXT.md, ou vice-versa
+
+### 3. References
+- Grep les noms de fichiers recemment supprimes/deplaces dans tout le projet
+- Signaler les refs cassees (imports, liens MD, paths dans configs)
+
+### 4. CONTEXT.md vs filesystem
+- Status des modules : correspond a la realite ?
+- Routes listees : existent dans le code ?
+- Artifacts listes : existent sur le filesystem ?
+- Builds : relancer et verifier les temps/tailles
+
+### 5. App Builder specifique (si module app actif)
+- MD pairs : `modules/app/data/*.md` ↔ `modules/app/src/artifacts/fos-*.jsx`
+- JSX < 700 lignes : `wc -l` chaque artifact
+- Void Glass : grep #0A0A0B, #08080A, Outfit, Inter dans src/
+- Fonts : Figtree present, pas de police interdite en primaire
+
+### 6. Core OS
+- Specs dans docs/core/ coherentes avec .claude/agents/ et .claude/commands/
+- Routing dans CLAUDE.md correspond a cortex.md
+
+## Format de sortie
+
+```
+SYNC — [date]
+
+Structure  : [OK / violations]
+Modules    : [OK / desync]
+References : [OK / N refs cassees]
+CONTEXT.md : [OK / N incoherences]
+App        : [OK / violations]
+Core OS    : [OK / incoherences]
+
+Verdict : COHERENT / A CORRIGER
+[details si A CORRIGER]
+```

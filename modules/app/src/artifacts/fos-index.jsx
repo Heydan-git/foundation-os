@@ -170,10 +170,10 @@ const CATALOG = [
     status: 'stable'
   },
   {
-    id: 'sync-md',
-    name: 'sync-md.md',
+    id: 'sync',
+    name: 'sync.md',
     category: 'commands',
-    role: 'Vérifier cohérence MD/JSX',
+    role: 'Vérifier cohérence projet',
     status: 'stable'
   }
 ];

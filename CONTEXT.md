@@ -7,7 +7,7 @@
 | Module | Status | Detail |
 |--------|--------|--------|
 | App Builder | MVP | 5 routes, build OK 832ms, 7 artifacts, Supabase connecte |
-| Core OS | planifie | 4 modules (Cortex, Memory, Monitor, Tools) — plan valide |
+| Core OS | Phase 1 actif | Cortex implemente (routing, agents, commands, specs). Phases 2-4 prevues. |
 | Finance | prevu | Pas encore cree |
 | Sante | prevu | Pas encore cree |
 
@@ -36,7 +36,7 @@
 | Anti-bullshit | 6 gates dans CLAUDE.md, mots interdits, verification obligatoire |
 | Garde-fous | Jamais de fichier a la racine, jamais sans demande, grep+fix apres rename |
 | Schema DB | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
-| Core OS | 4 modules (Cortex, Memory, Monitor, Tools) — specs dans docs/core/, runtime dans .claude/core/ |
+| Core OS | 4 modules (Cortex actif, Memory/Monitor/Tools prevus) — specs dans docs/core/, runtime dans .claude/ |
 | Dashboard | Commander evolue vers monitoring Core OS (futur) |
 
 ## App Builder — Etat technique
@@ -61,7 +61,7 @@
 
 ## Outils installes
 
-- **Claude Code** : CLAUDE.md + 4 agents + 4 commands + 1 hook PreToolUse + 1 git hook
+- **Claude Code** : CLAUDE.md (enrichi Cortex routing) + 4 agents (refactores) + 4 commands (module-aware) + 1 hook PreToolUse + 1 git hook
 - **OMC** : oh-my-claudecode (team, autopilot, ralph, ultrawork, etc.)
 - **BMAD v6** : _bmad/ (12 modules)
 - **MCP** : Notion, Asana, Figma, Monday, ClickUp, Computer Use, Context7

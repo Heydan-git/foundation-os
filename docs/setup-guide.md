@@ -33,7 +33,7 @@ _bmad/             BMAD v6 (installe)
 - /session-start : lire etat + verifier structure + build check + annoncer next
 - /session-end : verifier coherence + mettre a jour CONTEXT.md + proposer commit
 - /new-project : creer un nouveau module dans modules/
-- /sync-md : verifier coherence MD/JSX dans l'app
+- /sync : verifier coherence projet (structure, refs, CONTEXT.md, Void Glass)
 
 ## Outils installes
 

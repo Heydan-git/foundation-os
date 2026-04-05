@@ -35,6 +35,7 @@ foundation-os/
   supabase/          Migrations DB (source de verite schema)
   _bmad/             BMAD v6 (12 modules)
   .claude/           4 agents, 4 commands, settings
+  docs/core/         Specs Core OS (cortex, architecture)
   .omc/              OMC runtime
   .archive/          Historique
 ```

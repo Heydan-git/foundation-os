@@ -90,7 +90,7 @@ BMAD distillator : distillate-compressor · round-trip-reconstructor
 OMC : team N workers (ultrapilot 3-5x) · autopilot smart routing · /deep-interview scoring ambiguïté
 
 ### ⚡ Commandes & Hooks (9 cmd + 3 hooks) — enrichis
-/session-start (séquence SCALE→MONITORING→JOURNAL→M6) · /session-end · /new-project · /sync-md (5 checks) · /bmad-help · /compact (>70%) · /clear (>90%) · /deep-interview (anti-scope-creep) · /omc-setup
+/session-start (séquence SCALE→MONITORING→JOURNAL→M6) · /session-end · /new-project · /sync (6 checks) · /bmad-help · /compact (>70%) · /clear (>90%) · /deep-interview (anti-scope-creep) · /omc-setup
 Hooks : PreToolUse(Bash) bloque suppression · PostToolUse(Write|Edit) log JOURNAL · Stop
 
 ### 🎯 Skills Cowork (28)

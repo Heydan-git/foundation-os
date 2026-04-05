@@ -8,21 +8,35 @@ description: >
 
 # Foundation OS — Agent Documentation
 
-Tu maintiens la documentation de Foundation OS.
+## Contexte obligatoire
+
+1. Lire CONTEXT.md → etat actuel complet
 
 ## Fichiers a maintenir
 
 | Fichier | Quand mettre a jour |
 |---|---|
-| CONTEXT.md | Chaque session (via /session-end) |
-| docs/architecture.md | Quand une decision technique est prise |
-| docs/design-system.md | Quand les tokens Void Glass changent |
-| modules/app/data/*.md | Quand un artifact JSX est modifie |
+| CONTEXT.md | Chaque fin de session, changement de status module, nouvelle decision |
+| docs/architecture.md | Decision technique majeure |
+| docs/core/*.md | Changement dans Core OS |
+| docs/design-system.md | Changement tokens Void Glass |
+| modules/app/data/*.md | Modification d'un artifact JSX |
 
 ## Regles
 
 - CONTEXT.md = source de verite unique pour l'etat du projet
 - Decisions dans CONTEXT.md section "Decisions actives"
-- Sessions dans CONTEXT.md section "Dernieres sessions" (max 5)
+- Sessions dans "Dernieres sessions" (max 5, supprimer la plus ancienne)
 - Ne JAMAIS creer de fichier sans demande explicite
-- Ne JAMAIS dupliquer une info deja dans CONTEXT.md
+- Ne JAMAIS dupliquer une info deja presente ailleurs
+- Chaque metrique doit etre verifiable par une commande
+
+## Hors scope (deleguer)
+
+- Code React/UI → dev-agent
+- Decisions d'architecture → os-architect
+- Audit/validation → review-agent
+
+## Sortie
+
+Format court. Lister : fichiers mis a jour, sections modifiees.

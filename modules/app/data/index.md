@@ -70,7 +70,7 @@ JSX_CTRL     : fos-index.jsx
 | session-start.md | Charger contexte + état + prochaine action |
 | session-end.md | Résumer + lister fichiers modifiés + next step |
 | new-project.md | Créer structure nouveau projet |
-| sync-md.md | Vérifier cohérence MD/JSX |
+| sync.md | Vérifier cohérence projet |
 
 ---
 

@@ -1,0 +1,95 @@
+# Cortex — Spec
+
+Module d'intelligence de Foundation OS. Routing, contexte, orchestration.
+
+## 1. Routing — Arbre de decision
+
+Quand une tache arrive, Cortex la route vers l'agent adapte.
+
+| Signal dans la tache | Agent | Exemples |
+|---------------------|-------|----------|
+| architecture, ADR, stack, schema, structurer, option A vs B | os-architect | "Comment structurer finance ?" |
+| code, composant, page, Supabase, React, build, scaffold, CSS, Tailwind | dev-agent | "Ajoute un bouton delete" |
+| documente, note, trace, journalise, met a jour CONTEXT | doc-agent | "Mets a jour CONTEXT.md" |
+| verifie, audit, check, revue, regression, deployer | review-agent | "Verifie avant commit" |
+
+### Regles de priorite
+
+1. Match explicite → deleguer a l'agent
+2. Ambiguite entre agents → demander a Kevin
+3. Multi-agent (ex: code puis review) → executer sequentiellement
+4. Aucun match → traiter directement sans delegation
+5. Tache triviale (< 1 fichier, < 10 lignes) → traiter directement
+
+## 2. Contexte — Protocole CONTEXT.md
+
+### Lecture (session-start)
+
+1. Lire CONTEXT.md entierement
+2. Extraire : modules actifs, derniere session, prochaine action, decisions
+3. Detecter tous les modules dans modules/ (pas seulement app)
+4. Verifier coherence : ce que CONTEXT.md dit vs ce qui existe sur le filesystem
+
+### Mise a jour (session-end)
+
+1. "Dernieres sessions" : ajouter en tete, garder max 5, supprimer la plus ancienne
+2. "Prochaine action" : remplacer par la suite logique
+3. "Modules" : mettre a jour si changement de status
+4. "Decisions actives" : ajouter si nouvelle decision prise
+5. "Etat technique" : mettre a jour si builds/routes/artifacts changent
+
+### Invariants
+
+- Tout ce qui est dans CONTEXT.md doit etre verifiable par une commande
+- Pas de metriques inventees, pas d'estimations optimistes
+- Une seule source de verite par information (pas de duplication)
+
+## 3. Commands — Registry
+
+| Command | Quand | Ce qu'elle fait |
+|---------|-------|-----------------|
+| /session-start | Debut de session | Lire contexte → check structure → build tous modules actifs → annoncer |
+| /session-end | Fin de session | Lister changes → coherence → build → update CONTEXT.md → proposer commit |
+| /new-project | Creer un module | Scaffold modules/[nom]/ → update CONTEXT.md |
+| /sync | Verifier coherence | Structure + refs + CONTEXT.md vs filesystem + Void Glass + MD pairs |
+
+### /sync — Detail
+
+/sync remplace /sync-md avec un scope elargi :
+
+1. **Structure** : racine = 3 fichiers + dossiers attendus, pas d'orphelins
+2. **Modules** : chaque module dans CONTEXT.md existe dans modules/, et vice-versa
+3. **Refs** : grep les noms de fichiers supprimes/deplaces recemment, corriger les refs cassees
+4. **CONTEXT.md** : status des modules, builds, routes, artifacts — tout correspond au filesystem
+5. **App specifique** : MD pairs (data/*.md ↔ artifacts/fos-*.jsx), Void Glass, JSX < 700 lignes
+
+## 4. Agents — Protocole uniforme
+
+Chaque agent suit le meme protocole :
+
+### Entree
+- Lire CONTEXT.md pour le contexte global
+- Lire les fichiers specifiques a son scope
+
+### Execution
+- Appliquer ses regles
+- Rester dans son scope (ne pas deborder sur un autre agent)
+- Signaler si la tache necessite un autre agent
+
+### Sortie
+- Rapporter ce qui a ete fait, format court
+- Lister les fichiers crees/modifies
+- Signaler les warnings ou decisions prises
+
+### Contraintes communes
+- Ne jamais creer de fichier sans demande explicite
+- Ne jamais creer de fichier a la racine
+- Build verifie avant affirmation de completion
+- Conventional commits : type(scope): description
+
+## 5. Limites de Cortex
+
+Ce que Cortex ne gere PAS (phases futures) :
+- Persistance inter-session structuree (→ Memory, Phase 2)
+- Metriques et health checks automatiques (→ Monitor, Phase 3)
+- Scripts et automation CLI (→ Tools, Phase 4)

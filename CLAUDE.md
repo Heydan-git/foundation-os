@@ -36,9 +36,24 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - Commits factuels : pas de "achieve", "world-first", "revolutionary"
 - Red flag : si plus de MD que de code dans une session, c'est suspect
 
+## Core OS — Routing
+
+Cortex route les taches vers l'agent adapte. Spec complete : docs/core/cortex.md
+
+| Signal | Agent |
+|--------|-------|
+| architecture, ADR, stack, schema, structurer, option A vs B | os-architect |
+| code, composant, page, Supabase, React, build, scaffold, CSS | dev-agent |
+| documente, note, trace, journalise, met a jour CONTEXT | doc-agent |
+| verifie, audit, check, revue, regression, deployer | review-agent |
+
+Priorite : match explicite → deleguer. Ambiguite → demander. Aucun match → traiter directement.
+Multi-agent → sequentiel (ex: dev puis review). Trivial (< 1 fichier) → direct.
+
 ## Structure
 modules/app/       Module App Builder (React, actif)
 docs/              Architecture, design system, manifeste, guide setup
+docs/core/         Specs Core OS (cortex, architecture)
 scripts/hooks/     Hook Void Glass (PreToolUse)
 supabase/          Migrations DB
 _bmad/             BMAD v6 (12 modules)
@@ -50,13 +65,16 @@ cd modules/app && npm run dev    # Dev local
 cd modules/app && npm run build  # Production
 
 ## Agents (.claude/agents/)
-- os-architect  : architecture, decisions, structure
-- doc-agent     : documentation, CONTEXT.md, sync
-- review-agent  : coherence, zero regression
-- dev-agent     : code React, Supabase, Void Glass
+- os-architect  : architecture, decisions, stack, schema, structure
+- dev-agent     : code React/TS, composants, Supabase, Void Glass
+- doc-agent     : documentation, CONTEXT.md, traces
+- review-agent  : coherence, audit, zero regression, pre-deploy
+
+Protocole uniforme : entree (CONTEXT.md + scope) → execution → sortie (rapport court).
+Spec agents : docs/core/cortex.md section 4.
 
 ## Commands (.claude/commands/)
-- /session-start : lire CONTEXT.md, git status, build check, annoncer etat + next
-- /session-end   : verifier coherence, mettre a jour CONTEXT.md, proposer commit
-- /new-project   : creer un nouveau module dans modules/
-- /sync-md       : verifier coherence MD/JSX dans l'app
+- /session-start : contexte + structure check + build tous modules actifs + announce
+- /session-end   : list changes + coherence + build + update CONTEXT.md + propose commit
+- /new-project   : scaffold modules/[nom]/ + update CONTEXT.md
+- /sync          : coherence projet entiere (structure, refs, CONTEXT.md vs filesystem, Void Glass)

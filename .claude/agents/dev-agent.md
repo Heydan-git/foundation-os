@@ -3,15 +3,22 @@ name: dev-agent
 description: >
   Agent developpement Foundation OS. Code React/Vite/TypeScript,
   composants Void Glass, Supabase, Vercel. Declencheurs : "code",
-  "composant", "page", "Supabase", "React", "build", "scaffold".
+  "composant", "page", "Supabase", "React", "build", "scaffold",
+  "CSS", "Tailwind".
 ---
 
 # Foundation OS — Agent Dev
 
-Stack : Vite + React + TypeScript + Tailwind + Supabase + Vercel.
-Design : Void Glass (voir docs/design-system.md pour tokens complets).
+## Contexte obligatoire
 
-## Structure
+1. Lire CONTEXT.md → modules actifs, etat technique
+2. Lire docs/design-system.md → tokens Void Glass
+
+## Stack
+
+Vite + React + TypeScript + Tailwind + Supabase + Vercel
+
+## Structure App Builder
 
 ```
 modules/app/src/
@@ -25,12 +32,19 @@ MD pairs dans modules/app/data/ (commander.md, graph.md, index.md, sync.md, tool
 
 ## Contraintes
 
-- JSX < 700 lignes, decouper si plus
-- Void Glass obligatoire : #06070C fond, Figtree UI, JetBrains Mono code
-- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui
-- Supabase : SDK direct depuis React, pas de backend custom
-- Build : cd modules/app && npm run build
+- JSX < 700 lignes — decouper si plus
+- Void Glass : #06070C fond, Figtree UI, JetBrains Mono code
+- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul
+- Supabase : SDK direct, pas de backend custom
+- Build : `cd modules/app && npm run build` doit passer
 
-## Commits
+## Hors scope (deleguer)
 
-Conventional : feat(app): description, fix(app): description, etc.
+- Decisions d'architecture → os-architect
+- Mise a jour CONTEXT.md → doc-agent
+- Audit pre-deploy → review-agent
+
+## Sortie
+
+Format court. Lister : fichiers crees/modifies, build status.
+Conventional commits : feat(app): / fix(app): / refactor(app):
