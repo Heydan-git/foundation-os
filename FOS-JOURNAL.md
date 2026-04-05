@@ -7,6 +7,56 @@
 
 ## Sessions
 
+### CONV-SYNC · 2026-04-05 · Documentation Reality Sync + Core Intelligence Fix
+
+**Items :**
+- Correction chirurgicale documentation vs réalité technique
+- App.tsx system-ui fix → Figtree,Helvetica,Arial,sans-serif (CLAUDE.md compliance)
+- FOS-MONITORING.md synchronized with actual app state (5 routes functional)
+- Build status verified: ✅ 440.56 kB bundle, 102 modules, 869ms
+- Core Intelligence System: 39/39 tests pass (from previous session)
+- Git cleanup: proper state without accidental deletions
+
+**Décisions :**
+- ADR-048 : Documentation must reflect technical reality, not aspirational states
+- ADR-049 : System-ui forbidden in Foundation OS (CLAUDE.md rule enforcement)
+- ADR-050 : Build-first verification before claiming completion
+
+**Livrables :**
+- App.tsx — system-ui removed, Figtree font hierarchy corrected
+- FOS-MONITORING.md — realistic status reflecting 5 functional routes
+- FOS-JOURNAL.md — factual session entry without bullshit metrics
+
+**Phase :** 00 (Reality Sync/Maintenance)
+**Status :** Documentation synchronized with working technical reality
+
+---
+
+### CONV-LATEST · 2026-04-04 · Maintenance OMC + Foundation OS Diagnostic
+
+**Items :**
+- Diagnostic OMC complet → résolution conflits legacy skills
+- Scan exhaustif Foundation OS ligne par ligne (protocole R7)
+- Nettoyage hooks projet → suppression scripts manquants
+- Validation état réel vs documentation
+- Cleanup artifacts obsolètes (12 JSX supprimés)
+- Autopilot activation → prêt pour développement autonome
+
+**Décisions :**
+- ADR-045 : OMC operational → legacy skills moved to backup
+- ADR-046 : Foundation OS hooks cleaned → removed missing script references
+- ADR-047 : Project reality check → technically complete, needs real-world validation
+
+**Livrables :**
+- .claude/settings.json — hooks Foundation OS nettoyés
+- ~/.claude/skills.backup-[timestamp] — legacy skills sauvegardés
+- OMC diagnostic report — système operational
+
+**Phase :** 00 (Setup/Maintenance)
+**Status :** OMC operational, Foundation OS technically ready
+
+---
+
 ### CONV-06 · 2026-04-04 · Phase 2-3 RÉVOLUTION SELF-MODIFYING — Architecture Révolutionnaire Achevée
 
 **Items :**
@@ -539,3 +589,4 @@
 | 2026-04-03 | CONV-10 complété — ADR-011 · audit final · OMC fixes |
 | 2026-04-03 | ADR-012 · L1 = L1a Claude.ai Projects + L1b Cowork desktop |
 | 2026-04-03 | CONV-11 · Audit global · L2b→L2 · M/L notation · e04b · SKILL.md |
+Structure nettoyée validée - Ready for semantic memory intelligence sam.  4 avr. 2026 23:49:06 CEST

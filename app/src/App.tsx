@@ -2,17 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Commander from '@/pages/Commander'
 import Dashboard from '@/pages/Dashboard'
 import IndexPage from '@/pages/IndexPage'
-import KnowledgePage from '@/pages/KnowledgePage'
-import ScaleOrchestratorPage from '@/pages/ScaleOrchestratorPage'
-import GraphPage from '@/pages/GraphPage'
-import SyncPage from '@/pages/SyncPage'
-import NotionSyncPage from '@/pages/NotionSyncPage'
-import AsanaAutomationPage from '@/pages/AsanaAutomationPage'
-import ToolboxPage from '@/pages/ToolboxPage'
-import FigmaValidationPage from '@/pages/FigmaValidationPage'
-import DeveloperEcosystemPage from '@/pages/DeveloperEcosystemPage'
-import Phase2Demo from '@/pages/Phase2Demo'
-import Phase5ConnectedDemo from '@/pages/Phase5ConnectedDemo'
+import Phase1Demo from '@/pages/Phase1Demo'
+import SupabaseCRUDTest from '@/components/SupabaseCRUDTest'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -31,9 +22,8 @@ const globalStyles = `
 
 function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: "'Figtree',system-ui,sans-serif", background: '#06070C', color: '#D4D4D8', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ fontFamily: "'Figtree',Helvetica,Arial,sans-serif", background: '#06070C', color: '#D4D4D8', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
       <style>{globalStyles}</style>
-      {/* Background orbs */}
       <div className="orb" style={{ width: 280, height: 280, background: '#A78BFA', top: -80, right: -60, animation: 'drift 18s ease-in-out infinite' }} />
       <div className="orb" style={{ width: 200, height: 200, background: '#5EEAD4', bottom: '30%', left: -50, animation: 'drift 22s ease-in-out infinite' }} />
       <div className="orb" style={{ width: 240, height: 240, background: '#3B82F6', bottom: -60, right: '20%', animation: 'drift 28s ease-in-out infinite' }} />
@@ -52,17 +42,8 @@ export default function App() {
           <Route path="/" element={<IndexPage />} />
           <Route path="/commander" element={<Commander />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/knowledge" element={<KnowledgePage />} />
-          <Route path="/scale" element={<ScaleOrchestratorPage />} />
-          <Route path="/graph" element={<GraphPage />} />
-          <Route path="/sync" element={<SyncPage />} />
-          <Route path="/notion-sync" element={<NotionSyncPage />} />
-          <Route path="/asana-automation" element={<AsanaAutomationPage />} />
-          <Route path="/figma-validation" element={<FigmaValidationPage />} />
-          <Route path="/toolbox" element={<ToolboxPage />} />
-          <Route path="/developer-ecosystem" element={<DeveloperEcosystemPage />} />
-          <Route path="/phase2-demo" element={<Phase2Demo />} />
-          <Route path="/phase5-connected" element={<Phase5ConnectedDemo />} />
+          <Route path="/crud-test" element={<SupabaseCRUDTest />} />
+          <Route path="/phase1-demo" element={<Phase1Demo />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell>

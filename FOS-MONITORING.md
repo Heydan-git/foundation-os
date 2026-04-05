@@ -9,10 +9,10 @@
 
 | Indicateur | Valeur | Cible | Statut |
 |-----------|--------|-------|--------|
-| OS Readiness | 100% | 100% | ✅ RÉVOLUTION ACHEVÉE · Référence mondiale absolue établie |
-| Phase Implementation | 6/6 | 6/6 | ✅ TOUTES PHASES ACHEVÉES · P0→P6 révolution complète |
-| Artifacts livrés | 7/7 fos-* | 7/7 | ✅ 7 artifacts produits · COMPLET |
-| MD pairs complets | 7/7 | 7/7 | ✅ CONV-03 sync complet |
+| OS Readiness | 100% | 100% | ✅ OMC OPERATIONAL · Système techniquement prêt |
+| Phase Implementation | 5/6 | 6/6 | 🚧 Core functional, Phase 4-5 documented |
+| Artifacts livrés | Core App | 7/7 | ✅ App functional with 5 routes |
+| MD pairs complets | Active routes | 7/7 | ✅ Core documentation synchronized |
 | Stack L1-L4 active | 3/4 | 4/4 | ✅ L0+L2+L3 · L1 partiel |
 | Foundation OS App | 100% | Deployée | ✅ LIVE · https://foundation-os.vercel.app/ |
 | DA compliance | 2/6 | 6/6 | ⏳ |
@@ -21,15 +21,15 @@
 
 ## Santé artifacts
 
-| Artifact | Lignes | MD pair | DA | Storage | Statut |
-|----------|--------|---------|-----|---------|--------|
-| fos-commander.jsx | 364 | ✅ | ✅ | ✅ | Livré |
-| fos-knowledge.jsx | 448 | ✅ | ✅ | — | Livré |
-| fos-index.jsx | 431 | ✅ | ✅ | ✅ | Livré |
-| fos-scale-orchestrator.jsx | 558 | ✅ | ✅ | ✅ | Livré |
-| fos-graph.jsx | 309 | ✅ | ✅ | ✅ | Livré |
-| fos-sync.jsx | 390 | ✅ | ✅ | ✅ | Livré |
-| fos-toolbox.jsx | 547 | ✅ | ⚠️ | ✅ | Migré vers artifacts/ |
+| Component | Type | Routes | Build | Storage | Statut |
+|----------|------|--------|-------|---------|--------|
+| IndexPage | Core | / | ✅ | Active | Functional |
+| Commander | Core | /commander | ✅ | Active | Functional |
+| Dashboard | Core | /dashboard | ✅ | Active | Functional |
+| Phase1Demo | Demo | /phase1-demo | ✅ | Active | Functional |
+| SupabaseCRUDTest | Test | /crud-test | ✅ | Active | Functional |
+| App.tsx | Shell | All routes | ✅ | Active | Fixed (system-ui removed) |
+| artifacts/ | Archive | — | — | Archive | Previous iterations |
 
 **Règle :** artifact sain = lignes < 700 · MD pair ✅ · DA ✅ · storage key unique
 
