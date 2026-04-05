@@ -38,13 +38,25 @@ Audit complet de coherence Foundation OS. Remplace l'ancien /sync-md.
 ```
 SYNC — [date]
 
-Structure  : [OK / violations]
-Modules    : [OK / desync]
-References : [OK / N refs cassees]
-CONTEXT.md : [OK / N incoherences]
-App        : [OK / violations]
-Core OS    : [OK / incoherences]
+[CRITICAL]
+  [OK/KO] Build par module actif
+  [OK/KO] Structure racine
 
-Verdict : COHERENT / A CORRIGER
-[details si A CORRIGER]
+[WARNING]
+  [OK/WARN] JSX sizes (max N lignes)
+  [OK/WARN] Void Glass (N violations)
+  [OK/WARN] MD pairs (N orphelins)
+  [OK/WARN] References (N cassees)
+
+[INFO]
+  [OK/WARN] CONTEXT.md sync modules
+  [OK/WARN] Decisions datees (N/N)
+  [OK] Bundle: NKB JS, NKB CSS
+
+Verdict : SAIN / DEGRADED / BROKEN
+[details si non SAIN]
 ```
+
+- **SAIN** : zero critical, zero warning
+- **DEGRADED** : zero critical, 1+ warning
+- **BROKEN** : 1+ critical

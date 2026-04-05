@@ -22,13 +22,19 @@ description: >
 | docs/design-system.md | Changement tokens Void Glass |
 | modules/app/data/*.md | Modification d'un artifact JSX |
 
+## Protocole Memory (docs/core/memory.md)
+
+4 tiers : Session (volatile) → Contexte (CONTEXT.md) → Reference (docs/) → Auto-memory (Claude natif).
+**Une info ne vit que dans UN tier.** Pas de duplication.
+
 ## Regles
 
-- CONTEXT.md = source de verite unique pour l'etat du projet
-- Decisions dans CONTEXT.md section "Decisions actives"
+- CONTEXT.md = source de verite pour l'etat courant du projet
+- docs/ = source de verite pour les decisions structurelles
+- Decisions dans CONTEXT.md : toujours avec date (YYYY-MM-DD)
 - Sessions dans "Dernieres sessions" (max 5, supprimer la plus ancienne)
 - Ne JAMAIS creer de fichier sans demande explicite
-- Ne JAMAIS dupliquer une info deja presente ailleurs
+- Ne JAMAIS dupliquer une info entre tiers
 - Chaque metrique doit etre verifiable par une commande
 
 ## Hors scope (deleguer)

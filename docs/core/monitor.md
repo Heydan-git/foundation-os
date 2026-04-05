@@ -1,0 +1,88 @@
+# Monitor — Spec
+
+Observabilite de Foundation OS. Health indicators, severite, commandes de verification.
+
+## 1. Health Indicators
+
+Chaque indicateur a une severite, une commande de verification, et un seuil.
+
+### Critical (bloquant — a corriger avant tout commit)
+
+| Indicateur | Commande | Seuil |
+|------------|----------|-------|
+| Build passe | `cd modules/[mod] && npm run build` | Exit 0 par module actif |
+| Zero fichier a la racine | `ls -1 racine` | Seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore |
+| TypeScript compile | `cd modules/[mod] && npx tsc --noEmit` | Zero erreur |
+
+### Warning (a corriger avant deploy)
+
+| Indicateur | Commande | Seuil |
+|------------|----------|-------|
+| JSX < 700 lignes | `wc -l modules/app/src/artifacts/*.jsx` | Chaque fichier < 700 |
+| Void Glass respecte | `grep -r "#0A0A0B\|#08080A\|Outfit\|Inter" modules/app/src/` | Zero match |
+| MD pairs complets | Comparer data/*.md ↔ artifacts/fos-*.jsx | Chaque artifact a son MD |
+| Refs intactes | `grep -r` noms fichiers supprimes/deplaces | Zero ref cassee |
+
+### Info (a noter, pas bloquant)
+
+| Indicateur | Commande | Seuil |
+|------------|----------|-------|
+| CONTEXT.md a jour | Comparer modules/ ↔ section Modules | Correspondance |
+| Decisions datees | Lire section Decisions | Toutes ont une date |
+| Build time | Lire output build | < 2000ms (baseline: ~800ms) |
+| Bundle size | Lire output build | JS < 600KB, CSS < 50KB |
+
+## 2. Quand verifier
+
+| Moment | Indicateurs a checker |
+|--------|----------------------|
+| /session-start | Critical + Info (build time) |
+| /session-end | Critical + Warning |
+| /sync | Tous (Critical + Warning + Info) |
+| Pre-commit | Critical seulement |
+| Pre-deploy | Critical + Warning |
+
+## 3. Format de rapport
+
+```
+HEALTH — [date]
+
+[CRITICAL]
+  [OK] Build modules/app (784ms)
+  [OK] Structure racine (3 fichiers)
+
+[WARNING]
+  [OK] JSX sizes (max 432 lignes)
+  [OK] Void Glass (0 violation)
+  [WARN] MD pairs — knowledge, scale-orchestrator sans MD
+
+[INFO]
+  [OK] CONTEXT.md sync
+  [OK] Decisions datees (10/10)
+  [OK] Bundle: 440KB JS, 21KB CSS
+
+Verdict : SAIN / DEGRADED / BROKEN
+```
+
+- **SAIN** : zero critical, zero warning
+- **DEGRADED** : zero critical, 1+ warning
+- **BROKEN** : 1+ critical
+
+## 4. Seuils d'alerte
+
+Les seuils evoluent avec le projet. Quand un seuil change :
+- Mettre a jour ce document
+- Ajouter la raison du changement
+
+Seuils actuels bases sur l'etat du 2026-04-05 :
+- Build time baseline : ~800ms (alerte si > 2000ms)
+- Bundle JS baseline : ~440KB (alerte si > 600KB)
+- Bundle CSS baseline : ~21KB (alerte si > 50KB)
+- Modules actifs : 1 (app). Ajouter les nouveaux au fur et a mesure.
+
+## 5. Limites de Monitor
+
+Ce que Monitor ne fait PAS :
+- Execution automatique des checks (pas de cron/CI — c'est pour Tools Phase 4)
+- Monitoring en production (uptime, errors — c'est Vercel/Supabase dashboard)
+- Alertes push (notifications — pas encore implemente)

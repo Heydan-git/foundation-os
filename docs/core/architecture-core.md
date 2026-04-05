@@ -16,9 +16,9 @@ TOOLKIT  (OMC, BMAD, MCP)              Outils externes
 | Module | Role | Phase | Status | Runtime |
 |--------|------|-------|--------|---------|
 | Cortex | Routing, contexte, orchestration | 1 | actif | CLAUDE.md, .claude/agents/, .claude/commands/ |
-| Memory | Persistance structuree inter-session | 2 | prevu | a definir |
-| Monitor | Metriques, health, alertes | 3 | prevu | a definir |
-| Tools | CLI utils, automation | 4 | prevu | a definir |
+| Memory | Persistance structuree, tiers, decisions | 2 | actif | CONTEXT.md, docs/, auto-memory |
+| Monitor | Health indicators, severite, seuils | 3 | actif | Integre dans /sync et review-agent |
+| Tools | Validators, scripts, CI/CD | 4 | actif | scripts/, .github/, hooks |
 
 ## Cortex (Phase 1)
 
@@ -30,26 +30,26 @@ Le cerveau actif. Trois responsabilites :
 
 Spec complete : [docs/core/cortex.md](cortex.md)
 
-## Memory (Phase 2 — prevu)
+## Memory (Phase 2 — actif)
 
-Persistance structuree au-dela de CONTEXT.md :
-- Decisions avec historique et rationale
-- Patterns appris entre sessions
-- Index de connaissances projet
+Spec : [docs/core/memory.md](memory.md)
+- 4 tiers (session/contexte/reference/auto-memory)
+- Decisions avec dates et lifecycle
+- Protocole "quoi va ou" — une info = un seul tier
 
-## Monitor (Phase 3 — prevu)
+## Monitor (Phase 3 — actif)
 
-Observabilite :
-- Build status par module
-- Coherence CONTEXT.md vs filesystem
-- Alertes sur derives (fichiers orphelins, refs cassees)
+Spec : [docs/core/monitor.md](monitor.md)
+- Health indicators par severite (critical/warning/info)
+- Verdicts : SAIN / DEGRADED / BROKEN
+- Integre dans /sync et review-agent
 
-## Tools (Phase 4 — prevu)
+## Tools (Phase 4 — actif)
 
-Automation :
-- Validateurs custom (Void Glass, structure)
-- Scripts utilitaires
-- Helpers CI/CD
+Spec : [docs/core/tools.md](tools.md)
+- Validators existants (Void Glass, conventional commits)
+- Backlog priorise (health-check, supabase-ping, ref-checker)
+- Conventions : scripts/, idempotent, exit codes standards
 
 ## Principes Core OS
 

@@ -11,12 +11,13 @@
 3. Verifier le build pour chaque module actif :
    - Detecter modules avec package.json dans modules/
    - `cd modules/[nom] && npm run build` pour chacun
-4. Mettre a jour CONTEXT.md :
+4. Mettre a jour CONTEXT.md (protocole Memory — docs/core/memory.md) :
    - Ajouter cette session dans "Dernieres sessions" (garder max 5)
    - Mettre a jour "Prochaine action" avec la suite logique
    - Mettre a jour le status des modules si changement
-   - Ajouter les nouvelles decisions si applicable
+   - Ajouter les nouvelles decisions si applicable (avec date YYYY-MM-DD)
    - Mettre a jour "Etat technique" si builds/routes/artifacts changent
+   - Si un fondamental a change → mettre a jour aussi docs/ (reference tier)
 5. Proposer un commit si des changements sont en attente
 6. Annoncer en format court :
 

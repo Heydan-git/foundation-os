@@ -7,7 +7,7 @@
 | Module | Status | Detail |
 |--------|--------|--------|
 | App Builder | MVP | 5 routes, build OK 832ms, 7 artifacts, Supabase connecte |
-| Core OS | Phase 1 actif | Cortex implemente (routing, agents, commands, specs). Phases 2-4 prevues. |
+| Core OS | 4/4 actif | Cortex (routing), Memory (tiers), Monitor (health), Tools (automation). Specs : docs/core/ |
 | Finance | prevu | Pas encore cree |
 | Sante | prevu | Pas encore cree |
 
@@ -21,23 +21,22 @@
 
 ## Prochaine action
 1. Kevin : mettre a jour Root Directory Vercel (app/ → modules/app/)
-2. Implementer Core OS Phase 1 — Cortex (docs/core/cortex.md, architecture-core.md, CLAUDE.md enrichi, commands refactorees, /sync)
-3. Puis Phase 2 Memory, Phase 3 Monitor, Phase 4 Tools
+2. Core OS complet (4/4). Prochaine etape : construire les outils backlog (health-check, supabase-ping) ou commencer un nouveau module (Finance/Sante)
 
 ## Decisions actives
 
-| Decision | Detail |
-|----------|--------|
-| Stack | Vite + React + TS + Tailwind + Supabase + Vercel |
-| Design | Void Glass — docs/design-system.md |
-| Architecture | Monorepo modules/ (seul app/ existe, finance et sante prevus) |
-| Memoire | CONTEXT.md + auto-memory Claude native (6 fichiers) |
-| Commits | Conventional commits type(scope): description |
-| Anti-bullshit | 6 gates dans CLAUDE.md, mots interdits, verification obligatoire |
-| Garde-fous | Jamais de fichier a la racine, jamais sans demande, grep+fix apres rename |
-| Schema DB | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
-| Core OS | 4 modules (Cortex actif, Memory/Monitor/Tools prevus) — specs dans docs/core/, runtime dans .claude/ |
-| Dashboard | Commander evolue vers monitoring Core OS (futur) |
+| Decision | Date | Detail |
+|----------|------|--------|
+| Stack | 2026-04-01 | Vite + React + TS + Tailwind + Supabase + Vercel |
+| Design | 2026-04-01 | Void Glass — docs/design-system.md |
+| Architecture | 2026-04-01 | Monorepo modules/ (seul app/ existe, finance et sante prevus) |
+| Memoire | 2026-04-05 | 4 tiers (session/contexte/reference/auto-memory) — docs/core/memory.md |
+| Commits | 2026-04-01 | Conventional commits type(scope): description |
+| Anti-bullshit | 2026-04-01 | 6 gates dans CLAUDE.md, mots interdits, verification obligatoire |
+| Garde-fous | 2026-04-01 | Jamais de fichier a la racine, jamais sans demande, grep+fix apres rename |
+| Schema DB | 2026-04-01 | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
+| Core OS | 2026-04-05 | 4 modules — Cortex actif, Memory actif, Monitor/Tools prevus. Specs : docs/core/ |
+| Dashboard | 2026-04-05 | Commander evolue vers monitoring Core OS (futur) |
 
 ## App Builder — Etat technique
 

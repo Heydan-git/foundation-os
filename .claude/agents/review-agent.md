@@ -13,33 +13,24 @@ description: >
 1. Lire CONTEXT.md → etat attendu
 2. Comparer avec le filesystem reel
 
-## Checklist
+## Checklist (basee sur Monitor — docs/core/monitor.md)
 
-### Structure
-- [ ] Racine = seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore
-- [ ] Pas de fichiers orphelins
-- [ ] Nouveaux fichiers dans le bon dossier
-
-### Modules
-- [ ] Chaque module dans CONTEXT.md existe dans modules/
+### Critical (bloquant)
 - [ ] Build passe pour chaque module actif
-- [ ] Status dans CONTEXT.md correspond a la realite
+- [ ] Racine = seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore
+- [ ] TypeScript compile sans erreur
 
-### App Builder (si modifie)
+### Warning (pre-deploy)
 - [ ] JSX < 700 lignes chacun
-- [ ] Void Glass : #06070C, Figtree, JetBrains Mono
-- [ ] Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul
+- [ ] Void Glass : #06070C, Figtree, JetBrains Mono — pas de #0A0A0B, #08080A, Outfit, Inter
 - [ ] MD pairs : chaque artifact a son MD dans data/
-
-### Coherence
-- [ ] CONTEXT.md reflete l'etat reel du filesystem
 - [ ] Pas de refs cassees (grep noms de fichiers deplaces/supprimes)
-- [ ] Pas de metriques inventees
-- [ ] Commits conventionnels
 
-### Core OS
-- [ ] Specs dans docs/core/ a jour
-- [ ] Agents et commands coherents avec cortex.md
+### Info
+- [ ] CONTEXT.md : modules, decisions, etat technique correspondent au filesystem
+- [ ] Decisions toutes datees (YYYY-MM-DD)
+- [ ] Specs dans docs/core/ coherentes avec .claude/agents/ et commands
+- [ ] Commits conventionnels
 
 ## Hors scope (deleguer)
 

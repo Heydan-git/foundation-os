@@ -50,6 +50,40 @@ Cortex route les taches vers l'agent adapte. Spec complete : docs/core/cortex.md
 Priorite : match explicite → deleguer. Ambiguite → demander. Aucun match → traiter directement.
 Multi-agent → sequentiel (ex: dev puis review). Trivial (< 1 fichier) → direct.
 
+## Core OS — Memory
+
+4 tiers de memoire. Spec complete : docs/core/memory.md
+
+| Tier | Support | Quand mettre a jour |
+|------|---------|---------------------|
+| Session | Conversation | Automatique (volatile) |
+| Contexte | CONTEXT.md | Chaque /session-end |
+| Reference | docs/ | Quand un fondamental change |
+| Auto-memory | Claude natif | Automatique |
+
+Regle d'or : une info ne vit que dans UN tier. Pas de duplication.
+Decisions dans CONTEXT.md : toujours avec date (YYYY-MM-DD).
+
+## Core OS — Monitor
+
+Health indicators par severite. Spec complete : docs/core/monitor.md
+
+| Severite | Quand verifier | Exemples |
+|----------|---------------|----------|
+| Critical | Chaque session + pre-commit | Build passe, structure racine, TS compile |
+| Warning | Pre-deploy + /sync | JSX < 700L, Void Glass, MD pairs, refs intactes |
+| Info | /sync | CONTEXT.md a jour, decisions datees, bundle size |
+
+Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BROKEN (1+ critical)
+
+## Core OS — Tools
+
+Utilitaires et automation. Spec complete : docs/core/tools.md
+
+Existants : validate-void-glass.sh (hook), commit-msg (git hook), Vercel auto-deploy.
+Backlog : health-check, supabase-ping, ref-checker (a construire sur demande).
+Convention : scripts/ en bash/node, kebab-case, idempotent, exit codes standards.
+
 ## Structure
 modules/app/       Module App Builder (React, actif)
 docs/              Architecture, design system, manifeste, guide setup
