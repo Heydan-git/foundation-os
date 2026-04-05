@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { AuthProvider, useAuth } from '@/lib/AuthContext'
 import Commander from '@/pages/Commander'
 import Dashboard from '@/pages/Dashboard'
 import IndexPage from '@/pages/IndexPage'
+import LoginPage from '@/pages/LoginPage'
 import Phase1Demo from '@/pages/Phase1Demo'
 import SupabaseCRUDTest from '@/components/SupabaseCRUDTest'
 
@@ -34,19 +36,48 @@ function AppShell({ children }: { children: React.ReactNode }) {
   )
 }
 
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuth()
+  if (loading) return null
+  if (!user) return <Navigate to="/login" replace />
+  return <>{children}</>
+}
+
+function LogoutButton() {
+  const { user, signOut } = useAuth()
+  if (!user) return null
+  return (
+    <button
+      onClick={signOut}
+      style={{
+        position: 'fixed', top: 12, right: 12, zIndex: 50,
+        padding: '4px 10px', borderRadius: 6, border: '1px solid rgba(255,255,255,.055)',
+        background: 'rgba(255,255,255,.025)', color: '#52525B',
+        fontSize: 10, fontFamily: "'JetBrains Mono',monospace", cursor: 'pointer',
+      }}
+    >
+      Déconnexion
+    </button>
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      <AppShell>
-        <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/commander" element={<Commander />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/crud-test" element={<SupabaseCRUDTest />} />
-          <Route path="/phase1-demo" element={<Phase1Demo />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </AppShell>
+      <AuthProvider>
+        <AppShell>
+          <LogoutButton />
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<ProtectedRoute><IndexPage /></ProtectedRoute>} />
+            <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/crud-test" element={<ProtectedRoute><SupabaseCRUDTest /></ProtectedRoute>} />
+            <Route path="/phase1-demo" element={<ProtectedRoute><Phase1Demo /></ProtectedRoute>} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AppShell>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

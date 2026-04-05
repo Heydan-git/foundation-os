@@ -6,7 +6,7 @@
 
 | Module | Status | Detail |
 |--------|--------|--------|
-| App Builder | MVP | 5 routes, build OK 832ms, 7 artifacts, Supabase connecte |
+| App Builder | MVP | 6 routes (+login), Dashboard dynamique, Auth Supabase, Vitest 3 tests, build 684ms |
 | Core OS | 4/4 actif | Cortex (routing), Memory (tiers), Monitor (health), Tools (automation). Specs : docs/core/ |
 | Finance | prevu | Pas encore cree |
 | Sante | prevu | Pas encore cree |
@@ -42,8 +42,8 @@
 
 ## App Builder — Etat technique
 
-- **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo
-- **Build** : OK (681ms, 440KB JS + 21KB CSS)
+- **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo, /login
+- **Build** : OK (684ms, 439KB JS + 21KB CSS)
 - **Deploy** : https://foundation-os.vercel.app/ (root dir a changer vers modules/app)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
@@ -62,7 +62,9 @@
 
 ## Outils installes
 
-- **Claude Code** : CLAUDE.md (enrichi Cortex routing) + 4 agents (refactores) + 4 commands (module-aware) + 1 hook PreToolUse + 1 git hook
+- **Claude Code** : CLAUDE.md (enrichi Cortex routing) + 4 agents + 4 commands + 1 hook PreToolUse + 1 git hook
+- **CI** : GitHub Actions (build + TS + tests sur push) + supabase-ping (cron hebdo)
+- **Tests** : Vitest (3 tests), health-check.sh (Monitor indicators)
 - **OMC** : oh-my-claudecode (team, autopilot, ralph, ultrawork, etc.)
 - **BMAD v6** : _bmad/ (12 modules)
 - **MCP** : Notion, Asana, Figma, Monday, ClickUp, Computer Use, Context7
