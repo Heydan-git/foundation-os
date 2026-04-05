@@ -1,1 +1,9 @@
 .env.local
+.env
+node_modules/
+dist/
+.DS_Store
+.fos/
+.omc/state/
+*.pyc
+__pycache__/

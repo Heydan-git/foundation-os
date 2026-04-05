@@ -47,7 +47,8 @@ Weights : 400, 500, 600, 700, 800
 ## Interdictions
 
 - #0A0A0B ou #08080A (toujours #06070C)
-- Outfit, Inter, system-ui seul (toujours Figtree en premier)
+- Outfit, Inter comme police principale (toujours Figtree en premier)
+- system-ui seul comme police (OK en fallback CSS apres Figtree)
 - Borders droits (minimum 6px radius)
 - Couleurs hardcodees (toujours variables CSS)
 

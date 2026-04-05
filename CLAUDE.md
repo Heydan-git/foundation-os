@@ -1,6 +1,6 @@
 # Foundation OS
 
-OS de travail personnel IA-driven. Modules : App Builder, Finance, Sante.
+OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu), Sante (prevu).
 
 ## A chaque session
 1. Lire CONTEXT.md pour etat actuel + prochaine action
@@ -15,12 +15,12 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 ## Regles
 - Conventional commits : type(scope): description
 - Void Glass : fond #06070C, Figtree (UI), JetBrains Mono (code) — voir docs/design-system.md
-- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui
+- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul (OK en fallback CSS)
 - JSX < 700 lignes — decouper si plus
 - BMAD : dossier _bmad/ (underscore obligatoire)
 
 ## Garde-fous (non-negociable)
-- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md y vivent)
+- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore y vivent)
 - Ne JAMAIS creer de fichier sans demande explicite de Kevin
 - Ne JAMAIS dupliquer une info qui est deja dans CONTEXT.md
 - Quand un fichier est deplace ou renomme → mettre a jour TOUTES les references (grep + fix)
@@ -38,9 +38,11 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 
 ## Structure
 modules/app/       Module App Builder (React, actif)
-modules/finance/   Module Finance (futur)
-modules/health/    Module Sante (futur)
-docs/              Architecture, design system, guide setup
+docs/              Architecture, design system, manifeste, guide setup
+scripts/hooks/     Hook Void Glass (PreToolUse)
+supabase/          Migrations DB
+_bmad/             BMAD v6 (12 modules)
+.claude/           Agents, commands, settings
 .archive/          Historique (ne pas toucher sauf demande)
 
 ## Build
@@ -48,11 +50,13 @@ cd modules/app && npm run dev    # Dev local
 cd modules/app && npm run build  # Production
 
 ## Agents (.claude/agents/)
-- os-architect  : architecture, ADR, structure
-- doc-agent     : documentation, journal, sync
+- os-architect  : architecture, decisions, structure
+- doc-agent     : documentation, CONTEXT.md, sync
 - review-agent  : coherence, zero regression
 - dev-agent     : code React, Supabase, Void Glass
 
 ## Commands (.claude/commands/)
-- /session-start : lire CONTEXT.md, verifier structure, annoncer etat + next
-- /session-end   : verifier coherence, mettre a jour CONTEXT.md, annoncer next
+- /session-start : lire CONTEXT.md, git status, build check, annoncer etat + next
+- /session-end   : verifier coherence, mettre a jour CONTEXT.md, proposer commit
+- /new-project   : creer un nouveau module dans modules/
+- /sync-md       : verifier coherence MD/JSX dans l'app

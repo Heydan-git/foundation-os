@@ -26,15 +26,13 @@ CORE (CLAUDE.md, CONTEXT.md,      Le cerveau
 
 ```
 foundation-os/
-  CLAUDE.md          Instructions Claude (52 lignes)
+  CLAUDE.md          Instructions Claude
   CONTEXT.md         Source de verite (etat, sessions, decisions)
   README.md          Description projet
-  modules/app/       Module App Builder (React)
-  modules/finance/   Module Finance (futur)
-  modules/health/    Module Sante (futur)
+  modules/app/       Module App Builder (React, actif)
   docs/              Documentation de reference
-  scripts/hooks/     Hooks (validate-void-glass)
-  supabase/          Migrations DB
+  scripts/hooks/     Hook Void Glass + git hook commit-msg
+  supabase/          Migrations DB (source de verite schema)
   _bmad/             BMAD v6 (12 modules)
   .claude/           4 agents, 4 commands, settings
   .omc/              OMC runtime
