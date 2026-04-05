@@ -1,197 +1,55 @@
-# FOS-TECH-ARCHITECTURE.md
-> Référence technique Foundation OS
-> Architecture système · Stack · Schéma DB · API
+# Foundation OS — Architecture
 
----
+## Vue d'ensemble
 
-## Stack Technique
+OS de travail personnel IA-driven. 3 couches :
 
-### L0 — Design System
-- **Void Glass** : #06070C · #5EEAD4 · rgba(255,255,255,.025)
-- **Typography** : Figtree (UI) · JetBrains Mono (code/labels)
-- **Radii** : 12/8/6px · blur(80px) orbes
-
-### L1 — Intelligence Layers
-- **L1a** : Claude.ai Projects (Knowledge Base ~20 MD)
-- **L1b** : Cowork Desktop (BMAD v6 + SKILL.md)
-
-### L2 — Development Environment
-- **Claude Code** : Terminal L2 + OMC orchestration
-- **Hooks** : MD-first · Void Glass · Conventional commits
-
-### L3 — Workflow Automation
-- **BMAD v6** : 12 modules + core distillator
-- **Structure** : `_bmad/core/bmad-distillator/` + agents + scripts
-
-### L4 — Collaboration Platforms
-- **Notion** : M4 collaborative memory + project tracking
-- **Asana** : M5 task tracking + metrics
-
-### L5 — Application Runtime
-- **Framework** : Vite + React + TypeScript
-- **Styling** : Tailwind CSS
-- **Backend** : Supabase (auth + DB + storage)
-- **Deployment** : Vercel
-
-### L6 — External Integrations
-- **Context7** : 1000+ library docs (trust-scored)
-- **MCP Servers** : Figma · Chrome · Computer-use
-- **APIs** : Claude API · GitHub · Linear
-
----
-
-## Database Schema (Supabase)
-
-### Core Tables
-```sql
--- Projects
-create table projects (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  status text check (status in ('active', 'paused', 'completed')),
-  created_at timestamptz default now(),
-  updated_at timestamptz default now()
-);
-
--- Sessions
-create table sessions (
-  id uuid primary key default gen_random_uuid(),
-  project_id uuid references projects(id),
-  title text not null,
-  transcript jsonb,
-  decisions jsonb,
-  created_at timestamptz default now()
-);
-
--- Artifacts
-create table artifacts (
-  id uuid primary key default gen_random_uuid(),
-  project_id uuid references projects(id),
-  name text not null,
-  type text check (type in ('jsx', 'md', 'config')),
-  content text,
-  md_pair text, -- corresponding MD file path
-  lines_count integer,
-  created_at timestamptz default now(),
-  updated_at timestamptz default now()
-);
-
--- ADRs (Architecture Decision Records)
-create table adrs (
-  id uuid primary key default gen_random_uuid(),
-  project_id uuid references projects(id),
-  number integer not null,
-  title text not null,
-  context text,
-  decision text,
-  status text check (status in ('proposed', 'accepted', 'superseded')),
-  created_at timestamptz default now()
-);
+```
+MODULES (app, finance, sante)     Les projets concrets
+TOOLKIT (OMC, BMAD, MCP)          Les outils installes
+CORE (CLAUDE.md, CONTEXT.md,      Le cerveau
+  memory, commands, hooks, agents)
 ```
 
-### Security (RLS)
-```sql
--- Enable Row Level Security
-alter table projects enable row level security;
-alter table sessions enable row level security;
-alter table artifacts enable row level security;
-alter table adrs enable row level security;
+## Stack technique
 
--- Policies (public for now, will add auth later)
-create policy "Public access" on projects for all using (true);
-create policy "Public access" on sessions for all using (true);
-create policy "Public access" on artifacts for all using (true);
-create policy "Public access" on adrs for all using (true);
-```
+| Couche | Composant | Detail |
+|--------|-----------|--------|
+| App | Vite + React + TypeScript + Tailwind | Frontend |
+| DB | Supabase (supabase-js SDK direct) | 5 tables : sessions, decisions, risks, next_steps, context_blocks |
+| Deploy | Vercel (auto-deploy sur git push) | Root dir : modules/app |
+| Design | Void Glass | docs/design-system.md |
+| AI | Claude Code + OMC + BMAD | Multi-agent orchestration |
+| MCP | Notion, Asana, Figma, Monday, ClickUp, Computer Use | Connecteurs externes |
 
----
+## Structure monorepo
 
-## API Endpoints
-
-### Supabase Client (React)
-```typescript
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-export const supabase = createClient(supabaseUrl, supabaseKey)
-```
-
-### Usage Patterns
-```typescript
-// Read projects
-const { data: projects } = await supabase
-  .from('projects')
-  .select('*')
-  .order('updated_at', { ascending: false })
-
-// Create artifact with MD-first enforcement
-const { data: artifact } = await supabase
-  .from('artifacts')
-  .insert({
-    name: 'fos-example.jsx',
-    md_pair: 'FOS-EXAMPLE-DATA.md',
-    lines_count: lineCount,
-    content: jsxContent
-  })
-```
-
----
-
-## Deployment Architecture
-
-### Vercel Configuration
-```json
-{
-  "framework": "vite",
-  "buildCommand": "cd app && npm run build",
-  "outputDirectory": "app/dist",
-  "installCommand": "cd app && npm install"
-}
-```
-
-### Environment Variables
-```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
-
-# Claude API
-ANTHROPIC_API_KEY=sk-ant-xxx
-```
-
-### File Structure
 ```
 foundation-os/
-├── app/                    # Vite React app
-│   ├── src/
-│   │   ├── artifacts/     # 6 fos-*.jsx components
-│   │   ├── components/    # Reusable UI components
-│   │   ├── pages/         # Page components
-│   │   └── utils/         # Utilities & Supabase client
-├── scripts/hooks/         # Validation hooks
-├── _bmad/                 # BMAD v6 modules
-├── .omc/                  # OMC state & memory
-└── *.md                   # Knowledge base files
+  CLAUDE.md          Instructions Claude (52 lignes)
+  CONTEXT.md         Source de verite (etat, sessions, decisions)
+  README.md          Description projet
+  modules/app/       Module App Builder (React)
+  modules/finance/   Module Finance (futur)
+  modules/health/    Module Sante (futur)
+  docs/              Documentation de reference
+  scripts/hooks/     Hooks (validate-void-glass)
+  supabase/          Migrations DB
+  _bmad/             BMAD v6 (12 modules)
+  .claude/           4 agents, 4 commands, settings
+  .omc/              OMC runtime
+  .archive/          Historique
 ```
 
----
+## Decisions actives
 
-## Performance & Monitoring
+Toutes les decisions sont dans CONTEXT.md section "Decisions actives".
+Les nouvelles decisions y sont ajoutees directement.
 
-### Metrics Tracked
-- **Build Time** : Vercel deployment duration
-- **Bundle Size** : JavaScript bundle analysis
-- **API Latency** : Supabase query performance
-- **Error Rate** : Client-side error tracking
-- **MD-JSX Sync** : Compliance with MD-first workflow
+## Principes
 
-### Monitoring Stack
-- **Error Logging** : FOS-ERROR-LOG.md → console.error()
-- **Performance** : Vercel Analytics + Web Vitals
-- **Uptime** : Vercel status + Supabase health
-
----
-
-*Dernière mise à jour : 2026-04-04 · Version : 1.0.0*
+- CONTEXT.md = source de verite unique
+- Monorepo : un dossier par module dans modules/
+- Jamais de fichier a la racine (sauf CLAUDE.md, CONTEXT.md, README.md)
+- Build verifie avant toute affirmation
+- Conventional commits : type(scope): description

@@ -1,409 +1,89 @@
 {
-  "version": "1.0.0",
-  "lastScanned": 1775301503889,
+  "version": "2.0.0",
+  "lastScanned": 1775400000000,
   "projectRoot": "/Users/kevinnoel/foundation-os",
   "techStack": {
-    "languages": [],
-    "frameworks": [],
-    "packageManager": null,
-    "runtime": null
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "CSS"
+    ],
+    "frameworks": [
+      "React",
+      "Vite",
+      "Tailwind"
+    ],
+    "packageManager": "npm",
+    "runtime": "node"
   },
   "build": {
-    "buildCommand": null,
+    "buildCommand": "cd modules/app && npm run build",
     "testCommand": null,
     "lintCommand": null,
-    "devCommand": null,
+    "devCommand": "cd modules/app && npm run dev",
     "scripts": {}
   },
   "conventions": {
-    "namingStyle": null,
-    "importStyle": null,
+    "namingStyle": "kebab-case",
+    "importStyle": "es-modules",
     "testPattern": null,
-    "fileOrganization": null
+    "fileOrganization": "monorepo-modules"
   },
   "structure": {
-    "isMonorepo": false,
-    "workspaces": [],
+    "isMonorepo": true,
+    "workspaces": [
+      "modules/app"
+    ],
     "mainDirectories": [
-      "app",
+      "modules/app",
+      "docs",
       "scripts"
     ],
     "gitBranches": null
   },
-  "customNotes": [],
+  "customNotes": [
+    "CONTEXT.md = source de verite unique",
+    "Design system = Void Glass (docs/design-system.md)",
+    "Supabase DB avec 5 tables",
+    "Deploy Vercel root dir = modules/app"
+  ],
   "directoryMap": {
-    "_bmad": {
-      "path": "_bmad",
-      "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1775301503871,
-      "keyFiles": []
-    },
-    "app": {
-      "path": "app",
-      "purpose": "Application code",
-      "fileCount": 12,
-      "lastAccessed": 1775301503871,
+    "modules/app": {
+      "path": "modules/app",
+      "purpose": "Module App Builder (React)",
+      "fileCount": 30,
       "keyFiles": [
-        "index.html",
-        "package-lock.json",
         "package.json",
-        "postcss.config.js",
-        "tailwind.config.js"
+        "src/App.tsx",
+        "src/lib/supabase.ts"
       ]
     },
-    "old artefacts": {
-      "path": "old artefacts",
-      "purpose": null,
-      "fileCount": 11,
-      "lastAccessed": 1775301503872,
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation de reference",
+      "fileCount": 4,
       "keyFiles": [
-        "ARTIFACT-ANALYZER-DATA.md",
-        "FONDATION-CC-DATA.md",
-        "FONDATION_OPS.md",
-        "INDEX-DATA.md",
-        "artifact-analyzer.jsx"
-      ]
-    },
-    "scripts": {
-      "path": "scripts",
-      "purpose": "Build/utility scripts",
-      "fileCount": 0,
-      "lastAccessed": 1775301503872,
-      "keyFiles": []
-    },
-    "supabase": {
-      "path": "supabase",
-      "purpose": null,
-      "fileCount": 0,
-      "lastAccessed": 1775301503872,
-      "keyFiles": []
-    },
-    "app/dist": {
-      "path": "app/dist",
-      "purpose": "Distribution/build output",
-      "fileCount": 1,
-      "lastAccessed": 1775301503872,
-      "keyFiles": [
-        "index.html"
-      ]
-    },
-    "app/node_modules": {
-      "path": "app/node_modules",
-      "purpose": "Dependencies",
-      "fileCount": 1,
-      "lastAccessed": 1775301503872,
-      "keyFiles": []
-    },
-    "supabase/migrations": {
-      "path": "supabase/migrations",
-      "purpose": "Database migrations",
-      "fileCount": 1,
-      "lastAccessed": 1775301503873,
-      "keyFiles": [
-        "001_create_tables.sql"
+        "architecture.md",
+        "design-system.md",
+        "manifeste.md",
+        "setup-guide.md"
       ]
     }
   },
   "hotPaths": [
     {
-      "path": "",
-      "accessCount": 53,
-      "lastAccessed": 1775387086794,
-      "type": "directory"
-    },
-    {
-      "path": "FOS-MONITORING.md",
-      "accessCount": 36,
-      "lastAccessed": 1775385619402,
-      "type": "file"
-    },
-    {
-      "path": "FOS-JOURNAL.md",
-      "accessCount": 35,
-      "lastAccessed": 1775385619428,
-      "type": "file"
-    },
-    {
-      "path": "app/src/App.tsx",
-      "accessCount": 30,
-      "lastAccessed": 1775385528525,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/mutations.ts",
-      "accessCount": 21,
-      "lastAccessed": 1775380896266,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/workflow-routing-engine.ts",
-      "accessCount": 16,
-      "lastAccessed": 1775304343254,
-      "type": "file"
-    },
-    {
-      "path": "FOS-COMMANDER-DATA.md",
-      "accessCount": 15,
-      "lastAccessed": 1775380882384,
-      "type": "file"
-    },
-    {
-      "path": "FOS-EVOLUTION-LOG.md",
-      "accessCount": 14,
-      "lastAccessed": 1775333705005,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/mcp-orchestrator.ts",
-      "accessCount": 13,
-      "lastAccessed": 1775304334548,
-      "type": "file"
-    },
-    {
-      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
-      "accessCount": 10,
-      "lastAccessed": 1775385611542,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PLAN-MASTER-v2.md",
-      "accessCount": 8,
-      "lastAccessed": 1775318076355,
-      "type": "file"
-    },
-    {
-      "path": "app/package.json",
-      "accessCount": 8,
-      "lastAccessed": 1775385519434,
-      "type": "file"
-    },
-    {
-      "path": "FOS-TECH-ARCHITECTURE.md",
-      "accessCount": 8,
-      "lastAccessed": 1775385524354,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/supabase.ts",
-      "accessCount": 8,
-      "lastAccessed": 1775385532555,
-      "type": "file"
-    },
-    {
-      "path": "FOS-TOOLBOX-DATA.md",
-      "accessCount": 6,
-      "lastAccessed": 1775340366714,
-      "type": "file"
-    },
-    {
-      "path": "FOS-MEMORY-STRATEGY.md",
-      "accessCount": 6,
-      "lastAccessed": 1775385524553,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE5-ROADMAP.md",
-      "accessCount": 5,
-      "lastAccessed": 1775319085199,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE4-ROADMAP.md",
-      "accessCount": 4,
-      "lastAccessed": 1775303835021,
-      "type": "file"
-    },
-    {
-      "path": "app/src/hooks/useNotionSync.ts",
-      "accessCount": 4,
-      "lastAccessed": 1775306501520,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/notion-sync-engine.ts",
-      "accessCount": 4,
-      "lastAccessed": 1775306696661,
-      "type": "file"
-    },
-    {
-      "path": "FOS-SYNC-DATA.md",
-      "accessCount": 4,
-      "lastAccessed": 1775340367174,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/database.types.ts",
-      "accessCount": 4,
-      "lastAccessed": 1775340396434,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE4-EXECUTIVE-SUMMARY.md",
-      "accessCount": 3,
-      "lastAccessed": 1775303824428,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/security-framework.ts",
-      "accessCount": 3,
-      "lastAccessed": 1775304311543,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE5-NOTION-SYNC-IMPLEMENTATION.md",
-      "accessCount": 3,
-      "lastAccessed": 1775307352223,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/self-modifying-generator.ts",
-      "accessCount": 3,
-      "lastAccessed": 1775318313252,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/md-template-engine.ts",
-      "accessCount": 3,
-      "lastAccessed": 1775318321325,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE4-IMPLEMENTATION-COMPLETE.md",
-      "accessCount": 3,
-      "lastAccessed": 1775319081033,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/md-sync-daemon.ts",
-      "accessCount": 3,
-      "lastAccessed": 1775320231339,
-      "type": "file"
-    },
-    {
-      "path": "SKILL.md",
-      "accessCount": 3,
-      "lastAccessed": 1775377404019,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/memory-manager.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775304295163,
-      "type": "file"
-    },
-    {
-      "path": "app/src/hooks/useSync.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775305915235,
-      "type": "file"
-    },
-    {
-      "path": "app/src/components/NotionSyncDashboard.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775306506186,
-      "type": "file"
-    },
-    {
-      "path": "app/src/pages/NotionSyncPage.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775306509747,
-      "type": "file"
-    },
-    {
-      "path": "app/src/components/AsanaAutomationDashboard.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775307111549,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/asana-automation.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775307205331,
-      "type": "file"
-    },
-    {
-      "path": "FOS-ASANA-AUTOMATION-DATA.md",
-      "accessCount": 2,
-      "lastAccessed": 1775307355568,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/auto-evolution-triggers.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318314650,
-      "type": "file"
-    },
-    {
-      "path": "app/src/hooks/useSelfModifying.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318314677,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/md-component-factory.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318320841,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/md-to-seed.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318588479,
-      "type": "file"
-    },
-    {
-      "path": "scripts/hooks/check-md-pair.sh",
-      "accessCount": 2,
-      "lastAccessed": 1775379297478,
-      "type": "file"
-    },
-    {
-      "path": "app/src/artifacts/fos-phase4-demo.jsx",
-      "accessCount": 2,
-      "lastAccessed": 1775379327056,
-      "type": "file"
-    },
-    {
-      "path": "app/src/components/forms/AddSessionForm.tsx",
+      "path": "CONTEXT.md",
       "accessCount": 1,
-      "lastAccessed": 1775301558781,
       "type": "file"
     },
     {
-      "path": "supabase/migrations/001_create_tables.sql",
+      "path": "CLAUDE.md",
       "accessCount": 1,
-      "lastAccessed": 1775301832371,
       "type": "file"
     },
     {
-      "path": "app/src/lib/__tests__/phase4-optimizations.test.ts",
+      "path": "modules/app/src/App.tsx",
       "accessCount": 1,
-      "lastAccessed": 1775304177469,
-      "type": "file"
-    },
-    {
-      "path": "FOS-PHASE4-OPTIMIZATIONS.md",
-      "accessCount": 1,
-      "lastAccessed": 1775304277842,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/__tests__/notion-sync.test.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775306312530,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/notion-config.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775306457109,
-      "type": "file"
-    },
-    {
-      "path": "app/src/hooks/useAsanaAutomation.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775306893367,
       "type": "file"
     }
   ],

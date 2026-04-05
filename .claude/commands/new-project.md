@@ -1,62 +1,43 @@
-# /new-project — Créer un nouveau projet dans Foundation OS
-
-Créer la structure d'un nouveau projet géré par Foundation OS.
+# /new-project — Creer un nouveau module Foundation OS
 
 ## Usage
+/new-project [nom-du-module]
+
+Exemple : /new-project finance
+
+## Workflow
+
+1. Creer `modules/[nom]/` avec structure de base
+2. Mettre a jour CONTEXT.md (ajouter le module dans la table Modules, status "initialise")
+3. Annoncer ce qui a ete cree
+
+## Structure creee
 
 ```
-/new-project [nom-du-projet]
+modules/[nom]/
+├── README.md          Description du module
+├── package.json       Si module JS/TS
+└── src/               Code source
 ```
 
-Exemple : `/new-project ios-app-foundations`
-
-## Ce que fait cette commande
-
-1. Crée `projects/[nom]/` dans le repo foundation-os
-2. Génère les fichiers de base du projet
-3. Ajoute une entrée dans FOS-MONITORING.md
-4. Crée la tâche Asana correspondante (si MCP actif)
-
-## Structure créée
-
-```
-foundation-os/
-└── projects/
-    └── [nom-projet]/
-        ├── PROJECT-CONTEXT.md     ← vision · stack · phase · décisions
-        ├── PROJECT-JOURNAL.md     ← sessions du projet
-        ├── PROJECT-BACKLOG.md     ← features · bugs · idées
-        └── README.md              ← onboarding rapide
-```
-
-## Template PROJECT-CONTEXT.md
+## Template README.md
 
 ```markdown
-# [Nom Projet]
-> Projet géré par Foundation OS
-> Créé : [date]
+# [Nom Module]
+> Module Foundation OS — Cree le [date]
 
-## Vision
-[Vision courte du projet]
+## Objectif
+[A definir]
 
 ## Stack
-[Technologies utilisées]
+[A definir]
 
-## Phase actuelle
-[Phase en cours]
-
-## Décisions clés
-| ID | Décision | Date |
-|---|---|---|
-
-## Liens
-- Asana : [lien]
-- Figma : [lien]
-- Vercel : [lien]
+## Etat
+En cours de definition.
 ```
 
-## Après création
+## Apres creation
 
-- Ajouter le projet dans `fos-index.jsx` quand il sera produit
-- Créer section Asana dédiée
-- Si app iOS : utiliser le pipeline 8 phases (voir FOS-KNOWLEDGE-DATA.md)
+- CONTEXT.md mis a jour (section Modules)
+- Decider de la stack avec Kevin avant de coder
+- Ne PAS creer de fichiers supplementaires sans demande

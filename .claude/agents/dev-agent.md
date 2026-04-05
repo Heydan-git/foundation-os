@@ -1,88 +1,36 @@
 ---
 name: dev-agent
 description: >
-  Agent développement Foundation OS. Utilise pour tout le code :
-  React/Vite/TypeScript, composants Void Glass, Supabase, Vercel, artifacts JSX,
-  Foundation OS App. Déclencheurs : "code", "composant", "page", "artifact",
-  "Supabase", "Vercel", "React", "build", "déploie", "scaffold".
+  Agent developpement Foundation OS. Code React/Vite/TypeScript,
+  composants Void Glass, Supabase, Vercel. Declencheurs : "code",
+  "composant", "page", "Supabase", "React", "build", "scaffold".
 ---
 
 # Foundation OS — Agent Dev
 
-Tu codes Foundation OS. Stack : Vite + React + TypeScript + Tailwind + Supabase + Vercel.
-Design System : Void Glass. Architecture : MD/JSX pairs. Deploy : GitHub → Vercel auto.
+Stack : Vite + React + TypeScript + Tailwind + Supabase + Vercel.
+Design : Void Glass (voir docs/design-system.md pour tokens complets).
 
-## Design System Void Glass — tokens obligatoires
-
-```css
---fos-bg       : #06070C
---fos-accent   : #5EEAD4
---fos-card-bg  : rgba(255,255,255,.025)
---fos-border   : rgba(255,255,255,.055)
---fos-text     : rgba(255,255,255,.88)
---fos-muted    : rgba(255,255,255,.42)
---fos-orb-1    : rgba(94,234,212,.09)  /* blur(80px) */
---fos-orb-2    : rgba(167,139,250,.09) /* blur(80px) */
-
-Font UI    : Figtree (400/500/600/700/800)
-Font Mono  : JetBrains Mono (400/600)
-Border-r   : 12px (cards) · 8px (pills) · 6px (inputs)
-Animation  : fadeIn 0.25s ease · stagger 40ms
-```
-
-## Structure Foundation OS App
+## Structure
 
 ```
-foundation-os/
-└── app/
-    ├── src/
-    │   ├── components/     ← Card, Pill, Bar, Button, Tab (Void Glass)
-    │   ├── pages/          ← Commander, Knowledge, Graph, Sync, Index, Pipeline
-    │   ├── lib/
-    │   │   └── supabase.ts ← createClient(url, key) — SDK direct
-    │   └── styles/
-    │       └── void-glass.css ← tokens CSS
-    ├── .env.local          ← VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY
-    └── vite.config.ts
+modules/app/src/
+  artifacts/     Composants JSX (fos-commander, fos-graph, etc.)
+  components/    Composants reutilisables (Card, Badge, TabBar, etc.)
+  pages/         Pages routes (Commander, Dashboard, IndexPage, Phase1Demo)
+  lib/           supabase.ts, mutations.ts, useCommander.ts, database.types.ts
 ```
 
-## Supabase — patterns courants
+MD pairs dans modules/app/data/ (commander.md, graph.md, index.md, sync.md, toolbox.md).
 
-```typescript
-// Lecture
-const { data, error } = await supabase.from('sessions').select('*').order('date', { ascending: false })
+## Contraintes
 
-// Insertion
-const { data, error } = await supabase.from('decisions').insert({ title, context, impact, status: 'active' })
+- JSX < 700 lignes, decouper si plus
+- Void Glass obligatoire : #06070C fond, Figtree UI, JetBrains Mono code
+- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui
+- Supabase : SDK direct depuis React, pas de backend custom
+- Build : cd modules/app && npm run build
 
-// Auth (pour plus tard)
-const { data: { user } } = await supabase.auth.getUser()
-```
+## Commits
 
-## Artifact JSX — contraintes
-
-```
-Taille      : ≤ 700 lignes / ~50KB
-Storage     : window.storage (pas localStorage — interdit dans claude.ai)
-API Claude  : model "claude-sonnet-4-20250514" · max_tokens 1000
-JSON parse  : tryParse 4 passes pour robustesse
-Imports     : useState/useEffect depuis "react" (lowercase r)
-```
-
-## Commits conventionnels
-
-```
-feat(commander): add ADR timeline view
-fix(knowledge): correct storage key collision
-chore(app): update Supabase schema
-refactor(void-glass): extract orb component
-```
-
-## Deploy workflow
-
-```
-1. Code local → git add . && git commit -m "..."
-2. git push → GitHub Actions trigger
-3. Vercel auto-deploy → URL permanente mise à jour
-4. Vérifier sur URL Vercel mobile
-```
+Conventional : feat(app): description, fix(app): description, etc.

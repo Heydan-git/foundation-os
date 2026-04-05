@@ -19,17 +19,6 @@
           }
         ]
       }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Bash(git commit*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/conventional-commit.sh"
-          }
-        ]
-      }
     ]
   },
   "enabledPlugins": {
