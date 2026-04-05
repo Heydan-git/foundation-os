@@ -43,7 +43,7 @@ Cortex route les taches vers l'agent adapte. Spec complete : docs/core/cortex.md
 | Signal | Agent |
 |--------|-------|
 | architecture, ADR, stack, schema, structurer, option A vs B | os-architect |
-| code, composant, page, Supabase, React, build, scaffold, CSS | dev-agent |
+| code, composant, page, Supabase, React, build, scaffold, CSS, Tailwind | dev-agent |
 | documente, note, trace, journalise, met a jour CONTEXT | doc-agent |
 | verifie, audit, check, revue, regression, deployer | review-agent |
 

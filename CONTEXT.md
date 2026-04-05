@@ -45,7 +45,7 @@
 - **Deploy** : https://foundation-os.vercel.app/ (root dir a changer vers modules/app)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
-- **MD pairs** : 5 dans data/ (commander, graph, index, sync, toolbox) — knowledge et scale-orchestrator n'ont pas de MD pair
+- **MD pairs** : 7 dans data/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) — tous alignes
 - **Refs stales** : corrigees (line counts, statuts, refs fantomes fos-pipeline supprimees)
 
 ## MCP — Comptes connectes

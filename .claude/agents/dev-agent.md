@@ -5,6 +5,7 @@ description: >
   composants Void Glass, Supabase, Vercel. Declencheurs : "code",
   "composant", "page", "Supabase", "React", "build", "scaffold",
   "CSS", "Tailwind".
+
 ---
 
 # Foundation OS — Agent Dev
