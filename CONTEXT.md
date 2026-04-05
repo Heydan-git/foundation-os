@@ -15,14 +15,15 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-05 | Core OS 4/4 + Approche A+B : Dashboard dynamique, Auth Supabase, Vitest, CI, health-check, Vercel deploy (root dir modules/app), GitHub secrets. 36 fichiers, 7 commits, 16 crees. App live. |
 | 2026-04-05 | Core OS 4/4 implemente (Cortex, Memory, Monitor, Tools). 23 fichiers, 4 commits, 7 crees, 1 supprime. Audit operationnel 6/6 OK. Build 681ms. |
 | 2026-04-05 | Reorg + audit deep : 76 fichiers racine → 3, -34750 lignes. |
-| 2026-04-05 | Audit fonctionnel (85+ fichiers) : database.types.ts reecrit (match SQL, +Relationships), mutations.ts zero as any, seed data alignee, docs corrigees, package.json nettoye, artifacts line counts corriges. |
-| 2026-04-05 | Cleanup final + plan Core OS : Dashboard data corrige, forms font-sans/font-mono, plan 4 modules (Cortex, Memory, Monitor, Tools) valide. 18 fichiers modifies, 2 commits, build OK 832ms. |
+| 2026-04-05 | Audit fonctionnel (85+ fichiers) : database.types.ts reecrit, mutations.ts zero as any, seed data alignee, docs corrigees. |
+| 2026-04-05 | Cleanup final + plan Core OS : Dashboard data corrige, forms font-sans/font-mono, plan 4 modules valide. |
 
 ## Prochaine action
-1. Kevin : mettre a jour Root Directory Vercel (app/ → modules/app/)
-2. Construire outils backlog Tools (health-check script, supabase-ping GitHub Action)
+1. Tester l'app live (login, dashboard, commander) sur foundation-os.vercel.app
+2. Ajouter des tests (coverage mutations, hooks, composants)
 3. Ou commencer un nouveau module (Finance / Sante)
 
 ## Decisions actives
@@ -44,7 +45,7 @@
 
 - **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo, /login
 - **Build** : OK (684ms, 439KB JS + 21KB CSS)
-- **Deploy** : https://foundation-os.vercel.app/ (root dir a changer vers modules/app)
+- **Deploy** : https://foundation-os.vercel.app/ (root dir modules/app, live)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
 - **MD pairs** : 7 dans data/ — tous alignes (7/7)
