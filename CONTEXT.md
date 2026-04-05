@@ -15,13 +15,15 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-05 | Core OS 4/4 implemente (Cortex, Memory, Monitor, Tools). 23 fichiers, 4 commits, 7 crees, 1 supprime. Audit operationnel 6/6 OK. Build 681ms. |
 | 2026-04-05 | Reorg + audit deep : 76 fichiers racine → 3, -34750 lignes. |
 | 2026-04-05 | Audit fonctionnel (85+ fichiers) : database.types.ts reecrit (match SQL, +Relationships), mutations.ts zero as any, seed data alignee, docs corrigees, package.json nettoye, artifacts line counts corriges. |
 | 2026-04-05 | Cleanup final + plan Core OS : Dashboard data corrige, forms font-sans/font-mono, plan 4 modules (Cortex, Memory, Monitor, Tools) valide. 18 fichiers modifies, 2 commits, build OK 832ms. |
 
 ## Prochaine action
 1. Kevin : mettre a jour Root Directory Vercel (app/ → modules/app/)
-2. Core OS complet (4/4). Prochaine etape : construire les outils backlog (health-check, supabase-ping) ou commencer un nouveau module (Finance/Sante)
+2. Construire outils backlog Tools (health-check script, supabase-ping GitHub Action)
+3. Ou commencer un nouveau module (Finance / Sante)
 
 ## Decisions actives
 
@@ -41,12 +43,12 @@
 ## App Builder — Etat technique
 
 - **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo
-- **Build** : OK (832ms, 440KB JS + 21KB CSS)
+- **Build** : OK (681ms, 440KB JS + 21KB CSS)
 - **Deploy** : https://foundation-os.vercel.app/ (root dir a changer vers modules/app)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
-- **MD pairs** : 7 dans data/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) — tous alignes
-- **Refs stales** : corrigees (line counts, statuts, refs fantomes fos-pipeline supprimees)
+- **MD pairs** : 7 dans data/ — tous alignes (7/7)
+- **Refs stales** : 0 (audit 2026-04-05)
 
 ## MCP — Comptes connectes
 
