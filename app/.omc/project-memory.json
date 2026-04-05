@@ -133,9 +133,21 @@
   },
   "hotPaths": [
     {
+      "path": "src/App.tsx",
+      "accessCount": 28,
+      "lastAccessed": 1775333357726,
+      "type": "file"
+    },
+    {
       "path": "src/lib/mutations.ts",
-      "accessCount": 18,
-      "lastAccessed": 1775308604048,
+      "accessCount": 25,
+      "lastAccessed": 1775332991240,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/database.types.ts",
+      "accessCount": 12,
+      "lastAccessed": 1775333002344,
       "type": "file"
     },
     {
@@ -145,33 +157,33 @@
       "type": "directory"
     },
     {
-      "path": "src/pages/GraphPage.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1775289898097,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/SyncPage.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1775289903905,
-      "type": "file"
-    },
-    {
       "path": "src/pages/KnowledgePage.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1775289908383,
+      "accessCount": 9,
+      "lastAccessed": 1775332640869,
       "type": "file"
     },
     {
       "path": "src/pages/ScaleOrchestratorPage.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1775289913303,
+      "accessCount": 9,
+      "lastAccessed": 1775332641294,
       "type": "file"
     },
     {
-      "path": "src/App.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1775301665290,
+      "path": "src/pages/GraphPage.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775332641751,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/SyncPage.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1775332642273,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 9,
+      "lastAccessed": 1775332764689,
       "type": "file"
     },
     {
@@ -182,8 +194,14 @@
     },
     {
       "path": "src/lib/md-sync-daemon.ts",
-      "accessCount": 7,
-      "lastAccessed": 1775308613100,
+      "accessCount": 8,
+      "lastAccessed": 1775320462633,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/useCommander.ts",
+      "accessCount": 8,
+      "lastAccessed": 1775333258853,
       "type": "file"
     },
     {
@@ -193,21 +211,27 @@
       "type": "file"
     },
     {
-      "path": "vite.config.ts",
-      "accessCount": 5,
-      "lastAccessed": 1775289929148,
-      "type": "file"
-    },
-    {
       "path": "package.json",
-      "accessCount": 5,
-      "lastAccessed": 1775315208789,
+      "accessCount": 6,
+      "lastAccessed": 1775332629222,
       "type": "file"
     },
     {
-      "path": "src/lib/database.types.ts",
+      "path": "src/lib/supabase.ts",
+      "accessCount": 6,
+      "lastAccessed": 1775332638277,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/FigmaValidationPage.tsx",
       "accessCount": 4,
-      "lastAccessed": 1775302086412,
+      "lastAccessed": 1775332644239,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/SessionsPanel.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775333121914,
       "type": "file"
     },
     {
@@ -217,27 +241,57 @@
       "type": "file"
     },
     {
-      "path": "src/pages/FigmaValidationPage.tsx",
+      "path": "src/artifacts/fos-sync.jsx",
       "accessCount": 3,
-      "lastAccessed": 1775307919349,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/Dashboard.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288610307,
+      "lastAccessed": 1775320470485,
       "type": "file"
     },
     {
       "path": "src/pages/Commander.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288647703,
+      "accessCount": 3,
+      "lastAccessed": 1775332635802,
+      "type": "file"
+    },
+    {
+      "path": ".env.local",
+      "accessCount": 3,
+      "lastAccessed": 1775332636383,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Dashboard.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775332636626,
       "type": "file"
     },
     {
       "path": "src/components/Layout.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775288654308,
+      "accessCount": 3,
+      "lastAccessed": 1775332652410,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/EditDecisionModal.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775332682231,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/NextStepActions.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775332682724,
+      "type": "file"
+    },
+    {
+      "path": "src/components/index.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775332751135,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/IndexPage.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775332806547,
       "type": "file"
     },
     {
@@ -265,9 +319,93 @@
       "type": "file"
     },
     {
+      "path": "src/artifacts/fos-commander.jsx",
+      "accessCount": 2,
+      "lastAccessed": 1775320454643,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/ToolboxPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332644735,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/index.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775332651888,
+      "type": "file"
+    },
+    {
       "path": "src/index.css",
-      "accessCount": 1,
-      "lastAccessed": 1775286340328,
+      "accessCount": 2,
+      "lastAccessed": 1775332653738,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/DecisionsPanel.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332683578,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/NextStepsPanel.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332684055,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/RisksPanel.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332690644,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/DocsPanel.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332691064,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/ContextPanel.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332691539,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Commander/StatsBar.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332691959,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Badge.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332692397,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Card.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332692842,
+      "type": "file"
+    },
+    {
+      "path": "src/components/TabBar.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332693289,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ProtectedRoute.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332700233,
+      "type": "file"
+    },
+    {
+      "path": "src/contexts/AuthContext.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775332700681,
       "type": "file"
     },
     {
@@ -277,135 +415,9 @@
       "type": "file"
     },
     {
-      "path": "src/lib/supabase.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775286349628,
-      "type": "file"
-    },
-    {
-      "path": "src/components/index.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775286351259,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Card.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286351375,
-      "type": "file"
-    },
-    {
-      "path": "src/components/TabBar.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286351584,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Badge.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286351800,
-      "type": "file"
-    },
-    {
-      "path": "src/lib/useCommander.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775286441507,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/StatsBar.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286457529,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/SessionsPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286469049,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/DecisionsPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286469174,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/RisksPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286474042,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/DocsPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286478197,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/ContextPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286482095,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/NextStepsPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775286488602,
-      "type": "file"
-    },
-    {
-      "path": "src/components/Commander/index.ts",
-      "accessCount": 1,
-      "lastAccessed": 1775286488767,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/IndexPage.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775288693084,
-      "type": "file"
-    },
-    {
-      "path": "src/artifacts/fos-commander.jsx",
-      "accessCount": 1,
-      "lastAccessed": 1775290696392,
-      "type": "file"
-    },
-    {
       "path": "src/artifacts/fos-knowledge.jsx",
       "accessCount": 1,
       "lastAccessed": 1775290696878,
-      "type": "file"
-    },
-    {
-      "path": "src/artifacts/fos-sync.jsx",
-      "accessCount": 1,
-      "lastAccessed": 1775290697419,
-      "type": "file"
-    },
-    {
-      "path": "src/pages/ToolboxPage.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775297300346,
-      "type": "file"
-    },
-    {
-      "path": "src/components/forms/EditDecisionModal.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775300814268,
-      "type": "file"
-    },
-    {
-      "path": "src/components/forms/NextStepActions.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775300862102,
-      "type": "file"
-    },
-    {
-      "path": "src/contexts/AuthContext.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775300902005,
       "type": "file"
     },
     {
@@ -418,18 +430,6 @@
       "path": "src/components/auth/LoginForm.tsx",
       "accessCount": 1,
       "lastAccessed": 1775300974665,
-      "type": "file"
-    },
-    {
-      "path": "src/components/ProtectedRoute.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775301050830,
-      "type": "file"
-    },
-    {
-      "path": ".env.local",
-      "accessCount": 1,
-      "lastAccessed": 1775301739431,
       "type": "file"
     }
   ],

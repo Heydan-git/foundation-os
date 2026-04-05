@@ -107,9 +107,33 @@
   },
   "hotPaths": [
     {
+      "path": "FOS-MONITORING.md",
+      "accessCount": 32,
+      "lastAccessed": 1775381636333,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 31,
+      "lastAccessed": 1775380876622,
+      "type": "directory"
+    },
+    {
+      "path": "FOS-JOURNAL.md",
+      "accessCount": 31,
+      "lastAccessed": 1775381649260,
+      "type": "file"
+    },
+    {
+      "path": "app/src/App.tsx",
+      "accessCount": 28,
+      "lastAccessed": 1775381619681,
+      "type": "file"
+    },
+    {
       "path": "app/src/lib/mutations.ts",
-      "accessCount": 17,
-      "lastAccessed": 1775306244206,
+      "accessCount": 21,
+      "lastAccessed": 1775380896266,
       "type": "file"
     },
     {
@@ -119,21 +143,15 @@
       "type": "file"
     },
     {
-      "path": "FOS-MONITORING.md",
-      "accessCount": 16,
-      "lastAccessed": 1775318080288,
+      "path": "FOS-COMMANDER-DATA.md",
+      "accessCount": 15,
+      "lastAccessed": 1775380882384,
       "type": "file"
     },
     {
-      "path": "FOS-JOURNAL.md",
-      "accessCount": 15,
-      "lastAccessed": 1775318081001,
-      "type": "file"
-    },
-    {
-      "path": "app/src/App.tsx",
-      "accessCount": 15,
-      "lastAccessed": 1775318504237,
+      "path": "FOS-EVOLUTION-LOG.md",
+      "accessCount": 14,
+      "lastAccessed": 1775333705005,
       "type": "file"
     },
     {
@@ -143,21 +161,51 @@
       "type": "file"
     },
     {
-      "path": "FOS-EVOLUTION-LOG.md",
-      "accessCount": 13,
-      "lastAccessed": 1775318864942,
-      "type": "file"
-    },
-    {
       "path": "FOS-PLAN-MASTER-v2.md",
       "accessCount": 8,
       "lastAccessed": 1775318076355,
       "type": "file"
     },
     {
-      "path": "FOS-COMMANDER-DATA.md",
-      "accessCount": 8,
-      "lastAccessed": 1775318303697,
+      "path": "app/package.json",
+      "accessCount": 7,
+      "lastAccessed": 1775340265762,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/supabase.ts",
+      "accessCount": 7,
+      "lastAccessed": 1775340395684,
+      "type": "file"
+    },
+    {
+      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+      "accessCount": 7,
+      "lastAccessed": 1775377395582,
+      "type": "file"
+    },
+    {
+      "path": "FOS-TOOLBOX-DATA.md",
+      "accessCount": 6,
+      "lastAccessed": 1775340366714,
+      "type": "file"
+    },
+    {
+      "path": "FOS-TECH-ARCHITECTURE.md",
+      "accessCount": 6,
+      "lastAccessed": 1775377392668,
+      "type": "file"
+    },
+    {
+      "path": "FOS-PHASE5-ROADMAP.md",
+      "accessCount": 5,
+      "lastAccessed": 1775319085199,
+      "type": "file"
+    },
+    {
+      "path": "FOS-MEMORY-STRATEGY.md",
+      "accessCount": 5,
+      "lastAccessed": 1775380882545,
       "type": "file"
     },
     {
@@ -179,33 +227,15 @@
       "type": "file"
     },
     {
-      "path": "FOS-PHASE5-ROADMAP.md",
+      "path": "FOS-SYNC-DATA.md",
       "accessCount": 4,
-      "lastAccessed": 1775307347990,
+      "lastAccessed": 1775340367174,
       "type": "file"
     },
     {
-      "path": "FOS-TOOLBOX-DATA.md",
+      "path": "app/src/lib/database.types.ts",
       "accessCount": 4,
-      "lastAccessed": 1775315440211,
-      "type": "file"
-    },
-    {
-      "path": "app/package.json",
-      "accessCount": 4,
-      "lastAccessed": 1775318307738,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/supabase.ts",
-      "accessCount": 4,
-      "lastAccessed": 1775318312151,
-      "type": "file"
-    },
-    {
-      "path": "FOS-SCALE-ORCHESTRATOR-DATA.md",
-      "accessCount": 3,
-      "lastAccessed": 1775303706560,
+      "lastAccessed": 1775340396434,
       "type": "file"
     },
     {
@@ -221,21 +251,9 @@
       "type": "file"
     },
     {
-      "path": "",
-      "accessCount": 3,
-      "lastAccessed": 1775306688830,
-      "type": "directory"
-    },
-    {
       "path": "FOS-PHASE5-NOTION-SYNC-IMPLEMENTATION.md",
       "accessCount": 3,
       "lastAccessed": 1775307352223,
-      "type": "file"
-    },
-    {
-      "path": "FOS-TECH-ARCHITECTURE.md",
-      "accessCount": 3,
-      "lastAccessed": 1775318084971,
       "type": "file"
     },
     {
@@ -251,15 +269,27 @@
       "type": "file"
     },
     {
-      "path": "app/src/lib/memory-manager.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775304295163,
+      "path": "FOS-PHASE4-IMPLEMENTATION-COMPLETE.md",
+      "accessCount": 3,
+      "lastAccessed": 1775319081033,
       "type": "file"
     },
     {
-      "path": "FOS-PHASE4-IMPLEMENTATION-COMPLETE.md",
+      "path": "app/src/lib/md-sync-daemon.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775320231339,
+      "type": "file"
+    },
+    {
+      "path": "SKILL.md",
+      "accessCount": 3,
+      "lastAccessed": 1775377404019,
+      "type": "file"
+    },
+    {
+      "path": "app/src/lib/memory-manager.ts",
       "accessCount": 2,
-      "lastAccessed": 1775305590599,
+      "lastAccessed": 1775304295163,
       "type": "file"
     },
     {
@@ -311,27 +341,9 @@
       "type": "file"
     },
     {
-      "path": "app/src/lib/database.types.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318314887,
-      "type": "file"
-    },
-    {
-      "path": "FOS-SYNC-DATA.md",
-      "accessCount": 2,
-      "lastAccessed": 1775318320789,
-      "type": "file"
-    },
-    {
       "path": "app/src/lib/md-component-factory.ts",
       "accessCount": 2,
       "lastAccessed": 1775318320841,
-      "type": "file"
-    },
-    {
-      "path": "app/src/lib/md-sync-daemon.ts",
-      "accessCount": 2,
-      "lastAccessed": 1775318321293,
       "type": "file"
     },
     {
@@ -341,15 +353,21 @@
       "type": "file"
     },
     {
-      "path": "app/src/components/forms/AddSessionForm.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1775301558781,
+      "path": "scripts/hooks/check-md-pair.sh",
+      "accessCount": 2,
+      "lastAccessed": 1775379297478,
       "type": "file"
     },
     {
-      "path": "scripts/hooks/check-md-pair.sh",
+      "path": "app/src/artifacts/fos-phase4-demo.jsx",
+      "accessCount": 2,
+      "lastAccessed": 1775379327056,
+      "type": "file"
+    },
+    {
+      "path": "app/src/components/forms/AddSessionForm.tsx",
       "accessCount": 1,
-      "lastAccessed": 1775301643334,
+      "lastAccessed": 1775301558781,
       "type": "file"
     },
     {
@@ -359,27 +377,9 @@
       "type": "file"
     },
     {
-      "path": "FOS-MEMORY-STRATEGY.md",
-      "accessCount": 1,
-      "lastAccessed": 1775303367449,
-      "type": "file"
-    },
-    {
-      "path": "SKILL.md",
-      "accessCount": 1,
-      "lastAccessed": 1775303436780,
-      "type": "file"
-    },
-    {
       "path": "app/src/lib/__tests__/phase4-optimizations.test.ts",
       "accessCount": 1,
       "lastAccessed": 1775304177469,
-      "type": "file"
-    },
-    {
-      "path": "app/src/artifacts/fos-phase4-demo.jsx",
-      "accessCount": 1,
-      "lastAccessed": 1775304231465,
       "type": "file"
     },
     {

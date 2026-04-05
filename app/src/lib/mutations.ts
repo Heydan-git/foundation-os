@@ -1,11 +1,9 @@
 /**
- * mutations.ts - CRUD Hooks for Foundation OS Phase 5
- * Real Supabase implementation + Notion Sync Integration
- * Foundation OS ↔ Notion bidirectional sync with conflict resolution
+ * mutations.ts - CRUD operations for Foundation OS
+ * Real Supabase implementation for sessions, decisions, risks, next steps, context
  */
 
 import { supabase } from './supabase'
-import { notionSyncEngine } from './notion-sync-engine'
 
 // Simple types for Foundation OS data structures
 interface SessionData {
@@ -47,18 +45,7 @@ export const useCommanderMutations = () => {
 
       if (error) throw error
 
-      console.log('✅ Real session created:', (data as any).id)
-
-      // Trigger Notion sync for new session
-      try {
-        if (notionSyncEngine.getStatus().isRunning) {
-          await notionSyncEngine.forceSyncAll()
-          console.log('🔄 Notion sync triggered for new session')
-        }
-      } catch (error) {
-        console.warn('⚠️ Notion sync failed for session:', error)
-      }
-
+      console.log('Session created:', (data as any).id)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error creating session:', error)
@@ -375,24 +362,3 @@ export const useCommanderMutations = () => {
   }
 }
 
-// ── Export individual mutation functions for direct use ─────────────
-
-export const createSession = async (sessionData: any) => {
-  const { createSession } = useCommanderMutations()
-  return createSession(sessionData)
-}
-
-export const markStepDone = async (stepId: string) => {
-  const { markStepDone } = useCommanderMutations()
-  return markStepDone(stepId)
-}
-
-export const addRisk = async (riskData: any) => {
-  const { addRisk } = useCommanderMutations()
-  return addRisk(riskData)
-}
-
-export const updateDecision = async (decisionId: string, updates: any) => {
-  const { updateDecision } = useCommanderMutations()
-  return updateDecision(decisionId, updates)
-}

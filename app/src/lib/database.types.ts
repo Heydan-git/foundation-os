@@ -13,8 +13,6 @@ export type Database = {
           title: string
           items: string | null
           decisions: string | null
-          phase: string | null
-          status: 'active' | 'closed'
         }
         Insert: Omit<Database['public']['Tables']['sessions']['Row'], 'id' | 'created_at'>
         Update: Partial<Database['public']['Tables']['sessions']['Insert']>
@@ -22,6 +20,7 @@ export type Database = {
       decisions: {
         Row: {
           id: string
+          code: string | null
           created_at: string
           date: string
           title: string

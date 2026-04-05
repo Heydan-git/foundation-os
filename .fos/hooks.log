@@ -1,0 +1,294 @@
+[2026-04-04 23:16:49] PRE-COMPACTAGE: 🚨 COMPACTAGE DÉTECTÉ - Backup préventif démarré
+[2026-04-04 23:17:59] PRE-COMPACTAGE: 🚨 COMPACTAGE DÉTECTÉ - Backup préventif démarré
+[2026-04-04 23:18:00] PRE-COMPACTAGE: ✅ Backup pré-compactage terminé: /Users/kevinnoel/foundation-os/.fos/checkpoints/checkpoint-2026-04-04-23-17-59.json
+[2026-04-04 23:18:00] PRE-COMPACTAGE: 📁 Fichiers sauvegardés: 3
+[2026-04-04 23:20:16] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:20:16] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:20:16] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-20-16.md
+[2026-04-04 23:20:16] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:20:16] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:20:16] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:22:59] PRE-COMPACTAGE: 🚨 COMPACTAGE DÉTECTÉ - Backup préventif démarré
+[2026-04-04 23:22:59] PRE-COMPACTAGE: ✅ Backup pré-compactage terminé: /Users/kevinnoel/foundation-os/.fos/checkpoints/checkpoint-2026-04-04-23-22-59.json
+[2026-04-04 23:22:59] PRE-COMPACTAGE: 📁 Fichiers sauvegardés: 3
+[2026-04-04 23:23:44] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:23:44] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:23:44] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-23-44.md
+[2026-04-04 23:23:44] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:23:44] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:23:44] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:27:29] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:27:29] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:27:29] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-27-29.md
+[2026-04-04 23:27:29] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:27:29] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:27:29] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:42:10] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:42:10] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:42:10] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-42-10.md
+[2026-04-04 23:42:10] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:42:10] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:42:10] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:45:10] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:45:10] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:45:10] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-45-10.md
+[2026-04-04 23:45:10] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:45:10] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:45:10] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:46:05] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:46:05] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:46:05] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-46-05.md
+[2026-04-04 23:46:05] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:46:05] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:46:05] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:49:55] PRE-COMPACTAGE: 🚨 COMPACTAGE DÉTECTÉ - Backup préventif démarré
+[2026-04-04 23:49:55] PRE-COMPACTAGE: ✅ Backup pré-compactage terminé: /Users/kevinnoel/foundation-os/.fos/checkpoints/checkpoint-2026-04-04-23-49-55.json
+[2026-04-04 23:49:55] PRE-COMPACTAGE: 📁 Fichiers sauvegardés: 3
+[2026-04-04 23:51:16] PRE-COMPACTAGE: 🚨 COMPACTAGE DÉTECTÉ - Backup préventif démarré
+[2026-04-04 23:51:16] PRE-COMPACTAGE: ✅ Backup pré-compactage terminé: /Users/kevinnoel/foundation-os/.fos/checkpoints/checkpoint-2026-04-04-23-51-16.json
+[2026-04-04 23:51:16] PRE-COMPACTAGE: 📁 Fichiers sauvegardés: 3
+[2026-04-04 23:53:16] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:53:16] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:53:17] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-53-16.md
+[2026-04-04 23:53:17] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:53:17] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:53:17] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:53:31] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:53:31] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:53:31] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-53-31.md
+[2026-04-04 23:53:31] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:53:31] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:53:31] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:55:18] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:55:18] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:55:18] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-55-18.md
+[2026-04-04 23:55:18] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:55:18] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:55:18] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-04 23:57:34] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-04 23:57:34] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0404-metadata.json
+[2026-04-04 23:57:34] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-04-23-57-34.md
+[2026-04-04 23:57:34] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-04 23:57:34] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-04 23:57:34] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 00:01:23] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 00:01:23] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 00:01:23] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-00-01-23.md
+[2026-04-05 00:01:23] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 00:01:23] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 00:01:23] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 00:06:05] POST-READ: 📷 Silent checkpoint créé: interaction 10
+[2026-04-05 00:06:27] POST-READ: 📷 Silent checkpoint créé: interaction 20
+[2026-04-05 00:08:06] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 00:08:06] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 00:08:06] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-00-08-06.md
+[2026-04-05 00:08:06] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 00:08:06] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 00:08:06] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 00:10:22] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 00:10:22] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 00:10:22] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-00-10-22.md
+[2026-04-05 00:10:22] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 00:10:22] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 00:10:22] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 00:10:37] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 00:10:37] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 00:10:37] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-00-10-37.md
+[2026-04-05 00:10:37] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 00:10:37] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 00:10:37] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 09:57:40] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 09:57:40] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 09:57:40] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-09-57-40.md
+[2026-04-05 09:57:40] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 09:57:40] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 09:57:40] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:00:49] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:00:49] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:00:49] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-00-49.md
+[2026-04-05 10:00:49] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:00:49] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:00:49] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:07:16] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:07:16] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:07:16] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-07-16.md
+[2026-04-05 10:07:16] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:07:16] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:07:16] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:11:43] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:11:43] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:11:43] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-11-43.md
+[2026-04-05 10:11:43] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:11:43] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:11:43] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:12:50] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:12:50] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:12:50] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-12-50.md
+[2026-04-05 10:12:50] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:12:50] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:12:50] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:16:42] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:16:42] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:16:42] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-16-42.md
+[2026-04-05 10:16:42] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:16:42] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:16:42] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:18:20] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:18:20] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:18:20] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-18-20.md
+[2026-04-05 10:18:20] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:18:20] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:18:20] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:21:19] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:21:19] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:21:19] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-21-19.md
+[2026-04-05 10:21:19] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:21:19] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:21:19] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:22:40] POST-READ: 📷 Silent checkpoint créé: interaction 10
+[2026-04-05 10:22:46] POST-READ: 📷 Silent checkpoint créé: interaction 20
+[2026-04-05 10:22:49] POST-READ: 📷 Silent checkpoint créé: interaction 30
+[2026-04-05 10:23:01] POST-READ: 📷 Silent checkpoint créé: interaction 40
+[2026-04-05 10:23:16] POST-READ: 📷 Silent checkpoint créé: interaction 50
+[2026-04-05 10:23:20] POST-READ: ⚠️  Contexte dense: 51 interactions - considérer compactage préventif
+[2026-04-05 10:23:21] POST-READ: ⚠️  Contexte dense: 52 interactions - considérer compactage préventif
+[2026-04-05 10:23:21] POST-READ: ⚠️  Contexte dense: 53 interactions - considérer compactage préventif
+[2026-04-05 10:23:22] POST-READ: ⚠️  Contexte dense: 54 interactions - considérer compactage préventif
+[2026-04-05 10:23:22] POST-READ: ⚠️  Contexte dense: 55 interactions - considérer compactage préventif
+[2026-04-05 10:23:22] POST-READ: ⚠️  Contexte dense: 56 interactions - considérer compactage préventif
+[2026-04-05 10:23:22] POST-READ: ⚠️  Contexte dense: 57 interactions - considérer compactage préventif
+[2026-04-05 10:23:23] POST-READ: ⚠️  Contexte dense: 58 interactions - considérer compactage préventif
+[2026-04-05 10:23:23] POST-READ: ⚠️  Contexte dense: 59 interactions - considérer compactage préventif
+[2026-04-05 10:23:24] POST-READ: ⚠️  Contexte dense: 61 interactions - considérer compactage préventif
+[2026-04-05 10:23:24] POST-READ: 📷 Silent checkpoint créé: interaction 60
+[2026-04-05 10:23:24] POST-READ: ⚠️  Contexte dense: 60 interactions - considérer compactage préventif
+[2026-04-05 10:23:24] POST-READ: ⚠️  Contexte dense: 62 interactions - considérer compactage préventif
+[2026-04-05 10:23:27] POST-READ: ⚠️  Contexte dense: 63 interactions - considérer compactage préventif
+[2026-04-05 10:23:27] POST-READ: ⚠️  Contexte dense: 64 interactions - considérer compactage préventif
+[2026-04-05 10:23:27] POST-READ: ⚠️  Contexte dense: 65 interactions - considérer compactage préventif
+[2026-04-05 10:23:29] POST-READ: ⚠️  Contexte dense: 66 interactions - considérer compactage préventif
+[2026-04-05 10:23:29] POST-READ: ⚠️  Contexte dense: 67 interactions - considérer compactage préventif
+[2026-04-05 10:23:30] POST-READ: ⚠️  Contexte dense: 68 interactions - considérer compactage préventif
+[2026-04-05 10:23:37] POST-READ: ⚠️  Contexte dense: 69 interactions - considérer compactage préventif
+[2026-04-05 10:23:39] POST-READ: 📷 Silent checkpoint créé: interaction 70
+[2026-04-05 10:23:39] POST-READ: ⚠️  Contexte dense: 70 interactions - considérer compactage préventif
+[2026-04-05 10:23:51] POST-READ: ⚠️  Contexte dense: 71 interactions - considérer compactage préventif
+[2026-04-05 10:23:52] POST-READ: ⚠️  Contexte dense: 72 interactions - considérer compactage préventif
+[2026-04-05 10:23:52] POST-READ: ⚠️  Contexte dense: 73 interactions - considérer compactage préventif
+[2026-04-05 10:23:53] POST-READ: ⚠️  Contexte dense: 74 interactions - considérer compactage préventif
+[2026-04-05 10:23:53] POST-READ: ⚠️  Contexte dense: 75 interactions - considérer compactage préventif
+[2026-04-05 10:23:53] POST-READ: ⚠️  Contexte dense: 76 interactions - considérer compactage préventif
+[2026-04-05 10:23:54] POST-READ: ⚠️  Contexte dense: 77 interactions - considérer compactage préventif
+[2026-04-05 10:23:54] POST-READ: ⚠️  Contexte dense: 78 interactions - considérer compactage préventif
+[2026-04-05 10:23:55] POST-READ: ⚠️  Contexte dense: 79 interactions - considérer compactage préventif
+[2026-04-05 10:23:59] POST-READ: 📷 Silent checkpoint créé: interaction 80
+[2026-04-05 10:23:59] POST-READ: ⚠️  Contexte dense: 80 interactions - considérer compactage préventif
+[2026-04-05 10:23:59] POST-READ: ⚠️  Contexte dense: 81 interactions - considérer compactage préventif
+[2026-04-05 10:24:00] POST-READ: ⚠️  Contexte dense: 82 interactions - considérer compactage préventif
+[2026-04-05 10:24:00] POST-READ: ⚠️  Contexte dense: 83 interactions - considérer compactage préventif
+[2026-04-05 10:24:00] POST-READ: ⚠️  Contexte dense: 84 interactions - considérer compactage préventif
+[2026-04-05 10:24:01] POST-READ: ⚠️  Contexte dense: 85 interactions - considérer compactage préventif
+[2026-04-05 10:24:15] POST-READ: ⚠️  Contexte dense: 86 interactions - considérer compactage préventif
+[2026-04-05 10:24:16] POST-READ: ⚠️  Contexte dense: 87 interactions - considérer compactage préventif
+[2026-04-05 10:24:17] POST-READ: ⚠️  Contexte dense: 88 interactions - considérer compactage préventif
+[2026-04-05 10:24:17] POST-READ: ⚠️  Contexte dense: 89 interactions - considérer compactage préventif
+[2026-04-05 10:24:18] POST-READ: ⚠️  Contexte dense: 91 interactions - considérer compactage préventif
+[2026-04-05 10:24:18] POST-READ: 📷 Silent checkpoint créé: interaction 90
+[2026-04-05 10:24:18] POST-READ: ⚠️  Contexte dense: 90 interactions - considérer compactage préventif
+[2026-04-05 10:24:22] POST-READ: ⚠️  Contexte dense: 92 interactions - considérer compactage préventif
+[2026-04-05 10:24:23] POST-READ: ⚠️  Contexte dense: 93 interactions - considérer compactage préventif
+[2026-04-05 10:24:23] POST-READ: ⚠️  Contexte dense: 94 interactions - considérer compactage préventif
+[2026-04-05 10:24:25] POST-READ: ⚠️  Contexte dense: 95 interactions - considérer compactage préventif
+[2026-04-05 10:24:25] POST-READ: ⚠️  Contexte dense: 96 interactions - considérer compactage préventif
+[2026-04-05 10:25:25] POST-READ: ⚠️  Contexte dense: 97 interactions - considérer compactage préventif
+[2026-04-05 10:25:27] POST-READ: ⚠️  Contexte dense: 98 interactions - considérer compactage préventif
+[2026-04-05 10:25:27] POST-READ: ⚠️  Contexte dense: 99 interactions - considérer compactage préventif
+[2026-04-05 10:25:31] POST-READ: 📷 Silent checkpoint créé: interaction 100
+[2026-04-05 10:25:31] POST-READ: ⚠️  Contexte dense: 100 interactions - considérer compactage préventif
+[2026-04-05 10:25:32] POST-READ: ⚠️  Contexte dense: 101 interactions - considérer compactage préventif
+[2026-04-05 10:25:32] POST-READ: ⚠️  Contexte dense: 102 interactions - considérer compactage préventif
+[2026-04-05 10:26:20] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:26:20] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:26:21] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-26-20.md
+[2026-04-05 10:26:21] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:26:21] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:26:21] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:27:27] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:27:28] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:27:28] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-27-27.md
+[2026-04-05 10:27:28] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:27:28] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:27:28] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:28:42] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:28:42] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:28:42] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-28-42.md
+[2026-04-05 10:28:42] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:28:42] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:28:42] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:30:12] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:30:12] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:30:12] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-30-12.md
+[2026-04-05 10:30:12] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:30:12] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:30:12] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:32:18] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:32:18] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:32:18] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-32-18.md
+[2026-04-05 10:32:18] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:32:18] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:32:18] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:35:44] POST-READ: 📷 Silent checkpoint créé: interaction 10
+[2026-04-05 10:38:36] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:38:36] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:38:36] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-38-36.md
+[2026-04-05 10:38:36] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:38:36] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:38:36] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:52:47] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:52:47] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:52:47] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-52-47.md
+[2026-04-05 10:52:47] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:52:47] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:52:47] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:54:36] POST-READ: 📷 Silent checkpoint créé: interaction 10
+[2026-04-05 10:54:57] POST-READ: 📷 Silent checkpoint créé: interaction 20
+[2026-04-05 10:55:09] POST-READ: 📷 Silent checkpoint créé: interaction 30
+[2026-04-05 10:55:13] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:55:14] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:55:14] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-55-13.md
+[2026-04-05 10:55:14] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:55:14] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:55:14] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:55:39] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:55:39] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:55:39] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-55-39.md
+[2026-04-05 10:55:39] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:55:39] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:55:39] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:56:06] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:56:07] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:56:07] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-56-06.md
+[2026-04-05 10:56:07] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:56:07] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:56:07] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:59:00] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:59:00] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:59:00] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-59-00.md
+[2026-04-05 10:59:00] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:59:00] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:59:00] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 10:59:43] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 10:59:43] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 10:59:43] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-10-59-43.md
+[2026-04-05 10:59:43] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 10:59:43] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 10:59:43] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future
+[2026-04-05 11:06:59] POST-READ: 📷 Silent checkpoint créé: interaction 10
+[2026-04-05 11:21:22] POST-READ: 📷 Silent checkpoint créé: interaction 20
+[2026-04-05 11:23:52] POST-READ: 📷 Silent checkpoint créé: interaction 30
+[2026-04-05 11:30:11] SESSION-END: 🏁 Session end détectée - Archivage démarré
+[2026-04-05 11:30:11] SESSION-END: 📋 Métadonnées session créées: /Users/kevinnoel/foundation-os/.fos/sessions/CONV-0405-metadata.json
+[2026-04-05 11:30:11] SESSION-END: 📝 Transcript session créé: /Users/kevinnoel/foundation-os/.fos/transcripts/session-2026-04-05-11-30-11.md
+[2026-04-05 11:30:11] SESSION-END: 🔄 Compteur interactions reset
+[2026-04-05 11:30:11] SESSION-END: 🧹 Cleanup anciens checkpoints terminé
+[2026-04-05 11:30:11] SESSION-END: ✅ Session archivée avec succès - Prêt pour restauration future

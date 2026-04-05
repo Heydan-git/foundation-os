@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "scan_frequency": "session_start",
+  "conflict_threshold": 0.7,
+  "auto_alert": true,
+  "reconciliation_mode": "ask_user"
+}

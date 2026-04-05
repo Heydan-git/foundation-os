@@ -15,11 +15,8 @@ export function SessionsPanel({ sessions }: SessionsPanelProps) {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: '#5EEAD4', letterSpacing: '.08em' }}>{s.id}</span>
                 <span style={{ fontSize: 10, color: '#52525B' }}>{s.date}</span>
-                {s.phase && (
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: '#3F3F46' }}>P{s.phase}</span>
-                )}
               </div>
-              <Badge label={s.status} color={s.status === 'active' ? '#5EEAD4' : '#52525B'} />
+              <Badge label="session" color="#5EEAD4" />
             </div>
             <h3 style={{ fontSize: 12, fontWeight: 600, color: '#FAFAFA', marginBottom: 6 }}>{s.title}</h3>
             {s.items && (

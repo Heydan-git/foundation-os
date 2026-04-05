@@ -1,0 +1,271 @@
+{
+  "session_id": "STM_20260405_100551",
+  "created_at": "2026-04-05T10:05:51.018857",
+  "last_updated": "2026-04-05T11:29:19.829573",
+  "conversation_context": {
+    "current_topic": "communication",
+    "user_intent": "validate_status",
+    "session_goal": "zero_bullshit_perfect_communication",
+    "progress": [
+      {
+        "timestamp": "2026-04-05T10:05:51.018875",
+        "user_query": "implémente système communication 100% fonctionnel",
+        "claude_response": "Je crée les scripts de détection contradiction et protocol",
+        "action_taken": null,
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:06:33.549043",
+        "user_query": "quel est le statut du projet ?",
+        "claude_response": "Je vais lire FOS-MONITORING.md pour vérifier",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "FOS-MONITORING.md"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:08:32.032042",
+        "user_query": "test user input",
+        "claude_response": "test claude response",
+        "action_taken": null,
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:08:47.056948",
+        "user_query": "quel est le statut de fos-commander.jsx ?",
+        "claude_response": "Je vais répondre que c'est terminé",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "fos-commander.jsx"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:11:25.379496",
+        "user_query": "quel est le statut de fos-commander.jsx ?",
+        "claude_response": "fos-commander.jsx est complètement terminé et fonctionnel",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "fos-commander.jsx"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:11:25.380164",
+        "user_query": "comment ça va ?",
+        "claude_response": "Ça va bien, merci pour la question",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:12:40.659376",
+        "user_query": "ça avance bien le projet ?",
+        "claude_response": "Oui le projet avance très bien, tout est terminé",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:12:40.659929",
+        "user_query": "fos-commander.jsx est prêt ?",
+        "claude_response": "Oui fos-commander.jsx est complètement prêt et déployé",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "fos-commander.jsx"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:15:12.359005",
+        "user_query": "test user",
+        "claude_response": "test claude",
+        "action_taken": null,
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:15:57.897647",
+        "user_query": "test",
+        "claude_response": "test",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:16:20.564663",
+        "user_query": "comment ça va ?",
+        "claude_response": "Ça va bien",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:16:20.565354",
+        "user_query": "fos-commander.jsx est terminé ?",
+        "claude_response": "Oui c'est fini",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "fos-commander.jsx"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:16:20.565880",
+        "user_query": "le truc là ?",
+        "claude_response": "Oui",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:16:20.566414",
+        "user_query": "status artifacts Foundation OS",
+        "claude_response": "Tout est prêt",
+        "action_taken": "validation_check",
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:18:35.325931",
+        "user_query": "implémente système communication 100% fonctionnel",
+        "claude_response": "Je crée les scripts de détection contradiction et protocol",
+        "action_taken": null,
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:18:40.666532",
+        "user_query": "quel est le statut du projet ?",
+        "claude_response": "Je vais lire FOS-MONITORING.md pour vérifier",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "FOS-MONITORING.md"
+        ]
+      },
+      {
+        "timestamp": "2026-04-05T10:19:24.606600",
+        "user_query": "implémente système communication 100% fonctionnel",
+        "claude_response": "Je crée les scripts de détection contradiction et protocol",
+        "action_taken": null,
+        "files_involved": []
+      },
+      {
+        "timestamp": "2026-04-05T10:19:25.432521",
+        "user_query": "quel est le statut du projet ?",
+        "claude_response": "Je vais lire FOS-MONITORING.md pour vérifier",
+        "action_taken": "validation_check",
+        "files_involved": [
+          "FOS-MONITORING.md"
+        ]
+      }
+    ]
+  },
+  "active_contradictions": [
+    {
+      "detected_at": "2026-04-05T11:24:13.433788",
+      "type": "artifact_contradiction",
+      "item": "fos-graph.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:24:13.434261",
+      "type": "artifact_contradiction",
+      "item": "fos-sync.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:24:13.434728",
+      "type": "artifact_contradiction",
+      "item": "fos-pipeline.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.826924",
+      "type": "artifact_contradiction",
+      "item": "fos-commander.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.827341",
+      "type": "artifact_contradiction",
+      "item": "fos-knowledge.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.827729",
+      "type": "artifact_contradiction",
+      "item": "fos-scale-orchestrator.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.828145",
+      "type": "artifact_contradiction",
+      "item": "fos-index.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.828637",
+      "type": "artifact_contradiction",
+      "item": "fos-graph.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.829117",
+      "type": "artifact_contradiction",
+      "item": "fos-sync.jsx",
+      "severity": "medium",
+      "status": "active"
+    },
+    {
+      "detected_at": "2026-04-05T11:29:19.829570",
+      "type": "artifact_contradiction",
+      "item": "fos-pipeline.jsx",
+      "severity": "medium",
+      "status": "active"
+    }
+  ],
+  "recent_decisions": [
+    {
+      "timestamp": "2026-04-05T10:05:51.019240",
+      "decision": "Communication Protocol v2.0 implemented",
+      "context": "communication"
+    },
+    {
+      "timestamp": "2026-04-05T10:18:35.326511",
+      "decision": "Communication Protocol v2.0 implemented",
+      "context": "communication"
+    },
+    {
+      "timestamp": "2026-04-05T10:19:24.607123",
+      "decision": "Communication Protocol v2.0 implemented",
+      "context": "communication"
+    },
+    {
+      "timestamp": "2026-04-05T10:49:51.631939",
+      "decision": "test decision 1",
+      "context": "communication"
+    },
+    {
+      "timestamp": "2026-04-05T10:49:51.632556",
+      "decision": "test decision 2",
+      "context": "communication"
+    }
+  ],
+  "working_files": [],
+  "next_actions": [
+    {
+      "action": "test action",
+      "priority": "medium",
+      "timestamp": "2026-04-05T10:49:51.632255",
+      "status": "pending"
+    },
+    {
+      "action": "test action 2",
+      "priority": "medium",
+      "timestamp": "2026-04-05T10:49:51.632558",
+      "status": "pending"
+    }
+  ],
+  "user_preferences": {
+    "communication_style": "direct_no_bullshit",
+    "response_format": "results_first",
+    "validation_required": true
+  }
+}

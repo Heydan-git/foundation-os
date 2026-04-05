@@ -195,7 +195,7 @@ esac
 
 # Update last check timestamp
 if [ -f "$MANIFEST_FILE" ]; then
-    local timestamp=$(date -Iseconds)
+    timestamp=$(date -Iseconds)
     sed -i '' "s/\"last_check\": \"[^\"]*\"/\"last_check\": \"$timestamp\"/" "$MANIFEST_FILE"
 fi
 

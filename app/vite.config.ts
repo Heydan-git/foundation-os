@@ -9,4 +9,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      // Node.js modules used in browser code are stubbed at runtime
+      external: ['fs', 'path'],
+      output: {
+        globals: {
+          fs: 'undefined',
+          path: 'undefined',
+        },
+      },
+    },
+  },
 })

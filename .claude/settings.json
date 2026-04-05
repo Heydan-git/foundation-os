@@ -21,14 +21,15 @@
           {
             "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/hooks/validate-void-glass.sh \"${file_path:-}\""
-          },
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(*/compact*|*/clear*)",
+        "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/checkpoint-manager.sh auto"
-          },
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/execution-validator.sh pre-edit \"${file_path:-}\""
+            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/pre-compactage-backup.sh"
           }
         ]
       },
@@ -48,10 +49,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/execution-validator.sh post-edit \"${file_path:-}\""
-          },
-          {
-            "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/file-tracker.sh update"
           },
           {
@@ -61,15 +58,20 @@
         ]
       },
       {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/post-read-checkpoint.sh"
+          }
+        ]
+      },
+      {
         "matcher": "Bash(git commit*)",
         "hooks": [
           {
             "type": "command",
             "command": "/Users/kevinnoel/foundation-os/scripts/hooks/conventional-commit.sh"
-          },
-          {
-            "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/checkpoint-manager.sh create"
           }
         ]
       },
@@ -88,15 +90,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/recovery-manager.sh health"
+            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/session-end-archive.sh"
           },
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/safeguards/file-tracker.sh status"
-          },
-          {
-            "type": "command",
-            "command": "echo '[FOS] 🛡️ Session terminée → Système garde-fous BULLETPROOF surveillera la prochaine session'"
+            "command": "echo '[FOS] 🛡️ Session terminée → Foundation OS garde-fous actifs'"
           }
         ]
       }

@@ -1,0 +1,652 @@
+{
+  "entries": [
+    {
+      "timestamp": "2026-04-05T10:04:58.800255",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:04:58.800255",
+        "user_query": "impl\u00e9mente le syst\u00e8me complet sans bullshit",
+        "my_understanding": {
+          "main_intent": "implement",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "comprehensive",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": []
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:06:33.548208",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:06:33.548208",
+        "user_query": "quel est le statut du projet ?",
+        "my_understanding": {
+          "main_intent": "status",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": []
+        },
+        "sources_used": {
+          "FOS_files": [
+            "FOS-MONITORING.md"
+          ]
+        },
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:08:32.030679",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:08:32.030679",
+        "user_query": "test query",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": []
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:08:47.055924",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:08:47.055924",
+        "user_query": "quel est le statut de fos-commander.jsx ?",
+        "my_understanding": {
+          "main_intent": "status",
+          "specific_request": [
+            "artifacts"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": []
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:11:25.378397",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:11:25.378397",
+        "user_query": "quel est le statut de fos-commander.jsx ?",
+        "my_understanding": {
+          "main_intent": "status",
+          "specific_request": [
+            "artifacts"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": true,
+          "relevant_conflicts": [
+            {
+              "type": "artifact_contradiction",
+              "item": "fos-commander.jsx",
+              "conflicting_statuses": [
+                {
+                  "file": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-COMMANDER-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-JOURNAL.md",
+                  "status": "livr\u00e9"
+                },
+                {
+                  "file": "FOS-SYNC-DATA.md",
+                  "status": "\u274c"
+                },
+                {
+                  "file": "FOS-MONITORING.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-SKILL-ORCHESTRATOR.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-ARCHITECTURE-ANALYSIS.md",
+                  "status": "\u2705"
+                }
+              ],
+              "severity": "medium"
+            }
+          ],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.7,
+        "requires_clarification": true,
+        "clarification_needed": [
+          "\u26a0\ufe0f J'ai d\u00e9tect\u00e9 des contradictions dans mes fichiers sur ['fos-commander.jsx']. Quel est le statut R\u00c9EL ?",
+          "\ud83d\udccb Tu veux que je traite \u00e7a de mani\u00e8re compl\u00e8te/exhaustive ou juste un aspect sp\u00e9cifique ?"
+        ]
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:11:25.379863",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:11:25.379863",
+        "user_query": "comment \u00e7a va ?",
+        "my_understanding": {
+          "main_intent": "explain",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.8,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:12:40.658234",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:12:40.658234",
+        "user_query": "\u00e7a avance bien le projet ?",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.8,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:12:40.659604",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:12:40.659604",
+        "user_query": "fos-commander.jsx est pr\u00eat ?",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "artifacts"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": true,
+          "relevant_conflicts": [
+            {
+              "type": "artifact_contradiction",
+              "item": "fos-commander.jsx",
+              "conflicting_statuses": [
+                {
+                  "file": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-COMMANDER-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-JOURNAL.md",
+                  "status": "livr\u00e9"
+                },
+                {
+                  "file": "FOS-SYNC-DATA.md",
+                  "status": "\u274c"
+                },
+                {
+                  "file": "FOS-MONITORING.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-SKILL-ORCHESTRATOR.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-ARCHITECTURE-ANALYSIS.md",
+                  "status": "\u2705"
+                }
+              ],
+              "severity": "medium"
+            }
+          ],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.7,
+        "requires_clarification": true,
+        "clarification_needed": [
+          "\u26a0\ufe0f J'ai d\u00e9tect\u00e9 des contradictions dans mes fichiers sur ['fos-commander.jsx']. Quel est le statut R\u00c9EL ?",
+          "\ud83d\udccb Tu veux que je traite \u00e7a de mani\u00e8re compl\u00e8te/exhaustive ou juste un aspect sp\u00e9cifique ?"
+        ]
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:15:12.357054",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:15:12.357054",
+        "user_query": "test query",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:15:57.896442",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:15:57.896442",
+        "user_query": "test",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:16:20.563413",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:16:20.563413",
+        "user_query": "comment \u00e7a va ?",
+        "my_understanding": {
+          "main_intent": "explain",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.8,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:16:20.564955",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:16:20.564955",
+        "user_query": "fos-commander.jsx est termin\u00e9 ?",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "artifacts"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": true,
+          "relevant_conflicts": [
+            {
+              "type": "artifact_contradiction",
+              "item": "fos-commander.jsx",
+              "conflicting_statuses": [
+                {
+                  "file": "FOS-SCALE-ORCHESTRATOR-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-COMMANDER-DATA.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-JOURNAL.md",
+                  "status": "livr\u00e9"
+                },
+                {
+                  "file": "FOS-SYNC-DATA.md",
+                  "status": "\u274c"
+                },
+                {
+                  "file": "FOS-MONITORING.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-SKILL-ORCHESTRATOR.md",
+                  "status": "\u2705"
+                },
+                {
+                  "file": "FOS-ARCHITECTURE-ANALYSIS.md",
+                  "status": "\u2705"
+                }
+              ],
+              "severity": "medium"
+            }
+          ],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.7,
+        "requires_clarification": true,
+        "clarification_needed": [
+          "\u26a0\ufe0f J'ai d\u00e9tect\u00e9 des contradictions dans mes fichiers sur ['fos-commander.jsx']. Quel est le statut R\u00c9EL ?",
+          "\ud83d\udccb Tu veux que je traite \u00e7a de mani\u00e8re compl\u00e8te/exhaustive ou juste un aspect sp\u00e9cifique ?"
+        ]
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:16:20.565517",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:16:20.565517",
+        "user_query": "le truc l\u00e0 ?",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 0.8,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:16:20.566048",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:16:20.566048",
+        "user_query": "status artifacts Foundation OS",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "artifacts",
+            "status"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:18:39.506254",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:18:39.506254",
+        "user_query": "impl\u00e9mente le syst\u00e8me complet sans bullshit",
+        "my_understanding": {
+          "main_intent": "implement",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "comprehensive",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:18:40.665604",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:18:40.665604",
+        "user_query": "quel est le statut du projet ?",
+        "my_understanding": {
+          "main_intent": "status",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {
+          "FOS_files": [
+            "FOS-MONITORING.md"
+          ]
+        },
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:19:24.175943",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:19:24.175943",
+        "user_query": "impl\u00e9mente le syst\u00e8me complet sans bullshit",
+        "my_understanding": {
+          "main_intent": "implement",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "comprehensive",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:19:25.431484",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:19:25.431484",
+        "user_query": "quel est le statut du projet ?",
+        "my_understanding": {
+          "main_intent": "status",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "read_files",
+          "analyze"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {
+          "FOS_files": [
+            "FOS-MONITORING.md"
+          ]
+        },
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    },
+    {
+      "timestamp": "2026-04-05T10:25:07.674705",
+      "validation_result": {
+        "timestamp": "2026-04-05T10:25:07.674705",
+        "user_query": "test query",
+        "my_understanding": {
+          "main_intent": "unknown",
+          "specific_request": [
+            "general"
+          ],
+          "scope": "unknown",
+          "urgency": "normal"
+        },
+        "intended_action": [
+          "respond_only"
+        ],
+        "contradiction_check": {
+          "conflicts_found": false,
+          "relevant_conflicts": [],
+          "total_conflicts": 7
+        },
+        "sources_used": {},
+        "confidence_level": 1.0,
+        "requires_clarification": false
+      },
+      "protocol_version": "v2.0"
+    }
+  ]
+}

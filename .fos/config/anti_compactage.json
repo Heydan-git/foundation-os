@@ -1,0 +1,21 @@
+{
+  "system_name": "Foundation OS Anti-Compactage System",
+  "version": "1.0.0",
+  "enabled": true,
+  "thresholds": {
+    "interaction_checkpoint": 10,
+    "context_warning": 50,
+    "context_alert": 70,
+    "context_critical": 90
+  },
+  "backup_retention": {
+    "checkpoints_keep": 50,
+    "sessions_keep": 100,
+    "transcripts_days": 30
+  },
+  "validation": {
+    "md5_check": true,
+    "integrity_check": true,
+    "consistency_check": true
+  }
+}

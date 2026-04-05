@@ -6,8 +6,7 @@ interface Module {
   label: string
   subtitle: string
   color: string
-  status: 'delivered' | 'building' | 'planned'
-  lines: number
+  status: 'functional' | 'static'
 }
 
 const MODULES: Module[] = [
@@ -15,53 +14,39 @@ const MODULES: Module[] = [
     id: 'commander',
     route: '/commander',
     label: 'FOS Commander',
-    subtitle: 'Sessions · Décisions · Risques · Next Steps',
+    subtitle: 'Sessions, Decisions, Risques, Next Steps (Supabase CRUD)',
     color: '#A78BFA',
-    status: 'delivered',
-    lines: 364,
+    status: 'functional',
   },
   {
-    id: 'knowledge',
-    route: '/knowledge',
-    label: 'FOS Knowledge',
-    subtitle: 'Manifeste · Journal · Frameworks · Stack · Roadmap',
-    color: '#5EEAD4',
-    status: 'delivered',
-    lines: 448,
-  },
-  {
-    id: 'scale',
-    route: '/scale',
-    label: 'FOS Scale Orchestrator',
-    subtitle: 'Pipeline · Étapes · Budget · Multi-agent',
+    id: 'dashboard',
+    route: '/dashboard',
+    label: 'Dashboard',
+    subtitle: 'Pipeline, Sessions, Decisions, Risques (donnees statiques)',
     color: '#3B82F6',
-    status: 'delivered',
-    lines: 558,
+    status: 'static',
   },
   {
-    id: 'graph',
-    route: '/graph',
-    label: 'FOS Graph',
-    subtitle: 'Architecture · Audit · Dépendances SVG',
+    id: 'crud-test',
+    route: '/crud-test',
+    label: 'Test CRUD Supabase',
+    subtitle: 'Creer, lire, modifier, supprimer sessions et decisions',
     color: '#22C55E',
-    status: 'building',
-    lines: 309,
+    status: 'functional',
   },
   {
-    id: 'sync',
-    route: '/sync',
-    label: 'FOS Sync',
-    subtitle: 'Projects KB · DA Compliance · Overlaps',
+    id: 'phase1-demo',
+    route: '/phase1-demo',
+    label: 'Phase 1 Validation',
+    subtitle: 'Suite de tests automatises pour valider les operations CRUD',
     color: '#F59E0B',
-    status: 'delivered',
-    lines: 380,
+    status: 'functional',
   },
 ]
 
 const STATUS_COLORS: Record<string, string> = {
-  delivered: '#22C55E',
-  building: '#F59E0B',
-  planned: '#6B7280',
+  functional: '#22C55E',
+  static: '#94A3B8',
 }
 
 export default function IndexPage() {
@@ -110,17 +95,17 @@ export default function IndexPage() {
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
-              color: '#5EEAD4',
-              background: 'rgba(94,234,212,.1)',
+              color: '#F59E0B',
+              background: 'rgba(245,158,11,.1)',
               padding: '2px 8px',
               borderRadius: 4,
             }}
           >
-            Hub
+            Prototype
           </span>
         </div>
         <p style={{ fontSize: 13, color: '#52525B' }}>
-          OS de travail IA-driven · Coopération Claude/Kévin · Phase 00 — Fondation
+          OS de travail IA-driven -- Prototype fonctionnel avec CRUD Supabase
         </p>
 
         {/* Stats row */}
@@ -131,23 +116,11 @@ export default function IndexPage() {
               borderRadius: 6,
               fontSize: 11,
               fontFamily: "'JetBrains Mono', monospace",
-              background: 'rgba(167,139,250,.12)',
-              color: '#A78BFA',
-            }}
-          >
-            {MODULES.length} Modules
-          </span>
-          <span
-            style={{
-              padding: '5px 12px',
-              borderRadius: 6,
-              fontSize: 11,
-              fontFamily: "'JetBrains Mono', monospace",
               background: 'rgba(34,197,94,.12)',
               color: '#22C55E',
             }}
           >
-            {MODULES.filter((m) => m.status === 'delivered').length} Delivered
+            {MODULES.filter((m) => m.status === 'functional').length} Functional
           </span>
           <span
             style={{
@@ -155,11 +128,11 @@ export default function IndexPage() {
               borderRadius: 6,
               fontSize: 11,
               fontFamily: "'JetBrains Mono', monospace",
-              background: 'rgba(245,158,11,.12)',
-              color: '#F59E0B',
+              background: 'rgba(148,163,184,.12)',
+              color: '#94A3B8',
             }}
           >
-            {MODULES.filter((m) => m.status === 'building').length} Building
+            {MODULES.filter((m) => m.status === 'static').length} Static
           </span>
         </div>
       </div>
@@ -185,7 +158,6 @@ export default function IndexPage() {
               width: '100%',
             }}
           >
-            {/* Top row: color dot + status badge */}
             <div className="flex items-center justify-between mb-3">
               <span
                 style={{
@@ -214,7 +186,6 @@ export default function IndexPage() {
               </span>
             </div>
 
-            {/* Title */}
             <h2
               style={{
                 fontFamily: "'Figtree', sans-serif",
@@ -227,23 +198,12 @@ export default function IndexPage() {
               {mod.label}
             </h2>
 
-            {/* Subtitle */}
             <p style={{ fontSize: 11, color: '#71717A', lineHeight: 1.5, marginBottom: 14 }}>
               {mod.subtitle}
             </p>
 
-            {/* Footer row */}
-            <div className="flex items-center justify-between">
-              <span
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 9,
-                  color: '#3F3F46',
-                }}
-              >
-                {mod.lines}L
-              </span>
-              <span style={{ fontSize: 11, color: mod.color, fontWeight: 600 }}>Ouvrir →</span>
+            <div className="flex items-center justify-end">
+              <span style={{ fontSize: 11, color: mod.color, fontWeight: 600 }}>Ouvrir</span>
             </div>
           </button>
         ))}
@@ -259,7 +219,7 @@ export default function IndexPage() {
         }}
       >
         <div className="flex flex-wrap gap-8">
-          {['Zéro nuisance', 'MD first · JSX second', 'Traçabilité totale'].map((p) => (
+          {['Prototype honnete', 'CRUD Supabase reel', 'Zero features simulees'].map((p) => (
             <span
               key={p}
               style={{
@@ -280,7 +240,7 @@ export default function IndexPage() {
             color: '#3F3F46',
           }}
         >
-          DATA_VERSION 1.0.0 · LAST_SYNC 2026-04-04
+          v0.1 PROTOTYPE
         </span>
       </div>
     </div>
