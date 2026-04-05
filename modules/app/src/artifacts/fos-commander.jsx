@@ -69,13 +69,13 @@ const RISKS = [
 ];
 
 const DOCUMENTS = [
-  { file: 'fos-commander.jsx', type: 'artifact', status: 'livré 571L', kb: true },
-  { file: 'fos-knowledge.jsx', type: 'artifact', status: 'livré 330L', kb: true },
-  { file: 'fos-graph.jsx', type: 'artifact', status: 'P6-e21', kb: false },
-  { file: 'fos-sync.jsx', type: 'artifact', status: 'P6-e22', kb: false },
-  { file: 'fos-index.jsx', type: 'artifact', status: 'livré 300L', kb: true },
-  { file: 'fos-pipeline.jsx', type: 'artifact', status: 'P6', kb: false },
-  { file: 'fos-scale-orchestrator.jsx', type: 'artifact', status: 'livré 435L', kb: true },
+  { file: 'fos-commander.jsx', type: 'artifact', status: 'livré 364L', kb: true },
+  { file: 'fos-knowledge.jsx', type: 'artifact', status: 'livré 448L', kb: true },
+  { file: 'fos-graph.jsx', type: 'artifact', status: 'livré 309L', kb: true },
+  { file: 'fos-sync.jsx', type: 'artifact', status: 'livré 390L', kb: true },
+  { file: 'fos-index.jsx', type: 'artifact', status: 'livré 410L', kb: true },
+  { file: 'fos-toolbox.jsx', type: 'artifact', status: 'livré 534L', kb: true },
+  { file: 'fos-scale-orchestrator.jsx', type: 'artifact', status: 'livré 558L', kb: true },
   { file: 'FOS-SETUP-GUIDE.md', type: 'plan', status: 'créé', kb: false },
   { file: 'FOS-SCALE-ORCHESTRATOR-DATA.md', type: 'plan', status: 'v3.3.0', kb: false },
   { file: 'FOS-ARCHITECTURE-ANALYSIS.md', type: 'doc', status: 'complet', kb: false },

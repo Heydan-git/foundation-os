@@ -22,14 +22,12 @@ export default function SupabaseCRUDTest() {
     date: string
     title: string
     context: string
-    code: string
     impact: 'high' | 'medium' | 'low'
     status: 'active' | 'superseded' | 'deprecated'
   }>({
     date: new Date().toISOString().split('T')[0],
     title: '',
     context: '',
-    code: '',
     impact: 'medium',
     status: 'active'
   })
@@ -74,9 +72,9 @@ export default function SupabaseCRUDTest() {
       setLoading(true)
       setError(null)
 
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('sessions')
-        .insert([newSession])
+        .insert([{ ...newSession, phase: null, status: 'active' as const }])
         .select()
 
       if (error) throw error
@@ -109,7 +107,7 @@ export default function SupabaseCRUDTest() {
       setLoading(true)
       setError(null)
 
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('decisions')
         .insert([newDecision])
         .select()
@@ -124,7 +122,6 @@ export default function SupabaseCRUDTest() {
         date: new Date().toISOString().split('T')[0],
         title: '',
         context: '',
-        code: '',
         impact: 'medium',
         status: 'active'
       })
@@ -344,17 +341,6 @@ export default function SupabaseCRUDTest() {
                     onChange={e => setNewDecision({...newDecision, title: e.target.value})}
                     className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white"
                     placeholder="Décision prise..."
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">Code *</label>
-                  <input
-                    type="text"
-                    value={newDecision.code}
-                    onChange={e => setNewDecision({...newDecision, code: e.target.value})}
-                    className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white"
-                    placeholder="Code de la décision (ex: ARCH, TECH...)"
                     required
                   />
                 </div>

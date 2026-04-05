@@ -234,7 +234,7 @@ function ContextesSection() {
 }
 
 function DocumentsSection() {
-  const typeColor = (t: string) => ({ artifact: '#5EEAD4', plan: '#A78BFA', doc: '#3B82F6', notice: '#F97316', skill: '#EAB308', monitoring: '#EF4444', historique: '#94A3B8' }[t] ?? '#94A3B8')
+  const typeColor = (t: string) => ({ artifact: '#5EEAD4', plan: '#A78BFA', doc: '#3B82F6', notice: '#F97316', skill: '#EAB308', monitoring: '#EF4444', historique: '#94A3B8', design: '#EC4899', contexte: '#22C55E', guide: '#22C55E', archi: '#A78BFA' }[t] ?? '#94A3B8')
   return (
     <div className="flex flex-col" style={{ gap: 8 }}>
       {DOCUMENTS.map((d, i) => (

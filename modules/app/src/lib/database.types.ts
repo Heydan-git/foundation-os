@@ -1,6 +1,7 @@
 /**
  * Supabase database types — Foundation OS
- * Tables: sessions, decisions, risks, docs, context_blocks, next_steps
+ * Source: supabase/migrations/001_create_tables.sql
+ * Tables: sessions, decisions, risks, next_steps, context_blocks, docs
  */
 export type Database = {
   public: {
@@ -13,14 +14,30 @@ export type Database = {
           title: string
           items: string | null
           decisions: string | null
+          phase: string | null
+          status: 'active' | 'closed'
         }
-        Insert: Omit<Database['public']['Tables']['sessions']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['sessions']['Insert']>
+        Insert: {
+          date: string
+          title: string
+          items?: string | null
+          decisions?: string | null
+          phase?: string | null
+          status?: 'active' | 'closed'
+        }
+        Update: {
+          date?: string
+          title?: string
+          items?: string | null
+          decisions?: string | null
+          phase?: string | null
+          status?: 'active' | 'closed'
+        }
+        Relationships: []
       }
       decisions: {
         Row: {
           id: string
-          code: string | null
           created_at: string
           date: string
           title: string
@@ -28,8 +45,21 @@ export type Database = {
           impact: 'high' | 'medium' | 'low'
           status: 'active' | 'superseded' | 'deprecated'
         }
-        Insert: Omit<Database['public']['Tables']['decisions']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['decisions']['Insert']>
+        Insert: {
+          date: string
+          title: string
+          context?: string | null
+          impact?: 'high' | 'medium' | 'low'
+          status?: 'active' | 'superseded' | 'deprecated'
+        }
+        Update: {
+          date?: string
+          title?: string
+          context?: string | null
+          impact?: 'high' | 'medium' | 'low'
+          status?: 'active' | 'superseded' | 'deprecated'
+        }
+        Relationships: []
       }
       risks: {
         Row: {
@@ -41,31 +71,21 @@ export type Database = {
           mitigation: string | null
           status: 'open' | 'mitigated' | 'closed'
         }
-        Insert: Omit<Database['public']['Tables']['risks']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['risks']['Insert']>
-      }
-      docs: {
-        Row: {
-          id: string
-          created_at: string
-          fichier: string
-          type: string
-          statut: string
-          kb: string | null
+        Insert: {
+          risk: string
+          impact?: 'high' | 'medium' | 'low'
+          proba?: 'high' | 'medium' | 'low'
+          mitigation?: string | null
+          status?: 'open' | 'mitigated' | 'closed'
         }
-        Insert: Omit<Database['public']['Tables']['docs']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['docs']['Insert']>
-      }
-      context_blocks: {
-        Row: {
-          id: string
-          created_at: string
-          label: string
-          content: string
-          sort_order: number
+        Update: {
+          risk?: string
+          impact?: 'high' | 'medium' | 'low'
+          proba?: 'high' | 'medium' | 'low'
+          mitigation?: string | null
+          status?: 'open' | 'mitigated' | 'closed'
         }
-        Insert: Omit<Database['public']['Tables']['context_blocks']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['context_blocks']['Insert']>
+        Relationships: []
       }
       next_steps: {
         Row: {
@@ -77,8 +97,67 @@ export type Database = {
           status: 'todo' | 'in_progress' | 'done'
           sort_order: number
         }
-        Insert: Omit<Database['public']['Tables']['next_steps']['Row'], 'id' | 'created_at'>
-        Update: Partial<Database['public']['Tables']['next_steps']['Insert']>
+        Insert: {
+          label: string
+          phase?: string | null
+          priority?: 'critical' | 'high' | 'medium' | 'low'
+          status?: 'todo' | 'in_progress' | 'done'
+          sort_order?: number
+        }
+        Update: {
+          label?: string
+          phase?: string | null
+          priority?: 'critical' | 'high' | 'medium' | 'low'
+          status?: 'todo' | 'in_progress' | 'done'
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      context_blocks: {
+        Row: {
+          id: string
+          created_at: string
+          label: string
+          content: string
+          sort_order: number
+        }
+        Insert: {
+          label: string
+          content: string
+          sort_order?: number
+        }
+        Update: {
+          label?: string
+          content?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      docs: {
+        Row: {
+          id: string
+          created_at: string
+          title: string
+          content: string | null
+          category: string | null
+          tags: string[] | null
+          sort_order: number
+        }
+        Insert: {
+          title: string
+          content?: string | null
+          category?: string | null
+          tags?: string[] | null
+          sort_order?: number
+        }
+        Update: {
+          title?: string
+          content?: string | null
+          category?: string | null
+          tags?: string[] | null
+          sort_order?: number
+        }
+        Relationships: []
       }
     }
     Views: Record<string, never>

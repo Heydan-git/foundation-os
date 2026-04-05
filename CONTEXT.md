@@ -15,10 +15,12 @@
 | Date | Resume |
 |------|--------|
 | 2026-04-05 | Reorganisation complete + audit deep : 76 fichiers racine → 3, -34750 lignes, 5 commits. .gitignore complet, chromadb retire, 5 artifacts morts supprimes, supabase duplicates supprimes, agents/commands/docs reecrits, memoire Claude enrichie (6 fichiers). Build OK, CSS -30%. |
+| 2026-04-05 | Audit fonctionnel complet (85+ fichiers) + corrections : database.types.ts reecrit (match SQL, +Relationships), mutations.ts sans as any, seed data alignee, docs corrigees (architecture 6 tables, setup-guide Vercel pending), package.json nettoye (-lucide-react -eslint -vitest orphelins), artifacts line counts corriges, refs fantomes supprimees. Build OK 824ms. |
 
 ## Prochaine action
 1. Kevin : mettre a jour Root Directory Vercel (app/ → modules/app/)
 2. Decider du prochain chantier : ameliorer l'app existante ou demarrer un module
+3. Optionnel : nettoyer Dashboard.tsx (donnees statiques locales avec anciens noms de colonnes)
 
 ## Decisions actives
 
@@ -36,12 +38,12 @@
 ## App Builder — Etat technique
 
 - **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo
-- **Build** : OK (761ms, 440KB JS + 21KB CSS)
+- **Build** : OK (824ms, 440KB JS + 21KB CSS)
 - **Deploy** : https://foundation-os.vercel.app/ (root dir a changer vers modules/app)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
 - **MD pairs** : 5 dans data/ (commander, graph, index, sync, toolbox) — knowledge et scale-orchestrator n'ont pas de MD pair
-- **Refs stales** : fos-toolbox.jsx, fos-knowledge.jsx, fos-scale-orchestrator.jsx (descriptions workflows, cosmetic)
+- **Refs stales** : corrigees (line counts, statuts, refs fantomes fos-pipeline supprimees)
 
 ## MCP — Comptes connectes
 

@@ -10,24 +10,26 @@ const CATALOG = [
     category: 'artifacts-delivered',
     role: 'Navigation · index fichiers',
     status: 'delivered',
-    lines: 467,
+    lines: 410,
     mdPair: 'FOS-INDEX-DATA.md'
   },
   // Category 2: ARTIFACTS PLANIFIÉS (planned)
   {
     id: 'fos-graph',
     name: 'fos-graph.jsx',
-    category: 'artifacts-planned',
+    category: 'artifacts-delivered',
     role: 'Graphe SVG · audit artifacts',
-    status: 'planned',
+    status: 'delivered',
+    lines: 309,
     mdPair: 'FOS-GRAPH-DATA.md'
   },
   {
     id: 'fos-sync',
     name: 'fos-sync.jsx',
-    category: 'artifacts-planned',
+    category: 'artifacts-delivered',
     role: 'Projects KB · DA compliance · overlaps',
-    status: 'planned',
+    status: 'delivered',
+    lines: 390,
     mdPair: 'FOS-SYNC-DATA.md'
   },
   {

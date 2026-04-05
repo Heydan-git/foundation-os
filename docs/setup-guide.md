@@ -53,4 +53,4 @@ npm run build    # production
 
 ## Vercel
 
-Root Directory = `modules/app`. Auto-deploy sur git push vers main.
+Root Directory = `modules/app` (a configurer dans Vercel). Auto-deploy sur git push vers main.

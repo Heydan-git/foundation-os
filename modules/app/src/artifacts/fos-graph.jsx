@@ -14,13 +14,13 @@ const FosGraph = () => {
 
   // Nodes data from FOS-GRAPH-DATA.md
   const nodes = [
-    { id: 'idx', label: 'fos-index', type: 'artifact', status: 'delivered', lines: 431, x: 200, y: 150, radius: 40 },
+    { id: 'idx', label: 'fos-index', type: 'artifact', status: 'delivered', lines: 410, x: 200, y: 150, radius: 40 },
     { id: 'cmd', label: 'fos-commander', type: 'artifact', status: 'delivered', lines: 364, x: 350, y: 120, radius: 35 },
     { id: 'knw', label: 'fos-knowledge', type: 'artifact', status: 'delivered', lines: 448, x: 350, y: 180, radius: 35 },
     { id: 'sco', label: 'fos-scale-orchestrator', type: 'artifact', status: 'delivered', lines: 558, x: 500, y: 150, radius: 40 },
-    { id: 'grp', label: 'fos-graph', type: 'artifact', status: 'building', lines: 500, x: 200, y: 250, radius: 30 },
-    { id: 'syn', label: 'fos-sync', type: 'artifact', status: 'planned', lines: 400, x: 350, y: 280, radius: 30 },
-    { id: 'pip', label: 'fos-pipeline', type: 'artifact', status: 'planned', lines: 600, x: 500, y: 280, radius: 30 }
+    { id: 'grp', label: 'fos-graph', type: 'artifact', status: 'delivered', lines: 309, x: 200, y: 250, radius: 30 },
+    { id: 'syn', label: 'fos-sync', type: 'artifact', status: 'delivered', lines: 390, x: 350, y: 280, radius: 30 },
+    { id: 'tbx', label: 'fos-toolbox', type: 'artifact', status: 'delivered', lines: 534, x: 500, y: 280, radius: 30 }
   ];
 
   // Edges data from FOS-GRAPH-DATA.md
@@ -67,9 +67,7 @@ const FosGraph = () => {
 
   // Violations check
   const violations = [
-    { artifact: 'fos-graph.jsx', issue: 'Missing (building)', severity: 'medium', action: 'Complete e21' },
-    { artifact: 'fos-sync.jsx', issue: 'Missing', severity: 'medium', action: 'Complete e22' },
-    { artifact: 'fos-pipeline.jsx', issue: 'Missing', severity: 'low', action: 'P6 future' }
+    { artifact: 'fos-pipeline.jsx', issue: 'Non cree', severity: 'low', action: 'A evaluer' }
   ];
 
   return (

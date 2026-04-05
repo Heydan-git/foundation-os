@@ -6,7 +6,7 @@ interface DocsPanelProps {
 }
 
 const typeColor = (t: string) =>
-  ({ artifact: '#5EEAD4', plan: '#A78BFA', doc: '#3B82F6', notice: '#F97316', skill: '#EAB308', monitoring: '#EF4444', historique: '#94A3B8' }[t] ?? '#94A3B8')
+  ({ artifact: '#5EEAD4', plan: '#A78BFA', doc: '#3B82F6', notice: '#F97316', skill: '#EAB308', monitoring: '#EF4444', historique: '#94A3B8', design: '#EC4899', guide: '#22C55E' }[t] ?? '#94A3B8')
 
 export function DocsPanel({ docs }: DocsPanelProps) {
   return (
@@ -16,12 +16,12 @@ export function DocsPanel({ docs }: DocsPanelProps) {
           <Card>
             <div className="flex items-center justify-between">
               <div className="flex items-center" style={{ gap: 8 }}>
-                <Badge label={d.type} color={typeColor(d.type)} />
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: '#FAFAFA' }}>{d.fichier}</span>
+                <Badge label={d.category ?? ''} color={typeColor(d.category ?? '')} />
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: '#FAFAFA' }}>{d.title}</span>
               </div>
               <div className="flex items-center" style={{ gap: 8 }}>
-                <span style={{ fontSize: 10, color: '#52525B' }}>{d.statut}</span>
-                {d.kb && <span style={{ fontSize: 10, color: '#3F3F46' }}>{d.kb}</span>}
+                <span style={{ fontSize: 10, color: '#52525B' }}>{d.content}</span>
+                {d.tags && d.tags.length > 0 && <span style={{ fontSize: 10, color: '#3F3F46' }}>{d.tags[0]}</span>}
               </div>
             </div>
           </Card>

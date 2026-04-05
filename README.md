@@ -15,7 +15,7 @@ CLAUDE.md              Instructions Claude Code
 CONTEXT.md             Etat actuel du projet (source de verite)
 modules/app/           Module App Builder (React)
 modules/finance/       Module Finance (futur)
-modules/health/        Module Sante (futur)
+modules/sante/         Module Sante (futur)
 docs/                  Documentation de reference
 scripts/               Scripts utilitaires
 .archive/              Fichiers historiques

@@ -16,7 +16,7 @@ CORE (CLAUDE.md, CONTEXT.md,      Le cerveau
 | Couche | Composant | Detail |
 |--------|-----------|--------|
 | App | Vite + React + TypeScript + Tailwind | Frontend |
-| DB | Supabase (supabase-js SDK direct) | 5 tables : sessions, decisions, risks, next_steps, context_blocks |
+| DB | Supabase (supabase-js SDK direct) | 6 tables : sessions, decisions, risks, next_steps, context_blocks, docs |
 | Deploy | Vercel (auto-deploy sur git push) | Root dir : modules/app |
 | Design | Void Glass | docs/design-system.md |
 | AI | Claude Code + OMC + BMAD | Multi-agent orchestration |

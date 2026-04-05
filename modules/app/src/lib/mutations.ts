@@ -5,19 +5,6 @@
 
 import { supabase } from './supabase'
 
-// Simple types for Foundation OS data structures
-interface SessionData {
-  id: string
-  date: string
-  title: string
-  items: string
-  decisions: string
-  phase: string
-  status: 'active' | 'closed'
-}
-
-// Types DecisionData, RiskData, NextStepData inlined where needed
-
 // ── Commander Mutations Hook ─────────────────────────────────────────
 
 export const useCommanderMutations = () => {
@@ -26,26 +13,21 @@ export const useCommanderMutations = () => {
 
   const createSession = async (sessionData: any) => {
     try {
-      const newSession: SessionData = {
-        id: sessionData.id || `CONV-${String(Date.now()).slice(-3)}`,
-        date: sessionData.date || new Date().toISOString().split('T')[0],
-        title: sessionData.title || 'Nouvelle session',
-        items: sessionData.items || '',
-        decisions: sessionData.decisions || '',
-        phase: sessionData.phase || '01',
-        status: sessionData.status || 'active'
-      }
-
-      // Real Supabase insert with any typing bypass
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('sessions')
-        .insert(newSession)
+        .insert({
+          date: sessionData.date || new Date().toISOString().split('T')[0],
+          title: sessionData.title || 'Nouvelle session',
+          items: sessionData.items || null,
+          decisions: sessionData.decisions || null,
+          phase: sessionData.phase || '01',
+          status: sessionData.status || 'active',
+        })
         .select()
         .single()
 
       if (error) throw error
-
-      console.log('Session created:', (data as any).id)
+      console.log('Session created:', data.id)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error creating session:', error)
@@ -55,7 +37,7 @@ export const useCommanderMutations = () => {
 
   const updateSession = async (sessionId: string, updates: any) => {
     try {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('sessions')
         .update(updates)
         .eq('id', sessionId)
@@ -63,8 +45,7 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-
-      console.log('✅ Real session updated:', sessionId)
+      console.log('Session updated:', sessionId)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error updating session:', error)
@@ -80,8 +61,7 @@ export const useCommanderMutations = () => {
         .eq('id', sessionId)
 
       if (error) throw error
-
-      console.log('✅ Real session deleted:', sessionId)
+      console.log('Session deleted:', sessionId)
       return { success: true }
     } catch (error: any) {
       console.error('Error deleting session:', error)
@@ -93,24 +73,20 @@ export const useCommanderMutations = () => {
 
   const createDecision = async (decisionData: any) => {
     try {
-      const newDecision = {
-        id: decisionData.id || `ADR-${String(Date.now()).slice(-3)}`,
-        date: decisionData.date || new Date().toISOString().split('T')[0],
-        title: decisionData.title || 'Nouvelle décision',
-        context: decisionData.context || '',
-        impact: decisionData.impact || 'medium',
-        status: decisionData.status || 'active'
-      }
-
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('decisions')
-        .insert([newDecision])
+        .insert({
+          date: decisionData.date || new Date().toISOString().split('T')[0],
+          title: decisionData.title || 'Nouvelle decision',
+          context: decisionData.context || null,
+          impact: decisionData.impact || 'medium',
+          status: decisionData.status || 'active',
+        })
         .select()
         .single()
 
       if (error) throw error
-
-      console.log('✅ Real decision created:', (data as any).id)
+      console.log('Decision created:', data.id)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error creating decision:', error)
@@ -120,7 +96,7 @@ export const useCommanderMutations = () => {
 
   const updateDecision = async (decisionId: string, updates: any) => {
     try {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('decisions')
         .update(updates)
         .eq('id', decisionId)
@@ -128,8 +104,7 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-
-      console.log('✅ Real decision updated:', decisionId)
+      console.log('Decision updated:', decisionId)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error updating decision:', error)
@@ -141,7 +116,7 @@ export const useCommanderMutations = () => {
 
   const markStepDone = async (stepId: string) => {
     try {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('next_steps')
         .update({ status: 'done' })
         .eq('id', stepId)
@@ -149,8 +124,7 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-
-      console.log('✅ Real step marked done:', stepId)
+      console.log('Step marked done:', stepId)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error marking step done:', error)
@@ -160,25 +134,21 @@ export const useCommanderMutations = () => {
 
   const createNextStep = async (stepData: any) => {
     try {
-      const newStep = {
-        id: stepData.id || `STEP-${String(Date.now()).slice(-3)}`,
-        created_at: new Date().toISOString(),
-        label: stepData.label || 'Nouvelle action',
-        phase: stepData.phase || '01',
-        priority: stepData.priority || 'medium',
-        status: stepData.status || 'todo',
-        sort_order: stepData.sort_order || 0
-      }
-
-      // Insert to Supabase (replacing former mock array)
-      const { error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('next_steps')
-        .insert([newStep])
+        .insert({
+          label: stepData.label || 'Nouvelle action',
+          phase: stepData.phase || '01',
+          priority: stepData.priority || 'medium',
+          status: stepData.status || 'todo',
+          sort_order: stepData.sort_order || 0,
+        })
+        .select()
+        .single()
 
       if (error) throw error
-
-      console.log('✅ Next step created:', newStep.id)
-      return { success: true, data: newStep }
+      console.log('Next step created:', data.id)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error creating next step:', error)
       return { success: false, error: error.message }
@@ -189,24 +159,20 @@ export const useCommanderMutations = () => {
 
   const addRisk = async (riskData: any) => {
     try {
-      const newRisk = {
-        id: riskData.id || `R-${String(Date.now()).slice(-3)}`,
-        risk: riskData.risk || 'Nouveau risque',
-        impact: riskData.impact || 'medium',
-        proba: riskData.proba || 'medium',
-        mitigation: riskData.mitigation || '',
-        status: riskData.status || 'open'
-      }
-
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('risks')
-        .insert([newRisk])
+        .insert({
+          risk: riskData.risk || 'Nouveau risque',
+          impact: riskData.impact || 'medium',
+          proba: riskData.proba || 'medium',
+          mitigation: riskData.mitigation || null,
+          status: riskData.status || 'open',
+        })
         .select()
         .single()
 
       if (error) throw error
-
-      console.log('✅ Real risk added:', (data as any).id)
+      console.log('Risk added:', data.id)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error adding risk:', error)
@@ -216,7 +182,7 @@ export const useCommanderMutations = () => {
 
   const updateRisk = async (riskId: string, updates: any) => {
     try {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('risks')
         .update(updates)
         .eq('id', riskId)
@@ -224,8 +190,7 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-
-      console.log('✅ Risk updated:', riskId)
+      console.log('Risk updated:', riskId)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error updating risk:', error)
@@ -237,23 +202,19 @@ export const useCommanderMutations = () => {
 
   const addContext = async (contextData: any) => {
     try {
-      const newContext = {
-        id: contextData.id || `CTX-${String(Date.now()).slice(-3)}`,
-        created_at: new Date().toISOString(),
-        label: contextData.label || 'Nouveau contexte',
-        content: contextData.content || '',
-        sort_order: contextData.sort_order || 0
-      }
-
-      // Insert to Supabase (replacing former mock array)
-      const { error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('context_blocks')
-        .insert([newContext])
+        .insert({
+          label: contextData.label || 'Nouveau contexte',
+          content: contextData.content || '',
+          sort_order: contextData.sort_order || 0,
+        })
+        .select()
+        .single()
 
       if (error) throw error
-
-      console.log('✅ Context added:', newContext.id)
-      return { success: true, data: newContext }
+      console.log('Context added:', data.id)
+      return { success: true, data }
     } catch (error: any) {
       console.error('Error adding context:', error)
       return { success: false, error: error.message }
@@ -265,24 +226,20 @@ export const useCommanderMutations = () => {
   const batchCreateNextSteps = async (phase: string, steps: string[]) => {
     try {
       const stepData = steps.map((label, index) => ({
-        id: `STEP-${phase}-${index + 1}`,
-        created_at: new Date().toISOString(),
         label,
         phase,
-        priority: 'medium',
-        status: 'todo',
-        sort_order: index
+        priority: 'medium' as const,
+        status: 'todo' as const,
+        sort_order: index,
       }))
 
-      // Batch insert to Supabase
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from('next_steps')
         .insert(stepData)
         .select()
 
       if (error) throw error
-
-      console.log(`✅ Real batch created ${(data as any[]).length} steps for phase ${phase}`)
+      console.log(`Batch created ${data.length} steps for phase ${phase}`)
       return { success: true, data }
     } catch (error: any) {
       console.error('Error batch creating steps:', error)
@@ -299,7 +256,7 @@ export const useCommanderMutations = () => {
         supabase.from('decisions').select('*'),
         supabase.from('risks').select('*'),
         supabase.from('next_steps').select('*'),
-        supabase.from('context_blocks').select('*')
+        supabase.from('context_blocks').select('*'),
       ])
 
       return {
@@ -307,7 +264,7 @@ export const useCommanderMutations = () => {
         decisions: decisions.data || [],
         risks: risks.data || [],
         nextSteps: nextSteps.data || [],
-        context: context.data || []
+        context: context.data || [],
       }
     } catch (error: any) {
       console.error('Error fetching all data:', error)
@@ -318,13 +275,13 @@ export const useCommanderMutations = () => {
   const clearAllData = async () => {
     try {
       await Promise.all([
-        supabase.from('sessions').delete().neq('id', ''),
-        supabase.from('decisions').delete().neq('id', ''),
-        supabase.from('risks').delete().neq('id', ''),
-        supabase.from('next_steps').delete().neq('id', ''),
-        supabase.from('context_blocks').delete().neq('id', '')
+        supabase.from('sessions').delete().not('id', 'is', null),
+        supabase.from('decisions').delete().not('id', 'is', null),
+        supabase.from('risks').delete().not('id', 'is', null),
+        supabase.from('next_steps').delete().not('id', 'is', null),
+        supabase.from('context_blocks').delete().not('id', 'is', null),
       ])
-      console.log('🗑️ All real data cleared')
+      console.log('All data cleared')
       return { success: true }
     } catch (error: any) {
       console.error('Error clearing data:', error)
@@ -335,30 +292,18 @@ export const useCommanderMutations = () => {
   // ── Return all mutations ─────────────────────────────────────────────
 
   return {
-    // Sessions
     createSession,
     updateSession,
     deleteSession,
-
-    // Decisions
     createDecision,
     updateDecision,
-
-    // Next Steps
     markStepDone,
     createNextStep,
     batchCreateNextSteps,
-
-    // Risks
     addRisk,
     updateRisk,
-
-    // Context
     addContext,
-
-    // Debug helpers
     getAllData,
-    clearAllData
+    clearAllData,
   }
 }
-
