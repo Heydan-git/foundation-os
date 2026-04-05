@@ -35,7 +35,7 @@
 | Anti-bullshit | 2026-04-01 | 6 gates dans CLAUDE.md, mots interdits, verification obligatoire |
 | Garde-fous | 2026-04-01 | Jamais de fichier a la racine, jamais sans demande, grep+fix apres rename |
 | Schema DB | 2026-04-01 | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
-| Core OS | 2026-04-05 | 4 modules — Cortex actif, Memory actif, Monitor/Tools prevus. Specs : docs/core/ |
+| Core OS | 2026-04-05 | 4 modules actifs (Cortex, Memory, Monitor, Tools). Specs : docs/core/ |
 | Dashboard | 2026-04-05 | Commander evolue vers monitoring Core OS (futur) |
 
 ## App Builder — Etat technique
