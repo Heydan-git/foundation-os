@@ -2,6 +2,16 @@
 
 OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu), Sante (prevu).
 
+## Imperatifs (non-negociable)
+- Ne jamais mentir, inventer, ou fabriquer (donnees, URLs, citations)
+- Si je ne sais pas ou ne suis pas sur → le dire
+- Ne jamais pretendre avoir fini sans verification reelle (build + test)
+- Ne pas completer une tache Asana sans OK explicite de Kevin
+- 100% ou rien — verifier le repertoire courant avant toute operation fichier
+- Plan avant execution, validation Kevin avant changement non-trivial
+- MD first : modifier NOM-DATA.md avant NOM.jsx, livrer les deux ensemble
+- Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
+
 ## A chaque session
 1. Lire CONTEXT.md pour etat actuel + prochaine action
 2. Ne jamais inventer de metriques — verifier les fichiers
@@ -80,15 +90,15 @@ Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BR
 
 Utilitaires et automation. Spec complete : docs/core/tools.md
 
-Existants : validate-void-glass.sh (hook), commit-msg (git hook), Vercel auto-deploy.
-Backlog : health-check, supabase-ping, ref-checker (a construire sur demande).
+Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
+Backlog : ref-checker (a construire sur demande).
 Convention : scripts/ en bash/node, kebab-case, idempotent, exit codes standards.
 
 ## Structure
 modules/app/       Module App Builder (React, actif)
-docs/              Architecture, design system, manifeste, guide setup
-docs/core/         Specs Core OS (cortex, architecture)
-scripts/hooks/     Hook Void Glass (PreToolUse)
+docs/              Architecture, design system, manifeste, guide setup, specs, plans
+docs/core/         Specs Core OS (cortex, memory, monitor, tools)
+scripts/hooks/     Hooks (Void Glass, security)
 supabase/          Migrations DB
 _bmad/             BMAD v6 (12 modules)
 .claude/           Agents, commands, settings
@@ -112,3 +122,8 @@ Spec agents : docs/core/cortex.md section 4.
 - /session-end   : list changes + coherence + build + update CONTEXT.md + propose commit
 - /new-project   : scaffold modules/[nom]/ + update CONTEXT.md
 - /sync          : coherence projet entiere (structure, refs, CONTEXT.md vs filesystem, Void Glass)
+
+## Reference
+- Directive complete : docs/directive-v1.md
+- Design spec v2 : docs/specs/2026-04-05-foundation-os-v2-design.md
+- Plan Phase 1 : docs/plans/2026-04-05-phase1-fondations.md
