@@ -105,10 +105,10 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-medium text-[#5EEAD4] font-['Figtree']">
+            <h2 className="text-xl font-medium text-[#5EEAD4] font-sans">
               Modifier Décision
             </h2>
-            <p className="text-sm text-gray-400 font-['JetBrains_Mono']">
+            <p className="text-sm text-gray-400 font-mono">
               {decision.id}
             </p>
           </div>
@@ -133,7 +133,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Titre de la décision *
             </label>
             <input
@@ -143,7 +143,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
               onChange={handleChange}
               required
               placeholder="Ex: Architecture 5-niveaux anti-compactage"
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono']"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono"
             />
           </div>
 
@@ -151,14 +151,14 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
           <div className="grid grid-cols-2 gap-4">
             {/* Impact */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+              <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
                 Impact
               </label>
               <select
                 name="impact"
                 value={formData.impact}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] ${getImpactColor(formData.impact)}`}
+                className={`w-full px-3 py-2 border rounded focus:border-[#5EEAD4] focus:outline-none font-mono ${getImpactColor(formData.impact)}`}
               >
                 <option value="low" className="bg-[#06070C]">Low</option>
                 <option value="medium" className="bg-[#06070C]">Medium</option>
@@ -168,14 +168,14 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
 
             {/* Status */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+              <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
                 Statut
               </label>
               <select
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] ${getStatusColor(formData.status)}`}
+                className={`w-full px-3 py-2 border rounded focus:border-[#5EEAD4] focus:outline-none font-mono ${getStatusColor(formData.status)}`}
               >
                 <option value="active" className="bg-[#06070C]">Active</option>
                 <option value="superseded" className="bg-[#06070C]">Superseded</option>
@@ -186,7 +186,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
 
           {/* Context */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Contexte & Justification
             </label>
             <textarea
@@ -195,7 +195,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
               onChange={handleChange}
               rows={4}
               placeholder="Expliquez le contexte, les raisons et l'impact de cette décision..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono resize-none"
             />
           </div>
 
@@ -205,14 +205,14 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
               type="button"
               onClick={onClose}
               disabled={isLoading}
-              className="px-4 py-2 text-gray-300 hover:text-white transition-colors disabled:opacity-50 font-['Figtree']"
+              className="px-4 py-2 text-gray-300 hover:text-white transition-colors disabled:opacity-50 font-sans"
             >
               Annuler
             </button>
             <button
               type="submit"
               disabled={isLoading || !formData.title.trim()}
-              className="px-6 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-['Figtree']"
+              className="px-6 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
             >
               {isLoading ? 'Mise à jour...' : 'Mettre à jour'}
             </button>

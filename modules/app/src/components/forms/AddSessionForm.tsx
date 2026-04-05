@@ -76,7 +76,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
       <div className="bg-[#06070C] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-medium text-[#5EEAD4] font-['Figtree']">
+          <h2 className="text-xl font-medium text-[#5EEAD4] font-sans">
             Nouvelle Session
           </h2>
           <button
@@ -100,7 +100,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Titre de la session *
             </label>
             <input
@@ -110,20 +110,20 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               required
               placeholder="Ex: Phase 1 Write Capability Implementation"
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono']"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono"
             />
           </div>
 
           {/* Phase */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Phase
             </label>
             <select
               name="phase"
               value={formData.phase}
               onChange={handleChange}
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono']"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white focus:border-[#5EEAD4] focus:outline-none font-mono"
             >
               <option value="00">Phase 0 - Foundation</option>
               <option value="01">Phase 1 - Write Capability</option>
@@ -136,7 +136,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
 
           {/* Items */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Items de la session
             </label>
             <textarea
@@ -145,13 +145,13 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               rows={3}
               placeholder="Décrivez les éléments traités dans cette session..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono resize-none"
             />
           </div>
 
           {/* Decisions */}
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1 font-['Figtree']">
+            <label className="block text-sm font-medium text-gray-300 mb-1 font-sans">
               Décisions prises
             </label>
             <textarea
@@ -160,7 +160,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               rows={3}
               placeholder="Décrivez les décisions importantes prises..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono resize-none"
             />
           </div>
 
@@ -170,14 +170,14 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               type="button"
               onClick={onClose}
               disabled={isLoading}
-              className="px-4 py-2 text-gray-300 hover:text-white transition-colors disabled:opacity-50 font-['Figtree']"
+              className="px-4 py-2 text-gray-300 hover:text-white transition-colors disabled:opacity-50 font-sans"
             >
               Annuler
             </button>
             <button
               type="submit"
               disabled={isLoading || !formData.title.trim()}
-              className="px-6 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-['Figtree']"
+              className="px-6 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
             >
               {isLoading ? 'Création...' : 'Créer Session'}
             </button>

@@ -51,8 +51,8 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
           console.log('✅ Step marqué done:', step.id)
         }
       } else {
-        // For now, just keep optimistic update (updateStep not implemented)
-        console.log(`✅ Step ${step.id} → ${nextStatus} (mock)`)
+        // TODO: implement updateStep for non-done transitions
+        console.log(`Step ${step.id} → ${nextStatus} (local only)`)
       }
     } catch (error) {
       // Revert optimistic update
@@ -141,10 +141,10 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
     <div className="space-y-3">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-medium text-[#5EEAD4] font-['Figtree']">
+        <h3 className="text-lg font-medium text-[#5EEAD4] font-sans">
           Next Steps
         </h3>
-        <span className="text-sm text-gray-400 font-['JetBrains_Mono']">
+        <span className="text-sm text-gray-400 font-mono">
           {steps.filter(s => s.status === 'done').length}/{steps.length} complétés
         </span>
       </div>
@@ -172,7 +172,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
 
             {/* Label */}
             <div className="flex-1">
-              <span className={`${getStatusColor(step.status)} font-['JetBrains_Mono'] text-sm`}>
+              <span className={`${getStatusColor(step.status)} font-mono text-sm`}>
                 {step.label}
               </span>
             </div>
@@ -180,12 +180,12 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
             {/* Priority & Phase */}
             <div className="flex items-center gap-2 text-xs">
               {step.phase && (
-                <span className="px-2 py-1 bg-gray-800 rounded text-gray-300 font-['JetBrains_Mono']">
+                <span className="px-2 py-1 bg-gray-800 rounded text-gray-300 font-mono">
                   P{step.phase}
                 </span>
               )}
               <span className={`
-                px-2 py-1 rounded font-['JetBrains_Mono']
+                px-2 py-1 rounded font-mono
                 ${step.priority === 'critical' ? 'bg-red-900/50 text-red-400' : ''}
                 ${step.priority === 'high' ? 'bg-orange-900/50 text-orange-400' : ''}
                 ${step.priority === 'medium' ? 'bg-yellow-900/50 text-yellow-400' : ''}
@@ -203,7 +203,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
             <svg className="w-12 h-12 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
-            <p className="font-['Figtree']">Aucune action en cours</p>
+            <p className="font-sans">Aucune action en cours</p>
           </div>
         )}
       </div>
@@ -215,7 +215,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
           value={newStepLabel}
           onChange={(e) => setNewStepLabel(e.target.value)}
           placeholder="Ajouter une nouvelle action..."
-          className="flex-1 px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-['JetBrains_Mono'] text-sm"
+          className="flex-1 px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono text-sm"
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               handleAddStep()
@@ -225,7 +225,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
         <button
           onClick={handleAddStep}
           disabled={!newStepLabel.trim() || isAddingStep}
-          className="px-4 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-['Figtree'] text-sm"
+          className="px-4 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans text-sm"
         >
           {isAddingStep ? '...' : '+'}
         </button>

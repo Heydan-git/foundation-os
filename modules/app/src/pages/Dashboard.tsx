@@ -80,21 +80,19 @@ const CONTEXTES = [
 ]
 
 const DOCUMENTS = [
-  { fichier: 'fos-commander.jsx',          type: 'artifact',  statut: '✅ livré 364L',  kb: '✅ FOS-COMMANDER-DATA.md' },
-  { fichier: 'fos-knowledge.jsx',          type: 'artifact',  statut: '✅ livré 448L',  kb: '✅ FOS-KNOWLEDGE-DATA.md' },
-  { fichier: 'fos-graph.jsx',              type: 'artifact',  statut: '⏳ P6-e21',      kb: '⏳ FOS-GRAPH-DATA.md' },
-  { fichier: 'fos-sync.jsx',               type: 'artifact',  statut: '⏳ P6-e22',      kb: '⏳ FOS-SYNC-DATA.md' },
-  { fichier: 'fos-index.jsx',              type: 'artifact',  statut: '✅ livré 300L',  kb: '✅ FOS-INDEX-DATA.md' },
-  { fichier: 'fos-pipeline.jsx',           type: 'artifact',  statut: '⏳ P6',          kb: '⏳ FOS-PIPELINE-DATA.md' },
-  { fichier: 'fos-scale-orchestrator.jsx', type: 'artifact',  statut: '✅ livré 558L',  kb: '✅ FOS-SCALE-ORCHESTRATOR-DATA.md' },
-  { fichier: 'FOS-SETUP-GUIDE.md',         type: 'plan',      statut: '✅ créé',        kb: '⏳ Projects KB' },
-  { fichier: 'FOS-META-PLAN.md',           type: 'doc',       statut: '✅ complet',     kb: '⏳ Projects KB' },
-  { fichier: 'project-context.md',         type: 'doc',       statut: '✅ créé',        kb: '⏳ Projects KB' },
-  { fichier: 'CLAUDE.md',                  type: 'notice',    statut: '✅ créé',        kb: '→ Claude Code (pas Cowork)' },
-  { fichier: 'CONTEXT.md',                  type: 'contexte',  statut: '✅ actif',       kb: '→ Source de verite' },
-  { fichier: 'docs/design-system.md',      type: 'design',    statut: '✅ cree',        kb: '→ Void Glass tokens' },
-  { fichier: 'docs/architecture.md',       type: 'archi',     statut: '✅ cree',        kb: '→ Decisions techniques' },
-  { fichier: 'docs/setup-guide.md',        type: 'guide',     statut: '✅ cree',        kb: '→ 22 etapes setup' },
+  { fichier: 'fos-commander.jsx',          type: 'artifact',  statut: 'livré 364L',  kb: 'FOS-COMMANDER-DATA.md' },
+  { fichier: 'fos-knowledge.jsx',          type: 'artifact',  statut: 'livré 448L',  kb: 'FOS-KNOWLEDGE-DATA.md' },
+  { fichier: 'fos-graph.jsx',              type: 'artifact',  statut: 'livré 309L',  kb: 'FOS-GRAPH-DATA.md' },
+  { fichier: 'fos-sync.jsx',               type: 'artifact',  statut: 'livré 390L',  kb: 'FOS-SYNC-DATA.md' },
+  { fichier: 'fos-index.jsx',              type: 'artifact',  statut: 'livré 410L',  kb: 'FOS-INDEX-DATA.md' },
+  { fichier: 'fos-toolbox.jsx',            type: 'artifact',  statut: 'livré 534L',  kb: 'FOS-TOOLBOX-DATA.md' },
+  { fichier: 'fos-scale-orchestrator.jsx', type: 'artifact',  statut: 'livré 558L',  kb: 'FOS-SCALE-ORCHESTRATOR-DATA.md' },
+  { fichier: 'CLAUDE.md',                  type: 'notice',    statut: 'actif',       kb: 'Claude Code' },
+  { fichier: 'CONTEXT.md',                 type: 'contexte',  statut: 'actif',       kb: 'Source de verite' },
+  { fichier: 'docs/design-system.md',      type: 'design',    statut: 'actif',       kb: 'Void Glass tokens' },
+  { fichier: 'docs/architecture.md',       type: 'archi',     statut: 'actif',       kb: 'Decisions techniques' },
+  { fichier: 'docs/setup-guide.md',        type: 'guide',     statut: 'actif',       kb: 'Guide setup' },
+  { fichier: 'docs/manifeste.md',          type: 'doc',       statut: 'actif',       kb: 'Principes FOS' },
 ]
 
 const TABS = [
