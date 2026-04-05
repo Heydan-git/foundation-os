@@ -68,52 +68,10 @@ const CATALOG = [
     status: 'stable'
   },
   {
-    id: 'fos-error-log',
-    name: 'FOS-ERROR-LOG.md',
+    id: 'context-md',
+    name: 'CONTEXT.md',
     category: 'data-md',
-    role: 'Log des erreurs Foundation OS',
-    status: 'stable'
-  },
-  {
-    id: 'fos-journal',
-    name: 'FOS-JOURNAL.md',
-    category: 'data-md',
-    role: 'Journal des sessions',
-    status: 'stable'
-  },
-  {
-    id: 'fos-monitoring',
-    name: 'FOS-MONITORING.md',
-    category: 'data-md',
-    role: 'Métriques et santé projet',
-    status: 'stable'
-  },
-  {
-    id: 'fos-meta-plan',
-    name: 'FOS-META-PLAN.md',
-    category: 'data-md',
-    role: 'Plan méta révisé',
-    status: 'stable'
-  },
-  {
-    id: 'fos-setup-guide',
-    name: 'FOS-SETUP-GUIDE.md',
-    category: 'data-md',
-    role: 'Guide setup Foundation OS',
-    status: 'stable'
-  },
-  {
-    id: 'fos-skill-orchestrator',
-    name: 'FOS-SKILL-ORCHESTRATOR.md',
-    category: 'data-md',
-    role: 'Skill orchestration complet',
-    status: 'stable'
-  },
-  {
-    id: 'project-context',
-    name: 'project-context.md',
-    category: 'data-md',
-    role: 'Constitution BMAD du projet',
+    role: 'Source de verite — etat actuel du projet',
     status: 'stable'
   },
   {
@@ -124,10 +82,31 @@ const CATALOG = [
     status: 'stable'
   },
   {
-    id: 'skill-md',
-    name: 'SKILL.md',
+    id: 'design-system',
+    name: 'docs/design-system.md',
     category: 'data-md',
-    role: 'Instructions Cowork desktop',
+    role: 'Void Glass tokens et specs',
+    status: 'stable'
+  },
+  {
+    id: 'architecture',
+    name: 'docs/architecture.md',
+    category: 'data-md',
+    role: 'Decisions techniques et ADR',
+    status: 'stable'
+  },
+  {
+    id: 'setup-guide',
+    name: 'docs/setup-guide.md',
+    category: 'data-md',
+    role: 'Guide setup 22 etapes',
+    status: 'stable'
+  },
+  {
+    id: 'manifeste',
+    name: 'docs/manifeste.md',
+    category: 'data-md',
+    role: 'Vision Foundation OS',
     status: 'stable'
   },
   {

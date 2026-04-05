@@ -83,8 +83,8 @@ const DOCUMENTS = [
   { file: 'project-context.md', type: 'doc', status: 'créé', kb: false },
   { file: 'FOS-TECH-ARCHITECTURE.md', type: 'doc', status: 'créé', kb: false },
   { file: 'CLAUDE.md', type: 'notice', status: 'créé', kb: false },
-  { file: 'FOS-MONITORING.md', type: 'monitoring', status: 'créé', kb: false },
-  { file: 'FOS-JOURNAL.md', type: 'historique', status: 'créé', kb: false }
+  { file: 'CONTEXT.md', type: 'contexte', status: 'actif', kb: false },
+  { file: 'docs/design-system.md', type: 'design', status: 'actif', kb: false }
 ];
 
 const TABS = [

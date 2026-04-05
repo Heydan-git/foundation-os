@@ -9,8 +9,8 @@ const FosSync = () => {
   const kbFiles = [
     { name: 'FOS-SETUP-GUIDE.md', size: '15KB', priority: 'P1', status: 'pending' },
     { name: 'FOS-SCALE-ORCHESTRATOR-DATA.md', size: '18KB', priority: 'P1', status: 'pending' },
-    { name: 'FOS-MONITORING.md', size: '12KB', priority: 'P1', status: 'pending' },
-    { name: 'FOS-JOURNAL.md', size: '25KB', priority: 'P1', status: 'pending' },
+    { name: 'CONTEXT.md', size: '3KB', priority: 'P1', status: 'uploaded' },
+    { name: 'docs/architecture.md', size: '8KB', priority: 'P1', status: 'pending' },
     { name: 'FOS-TECH-ARCHITECTURE.md', size: '8KB', priority: 'P2', status: 'pending' },
     { name: 'FOS-META-PLAN.md', size: '6KB', priority: 'P2', status: 'pending' },
     { name: 'project-context.md', size: '4KB', priority: 'P2', status: 'pending' },
@@ -19,9 +19,9 @@ const FosSync = () => {
     { name: 'FOS-INDEX-DATA.md', size: '5KB', priority: 'P3', status: 'pending' },
     { name: 'FOS-GRAPH-DATA.md', size: '8KB', priority: 'P3', status: 'pending' },
     { name: 'FOS-SYNC-DATA.md', size: '6KB', priority: 'P3', status: 'pending' },
-    { name: 'FOS-SKILL-ORCHESTRATOR.md', size: '12KB', priority: 'P4', status: 'pending' },
+    { name: 'docs/design-system.md', size: '4KB', priority: 'P4', status: 'pending' },
     { name: 'FOS-MANIFESTE.md', size: '4KB', priority: 'P4', status: 'pending' },
-    { name: 'FOS-ERROR-LOG.md', size: '2KB', priority: 'P4', status: 'pending' }
+    { name: 'docs/manifeste.md', size: '8KB', priority: 'P4', status: 'pending' }
   ];
 
   // Void Glass compliance data

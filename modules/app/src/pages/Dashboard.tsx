@@ -91,10 +91,10 @@ const DOCUMENTS = [
   { fichier: 'FOS-META-PLAN.md',           type: 'doc',       statut: '✅ complet',     kb: '⏳ Projects KB' },
   { fichier: 'project-context.md',         type: 'doc',       statut: '✅ créé',        kb: '⏳ Projects KB' },
   { fichier: 'CLAUDE.md',                  type: 'notice',    statut: '✅ créé',        kb: '→ Claude Code (pas Cowork)' },
-  { fichier: 'FOS-SKILL-ORCHESTRATOR.md',  type: 'skill',     statut: '✅ créé',        kb: '⏳ à installer' },
-  { fichier: 'FOS-MONITORING.md',          type: 'monitoring',statut: '✅ créé',        kb: '⏳ Projects KB' },
-  { fichier: 'FOS-ERROR-LOG.md',           type: 'monitoring',statut: '✅ créé',        kb: '⏳ Projects KB' },
-  { fichier: 'FOS-JOURNAL.md',             type: 'historique',statut: '✅ créé',        kb: '⏳ Projects KB' },
+  { fichier: 'CONTEXT.md',                  type: 'contexte',  statut: '✅ actif',       kb: '→ Source de verite' },
+  { fichier: 'docs/design-system.md',      type: 'design',    statut: '✅ cree',        kb: '→ Void Glass tokens' },
+  { fichier: 'docs/architecture.md',       type: 'archi',     statut: '✅ cree',        kb: '→ Decisions techniques' },
+  { fichier: 'docs/setup-guide.md',        type: 'guide',     statut: '✅ cree',        kb: '→ 22 etapes setup' },
 ]
 
 const TABS = [
