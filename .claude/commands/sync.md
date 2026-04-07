@@ -6,14 +6,15 @@ Audit complet de coherence Foundation OS. Remplace l'ancien /sync-md.
 
 Lancer le script : `bash scripts/sync-check.sh`
 
-Le script execute les sections 1, 2, 3, 4 (partielle), 6 du workflow ci-dessous en automatique :
+Le script execute 6 checks en automatique :
 - Section 1 (Structure racine) et la partie App Builder specifique sont couvertes via `scripts/health-check.sh`
 - Section 2 (Modules vs CONTEXT.md) : verifie que chaque module actif a une reference dans CONTEXT.md
 - Section 3 (References) : scan des suppressions du dernier commit (heuristique minimale, voir ref-checker backlog dans `docs/core/tools.md` pour un outil dedie)
 - Section 4 (partielle — Routes) : parse la ligne `- **Routes**` de CONTEXT.md et compare avec `<Route path>` dans `modules/app/src/App.tsx`
+- Section 5 (partielle — Fonts) : detecte Outfit/Inter en primaire et system-ui sans fallback Figtree dans `modules/app/src/**/*.{css,tsx,ts}`
 - Section 6 (Core OS) : verifie la presence des 4 agents + 4 commands + 5 specs `docs/core/`
 
-Sections encore manuelles (demandees a Claude) : 4 (reste — artifacts listes, builds time/tailles) et 5 (App Builder — fonts secondaires, verification visuelle).
+Sections encore manuelles : section 4 reste (artifacts listes details, builds time/tailles — drop : couvert par health-check + non automatisable proprement) et section 5 reste (verification visuelle render).
 
 Exit codes : 0 = SAIN, 1 = BROKEN, 2 = DEGRADED.
 

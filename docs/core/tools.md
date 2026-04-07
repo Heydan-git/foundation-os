@@ -16,7 +16,7 @@ Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 | Outil | Fichier | Role |
 |-------|---------|------|
 | health-check | scripts/health-check.sh | Execute les indicateurs Monitor et sort le rapport SAIN/DEGRADED/BROKEN (appele par pre-commit et /session-end) |
-| sync-check | scripts/sync-check.sh | Audit complet /sync : health-check + modules vs CONTEXT.md + refs last commit + Core OS coherence (agents, commands, specs) |
+| sync-check | scripts/sync-check.sh | Audit complet /sync : 6 checks auto (health-check + modules vs CONTEXT.md + refs last commit + Core OS coherence + routes vs App.tsx + fonts Void Glass) |
 | module-scaffold | scripts/module-scaffold.sh | Scaffold un nouveau module : `modules/<nom>/{README.md, package.json, src/}` + update CONTEXT.md table Modules. Idempotent, kebab-case, --help |
 
 ### Git hooks

@@ -164,6 +164,33 @@ else
   fi
 fi
 
+# ── 7. Fonts (Void Glass) ──────────────────────────────────────────
+# Interdictions design-system.md :
+#   - Outfit ou Inter dans font-family/fontFamily (toujours interdit)
+#   - system-ui dans font-family/fontFamily sans Figtree sur la meme
+#     ligne (system-ui seul interdit, OK uniquement en fallback apres
+#     Figtree)
+
+FONT_VIOL_FILE=$(mktemp)
+grep -rnE '(font-family|fontFamily).*(Outfit|Inter)' \
+  modules/app/src --include="*.css" --include="*.tsx" --include="*.ts" 2>/dev/null \
+  >> "$FONT_VIOL_FILE" || true
+grep -rnE '(font-family|fontFamily).*system-ui' \
+  modules/app/src --include="*.css" --include="*.tsx" --include="*.ts" 2>/dev/null \
+  | grep -v 'Figtree' >> "$FONT_VIOL_FILE" || true
+FONT_VIOL=$(wc -l < "$FONT_VIOL_FILE" | tr -d ' ')
+
+if [ "$FONT_VIOL" -eq 0 ]; then
+  echo -e "  ${GRN}[OK]${RST} Fonts Void Glass (Figtree primaire, 0 violation)"
+else
+  echo -e "  ${YEL}[WARN]${RST} Fonts violations Void Glass ($FONT_VIOL):"
+  while IFS= read -r vline; do
+    [ -n "$vline" ] && echo -e "    - $vline"
+  done < "$FONT_VIOL_FILE"
+  WARNING=$((WARNING + 1))
+fi
+rm -f "$FONT_VIOL_FILE"
+
 echo ""
 
 # ── VERDICT ────────────────────────────────────────────────────────
