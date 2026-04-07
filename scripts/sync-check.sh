@@ -132,6 +132,38 @@ else
   CRITICAL=$((CRITICAL + 1))
 fi
 
+# ── 6. Routes CONTEXT.md vs App.tsx ────────────────────────────────
+
+APP_TSX="modules/app/src/App.tsx"
+CTX_ROUTES_RAW=$(grep -E "^- \*\*Routes\*\*" CONTEXT.md 2>/dev/null | head -1 | sed 's/^[^:]*: //')
+CTX_ROUTES=$(printf '%s' "$CTX_ROUTES_RAW" | tr ',' '\n' | sed 's/([^)]*)//g; s/^[[:space:]]*//; s/[[:space:]]*$//' | grep -v '^$' | sort -u)
+if [ -f "$APP_TSX" ]; then
+  CODE_ROUTES=$(grep -oE 'Route path="[^"]+"' "$APP_TSX" | sed 's/Route path="//; s/"$//' | grep -v '^\*$' | sort -u)
+else
+  CODE_ROUTES=""
+fi
+
+if [ -z "$CTX_ROUTES" ]; then
+  echo -e "  ${YEL}[WARN]${RST} Routes: ligne CONTEXT.md introuvable (pattern '- **Routes**')"
+  WARNING=$((WARNING + 1))
+elif [ -z "$CODE_ROUTES" ]; then
+  echo -e "  ${YEL}[WARN]${RST} Routes: $APP_TSX introuvable ou sans <Route path>"
+  WARNING=$((WARNING + 1))
+else
+  CTX_COUNT=$(printf '%s\n' "$CTX_ROUTES" | grep -c .)
+  CODE_COUNT=$(printf '%s\n' "$CODE_ROUTES" | grep -c .)
+  MISS_CODE=$(comm -23 <(printf '%s\n' "$CTX_ROUTES") <(printf '%s\n' "$CODE_ROUTES"))
+  MISS_CTX=$(comm -13 <(printf '%s\n' "$CTX_ROUTES") <(printf '%s\n' "$CODE_ROUTES"))
+  if [ -z "$MISS_CODE" ] && [ -z "$MISS_CTX" ]; then
+    echo -e "  ${GRN}[OK]${RST} Routes CONTEXT.md <-> App.tsx ($CTX_COUNT match)"
+  else
+    echo -e "  ${YEL}[WARN]${RST} Routes CONTEXT.md vs App.tsx (diff):"
+    [ -n "$MISS_CODE" ] && echo -e "    manquantes dans code: $(printf '%s' "$MISS_CODE" | tr '\n' ' ')"
+    [ -n "$MISS_CTX" ]  && echo -e "    manquantes dans CONTEXT: $(printf '%s' "$MISS_CTX" | tr '\n' ' ')"
+    WARNING=$((WARNING + 1))
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────────────────────────────────────────────────
