@@ -385,7 +385,7 @@ cours d'audit :
 
 | Session | Status | Date | Findings cles | Commit |
 |---------|--------|------|---------------|--------|
-| S0  Pre-flight                       | PENDING | — | — | — |
+| S0  Pre-flight                       | DONE | 2026-04-07 | Baseline SAINE capturee (build 870ms, vitest 19/19, refs 0/65, bundle 457.15kB JS), branche `audit-massif-cycle3` creee, tag `pre-audit-cycle3` pose, directive meta Kevin integree (learnings metaboliques par session) | audit(s00) |
 | S1  Carto repo                       | PENDING | — | — | — |
 | S2  Inventaire components            | PENDING | — | — | — |
 | S3  Fondations Core OS               | PENDING | — | — | — |
@@ -413,7 +413,7 @@ cours d'audit :
 ### Decisions Kevin (chronologique)
 > A remplir pendant l'execution. Chaque decision = une ligne avec date + contexte + decision.
 
-(vide pour le moment — preparation seulement)
+- **2026-04-07 (mid-S0)** — Directive meta : "Nouris toi de l'audit pour ameliorer le fonctionnement de l'OS". Integree dans `docs/audit-massif/00-preflight.md` section 4.2. Traductions : (1) section "Learnings metaboliques" ajoutee au template livrable, (2) auto-memory maj en post-session ritual quand pattern emerge, (3) fixes docs-only triviaux autorises en continu (code reste S20-S22), (4) rapport S23 enrichi section "OS-learnings". Status : a valider par Kevin au moment du commit S0.
 
 ### Findings cles consolides (top 5 par session)
 > A remplir pendant l'execution. Cette section est le resume executif live.

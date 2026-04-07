@@ -1,15 +1,16 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : INITIALISE (placeholder)
+> **Status** : EN COURS (S0 DONE, S1 PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **A enrichir** : en S0 et a chaque session DONE
+> **Derniere maj** : 2026-04-07 (fin S0)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
+> **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 
 ## Sessions Cycle 3 (24 sessions S0-S23)
 
 | Session | Status | Livrable | Date | Commit |
 |---------|--------|----------|------|--------|
-| S0  Pre-flight                       | PENDING | 00-preflight.md             | — | — |
+| S0  Pre-flight                       | DONE    | 00-preflight.md             | 2026-04-07 | audit(s00)     |
 | S1  Carto repo                       | PENDING | 01-carto-repo.md            | — | — |
 | S2  Inventaire components            | PENDING | 02-inventaire-components.md | — | — |
 | S3  Fondations Core OS               | PENDING | 03-fondations-core.md       | — | — |
