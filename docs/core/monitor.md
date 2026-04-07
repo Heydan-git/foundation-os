@@ -21,6 +21,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | TSX < 700 lignes | `wc -l modules/app/src/pages/*.tsx modules/app/src/components/*.tsx` | Chaque fichier < 700 |
 | Void Glass respecte | `grep -r "#0A0A0B\|#08080A\|Outfit\|Inter" modules/app/src/` | Zero match |
 | MD pairs alignes | Comparer `modules/app/data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx` | Chaque archive a son MD |
+| Tests vitest passent | `cd modules/app && npm test` | Zero test en echec |
 | Refs intactes | `grep -r` noms fichiers supprimes/deplaces | Zero ref cassee |
 
 ### Info (a noter, pas bloquant)
@@ -52,9 +53,10 @@ HEALTH — [date]
   [OK] Structure racine (3 fichiers)
 
 [WARNING]
-  [OK] JSX sizes (max 432 lignes)
+  [OK] TSX sizes (max 432 lignes)
   [OK] Void Glass (0 violation)
   [WARN] MD pairs — knowledge, scale-orchestrator sans MD
+  [OK] Vitest — Tests  19 passed (19)
 
 [INFO]
   [OK] CONTEXT.md sync

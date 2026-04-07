@@ -94,6 +94,19 @@ else
   WARNING=$((WARNING + 1))
 fi
 
+# Tests vitest (modules/app)
+TEST_OUT=$(cd modules/app && npm test --silent 2>&1 || true)
+TEST_LINE=$(echo "$TEST_OUT" | grep -E "^[[:space:]]*Tests[[:space:]]+" | head -1 | sed 's/^[[:space:]]*//')
+if echo "$TEST_LINE" | grep -q "failed"; then
+  echo -e "  ${YEL}[WARN]${RST} $TEST_LINE"
+  WARNING=$((WARNING + 1))
+elif [ -n "$TEST_LINE" ]; then
+  echo -e "  ${GRN}[OK]${RST} Vitest — $TEST_LINE"
+else
+  echo -e "  ${YEL}[WARN]${RST} Vitest — output illisible"
+  WARNING=$((WARNING + 1))
+fi
+
 echo ""
 
 # ── INFO ───────────────���──────────────────────────────────────────
