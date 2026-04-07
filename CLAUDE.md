@@ -9,7 +9,6 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - Ne pas completer une tache Asana sans OK explicite de Kevin
 - 100% ou rien — verifier le repertoire courant avant toute operation fichier
 - Plan avant execution, validation Kevin avant changement non-trivial
-- MD first : modifier NOM-DATA.md avant NOM.tsx, livrer les deux ensemble
 - Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
 
 ## A chaque session

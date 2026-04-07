@@ -1,7 +1,5 @@
 # FOS-KNOWLEDGE-DATA.md
-> Source de vérité — fos-knowledge.jsx
-> Règle absolue : modifier CE fichier EN PREMIER, puis syncer le JSX.
-> Si le JSX est perdu, ce fichier suffit à reconstruire intégralement.
+> **Historique** — fos-knowledge.jsx archive Phase 2.4 dans `.archive/artifacts-jsx/`. Ne plus modifier : referentiel fige.
 
 ```
 DATA_VERSION : 1.0.0

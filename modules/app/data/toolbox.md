@@ -1,5 +1,5 @@
 # FOS-TOOLBOX-DATA.md
-> Source de vérité — fos-toolbox.jsx
+> **Historique** — fos-toolbox.jsx archive Phase 2.4 dans `.archive/artifacts-jsx/`. Ne plus modifier : referentiel fige.
 > DATA_VERSION : 7.0.0
 > LAST_SYNC : 2026-04-04
 > STORAGE_KEY : fos-toolbox-v2

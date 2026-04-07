@@ -1,6 +1,5 @@
 # FOS-GRAPH-DATA.md
-> Source de vérité — fos-graph.jsx
-> Règle absolue : modifier CE fichier EN PREMIER, puis syncer le JSX.
+> **Historique** — fos-graph.jsx archive Phase 2.4 dans `.archive/artifacts-jsx/`. Ne plus modifier : referentiel fige.
 
 ```
 DATA_VERSION : 1.0.0

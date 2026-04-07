@@ -1,7 +1,5 @@
 # FOS-SCALE-ORCHESTRATOR-DATA.md
-> Source de vérité — fos-scale-orchestrator.jsx
-> Règle absolue : modifier CE fichier EN PREMIER, puis syncer le JSX.
-> Si le JSX est perdu, ce fichier suffit à reconstruire intégralement.
+> **Historique** — fos-scale-orchestrator.jsx archive Phase 2.4 dans `.archive/artifacts-jsx/`. Ne plus modifier : referentiel fige.
 
 ```
 DATA_VERSION : 3.5.0
