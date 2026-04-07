@@ -90,7 +90,7 @@ git commit -m "docs(claude): CLAUDE.md v2 — imperatifs integres, compact"
 ### Task 3: Supprimer safeguards.json
 
 **Files:**
-- Delete: `.claude/safeguards.json`
+- Delete: .claude/safeguards.json _(supprime — fichier inexistant aujourd'hui)_
 
 - [ ] **Step 1: Verifier que safeguards.json n'est reference nulle part**
 

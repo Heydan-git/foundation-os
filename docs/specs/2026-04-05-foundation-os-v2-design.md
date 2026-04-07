@@ -58,7 +58,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 
 | Fichier | Action | Raison |
 |---------|--------|--------|
-| `.claude/safeguards.json` | Supprimer | Config sans implementation — zero valeur |
+| .claude/safeguards.json _(supprime)_ | Supprimer | Config sans implementation — zero valeur |
 | `.claude/settings.local.json` | Trimmer | Garder : Asana, Notion, Figma, LSP. Supprimer : neon-browser, permissions trop larges |
 | `.omc/state/` fichiers orphelins | Nettoyer | Sessions/replays termines qui trainent |
 

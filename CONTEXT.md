@@ -22,12 +22,12 @@
 | 2026-04-07 | Phase 3 OS Intelligence DONE : session-end 4 niveaux (DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED), docs/index.md re-aligne (8 routes, Navbar, KnowledgePage, .archive/), docs/tools-audit.md. Decisions Kevin : BMAD garde dormant, review-agent = code review principal. health-check SAIN, build 676ms, 19/19 tests. |
 
 ## Prochaine action
-1. **Plan actif** : Finition OS, decoupe en 3 sessions — `docs/plans/2026-04-07-finition-os.md`
-2. **S1** : sync-check 6/6 (auto check fonts) + rappel Kevin Email confirmations Supabase
-3. **S2** : `scripts/ref-checker.sh` (full-repo refs cassees, sortie du backlog Tools)
-4. **S3** : eval bundle-tracker + context-diff (build OU drop) + housekeeping decisions-log
-5. **Apres Finition** : Phase 5 Expansion — choisir module Finance / Sante / Trading. Ref : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5
-6. Action manuelle pendante (S1) : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
+1. **Phase 5 Expansion** : choisir module Finance / Sante / Trading. Ref : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5
+2. **Plan Finition OS DONE** : 3 sessions executees en une, ref-checker baseline 0, decisions-log allege. Plan : `docs/plans/2026-04-07-finition-os.md`
+
+### Actions manuelles Kevin (hors code)
+- Activer "Email confirmations" dans Supabase Auth settings (UI Supabase Dashboard → Authentication → Providers → Email → Confirm email). Pendant depuis Phase 2.3.
+- OMC update disponible v4.10.1 → v4.11.0 (`omc update`). Lateral, pas urgent.
 
 ## Decisions actives
 

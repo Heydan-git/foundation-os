@@ -101,7 +101,7 @@ Donc B = 1 check : fonts en primaire dans CSS et TSX.
 1. Pour chaque fichier .md, .ts, .tsx, .json, .sh, .py du repo (hors `.archive`, `node_modules`, `dist`, `.git`, `.omc`, `_bmad`)
 2. Extraire les references a des fichiers locaux :
    - Markdown links : `[text](path/to/file.md)` ou `[text](./foo.ts)`
-   - Inline backticks : `` `scripts/foo.sh` ``, `` `docs/core/tools.md` ``
+   - Inline backticks : `` `example/path.sh` ``, `` `docs/core/tools.md` ``
    - Imports relatifs : `from './foo'`, `from '../bar/baz'`
    - Path strings dans JSON : `"main": "./src/index.ts"`
 3. Verifier que chaque path existe sur disque (relatif au fichier source ou a la racine repo selon contexte)
@@ -183,8 +183,8 @@ Donc B = 1 check : fonts en primaire dans CSS et TSX.
 
 **Recommandation pre-eval :** drop, sauf si Kevin veut explicitement un graph d'evolution. Dans tools.md, marquer "evalue, droppe : overlap health-check, alerte deja en place".
 
-**Si build :**
-- Files : Create `scripts/bundle-tracker.sh`
+**Si build :** _(branche non prise — drop confirme post-eval)_
+- Files : Create scripts/bundle-tracker.sh
 - Output : append `.omc/bundle-history.csv` avec date, JS_KB, CSS_KB
 - Tasks : ~50L bash, parse health-check output, append CSV, commit
 
@@ -269,8 +269,8 @@ Apres ce plan, Foundation OS sera pret pour Phase 5 Expansion (nouveau module Fi
 | 2 | `.claude/commands/sync.md` | S1 | Modify — refleter 6/6 |
 | 3 | `docs/core/tools.md` | S1, S2, S3 | Modify x3 — sync-check 6 checks, ref-checker existant, eval C2/C3 |
 | 4 | `scripts/ref-checker.sh` | S2 | Create |
-| 5 | `scripts/bundle-tracker.sh` | S3 | Create OU drop (eval) |
-| 6 | `scripts/context-diff.sh` | S3 | Create OU drop (eval) |
+| 5 | scripts/bundle-tracker.sh | S3 | DROP post-eval (overlap health-check) |
+| 6 | scripts/context-diff.sh | S3 | DROP post-eval (overlap sync-check) |
 | 7 | `CONTEXT.md` | S1, S2, S3 | Modify x3 — sessions log, prochaine action, decisions housekeeping |
 | 8 | `docs/decisions-log.md` | S3 | Modify — append decisions migres |
 
