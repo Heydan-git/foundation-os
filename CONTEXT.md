@@ -15,16 +15,16 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-05 | Core OS 4/4 + Approche A+B : Dashboard dynamique, Auth Supabase, Vitest, CI, health-check, Vercel deploy (root dir modules/app), GitHub secrets. 36 fichiers, 7 commits, 16 crees. App live. |
-| 2026-04-05 | Core OS 4/4 implemente (Cortex, Memory, Monitor, Tools). 23 fichiers, 4 commits, 7 crees, 1 supprime. Audit operationnel 6/6 OK. Build 681ms. |
+| 2026-04-05 | Phase 1 Fondations DONE : CLAUDE.md v2 (902 mots), directive sauvegardee, safeguards.json supprime, settings.local trimme (144→40L), security-guidance hook installe, gstack installe, docs/index.md cree. CI fix Node 24. 8 commits. health-check SAIN. |
+| 2026-04-05 | Brainstorm directive Kevin : 5 agents d'analyse (projet+code+tools+21 repos), spec v2 design (5 phases iteratives), plan Phase 1 (8 tasks). Approche C validee. |
+| 2026-04-05 | Core OS 4/4 + Approche A+B : Dashboard dynamique, Auth Supabase, Vitest, CI, health-check, Vercel deploy. App live. |
+| 2026-04-05 | Core OS 4/4 implemente (Cortex, Memory, Monitor, Tools). Audit operationnel 6/6 OK. |
 | 2026-04-05 | Reorg + audit deep : 76 fichiers racine → 3, -34750 lignes. |
-| 2026-04-05 | Audit fonctionnel (85+ fichiers) : database.types.ts reecrit, mutations.ts zero as any, seed data alignee, docs corrigees. |
-| 2026-04-05 | Cleanup final + plan Core OS : Dashboard data corrige, forms font-sans/font-mono, plan 4 modules valide. |
 
 ## Prochaine action
-1. Tester l'app live (login, dashboard, commander) sur foundation-os.vercel.app
-2. Ajouter des tests (coverage mutations, hooks, composants)
-3. Ou commencer un nouveau module (Finance / Sante)
+1. Phase 2 — App Hardening : tests (mutations, hooks, AuthContext, NextStepActions), navigation entre modules, auth complete (verification email, password reset), integration de 2 artifacts dans l'app
+2. Plan Phase 2 a ecrire avant execution
+3. Reference : docs/specs/2026-04-05-foundation-os-v2-design.md section Phase 2
 
 ## Decisions actives
 
@@ -40,6 +40,8 @@
 | Schema DB | 2026-04-01 | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
 | Core OS | 2026-04-05 | 4 modules actifs (Cortex, Memory, Monitor, Tools). Specs : docs/core/ |
 | Dashboard | 2026-04-05 | Commander evolue vers monitoring Core OS (futur) |
+| Foundation v2 | 2026-04-05 | Approche C iterative 5 phases. Spec : docs/specs/2026-04-05-foundation-os-v2-design.md |
+| Phase 1 DONE | 2026-04-05 | Fondations : CLAUDE.md v2, security-guidance, gstack, index navigation |
 
 ## App Builder — Etat technique
 
@@ -63,11 +65,13 @@
 
 ## Outils installes
 
-- **Claude Code** : CLAUDE.md (enrichi Cortex routing) + 4 agents + 4 commands + 1 hook PreToolUse + 1 git hook
-- **CI** : GitHub Actions (build + TS + tests sur push) + supabase-ping (cron hebdo)
-- **Tests** : Vitest (3 tests), health-check.sh (Monitor indicators)
+- **Claude Code** : CLAUDE.md v2 (902 mots, imperatifs integres) + 4 agents + 4 commands + 2 hooks PreToolUse (Void Glass + security) + 1 git hook
+- **CI** : GitHub Actions (Node 24, build + TS + tests sur push) + supabase-ping (cron hebdo)
+- **Tests** : Vitest (3 tests, coverage logique metier prevu Phase 2), health-check.sh (Monitor indicators)
 - **OMC** : oh-my-claudecode (team, autopilot, ralph, ultrawork, etc.)
-- **BMAD v6** : _bmad/ (12 modules)
+- **Superpowers** : v5.0.7 (TDD, brainstorming, executing-plans, verification)
+- **gstack** : ~/.claude/skills/gstack/ (qa, cso, careful, freeze, guard, ship)
+- **BMAD v6** : _bmad/ (12 modules — a auditer Phase 3)
 - **MCP** : Notion, Asana, Figma, Monday, ClickUp, Computer Use, Context7
 
 ## Risques
