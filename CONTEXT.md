@@ -30,16 +30,11 @@
 
 ## Decisions actives
 
+> 7 decisions stabilisees du 2026-04-01 archivees dans `docs/decisions-log.md` (toujours actives, sorties de la vue chaude — protocole Memory).
+
 | Decision | Date | Detail |
 |----------|------|--------|
-| Stack | 2026-04-01 | Vite + React + TS + Tailwind + Supabase + Vercel |
-| Design | 2026-04-01 | Void Glass — docs/design-system.md |
-| Architecture | 2026-04-01 | Monorepo modules/ (seul app/ existe, finance et sante prevus) |
 | Memoire | 2026-04-05 | 4 tiers (session/contexte/reference/auto-memory) — docs/core/memory.md |
-| Commits | 2026-04-01 | Conventional commits type(scope): description |
-| Anti-bullshit | 2026-04-01 | 6 gates dans CLAUDE.md, mots interdits, verification obligatoire |
-| Garde-fous | 2026-04-01 | Jamais de fichier a la racine, jamais sans demande, grep+fix apres rename |
-| Schema DB | 2026-04-01 | supabase/migrations/001_create_tables.sql = source de verite (6 tables) |
 | Core OS | 2026-04-05 | 4 modules actifs (Cortex, Memory, Monitor, Tools). Specs : docs/core/ |
 | Dashboard | 2026-04-05 | Commander evolue vers monitoring Core OS (futur) |
 | Foundation v2 | 2026-04-05 | Approche C iterative 5 phases. Spec : docs/specs/2026-04-05-foundation-os-v2-design.md |
@@ -61,9 +56,8 @@
 - **Artifacts JSX** : 0 dans src/artifacts/ (supprime). Tous archives dans `.archive/artifacts-jsx/` (7 fichiers)
 - **Deploy** : https://foundation-os.vercel.app/ (root dir modules/app, live)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
-- **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)
-- **MD pairs** : 7 dans data/ — tous alignes (7/7)
-- **Refs stales** : 0 (audit 2026-04-05)
+- **MD pairs** : 7 dans data/ — alignes avec .archive/artifacts-jsx/ (7/7)
+- **Refs stales** : 0 (audit 2026-04-07 — hors historique fige docs/plans, docs/specs, modules/app/data)
 
 ## MCP — Comptes connectes
 
@@ -77,13 +71,13 @@
 
 ## Outils installes
 
-- **Claude Code** : CLAUDE.md v2 (902 mots, imperatifs integres) + 4 agents + 4 commands + 2 hooks PreToolUse (Void Glass + security) + 1 git hook
+- **Claude Code** : CLAUDE.md v2 (868 mots, imperatifs integres, tables Core OS condensees vers specs) + 4 agents + 4 commands + 2 hooks PreToolUse (Void Glass + security) + 1 git hook (pre-commit)
 - **CI** : GitHub Actions (Node 24, build + TS + tests sur push) + supabase-ping (cron hebdo)
-- **Tests** : Vitest (3 tests, coverage logique metier prevu Phase 2), health-check.sh (Monitor indicators)
+- **Tests** : Vitest 19 tests, 6 fichiers (app, supabase, mutations, useCommander, AuthContext, forms) + health-check.sh (Monitor indicators)
 - **OMC** : oh-my-claudecode (team, autopilot, ralph, ultrawork, etc.)
 - **Superpowers** : v5.0.7 (TDD, brainstorming, executing-plans, verification)
 - **gstack** : ~/.claude/skills/gstack/ (qa, cso, careful, freeze, guard, ship)
-- **BMAD v6** : _bmad/ (12 modules — a auditer Phase 3)
+- **BMAD v6** : _bmad/ (12 modules, dormant — audit Phase 3 DONE, voir docs/tools-audit.md)
 - **MCP** : Notion, Asana, Figma, Monday, ClickUp, Computer Use, Context7
 
 ## Risques

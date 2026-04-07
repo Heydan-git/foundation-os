@@ -61,7 +61,7 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 2. **Modules** : chaque module dans CONTEXT.md existe dans modules/, et vice-versa
 3. **Refs** : grep les noms de fichiers supprimes/deplaces recemment, corriger les refs cassees
 4. **CONTEXT.md** : status des modules, builds, routes, artifacts — tout correspond au filesystem
-5. **App specifique** : MD pairs (data/*.md ↔ artifacts/fos-*.jsx), Void Glass, JSX < 700 lignes
+5. **App specifique** : MD pairs (`data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx`), Void Glass, TSX < 700 lignes
 
 ## 4. Agents — Protocole uniforme
 

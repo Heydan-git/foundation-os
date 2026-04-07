@@ -9,7 +9,7 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - Ne pas completer une tache Asana sans OK explicite de Kevin
 - 100% ou rien — verifier le repertoire courant avant toute operation fichier
 - Plan avant execution, validation Kevin avant changement non-trivial
-- MD first : modifier NOM-DATA.md avant NOM.jsx, livrer les deux ensemble
+- MD first : modifier NOM-DATA.md avant NOM.tsx, livrer les deux ensemble
 - Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
 
 ## A chaque session
@@ -26,7 +26,7 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - Conventional commits : type(scope): description
 - Void Glass : fond #06070C, Figtree (UI), JetBrains Mono (code) — voir docs/design-system.md
 - Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul (OK en fallback CSS)
-- JSX < 700 lignes — decouper si plus
+- TSX < 700 lignes — decouper si plus
 - BMAD : dossier _bmad/ (underscore obligatoire)
 
 ## Garde-fous (non-negociable)
@@ -58,15 +58,9 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 
 ## Core OS — Routing
 
-Cortex route les taches vers l'agent adapte. Spec complete : docs/core/cortex.md
+Cortex route les taches vers l'agent adapte. Table signaux → agents : `docs/core/cortex.md` section 1 (source unique).
 
-| Signal | Agent |
-|--------|-------|
-| architecture, ADR, stack, schema, structurer, option A vs B | os-architect |
-| code, composant, page, Supabase, React, build, scaffold, CSS, Tailwind | dev-agent |
-| documente, note, trace, journalise, met a jour CONTEXT | doc-agent |
-| verifie, audit, check, revue, regression, deployer | review-agent |
-
+Agents : os-architect, dev-agent, doc-agent, review-agent.
 Priorite : match explicite → deleguer. Ambiguite → demander. Aucun match → traiter directement.
 Multi-agent → sequentiel (ex: dev puis review). Trivial (< 1 fichier) → direct.
 
@@ -86,15 +80,10 @@ Decisions dans CONTEXT.md : toujours avec date (YYYY-MM-DD).
 
 ## Core OS — Monitor
 
-Health indicators par severite. Spec complete : docs/core/monitor.md
+Health indicators par severite. Spec complete + seuils : `docs/core/monitor.md` (source unique).
 
-| Severite | Quand verifier | Exemples |
-|----------|---------------|----------|
-| Critical | Chaque session + pre-commit | Build passe, structure racine, TS compile |
-| Warning | Pre-deploy + /sync | JSX < 700L, Void Glass, MD pairs, refs intactes |
-| Info | /sync | CONTEXT.md a jour, decisions datees, bundle size |
-
-Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BROKEN (1+ critical)
+Execution : `bash scripts/health-check.sh` (appele par pre-commit et /session-end).
+Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BROKEN (1+ critical).
 
 ## Core OS — Tools
 

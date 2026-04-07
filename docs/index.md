@@ -12,7 +12,6 @@
 | components/Commander/ | 7 panels : Stats, Sessions, Decisions, Risks, Context, NextSteps, Docs |
 | components/forms/ | AddSessionForm, EditDecisionModal, NextStepActions |
 | lib/ | supabase.ts, database.types.ts, mutations.ts, AuthContext.tsx, useCommander.ts |
-| artifacts/ | **0 fichier** (vide) — les 7 JSX d'origine sont archives dans `.archive/artifacts-jsx/` |
 | test/ | 6 fichiers : app, supabase, mutations, useCommander, AuthContext, forms (+ setup.ts + mocks/supabase.ts) |
 
 ## Data (modules/app/data/)
@@ -64,7 +63,8 @@
 | docs/specs/2026-04-05-foundation-os-v2-design.md | Design spec v2 (5 phases iteratives) |
 | docs/plans/2026-04-05-phase1-fondations.md | Plan Phase 1 (DONE 2026-04-05) |
 | docs/plans/2026-04-07-phase2-app-hardening.md | Plan Phase 2 (DONE 2026-04-07) |
-| docs/plans/2026-04-07-phase3-os-intelligence.md | Plan Phase 3 (en cours 2026-04-07) |
+| docs/plans/2026-04-07-phase3-os-intelligence.md | Plan Phase 3 (DONE 2026-04-07) |
+| docs/plans/2026-04-07-phase4-monitoring.md | Plan Phase 4 (DONE 2026-04-07) |
 | docs/tools-audit.md | Audit BMAD/OMC/Coderabbit — Phase 3.3 |
 
 ## Scripts
