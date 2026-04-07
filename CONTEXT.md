@@ -6,7 +6,7 @@
 
 | Module | Status | Detail |
 |--------|--------|--------|
-| App Builder | MVP+ | 6 routes (+login), Dashboard dynamique, Auth Supabase, Vitest 19 tests, build 687ms |
+| App Builder | MVP+ | 7 routes (+login +reset-password), Navbar, Auth Supabase complete, Vitest 19 tests, build 843ms |
 | Core OS | 4/4 actif | Cortex (routing), Memory (tiers), Monitor (health), Tools (automation). Specs : docs/core/ |
 | Finance | prevu | Pas encore cree |
 | Sante | prevu | Pas encore cree |
@@ -15,6 +15,7 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-07 | Phase 2.2+2.3 : Navbar (NavLink active state), LoginPage min 8 char + lien reset, ResetPasswordPage 2 modes (request/update). 7 routes. 19 tests OK. Build 843ms. SAIN. |
 | 2026-04-07 | Phase 2.1 Tests : helper mocks Supabase + 16 tests (mutations 5, useCommander 3, AuthContext 4, forms 4). 19 tests total, 0 failure. Build 687ms. SAIN. Plan Phase 2 ecrit (3 sessions). |
 | 2026-04-05 | Phase 1 Fondations DONE : CLAUDE.md v2 (902 mots), directive sauvegardee, safeguards.json supprime, settings.local trimme (144→40L), security-guidance hook installe, gstack installe, docs/index.md cree. CI fix Node 24. 8 commits. health-check SAIN. |
 | 2026-04-05 | Brainstorm directive Kevin : 5 agents d'analyse (projet+code+tools+21 repos), spec v2 design (5 phases iteratives), plan Phase 1 (8 tasks). Approche C validee. |
@@ -23,9 +24,9 @@
 | 2026-04-05 | Reorg + audit deep : 76 fichiers racine → 3, -34750 lignes. |
 
 ## Prochaine action
-1. Phase 2 Session 2 — Navigation (NavLink dans Layout) + Auth complete (email verification, password reset, min 8 char)
-2. Plan : `docs/plans/2026-04-07-phase2-app-hardening.md` section "Session 2"
-3. Apres : Session 3 = integration fos-commander.tsx + fos-knowledge.tsx
+1. Phase 2 Session 3 — Integration 2 artifacts en TSX : fos-commander.jsx + fos-knowledge.jsx
+2. Plan : `docs/plans/2026-04-07-phase2-app-hardening.md` section "Session 3"
+3. Note action manuelle : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
 
 ## Decisions actives
 
@@ -44,12 +45,14 @@
 | Foundation v2 | 2026-04-05 | Approche C iterative 5 phases. Spec : docs/specs/2026-04-05-foundation-os-v2-design.md |
 | Phase 1 DONE | 2026-04-05 | Fondations : CLAUDE.md v2, security-guidance, gstack, index navigation |
 | Phase 2.1 DONE | 2026-04-07 | Tests : 16 nouveaux, mocks Supabase via vi.hoisted, 19 total. Plan Phase 2 ecrit. |
+| Phase 2.2/2.3 DONE | 2026-04-07 | Navbar (NavLink, sticky top, Void Glass), LoginPage min 8 char, ResetPasswordPage (request+update modes). 7 routes. |
 
 ## App Builder — Etat technique
 
-- **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo, /login
-- **Build** : OK (687ms, 439KB JS + 21.5KB CSS)
+- **Routes** : / (index), /commander, /dashboard, /crud-test, /phase1-demo, /login, /reset-password
+- **Build** : OK (843ms, 443KB JS + 21.6KB CSS)
 - **Tests** : 19 (6 fichiers : app, supabase, mutations, useCommander, AuthContext, forms)
+- **Navbar** : sticky top, NavLink active state (Home / Commander / Dashboard), bouton deconnexion integre
 - **Deploy** : https://foundation-os.vercel.app/ (root dir modules/app, live)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
 - **Artifacts** : 7 dans src/artifacts/ (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox)

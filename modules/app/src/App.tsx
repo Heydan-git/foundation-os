@@ -5,7 +5,9 @@ import Dashboard from '@/pages/Dashboard'
 import IndexPage from '@/pages/IndexPage'
 import LoginPage from '@/pages/LoginPage'
 import Phase1Demo from '@/pages/Phase1Demo'
+import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import SupabaseCRUDTest from '@/components/SupabaseCRUDTest'
+import { Navbar } from '@/components'
 
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -43,32 +45,15 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>
 }
 
-function LogoutButton() {
-  const { user, signOut } = useAuth()
-  if (!user) return null
-  return (
-    <button
-      onClick={signOut}
-      style={{
-        position: 'fixed', top: 12, right: 12, zIndex: 50,
-        padding: '4px 10px', borderRadius: 6, border: '1px solid rgba(255,255,255,.055)',
-        background: 'rgba(255,255,255,.025)', color: '#52525B',
-        fontSize: 10, fontFamily: "'JetBrains Mono',monospace", cursor: 'pointer',
-      }}
-    >
-      Déconnexion
-    </button>
-  )
-}
-
 export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <AppShell>
-          <LogoutButton />
+          <Navbar />
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/" element={<ProtectedRoute><IndexPage /></ProtectedRoute>} />
             <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

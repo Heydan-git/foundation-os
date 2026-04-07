@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { useAuth } from '@/lib/AuthContext'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Card, PageHeader } from '@/components'
+
+const PASSWORD_MIN = 8
 
 export default function LoginPage() {
   const { user, signIn, signUp, loading } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [info, setInfo] = useState<string | null>(null)
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [submitting, setSubmitting] = useState(false)
 
@@ -17,14 +20,22 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-    setSubmitting(true)
+    setInfo(null)
 
+    if (mode === 'signup' && password.length < PASSWORD_MIN) {
+      setError(`Mot de passe : ${PASSWORD_MIN} caracteres minimum`)
+      return
+    }
+
+    setSubmitting(true)
     const result = mode === 'login'
       ? await signIn(email, password)
       : await signUp(email, password)
 
     if (result.error) {
       setError(result.error)
+    } else if (mode === 'signup') {
+      setInfo('Compte cree. Verifie ton email pour activer la session.')
     }
     setSubmitting(false)
   }
@@ -54,11 +65,11 @@ export default function LoginPage() {
             />
             <input
               type="password"
-              placeholder="Mot de passe"
+              placeholder={mode === 'signup' ? `Mot de passe (${PASSWORD_MIN}+ caracteres)` : 'Mot de passe'}
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
-              minLength={6}
+              minLength={mode === 'signup' ? PASSWORD_MIN : 1}
               style={{
                 padding: '10px 12px',
                 borderRadius: 6,
@@ -73,6 +84,9 @@ export default function LoginPage() {
 
             {error && (
               <p style={{ fontSize: 11, color: '#EF4444', padding: '6px 0' }}>{error}</p>
+            )}
+            {info && (
+              <p style={{ fontSize: 11, color: '#5EEAD4', padding: '6px 0' }}>{info}</p>
             )}
 
             <button
@@ -97,7 +111,7 @@ export default function LoginPage() {
 
             <button
               type="button"
-              onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(null) }}
+              onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(null); setInfo(null) }}
               style={{
                 padding: '6px 0',
                 border: 'none',
@@ -108,8 +122,24 @@ export default function LoginPage() {
                 cursor: 'pointer',
               }}
             >
-              {mode === 'login' ? 'Pas de compte ? Créer un compte' : 'Déjà un compte ? Se connecter'}
+              {mode === 'login' ? 'Pas de compte ? Creer un compte' : 'Deja un compte ? Se connecter'}
             </button>
+
+            {mode === 'login' && (
+              <Link
+                to="/reset-password"
+                style={{
+                  textAlign: 'center',
+                  padding: '4px 0',
+                  color: '#52525B',
+                  fontSize: 10,
+                  fontFamily: "'Figtree',sans-serif",
+                  textDecoration: 'none',
+                }}
+              >
+                Mot de passe oublie ?
+              </Link>
+            )}
           </form>
         </Card>
       </div>
