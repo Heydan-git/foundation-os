@@ -18,9 +18,9 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 
 | Indicateur | Commande | Seuil |
 |------------|----------|-------|
-| JSX < 700 lignes | `wc -l modules/app/src/artifacts/*.jsx` | Chaque fichier < 700 |
+| TSX < 700 lignes | `wc -l modules/app/src/pages/*.tsx modules/app/src/components/*.tsx` | Chaque fichier < 700 |
 | Void Glass respecte | `grep -r "#0A0A0B\|#08080A\|Outfit\|Inter" modules/app/src/` | Zero match |
-| MD pairs complets | Comparer data/*.md ↔ artifacts/fos-*.jsx | Chaque artifact a son MD |
+| MD pairs alignes | Comparer `modules/app/data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx` | Chaque archive a son MD |
 | Refs intactes | `grep -r` noms fichiers supprimes/deplaces | Zero ref cassee |
 
 ### Info (a noter, pas bloquant)
@@ -30,7 +30,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | CONTEXT.md a jour | Comparer modules/ ↔ section Modules | Correspondance |
 | Decisions datees | Lire section Decisions | Toutes ont une date |
 | Build time | Lire output build | < 2000ms (baseline: ~800ms) |
-| Bundle size | Lire output build | JS < 600KB, CSS < 50KB |
+| Bundle size | Lire output build | JS < 600KB, CSS < 40KB |
 
 ## 2. Quand verifier
 
@@ -74,11 +74,13 @@ Les seuils evoluent avec le projet. Quand un seuil change :
 - Mettre a jour ce document
 - Ajouter la raison du changement
 
-Seuils actuels bases sur l'etat du 2026-04-05 :
+Seuils actuels bases sur l'etat du 2026-04-07 :
 - Build time baseline : ~800ms (alerte si > 2000ms)
-- Bundle JS baseline : ~440KB (alerte si > 600KB)
-- Bundle CSS baseline : ~21KB (alerte si > 50KB)
+- Bundle JS baseline : ~457KB (alerte si > 600KB)
+- Bundle CSS baseline : ~17KB (alerte si > 40KB)
 - Modules actifs : 1 (app). Ajouter les nouveaux au fur et a mesure.
+
+Note : ces seuils sont la source de verite unique. `CLAUDE.md` (section Token-awareness) et `scripts/health-check.sh` (pre-commit) doivent s'y aligner.
 
 ## 5. Limites de Monitor
 

@@ -69,7 +69,8 @@ proposee → active → supersedee
 - Quand une decision est supersedee : la remplacer, ajouter "(remplace: [ancien])" dans le detail
 
 ### Regles
-- Max ~15 decisions actives dans CONTEXT.md (au-dela, archiver les stables dans docs/)
+- Max 15 decisions actives dans CONTEXT.md
+- Au-dela de 15 : deplacer les plus anciennes (stables, non modifiees depuis ~30 jours) vers `docs/decisions-log.md` (cree a la demande quand le seuil est franchi, format identique : table Date | Detail)
 - Une decision sans date = legacy (ajouter la date quand on la touche)
 - Pas de decisions "pour info" — seulement ce qui guide le travail
 

@@ -9,6 +9,13 @@ Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 | Outil | Fichier | Role |
 |-------|---------|------|
 | Void Glass validator | scripts/hooks/validate-void-glass.sh | PreToolUse hook — bloque les couleurs/fonts interdites |
+| Security reminder | scripts/hooks/security-reminder.py | PreToolUse hook — rappel de ne pas commit de secrets |
+
+### Scripts
+
+| Outil | Fichier | Role |
+|-------|---------|------|
+| health-check | scripts/health-check.sh | Execute les indicateurs Monitor et sort le rapport SAIN/DEGRADED/BROKEN (appele par pre-commit et /session-end) |
 
 ### Git hooks
 
@@ -21,19 +28,12 @@ Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 
 | Outil | Plateforme | Role |
 |-------|-----------|------|
-| Auto-deploy | Vercel | Deploy sur git push vers main |
-| Supabase ping | GitHub Actions (prevu) | Cron hebdo pour eviter la pause 7j inactif |
+| Auto-deploy | Vercel | Deploy sur git push vers main (root dir modules/app) |
+| Supabase ping | GitHub Actions (.github/workflows/) | Cron hebdo — SELECT 1 pour eviter la pause 7j inactif |
 
 ## 2. Outils a construire (backlog)
 
 Priorite par impact. Ne construire que sur demande explicite.
-
-### Haute priorite
-
-| Outil | Type | Description |
-|-------|------|-------------|
-| health-check | Script | Execute les indicateurs Monitor (docs/core/monitor.md) et sort le rapport SAIN/DEGRADED/BROKEN |
-| supabase-ping | GitHub Action | Cron hebdo — un SELECT 1 pour garder la DB active |
 
 ### Moyenne priorite
 
@@ -46,7 +46,7 @@ Priorite par impact. Ne construire que sur demande explicite.
 
 | Outil | Type | Description |
 |-------|------|-------------|
-| bundle-tracker | Script | Log la taille du bundle apres chaque build, alerte si > seuil |
+| bundle-tracker | Script | Log la taille du bundle apres chaque build, alerte si > seuil Monitor |
 | context-diff | Script | Compare CONTEXT.md avec le filesystem, liste les incoherences |
 
 ## 3. Conventions

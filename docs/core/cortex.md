@@ -89,7 +89,9 @@ Chaque agent suit le meme protocole :
 
 ## 5. Limites de Cortex
 
-Ce que Cortex ne gere PAS (phases futures) :
-- Persistance inter-session structuree (→ Memory, Phase 2)
-- Metriques et health checks automatiques (→ Monitor, Phase 3)
-- Scripts et automation CLI (→ Tools, Phase 4)
+Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
+- Persistance inter-session structuree → Memory (docs/core/memory.md)
+- Metriques et health checks automatiques → Monitor (docs/core/monitor.md)
+- Scripts et automation CLI → Tools (docs/core/tools.md)
+
+Status : les 4 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE).
