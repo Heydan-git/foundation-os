@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext'
 import Commander from '@/pages/Commander'
 import Dashboard from '@/pages/Dashboard'
 import IndexPage from '@/pages/IndexPage'
+import KnowledgePage from '@/pages/KnowledgePage'
 import LoginPage from '@/pages/LoginPage'
 import Phase1Demo from '@/pages/Phase1Demo'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
@@ -57,6 +58,7 @@ export default function App() {
             <Route path="/" element={<ProtectedRoute><IndexPage /></ProtectedRoute>} />
             <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/knowledge" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
             <Route path="/crud-test" element={<ProtectedRoute><SupabaseCRUDTest /></ProtectedRoute>} />
             <Route path="/phase1-demo" element={<ProtectedRoute><Phase1Demo /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />

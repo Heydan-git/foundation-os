@@ -19,6 +19,14 @@ const MODULES: Module[] = [
     status: 'functional',
   },
   {
+    id: 'knowledge',
+    route: '/knowledge',
+    label: 'FOS Knowledge',
+    subtitle: 'Manifeste, Journal, Frameworks, Stack, Roadmap (knowledge base)',
+    color: '#5EEAD4',
+    status: 'static',
+  },
+  {
     id: 'dashboard',
     route: '/dashboard',
     label: 'Dashboard',

@@ -58,18 +58,20 @@ echo ""
 
 echo "[WARNING]"
 
-# JSX sizes
-MAX_JSX=0
+# TSX/JSX component sizes (pages + components)
+MAX_TSX=0
 OVER_700=""
-for f in modules/app/src/artifacts/fos-*.jsx; do
+TSX_FILES=$(find modules/app/src/pages modules/app/src/components -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null)
+for f in $TSX_FILES; do
+  [ -f "$f" ] || continue
   LINES=$(wc -l < "$f" | tr -d ' ')
-  [ "$LINES" -gt "$MAX_JSX" ] && MAX_JSX=$LINES
+  [ "$LINES" -gt "$MAX_TSX" ] && MAX_TSX=$LINES
   [ "$LINES" -ge 700 ] && OVER_700="$OVER_700 $(basename $f):${LINES}L"
 done
 if [ -z "$OVER_700" ]; then
-  echo -e "  ${GRN}[OK]${RST} JSX sizes (max ${MAX_JSX}L)"
+  echo -e "  ${GRN}[OK]${RST} TSX sizes (max ${MAX_TSX}L)"
 else
-  echo -e "  ${YEL}[WARN]${RST} JSX > 700L:$OVER_700"
+  echo -e "  ${YEL}[WARN]${RST} TSX > 700L:$OVER_700"
   WARNING=$((WARNING + 1))
 fi
 
@@ -82,13 +84,13 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# MD pairs
+# MD pairs (artifacts archived in .archive/artifacts-jsx/ since Phase 2.4)
 MD_COUNT=$(ls -1 modules/app/data/*.md 2>/dev/null | wc -l | tr -d ' ')
-ART_COUNT=$(ls -1 modules/app/src/artifacts/fos-*.jsx 2>/dev/null | wc -l | tr -d ' ')
+ART_COUNT=$(ls -1 .archive/artifacts-jsx/fos-*.jsx 2>/dev/null | wc -l | tr -d ' ')
 if [ "$MD_COUNT" -eq "$ART_COUNT" ]; then
-  echo -e "  ${GRN}[OK]${RST} MD pairs ($MD_COUNT/$ART_COUNT)"
+  echo -e "  ${GRN}[OK]${RST} MD pairs ($MD_COUNT/$ART_COUNT in archive)"
 else
-  echo -e "  ${YEL}[WARN]${RST} MD pairs ($MD_COUNT MD vs $ART_COUNT artifacts)"
+  echo -e "  ${YEL}[WARN]${RST} MD pairs ($MD_COUNT MD vs $ART_COUNT artifacts in archive)"
   WARNING=$((WARNING + 1))
 fi
 
