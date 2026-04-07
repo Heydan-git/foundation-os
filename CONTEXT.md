@@ -22,10 +22,12 @@
 | 2026-04-07 | Phase 2.4 DONE : KnowledgePage.tsx (conversion fos-knowledge.jsx, type strict, 5 sections), 7 artifacts JSX archives dans .archive/artifacts-jsx/, route /knowledge + Navbar. health-check.sh adapte (TSX sizes + MD pairs vs archive). Build 862ms. **Phase 2 DONE**. |
 
 ## Prochaine action
-1. **Decision Kevin** : continuer dette Tools (module-scaffold prepare Phase 5 / ref-checker full) OU demarrer Phase 5 Expansion directement
-2. Si Phase 5 : choisir premier nouveau module (Finance / Sante / Trading), ecrire plan avant execution
-3. Reference : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5
-4. Action manuelle pendante : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
+1. **Plan actif** : Finition OS, decoupe en 3 sessions — `docs/plans/2026-04-07-finition-os.md`
+2. **S1** : sync-check 6/6 (auto check fonts) + rappel Kevin Email confirmations Supabase
+3. **S2** : `scripts/ref-checker.sh` (full-repo refs cassees, sortie du backlog Tools)
+4. **S3** : eval bundle-tracker + context-diff (build OU drop) + housekeeping decisions-log
+5. **Apres Finition** : Phase 5 Expansion — choisir module Finance / Sante / Trading. Ref : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5
+6. Action manuelle pendante (S1) : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
 
 ## Decisions actives
 
@@ -47,6 +49,8 @@
 | Phase 4 DONE | 2026-04-07 | Monitoring : pre-commit health-check (BROKEN bloque), bundle thresholds JS>600KB/CSS>40KB, token-awareness rules dans CLAUDE.md. |
 | Affinement OS | 2026-04-07 | 3 phases desyncs/dedup Core OS + agents/commands + audit (commits 3d3cae2, b8b33a9, 8ab0844, 73dc63b). Decisions-log cree, MD first supprime, data/ figes. |
 | Chantier OS suite | 2026-04-07 | sync-check.sh executable (180L, 5 checks auto, 5/6 sections /sync automatisees) + vitest integre pre-commit (DEGRADED si fail). Commits 39b85f6, de19c2c, 6d4e1b0. |
+| module-scaffold | 2026-04-07 | scripts/module-scaffold.sh (170L) — automatise /new-project, idempotent, --help, gere upgrade ligne CONTEXT.md. Commit 025615c. Sort du backlog Tools moyenne priorite. |
+| Finition OS plan | 2026-04-07 | 3 sessions programmees pour cloturer dette Tools + housekeeping avant Phase 5. Plan : `docs/plans/2026-04-07-finition-os.md`. S1 sync-check 6/6, S2 ref-checker, S3 polish + decisions-log. |
 
 ## App Builder — Etat technique
 
