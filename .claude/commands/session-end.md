@@ -8,24 +8,46 @@
    - Pas de references cassees (grep les noms de fichiers deplaces/supprimes)
    - Chaque fichier cree est dans le bon dossier
    - Modules dans CONTEXT.md correspondent a modules/ sur le filesystem
-3. Verifier le build pour chaque module actif :
-   - Detecter modules avec package.json dans modules/
-   - `cd modules/[nom] && npm run build` pour chacun
-4. Mettre a jour CONTEXT.md (protocole Memory — docs/core/memory.md) :
-   - Ajouter cette session dans "Dernieres sessions" (garder max 5)
+3. Verifier l'etat technique :
+   - `bash scripts/health-check.sh` → doit etre SAIN (obligatoire)
+   - Pour chaque module actif : `cd modules/[nom] && npm run build`
+   - Pour chaque module actif : `cd modules/[nom] && npm test` si tests presents
+4. **Classifier la session selon 4 niveaux** (inspire de PAUL framework) :
+
+   | Statut | Quand l'utiliser | Action requise |
+   |--------|------------------|----------------|
+   | **DONE** | Toutes les taches finies, build + tests verts, health-check SAIN | Passer a la suite |
+   | **DONE_WITH_CONCERNS** | Livre mais avec dette/risque a documenter (perf, edge case, build degrade) | Documenter les concerns dans CONTEXT.md, prefixer le resume avec `[DONE_WITH_CONCERNS]` |
+   | **NEEDS_CONTEXT** | Bloque par manque d'info Kevin (decision, donnee, credentials) | Lister les questions dans CONTEXT.md, prefixer avec `[NEEDS_CONTEXT]` |
+   | **BLOCKED** | Impossible de continuer (bug externe, dep cassee, API down) | Documenter le blocage + workaround tente, prefixer avec `[BLOCKED]` |
+
+   Le statut se decide a partir des faits du step 3 (health-check, build, tests) et de l'etat des taches du plan en cours. Pas d'auto-congratulation : DONE n'est valide que si **tout** est vert et **toutes** les taches du scope ont ete livrees.
+
+5. Mettre a jour CONTEXT.md (protocole Memory — docs/core/memory.md) :
+   - Ajouter cette session dans "Dernieres sessions" (garder max 5) avec le statut prefixe entre crochets si != DONE
    - Mettre a jour "Prochaine action" avec la suite logique
    - Mettre a jour le status des modules si changement
    - Ajouter les nouvelles decisions si applicable (avec date YYYY-MM-DD)
    - Mettre a jour "Etat technique" si builds/routes/artifacts changent
    - Si un fondamental a change → mettre a jour aussi docs/ (reference tier)
-5. Proposer un commit si des changements sont en attente
-6. Annoncer en format court :
+6. Proposer un commit si des changements sont en attente
+7. Annoncer en format court :
 
 ```
 Session cloturee — [date]
+Statut : [DONE | DONE_WITH_CONCERNS | NEEDS_CONTEXT | BLOCKED]
 
 Modifie : [liste fichiers]
 Build : [OK/KO par module]
+Tests : [N tests, X failures]
+Health-check : [SAIN/DEGRADED/BROKEN]
 CONTEXT.md : mis a jour
 Prochaine action : [quoi faire ensuite]
+```
+
+Si statut != DONE, ajouter une section :
+```
+Concerns / Questions / Blockage :
+- [description du point d'attention]
+- [workaround tente si BLOCKED]
 ```

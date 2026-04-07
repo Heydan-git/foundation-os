@@ -1,23 +1,33 @@
 # Foundation OS — Index
 
 > Carte de navigation du projet. Mis a jour a chaque session-end.
-> Derniere mise a jour : 2026-04-05
+> Derniere mise a jour : 2026-04-07
 
 ## Code (modules/app/src/)
 
 | Dossier | Contenu |
 |---------|---------|
-| pages/ | 5 routes : IndexPage, Dashboard, Commander, LoginPage, Phase1Demo |
-| components/ | UI : Layout, Card, Badge, StatPill, TabBar, SupabaseCRUDTest |
+| pages/ | 7 fichiers / 8 routes : IndexPage (`/`), Commander (`/commander`), KnowledgePage (`/knowledge`), Dashboard (`/dashboard`), Phase1Demo (`/phase1-demo`), LoginPage (`/login`), ResetPasswordPage (`/reset-password`) + route `/crud-test` (SupabaseCRUDTest component) |
+| components/ | UI : Layout, Navbar (sticky top, NavLink active), Card, Badge, StatPill, TabBar, SupabaseCRUDTest, index.ts |
 | components/Commander/ | 7 panels : Stats, Sessions, Decisions, Risks, Context, NextSteps, Docs |
 | components/forms/ | AddSessionForm, EditDecisionModal, NextStepActions |
 | lib/ | supabase.ts, database.types.ts, mutations.ts, AuthContext.tsx, useCommander.ts |
-| artifacts/ | 7 JSX interactifs (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) |
-| test/ | app.test.tsx, supabase.test.ts, setup.ts |
+| artifacts/ | **0 fichier** (vide) — les 7 JSX d'origine sont archives dans `.archive/artifacts-jsx/` |
+| test/ | 6 fichiers : app, supabase, mutations, useCommander, AuthContext, forms (+ setup.ts + mocks/supabase.ts) |
 
 ## Data (modules/app/data/)
 
-7 fichiers MD — pairs des artifacts : commander, graph, index, knowledge, scale-orchestrator, sync, toolbox
+7 fichiers MD : commander, graph, index, knowledge, scale-orchestrator, sync, toolbox
+
+## Archive (.archive/)
+
+| Dossier | Contenu |
+|---------|---------|
+| artifacts-jsx/ | 7 JSX archives Phase 2.4 (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) |
+| fos-legacy/ | Code legacy pre-Foundation v2 |
+| hooks-legacy/ | Hooks Claude obsoletes |
+| intelligence/ | Notes brainstorm pre-spec |
+| ARCHIVE-LOG.md | Journal des archivages |
 
 ## Config
 
@@ -52,7 +62,10 @@
 | docs/setup-guide.md | Guide setup dev |
 | docs/directive-v1.md | Directive Claude Code originale (reference) |
 | docs/specs/2026-04-05-foundation-os-v2-design.md | Design spec v2 (5 phases iteratives) |
-| docs/plans/2026-04-05-phase1-fondations.md | Plan Phase 1 (8 tasks) |
+| docs/plans/2026-04-05-phase1-fondations.md | Plan Phase 1 (DONE 2026-04-05) |
+| docs/plans/2026-04-07-phase2-app-hardening.md | Plan Phase 2 (DONE 2026-04-07) |
+| docs/plans/2026-04-07-phase3-os-intelligence.md | Plan Phase 3 (en cours 2026-04-07) |
+| docs/tools-audit.md | Audit BMAD/OMC/Coderabbit — Phase 3.3 |
 
 ## Scripts
 
@@ -71,11 +84,14 @@ sessions, decisions, risks, next_steps, context_blocks, docs
 
 | Outil | Path | Status |
 |-------|------|--------|
-| OMC | plugin oh-my-claudecode | Actif |
-| Superpowers | plugin superpowers v5.0.7 | Actif |
+| OMC | plugin oh-my-claudecode | Actif (skills custom Foundation : session-start, session-end, new-project, sync) |
+| Superpowers | plugin superpowers | Actif (writing-plans, executing-plans, brainstorming, TDD) |
 | gstack | ~/.claude/skills/gstack/ | Actif (qa, cso, careful, freeze, guard, ship) |
-| BMAD v6 | _bmad/ (12 modules) | A auditer (Phase 3) |
-| Coderabbit | plugin coderabbit | A evaluer (Phase 3) |
+| BMAD v6 | _bmad/ (12 modules) | Garde dormant (decision Kevin 2026-04-07) — voir tools-audit.md |
+| Coderabbit | ~/.claude/plugins/cache/.../coderabbit | Installe mais **non invoque** (decision 2026-04-07) |
+| code-review | ~/.claude/plugins/cache/.../code-review | Installe mais **non invoque** (decision 2026-04-07) |
+| feature-dev | ~/.claude/plugins/cache/.../feature-dev | Installe (feature-dev workflow) |
+| **review-agent** | .claude/agents/review-agent.md | **Outil principal de code review** (decision 2026-04-07) |
 
 ## Deploy
 

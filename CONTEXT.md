@@ -15,19 +15,16 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-07 | Phase 3 OS Intelligence DONE : session-end 4 niveaux (DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED), docs/index.md re-aligne (8 routes, Navbar, KnowledgePage, .archive/), docs/tools-audit.md. Decisions Kevin : BMAD garde dormant, review-agent = code review principal. health-check SAIN, build 676ms, 19/19 tests. |
 | 2026-04-07 | Phase 2.4 DONE : KnowledgePage.tsx (conversion fos-knowledge.jsx, type strict, 5 sections), 7 artifacts JSX archives dans .archive/artifacts-jsx/, route /knowledge + Navbar. health-check.sh adapte (TSX sizes + MD pairs vs archive). Build 862ms. **Phase 2 DONE**. |
 | 2026-04-07 | Phase 2.2+2.3 : Navbar (NavLink active state), LoginPage min 8 char + lien reset, ResetPasswordPage 2 modes (request/update). 7 routes. 19 tests OK. Build 843ms. SAIN. |
 | 2026-04-07 | Phase 2.1 Tests : helper mocks Supabase + 16 tests (mutations 5, useCommander 3, AuthContext 4, forms 4). 19 tests total, 0 failure. Build 687ms. SAIN. Plan Phase 2 ecrit (3 sessions). |
 | 2026-04-05 | Phase 1 Fondations DONE : CLAUDE.md v2 (902 mots), directive sauvegardee, safeguards.json supprime, settings.local trimme (144→40L), security-guidance hook installe, gstack installe, docs/index.md cree. CI fix Node 24. 8 commits. health-check SAIN. |
-| 2026-04-05 | Brainstorm directive Kevin : 5 agents d'analyse (projet+code+tools+21 repos), spec v2 design (5 phases iteratives), plan Phase 1 (8 tasks). Approche C validee. |
-| 2026-04-05 | Core OS 4/4 + Approche A+B : Dashboard dynamique, Auth Supabase, Vitest, CI, health-check, Vercel deploy. App live. |
-| 2026-04-05 | Core OS 4/4 implemente (Cortex, Memory, Monitor, Tools). Audit operationnel 6/6 OK. |
-| 2026-04-05 | Reorg + audit deep : 76 fichiers racine → 3, -34750 lignes. |
 
 ## Prochaine action
-1. **Phase 3 — OS Intelligence** : session-end 4 niveaux (DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED), audit BMAD/OMC, doc index complet
-2. Reference : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 3
-3. Plan Phase 3 a ecrire avant execution
+1. **Phase 4 — Monitoring** : health-check.sh en pre-commit hook, bundle size tracking, regles token-awareness
+2. Reference : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 4
+3. Plan Phase 4 a ecrire avant execution
 4. Action manuelle pendante : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
 
 ## Decisions actives
@@ -49,6 +46,9 @@
 | Phase 2.1 DONE | 2026-04-07 | Tests : 16 nouveaux, mocks Supabase via vi.hoisted, 19 total. Plan Phase 2 ecrit. |
 | Phase 2.2/2.3 DONE | 2026-04-07 | Navbar (NavLink, sticky top, Void Glass), LoginPage min 8 char, ResetPasswordPage (request+update modes). 7 routes. |
 | Phase 2 DONE | 2026-04-07 | App Hardening complet : 16 tests, Navbar+Auth, KnowledgePage. Artifacts JSX archives. App production-ready. |
+| Phase 3 DONE | 2026-04-07 | OS Intelligence : session-end 4 niveaux, docs/index.md re-aligne, audit BMAD/OMC/Coderabbit (docs/tools-audit.md). |
+| BMAD garde | 2026-04-07 | _bmad/ reste dormant (overrule Kevin sur verdict audit ARCHIVER). |
+| Code review | 2026-04-07 | review-agent custom = outil principal. Coderabbit / code-review Anthropic / OMC code-reviewer = installes mais non invoques. |
 
 ## App Builder — Etat technique
 
