@@ -23,21 +23,21 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 
 ```
 modules/app/src/
-  artifacts/     Composants JSX (fos-commander, fos-graph, etc.)
-  components/    Composants reutilisables (Card, Badge, TabBar, etc.)
-  pages/         Pages routes (Commander, Dashboard, IndexPage, Phase1Demo)
-  lib/           supabase.ts, mutations.ts, useCommander.ts, database.types.ts
+  components/    Composants reutilisables (Badge, Card, Layout, Navbar, TabBar, forms/, Commander/)
+  pages/         Pages routes (Commander, Dashboard, IndexPage, KnowledgePage, LoginPage, Phase1Demo, ResetPasswordPage)
+  lib/           AuthContext.tsx, supabase.ts, mutations.ts, useCommander.ts, database.types.ts
 ```
 
-MD pairs dans modules/app/data/ (commander.md, graph.md, index.md, sync.md, toolbox.md).
+MD de reference dans `modules/app/data/` (7 fichiers). Artifacts JSX historiques archives dans `.archive/artifacts-jsx/` (7 fichiers, ne plus modifier — voir Phase 2.4 dans CONTEXT.md).
 
 ## Contraintes
 
-- JSX < 700 lignes — decouper si plus
+- TSX < 700 lignes — decouper si plus
 - Void Glass : #06070C fond, Figtree UI, JetBrains Mono code
 - Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul
 - Supabase : SDK direct, pas de backend custom
 - Build : `cd modules/app && npm run build` doit passer
+- Seuils bundle : source de verite = `docs/core/monitor.md` (JS < 600KB, CSS < 40KB)
 
 ## Hors scope (deleguer)
 

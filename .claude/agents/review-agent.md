@@ -13,24 +13,16 @@ description: >
 1. Lire CONTEXT.md → etat attendu
 2. Comparer avec le filesystem reel
 
-## Checklist (basee sur Monitor — docs/core/monitor.md)
+## Methode
 
-### Critical (bloquant)
-- [ ] Build passe pour chaque module actif
-- [ ] Racine = seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore
-- [ ] TypeScript compile sans erreur
-
-### Warning (pre-deploy)
-- [ ] JSX < 700 lignes chacun
-- [ ] Void Glass : #06070C, Figtree, JetBrains Mono — pas de #0A0A0B, #08080A, Outfit, Inter
-- [ ] MD pairs : chaque artifact a son MD dans data/
-- [ ] Pas de refs cassees (grep noms de fichiers deplaces/supprimes)
-
-### Info
-- [ ] CONTEXT.md : modules, decisions, etat technique correspondent au filesystem
-- [ ] Decisions toutes datees (YYYY-MM-DD)
-- [ ] Specs dans docs/core/ coherentes avec .claude/agents/ et commands
-- [ ] Commits conventionnels
+1. **Executer `bash scripts/health-check.sh`** — retourne SAIN/DEGRADED/BROKEN base sur les indicateurs Monitor (`docs/core/monitor.md` Critical + Warning). Source de verite unique pour les seuils.
+2. **Checks review-specifiques** (non couverts par health-check) :
+   - [ ] CONTEXT.md : modules, routes, etat technique correspondent au filesystem
+   - [ ] Decisions toutes datees (YYYY-MM-DD), count ≤ 15 (sinon proposer archivage vers `docs/decisions-log.md`)
+   - [ ] Specs `docs/core/*.md` coherentes avec `.claude/agents/` et `.claude/commands/`
+   - [ ] Commits conventionnels (`type(scope): description`)
+   - [ ] Refs intactes (grep noms de fichiers deplaces/supprimes recemment)
+   - [ ] Git state : aucun fichier source non-tracke oublie (hors `.omc/`, `.DS_Store`)
 
 ## Hors scope (deleguer)
 

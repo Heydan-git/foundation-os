@@ -24,10 +24,11 @@ Audit complet de coherence Foundation OS. Remplace l'ancien /sync-md.
 - Builds : relancer et verifier les temps/tailles
 
 ### 5. App Builder specifique (si module app actif)
-- MD pairs : `modules/app/data/*.md` ↔ `modules/app/src/artifacts/fos-*.jsx`
-- JSX < 700 lignes : `wc -l` chaque artifact
+- MD pairs : `modules/app/data/*.md` alignes avec les artifacts archives `.archive/artifacts-jsx/fos-*.jsx`
+- TSX < 700 lignes : `wc -l modules/app/src/pages/*.tsx modules/app/src/components/*.tsx`
 - Void Glass : grep #0A0A0B, #08080A, Outfit, Inter dans src/
 - Fonts : Figtree present, pas de police interdite en primaire
+- Seuils bundle : source = `docs/core/monitor.md`
 
 ### 6. Core OS
 - Specs dans docs/core/ coherentes avec .claude/agents/ et .claude/commands/

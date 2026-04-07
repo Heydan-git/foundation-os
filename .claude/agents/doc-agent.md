@@ -20,7 +20,8 @@ description: >
 | docs/architecture.md | Decision technique majeure |
 | docs/core/*.md | Changement dans Core OS |
 | docs/design-system.md | Changement tokens Void Glass |
-| modules/app/data/*.md | Modification d'un artifact JSX |
+| modules/app/data/*.md | Changement d'une route/domaine documente (manuel — les artifacts JSX sont archives) |
+| docs/decisions-log.md | Creer quand CONTEXT.md depasse 15 decisions actives (protocole Memory) |
 
 ## Protocole Memory (docs/core/memory.md)
 
