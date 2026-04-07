@@ -15,17 +15,18 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-07 | Phase 4 Monitoring DONE : pre-commit hook (scripts/git-hooks/pre-commit installe vers .git/hooks/, BROKEN bloque + DEGRADED warn), fix bundle extraction health-check ($3 $4 → $2, valeurs reelles JS 457.15kB / CSS 17.22kB), seuils JS>600KB/CSS>40KB → WARNING, section Token-awareness ajoutee CLAUDE.md (951 mots, sous limite 1500). 3 cas hook testes (SAIN/BROKEN/DEGRADED). |
 | 2026-04-07 | Phase 3 OS Intelligence DONE : session-end 4 niveaux (DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED), docs/index.md re-aligne (8 routes, Navbar, KnowledgePage, .archive/), docs/tools-audit.md. Decisions Kevin : BMAD garde dormant, review-agent = code review principal. health-check SAIN, build 676ms, 19/19 tests. |
 | 2026-04-07 | Phase 2.4 DONE : KnowledgePage.tsx (conversion fos-knowledge.jsx, type strict, 5 sections), 7 artifacts JSX archives dans .archive/artifacts-jsx/, route /knowledge + Navbar. health-check.sh adapte (TSX sizes + MD pairs vs archive). Build 862ms. **Phase 2 DONE**. |
 | 2026-04-07 | Phase 2.2+2.3 : Navbar (NavLink active state), LoginPage min 8 char + lien reset, ResetPasswordPage 2 modes (request/update). 7 routes. 19 tests OK. Build 843ms. SAIN. |
 | 2026-04-07 | Phase 2.1 Tests : helper mocks Supabase + 16 tests (mutations 5, useCommander 3, AuthContext 4, forms 4). 19 tests total, 0 failure. Build 687ms. SAIN. Plan Phase 2 ecrit (3 sessions). |
-| 2026-04-05 | Phase 1 Fondations DONE : CLAUDE.md v2 (902 mots), directive sauvegardee, safeguards.json supprime, settings.local trimme (144→40L), security-guidance hook installe, gstack installe, docs/index.md cree. CI fix Node 24. 8 commits. health-check SAIN. |
 
 ## Prochaine action
-1. **Phase 4 — Monitoring** : health-check.sh en pre-commit hook, bundle size tracking, regles token-awareness
-2. Reference : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 4
-3. Plan Phase 4 a ecrire avant execution
-4. Action manuelle pendante : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
+1. **Phase 5 — Expansion** (prerequis : Phases 1-4 toutes DONE — OK)
+2. Choisir le premier nouveau module : Finance / Sante / Trading (decision Kevin)
+3. Reference : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5
+4. Plan Phase 5 a ecrire avant execution (apres choix module)
+5. Action manuelle pendante : activer "Email confirmations" dans Supabase Auth settings (UI Supabase, hors code)
 
 ## Decisions actives
 
@@ -49,11 +50,12 @@
 | Phase 3 DONE | 2026-04-07 | OS Intelligence : session-end 4 niveaux, docs/index.md re-aligne, audit BMAD/OMC/Coderabbit (docs/tools-audit.md). |
 | BMAD garde | 2026-04-07 | _bmad/ reste dormant (overrule Kevin sur verdict audit ARCHIVER). |
 | Code review | 2026-04-07 | review-agent custom = outil principal. Coderabbit / code-review Anthropic / OMC code-reviewer = installes mais non invoques. |
+| Phase 4 DONE | 2026-04-07 | Monitoring : pre-commit health-check (BROKEN bloque), bundle thresholds JS>600KB/CSS>40KB, token-awareness rules dans CLAUDE.md. |
 
 ## App Builder — Etat technique
 
 - **Routes** : / (index), /commander, /knowledge, /dashboard, /crud-test, /phase1-demo, /login, /reset-password
-- **Build** : OK (862ms, 457KB JS + 17.2KB CSS, 107 modules)
+- **Build** : OK (832ms, JS 457.15kB / CSS 17.22kB, 107 modules) — sous seuils 600KB/40KB
 - **Tests** : 19 (6 fichiers : app, supabase, mutations, useCommander, AuthContext, forms)
 - **Navbar** : sticky top, NavLink active state (Home / Commander / Knowledge / Dashboard), bouton deconnexion integre
 - **Artifacts JSX** : 0 dans src/artifacts/ (supprime). Tous archives dans `.archive/artifacts-jsx/` (7 fichiers)

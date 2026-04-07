@@ -38,6 +38,16 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - Quand un module change de status → mettre a jour CONTEXT.md section Modules
 - Un fichier qui documente un autre fichier = du bloat, ne pas creer
 
+## Token-awareness
+
+| Situation | Action |
+|-----------|--------|
+| < 3 fichiers, 1 domaine | Direct (pas d'agent) |
+| 3+ fichiers ou 2+ domaines | Agent(s) |
+| Recherche exploratoire | Agent Explore |
+| Max agents paralleles | 3 (projet solo) |
+| Build/tests | run_in_background |
+
 ## Anti-bullshit gates
 - Jamais de "TERMINE" ou "100%" sans preuve (build + test execute)
 - Avant d'affirmer "X fonctionne" → executer la commande, montrer l'output

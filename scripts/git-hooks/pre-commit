@@ -1,0 +1,20 @@
+#!/bin/bash
+# Foundation OS pre-commit hook : run health-check, block on BROKEN
+# Source : scripts/git-hooks/pre-commit (version-controlled)
+# Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+bash scripts/health-check.sh
+RC=$?
+
+if [ $RC -eq 1 ]; then
+  echo ""
+  echo "COMMIT BLOQUE : health-check = BROKEN"
+  echo "Fixe les erreurs critiques avant de commit."
+  exit 1
+elif [ $RC -eq 2 ]; then
+  echo ""
+  echo "WARNING : health-check = DEGRADED (commit autorise)"
+  exit 0
+fi
+
+exit 0

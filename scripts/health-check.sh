@@ -101,9 +101,19 @@ echo ""
 echo "[INFO]"
 
 # Bundle size
-JS_SIZE=$(echo "$BUILD_OUT" | grep "\.js " | awk '{print $3 $4}' | head -1)
-CSS_SIZE=$(echo "$BUILD_OUT" | grep "\.css " | awk '{print $3 $4}' | head -1)
-echo -e "  ${DIM}[OK]${RST} Bundle: JS ${JS_SIZE:-?} / CSS ${CSS_SIZE:-?}"
+JS_SIZE=$(echo "$BUILD_OUT" | grep "\.js " | awk '{print $2}' | head -1)
+CSS_SIZE=$(echo "$BUILD_OUT" | grep "\.css " | awk '{print $2}' | head -1)
+JS_INT=${JS_SIZE%.*}
+CSS_INT=${CSS_SIZE%.*}
+BUNDLE_WARN=""
+[ "${JS_INT:-0}" -gt 600 ] && BUNDLE_WARN="$BUNDLE_WARN JS>600KB"
+[ "${CSS_INT:-0}" -gt 40 ] && BUNDLE_WARN="$BUNDLE_WARN CSS>40KB"
+if [ -z "$BUNDLE_WARN" ]; then
+  echo -e "  ${DIM}[OK]${RST} Bundle: JS ${JS_SIZE:-?}kB / CSS ${CSS_SIZE:-?}kB"
+else
+  echo -e "  ${YEL}[WARN]${RST} Bundle: JS ${JS_SIZE:-?}kB / CSS ${CSS_SIZE:-?}kB —$BUNDLE_WARN"
+  WARNING=$((WARNING + 1))
+fi
 
 # Decisions dated
 DATED=$(grep "^| .* | 2026-" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')

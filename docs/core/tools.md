@@ -12,9 +12,10 @@ Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 
 ### Git hooks
 
-| Hook | Role |
-|------|------|
-| commit-msg | Enforce conventional commits (type(scope): description) |
+| Hook | Source | Role |
+|------|--------|------|
+| commit-msg | .git/hooks/commit-msg | Enforce conventional commits (type(scope): description) |
+| pre-commit | scripts/git-hooks/pre-commit (installe vers .git/hooks/) | Run health-check ; BROKEN bloque le commit (exit 1), DEGRADED warn (exit 0), SAIN passe |
 
 ### CI/CD
 
