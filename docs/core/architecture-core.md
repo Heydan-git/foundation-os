@@ -47,8 +47,9 @@ Spec : [docs/core/monitor.md](monitor.md)
 ## Tools (Phase 4 — actif)
 
 Spec : [docs/core/tools.md](tools.md)
-- Validators existants (Void Glass, conventional commits)
-- Backlog priorise (health-check, supabase-ping, ref-checker)
+- Validators existants (Void Glass, conventional commits, security-reminder)
+- Scripts actifs : health-check, sync-check, ref-checker, module-scaffold
+- CI/CD : ci.yml (build/tsc/vitest), supabase-ping (cron lundi)
 - Conventions : scripts/, idempotent, exit codes standards
 
 ## Principes Core OS

@@ -41,6 +41,10 @@ Impact    : [fichiers touches]
 Toute decision → ajouter dans CONTEXT.md section Decisions actives.
 Proposer avant d'executer — alignement Kevin requis.
 
+## Non-regression
+
+Toute decision impactant un script, un hook ou un workflow doit verifier la non-regression apres modification : `bash scripts/health-check.sh` doit rester SAIN.
+
 ## Sortie
 
 Format court. Lister : decision prise, fichiers impactes, prochaine etape.

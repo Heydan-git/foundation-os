@@ -38,6 +38,7 @@ MD de reference dans `modules/app/data/` (7 fichiers). Artifacts JSX historiques
 - Supabase : SDK direct, pas de backend custom
 - Build : `cd modules/app && npm run build` doit passer
 - Seuils bundle : source de verite = `docs/core/monitor.md` (JS < 600KB, CSS < 40KB)
+- Le hook PreToolUse `validate-void-glass.sh` bloque tout Edit/Write avec couleur ou font interdite (case-insensitive depuis P1)
 
 ## Hors scope (deleguer)
 

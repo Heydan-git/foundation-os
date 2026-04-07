@@ -12,6 +12,7 @@
 4. Verifier l'etat technique :
    - `git status` : changements non commites ?
    - Pour chaque module actif : `cd modules/[nom] && npm run build`
+   - `bash scripts/health-check.sh` — si BROKEN, ne pas demarrer (signaler les erreurs critiques avant)
 5. Annoncer en format court :
 
 ```

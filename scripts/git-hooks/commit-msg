@@ -1,0 +1,19 @@
+#!/bin/bash
+# Foundation OS commit-msg hook : enforce conventional commits format
+# Source : scripts/git-hooks/commit-msg (version-controlled)
+# Install : cp scripts/git-hooks/commit-msg .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
+# Spec : docs/core/tools.md
+# Types supportes : standard conventional commits (feat, fix, docs, refactor,
+#                   chore, test, style, build, ci, perf, revert)
+
+MSG=$(cat "$1")
+TYPES='feat|fix|docs|refactor|chore|test|style|build|ci|perf|revert'
+
+if [[ "$MSG" =~ ^($TYPES)(\(.+\))?:\ .+ ]]; then
+    exit 0
+else
+    echo "ERREUR: Format conventional commit invalide"
+    echo "Format: type(scope): description"
+    echo "Types: feat, fix, docs, refactor, chore, test, style, build, ci, perf, revert"
+    exit 1
+fi

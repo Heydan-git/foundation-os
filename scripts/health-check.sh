@@ -23,11 +23,23 @@ echo ""
 
 echo "[CRITICAL]"
 
-# Build
+# Build (alerte WARNING si > 1500ms, BROKEN si fail — seuils source : docs/core/monitor.md)
 BUILD_OUT=$(cd modules/app && npm run build 2>&1)
 if echo "$BUILD_OUT" | grep -q "built in"; then
   BUILD_TIME=$(echo "$BUILD_OUT" | grep "built in" | sed 's/.*built in //')
-  echo -e "  ${GRN}[OK]${RST} Build modules/app ($BUILD_TIME)"
+  # Convertit en ms (parse "845ms", "845 ms", "1.23s", "1.23 s")
+  BT_NS="${BUILD_TIME// /}"
+  BUILD_MS_INT=0
+  case "$BT_NS" in
+    *ms) BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%ms}}" 2>/dev/null) ;;
+    *s)  BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%s} * 1000}" 2>/dev/null) ;;
+  esac
+  if [ "${BUILD_MS_INT:-0}" -gt 1500 ] 2>/dev/null; then
+    echo -e "  ${YEL}[WARN]${RST} Build modules/app ($BUILD_TIME — derive >1500ms, baseline ~800ms)"
+    WARNING=$((WARNING + 1))
+  else
+    echo -e "  ${GRN}[OK]${RST} Build modules/app ($BUILD_TIME)"
+  fi
 else
   echo -e "  ${RED}[KO]${RST} Build modules/app FAILED"
   CRITICAL=$((CRITICAL + 1))
@@ -75,8 +87,8 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# Void Glass
-VG=$(grep -rn "#0A0A0B\|#08080A" modules/app/src/ --include="*.tsx" --include="*.ts" --include="*.css" 2>/dev/null | wc -l | tr -d ' ')
+# Void Glass (case-insensitive : #0A0A0B == #0a0a0b)
+VG=$(grep -rni "#0A0A0B\|#08080A" modules/app/src/ --include="*.tsx" --include="*.ts" --include="*.css" 2>/dev/null | wc -l | tr -d ' ')
 if [ "$VG" -eq 0 ]; then
   echo -e "  ${GRN}[OK]${RST} Void Glass (0 violation)"
 else
@@ -91,6 +103,17 @@ if [ "$MD_COUNT" -eq "$ART_COUNT" ]; then
   echo -e "  ${GRN}[OK]${RST} MD pairs ($MD_COUNT/$ART_COUNT in archive)"
 else
   echo -e "  ${YEL}[WARN]${RST} MD pairs ($MD_COUNT MD vs $ART_COUNT artifacts in archive)"
+  WARNING=$((WARNING + 1))
+fi
+
+# Refs intactes (full-repo broken refs detector — invoque ref-checker.sh)
+REF_OUT=$(bash scripts/ref-checker.sh 2>&1); REF_RC=$?
+if [ $REF_RC -eq 0 ]; then
+  REF_SCAN=$(echo "$REF_OUT" | grep -oE '[0-9]+ \.md scannes' | head -1)
+  echo -e "  ${GRN}[OK]${RST} Refs intactes ($REF_SCAN)"
+else
+  REF_BROKEN=$(echo "$REF_OUT" | grep -oE '[0-9]+ refs cassees' | head -1)
+  echo -e "  ${YEL}[WARN]${RST} Refs cassees ($REF_BROKEN)"
   WARNING=$((WARNING + 1))
 fi
 
@@ -128,8 +151,8 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# Decisions dated
-DATED=$(grep "^| .* | 2026-" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
+# Decisions dated (annee any 20XX, evite Y2027 bug)
+DATED=$(grep -E "^\| .* \| 20[0-9]{2}-[0-9]{2}-[0-9]{2}" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
 echo -e "  ${DIM}[OK]${RST} Decisions datees: $DATED"
 
 echo ""

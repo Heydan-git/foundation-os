@@ -16,8 +16,8 @@ fi
 if [[ "$TARGET_FILE" =~ \.(jsx|tsx|css|scss)$ ]]; then
     VIOLATIONS=""
     
-    # Couleurs interdites
-    if grep -q "#0A0A0B\|#08080A" "$TARGET_FILE" 2>/dev/null; then
+    # Couleurs interdites (case-insensitive : matche aussi #0a0a0b)
+    if grep -qi "#0A0A0B\|#08080A" "$TARGET_FILE" 2>/dev/null; then
         VIOLATIONS="${VIOLATIONS}❌ Couleur interdite (#0A0A0B/#08080A)\n"
     fi
     

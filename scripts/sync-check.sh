@@ -57,12 +57,19 @@ fi
 # Scope full-history = trop de faux positifs (voir ref-checker backlog
 # docs/core/tools.md pour un outil dedie).
 
-DELETED_HEAD=$(git diff --diff-filter=D --name-only HEAD~1 HEAD 2>/dev/null \
-  | grep -v -E '^(node_modules|\.omc|\.archive|dist|\.git|_bmad)/' \
-  | grep -v -E '(^|/)(package|package-lock|tsconfig)\.json$' \
-  | grep -v -E '(^|/)(README|CHANGELOG|LICENSE|license)\.md$' \
-  | grep -v -E '(^|/)index\.(js|ts|tsx|jsx)$' \
-  || true)
+# Verifier explicitement que HEAD~1 existe (single-commit repo cas particulier)
+HEAD1_EXISTS=$(git rev-parse --verify HEAD~1 2>/dev/null || echo "")
+if [ -z "$HEAD1_EXISTS" ]; then
+  echo -e "  ${DIM}[SKIP]${RST} Refs last commit (single-commit repo, HEAD~1 absent)"
+  DELETED_HEAD=""
+else
+  DELETED_HEAD=$(git diff --diff-filter=D --name-only HEAD~1 HEAD 2>/dev/null \
+    | grep -v -E '^(node_modules|\.omc|\.archive|dist|\.git|_bmad)/' \
+    | grep -v -E '(^|/)(package|package-lock|tsconfig)\.json$' \
+    | grep -v -E '(^|/)(README|CHANGELOG|LICENSE|license)\.md$' \
+    | grep -v -E '(^|/)index\.(js|ts|tsx|jsx)$' \
+    || true)
+fi
 
 BROKEN_REFS=""
 BROKEN_COUNT=0

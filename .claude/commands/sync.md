@@ -1,6 +1,6 @@
 # /sync — Verifier la coherence du projet
 
-Audit complet de coherence Foundation OS. Remplace l'ancien /sync-md.
+Audit complet de coherence Foundation OS.
 
 ## Execution
 

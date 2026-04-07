@@ -28,6 +28,8 @@ description: >
 4 tiers : Session (volatile) → Contexte (CONTEXT.md) → Reference (docs/) → Auto-memory (Claude natif).
 **Une info ne vit que dans UN tier.** Pas de duplication.
 
+Note : `/session-end` execute deja une partie de mes responsabilites (mise a jour CONTEXT.md selon le protocole 4 niveaux PAUL).
+
 ## Regles
 
 - CONTEXT.md = source de verite pour l'etat courant du projet

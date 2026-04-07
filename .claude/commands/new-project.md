@@ -5,7 +5,13 @@
 
 Exemple : /new-project finance
 
-## Workflow
+## Execution
+
+Lancer le script : `bash scripts/module-scaffold.sh [nom-du-module]`
+
+Le script automatise tout le workflow ci-dessous (idempotent, kebab-case valide, rollback en cas d'erreur). Voir `docs/core/tools.md` pour la spec.
+
+## Workflow (couvert par module-scaffold.sh)
 
 1. Creer `modules/[nom]/` avec structure de base
 2. Mettre a jour CONTEXT.md (ajouter le module dans la table Modules, status "initialise")
