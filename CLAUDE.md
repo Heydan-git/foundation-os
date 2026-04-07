@@ -10,6 +10,9 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - 100% ou rien — verifier le repertoire courant avant toute operation fichier
 - Plan avant execution, validation Kevin avant changement non-trivial
 - Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
+- Decouper systematiquement chaque tache en phases/sessions courtes pour eviter le compactage (jamais de monolithe, meme pour du "simple")
+- Identifier la cause racine de chaque erreur ou incoherence avant de fixer (pas de patch symptomatique)
+- Actions pragmatiques, conscience des limites — ne jamais tenter ce qui ne peut pas fonctionner (dire "je ne peux pas X" plutot que faire semblant)
 
 ## A chaque session
 1. Lire CONTEXT.md pour etat actuel + prochaine action

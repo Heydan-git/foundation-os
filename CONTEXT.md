@@ -57,6 +57,7 @@ Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fo
 | Finition OS plan | 2026-04-07 | 3 sessions programmees pour cloturer dette Tools + housekeeping avant Phase 5. Plan : `docs/plans/2026-04-07-finition-os.md`. S1 sync-check 6/6, S2 ref-checker, S3 polish + decisions-log. |
 | Audit OS profond | 2026-04-07 | 24 etapes A0-A9 + T1-T10 + P1-P3 executees en 1 session. 13 fixes appliques (5 P1 critiques + 6 P2 importants + 2 P3 cosmetiques). health-check enrichi (refs intactes via ref-checker, build time WARN >1500ms, decisions regex Y2027-safe). validate-void-glass case-insensitive. commit-msg etend a 11 types via scripts/git-hooks/commit-msg version-controlled. ci.yml + supabase-ping timeouts. Verdict SAIN, zero regression fonctionnelle. Decouverte : 21 commits ahead origin/main. |
 | Compactage → re-audit | 2026-04-07 | Si la conversation Claude approche du compactage (perte de contexte risquee), refaire un cycle complet d'audit + test (A0-A9 + T1-T10) pour rebatir un baseline propre avant de continuer. Permet de detecter toute regression introduite avant la perte de contexte et de garantir que CONTEXT.md reflete l'etat reel. |
+| Regles meta OS | 2026-04-07 | 3 imperatifs ajoutes dans CLAUDE.md : (1) decoupage phases/sessions systematique anti-compactage, (2) cause racine obligatoire avant fix, (3) actions pragmatiques + conscience limites (dire "je ne peux pas" plutot que faire semblant). Directive Kevin mid-session avant Cycle 3 S1. |
 
 ## App Builder — Etat technique
 
