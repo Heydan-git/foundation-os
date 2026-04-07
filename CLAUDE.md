@@ -13,6 +13,7 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - Decouper systematiquement chaque tache en phases/sessions courtes pour eviter le compactage (jamais de monolithe, meme pour du "simple")
 - Identifier la cause racine de chaque erreur ou incoherence avant de fixer (pas de patch symptomatique)
 - Actions pragmatiques, conscience des limites — ne jamais tenter ce qui ne peut pas fonctionner (dire "je ne peux pas X" plutot que faire semblant)
+- Sub-agents uniquement quand le contexte global n'est PAS necessaire (zones isolees, faits observables). Tout jugement qui exige ma memoire des sessions/decisions → MOI directement. Les findings type "orphelin/doublon/redondance" d'un sub-agent sont toujours a re-verifier avec contexte global avant validation.
 
 ## A chaque session
 1. Lire CONTEXT.md pour etat actuel + prochaine action
