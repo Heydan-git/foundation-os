@@ -38,12 +38,12 @@ Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 
 Priorite par impact. Ne construire que sur demande explicite.
 
-### Basse priorite
+### Drops post-eval (2026-04-07)
 
-| Outil | Type | Description |
-|-------|------|-------------|
-| bundle-tracker | Script | Log la taille du bundle apres chaque build, alerte si > seuil Monitor |
-| context-diff | Script | Compare CONTEXT.md avec le filesystem, liste les incoherences |
+| Outil | Decision | Raison |
+|-------|----------|--------|
+| bundle-tracker | DROP | Overlap health-check : seuils JS>600KB / CSS>40KB deja en place et bloquants. L'evolution dans le temps est deja captee par git history des sections "Etat technique" de CONTEXT.md. Personne ne consultera un CSV historique. |
+| context-diff | DROP | Overlap sync-check : modules vs CONTEXT, routes vs App.tsx, Core OS coherence sont deja automatises. "Inventory tools installes" change rarement et reste manuel. Faible valeur ajoutee. |
 
 ## 3. Conventions
 
