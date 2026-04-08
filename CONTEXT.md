@@ -44,16 +44,13 @@ Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fo
 
 ## Prochaine action
 
-1. **[GATE Kevin] Decision strategique Foundation OS** (bloque S7 + Sprint Cowork). 3 options du plan meta-audit section 4 (docs/meta/2026-04-08-collaboration-ia/02-plan-action.md) :
-   - (a) **Projet d'apprentissage methodologique** → ratio audit:fix actuel OK, continuer Cycle 3 lineaire (S7 audit only)
-   - (b) **Projet produit Phase 5+** → interleaver FIX (Action 5 : S7 audit + S7.5 FIX), revoir scalabilite Action 6 avant Phase 5
-   - (c) **Hybride explicite** → trancher repartition (ex 50/50), documenter dans CLAUDE.md objectif
+1. **Cycle 3 — S7 Agents (4) deep + tests reels** (mode MOI strict, 7e session consecutive). Sur branche audit-massif-cycle3. Etat baseline : S6 phase F consolide DONE 2026-04-08 + integration Cowork/Plan-Router/Meta-audit commit a10d111. Tasks S7 (plan ligne 632+) : (1) lecture line-by-line des 4 agents .claude/agents/*.md (os-architect, dev-agent, doc-agent, review-agent), (2) audit chaque agent sur 4 angles (frontmatter valide, description claire trigger words distincts, workflow methodo defini, cross-refs coherentes), (3) test reel d'invocation simulee : 3 inputs varies par agent + verifier match description vs cortex, (4) findings + livrable docs/audit-massif/07-agents.md, (5) commit audit(s07): agents (4) deep + tests → 07-agents.md. Pre-conditions : baseline SAIN/DEGRADED tolere + mode MOI strict + pattern decoupage 6 phases A-F. Plan : docs/plans/2026-04-07-cycle3-implementation.md:632+ section S7.
 
-2. **[Apres gate]** 2 scenarios selon reponse Kevin :
-   - Option (a) → **S7 Agents deep + tests reels** (plan original), mode MOI strict, 7e consecutive. Plan : docs/plans/2026-04-07-cycle3-implementation.md:632+. Pattern 6 phases A-F.
-   - Option (b) ou (c) → **Sprint 1 Cowork** : Action 1 reecrire skill foundation-os-orchestrator v3.0.0 + Action 2 brancher session-lock.sh dans /session-start /session-end + Action 3 fix F-S6-B-01 validate-void-glass.sh + Action 7 verifier build reel + Action 8 section "limites Claude" dans CLAUDE.md. Cout estime ~5h. Ref : 02-plan-action.md.
+2. **Fixes en bloc apres audit massif complet** (S23+). Tous les findings Cycle 3 S1-S23 seront batches et fixes en une vague apres cloture de l'audit massif, pas d'interleave fix/audit (decision D-S7-01 : option produit avec audit-then-fix lineaire, pas audit-fix interleaved).
 
-3. **Phase 5 Expansion** (apres Cycle 3 S23 + G3 merge) : Choisir module Finance / Sante / Trading. Ref : docs/specs/2026-04-05-foundation-os-v2-design.md section Phase 5.
+3. **Phase 5 Expansion** (apres Cycle 3 S23 + fixes + G3 merge) : Choisir module Finance / Sante / Trading. Ref : docs/specs/2026-04-05-foundation-os-v2-design.md section Phase 5.
+
+4. **Initiatives Cowork (parking, post-audit)** : docs/meta/ plan-action.md Sprint 1 (skill orchestrator v3, brancher session-lock, fix validate-void-glass, etc.) + docs/plan-router/ (6 Q pending) = reportes apres fin du cycle d'audit. Pas prioritaires sur S7-S23.
 
 ### Actions manuelles Kevin (hors code)
 - Activer "Email confirmations" dans Supabase Auth settings (UI Supabase Dashboard → Authentication → Providers → Email → Confirm email). Pendant depuis Phase 2.3.
@@ -66,6 +63,7 @@ Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fo
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-S7-01 Foundation OS = outil | 2026-04-08 | Decision strategique Kevin : Foundation OS est un **outil produit** (option 2 du meta-audit section 4), pas un projet d'apprentissage methodologique. Consequences : (1) audit massif Cycle 3 continue lineaire S7-S23 puis fixes en bloc apres cloture (pas d'interleave fix/audit), (2) initiatives Cowork (docs/meta/ Sprint 1 + docs/plan-router/) restent en parking jusqu'a fin cycle audit, (3) Phase 5 Finance/Sante reste l'objectif final apres audit + fixes. |
 | Dashboard | 2026-04-05 | Commander evolue vers monitoring Core OS (futur) |
 | BMAD garde | 2026-04-07 | _bmad/ reste dormant (overrule Kevin sur verdict audit ARCHIVER). |
 | Code review | 2026-04-07 | review-agent custom = outil principal. Coderabbit / code-review Anthropic / OMC code-reviewer = installes mais non invoques. |
