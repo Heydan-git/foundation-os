@@ -1,8 +1,8 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0+S1+S2 DONE, S3 PENDING)
+> **Status** : EN COURS (S0+S1+S2+S3 DONE, S4 PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-07 (fin S2)
+> **Derniere maj** : 2026-04-08 (fin S3 + integration scratchpad S1 + manifeste-realiste merge)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 
@@ -10,10 +10,10 @@
 
 | Session | Status | Livrable | Date | Commit |
 |---------|--------|----------|------|--------|
-| S0  Pre-flight                       | DONE    | 00-preflight.md             | 2026-04-07 | audit(s00)     |
-| S1  Carto repo                       | DONE    | 01-carto-repo.md            | 2026-04-07 | audit(s01)     |
-| S2  Inventaire components            | DONE    | 02-inventaire-components.md | 2026-04-07 | audit(s02)     |
-| S3  Fondations Core OS               | PENDING | 03-fondations-core.md       | — | — |
+| S0  Pre-flight                       | DONE    | 00-preflight.md             | 2026-04-07 | docs(audit) s00 |
+| S1  Carto repo                       | DONE    | 01-carto-repo.md            | 2026-04-07 | docs(audit) s01 |
+| S2  Inventaire components            | DONE    | 02-inventaire-components.md | 2026-04-07 | docs(audit) s02 |
+| S3  Fondations Core OS               | DONE    | 03-fondations-core.md       | 2026-04-08 | docs(audit) s03 (402d1b6) |
 | S4  Architecture orga                | PENDING | 04-architecture-orga.md     | — | — |
 | S5  Workflows routing                | PENDING | 05-workflows-routing.md     | — | — |
 | S6  Orchestration automation         | PENDING | 06-orchestration-automation.md | — | — |
@@ -34,6 +34,12 @@
 | S21 Fixes P2 importants              | PENDING | 21-fixes-p2-applied.md      | — | — |
 | S22 Fixes P3 cosmetiques (GATE G2)   | PENDING | 22-fixes-p3-applied.md      | — | — |
 | S23 Verdict + PR (GATE G3)           | PENDING | 23-rapport-final.md         | — | — |
+
+## Scratchpads et artifacts (non livrables)
+
+| Fichier | Session | Type | Role |
+|---------|---------|------|------|
+| `read-log-S1-code.md` | S1 | Read-log file-by-file | Source detaillee 41 fichiers code modules/app/src + red flags critiques (mutations.ts 21 `any`/25 console, Phase1Demo 545L, KnowledgePage 347L hardcoded data, Dashboard duplication Commander). A re-utiliser en S6/S13/S20. |
 
 ## Procedure de reprise (apres compactage)
 

@@ -286,6 +286,7 @@ La baseline est saine, le fix F-S1-01 est la seule intervention S1.
 - Spec : `docs/plans/2026-04-07-audit-massif-final.md` section 6 Live tracking
 - Livrable precedent : `docs/audit-massif/00-preflight.md`
 - Index : `docs/audit-massif/00-INDEX.md`
+- **Scratchpad detaille code** : `docs/audit-massif/read-log-S1-code.md` (332L) — read-log file-by-file de modules/app/src (43 fichiers analyses, red flags critiques par fichier mutations.ts/Phase1Demo/KnowledgePage/Dashboard, source pour S6/S13/S20). A consulter pour le detail code-level non present dans la cartographie consolide section 3.
 - Regle sub-agents : `CLAUDE.md` section Imperatifs + auto-memory `feedback_subagents_context.md`
 
 ## 7. Out of scope (a ne pas oublier)
