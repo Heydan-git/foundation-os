@@ -191,7 +191,9 @@ Les frontmatters font foi runtime (D-S3-04 : "Cortex = convention de prompt pas 
 
 ## 7. Findings
 
-16 findings total, tous P3 (0 P1, 0 P2).
+19 findings total : 0 P1, **1 P2** (F-S5-20), 18 P3.
+
+> **Note amendement 2026-04-08** : les findings F-S5-19, F-S5-20, F-S5-21 ont ete ajoutes post-commit initial (10423ab) suite a un audit parallele en mode MOI strict qui a identifie 3 angles manquants. Voir section 12.
 
 **F-S5-01** [P3] `sync.md` ligne 12 dit "section 3 ref-checker backlog" alors que `scripts/ref-checker.sh` existe et est integre dans health-check (depuis P1 audit OS profond). Duplique F-S3-01 (CLAUDE.md lignes 95-96 outils obsoletes). **Action** : reformuler ligne 12 pour refleter l'integration actuelle. Fix docs-only S21.
 
@@ -229,13 +231,25 @@ Les frontmatters font foi runtime (D-S3-04 : "Cortex = convention de prompt pas 
 
 **F-S5-18** [P3] Incoherence linguistique table : majorite FR ("verifie", "revue", "documente", "deployer") mais EN aussi ("audit", "check", "scaffold", "Tailwind", "React"). Inputs EN/FR melanges peuvent manquer matches. **Action** : decider politique langue unique ou bilingue explicite. Report S18.
 
+**F-S5-19** [P3] [AMENDEMENT] `scripts/health-check.sh` ligne 49 utilise `ls -1 | grep -v '^\.'` pour le check "Structure racine (0 orphelin)". `ls -1` n'affiche PAS les dotfiles, donc le filtre `grep -v '^\.'` est redondant et surtout la liste allowlist ne couvre que les fichiers visibles. Consequence : `.DS_Store` au root (actuellement present et tracked, duplique F-S2-04) passe silencieusement ce check. CLAUDE.md "Garde-fous" dit "seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore y vivent" → .DS_Store viole cette regle mais n'est pas detecte. Gap entre regle theorique et enforcement automatique. **Action** : ajouter un scan specifique des dotfiles non-attendus au root (ex: scan allowlist `.gitignore`, reject autres dotfiles inattendus). Fix docs+code S21.
+
+**F-S5-20** [P2] [AMENDEMENT] **Asymetrie de couverture Void Glass entre `health-check.sh` et `sync-check.sh`**. `health-check.sh:91` check "Void Glass" couvre UNIQUEMENT les couleurs interdites (`#0A0A0B|#08080A` case-insensitive). `sync-check.sh:181-198` section 7 couvre UNIQUEMENT les fonts interdites (Outfit/Inter dans font-family/fontFamily + system-ui seul sans Figtree). Or :
+- `pre-commit` hook invoque `health-check.sh` (pas sync-check)
+- `/session-start` spec step 4 invoque `health-check.sh` (pas sync-check)
+- `/session-end` spec step 3 invoque `health-check.sh` (pas sync-check)
+- Seul `/sync` invoque `sync-check.sh` (manuel, a la demande)
+
+**Consequence pratique** : une violation de fonts Void Glass (ex: ajout de `font-family: Outfit` dans un .tsx) ne sera PAS detectee par pre-commit, et passera en prod via Vercel auto-deploy. Seul un `/sync` explicite la detecterait, idealement apres coup. Elevated P2 (vs autres findings P3) car le blast radius est un commit merge + deploy avec violation design system. Duplique partiellement l'intention de CLAUDE.md "Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul" qui unifie couleurs et fonts comme Void Glass, mais le enforcement est fragmente. **Action candidate** : migrer le check fonts de sync-check.sh section 7 vers health-check.sh (concat avec le check couleurs existant ligne 91). Alternative : extraire un script partage scripts/check-void-glass.sh (path suggere, n'existe pas aujourd'hui — plain text deliberement pour respecter L-S5-05) invoque par les deux. Fix P2 reporte S21 housekeeping.
+
+**F-S5-21** [P3] [AMENDEMENT] Template README de module dupplique avec drift de texte confirme : `.claude/commands/new-project.md` lignes 30-43 liste un template "Objectif: [A definir] | Stack: [A definir] | Etat: En cours de definition" alors que `scripts/module-scaffold.sh` lignes 82-94 cree un template different "Objectif: A definir. | Stack: A decider avec Kevin avant de coder. | Etat: En cours de definition." Dereferencement texte exact (brackets vs plain, trailing dots, ligne Stack plus explicite dans le script). F-S5-11 avait flag `.gitkeep` absent mais pas le drift texte. Script = source de verite runtime effective. **Action** : supprimer le template duplique de new-project.md ou le pointer explicitement vers "voir heredoc scripts/module-scaffold.sh:82". Fix docs-only S21.
+
 ### Severite summary
 
 | Niveau | Count | IDs |
 |--------|-------|-----|
 | P1 | 0 | — |
-| P2 | 0 | — |
-| P3 | 16 | F-S5-01, 02, 03, 04, 05, 06, 07, 08, 09, 11, 12, 14, 15, 16, 17, 18 |
+| P2 | 1 | F-S5-20 |
+| P3 | 18 | F-S5-01, 02, 03, 04, 05, 06, 07, 08, 09, 11, 12, 14, 15, 16, 17, 18, 19, 21 |
 | Merged | 1 | F-S5-10 → F-S5-01 |
 | Promoted learning | 1 | F-S5-13 → L-S5-03 |
 
@@ -249,7 +263,9 @@ Les frontmatters font foi runtime (D-S3-04 : "Cortex = convention de prompt pas 
 
 **D-S5-04** [2026-04-08] `/session-end` step 7 (annonce format court) est obligatoire, pas optionnel. S4 a demontre que skippage possible sans impact filesystem (si commit + CONTEXT.md appliques avant), mais cree flou ritual. Pattern anti-compactage : ritual explicite > implicite. A documenter dans session-end.md comme "obligatoire, pas optionnel" (fix docs-only S21).
 
-**D-S5-05** [2026-04-08] Fixes docs-only triviaux (F-S5-01, 02, 04, 05, 06, 08, 09, 11, 12, 14) reportes en batch S21 housekeeping (post-Cycle 3). Conforme pattern S2/S3/S4 mode doc-only audit. Aucun fix applique en S5. Findings S18-reportes (F-S5-07, 15, 16, 17, 18) = decisions architecturales plus lourdes, non-triviales.
+**D-S5-05** [2026-04-08] Fixes docs-only triviaux (F-S5-01, 02, 04, 05, 06, 08, 09, 11, 12, 14, 21) reportes en batch S21 housekeeping (post-Cycle 3). Conforme pattern S2/S3/S4 mode doc-only audit. Aucun fix applique en S5. Findings S18-reportes (F-S5-07, 15, 16, 17, 18) = decisions architecturales plus lourdes, non-triviales.
+
+**D-S5-06** [2026-04-08] [AMENDEMENT] **F-S5-20 P2 asymetrie Void Glass** doit etre resolu en S21 en priorite dans le batch housekeeping (avant les autres fixes docs-only P3). Approche choisie : migrer le check fonts de sync-check.sh section 7 vers health-check.sh ligne 91 (concat avec check couleurs existant). Alternative extract en script partage scripts/check-void-glass.sh [path suggere, n'existe pas aujourd'hui — plain text deliberement pour respecter L-S5-05] jugee plus lourde pour un besoin actuel simple. Principe emergent : **tout check qui enforce une regle CLAUDE.md doit vivre dans health-check.sh (execute pre-commit), pas dans sync-check.sh (execute manuellement a la demande)**. F-S5-19 (dotfiles orphans) peut etre traite dans le meme batch S21 en modifiant le scan root. Elevation P2 justifiee par blast radius : commit merge + deploy Vercel automatique avec violation fonts non detectee.
 
 ## 9. Out of scope
 
@@ -272,6 +288,8 @@ Les frontmatters font foi runtime (D-S3-04 : "Cortex = convention de prompt pas 
 
 **L-S5-05** — **3eme occurrence du pattern backticks-sur-paths-foireux (L-S2-07 → L-S4-08 → L-S5-05)**. En ecrivant la section 5.2 du livrable S5, j'ai utilise des backticks autour de "docs/../sync.md" (path foireux) pour pointer vers `.claude/commands/sync.md` (path correct). Le mauvais path est syntaxiquement valide en filesystem mais ref-checker ne le resout pas. Verdict DEGRADED detecte par sync-check post-livrable (1 ref cassee), fixee en ~30 secondes. **Pattern critique** : L-S2-07 logged, L-S4-08 logged ("j'ai oublie L-S2-07"), L-S5-05 maintenant ("j'ai oublie L-S2-07 ET L-S4-08"). Le reflexe **n'est pas acquis** malgre 2 flags explicites precedents. **Cause racine probable** : raccourci cognitif pendant ecriture flow-state, ref-checker n'est invoque que post-write au lieu d'inline. **Compensation actuelle** : verification post-write systematique via sync-check (a fonctionne en ~30s). **Bonus meta-inception** : en ecrivant cette explication de L-S5-05, j'ai re-fait l'erreur exacte (backticks autour du mauvais path comme exemple) → 2eme detection ref-checker DEGRADED → 4eme occurrence dans la meme session. Reformulation finale : decrire le mauvais path en plain text (sans backticks). **Mitigation candidate (S20)** : pre-Edit hook qui scanne backticks paths inexistants dans .md avant write. Trop intrusif probablement, mais le pattern recurrent justifie une discussion. **Marqueur d'auto-honnetete** : ne pas pretendre que cette regression aurait ete evitee — elle se reproduira tant que la mitigation n'est pas en place.
 
+**L-S5-06** — [AMENDEMENT] **Gap de scope entre `health-check.sh` et `sync-check.sh` cree des angles morts pre-commit**. Observation Phase B audit parallele : le design Foundation OS a deux checkers complementaires mais avec **couverture asymetrique non intentionnelle**. `health-check.sh` (172L) est rapide et execute par pre-commit + session-start + session-end (enforcement systematique). `sync-check.sh` (215L) est plus complet (wrap health-check + 6 sections EXTENDED) mais execute uniquement manuellement via `/sync`. Le probleme : certains checks critiques (ex: Void Glass fonts) vivent dans sync-check sans etre dans health-check → ils ne bloquent jamais un commit. F-S5-20 P2 est un exemple concret : une violation de fonts peut passer en prod. **Regle emergente actionnable** : "tout check qui enforce une regle CLAUDE.md doit vivre dans health-check.sh, sync-check etant reserve aux checks coherence cross-fichier non-enforcables en temps reel". Corollaire : revue future des specs = lister chaque regle CLAUDE.md et tracer son enforcement (health-check / sync-check / manuel / rien). Les "rien" sont des futurs F-S?-XX potentiels. Pattern meta : **detection asymetries coverage** = outil d'audit plus efficace que lecture lineaire des specs (puisqu'une spec ne dit pas "ce que je ne couvre PAS"). Lie a L-S5-02 (runtime > doc) et L-S4-05 (agents module-agnostic par design, ici coverage asymetrique par accident).
+
 ## 11. Prochaine session
 
 **S6 — Skills orchestration + automation + hooks chain** (mode MOI)
@@ -290,3 +308,41 @@ Plan : `docs/plans/2026-04-07-cycle3-implementation.md` ligne 576+
 Pre-conditions :
 - S5 commit valide
 - Baseline SAIN maintenu
+
+## 12. Amendement 2026-04-08 (post-commit initial 10423ab)
+
+### 12.1 Contexte
+
+Entre le commit initial `10423ab` (S5 complet, HEAD@{0} a 14:07:40) et la cloture reelle de la session S5, une session d'audit parallele Claude Opus 4.6 1M ctx a execute les phases A/B/C du meme scope S5 en mode MOI strict. Cette session parallele a identifie 3 angles manquants dans le livrable initial (anomalie temporelle : au demarrage de la session parallele, `git log` montrait `cccda38` S4 comme HEAD, puis `10423ab` S5 est apparu en milieu de session sans trace d'invocation par la session parallele — hypothese : commit par session concurrente non-observee).
+
+### 12.2 Delta amendement
+
+**3 findings additionnels** (F-S5-19, F-S5-20, F-S5-21) :
+- F-S5-19 [P3] : `ls -1` dans health-check.sh filtre les dotfiles → `.DS_Store` root invisible au check "Structure racine". Gap enforcement automatique.
+- F-S5-20 [P2] : **Asymetrie Void Glass couverture** entre health-check (couleurs uniquement) et sync-check (fonts uniquement). Pre-commit + session-start + session-end utilisent health-check → violation fonts ne bloque pas commit. **Seul P2 du livrable S5**, blast radius = commit merge + deploy Vercel automatique.
+- F-S5-21 [P3] : Template README de `/new-project` dupplique avec drift texte exact confirme (spec "A definir" vs script "A decider avec Kevin avant de coder", brackets vs plain, trailing dots).
+
+**1 decision additionnelle** (D-S5-06) : priorisation F-S5-20 P2 en batch S21 housekeeping + regle emergente "tout check qui enforce une regle CLAUDE.md doit vivre dans health-check.sh".
+
+**1 learning additionnel** (L-S5-06) : **Gap de scope entre health-check et sync-check cree des angles morts pre-commit**. Pattern meta : detection asymetries coverage = outil d'audit plus efficace que lecture lineaire des specs (une spec ne dit pas "ce que je ne couvre PAS").
+
+### 12.3 Severite summary post-amendement
+
+| Niveau | Avant (commit 10423ab) | Apres amendement | Delta |
+|--------|------------------------|------------------|-------|
+| P1 | 0 | 0 | 0 |
+| P2 | 0 | 1 | +1 (F-S5-20) |
+| P3 | 16 | 18 | +2 (F-S5-19, F-S5-21) |
+| **Total findings** | **16** | **19** | **+3** |
+| Decisions | 5 | 6 | +1 (D-S5-06) |
+| Learnings | 5 | 6 | +1 (L-S5-06) |
+
+### 12.4 Note de procedure
+
+Ce pattern (commit initial + amendement par audit parallele) n'est pas ideal — il indique que le livrable S5 initial a ete cloture avant completeness totale. Compensation : l'amendement ne touche PAS les sections 1-6 du livrable initial (phases methodologiques, tests, synthese), uniquement les sections 7-10 (findings, decisions, learnings). Integrite du travail initial preservee. Gain : 3 findings additionnels dont 1 P2 justifiant elevation prioritaire du batch fix S21.
+
+**Learning meta pour cycle futur** : considerer une phase "audit-du-livrable" post-write systematique (ex: 5 minutes de re-read critique) avant commit final, ou un pattern "paires Claude" ou une seconde session Claude revoit le livrable de la premiere avant cloture. Tradeoff couteux en tokens, benefice en couverture de blind spots.
+
+### 12.5 Confirmation L-S5-05 — 5eme occurrence pattern backticks-paths-foireux
+
+En ecrivant cet amendement, j'ai (encore) utilise des backticks autour de scripts/check-void-glass.sh (path qui n'existe pas, juste une suggestion d'action). **Ref-checker a catch** en fin de phase D, 2 refs cassees. Fix applique en ~30s (2 edits plain text). **Confirmation stricte de L-S5-05 prediction** : "elle se reproduira tant que la mitigation n'est pas en place". 5 occurrences documentees dans la meme session (4 en phase D initiale par la session ayant produit le commit 10423ab, 1 en phase D de l'audit parallele post-amendement). **Cause racine confirmee** : reflex cognitif pas acquis, ref-checker reste la seule garde fiable. **Mitigation future urgente** : considerer serieusement pre-Edit hook scanning backticks paths inexistants dans .md — le cout cognitif de ne pas l'avoir (5x meme erreur meme session apres flags multiples) depasse desormais le cout d'avoir un hook potentiellement intrusif.
