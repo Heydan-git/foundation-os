@@ -1,8 +1,8 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0+S1+S2+S3 DONE, S4 PENDING)
+> **Status** : EN COURS (S0+S1+S2+S3+S4 DONE, S5 PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-08 (fin S3 + integration scratchpad S1 + manifeste-realiste merge)
+> **Derniere maj** : 2026-04-08 (fin S4 architecture orga/scalabilite/maintenabilite)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 
@@ -14,7 +14,7 @@
 | S1  Carto repo                       | DONE    | 01-carto-repo.md            | 2026-04-07 | docs(audit) s01 |
 | S2  Inventaire components            | DONE    | 02-inventaire-components.md | 2026-04-07 | docs(audit) s02 |
 | S3  Fondations Core OS               | DONE    | 03-fondations-core.md       | 2026-04-08 | docs(audit) s03 (402d1b6) |
-| S4  Architecture orga                | PENDING | 04-architecture-orga.md     | — | — |
+| S4  Architecture orga                | DONE    | 04-architecture-orga.md     | 2026-04-08 | docs(audit) s04 |
 | S5  Workflows routing                | PENDING | 05-workflows-routing.md     | — | — |
 | S6  Orchestration automation         | PENDING | 06-orchestration-automation.md | — | — |
 | S7  Agents                           | PENDING | 07-agents.md                | — | — |
