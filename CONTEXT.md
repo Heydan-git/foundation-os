@@ -34,12 +34,13 @@ Branche : `audit-massif-cycle3` | Tag baseline : `pre-audit-cycle3` (a8519c8) | 
 | S3 Fondations Core OS | DONE 2026-04-08 | MOI | 03-fondations-core.md (493L, 4 piliers REELS / 17 fichiers / 1700L / 9 findings / 1 P2) |
 | S4 Architecture orga | DONE 2026-04-08 | MOI | 04-architecture-orga.md (430L, ~30 fichiers scannes / 11 findings / 2 P2 / 8 learnings) |
 | S5 Workflows/routing | DONE 2026-04-08 (amende) | MOI | 05-workflows-routing.md (~353L avec amendement, 10 fichiers / 655L / **19 findings / 1 P2 F-S5-20 / 6 learnings**) |
-| S6-S23 | PENDING | voir plan | voir plan |
+| S6 Orchestration/automation | **WIP phases A-E 2026-04-08** (phase F consolidation pending) | MOI | 06-orchestration-automation.md (336L WIP, 8 fichiers / 461L / **22 findings bruts / 1 P2 F-S6-B-01 / meta-inception F-S6-B-08**) |
+| S7-S23 | PENDING | voir plan | voir plan |
 
 Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fonctionnement de l'OS" → 4 decisions integrees dans `docs/audit-massif/00-preflight.md` section 4.2 (learnings metaboliques par session, auto-memory continue, fixes docs-only triviaux OK, rapport S23 section OS-learnings).
 
 ## Prochaine action
-1. **Cycle 3 — S6 Skills orchestration + automation + hooks chain** (mode MOI). Sur branche `audit-massif-cycle3`. Tasks : audit 2 hooks PreToolUse (`scripts/hooks/validate-void-glass.sh` + `scripts/hooks/security-reminder.py`) + audit 2 git hooks (`scripts/git-hooks/pre-commit` + `scripts/git-hooks/commit-msg`) + audit CI/CD chain (`.github/workflows/ci.yml` + `.github/workflows/supabase-ping.yml`) + audit deploy Vercel + tests legitime/piege pour chaque hook. Pre-conditions : S5 commit valide + baseline SAIN. Livrable : `docs/audit-massif/06-orchestration-automation.md`. Plan : `docs/plans/2026-04-07-cycle3-implementation.md:576+`.
+1. **Cycle 3 — S6 phase F consolidation** (mode MOI, NOUVELLE session anti-compactage). Sur branche `audit-massif-cycle3`. Etat : phases A-E deja DONE committees en WIP dans `docs/audit-massif/06-orchestration-automation.md` (336L, 22 findings bruts). Tasks phase F : (1) relire le livrable WIP + CONTEXT.md pour restauration contexte, (2) consolider 22 findings A-E (verifier doublons + evaluer elevation cluster F-S5-20 + F-S6-B-01 + F-S6-D-03 "trou complet fonts Void Glass" en P1 candidat), (3) finaliser decisions D-S6-01..07 + learnings L-S6-01..05 (dont L-S6-B-02 meta-inception security hook + candidat L-S6-F-01 pattern commit WIP), (4) completer severite summary, (5) update CONTEXT.md (S6 DONE, prochaine S7), (6) commit final phase F, (7) apres : S7 Agents (4) deep + tests reels. Plan : `docs/plans/2026-04-07-cycle3-implementation.md:576+` section phase F. Pre-conditions : S6 WIP commit `74890c8` valide + baseline SAIN + mode MOI strict maintenu.
 2. **Phase 5 Expansion** (apres Cycle 3 S23 + G3 merge) : Choisir module Finance / Sante / Trading. Ref : `docs/specs/2026-04-05-foundation-os-v2-design.md` section Phase 5.
 
 ### Actions manuelles Kevin (hors code)
