@@ -1,8 +1,8 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0+S1 DONE, S2 PENDING)
+> **Status** : EN COURS (S0+S1+S2 DONE, S3 PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-07 (fin S1)
+> **Derniere maj** : 2026-04-07 (fin S2)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 
@@ -12,7 +12,7 @@
 |---------|--------|----------|------|--------|
 | S0  Pre-flight                       | DONE    | 00-preflight.md             | 2026-04-07 | audit(s00)     |
 | S1  Carto repo                       | DONE    | 01-carto-repo.md            | 2026-04-07 | audit(s01)     |
-| S2  Inventaire components            | PENDING | 02-inventaire-components.md | — | — |
+| S2  Inventaire components            | DONE    | 02-inventaire-components.md | 2026-04-07 | audit(s02)     |
 | S3  Fondations Core OS               | PENDING | 03-fondations-core.md       | — | — |
 | S4  Architecture orga                | PENDING | 04-architecture-orga.md     | — | — |
 | S5  Workflows routing                | PENDING | 05-workflows-routing.md     | — | — |

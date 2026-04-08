@@ -377,7 +377,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 ## Session S2 — Inventaire components + smoke tests (mode MOI)
 
 > Mode : MOI | Livrable : `docs/audit-massif/02-inventaire-components.md`
-> 4 agents + 4 commands + 9 scripts + 2 hooks + skills + MCP + CI workflows
+> 4 agents + 4 commands + 8 scripts (4 racine + 2 hooks + 2 git-hooks) + skills + MCP + CI workflows
 
 ### Task S2.1 : Pre-session ritual
 
@@ -395,7 +395,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 - [ ] Step 2 : Capturer : nom, description, workflow steps, longueur
 - [ ] Step 3 : Identifier les scripts/agents invoques par chaque command
 
-### Task S2.4 : Inventaire 9 scripts
+### Task S2.4 : Inventaire 8 scripts
 
 - [ ] Step 1 : Lister `scripts/**/*.{sh,py,js}` + scripts/git-hooks/*
 - [ ] Step 2 : Pour chaque script, run `--help` ou tete de fichier pour decouvrir purpose
