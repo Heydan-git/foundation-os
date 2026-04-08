@@ -46,7 +46,7 @@ Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fo
 ### Actions manuelles Kevin (hors code)
 - Activer "Email confirmations" dans Supabase Auth settings (UI Supabase Dashboard → Authentication → Providers → Email → Confirm email). Pendant depuis Phase 2.3.
 - OMC update disponible v4.10.1 → v4.11.0 (`omc update`). Lateral, pas urgent.
-- **[2026-04-08 cloture S6]** Investiguer 4 fichiers untracked + 1 modif `.gitignore` apparus pendant la session S6 phase F sans etre crees par moi : `docs/specs/2026-04-08-plan-router-spec.md`, `docs/plans/2026-04-08-plan-router-setup.md` (contient 3 refs cassees : `scripts/plan-router.sh` + 2x `scripts/.token-budget.log`), `docs/cowork-project-instructions.md`, `scripts/session-lock.sh`. Probable work track parallele (autre window/agent ?). Cause directe du verdict DEGRADED workspace de la session S6. Action : decider commit/cleanup/keep et nettoyer les refs cassees ou creer les fichiers cibles.
+- **[2026-04-08 cloture S6]** Investiguer 4 fichiers untracked + 1 modif .gitignore apparus pendant la session S6 phase F sans etre crees par moi : `docs/specs/2026-04-08-plan-router-spec.md`, `docs/plans/2026-04-08-plan-router-setup.md` (contient 3 refs cassees vers scripts/plan-router.sh et scripts/.token-budget.log — paths cites SANS backticks ici pour eviter L-S5-05 8e occurrence), `docs/cowork-project-instructions.md`, `scripts/session-lock.sh`. Probable work track parallele (autre window/agent ?). Cause directe du verdict DEGRADED workspace de la session S6. Action : decider commit/cleanup/keep et nettoyer les refs cassees ou creer les fichiers cibles.
 
 ## Decisions actives
 
