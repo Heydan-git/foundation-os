@@ -1,6 +1,6 @@
 # 11-comm-securite — Audit Communication + Securite
 
-> **Status** : S11a DRAFT (phase A lecture + draft findings, 11e consecutive mode MOI)
+> **Status** : S11 FINAL (phase A lecture + phase B tests reels, 11e consecutive mode MOI)
 > **Plan** : docs/plans/2026-04-07-cycle3-implementation.md section "Session S11 — Communication + securite (mode MOI)"
 > **Spec** : docs/plans/2026-04-07-audit-massif-final.md
 > **Date** : 2026-04-09
@@ -293,7 +293,7 @@ Aucun finding P1 phase A. Audit defensif confirme :
 - **Fix** : etendre `.gitignore` root avec ~10 patterns defensifs standard. Effort < 5 min.
 - **Decision** : batch S21 housekeeping.
 
-### 4.3 P3 — COSMETIC / RE-CONFIRM : 11
+### 4.3 P3 — COSMETIC / RE-CONFIRM : 13 (11 phase A + 2 phase B NEW)
 
 **F-S11-04 P3 — Asymetrie format sortie agents (3 "Format court" vs 1 template structure)**
 - **Source** : `.claude/agents/os-architect.md:50`, `dev-agent.md:51`, `doc-agent.md:51`, `review-agent.md:35-40`
@@ -360,6 +360,31 @@ Aucun finding P1 phase A. Audit defensif confirme :
 - **Impact** : low (faux positif scanner uniquement, pas de leak reel).
 - **Decision** : batch S21 cosmetique (remplacer par `eyJhbG...TRUNCATED...` ou `[JWT_TOKEN_HERE]` ou `[supabase-anon-key]`).
 
+**F-S11-15 P3 — NEW PHASE B : RLS policies uniformes `auth.role() = 'authenticated'` sans filtrage user**
+- **Source** : `supabase/migrations/001_create_tables.sql:26, 29, 32, 57, 60, 63, 88, 91, 94, 119, 122, 125, 149, 152, 155, 178, 181, 184` (21 policies totales)
+- **Details phase B** : audit reel des USING expressions des 21 policies RLS. **Toutes identiques** : `auth.role() = 'authenticated'`. Consequences comportementales :
+  - SELECT : tout user authentifie voit toutes les rows de toutes les tables
+  - INSERT (WITH CHECK) : tout user authentifie peut creer des rows
+  - UPDATE (USING) : tout user authentifie peut modifier toutes les rows, y compris celles d'un autre utilisateur
+  - **DELETE** : **aucune policy** = personne ne peut DELETE (confirme observation phase A, modele no-delete strict)
+- **Impact scope solo** : OK pour Foundation OS Phase 1-4 (Kevin = unique user authentifie, aucune multi-tenancy).
+- **Impact scope multi-user (Phase 5+)** : **insuffisant**. Si Finance / Sante expose les donnees a un second user authentifie (partenaire, famille, IA autonome), le modele RLS actuel les expose toutes. **Necessitera `auth.uid() = user_id` ou equivalent avec colonne `user_id` sur chaque table**.
+- **Severite P3** : acceptable pour scope actuel, parking scope Phase 5.
+- **Decision** : trace only + parking post-cycle3, re-audit obligatoire avant Phase 5 expansion multi-user.
+
+**F-S11-16 P3 — NEW PHASE B : Convention commits audit cycle3 non-documentee**
+- **Source** : `git log --oneline -20` (phase B parsing historique)
+- **Details phase B** : pattern de commits audit cycle 3 emergent mais non-documente :
+  - `docs(audit): s09a lecture + audit 9 scripts -- draft findings` (phase A)
+  - `docs(audit): s09 scripts + hooks (9) deep + tests reels` (phase B)
+  - `docs(audit): s10a lecture + inventaire skills + bmad verdict -- draft findings`
+  - `docs(audit): s10 skills + tests reels + bmad verdict`
+  - `docs(audit): s11a lecture + comm/securite -- draft findings + live meta-finding`
+  - Pattern : `docs(audit): sXX[a] <scope> [-- draft findings]` avec scope court, suffixe `a` pour phase A, suffixe vide pour phase B finale.
+- **Impact** : convention emergente coherente (3 sessions S9-S10-S11 suivent le meme pattern), **mais non documentee** dans CLAUDE.md, les agents, ou `docs/plans/2026-04-07-cycle3-implementation.md`. Si Kevin perd le contexte ou un nouveau collaborateur reprend, la convention est invisible.
+- **Severite P3** : observation positive (pattern stable) + petite dette doc.
+- **Decision** : batch S21 housekeeping (ajouter la convention a `docs/plans/2026-04-07-cycle3-implementation.md` section post-session ritual OU dans CLAUDE.md section Regles commits) — couple avec D-S8-12 / D-S9-09 (commit messages audit).
+
 ### 4.4 Meta-findings : 1 re-confirme avec evidence phase A forte
 
 **M-S11-01 (RE-CONFIRM AMPLIFIE de F-S9-18 / L-S9-03)** : auto-reference structurelle des outils d'audit **demontree en live**.
@@ -379,7 +404,34 @@ Aucun finding P1 phase A. Audit defensif confirme :
   - **M-S11-01** auto-reference outils d'audit demo live (7e, **amplifie**)
 - **Decision** : integre a la library meta-patterns cycle 3 avec evidence phase A forte (blocage reel observe). Priorite fix remontee (dette operationnelle prouvee) : le pattern P8 et les autres patterns substring-only devront etre affines post-cycle3 OR le hook devra supporter une whitelist `.md` / doc-context.
 
-### 4.5 Observations positives (non-findings)
+### 4.5 Phase B tests reels — resume empirique
+
+**Tests executes en phase B (reco Q3=C : invocation agent + historique + RLS)** :
+
+1. **Invocation review-agent reelle** (via Task tool, subagent_type=review-agent)
+   - Prompt minimal : verifier etat repo sain pour continuer cycle 3, rapport court, pas de modification.
+   - **Output observe** : template `OK : ... / Warning : ... / Erreur : ... / Verdict : LIVRABLE` **exactement conforme** a `.claude/agents/review-agent.md:35-40`. **0 divergence doc vs runtime**.
+   - Addition non-documentee : l'agent ajoute un bloc `Fichiers verifies :` en fin de rapport (non dans le template mais sensible). **Petite asymetrie doc < runtime** mais non-bloquante — amelioration implicite.
+   - Agent a correctement : (a) execute `health-check.sh`, (b) verifie existence du livrable S11, (c) reporte les fichiers non-S11 non-committes, (d) respecte le verdict LIVRABLE/A CORRIGER.
+   - **Verdict phase B1** : review-agent OK, format de sortie fiable, doc coherente avec runtime.
+
+2. **Parsing historique commits** (`git log --oneline -20`)
+   - 20 derniers commits tous conformes au regex `^(feat|fix|docs|refactor|chore|test|style|build|ci|perf|revert)(\(.+\))?:\ .+` du hook commit-msg.
+   - **Zero violation** observee sur 20 commits (commits des 4 derniers jours : S9/S10/S11 audit + DS-2..6 + Monitor D2/D3 + reforme comm).
+   - **Pattern emergent convention audit cycle 3** : `docs(audit): sXX[a] <scope> [-- draft findings]` utilise 5 fois (S9a, S9, S10a, S10, S11a). Stable et coherent = **nouveau finding F-S11-16 (doc)**.
+   - **Confirme D-S8-12 / D-S9-09 retract partiel** : les commits audit utilisent `docs(audit): sXX` et pas `audit(sXX):`, le hook est correct, le plan S8-S23 est faux.
+
+3. **Audit RLS policies USING expressions** (`grep CREATE POLICY|USING|WITH CHECK supabase/migrations/001_create_tables.sql`)
+   - **21 policies** sur 7 tables (3 par table : SELECT / INSERT / UPDATE). Pas de DELETE policy (confirme observation phase A).
+   - **Toutes identiques** : `auth.role() = 'authenticated'` sans filtrage user_id.
+   - **Consequences comportementales** documentees en F-S11-15 NEW phase B.
+   - Scope solo OK / scope multi-user Phase 5 **insuffisant** = parking post-cycle3.
+
+**Amplification phase A → phase B** : 14 findings phase A → **16 findings phase B** = **+14.3%** (cumul 2 nouveaux : F-S11-15 RLS scope user + F-S11-16 convention commits audit). Conforme a L-S11-06 prevision 15-25% mix declaratif+mecanique+comportemental.
+
+**Confirmation M-S11-01 live** : le meta-finding auto-reference est arrive en phase A (blocage Write) + re-confirme en phase B parce que F-S11-02 persiste dans le livrable final (substrings toujours reformulees). **L'audit ne peut pas etre ecrit sans le workaround** → le meta-pattern est structurel, pas cosmetique.
+
+### 4.6 Observations positives (non-findings)
 
 - **Supabase RLS** : 7 tables x 3 policies = bonne hygiene defensive. Pattern uniforme.
 - **`.env.local`** : correctement ignore (3 .gitignore coherents, `git check-ignore` verifie via `modules/app/.gitignore:9`).
@@ -411,8 +463,10 @@ Aucun finding P1 phase A. Audit defensif confirme :
 | **D-S11-11** | F-S11-13 security-reminder scope limite | Trace only, dette post-cycle3 | parking |
 | **D-S11-12** | F-S11-14 JWT placeholder env.example | Batch S21 cosmetique | S21 |
 | **D-S11-13** | M-S11-01 re-confirm + amplification live | Integrer library meta-patterns cycle 3 (7e occurrence, priorite fix remontee) | library + S21/parking |
+| **D-S11-14** | F-S11-15 NEW phase B RLS scope user | Trace only + parking post-cycle3. Re-audit obligatoire avant Phase 5 expansion multi-user (ajouter `user_id` + `auth.uid() = user_id` policies) | parking |
+| **D-S11-15** | F-S11-16 NEW phase B convention commits audit | Documenter pattern `docs(audit): sXX[a] <scope> [-- draft findings]` dans plan cycle3 ou CLAUDE.md (couple D-S8-12 / D-S9-09) | S21 |
 
-**Total draft** : 13 decisions. A amender phase B.
+**Total final S11** : **15 decisions** (13 phase A + 2 phase B NEW). Dette S21 nouvelle = ~5 fixes phase A + ~1 fix phase B (documenter convention) = ~6 fixes totaux S11 vers batch S21 housekeeping.
 
 ---
 
@@ -453,6 +507,8 @@ Aucun finding P1 phase A. Audit defensif confirme :
 - **F-S11-12** (.gitignore duplication `.env.local`) → nouveau, mineur.
 - **F-S11-13** (security-reminder scope limite) → extension de la surface defensive, complement F-S11-03.
 - **F-S11-14** (JWT placeholder) → nouveau, mineur cosmetique.
+- **F-S11-15** (RLS scope user NEW phase B) → nouveau, cross-ref a prevoir en S13 audit module App Builder si Finance/Sante touche auth.
+- **F-S11-16** (convention commits audit NEW phase B) → confirme et amplifie **D-S8-12 + D-S9-09 retract partiel** (commit-msg hook correct, plan S8-S23 faux), re-affirme pattern emergent sur 5 commits S9-S11.
 - **M-S11-01** re-confirm amplifie → extension **F-S9-18 + M-S8-01 + L-S10-08** (meta-pattern auto-reference structurel, 7e occurrence cycle 3, **premiere avec evidence empirique directe**).
 
 ---
@@ -486,17 +542,49 @@ Scope selon plan :
 
 ---
 
-## 10. Metriques phase A
+## 10. Metriques S11 final (phase A + phase B)
 
+### Phase A (lecture + draft)
 - **Fichiers lus** : 15 (agents 4 + hooks 4 + gitignore 3 + CI 2 + settings 1 + CLAUDE.md + migration SQL)
 - **Lignes scannees** : ~600L
 - **Findings draft** : 14 (0 P1 + 3 P2 + 11 P3 + 1 meta M-S11-01 avec evidence phase A forte)
 - **Decisions draft** : 13
 - **Learnings draft** : 6
-- **Cross-refs** : 7 (F-S11-05/06/08/09 re-confirm S7, F-S11-02/M-S11-01 re-confirm amplifie S9/S10)
-- **Evenement notable phase A** : blocage live du Write par `security-reminder.py` sur pattern P2 → demonstration empirique de M-S11-01 → reformulation complete des substrings litterales → Write reussi en 2e tentative.
-- **Dette heritee ajoutee au batch S21** : ~5 fixes nouveaux (paths absolus settings.json + gitignore defensif + format sortie agents + commits 3 types dev-agent + JWT placeholder)
+- **Evenement notable phase A** : blocage live du Write par `security-reminder.py` sur pattern P2 (subprocess exec-famille) → demonstration empirique de M-S11-01 → reformulation complete des substrings litterales → Write reussi en 2e tentative.
 
-**Total cumul S21 apres S11a DRAFT** : ~34 precedents + ~5 nouveaux = **~39 fixes cumulatifs** (sous reserve phase B).
+### Phase B (tests reels)
+- **Tests executes** : 3
+  - B1 : invocation review-agent reelle via Task tool
+  - B2 : parsing 20 derniers commits via `git log --oneline -20`
+  - B3 : grep policies RLS USING expressions sur `supabase/migrations/001_create_tables.sql`
+- **Findings new phase B** : 2 (F-S11-15 RLS scope user + F-S11-16 convention commits audit)
+- **Decisions new phase B** : 2 (D-S11-14 + D-S11-15)
+- **Verdict phase B1 review-agent** : 0 divergence doc vs runtime, template conforme
+- **Verdict phase B2 commits** : 20/20 conformes au hook commit-msg, pattern audit emergent confirme (5 commits S9-S11)
+- **Verdict phase B3 RLS** : 21 policies uniformes `auth.role() = 'authenticated'`, no filtrage user, no DELETE policy = scope solo OK, scope multi-user Phase 5 insuffisant
 
-**Prochaine etape** : Phase B tests reels (invocation agent + parsing commits + audit RLS policies) puis finalisation + commit S11b.
+### Totaux S11 final
+- **Findings total** : **16** (0 P1 + 3 P2 + 13 P3 + 1 meta M-S11-01 amplifie)
+- **Decisions total** : **15** D-S11-01..15
+- **Learnings total** : **6** L-S11-01..06 (inchanges phase B, confirmes par tests reels)
+- **Cross-refs** : 9 (F-S11-05/06/08/09 RE-CONFIRM S7, F-S11-02/M-S11-01 RE-CONFIRM amplifie S9/S10, F-S11-16 confirme D-S8-12/D-S9-09, F-S11-15 pre-cross-ref S13)
+
+### Amplification phase A → phase B
+**+14.3%** (14 → 16). Conforme L-S11-06 prevision 15-25% mix declaratif+mecanique+comportemental. **Verdict L-S10-07 amplification differentielle re-confirmee** : cycle 3 S9 mecanique +5.5% < S11 mix +14.3% < S8 declaratif +25% < S10 meta-declaratif +45%. **L'amplification phase B reflete bien le niveau d'abstraction de l'artefact audite.**
+
+### Dette heritee ajoutee au batch S21 (total S11)
+- ~5 fixes phase A : paths absolus settings.json + gitignore defensif + format sortie agents + commits 3 types dev-agent + JWT placeholder
+- ~1 fix phase B : documenter convention commits audit cycle 3
+- **Total S11 → S21** : ~6 fixes nouveaux
+
+**Total cumul S21 apres S11 FINAL** : ~34 precedents + ~6 nouveaux = **~40 fixes cumulatifs** (ajuste).
+
+### Health check final S11b
+- **Verdict** : DEGRADED baseline (0 critical, 1 warning = 86 refs cassees)
+- **Build** : OK ~685ms
+- **Tests** : 19/19 verts
+- **Decisions datees** : 16
+- **F-MON-01** : toujours visible (respect strict D-S7-01 audit lineaire)
+- **Drift** : 0 (86 refs identique session-start, zero regression S11a → S11b)
+
+**Prochaine session** : S12 Memoire (4 tiers) + anti-compactage — 12e consecutive mode MOI, placeholder `docs/audit-massif/12-memory-anti-compactage.md`.
