@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-09',
-    updatedInSession: 'Reforme communication — format brief v9 + regle questions groupees + CLAUDE.md',
+    updatedInSession: 'S7.5 integration agents + S8 commands deep (a+b) — 3 commits, 4 P2 docs-only batch S21',
     nextAction:
-      'Cycle 3 — S7.5 integration S7 agents dans CONTEXT.md + reprise S8 Commands deep (D-S7-01 audit lineaire). OU housekeeping groupe : F-MON-01 + F-DS3-01 vite@8 + DS-5 CI + DS-6 complet.'
+      'Cycle 3 — S9 Scripts + hooks (9) deep + tests reels (mode MOI 9e consecutive). Pattern S9a/S9b probable anti-compactage. Dette heritee S8 batch S21 ~8-12 fichiers.'
   },
 
   plans: [
@@ -61,11 +61,11 @@ window.MONITOR_DATA = {
     {
       id: 'cycle3-audit',
       title: 'Cycle 3 — Audit massif',
-      status: 'PAUSED',
-      priority: 'P2',
+      status: 'WIP',
+      priority: 'P1',
       path: 'docs/plans/2026-04-07-cycle3-implementation.md',
-      progress: { done: 8, total: 24, unit: 'sessions' },
-      currentPhase: 'S7 DONE non-integre CONTEXT.md, S8-S23 en pause priorite DS + dashboard',
+      progress: { done: 10, total: 24, unit: 'sessions' },
+      currentPhase: 'S8 Commands deep DONE (4 P2 docs-only batch S21), S9 Scripts + hooks prochaine',
       startedAt: '2026-04-07',
       sessions: [
         { id: 'S0', title: 'Pre-flight', status: 'DONE', date: '2026-04-07' },
@@ -76,12 +76,13 @@ window.MONITOR_DATA = {
         { id: 'S5', title: 'Workflows + routing', status: 'DONE', date: '2026-04-08' },
         { id: 'S6', title: 'Orchestration + automation', status: 'DONE', date: '2026-04-08' },
         { id: 'S6.5', title: 'Integration Cowork parallel', status: 'DONE', date: '2026-04-08' },
-        { id: 'S7', title: 'Agents deep (non-integre CONTEXT.md)', status: 'DONE', date: '2026-04-08' },
-        { id: 'S7.5', title: 'Integration S7 agents dans CONTEXT.md', status: 'PENDING' },
-        { id: 'S8', title: 'Commands (4) deep', status: 'PAUSED' },
-        { id: 'S9-S23', title: 'Sessions restantes (15)', status: 'PAUSED' }
+        { id: 'S7', title: 'Agents deep', status: 'DONE', date: '2026-04-08' },
+        { id: 'S7.5', title: 'Integration S7 agents dans CONTEXT.md', status: 'DONE', date: '2026-04-09' },
+        { id: 'S8', title: 'Commands (4) deep + tests reels', status: 'DONE', date: '2026-04-09' },
+        { id: 'S9', title: 'Scripts + hooks (9) deep + tests', status: 'PENDING' },
+        { id: 'S10-S23', title: 'Sessions restantes (14)', status: 'PAUSED' }
       ],
-      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. Pause pour DS + dashboard.'
+      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S8 = 15 findings (4 P2 docs-only) + 12 decisions D-S8-01..12 + meta M-S8-01 formalise (3e occurrence pattern spec MD vs code source). Dette batch S21 ~8-12 fichiers.'
     },
     {
       id: 'phase1-fondations',
@@ -213,6 +214,20 @@ window.MONITOR_DATA = {
 
   decisions: [
     {
+      id: 'D-S8-01..12 + M-S8-01',
+      date: '2026-04-09',
+      title: 'Audit commands S8 cleanup batch + meta pattern spec MD vs code',
+      summary:
+        '12 decisions batch S21/S9/S20 : D-S8-01 fix briefs v1/v9 commands spec vs CLAUDE.md directive, D-S8-02 fix sync.md double source, D-S8-03 merge PAUL jargon avec F-S7-09, D-S8-04 npm workspaces drift doc, D-S8-05 step 5.5 no action (D-MON-03 accepted), D-S8-06 new-project template sortie, D-S8-07 fix template README dupplique script vs MD, D-S8-08 sync-check double verdict, D-S8-09 merge D-S8-02, D-S8-10 flag polyglot scripts/module-scaffold.sh pour S9, D-S8-11 formalisation M-S8-01 meta-finding 3e occurrence pattern spec MD vs code (F-S5-20 + M-S6-01 + F-S8-03/14), D-S8-12 bonus scripts/git-hooks/commit-msg refuse type audit (plan obsolete, commits S1-S7 utilisent docs(audit)). Dette heritee batch S21 ~8-12 fichiers effort ~1-2 sessions.'
+    },
+    {
+      id: 'D-S7-02..09',
+      date: '2026-04-08',
+      title: 'Audit agents S7 cleanup batch (integre S7.5 2026-04-09)',
+      summary:
+        '8 decisions batch S21/S22 : D-S7-02 enrichir dev-agent workflow section, D-S7-03 parking frontmatter model+tools, D-S7-04 cleanup jargon PAUL/P1/Phase 2.4, D-S7-05 merge commit-msg fix, D-S7-06 accepted dette routing gap, D-S7-07 triggers faibles note/check, D-S7-08 ligne blanche frontmatter, D-S7-09 enrichir sync-check paths check.'
+    },
+    {
       id: 'D-DS-20',
       date: '2026-04-09',
       title: 'Prebuild workspace chain pour tokens.css',
@@ -259,6 +274,13 @@ window.MONITOR_DATA = {
   recentSessions: [
     {
       date: '2026-04-09',
+      tag: 'DONE_WITH_CONCERNS',
+      title: 'S7.5 integration agents + S8 commands deep (a+b) — 3 commits, 4 P2 docs-only',
+      summary:
+        '3 commits sur branche audit-massif-cycle3, 8e session consecutive mode MOI strict. (1) d4fc729 S7.5 integration = update CONTEXT.md cycle3 table ligne 43 (S7 "non-integre" -> "integre 2026-04-09 S7.5") + ajout D-S7-02..09 Decisions actives + prochaine action -> S8. (2) 80c18cb S8a = remplace placeholder 08-commands.md 6L par livrable 266L sections 1-4 + draft 6 + 7 decisions + 8 learnings apres lecture 4 commands (session-start 30L / session-end 65L / new-project 49L / sync 79L = 223L total) + audit 4 angles A1-A4, 12 findings draft (3 P2 + 9 P3). (3) 9256ee8 S8b = finalise 08-commands.md a 433L avec phase B tests reels : comparaison /session-start spec v1 vs brief v9 live (gap 24x confirme F-S8-01), bash scripts/sync-check.sh full run exit 2 DEGRADED (spec factuellement incomplet TypeScript+Vitest+section [EXTENDED] absents + double verdict = F-S8-14 nouveau P2 + F-S8-13 P3), bash scripts/module-scaffold.sh --help exit 0 + lecture source 168L (F-S8-09 confirme divergences template README + F-S8-15 polyglot bash+Python 46L Python embed). Final : 15 findings (0 P1 + 4 P2 + 11 P3 + 1 meta M-S8-01 formalise 3e occurrence pattern spec MD vs code source apres F-S5-20 + M-S6-01), 12 decisions D-S8-01..12 toutes batchees S21/S9/S20 sauf D-S8-05 no action, 5 learnings L-S8-01..05 (notamment L-S8-04 tests reels amplifient findings statiques +25% et L-S8-05 garde-fous externes masquent dette specs inferieures). Cross-refs : F-S8-07 mirror F-S7-09 (PAUL), F-S8-12 mirror F-S7-07 (asymetrie), F-S8-04 drift D-DS-20 workspace chain. Concerns : 4 P2 docs-only batchables S21 convention D-S7-01 + health DEGRADED baseline 75 refs identique (zero drift). Kevin a delegue conduite ("je te fait confiance, fait au mieux pour qualite resultat") et valide option B batch S21. Build 1.06s OK, 19/19 tests verts, 100/100 DS tests. Prochaine : S9 Scripts + hooks (9) deep pattern S9a/S9b probable.'
+    },
+    {
+      date: '2026-04-09',
       tag: 'DONE',
       title: 'Reforme communication — format brief v9 + questions groupees + CLAUDE.md',
       summary:
@@ -284,13 +306,6 @@ window.MONITOR_DATA = {
       title: 'DS-1 scaffold modules/design-system + tokens DTCG 2-tier',
       summary:
         'Commit 3b5c96c. Refactor mid-session vers vrai 2-tier (66 primitives + 69 semantic). WCAG AA 8/8 verts. Bloc decouvert : package.json racine manquant, amendement CLAUDE.md L36.'
-    },
-    {
-      date: '2026-04-08',
-      tag: 'IN_PROGRESS',
-      title: 'DS-0 Bootstrap cadrage (spec + plan + 10 questions)',
-      summary:
-        'Brainstorm DS Chromatic-like zero SaaS, 4 decisions D-DS-01..04 validees, web search best practices Storybook 8 + DTCG + monorepo, 3 livrables docs/travaux-cowork/2026-04-08-design-system-bootstrap/.'
     }
   ]
 }
