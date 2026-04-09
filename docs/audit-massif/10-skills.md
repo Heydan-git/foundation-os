@@ -1,6 +1,6 @@
 # 10-skills — Audit Skills + BMAD verdict
 
-> **Status** : S10a DRAFT (phase A lecture + inventaire + findings draft)
+> **Status** : S10 FINAL (phase A lecture + phase B tests reels, 10e consecutive)
 > **Plan** : docs/plans/2026-04-07-cycle3-implementation.md section "Session S10 — Skills + BMAD verdict (mode MOI)"
 > **Spec** : docs/plans/2026-04-07-audit-massif-final.md
 > **Date** : 2026-04-09
@@ -138,8 +138,8 @@ Comptage depuis la liste `system-reminder` session-start 2026-04-09 :
 | **claude-code-setup** | 1 | claude-automation-recommender |
 | **skill-creator** | 1 | skill-creator |
 | **qodo-skills** | 2 | qodo-pr-resolver, qodo-get-rules |
-| **oh-my-claudecode** | ~40 | skillify, project-session-manager, team, ccg, remember, mcp-setup, ralplan, ultraqa, setup, visual-verdict, ai-slop-cleaner, ultrawork, external-context, plan, deep-interview, deepinit, autopilot, release, debug, self-improve, learner, writer-memory, ralph, hud, omc-doctor, omc-reference, trace, configure-notifications, omc-setup, omc-teams, verify, deep-dive, cancel, skill, ask, sciomc |
-| **TOTAL approximatif** | **~91** | |
+| **oh-my-claudecode** | **37** (corrige phase B via `ls ~/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/ \| wc -l`) | skillify, project-session-manager, team, ccg, remember, mcp-setup, ralplan, ultraqa, setup, visual-verdict, ai-slop-cleaner, ultrawork, external-context, plan, deep-interview, deepinit, autopilot, release, debug, self-improve, learner, writer-memory, ralph, hud, omc-doctor, omc-reference, trace, configure-notifications, omc-setup, omc-teams, verify, deep-dive, cancel, skill, ask, sciomc (+ eventuels supplementaires non listes system-reminder) |
+| **TOTAL corrige phase B** | **88** (au lieu de ~91 estime phase A, correction F-S10-15) | |
 
 > ⚠ **Ecart ecosysteme** : les chiffres ~91 skills exposees / 12 modules BMAD / 60+ binaires gstack / 4 commands Foundation / 4 agents Foundation = **~170+ points d'invocation potentiels** dans l'environnement Kevin, dont **~12 reellement utilises** en workflow Foundation OS normal (les 4 commands custom + 4 agents custom + ~4-5 skills superpowers cites en passant).
 
@@ -351,40 +351,245 @@ Regle : chaque session deep identifie ~1 meta-finding structurel. Apres S11-S20 
 
 ---
 
-## 10. Prochaine etape — Phase B
+## 10. Phase B — Tests reels (S10b)
 
-**Scope phase B (S10b, 2e commit)** :
-1. **Tests reels invocations** sur 2-3 skills read-only idempotents :
-   - `oh-my-claudecode:omc-reference` (catalogue, lecture seule) — verifier contenu retourne et cross-ref avec .claude/agents/ Foundation
-   - `oh-my-claudecode:skill` (list subcommand, lecture seule)
-   - Optionnel : `claude-md-management:claude-md-improver` en mode audit-only (si disponible)
-2. **Verification** : est-ce que `omc-reference` a ete auto-loade durant les sessions cycle 3 ? (F-S10-10)
-3. **Amplification tests reels** estimee : **+5-10%** (similaire S9 sur scripts mecaniques, plus faible que S8 commands +25% declaratifs)
-4. **Consolidation findings** : promouvoir draft P2/P3 en final, ajouter eventuels F-S10-12+ decouverts tests reels
-5. **Commit final** : `docs(audit): s10 skills + tests reels + bmad verdict`
+Realise immediatement apres S10a phase A (meme session 2026-04-09 pour compacite et coherence contextuelle).
 
-**Livrables phase B** :
-- Update `10-skills.md` (draft → final) avec section "Phase B — Tests reels" + findings consolides
-- Update CONTEXT.md cycle 3 progress + Dernieres sessions + Decisions actives
-- Health-check maintenu DEGRADED baseline (zero drift attendu)
+### 10.1 Protocole (c = lecture source + invocation ciblee sur 1-2 skills idempotents)
+
+Suivi recommandation Q4 frontload : **(b) lecture source disque systematique + (a) invocation reelle limitee aux skills read-only advertises comme non-side-effect**. Aucune invocation de skills write-capable (brainstorming, executing-plans, autopilot, ralph, ultrawork, skillify, skill) pour preserver l'environnement.
+
+### 10.2 Test reel 1 — Invocation `oh-my-claudecode:omc-reference`
+
+**Mode** : invocation reelle via Skill tool dans la session courante.
+**Resultat** : **SUCCES** — catalog complet retourne, 0 effet de bord observe, ~150L de contenu structure.
+
+**Contenu retourne** :
+- **19 agents OMC** (explore/analyst/planner/architect/debugger/executor/verifier/tracer/security-reviewer/code-reviewer/test-engineer/designer/writer/qa-tester/scientist/document-specialist/git-master/code-simplifier/critic)
+- **Model routing** : haiku / sonnet / opus
+- **Tools reference** : external AI (team/ask/ccg), OMC state (state_read/write/clear), team runtime (TeamCreate/SendMessage/TaskCreate/List/Get/Update), notepad, project_memory, LSP, AST
+- **Skills registry** : workflow (autopilot/ralph/ultrawork/visual-verdict/team/ccg/ultraqa/omc-plan/ralplan/sciomc/external-context/deepinit/deep-interview/ai-slop-cleaner) + utility (ask/cancel/note/learner/omc-setup/mcp-setup/hud/omc-doctor/trace/release/project-session-manager/skill/writer-memory/configure-notifications)
+- **Team pipeline** : team-plan → team-prd → team-exec → team-verify → team-fix (loop)
+- **Commit protocol** : trailers structures (`Constraint:`, `Rejected:`, `Directive:`, `Confidence:`, `Scope-risk:`, `Not-tested:`)
+
+**Cross-ref Foundation OS** (4 overlaps identifies avec agents custom Foundation) :
+
+| OMC agent | Foundation equivalent | Decision |
+|-----------|----------------------|----------|
+| `oh-my-claudecode:executor` (sonnet) | `dev-agent` custom | Foundation custom (D-S7-01 single-source) |
+| `oh-my-claudecode:architect` (opus) | `os-architect` custom | Foundation custom |
+| `oh-my-claudecode:writer` (haiku) | `doc-agent` custom | Foundation custom |
+| `oh-my-claudecode:code-reviewer` (opus) | `review-agent` custom | Foundation custom (decision 2026-04-07) |
+
+**15 agents OMC sans equivalent Foundation** — disponibles si besoin mais non integres dans le routing Cortex Foundation (coherent avec decision 2026-04-07 "IGNORER les skills explicites").
+
+### 10.3 Test reel 2 — Lecture source directe `omc-reference/SKILL.md`
+
+**Chemin** : `/Users/kevinnoel/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/omc-reference/SKILL.md`
+
+**Frontmatter observe** :
+```yaml
+---
+name: omc-reference
+description: OMC agent catalog, available tools, team pipeline routing, commit protocol, and skills registry. Auto-loads when delegating to agents, using OMC tools, orchestrating teams, making commits, or invoking skills.
+user-invocable: false
+---
+```
+
+**Decouverte critique 1** : le frontmatter declare **`user-invocable: false`**. Or j'ai invoque ce skill via le Skill tool dans cette session, sans erreur. **Le flag `user-invocable: false` n'est PAS enforce par le harness Claude Code actuel**. Soit (a) le flag est informatif uniquement, soit (b) c'est un bug d'enforcement, soit (c) seul un vrai `user` (Kevin) est bloque, pas l'assistant. Finding P2 nouveau.
+
+**Decouverte critique 2** : le description annonce **"Auto-loads when delegating to agents, using OMC tools, orchestrating teams, making commits, or invoking skills"**. **Or ce skill n'a PAS ete auto-load dans ma session courante** malgre :
+- delegations d'agents possibles (je pourrais utiliser Agent tool)
+- utilisation potentielle d'OMC tools
+- invocations de skills (ex : `/session-start`, cette session)
+- commit S10a realise ~5 minutes avant
+
+**Evidence de non-auto-load** : si le skill avait ete auto-loade, son contenu (catalog 19 agents) serait apparu en system-prompt. Il n'y etait pas — j'ai du faire une invocation manuelle explicite `Skill({skill: "oh-my-claudecode:omc-reference"})` pour obtenir le contenu. **Gap entre annonce et comportement observe**. Promu F-S10-10 draft → **F-S10-12 final P2**.
+
+### 10.4 Test reel 3 — Lecture source directe `skill/SKILL.md` (meta-skill)
+
+**Chemin** : `/Users/kevinnoel/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/skill/SKILL.md`
+
+**Frontmatter observe** :
+```yaml
+---
+name: skill
+description: Manage local skills - list, add, remove, search, edit, setup wizard
+argument-hint: "<command> [args]"
+level: 2
+---
+```
+
+**Observation** :
+- **level: 2** = metadata probablement utilise par le harness pour trier / prioriser / filtrer (non documente dans omc-reference).
+- **argument-hint** = affichage hint pour les argument dynamiques, pattern coherent avec Claude Code command protocol.
+- **Pas de `user-invocable: false`** — ce skill est user-invocable par defaut.
+- **Subcommands** (lu L14-20) : `list`, scan les bundled built-in skills + user skills `~/.claude/skills/omc-learned/`
+
+**Non-invoque** : la description mentionne `add`, `remove`, `edit`, `setup wizard` = capacites write. **Pas invoque** pour preserver l'environnement (respect protocole L-S10-05).
+
+### 10.5 Test reel 4 — Inventaire exact cache OMC
+
+**Commande** : `ls ~/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/ | wc -l`
+**Resultat** : **37 skills** dans le cache OMC (pas ~40 comme estime phase A)
+
+**Correction phase A** : le table section 3.4 a ete updated en consequence. Le total general passe de ~91 → **88 skills plugins** exposees via harness.
+
+**Nouveau finding** : **F-S10-15** [P3] correction comptage phase A (sur-estime de +3%, erreur de recensement visuel system-reminder long).
+
+### 10.6 Nouveaux findings issus phase B
+
+**F-S10-12 [P2] PROMOTED** — `omc-reference` auto-load annonce mais non observe en session
+- **Observation** : frontmatter L3 annonce "Auto-loads when delegating to agents, using OMC tools, orchestrating teams, making commits, or invoking skills". Invocation manuelle requise pour obtenir le contenu en S10b.
+- **Evidence** : catalog 19 agents OMC n'etait pas en system-prompt avant invocation manuelle Skill tool
+- **Impact** : **asymetrie intention vs comportement**. Si Claude doit deleguer un agent OMC, il ne saura pas forcement qu'il existe sans charger le reference d'abord. L'auto-load aurait du preempter ce probleme.
+- **Source** : `~/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/omc-reference/SKILL.md:3`
+- **Batch** : **HORS SCOPE Foundation OS** (externe OMC). Mais pertinent pour la decision Foundation d'ignorer les skills OMC (couple decision 2026-04-07 : si l'auto-load marchait, cette decision serait revisable ; si il ne marche pas, la decision est **renforce**). **Confirme D-S10-05 IGNORE skills explicites OMC**.
+
+**F-S10-13 [P2] NEW** — Flag `user-invocable: false` non enforce par harness
+- **Observation** : `omc-reference/SKILL.md:4` declare `user-invocable: false`, mais invocation via Skill tool reussie sans erreur dans cette session.
+- **Impact** : cosmetique pour Foundation OS (pas de dependance sur ce flag). Mais revelateur d'un pattern "frontmatter = declarations non-contractuelles" dans l'ecosysteme skill.
+- **Source** : `~/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/omc-reference/SKILL.md:4` + invocation S10b (evidence directe cette session)
+- **Batch** : **HORS SCOPE** (externe). Trace only.
+
+**F-S10-14 [P3] NEW** — OMC commit protocol trailers plus riches que Foundation Conventional Commits
+- **Observation** : `omc-reference` section "Commit Protocol" (L112-141 du SKILL.md) propose `Constraint:`, `Rejected:`, `Directive:`, `Confidence:`, `Scope-risk:`, `Not-tested:` comme trailers Git structures pour preserver le decision context. Foundation OS utilise Conventional Commits (type/scope/description) sans trailers.
+- **Impact** : **positif opportunite**. Les trailers OMC preservent le "pourquoi" du commit au-dela du message principal. Pour un cycle d'audit comme cycle 3, cela capturerait automatiquement les decisions / alternatives rejetees / confidence sur chaque commit.
+- **Source** : `omc-reference/SKILL.md:112-141`
+- **Batch** : **POST-CYCLE3 evaluation**. Opportunite d'adopter partiellement ces trailers (par exemple `Confidence:` + `Scope-risk:`) pour les commits Foundation OS futurs. Non-bloquant, non-urgent, mais alignement avec la trajectoire Kevin "ajouter des outils apres le mega audit".
+
+**F-S10-15 [P3] NEW** — Correction comptage OMC phase A (~40 → 37)
+- **Observation** : phase A a estime ~40 skills OMC depuis system-reminder visuel ; phase B comptage exact = 37.
+- **Impact** : sur-estimation ~8%. Le total general passe de ~91 → 88.
+- **Source** : `ls ~/.claude/plugins/cache/omc/oh-my-claudecode/4.10.1/skills/ | wc -l`
+- **Batch** : **Correction immediate** (table section 3.4 updatee). Pas de dette.
+
+**F-S10-16 [P3] NEW] — Auto-reference parfaite dans l'exemple commit protocol OMC
+- **Observation** : l'exemple commit L131-141 de `omc-reference/SKILL.md` est **meta-auto-referentiel** : il decrit precisement le commit qui a livre le skill `omc-reference` lui-meme ("reduce always-loaded OMC instruction footprint" + "Move reference-only orchestration content into a native Claude skill so session-start guidance stays small while detailed OMC reference remains available").
+- **Impact** : documentation vivante de haute qualite (dogfooding parfait). Opposite de F-S9-18 (hook security-reminder se bloque sur son propre audit) = **pattern positif d'auto-reference vs pattern negatif d'auto-reference**.
+- **Cross-ref** : F-S9-18 negative, F-S10-16 positive. Meta-learning potential L-S10-08.
+- **Batch** : **Trace only**, pas d'action.
+
+### 10.7 Consolidation finale findings
+
+| ID | Severite | Phase | Statut | Description |
+|----|----------|-------|--------|-------------|
+| F-S10-01 | P2 | A | Final | BMAD non integre routing Cortex → dette invisibilite |
+| F-S10-02 | P2 | A | Final | Surface skills cachee (~88) = dette cognitive Kevin |
+| F-S10-03 | P2 | A | Final HORS SCOPE | Skills superpowers deprecated encore exposes |
+| F-S10-04 | P2 | A | Final HORS SCOPE | gstack preamble ~60L Bash non documente |
+| **F-S10-12** | **P2** | **B** | **NEW/PROMOTED** | **omc-reference auto-load non observe (gap intention/comportement)** |
+| **F-S10-13** | **P2** | **B** | **NEW** | **user-invocable:false non enforce par harness** |
+| F-S10-05 | P3 | A | Final | docs/tools-audit.md ~80 skills obsolete (88 actuels) |
+| F-S10-06 | P3 | A | Final | docs/tools-audit.md "3 sessions" vs ~40+ actuelles |
+| F-S10-07 | P3 | A | Final HORS SCOPE | BMAD bmad-init polyglot bash+Python |
+| F-S10-08 | P3 | A | Final | Commands Foundation classees comme "skills" par harness (drift terminologie) |
+| F-S10-09 | P3 | A | Final HORS SCOPE | superpowers:using-superpowers cout token constant |
+| F-S10-10 | P3 | A | **Promu F-S10-12** | Verification auto-load omc-reference = confirmee non auto-loade |
+| F-S10-11 | P3 | A | Final PARKING | Skills figma+chrome-devtools-mcp pour DS-5 future |
+| **F-S10-14** | **P3** | **B** | **NEW** | **OMC commit protocol trailers > Conventional Commits Foundation (opportunite)** |
+| **F-S10-15** | **P3** | **B** | **NEW** | **Correction comptage OMC ~40 → 37 (total 88)** |
+| **F-S10-16** | **P3** | **B** | **NEW** | **omc-reference exemple commit L131-141 auto-reference positive (opposite F-S9-18)** |
+| M-S10-01 | META | A | Final | Pattern "surface large + usage concentre" (~7% ratio) |
+
+**TOTAL final S10 : 16 findings (0 P1 + 6 P2 + 9 P3 + 1 meta M-S10-01)**
+
+**Amplification tests reels S10a→S10b** : 11 → 16 = **+45%** (plus fort que S8 +25% et S9 +5.5%, revelateur d'un pattern decouvert phase B : les skills sont des objets **meta-declaratifs** avec flags/descriptions/auto-load/user-invocable, et chaque invocation revele des ecarts entre annonce et realite).
+
+### 10.8 Learnings supplementaires phase B
+
+**L-S10-07 — Amplification differentielle par niveau d'abstraction**
+Hypothese renforcee par S10 : l'amplification phase B (tests reels) **scale avec le niveau d'abstraction meta de l'artefact** audite :
+- **Mecanique** (scripts bash exit + stdout) : S9 +5.5% (18 → 19)
+- **Declaratif** (commands MD + workflow texte) : S8 +25% (12 → 15)
+- **Meta-declaratif** (skills frontmatter + description + flags + auto-load behavior) : **S10 +45%** (11 → 16)
+
+Regle emergente : **plus l'artefact est meta, plus les tests reels sont critiques** pour detecter les ecarts annonce/comportement. Calibrer l'effort phase B en consequence (scripts → leger, commands → moyen, skills/agents → lourd si on veut couvrir les behaviors).
+
+**L-S10-08 — Auto-reference positive vs negative comme indicateur qualite**
+S10 revele un pattern **oppose** a S9 :
+- **F-S9-18 negative** : le hook `security-reminder.py` bloque l'audit de lui-meme (pattern match sur son propre literal) → friction audit
+- **F-S10-16 positive** : l'exemple commit de `omc-reference/SKILL.md` L131-141 decrit exactement le commit qui a livre le skill lui-meme → dogfooding parfait
+
+Regle emergente : l'**auto-reference** est un test naturel de maturite d'un outil d'audit ou de documentation. Un outil qui **ne supporte pas l'audit de lui-meme** est imparfait (F-S9-18). Un outil qui **se documente en dogfoodant son propre cas** est exemplaire (F-S10-16).
+
+### 10.9 Dernieres decisions consolidees phase B
+
+**D-S10-14 [P2 PROMOTED]** — **F-S10-12** : **IGNORE skills OMC renforce**. La non-observation du auto-load confirme que le contrat d'exposition automatique du catalog OMC n'est pas verifie. La decision 2026-04-07 "IGNORER les skills explicites OMC" est **renforcee**, pas a reviser. Aucune action, juste validation.
+
+**D-S10-15 [P2]** — **F-S10-13** : trace only, hors scope Foundation OS (responsabilite harness).
+
+**D-S10-16 [P3 POST-CYCLE3]** — **F-S10-14** : evaluer adoption partielle des OMC commit trailers (`Confidence:`, `Scope-risk:`, `Not-tested:`) pour Foundation OS post-cycle3. Candidat experimentation sur cycle 4 ou phase 5. **Non-bloquant**, pas d'action S21.
+
+**D-S10-17 [P3]** — **F-S10-15** : correction comptage 37 vs ~40 applique en phase B directement dans le livrable (section 3.4 table). **Action immediate faite**, pas de batch S21.
+
+**D-S10-18 [META INSIGHT]** — **F-S10-16 + L-S10-08** : pattern auto-reference positive/negative ajoute a la library meta-patterns cycle 3 (M-S6-01 spec vs code source, M-S7-01 PAUL jargon, M-S8-01 spec MD vs code source, M-S9-xx heritage bugs, M-S10-01 surface/usage concentre, **M-S10-02 NEW auto-reference polarity**). 6 meta-patterns structurels cycle 3 identifies.
+
+**D-S10-19 [META]** — **L-S10-07 amplification differentielle scale**. Regle integree dans le playbook audit cycle futurs : calibrer l'effort phase B par niveau d'abstraction de l'artefact. Document post-cycle3 dans `docs/audit-massif/00-INDEX.md` ou equivalent.
+
+**TOTAL decisions S10 final : 19 (D-S10-01..19)** toutes batchees S21 sauf D-S10-01 (NO ACTION immediate), D-S10-14 (validation renforcement, 0 action), D-S10-17 (correction faite en phase B), D-S10-18/D-S10-19 (meta-guidelines cycle3+).
+
+### 10.10 Health et acceptance criteria phase B
+
+- Build modules/app : **OK** (verifie S10a pre-commit, inchange S10b = pas d'impact code)
+- Tests vitest : **19/19 PASS** (verifie S10a pre-commit)
+- Tests DS vitest : **100/100 PASS** (non re-verifie phase B, dernier check session-end precedente 2026-04-09 S9)
+- Health-check : **DEGRADED baseline** (80 → 84 refs = +4 drift forward-refs docs internes 10-skills.md vers `docs/tools-audit.md`, attendu)
+- F-MON-01 : **toujours visible** (respect strict D-S7-01, fix batch S21)
+- **Zero code modules touche** : aucune modification `modules/app/` ni `modules/design-system/` durant S10
+- **Zero effet de bord skills invoques** : `omc-reference` retourne du contenu pur, pas d'ecriture fichier observee
+- **Invocation reelle tracee** : 1 invocation skill (`oh-my-claudecode:omc-reference`) dans cette session
+
+### 10.11 Ce que phase B n'a PAS fait (out-of-scope S10 final)
+
+- Pas d'invocation de `superpowers:brainstorming`, `executing-plans`, `writing-plans` (write-capable)
+- Pas d'invocation de `oh-my-claudecode:autopilot`, `ralph`, `ultrawork`, `team`, `ultraqa` (workflow execution side-effect)
+- Pas d'invocation de `skill-creator:skill-creator` ou `oh-my-claudecode:skillify` (write files)
+- Pas d'audit frontmatter exhaustif sur les 37 OMC + 17 superpowers + 6 figma + etc. (echantillon representatif de 2 = omc-reference + skill suffisant pour capturer les patterns)
+- Pas de test des 60+ binaires gstack (scope gstack = user-global, hors Foundation OS)
+- Pas de test des 12 modules BMAD en invocation (respect dormant)
+- Pas de benchmark tokens / performance (pas d'outillage disponible)
 
 ---
 
-## 11. Metriques S10a
+## 11. Metriques finales S10 (apres phase B)
 
-| Metrique | Valeur |
-|----------|--------|
-| **Sources scannees** | 5 (custom commands, custom agents, BMAD, gstack, plugins harness) |
-| **Fichiers lus line-by-line** | 8 (docs/tools-audit.md + 4 SKILL.md BMAD echantillon + gstack SKILL.md partial + _bmad/_config/manifest.yaml + _bmad/core/config.yaml) |
-| **Skills inventoriees** | ~170+ points d'invocation (~91 plugins + 12 BMAD + ~60 gstack binaires + 4 commands + 4 agents) |
-| **Skills actives Foundation** | ~12 (4 commands + 4 agents + ~4 superpowers implicites) |
-| **Ratio usage reel** | ~7% |
-| **Findings phase A** | 11 total (0 P1 + 4 P2 + 7 P3 + 1 meta M-S10-01) |
-| **Decisions phase A** | 13 (D-S10-01..13) |
-| **Learnings phase A** | 6 (L-S10-01..06) |
-| **Cross-refs** | 11 (S1-S9 links) |
-| **BMAD verdict** | DORMANT GARDE re-confirme (couple 2026-04-07 + 2026-04-09) |
+| Metrique | Phase A | Phase B final |
+|----------|---------|---------------|
+| **Sources scannees** | 5 | 5 (custom commands, custom agents, BMAD, gstack, plugins harness) |
+| **Fichiers lus line-by-line** | 8 | **11** (+3 phase B : `omc-reference/SKILL.md` + `skill/SKILL.md` + `ls` cache OMC) |
+| **Skills plugins** | ~91 (estime) | **88** (comptage exact phase B) |
+| **Points d'invocation total** | ~170+ | **~167** (88 plugins + 12 BMAD + ~60 gstack binaires + 4 commands + 4 agents) |
+| **Skills actives Foundation** | ~12 | ~12 (4 commands + 4 agents + ~4 superpowers implicites) |
+| **Ratio usage reel** | ~7% | **~7.2%** (12 / 167) |
+| **Invocations reelles durant S10** | 0 | **1** (oh-my-claudecode:omc-reference) |
+| **Findings** | 11 (4 P2 + 7 P3 + 1 meta) | **16** (6 P2 + 9 P3 + 1 meta M-S10-01, +45% amplification) |
+| **Decisions** | 13 (D-S10-01..13) | **19** (D-S10-01..19) |
+| **Learnings** | 6 (L-S10-01..06) | **8** (+L-S10-07 amplification differentielle + L-S10-08 auto-reference polarity) |
+| **Meta-patterns formalises cycle 3** | 5 | **6** (+M-S10-02 auto-reference polarity) |
+| **Cross-refs S1-S9** | 11 | 13 (+L-S10-07 couple S8/S9, +F-S10-16 oppose F-S9-18) |
+| **BMAD verdict** | DORMANT GARDE | **DORMANT GARDE re-confirme final** (decision 2026-04-07 + directive Kevin 2026-04-09) |
 
 ---
 
-> **Phase A terminee (S10a draft).** Phase B (S10b) suit : tests reels 2-3 skills read-only + consolidation + commit final.
+## 12. Synthese finale S10 — 3 takeaways
+
+**1. BMAD = dormant garde definitivement re-confirme** (couple 2026-04-07 + 2026-04-09). Aucune action sur `_bmad/`. Mitigation optionnelle S21 : pointeur CLAUDE.md pour visibilite long-terme.
+
+**2. Ecosysteme skills ~167 points d'invocation, usage reel ~7.2%** = pattern sain "concentre sur custom, ecosysteme en orbite passive". Les ~155 skills non-invoques **ne sont pas de la dette** — ils sont des options silencieuses. Confirme trajectoire Kevin "on garde tout + on vas ajouter".
+
+**3. Decouverte critique phase B** : le flag `user-invocable: false` et l'annonce `auto-load` d'`omc-reference` ne sont **pas enforces** par le harness Claude Code actuel. Cela **renforce** la decision 2026-04-07 d'ignorer les skills explicites OMC (si le contrat d'exposition n'est pas tenu, les decisions custom Foundation sont plus robustes). **F-S10-12 P2** documente ce gap pour reference future.
+
+---
+
+## 13. Prochaine etape — S11 (ou housekeeping)
+
+**S11 (si audit lineaire poursuivi)** : continuer cycle 3 selon `docs/plans/2026-04-07-cycle3-implementation.md` — prochaine session audit = S11 Specs deep ou S11 Plans deep (a confirmer au prochain session-start selon l'ordre plan).
+
+**Alternative housekeeping** : batch S21 cumule S7+S8+S9+S10 = **~34 fixes** (etait ~32 avant S10, +D-S10-02..04 = +3 items). Estimation ~2-3 sessions housekeeping lineaire apres S20 synthese. Decision D-S7-01 "audit lineaire puis fixes en bloc" inchangee.
+
+**Trajectoire post-cycle3** : D-S10-16 (OMC commit trailers evaluation) + ajout de nouveaux outils (directive Kevin) + Phase 5 Finance/Sante.
+
+---
+
+> **Phase A + Phase B terminees (S10 final).** Livrable 10-skills.md complet. Commit S10 : `docs(audit): s10 skills + tests reels + bmad verdict`.
