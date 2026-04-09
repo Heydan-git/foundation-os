@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-09',
-    updatedInSession: 'S9 Scripts + hooks (9) deep (a+b) — 2 commits, 19 findings dont 1 P1 cause racine F-MON-01',
+    updatedInSession: 'S10 Skills + BMAD verdict (a+b) — 2 commits, 16 findings final (+45% amplification), BMAD dormant garde re-confirme',
     nextAction:
-      'Cycle 3 — S10 Skills + BMAD verdict definitif (mode MOI 10e consecutive). Inventaire skills superpowers/OMC/gstack + test 5-7 representatifs + verdict BMAD dormant/archiver/re-activer (SUGG-10). Dette heritee batch S21 cumulee ~32 fixes (S7+S8+S9).'
+      'Cycle 3 — S11 prochaine session audit (mode MOI 11e consecutive si poursuivi, Specs deep OU Plans deep selon ordre plan cycle3). Alternative legitime : pause strategique / housekeeping batch S21 (~34 fixes cumules S7+S8+S9+S10) apres 10 sessions audit deep consecutives. Decision D-S7-01 audit lineaire inchangee.'
   },
 
   plans: [
@@ -64,8 +64,8 @@ window.MONITOR_DATA = {
       status: 'WIP',
       priority: 'P1',
       path: 'docs/plans/2026-04-07-cycle3-implementation.md',
-      progress: { done: 11, total: 24, unit: 'sessions' },
-      currentPhase: 'S9 Scripts + hooks DONE (19 findings dont 1 P1 cause racine F-MON-01 identifiee, 7 P2, 11 P3, 13 decisions D-S9-01..13), S10 Skills + BMAD verdict prochaine',
+      progress: { done: 12, total: 24, unit: 'sessions' },
+      currentPhase: 'S10 Skills + BMAD verdict DONE (16 findings final, 0 P1, 6 P2, 9 P3, 1 meta M-S10-01, amplification +45%, BMAD DORMANT GARDE re-confirme 2026-04-09 directive Kevin + decision 2026-04-07), S11 prochaine OU pause strategique',
       startedAt: '2026-04-07',
       sessions: [
         { id: 'S0', title: 'Pre-flight', status: 'DONE', date: '2026-04-07' },
@@ -80,10 +80,11 @@ window.MONITOR_DATA = {
         { id: 'S7.5', title: 'Integration S7 agents dans CONTEXT.md', status: 'DONE', date: '2026-04-09' },
         { id: 'S8', title: 'Commands (4) deep + tests reels', status: 'DONE', date: '2026-04-09' },
         { id: 'S9', title: 'Scripts + hooks (9) deep + tests reels', status: 'DONE', date: '2026-04-09' },
-        { id: 'S10', title: 'Skills + BMAD verdict', status: 'PENDING' },
-        { id: 'S11-S23', title: 'Sessions restantes (13)', status: 'PAUSED' }
+        { id: 'S10', title: 'Skills + BMAD verdict', status: 'DONE', date: '2026-04-09' },
+        { id: 'S11', title: 'Session suivante audit (Specs ou Plans deep)', status: 'PENDING' },
+        { id: 'S12-S23', title: 'Sessions restantes (12)', status: 'PAUSED' }
       ],
-      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S9 = 19 findings (1 P1 F-S9-01 cause racine F-MON-01 identifiee + 7 P2 dont F-S9-03/06 confirment F-S8-13/15 + F-S9-11/12/13 gaps validate-void-glass + F-S9-19 lockfile corrompu decouvert tests reels + 11 P3) + 13 decisions D-S9-01..13 dont D-S9-09 retract partiel D-S8-12 (commit-msg hook correct, plan faux) + 6 learnings L-S9-01..06. Amplification tests reels +5.5% (vs +25% S8). Dette batch S21 cumulee ~32 fixes (S7+S8+S9) effort ~2-3 sessions.'
+      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S10 = 16 findings (0 P1 + 6 P2 + 9 P3 + 1 meta M-S10-01) + 19 decisions D-S10-01..19 (D-S10-01 NO ACTION BMAD dormant garde + D-S10-02..04 batch S21 + D-S10-05..13 hors scope/parking + D-S10-14 validation + D-S10-17 phase B + D-S10-18/19 meta-guidelines cycle3+) + 8 learnings L-S10-01..08 dont L-S10-07 amplification scale abstraction meta et L-S10-08 auto-reference polarity. Amplification tests reels +45% (vs +25% S8 vs +5.5% S9). BMAD DORMANT GARDE re-confirme (directive Kevin 2026-04-09 "on garde tous les outils"). Dette batch S21 cumulee ~34 fixes (S7+S8+S9+S10) effort ~2-3 sessions. 6 meta-patterns formalises cycle 3.'
     },
     {
       id: 'phase1-fondations',
@@ -215,6 +216,13 @@ window.MONITOR_DATA = {
 
   decisions: [
     {
+      id: 'D-S10-01..19',
+      date: '2026-04-09',
+      title: 'Audit skills + BMAD verdict re-confirme + 6 meta-patterns cycle 3',
+      summary:
+        '19 decisions issues audit S10 Skills + BMAD verdict (10e consecutive mode MOI). D-S10-01 NO ACTION BMAD dormant garde re-confirme (couple decision 2026-04-07 docs/tools-audit.md:34 + directive explicite Kevin 2026-04-09 "on garde tous les outils"). Batch S21 housekeeping 3 items : D-S10-02 mini-section CLAUDE.md Outils dormants pointant _bmad + docs/tools-audit.md (mitigate F-S10-01 invisibilite), D-S10-03 update docs/tools-audit.md date+counts corriges (88 skills + ~40 sessions actuelles), D-S10-04 OPTIONNEL docs/skills-inventory.md reference statique. Hors scope : D-S10-05 superpowers deprecated externe, D-S10-09 cout superpowers:using-superpowers externe, D-S10-11 gstack preamble user-global, D-S10-15 user-invocable:false non enforce harness = trace only. Parking post-cycle3 : D-S10-12 skills figma+chrome-devtools-mcp pour DS-5 future, D-S10-16 evaluer OMC commit trailers (Confidence/Scope-risk/Not-tested) cycle 4. Phase B actions : D-S10-17 correction comptage OMC 37 (vs ~40 estime A) deja appliquee. D-S10-14 F-S10-12 PROMOTED omc-reference auto-load NON observe en session = IGNORE skills OMC decision 2026-04-07 RENFORCEE (contrat d exposition non tenu, custom Foundation plus robuste). Meta-guidelines : D-S10-18 pattern auto-reference polarity positive (F-S10-16 omc-reference exemple commit auto-ref) vs negative (F-S9-18 security-reminder bloque audit de lui-meme) = library 6 meta-patterns cycle 3 (M-S6-01 + M-S7-01 + M-S8-01 + M-S9-xx + M-S10-01 + M-S10-02 NEW). D-S10-19 L-S10-07 amplification differentielle scale avec niveau abstraction meta (mecanique S9 +5.5% < declaratif S8 +25% < meta-declaratif S10 +45%) = regle calibrer effort phase B futurs audits. Learnings L-S10-01..08 : dormant garde vs invisible role routing, overlap fonctionnel 10+ code review / 7+ planning / 3+ brainstorming = signal ecosysteme pas redondance, ratio 7.2% usage/surface sain, audit passif vs actif P1 impossible phase A, tests reels phase B idempotents uniquement (pas d invocation write-capable), meta-pattern library 6 entries, L-S10-07 amplification scale abstraction, L-S10-08 auto-reference polarity. Dette heritee batch S21 cumulee ~34 fixes (S7+S8+S9+S10).'
+    },
+    {
       id: 'D-S9-01..13',
       date: '2026-04-09',
       title: 'Audit scripts + hooks S9 cleanup batch + retract partiel D-S8-12',
@@ -283,6 +291,13 @@ window.MONITOR_DATA = {
     {
       date: '2026-04-09',
       tag: 'DONE',
+      title: 'S10 Skills + BMAD verdict (a+b) — 2 commits, 16 findings, BMAD dormant garde re-confirme',
+      summary:
+        '2 commits sur branche audit-massif-cycle3, 10e session consecutive mode MOI strict. Directive Kevin S10 : "fait au mieux, pour meilleur qualite et efficacite. Pour les outils on les garde tous, on vas meme en ajouter apres le mega audit." (simplifie scope verdict tous outils gardes, conserve valeur inventaire + tests reels). (1) d506bdc S10a = remplace placeholder 10-skills.md 7L par livrable 390L phase A lecture + inventaire exhaustif 5 sources (4 commands custom + 4 agents custom + 12 BMAD modules + gstack 1 SKILL.md + ~60 binaires + plugins harness) + draft 11 findings (0 P1 + 4 P2 + 7 P3 + 1 meta M-S10-01) + 13 decisions D-S10-01..13 + 6 learnings + 11 cross-refs S1-S9 + BMAD verdict DORMANT GARDE re-confirme. (2) 158b255 S10b = finalise 10-skills.md a 595L avec phase B tests reels : 1 invocation reelle oh-my-claudecode:omc-reference (catalog read-only OK, pas d effet de bord) + 2 lectures source directe (omc-reference/SKILL.md + skill/SKILL.md) + comptage exact cache OMC 37 skills (correction phase A ~40). Decouvertes critiques phase B : F-S10-12 P2 PROMOTED omc-reference frontmatter annonce "Auto-loads when delegating to agents..." MAIS le skill N A PAS ete auto-load dans la session (invocation manuelle Skill tool requise pour obtenir le catalog 19 agents OMC), F-S10-13 P2 NEW flag user-invocable:false declare mais NON enforce par harness (invocation reussie malgre le flag), F-S10-14 P3 NEW OMC commit trailers (Constraint/Rejected/Directive/Confidence/Scope-risk/Not-tested) plus riches que Conventional Commits Foundation = opportunite post-cycle3 cycle 4 evaluation, F-S10-16 P3 NEW omc-reference exemple commit L131-141 meta-auto-referentiel parfait (decrit exactement le commit livrant le skill lui-meme) = pattern OPPOSE a F-S9-18 (hook security-reminder bloque audit de lui-meme) = L-S10-08 auto-reference polarity positive vs negative. Final : 16 findings (0 P1 + 6 P2 + 9 P3 + 1 meta M-S10-01). Amplification tests reels S10a->S10b +45% (11 -> 16) = plus fort que S8 +25% et S9 +5.5% = L-S10-07 regle emergente amplification scale avec niveau abstraction meta (mecanique < declaratif < meta-declaratif). Inventaire exact : 88 skills plugins (corrige de ~91 phase A) + 12 BMAD dormants + ~60 gstack binaires + 4 commands + 4 agents = ~167 points d invocation, ~12 actifs Foundation = ratio usage reel 7.2% = pattern sain concentre custom + ecosysteme en orbite passive. BMAD verdict FINAL DORMANT GARDE re-confirme : couple decision 2026-04-07 (overrule Kevin audit ARCHIVER) + directive explicite Kevin 2026-04-09 + evidence phase B F-S10-12 RENFORCE (si auto-load non tenu, custom Foundation plus robuste). 19 decisions D-S10-01..19 dont D-S10-01 NO ACTION + D-S10-02..04 batch S21 (3 fixes : pointeur CLAUDE.md outils dormants + update docs/tools-audit.md + optionnel docs/skills-inventory.md) + D-S10-14 validation renforcement + D-S10-18/19 meta-guidelines cycle3+ (6 meta-patterns formalises). 8 learnings L-S10-01..08 dont L-S10-07 amplification scale et L-S10-08 polarity. Dette batch S21 cumulee ~34 fixes (S7+S8+S9+S10). Zero code modules touche, zero invocation skill write-capable. Health final : build 688ms OK, 19/19 tests verts (6 fichiers, 1.30s), DEGRADED baseline 84 refs (vs 80 session-start = +4 drift forward-refs docs internes attendu), 0 drift S10a/S10b (84 identique), F-MON-01 TOUJOURS visible (respect strict D-S7-01). Prochaine : S11 audit suivante OU housekeeping batch S21 OU pause strategique (10 sessions deep consecutives = signal fatigue).'
+    },
+    {
+      date: '2026-04-09',
+      tag: 'DONE',
       title: 'S9 Scripts + hooks (9) deep (a+b) — 2 commits, 19 findings dont 1 P1 cause racine F-MON-01',
       summary:
         '2 commits sur branche audit-massif-cycle3, 9e session consecutive mode MOI strict pattern S9a/S9b valide. (1) 53d1d2b S9a = remplace placeholder 09-scripts-hooks.md 7L par livrable 267L phase A lecture line-by-line des 9 scripts Foundation OS (health-check 171L + sync-check 214L + ref-checker 178L + module-scaffold 168L + session-lock 145L + validate-void-glass 38L + security-reminder.py 280L + pre-commit 20L + commit-msg 19L = 1233L total) + audit 4 angles (bug / idempotent / exit codes / output) + draft 18 findings (1 P1 + 6 P2 + 11 P3). (2) 2599d36 S9b = finalise a 412L avec phase B tests reels invocation (health-check full 3x, sync-check full, ref-checker --help + full, session-lock status/force/release sequence, module-scaffold --help seulement destructif, validate-void-glass fichier temp violant + sain, security-reminder stdin JSON safe + violate pattern #6, commit-msg dry strings 3x, pre-commit automatique) + 1 finding nouveau F-S9-19 (lockfile .fos-session.lock corrompu head/started_at vides affichage degrade "EXPIRED depuis" espaces, force+release repare). Final : 19 findings (1 P1 + 7 P2 + 11 P3) + 13 decisions D-S9-01..13 batchees S21 + 6 learnings L-S9-01..06. F-S9-01 P1 CAUSE RACINE F-MON-01 IDENTIFIEE : health-check L140 grep "\\.js " matche ligne prebuild DS "tokens.js + tokens.json" AVANT ligne vite bundle donc awk extrait "Design" au lieu du nombre. Fix trivial grep "^dist/.*\\.js " mais D-S7-01 strict = pas de fix opportuniste batch S21 via D-S9-01. F-S9-03/06 confirment F-S8-13/15 (double verdict sync + polyglot scaffold). F-S9-11/12/13 nouveaux coverage gaps validate-void-glass vs sync-check. F-S9-17 D-S8-12 RETRACT PARTIEL : hook commit-msg correct, le plan cycle3 S9.6 est faux en proposant audit(s09). F-S9-18 meta-finding auto-reference (hook security bloque l audit de lui-meme sur substring matching pattern names). Amplification tests reels S9a->S9b +5.5% (18 -> 19) vs +25% en S8 = L-S9-04 regle emergente calibrer effort par type artefact scripts mecaniques vs commands declaratifs. Dette heritee cumulee batch S21 (S7+S8+S9) ~32 fixes estimes effort ~2-3 sessions. Health final : build 1.07s OK, 19/19 tests verts, DS 100/100, DEGRADED baseline 79 refs (vs 75 session-start = +4 forward-refs docs), F-MON-01 TOUJOURS visible (batch S21 per D-S9-05). Prochaine : S10 Skills + BMAD verdict (10e consecutive).'
@@ -307,13 +322,6 @@ window.MONITOR_DATA = {
       title: 'D3 — Monitor dashboard close (README + session-end step 5.5)',
       summary:
         'README.md cree (schema + how-to-open + update rules), step 5.5 insere dans /session-end, data.js refresh real D3 update, CONTEXT.md monitor DONE. Pattern D1/D2/D3 anti-compactage valide.'
-    },
-    {
-      date: '2026-04-09',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'Socle DS acheve (DS-2/3/4/6 partial) + Monitor D2 livre',
-      summary:
-        '7 commits : reorg travaux-cowork, F-DS1-01 alpha fix, DS-2 Storybook, DS-3 primitives P1, DS-4 primitives P2, DS-6 partial (app consume tokens.css), D2 dashboard skeleton (ecb222b). 100/100 tests DS + 19/19 app, 0 axe violations.'
     }
   ]
 }
