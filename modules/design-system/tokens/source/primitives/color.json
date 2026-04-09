@@ -26,6 +26,11 @@
         "$type": "color",
         "$description": "Violet 400 (status parking)"
       },
+      "red": {
+        "$value": "#EF4444",
+        "$type": "color",
+        "$description": "Red 500 (danger, destructive actions)"
+      },
       "white025": {
         "$value": "rgba(255, 255, 255, 0.025)",
         "$type": "color",

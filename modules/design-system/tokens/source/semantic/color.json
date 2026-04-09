@@ -36,6 +36,11 @@
         "$value": "{color.palette.turquoise}",
         "$type": "color",
         "$description": "Accent brand Void Glass (focus, CTA, highlights)"
+      },
+      "danger": {
+        "$value": "{color.palette.red}",
+        "$type": "color",
+        "$description": "Danger / destructive actions (Button danger variant)"
       }
     },
     "status": {
