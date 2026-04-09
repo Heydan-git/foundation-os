@@ -30,6 +30,18 @@
    - Ajouter les nouvelles decisions si applicable (avec date YYYY-MM-DD)
    - Mettre a jour "Etat technique" si builds/routes/artifacts changent
    - Si un fondamental a change → mettre a jour aussi docs/ (reference tier)
+
+5.5. Mettre a jour le Monitor Dashboard (`docs/monitor/data.js`) — edition additive :
+   - `meta.updatedAt` = date du jour (YYYY-MM-DD)
+   - `meta.updatedInSession` = libelle court de la session
+   - `meta.nextAction` = prochaine action mise a jour (miroir step 5)
+   - `plans[*].sessions` : append/update pour les sessions touchees
+   - `plans[*].currentPhase` + `notes` si change
+   - `recentSessions` : prepend nouvelle entree, pop la plus ancienne si > 5
+   - `decisions` : append si nouvelle D-XXX
+   - `modules` + `initiatives` : update si status change
+   - Verification : ouvrir `docs/monitor/index.html`, verifier 0 erreur console
+
 6. Proposer un commit si des changements sont en attente
 7. Annoncer en format court :
 

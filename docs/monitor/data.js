@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-09',
-    updatedInSession: 'D2 — Monitor dashboard skeleton + render + data init',
+    updatedInSession: 'D3 — README + session-end step 5.5 + monitor v1 close',
     nextAction:
-      'D3 — Integration /session-end etape 6.5 + README monitor + final checks, puis reprise cycle3 S7.5'
+      'Cycle 3 — S7.5 integration S7 agents dans CONTEXT.md + reprise S8 Commands deep (D-S7-01 audit lineaire). OU housekeeping groupe : F-MON-01 + F-DS3-01 vite@8 + DS-5 CI + DS-6 complet.'
   },
 
   plans: [
@@ -44,19 +44,19 @@ window.MONITOR_DATA = {
     {
       id: 'monitor-dashboard',
       title: 'Monitor Dashboard v1',
-      status: 'WIP',
+      status: 'DONE',
       priority: 'P1',
       path: 'docs/plans/2026-04-08-monitor-dashboard-plan.md',
-      progress: { done: 2, total: 3, unit: 'sessions' },
-      currentPhase: 'D2 en cours (ce fichier + index.html + style.css + render.js)',
+      progress: { done: 3, total: 3, unit: 'sessions' },
+      currentPhase: 'v1 complete — index + style + data + render + README livres, /session-end step 5.5 integre',
       startedAt: '2026-04-08',
       sessions: [
         { id: 'D1', title: 'Spec + plan + pause cycle3', status: 'DONE', date: '2026-04-08' },
-        { id: 'D2', title: 'Skeleton HTML/CSS/JS + data.js init', status: 'WIP', date: '2026-04-09' },
-        { id: 'D3', title: 'README + /session-end step 6.5 + final', status: 'PENDING' }
+        { id: 'D2', title: 'Skeleton HTML/CSS/JS + data.js init', status: 'DONE', date: '2026-04-09' },
+        { id: 'D3', title: 'README + /session-end step 5.5 + close', status: 'DONE', date: '2026-04-09' }
       ],
       notes:
-        'v1 Kevin : meta-OS tool standalone HTML, zero build, reuse modules/design-system/tokens/build/tokens.css. D-MON-01..05.'
+        'v1 Kevin : meta-OS tool standalone HTML, zero build, consomme modules/design-system/tokens/build/tokens.css via chemin relatif. D-MON-01..05. Pattern D1/D2/D3 anti-compactage valide.'
     },
     {
       id: 'cycle3-audit',
@@ -259,10 +259,17 @@ window.MONITOR_DATA = {
   recentSessions: [
     {
       date: '2026-04-09',
-      tag: 'WIP',
-      title: 'DS-2/3/4/6 partial + Monitor D2 skeleton',
+      tag: 'DONE',
+      title: 'D3 — Monitor dashboard close (README + session-end step 5.5)',
       summary:
-        '6 commits : reorg travaux-cowork, F-DS1-01 alpha fix, DS-2 Storybook, DS-3 primitives P1, DS-4 primitives P2, DS-6 partial (app consume tokens.css). 100/100 tests, 0 axe violations. Puis D2 dashboard skeleton (en cours).'
+        'README.md cree (schema + how-to-open + update rules), step 5.5 insere dans /session-end, data.js refresh real D3 update, CONTEXT.md monitor DONE. Pattern D1/D2/D3 anti-compactage valide.'
+    },
+    {
+      date: '2026-04-09',
+      tag: 'DONE_WITH_CONCERNS',
+      title: 'Socle DS acheve (DS-2/3/4/6 partial) + Monitor D2 livre',
+      summary:
+        '7 commits : reorg travaux-cowork, F-DS1-01 alpha fix, DS-2 Storybook, DS-3 primitives P1, DS-4 primitives P2, DS-6 partial (app consume tokens.css), D2 dashboard skeleton (ecb222b). 100/100 tests DS + 19/19 app, 0 axe violations.'
     },
     {
       date: '2026-04-09',
@@ -284,13 +291,6 @@ window.MONITOR_DATA = {
       title: 'Dashboard Monitor D1 — spec + plan + pause cycle3',
       summary:
         'Brainstorm + 5 decisions D-MON-01..05 + 3 commits (spec b15cdc0, plan b05296e, CONTEXT.md pause 17968e2). 374L spec + 1803L plan.'
-    },
-    {
-      date: '2026-04-08',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'Cycle 3 — S6.5 Integration Cowork + D-S7-01 strategique',
-      summary:
-        '9 refs cassees identifiees comme fichiers Kevin Cowork parallele. Integration 3 modules a CONTEXT.md. Decision D-S7-01 : Foundation OS = outil produit, audit lineaire puis fixes bloc.'
     }
   ]
 }
