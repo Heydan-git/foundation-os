@@ -1,0 +1,19 @@
+{
+  "surface": {
+    "flat": {
+      "$value": "{elevation.shadow.none}",
+      "$type": "shadow",
+      "$description": "Sans ombrage (defaut)"
+    },
+    "card": {
+      "$value": "{elevation.shadow.subtle}",
+      "$type": "shadow",
+      "$description": "Card highlight interne Void Glass"
+    },
+    "orbBlur": {
+      "$value": "{elevation.blur.md}",
+      "$type": "dimension",
+      "$description": "Blur radius pour orbs de fond"
+    }
+  }
+}

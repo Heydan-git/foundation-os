@@ -1,0 +1,31 @@
+{
+  "elevation": {
+    "shadow": {
+      "none": {
+        "$value": "none",
+        "$type": "shadow",
+        "$description": "Aucun ombrage"
+      },
+      "subtle": {
+        "$value": "0 1px 0 rgba(255, 255, 255, 0.02) inset",
+        "$type": "shadow",
+        "$description": "Highlight interne discret"
+      }
+    },
+    "blur": {
+      "sm": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "80px",
+        "$type": "dimension",
+        "$description": "Blur orb Void Glass par defaut"
+      },
+      "lg": {
+        "$value": "120px",
+        "$type": "dimension"
+      }
+    }
+  }
+}

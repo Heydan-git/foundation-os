@@ -33,7 +33,7 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - BMAD : dossier _bmad/ (underscore obligatoire)
 
 ## Garde-fous (non-negociable)
-- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore y vivent)
+- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json y vivent — package.json racine = workspace root UNIQUEMENT, pas un projet ; ajoute 2026-04-09 pour npm workspaces + Design System)
 - Ne JAMAIS creer de fichier sans demande explicite de Kevin
 - Ne JAMAIS dupliquer une info qui est deja dans CONTEXT.md
 - Quand un fichier est deplace ou renomme → mettre a jour TOUTES les references (grep + fix)

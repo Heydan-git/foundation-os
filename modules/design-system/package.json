@@ -1,0 +1,26 @@
+{
+  "name": "@foundation-os/design-system",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Foundation OS Design System — Void Glass tokens + primitives",
+  "type": "module",
+  "main": "./tokens/build/tokens.js",
+  "exports": {
+    "./tokens.css": "./tokens/build/tokens.css",
+    "./tokens": "./tokens/build/tokens.js",
+    "./tokens.json": "./tokens/build/tokens.json"
+  },
+  "files": [
+    "tokens/source",
+    "tokens/build",
+    "README.md"
+  ],
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "build": "npm run build:tokens"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.1.4"
+  }
+}

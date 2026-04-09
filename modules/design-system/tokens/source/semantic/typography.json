@@ -1,0 +1,150 @@
+{
+  "typography": {
+    "ui": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily",
+        "$description": "UI default — Figtree"
+      },
+      "size": {
+        "$value": "{font.size.base}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.normal}",
+        "$type": "number"
+      }
+    },
+    "h1": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.3xl}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.extrabold}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.tight}",
+        "$type": "number"
+      }
+    },
+    "h2": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.2xl}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.bold}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.tight}",
+        "$type": "number"
+      }
+    },
+    "h3": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.xl}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.semibold}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.tight}",
+        "$type": "number"
+      }
+    },
+    "body": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.base}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.normal}",
+        "$type": "number"
+      }
+    },
+    "bodySmall": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.sm}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.normal}",
+        "$type": "number"
+      }
+    },
+    "label": {
+      "family": {
+        "$value": "{font.family.sans}",
+        "$type": "fontFamily"
+      },
+      "size": {
+        "$value": "{font.size.xs}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.medium}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.normal}",
+        "$type": "number"
+      }
+    },
+    "code": {
+      "family": {
+        "$value": "{font.family.mono}",
+        "$type": "fontFamily",
+        "$description": "Inline & block code — JetBrains Mono"
+      },
+      "size": {
+        "$value": "{font.size.sm}",
+        "$type": "dimension"
+      },
+      "weight": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight"
+      },
+      "lineHeight": {
+        "$value": "{font.lineHeight.normal}",
+        "$type": "number"
+      }
+    }
+  }
+}

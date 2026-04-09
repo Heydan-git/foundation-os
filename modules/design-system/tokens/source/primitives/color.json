@@ -1,0 +1,71 @@
+{
+  "color": {
+    "palette": {
+      "black": {
+        "$value": "#06070C",
+        "$type": "color",
+        "$description": "Void Glass noir de base (fond)"
+      },
+      "turquoise": {
+        "$value": "#5EEAD4",
+        "$type": "color",
+        "$description": "Turquoise Void Glass (accent brand)"
+      },
+      "blue": {
+        "$value": "#3B82F6",
+        "$type": "color",
+        "$description": "Blue 500 (status WIP, info)"
+      },
+      "amber": {
+        "$value": "#F59E0B",
+        "$type": "color",
+        "$description": "Amber 500 (status paused, warning)"
+      },
+      "violet": {
+        "$value": "#A78BFA",
+        "$type": "color",
+        "$description": "Violet 400 (status parking)"
+      },
+      "white03": {
+        "$value": "rgba(255, 255, 255, 0.03)",
+        "$type": "color",
+        "$description": "White alpha 3% (surfaces)"
+      },
+      "white06": {
+        "$value": "rgba(255, 255, 255, 0.06)",
+        "$type": "color",
+        "$description": "White alpha 6% (borders)"
+      },
+      "white12": {
+        "$value": "rgba(255, 255, 255, 0.12)",
+        "$type": "color",
+        "$description": "White alpha 12% (archived)"
+      },
+      "white42": {
+        "$value": "rgba(255, 255, 255, 0.42)",
+        "$type": "color",
+        "$description": "White alpha 42% (texte secondaire)"
+      },
+      "white88": {
+        "$value": "rgba(255, 255, 255, 0.88)",
+        "$type": "color",
+        "$description": "White alpha 88% (texte principal)"
+      },
+      "turquoiseGlow": {
+        "$value": "rgba(94, 234, 212, 0.09)",
+        "$type": "color",
+        "$description": "Turquoise 9% (orb glow background)"
+      },
+      "violetGlow": {
+        "$value": "rgba(167, 139, 250, 0.09)",
+        "$type": "color",
+        "$description": "Violet 9% (orb glow background)"
+      },
+      "blueGlow": {
+        "$value": "rgba(59, 130, 246, 0.09)",
+        "$type": "color",
+        "$description": "Blue 9% (orb glow background)"
+      }
+    }
+  }
+}

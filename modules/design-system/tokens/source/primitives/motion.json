@@ -1,0 +1,51 @@
+{
+  "time": {
+    "instant": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "fast": {
+      "$value": "150ms",
+      "$type": "duration",
+      "$description": "Hover, focus, micro-interactions"
+    },
+    "base": {
+      "$value": "250ms",
+      "$type": "duration",
+      "$description": "Transitions standard Void Glass"
+    },
+    "slow": {
+      "$value": "400ms",
+      "$type": "duration",
+      "$description": "Modal, drawer, overlay"
+    },
+    "stagger": {
+      "$value": "40ms",
+      "$type": "duration",
+      "$description": "Delay cascade animations"
+    }
+  },
+  "curve": {
+    "linear": {
+      "$value": "linear",
+      "$type": "cubicBezier"
+    },
+    "ease": {
+      "$value": "ease",
+      "$type": "cubicBezier",
+      "$description": "Easing par defaut"
+    },
+    "easeIn": {
+      "$value": "cubic-bezier(0.4, 0, 1, 1)",
+      "$type": "cubicBezier"
+    },
+    "easeOut": {
+      "$value": "cubic-bezier(0, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    },
+    "easeInOut": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    }
+  }
+}

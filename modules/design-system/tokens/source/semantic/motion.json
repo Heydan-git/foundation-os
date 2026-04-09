@@ -1,0 +1,42 @@
+{
+  "motion": {
+    "micro": {
+      "duration": {
+        "$value": "{time.fast}",
+        "$type": "duration",
+        "$description": "Hover, focus, tooltips"
+      },
+      "easing": {
+        "$value": "{curve.easeOut}",
+        "$type": "cubicBezier"
+      }
+    },
+    "transition": {
+      "duration": {
+        "$value": "{time.base}",
+        "$type": "duration",
+        "$description": "Default Void Glass transitions"
+      },
+      "easing": {
+        "$value": "{curve.ease}",
+        "$type": "cubicBezier"
+      }
+    },
+    "modal": {
+      "duration": {
+        "$value": "{time.slow}",
+        "$type": "duration",
+        "$description": "Modal, drawer, overlay enter/exit"
+      },
+      "easing": {
+        "$value": "{curve.easeInOut}",
+        "$type": "cubicBezier"
+      }
+    },
+    "stagger": {
+      "$value": "{time.stagger}",
+      "$type": "duration",
+      "$description": "Cascade delay"
+    }
+  }
+}
