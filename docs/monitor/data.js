@@ -14,7 +14,7 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-09',
-    updatedInSession: 'D3 — README + session-end step 5.5 + monitor v1 close',
+    updatedInSession: 'Reforme communication — format brief v9 + regle questions groupees + CLAUDE.md',
     nextAction:
       'Cycle 3 — S7.5 integration S7 agents dans CONTEXT.md + reprise S8 Commands deep (D-S7-01 audit lineaire). OU housekeeping groupe : F-MON-01 + F-DS3-01 vite@8 + DS-5 CI + DS-6 complet.'
   },
@@ -260,6 +260,13 @@ window.MONITOR_DATA = {
     {
       date: '2026-04-09',
       tag: 'DONE',
+      title: 'Reforme communication — format brief v9 + questions groupees + CLAUDE.md',
+      summary:
+        'Session meta-workflow zero code modules. 2 axes : (1) frontload questions en debut de plan (toutes les questions d un coup puis execution sans interruption sauf imprevus), (2) briefs pedagogiques hierarchises 2 niveaux (clair par defaut + technique sur demande). 9 iterations du format brief negociees avec Kevin avant validation finale v9 = 11 sections (Etat global, Mission/Focus/Derniere session, Modules/Acces rapides/Git, Alertes/Rappels/Questions en attente, Dernier commit, Termine, En cours, En pause, Reflexions/Parking, Decisions cles/Echeance, Prochaine action/Input) + regles rendu (emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres ████░░░░ 12 max, separateurs 32 chars, lignes courtes, vulgarisation glose 3-4 mots). 3 fichiers memoire crees : feedback_frontload_questions + feedback_communication_pedagogique + feedback_brief_format. CLAUDE.md +10L nouvelle section Briefs session (format obligatoire). Zero regression health (DEGRADED baseline 75 refs), build modules/app 757ms, 19/19 tests verts. Piste A/B toujours pending (Kevin a reporte le choix pour finir la reforme com).'
+    },
+    {
+      date: '2026-04-09',
+      tag: 'DONE',
       title: 'D3 — Monitor dashboard close (README + session-end step 5.5)',
       summary:
         'README.md cree (schema + how-to-open + update rules), step 5.5 insere dans /session-end, data.js refresh real D3 update, CONTEXT.md monitor DONE. Pattern D1/D2/D3 anti-compactage valide.'
@@ -284,13 +291,6 @@ window.MONITOR_DATA = {
       title: 'DS-0 Bootstrap cadrage (spec + plan + 10 questions)',
       summary:
         'Brainstorm DS Chromatic-like zero SaaS, 4 decisions D-DS-01..04 validees, web search best practices Storybook 8 + DTCG + monorepo, 3 livrables docs/travaux-cowork/2026-04-08-design-system-bootstrap/.'
-    },
-    {
-      date: '2026-04-08',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'Dashboard Monitor D1 — spec + plan + pause cycle3',
-      summary:
-        'Brainstorm + 5 decisions D-MON-01..05 + 3 commits (spec b15cdc0, plan b05296e, CONTEXT.md pause 17968e2). 374L spec + 1803L plan.'
     }
   ]
 }
