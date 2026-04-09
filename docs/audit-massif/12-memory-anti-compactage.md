@@ -1,11 +1,12 @@
 # Cycle 3 — S12 Memoire (4 tiers) + anti-compactage
 
-> **Status** : DRAFT phase A (S12a) — tests reels phase B PENDING
+> **Status** : DONE 2026-04-09 (phase a lecture + phase b tests reels)
 > **Mode** : MOI strict (12e session consecutive S2-S12)
 > **Scope** : 4 tiers memoire (Session / Contexte / Reference / Auto-memory), procedure anti-compactage, doublons cross-files
-> **Branche** : `audit-massif-cycle3` | **Baseline** : DEGRADED 84 refs cassees (zero drift depuis session-start)
+> **Branche** : `audit-massif-cycle3` | **Baseline** : DEGRADED 84 refs cassees (zero drift session-start → S12a → S12b)
 > **Cross-refs** : SUGG-11 memory tier audit (reel vs theorie), ferme PHASE V (S11+S12)
 > **Pre-session note** : commit `d959213 docs(audit): s07 recup livrable orphelin` effectue pre-S12 pour eliminer anomalie 07-agents.md working tree non-committe depuis 2026-04-08 (couple d4fc729 "S7.5 integration" avait update CONTEXT.md seul)
+> **Commits** : `2190988 docs(audit): s12a lecture 4 tiers + anti-compactage + doublons -- draft findings` (phase A, 466L draft) + `<S12b>` (phase B final)
 
 ## 1. Objectif
 
@@ -24,7 +25,7 @@ Decoupage 2 phases pattern S9/S10/S11 valide :
 | Phase | Scope | Status |
 |-------|-------|--------|
 | A | Lecture 4 tiers + procedure reprise + cross-files + draft findings | DONE |
-| B | Tests reels (T1 verif MEMORY.md + T2 grep doublons + T3 reprise scenarisee + T4 commits factuels) + final | PENDING |
+| B | Tests reels (T1 verif MEMORY.md + T2 grep doublons + T3 reprise scenarisee + T4 commits factuels) + final | DONE |
 
 Mode MOI strict (12e consecutive S2-S12, imperatif CLAUDE.md applique). Zero sub-agent invoque (feedback_subagents_context.md : audit memoire = contexte global necessaire, 100% MOI). Strict D-S7-01 audit lineaire : zero fix opportuniste, meme sur P1, tout batch S21.
 
@@ -318,17 +319,113 @@ Scenario : "la conversation est compactee au debut de S12. Je n'ai que les fichi
 
 **Regle d'or memory.md:49** : "Une information ne vit que dans UN tier. Pas de duplication entre CONTEXT.md et docs/." **Soft violation observee** sur D2/D3/D8/D9 (duplication dans un meme tier reference), hard violation sur D5/D6/D7 (stale conflicte avec verite).
 
-## 7. Phase B — Tests reels
+## 7. Phase B — Tests reels (executes S12b)
 
-> **Status** : PENDING (sera execute en S12b)
+### 7.1 T1 — Verification MEMORY.md ↔ fichiers (integrite)
 
-Plan :
-- **T1** : Verification programmatique MEMORY.md ↔ fichiers (`ls memory/` + diff avec MEMORY.md entries)
-- **T2** : Grep mecanique cross-files sur strings precis (ex : stack, 4 agents, `audit(sNN):` vs `docs(audit):`)
-- **T3** : Scenario reprise — ouvrir freshement CONTEXT.md + master file + 00-INDEX et comparer les 3 "next action" pointees. Verifier divergence/coherence.
-- **T4** : Verification factuelle des 3 derniers commits (pattern + contenu + longueur + lien livrable)
+```bash
+ls ~/.claude/projects/-Users-kevinnoel-foundation-os/memory/*.md \
+  | xargs -n1 basename | sort > /tmp/memory_files.txt
+grep -oE '\([a-z_]+\.md\)' MEMORY.md | tr -d '()' | sort > /tmp/memory_pointed.txt
+comm -3 <(grep -v '^MEMORY.md$' memory_files.txt) memory_pointed.txt
+```
 
-Nouveaux findings attendus : amplification typique 0-20% pattern S9 (+5.5%) / S11 (+14.3%) selon L-S11-06 (type artefact mixte declaratif + mecanique → ~10-15%).
+**Resultat** :
+- 10 fichiers `.md` sur disque (hors MEMORY.md index)
+- 10 fichiers pointes dans MEMORY.md
+- `comm -3` output = **vide**
+- **Verdict** : **100% coherent, zero drift, zero orphelin, zero manquant**
+- Confirmation directe de l'observation 4.4.1 phase A
+
+### 7.2 T2 — Grep mecaniques cross-files
+
+**Duplication factuelle par string critique** :
+
+```bash
+grep -rn "os-architect.*dev-agent.*doc-agent.*review-agent" \
+  --include="*.md" . | grep -v "worktrees\|archive" | wc -l
+```
+**Resultat** : **19 fichiers Foundation OS actifs** referencent la liste des 4 agents (vs ~8 estime phase A — **sous-estime**). Inclut ~8 livrables audit cycle3 (legitime car audit des agents en discussion) + ~11 autres (doc/plan/spec = dette cognitive confirmee).
+
+```bash
+grep -l "Vite + React + TypeScript" CLAUDE.md README.md docs/architecture.md \
+  docs/manifeste.md .claude/agents/dev-agent.md
+```
+**Resultat** : **4 fichiers Foundation actifs hors audit** (CLAUDE.md + README.md + architecture.md + dev-agent.md) — **sur-estime phase A** (6 → 4). manifeste.md ne contient pas la formule complete. Correction positive : duplication reelle moins grave que suspecte.
+
+**Drift commit format quantifie** :
+
+```bash
+grep -n "audit(s[0-9]" docs/plans/2026-04-07-audit-massif-final.md \
+  docs/plans/2026-04-07-cycle3-implementation.md
+# 16 lignes : 6 dans master file (L293, L336-338, L388) + 10+ dans cycle3-implementation.md
+git log --oneline -20 | grep -c "docs(audit)"
+# 10 commits sur 20 derniers = 50% des commits recents
+```
+
+**Ratio drift** : **16 occurrences stales spec** `audit(sNN):` vs **10 occurrences runtime** `docs(audit):` dans git log -20. Ratio 16:10 = **1.6x mensonge documentaire par rapport au runtime**. Drift massif confirme (**F-S12-21 NEW phase B** promue quantification chiffree).
+
+### 7.3 T3 — Scenario reprise freshe (test mental scenarise factuel)
+
+**Simulation** : "un nouveau Claude prend le flambeau, suit la procedure reprise spec section 4, sans connaissance prealable."
+
+| Source consultee | "Prochaine session non DONE" pointee | Divergence |
+|------------------|--------------------------------------|------------|
+| **SOURCE 1 CONTEXT.md section "Prochaine action"** | **S12 Memoire + anti-compactage** | VRAI (verifiable) |
+| **SOURCE 2 master file section 6 Live tracking** | **S0 (premier PENDING dans la table)** car TOUS sont PENDING | **FAUX** — 12 sessions de retard |
+| **SOURCE 3 00-INDEX.md status header** | **S5 Workflows routing** car header dit "S5 PENDING" | **FAUX** — 7 sessions de retard |
+
+**3 sources, 3 reponses differentes** : S0 (master file) / S5 (00-INDEX) / S12 (CONTEXT.md reel).
+
+Si le nouveau Claude suit la procedure spec dans l'ordre (1 CLAUDE.md → 2 CONTEXT.md → 3 master file en integralite → 4 section 6 live tracking → 5 00-INDEX), le 3e + 4e + 5e entry l'inducent en erreur **par autorite factuelle** (tables explicites avec colonne "Status" PENDING) apres qu'il ait deja vu la verite en etape 2 (CONTEXT.md). **Conflit cognitif garanti** : soit il trust CONTEXT.md et ignore les 3 sources officielles, soit il trust les sources officielles et refait 7-12 sessions deja faites.
+
+**F-S12-20 NEW phase B** — Demonstration empirique de F-S12-03 P1 : la procedure spec est **factuellement brisée** au test reel, pas seulement theoriquement.
+
+**Cross-ref M-S11-01 AMPLIFIE live** : passage du finding F-S12-03 de **theorique phase A** (observation des sections stales) a **empirique phase B** (3 sources divergent sur la meme question, conflit cognitif reproductible). **Meme mecanisme d'amplification que S11 : phase A = analyse statique, phase B = blocage / divergence observable**.
+
+### 7.4 T4 — Verification 3 derniers commits factuels
+
+```bash
+git log --oneline -5
+```
+
+```
+2190988 docs(audit): s12a lecture 4 tiers + anti-compactage + doublons -- draft findings
+d959213 docs(audit): s07 recup livrable orphelin (integration S7.5)
+7189b90 docs(context): session-end 2026-04-09 — S11 comm + securite (2 commits)
+969c181 docs(audit): s11 comm + securite + tests reels (phase b final)
+b66b003 docs(audit): s11a lecture + comm/securite -- draft findings + live meta-finding
+```
+
+| Commit | Type | Format header | Body structure | Scope liens | Verdict |
+|--------|------|---------------|----------------|-------------|---------|
+| 2190988 | docs(audit) | `s12a lecture 4 tiers + anti-compactage + doublons -- draft findings` | body 10L+ bullets factuels | `-- draft findings` suffix implicite pattern phase A | **factuel OK** |
+| d959213 | docs(audit) | `s07 recup livrable orphelin (integration S7.5)` | body 7L explication anomalie | pointeur cross-ref d4fc729 | **factuel OK** |
+| 7189b90 | **docs(context)** | session-end S11 — 2 commits | body long | CONTEXT.md update | **factuel OK** (type different mais legit /session-end) |
+| 969c181 | docs(audit) | `s11 comm + securite + tests reels (phase b final)` | body long | `(phase b final)` suffix pattern phase B | **factuel OK** |
+| b66b003 | docs(audit) | `s11a lecture + comm/securite -- draft findings + live meta-finding` | body long | `-- draft findings + live meta-finding` suffix | **factuel OK** |
+
+**Observations** :
+- Pattern `docs(audit): sXX[a] <scope> [-- draft findings|(phase b final)]` stable sur **4/5 commits** (excepting 7189b90 qui est un `docs(context):` legitime pour /session-end).
+- Conventions **implicites non documentees** :
+  - Suffix `-- draft findings` pour commits phase A (S9a, S10a, S11a, S12a)
+  - Suffix `(phase b final)` pour commits phase B (S11b = 969c181 seul observe jusqu'ici)
+  - Scope `s<NN>[a]` avec `a` optionnel pour phase A
+- **F-S12-21 NEW phase B** : pattern emergent S9-S12 stable mais **absent de la spec commit** `.claude/commands/session-end.md` + `docs/plans/2026-04-07-audit-massif-final.md` section 3.8 → redondance avec F-S11-16 (convention commits audit non documentee).
+- Baseline verifiee : 0/5 commits utilisent le format spec `audit(sNN):`. **100% runtime drift vs spec**.
+
+### 7.5 Resultat phase B — recap
+
+| Test | Resultat | Impact findings |
+|------|----------|-----------------|
+| T1 MEMORY.md integrite | 100% coherent, zero drift | Confirme 4.4.1 phase A, aucun new finding |
+| T2 grep doublons stack | 4 fichiers (vs 6 estime) | Correction positive F-S12-15 |
+| T2 grep doublons agents | 19 fichiers (vs 8 estime) | Correction negative F-S12-16 |
+| T2 drift commit format | 16 stale / 10 runtime (ratio 1.6:1) | **F-S12-21 NEW quantification** |
+| T3 reprise scenarise | 3 sources, 3 reponses differentes (S0/S5/S12) | **F-S12-20 NEW demo empirique** (amplifie F-S12-03 P1) |
+| T4 commits factuels | 4/5 pattern `docs(audit):` conforme, conventions implicites | **F-S12-22 NEW convention pattern phase A/B non documentee** |
+
+**Amplification phase A → phase B** : **20 findings → 23 findings = +15%** (3 nouveaux + 2 corrections taille D2/D3 sans ajout/retrait). Conforme prediction L-S11-06 (type mix declaratif + mecanique → 10-20%), proche S11 (+14.3%). Confirme L-S12-05.
 
 ## 8. Findings
 
@@ -355,13 +452,18 @@ Nouveaux findings attendus : amplification typique 0-20% pattern S9 (+5.5%) / S1
 | **F-S12-17** | **P3** | Outils/Tools info dupliquee dans 5 sources (CLAUDE.md + docs/core/tools.md + docs/tools-audit.md + memory/tools_inventory.md + CONTEXT.md) | D8 matrice | batch S21 : choisir source + pointeurs |
 | **F-S12-18** | **P3** | Structure projet racine dupliquee dans 4 sources dont 1 stale (memory/project_structure.md) | D9 matrice + F-S12-07 | batch S21 : couple avec F-S12-07 |
 | **F-S12-19** | **P3** | `docs/audit-massif/00-INDEX.md:5` "Derniere maj 2026-04-08" absent de mechanism update automatique (aucun hook ni /session-end step n'update ce fichier) | 00-INDEX.md L5 + session-end.md | batch S21 : soit ajouter step session-end soit supprimer |
-| **M-S12-01** | **META** | **Paradoxe auto-reference anti-compactage** : les fichiers "points de reprise officiels" (master file + 00-INDEX) sont abandonnes apres 7 sessions, tandis que CONTEXT.md est devenu de facto le seul tiers operationnel. **La spec anti-compactage elle-meme est victime du drift qu'elle devait prevenir** → **M-S12-01 = 8e occurrence meta cycle 3** apres M-S6-01/M-S7-01/M-S8-01/M-S9-xx/M-S10-01/M-S10-02/M-S11-01. Polarity = **negative** (pattern auto-reference oppose a M-S10-02 positive). | transversal | batch S21 : note meta + proposition refacto "CONTEXT.md = unique tier operationnel, master file = archive preparatoire only" |
+| **F-S12-20** | **P1** | **Phase B demo empirique F-S12-03** : 3 sources officielles ("CONTEXT.md", "master file section 6", "00-INDEX.md") pointent vers **3 "prochaines sessions" differentes** (S12 vs S0 vs S5) au test de reprise scenarisee factuel. Conflit cognitif reproductible : si le Claude frais suit la procedure spec dans l'ordre, il lit la verite en etape 2 puis la contradit en etapes 3-5 par data stale a autorite factuelle explicite. **Amplification M-S11-01 pattern** : passage du finding de theorique (inspection stale phase A) a empirique (divergence reproductible phase B). | T3 phase B test reel | batch S21 : promotion F-S12-03 P1 evidence directe |
+| **F-S12-21** | **P2** | **Phase B quantification F-S12-09 commit drift** : **16 occurrences stales** spec commit format `audit(sNN):` dans `docs/plans/2026-04-07-audit-massif-final.md` (6 lignes L293+L336-338+L388) + `docs/plans/2026-04-07-cycle3-implementation.md` (10+ lignes L243, L258, L373, L433, L481, L522, L574, L626, L666, L705, etc.) vs **10 commits runtime** `docs(audit):` dans `git log -20` = ratio drift/runtime **1.6:1** = **100% des 16 occurrences spec sont mensonges** par rapport au runtime observe. Escalade possible F-S12-09 P2 → P1 car **evidence chiffree massive**. | T2 phase B grep | batch S21 : triple fix spec (master file 3 lignes + cycle3-implementation 10+ lignes + section 3.8 strategy) |
+| **F-S12-22** | **P3** | **Phase B convention commit phase A/B non documentee** : pattern emergent sur 5 commits S9-S12 `docs(audit): sXX[a] <scope> [-- draft findings\|(phase b final)]` stable mais **absent de toute spec Foundation** (`.claude/commands/session-end.md` + `docs/plans/2026-04-07-audit-massif-final.md` section 3.8). Redondance avec F-S11-16 (convention commits audit non-documentee) — pattern a **5 occurrences** cycle 3 renforce la dette. | T4 phase B git log | batch S21 : couple D-S11-15 documenter convention complete phase A/B suffix |
+| **M-S12-01** | **META** | **Paradoxe auto-reference anti-compactage** : les fichiers "points de reprise officiels" (master file + 00-INDEX) sont abandonnes apres 7 sessions, tandis que CONTEXT.md est devenu de facto le seul tiers operationnel. **La spec anti-compactage elle-meme est victime du drift qu'elle devait prevenir**. **Phase B amplifie le finding** : test de reprise scenarise (T3) demontre empiriquement que les 3 sources officielles donnent 3 reponses differentes a la meme question "quelle est la prochaine session non DONE ?". **M-S12-01 = 8e occurrence meta cycle 3** apres M-S6-01/M-S7-01/M-S8-01/M-S9-xx/M-S10-01/M-S10-02/M-S11-01. Polarity = **negative** (pattern auto-reference oppose a M-S10-02 positive). **Phase A = theorique, Phase B = empirique** (meme passage que M-S11-01). | transversal | batch S21 : note meta + proposition refacto "CONTEXT.md = unique tier operationnel, master file = archive preparatoire only" |
 
-**Total phase A draft : 19 findings + 1 meta = 20 total** (**4 P1 + 7 P2 + 8 P3 + 1 meta**).
+**Total phase A draft : 20 (dont 1 meta)** → **Total phase B final : 23 findings (dont 1 meta AMPLIFIE)** = **5 P1 + 8 P2 + 9 P3 + 1 meta**.
 
-**Note** : les 4 P1 sont tous **documentaires** (pas de code casse, pas de regression runtime). Ils touchent la **procedure de reprise cognitive** apres compactage. Severite elevee justifiee car le theme de la session S12 est precisement **anti-compactage** — si la procedure est brisee, la session S12 revele une dette critique.
+**Amplification phase A → B : +15%** (20 → 23), conforme prediction L-S11-06 + L-S12-05 (mix declaratif + mecanique ~10-20%).
 
-**Contraintes strict D-S7-01** : **aucun fix opportuniste**, meme sur les 4 P1. Tout batch S21.
+**Note** : les 5 P1 sont tous **documentaires** (pas de code casse, pas de regression runtime). Ils touchent la **procedure de reprise cognitive** apres compactage. Severite elevee justifiee car le theme de la session S12 est precisement **anti-compactage** — si la procedure est brisee, la session S12 revele une dette critique. **F-S12-20 NEW phase B = evidence directe reproductible de F-S12-03 theorique** (pattern amplification S11 M-S11-01 live demo re-observe).
+
+**Contraintes strict D-S7-01** : **aucun fix opportuniste**, meme sur les 5 P1. Tout batch S21.
 
 ### 8.2 Observations positives
 
@@ -377,9 +479,7 @@ Nouveaux findings attendus : amplification typique 0-20% pattern S9 (+5.5%) / S1
 
 ## 9. Decisions
 
-> A completer en phase B (une decision par finding ou merge avec batches existants).
-
-Preview strict D-S7-01 :
+Strict D-S7-01 (couple D-S12-01..23) :
 
 - **D-S12-01** : F-S12-01 P1 fix master file section 6 → batch S21 housekeeping (option A update lines OR option B supprimer + pointer CONTEXT.md, choix Kevin en S19)
 - **D-S12-02** : F-S12-02 P1 fix 00-INDEX.md → batch S21 (couple D-S12-01, meme decision scope)
@@ -397,12 +497,11 @@ Preview strict D-S7-01 :
 - **D-S12-18** : F-S12-18 P3 couple F-S12-07 → batch S21
 - **D-S12-19** : F-S12-19 P3 soit ajouter step session-end update 00-INDEX.md soit supprimer 00-INDEX.md (choix architectural) → batch S21
 - **D-S12-20 META** : M-S12-01 integrer library meta-patterns cycle 3 comme **8e occurrence structurelle** → no action direct, input S19 synthese + rapport final S23
+- **D-S12-21 NEW phase B** : F-S12-20 P1 phase B demo empirique T3 scenarise — **promotion F-S12-03 P1 evidence directe reproductible** (pattern amplification M-S11-01 live). Batch S21 fix master file + 00-INDEX OR supprimer les 2 tables stales avec pointeur CONTEXT.md (proposition refacto forte).
+- **D-S12-22 NEW phase B** : F-S12-21 P2 quantification drift 16:10 commit format spec vs runtime — escalation consideree P2 → P1 si non fix S21. Couple D-S8-12 + D-S9-09 retract + D-S11-15 documenter + **4e cross-ref session consecutive** (S8, S9, S11, S12). Batch S21 : triple fix spec (master file 3 lignes + cycle3-implementation 10+ lignes + section 3.8).
+- **D-S12-23 NEW phase B** : F-S12-22 P3 convention commit phase A/B non documentee pattern emergent 5 commits S9-S12 — couple D-S11-15 (documenter convention complete), batch S21 : ajouter a `.claude/commands/session-end.md` ou section 3.8 master file. Pattern observe : `docs(audit): s<NN>[a] <scope> [-- draft findings | (phase b final)]`.
 
 ## 10. Learnings
-
-> A completer en phase B.
-
-Preview :
 
 - **L-S12-01** : **La spec anti-compactage est elle-meme sujette au compactage**. Apres 11 sessions d'audit consecutives, les fichiers cens etre "point de reprise officiel" (master file + 00-INDEX) ont drifte de 7-12 sessions sans que personne s'en apercoive. Parce qu'ils n'ont pas de mecanisme update automatique (`/session-end` update CONTEXT.md + CHANGELOG implicite via git log, mais PAS ces 2 fichiers). **Regle emergente** : **une spec anti-drift sans update automatique est une spec auto-drift**. Mecanisme obligatoire = hook session-end OR pre-commit OR suppression du besoin (tier unique CONTEXT.md).
 
@@ -416,7 +515,11 @@ Preview :
 
 - **L-S12-06** : **Le pattern "pointeur propre" fonctionne** (D1/D10/D11). Quand CLAUDE.md dit "source unique : docs/core/memory.md" et que ce fichier est maintenu, la duplication est evitee. **Regle emergente** : appliquer systematiquement le pattern pointeur pour toute info qui apparait en 2+ fichiers.
 
-- **L-S12-07 (a valider phase B)** : placeholder pour learning nouveau decouvert en phase B tests reels.
+- **L-S12-07 NEW phase B** : **Pattern amplification theorique → empirique via test scenarise reproductible**. F-S12-03 phase A = observation statique de sections stales (master file + 00-INDEX). F-S12-20 phase B = test mental scenarise factuel (3 sources → 3 reponses differentes pour la meme question). Meme mecanisme que **M-S11-01 live demo** (phase A = inspection des patterns security, phase B = blocage reel du Write par le hook). **Regle emergente** : pour tout finding P1 declaratif/documentaire suspect, phase B doit inclure un test scenarise factuel qui force la contradiction visible. Amplification phase B est **conditionnelle a la scenarisation** (si on lit juste statique phase B, on n'ajoute pas de findings).
+
+- **L-S12-08 NEW phase B** : **CONTEXT.md = tier operationnel unique de fait** (non de droit). Empirique via `.omc/project-memory.json` hot paths = 284 acces vs CLAUDE.md 27 vs docs/core/tools.md 18 = ratio 10:1. Phase B confirme : les 3 autres tiers (docs/core/* + auto-memory + master file) sont **lus moins souvent** et **updates moins souvent**. Regle emergente : quand un systeme multi-tiers a un tier tellement dominant (ratio 10:1+), les autres tiers sont **soft-dead** meme s'ils ne sont pas officiellement abandonnes. **Proposition meta** : accepter cette realite dans la spec (refacto `docs/core/memory.md` pour reconnaitre CONTEXT.md = unique source operationnelle, le reste = archive/spec/auto).
+
+- **L-S12-09 NEW phase B** : **Convention implicite stable 5 commits = convention reelle** (pattern `docs(audit): sXX[a] <scope> [-- draft findings|(phase b final)]`). Cinq commits consecutifs S9-S12 sans derive = pattern stable. La meme regle `feedback_*.md` qui formalise les feedbacks Kevin s'applique aux conventions emergentes : **une convention observee 3+ fois consecutives devrait etre documentee** (sinon elle reste fragile et nouveau contributeur ne peut pas la reproduire).
 
 ## 11. Cross-references S1-S12
 
@@ -451,16 +554,23 @@ Preview :
 
 ## 13. Prochaine session
 
-**S12b — Phase B tests reels + final livrable + commit**
+**S12 termine PHASE V** (Comm S11 + Memoire S12). Cycle 3 : 12/24 sessions DONE (50%), 12/24 restantes (S13-S23 + fixes batches).
 
-Tests prevus (4 invocations non-destructives) :
-1. **T1** : `ls memory/ | diff MEMORY.md entries` — verification 100% integrite (attendu : coherent, deja observe phase A)
-2. **T2** : Greps mecaniques cross-files (stack, 4 agents, tools inventory pattern, commit format drift)
-3. **T3** : Test mental reprise scenarise — ouvrir master file + 00-INDEX + CONTEXT.md, noter les 3 "next action" et verifier divergence factuellement
-4. **T4** : Verification 3 derniers commits factuels (pattern `docs(audit):` + longueur message + lien livrable)
+**Options pour la suite** :
 
-Nouveaux findings attendus : amplification typique 10-20% (L-S12-05 pattern mix declaratif + mecanique).
+- **A. S13 Module App Builder deep** (13e consecutive, debute PHASE VI module-specifique). Scope : modules/app/ code audit (components, pages, forms, lib, test, data). Plan cycle3 section S13. Mode MIX possible (sub-agents ciblees sur lecture parallele dossiers isoles UI : forms/, Commander/) car **zones de code independantes sans contexte cross-cutting**, conforme feedback_subagents_context.md (S13 marque MIX dans plan cycle3).
 
-Puis **S13 Module App Builder deep** (13e session consecutive si poursuivie, debute PHASE VI) OU **pause strategique + housekeeping batch S21** (~60 fixes cumulees S7-S12) selon decision Kevin.
+- **B. Pause strategique + housekeeping batch S21** (~43 fixes cumulees sessions audit S7-S12) :
+  - S7 ~8 : agents documentation asymetrique, jargon, cross-refs
+  - S8 ~11 : commands divergence briefs, double-source sync.md, templates
+  - S9 ~13 : scripts+hooks dont F-S9-01 P1 cause racine F-MON-01 (fix trivial 2 lignes regex)
+  - S10 ~2 : skills housekeeping (pointeur CLAUDE.md outils dormants + update docs/tools-audit.md)
+  - S11 ~6 : settings.json paths + gitignore defensif + format agents + commits dev-agent + env duplication + JWT placeholder
+  - **S12 ~4 nouveaux P1 documentaires** : master file section 6 stale + 00-INDEX.md stale + procedure reprise section 4 cassee + mitigations anti-compactage abandonnees
+  - Effort estime 2-3 sessions housekeeping lineaire. **Avec S12 4 P1 documentaires, potentiel fix housekeeping rapide 1 session si groupage intelligent**.
 
-**Commit final S12b prevu** : `docs(audit): s12 memoire + anti-compactage + tests reels (phase b final)`
+- **C. Pause totale strategique** apres 12 sessions audit consecutives mode MOI strict (fatigue contextuelle, meta-audit revelation auto-reference negative sur master file). Decision Kevin.
+
+**Commit final S12b** : `docs(audit): s12 memoire + anti-compactage + tests reels (phase b final)`
+
+**Meta-observation cloture** : S12 revele que **le systeme anti-compactage est lui-meme la plus grande dette documentaire** de Foundation OS. C'est l'un des rares cas ou la session d'audit decouvre que **le theme de la session est lui-meme defaillant**. Proposition possible : **refacto complet tier 2 (CONTEXT.md = seul operationnel reconnu) + tier 3 (docs/ reference stable) + tier 4 (auto-memory natif)** avec abandon officiel des fichiers master file + 00-INDEX comme point de reprise (conserver comme archive preparatoire seulement). A trancher par Kevin au moment du rapport final S23 ou en housekeeping S21.
