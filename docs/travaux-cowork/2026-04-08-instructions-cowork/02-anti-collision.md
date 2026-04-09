@@ -1,7 +1,7 @@
 # Cowork ↔ Claude Code CLI — Protocole anti-collision
 
 > 🎯 Empêcher les deux têtes (Cowork desktop et Claude Code CLI) de se marcher dessus sur le même repo `foundation-os/`.
-> 🔗 Document jumeau : `docs/cowork/project-instructions.md` (§5 renvoie ici).
+> 🔗 Document jumeau : `docs/travaux-cowork/2026-04-08-instructions-cowork/01-project-instructions.md` (§5 renvoie ici).
 > 🛠️ Outil associé : `scripts/session-lock.sh`.
 
 ---
@@ -34,7 +34,7 @@ En production : 1 + 2 + 3 + 4 + 5 suffisent. 6 + 7 si on observe des collisions 
 | `modules/app/src/**` (code prod) | CLI | 🚫 sauf demande explicite Kévin | ✅ |
 | `CONTEXT.md` | partagé | ✅ avec verrou | ✅ avec verrou |
 | `docs/core/*` | partagé | 🟡 lecture, écriture sur demande | ✅ |
-| `docs/cowork/*` | partagé | ✅ | ✅ |
+| `docs/travaux-cowork/**` | partagé | ✅ | ✅ |
 | `docs/specs/`, `docs/plans/`, `docs/audit-massif/` | partagé | ✅ livrables | ✅ livrables |
 | `modules/app/data/*.md` (MD pairs) | partagé | ✅ | ✅ |
 | `.archive/artifacts-jsx/*` | gelé | 🟡 read | 🟡 read |
@@ -163,7 +163,7 @@ bash scripts/session-lock.sh release cli
 ## 8. 📎 Références
 
 - 🔧 `scripts/session-lock.sh` — implémentation
-- 📜 `docs/cowork/project-instructions.md` — instructions Cowork (renvoie ici §5)
+- 📜 `docs/travaux-cowork/2026-04-08-instructions-cowork/01-project-instructions.md` — instructions Cowork (renvoie ici §5)
 - 📜 `CLAUDE.md` — règles CLI miroir
 - 📌 `CONTEXT.md` — état courant
 - 🧠 `docs/core/cortex.md`, `memory.md`, `monitor.md`, `tools.md` — specs Core OS

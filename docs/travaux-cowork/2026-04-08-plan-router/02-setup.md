@@ -1,7 +1,7 @@
 # Plan-Router — Setup pas a pas
 
 > Date : 2026-04-08
-> Spec source : `docs/plan-router/01-spec.md` (lecture obligatoire avant)
+> Spec source : `docs/travaux-cowork/2026-04-08-plan-router/01-spec.md` (lecture obligatoire avant)
 > Statut : PROPOSITION (pending validation Kevin)
 > Mode d'execution : Claude Code CLI (PAS Cowork — Cowork ne touche pas au code)
 
@@ -25,7 +25,7 @@ plan MD annote  --(plan-router.sh next)-->  dispatch table  --(Kevin /model X)--
 
 ## Pre-conditions
 
-- [ ] Spec `docs/plan-router/01-spec.md` lue et validee par Kevin
+- [ ] Spec `docs/travaux-cowork/2026-04-08-plan-router/01-spec.md` lue et validee par Kevin
 - [ ] Branche dediee creee : `feat-plan-router`
 - [ ] Baseline saine : `bash scripts/health-check.sh` = SAIN
 - [ ] CONTEXT.md a jour (derniere session DONE)
@@ -43,7 +43,7 @@ estimated_tokens: 3000
 rationale: lecture spec + retours Kevin, aucune ecriture
 -->
 
-- [ ] Step 1.1 : Kevin lit `docs/plan-router/01-spec.md`
+- [ ] Step 1.1 : Kevin lit `docs/travaux-cowork/2026-04-08-plan-router/01-spec.md`
 - [ ] Step 1.2 : Kevin tranche les 6 questions ouvertes section 12 de la spec
 - [ ] Step 1.3 : Si modifs spec → editer la spec (NE PAS executer Phase 2 avant)
 - [ ] Gate : Kevin dit "go phase 2"
@@ -89,7 +89,7 @@ rationale: ~150L bash, parser + dispatch + log + --help
 - [ ] Step 3.2 : Tests bash manuels :
   - `bash -n scripts/plan-router.sh` (syntax)
   - `bash scripts/plan-router.sh --help`
-  - `bash scripts/plan-router.sh next docs/plan-router/02-setup.md` (dogfood : doit retourner Phase 1 SCAN haiku)
+  - `bash scripts/plan-router.sh next docs/travaux-cowork/2026-04-08-plan-router/02-setup.md` (dogfood : doit retourner Phase 1 SCAN haiku)
 - [ ] Step 3.3 : `chmod +x scripts/plan-router.sh`
 - [ ] Step 3.4 : Ajouter `scripts/.token-budget.log` au `.gitignore` ? OU le tracker pour calibration partagee ? → trancher en Phase 2
 - [ ] Step 3.5 : Verifier health-check toujours SAIN
@@ -195,7 +195,7 @@ rationale: lecture log + ajustement catalogue
 - [ ] `bash scripts/health-check.sh` → SAIN
 - [ ] `bash scripts/sync-check.sh` → SAIN
 - [ ] `bash scripts/ref-checker.sh` → 0 ref cassee
-- [ ] `bash scripts/plan-router.sh next docs/plan-router/02-setup.md` → retourne dispatch coherent
+- [ ] `bash scripts/plan-router.sh next docs/travaux-cowork/2026-04-08-plan-router/02-setup.md` → retourne dispatch coherent
 - [ ] CONTEXT.md a jour (decisions D-PR-01..06 + module Plan-Router)
 - [ ] Aucun fichier a la racine
 - [ ] 4 agents ont un `model:` frontmatter
@@ -229,7 +229,7 @@ rationale: lecture log + ajustement catalogue
 
 ## References
 
-- Spec : `docs/plan-router/01-spec.md`
+- Spec : `docs/travaux-cowork/2026-04-08-plan-router/01-spec.md`
 - Cortex : `docs/core/cortex.md`
 - Tools : `docs/core/tools.md`
 - Sub-agents docs Claude Code : https://code.claude.com/docs/en/sub-agents

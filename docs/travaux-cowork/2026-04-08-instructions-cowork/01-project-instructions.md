@@ -3,7 +3,7 @@
 > 📍 **Destination** : Claude Desktop → Cowork → Settings du projet "🪐 FoundationOS" → champ Instructions.
 > 🎯 **But** : faire travailler Cowork et Claude Code sur le **même** Foundation OS, avec les **mêmes règles**, sans **jamais** se marcher dessus.
 > 🔁 **Jumeau** côté CLI : `CLAUDE.md` à la racine du repo. Les deux fichiers sont tenus iso — voir §10 "Sync des deux têtes".
-> 🔐 **Anti-collision** : protocole détaillé dans `docs/cowork/anti-collision.md`.
+> 🔐 **Anti-collision** : protocole détaillé dans `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md`.
 
 ---
 
@@ -41,7 +41,7 @@ Foundation OS a **4 tiers** (spec : `docs/core/memory.md`). Cowork et Claude Cod
 |---|---|---|---|
 | 🔥 Session | Conversation en cours | Cowork **ou** Claude Code (jamais les deux en parallèle) | volatile |
 | 📌 Contexte | `CONTEXT.md` à la racine du repo | la tête active en cours de session (verrou §5) | permanent |
-| 📚 Référence | `docs/` (dont `docs/core/`, `docs/cowork/`) | celui qui fait le changement fondamental | permanent |
+| 📚 Référence | `docs/` (dont `docs/core/`, `docs/travaux-cowork/`) | celui qui fait le changement fondamental | permanent |
 | 🗃️ Auto-memory | `/sessions/…/.auto-memory/` (Cowork) **ET** `~/.claude/…/memory/` (CLI) | chaque tête gère la sienne | permanent |
 
 🔑 **Règle d'or** : une information ne vit **que dans un seul tier**. Pas de duplication.
@@ -56,14 +56,14 @@ Foundation OS a **4 tiers** (spec : `docs/core/memory.md`). Cowork et Claude Cod
 
 ## 🏗️ 4. Architecture — qui fait quoi entre Cowork et Claude Code
 
-Vue résumée. **Table complète + règles d'arbitrage** : `docs/cowork/anti-collision.md` §2.
+Vue résumée. **Table complète + règles d'arbitrage** : `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md` §2.
 
 | Zone | Cowork | Claude Code CLI |
 |---|---|---|
 | `.claude/`, `scripts/*.sh`, `CLAUDE.md`, Git | 🚫 read-only / exec | ✅ propriétaire |
 | `modules/app/src/**` (code prod) | 🚫 sauf demande Kévin | ✅ propriétaire |
 | `CONTEXT.md`, `docs/core/*` | ✅ avec verrou | ✅ avec verrou |
-| `docs/cowork/*`, `docs/specs/`, `docs/plans/`, `docs/audit-massif/` | ✅ | ✅ |
+| `docs/travaux-cowork/**`, `docs/specs/`, `docs/plans/`, `docs/audit-massif/` | ✅ | ✅ |
 | MCPs, skills, computer-use, livrables docx/xlsx/pptx/pdf | ✅ propriétaire | 🚫 |
 
 ### 📜 Principes de non-collision
@@ -83,7 +83,7 @@ Claude Code a `.claude/commands/session-start.md` et `session-end.md`. Cowork n'
    ```bash
    bash scripts/session-lock.sh acquire cowork
    ```
-   exit 1 → BLOCKED, stopper, prévenir Kévin (détail : `docs/cowork/anti-collision.md` §5)
+   exit 1 → BLOCKED, stopper, prévenir Kévin (détail : `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md` §5)
 2. 📖 **Lire `CONTEXT.md`** intégralement → modules actifs, dernière session, prochaine action, décisions
 3. 📖 Lire `CLAUDE.md` (read-only) pour se re-caler
 4. 🔍 `ls foundation-os/` → confirmer racine = `CLAUDE.md` + `CONTEXT.md` + `README.md` + `.gitignore` + dossiers. Orphelin → signaler
@@ -129,6 +129,15 @@ Si la session dure > 25 min, relancer `acquire cowork` pour refresh le TTL (30 m
 - **Un fichier qui documente un autre fichier = bloat.** Ne pas créer
 - **Si un fichier bouge** → grep + fix de toutes ses références avant de clore
 - **BMAD** : dossier `_bmad/` (underscore obligatoire), dormant
+- 📦 **Destination Cowork obligatoire** : **tout fichier ou dossier créé via Cowork** doit vivre sous `docs/travaux-cowork/` — jamais ailleurs (pas de `docs/` directement, pas de `modules/`, pas de racine, pas de `scripts/`). Exceptions : édition en place d'un fichier existant (on modifie là où il est), ou demande explicite de Kévin pointant une autre destination.
+- 🏷️ **Nomenclature travaux-cowork** (obligatoire, cohérente) :
+  - Chaque travail = **un dossier** `docs/travaux-cowork/YYYY-MM-DD-slug-kebab-case/` (jamais un fichier isolé directement dans `travaux-cowork/`)
+  - `YYYY-MM-DD` = date du jour d'ouverture du travail (pas de la dernière modif), à vérifier via `date +%F` dans Bash
+  - `slug-kebab-case` = 2 à 5 mots, en minuscules, ASCII uniquement, séparés par `-`, descriptifs du livrable (ex : `audit-ux-home`, `plan-router`, `instructions-cowork`)
+  - Pas d'espaces, pas d'accents, pas de `CamelCase`, pas de `snake_case`, pas d'emoji dans le nom de dossier ou de fichier
+  - À l'intérieur du dossier : `00-INDEX.md` (sommaire + pointeurs), puis fichiers numérotés `01-*.md`, `02-*.md`… pour imposer un ordre de lecture
+  - Livrables binaires (`.docx`, `.pptx`, `.xlsx`, `.pdf`, images) : même dossier, nommage `NN-slug.ext` aligné sur le préfixe numérique
+- 🔗 **Lien avec CONTEXT.md** : chaque nouveau dossier `travaux-cowork/` notable est référencé en une ligne dans `CONTEXT.md` section `Travaux Cowork` (titre + chemin + statut). Pas de duplication du contenu, juste un pointeur.
 
 ---
 
@@ -193,9 +202,9 @@ Documents jumeaux. Toute modification structurelle doit être répercutée.
 
 | Quand je modifie… | Je mets aussi à jour… |
 |---|---|
-| `CLAUDE.md` (impératifs, core OS, garde-fous) | `docs/cowork/project-instructions.md` + Kévin recolle dans Cowork Settings |
-| `docs/cowork/project-instructions.md` (impératifs, routing, memory) | `CLAUDE.md` section équivalente |
-| `docs/cowork/anti-collision.md` (zones, lockfile, git) | `CLAUDE.md` si la règle change pour le CLI |
+| `CLAUDE.md` (impératifs, core OS, garde-fous) | `docs/travaux-cowork/2026-04-08-instructions-cowork/01-project-instructions.md` + Kévin recolle dans Cowork Settings |
+| `docs/travaux-cowork/2026-04-08-instructions-cowork/01-project-instructions.md` (impératifs, routing, memory) | `CLAUDE.md` section équivalente |
+| `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md` (zones, lockfile, git) | `CLAUDE.md` si la règle change pour le CLI |
 | `docs/core/*.md` (cortex, memory, monitor, tools) | Pas de copie — les deux têtes lisent les specs directement |
 
 ➡️ En fin de session, si `CLAUDE.md` ou cette instruction a été touché → noter dans `CONTEXT.md` pour que l'autre tête recharge.
@@ -206,7 +215,7 @@ Documents jumeaux. Toute modification structurelle doit être répercutée.
 
 - 📜 `CLAUDE.md` — règles CLI, miroir de ce doc
 - 📌 `CONTEXT.md` — état courant, source de vérité
-- 🔐 `docs/cowork/anti-collision.md` — protocole verrou + git + lockfile (détaillé)
+- 🔐 `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md` — protocole verrou + git + lockfile (détaillé)
 - 🔧 `scripts/session-lock.sh` — implémentation du verrou
 - 🧠 `docs/core/cortex.md` — routing, contexte, orchestration
 - 💾 `docs/core/memory.md` — 4 tiers, décisions, lifecycle
@@ -237,4 +246,4 @@ Documents jumeaux. Toute modification structurelle doit être répercutée.
 
 ---
 
-_Dernière mise à jour : 2026-04-08 — à tenir iso avec `CLAUDE.md` et `docs/cowork/anti-collision.md`._
+_Dernière mise à jour : 2026-04-08 — ajout règles §6 Destination Cowork obligatoire + Nomenclature `travaux-cowork/`. À tenir iso avec `CLAUDE.md` et `docs/travaux-cowork/2026-04-08-instructions-cowork/02-anti-collision.md`._

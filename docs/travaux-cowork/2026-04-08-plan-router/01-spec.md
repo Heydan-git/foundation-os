@@ -212,7 +212,7 @@ Ajouter un step 6.5 entre "proposer un commit" et "annoncer" :
 Coherence avec `CLAUDE.md` :
 
 - **Pas de fichier a la racine** : OK, tout vit dans `docs/specs/`, `docs/plans/`, `scripts/`, `.claude/`.
-- **Pas de duplication** : le catalogue de profils vit UNIQUEMENT dans cette spec. Si plan-router.sh a besoin de la table, il l'embarque en const en tete avec un commentaire `# source: docs/plan-router/01-spec.md`.
+- **Pas de duplication** : le catalogue de profils vit UNIQUEMENT dans cette spec. Si plan-router.sh a besoin de la table, il l'embarque en const en tete avec un commentaire `# source: docs/travaux-cowork/2026-04-08-plan-router/01-spec.md`.
 - **Cause racine** : ce systeme adresse "consommation tokens uniforme sur taches non-uniformes". Pas un patch symptomatique.
 - **Pragmatisme** : la v1 ne touche RIEN au runtime Claude Code (pas de hook, pas de wrapper). C'est une convention + un script de lookup. Si Claude Code ajoute un effortLevel natif (#31536), v2 pourra s'y brancher.
 - **Anti-bullshit** : aucune metrique "X% de gain" claimee. Le calibrage se fait via `.token-budget.log` apres N sessions reelles.
@@ -239,7 +239,7 @@ Phase 6 AUDIT    : dogfooding sur 1 plan reel (cycle3 S7 ?), measure tokens
 Phase 7 DOC      : ADR dans docs/decisions-log.md + MAJ CLAUDE.md section Token-awareness
 ```
 
-Plan setup detaille : `docs/plan-router/02-setup.md`.
+Plan setup detaille : `docs/travaux-cowork/2026-04-08-plan-router/02-setup.md`.
 
 ---
 
