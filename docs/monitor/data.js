@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-09',
-    updatedInSession: 'S7.5 integration agents + S8 commands deep (a+b) — 3 commits, 4 P2 docs-only batch S21',
+    updatedInSession: 'S9 Scripts + hooks (9) deep (a+b) — 2 commits, 19 findings dont 1 P1 cause racine F-MON-01',
     nextAction:
-      'Cycle 3 — S9 Scripts + hooks (9) deep + tests reels (mode MOI 9e consecutive). Pattern S9a/S9b probable anti-compactage. Dette heritee S8 batch S21 ~8-12 fichiers.'
+      'Cycle 3 — S10 Skills + BMAD verdict definitif (mode MOI 10e consecutive). Inventaire skills superpowers/OMC/gstack + test 5-7 representatifs + verdict BMAD dormant/archiver/re-activer (SUGG-10). Dette heritee batch S21 cumulee ~32 fixes (S7+S8+S9).'
   },
 
   plans: [
@@ -64,8 +64,8 @@ window.MONITOR_DATA = {
       status: 'WIP',
       priority: 'P1',
       path: 'docs/plans/2026-04-07-cycle3-implementation.md',
-      progress: { done: 10, total: 24, unit: 'sessions' },
-      currentPhase: 'S8 Commands deep DONE (4 P2 docs-only batch S21), S9 Scripts + hooks prochaine',
+      progress: { done: 11, total: 24, unit: 'sessions' },
+      currentPhase: 'S9 Scripts + hooks DONE (19 findings dont 1 P1 cause racine F-MON-01 identifiee, 7 P2, 11 P3, 13 decisions D-S9-01..13), S10 Skills + BMAD verdict prochaine',
       startedAt: '2026-04-07',
       sessions: [
         { id: 'S0', title: 'Pre-flight', status: 'DONE', date: '2026-04-07' },
@@ -79,10 +79,11 @@ window.MONITOR_DATA = {
         { id: 'S7', title: 'Agents deep', status: 'DONE', date: '2026-04-08' },
         { id: 'S7.5', title: 'Integration S7 agents dans CONTEXT.md', status: 'DONE', date: '2026-04-09' },
         { id: 'S8', title: 'Commands (4) deep + tests reels', status: 'DONE', date: '2026-04-09' },
-        { id: 'S9', title: 'Scripts + hooks (9) deep + tests', status: 'PENDING' },
-        { id: 'S10-S23', title: 'Sessions restantes (14)', status: 'PAUSED' }
+        { id: 'S9', title: 'Scripts + hooks (9) deep + tests reels', status: 'DONE', date: '2026-04-09' },
+        { id: 'S10', title: 'Skills + BMAD verdict', status: 'PENDING' },
+        { id: 'S11-S23', title: 'Sessions restantes (13)', status: 'PAUSED' }
       ],
-      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S8 = 15 findings (4 P2 docs-only) + 12 decisions D-S8-01..12 + meta M-S8-01 formalise (3e occurrence pattern spec MD vs code source). Dette batch S21 ~8-12 fichiers.'
+      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S9 = 19 findings (1 P1 F-S9-01 cause racine F-MON-01 identifiee + 7 P2 dont F-S9-03/06 confirment F-S8-13/15 + F-S9-11/12/13 gaps validate-void-glass + F-S9-19 lockfile corrompu decouvert tests reels + 11 P3) + 13 decisions D-S9-01..13 dont D-S9-09 retract partiel D-S8-12 (commit-msg hook correct, plan faux) + 6 learnings L-S9-01..06. Amplification tests reels +5.5% (vs +25% S8). Dette batch S21 cumulee ~32 fixes (S7+S8+S9) effort ~2-3 sessions.'
     },
     {
       id: 'phase1-fondations',
@@ -214,6 +215,13 @@ window.MONITOR_DATA = {
 
   decisions: [
     {
+      id: 'D-S9-01..13',
+      date: '2026-04-09',
+      title: 'Audit scripts + hooks S9 cleanup batch + retract partiel D-S8-12',
+      summary:
+        '13 decisions batch S21 housekeeping : D-S9-01 fix F-S9-01 P1 cause racine F-MON-01 (health-check L140 grep "\\.js " matche ligne prebuild DS avant ligne vite bundle -> grep "^dist/.*\\.js "), D-S9-02 fix CSS symetrique, D-S9-03 fix sync-check double verdict grep -v "Verdict :" couple D-S8-08, D-S9-04 extraction polyglot module-scaffold vers scripts/lib/update-context-md-modules.py couple D-S8-10 F-S8-15, D-S9-06 batch fix validate-void-glass loop fichiers + .ts regex + system-ui check, D-S9-07 fix F-S9-19 session-lock read_lock validation champs, D-S9-08 batch cosmetique P3 (F-S9-04/05/07/08/09/14/15/16). Hors batch : D-S9-05 refuse interleave F-MON-01 respect D-S7-01 strict flag only, D-S9-09 retract partiel D-S8-12 (hook commit-msg correct docs(audit) accept / audit() reject, le plan cycle3 section S9.6 est faux en proposant audit(s09) -> fix plan S21 pas le hook), D-S9-10 F-S9-10 session-lock non branche parking Cowork Sprint 1, D-S9-11 F-S9-18 meta hook auto-reference parking post-cycle3, D-S9-12 tests unitaires scripts parking, D-S9-13 shellcheck audit parking. Learnings L-S9-01..06 : cause racine vs symptome deep (F-MON-01 flag cosmetique revele cause structurelle par audit line-by-line), asymetrie hook fast path vs auditeur slow path (regle emergente partage scripts/lib/), auto-reference structurelle outils audit, amplification differentielle scripts +5.5% vs commands +25%, pre-commit hook heritage bugs (justifie P1 cosmetique dans scripts hooked-in).'
+    },
+    {
       id: 'D-S8-01..12 + M-S8-01',
       date: '2026-04-09',
       title: 'Audit commands S8 cleanup batch + meta pattern spec MD vs code',
@@ -274,6 +282,13 @@ window.MONITOR_DATA = {
   recentSessions: [
     {
       date: '2026-04-09',
+      tag: 'DONE',
+      title: 'S9 Scripts + hooks (9) deep (a+b) — 2 commits, 19 findings dont 1 P1 cause racine F-MON-01',
+      summary:
+        '2 commits sur branche audit-massif-cycle3, 9e session consecutive mode MOI strict pattern S9a/S9b valide. (1) 53d1d2b S9a = remplace placeholder 09-scripts-hooks.md 7L par livrable 267L phase A lecture line-by-line des 9 scripts Foundation OS (health-check 171L + sync-check 214L + ref-checker 178L + module-scaffold 168L + session-lock 145L + validate-void-glass 38L + security-reminder.py 280L + pre-commit 20L + commit-msg 19L = 1233L total) + audit 4 angles (bug / idempotent / exit codes / output) + draft 18 findings (1 P1 + 6 P2 + 11 P3). (2) 2599d36 S9b = finalise a 412L avec phase B tests reels invocation (health-check full 3x, sync-check full, ref-checker --help + full, session-lock status/force/release sequence, module-scaffold --help seulement destructif, validate-void-glass fichier temp violant + sain, security-reminder stdin JSON safe + violate pattern #6, commit-msg dry strings 3x, pre-commit automatique) + 1 finding nouveau F-S9-19 (lockfile .fos-session.lock corrompu head/started_at vides affichage degrade "EXPIRED depuis" espaces, force+release repare). Final : 19 findings (1 P1 + 7 P2 + 11 P3) + 13 decisions D-S9-01..13 batchees S21 + 6 learnings L-S9-01..06. F-S9-01 P1 CAUSE RACINE F-MON-01 IDENTIFIEE : health-check L140 grep "\\.js " matche ligne prebuild DS "tokens.js + tokens.json" AVANT ligne vite bundle donc awk extrait "Design" au lieu du nombre. Fix trivial grep "^dist/.*\\.js " mais D-S7-01 strict = pas de fix opportuniste batch S21 via D-S9-01. F-S9-03/06 confirment F-S8-13/15 (double verdict sync + polyglot scaffold). F-S9-11/12/13 nouveaux coverage gaps validate-void-glass vs sync-check. F-S9-17 D-S8-12 RETRACT PARTIEL : hook commit-msg correct, le plan cycle3 S9.6 est faux en proposant audit(s09). F-S9-18 meta-finding auto-reference (hook security bloque l audit de lui-meme sur substring matching pattern names). Amplification tests reels S9a->S9b +5.5% (18 -> 19) vs +25% en S8 = L-S9-04 regle emergente calibrer effort par type artefact scripts mecaniques vs commands declaratifs. Dette heritee cumulee batch S21 (S7+S8+S9) ~32 fixes estimes effort ~2-3 sessions. Health final : build 1.07s OK, 19/19 tests verts, DS 100/100, DEGRADED baseline 79 refs (vs 75 session-start = +4 forward-refs docs), F-MON-01 TOUJOURS visible (batch S21 per D-S9-05). Prochaine : S10 Skills + BMAD verdict (10e consecutive).'
+    },
+    {
+      date: '2026-04-09',
       tag: 'DONE_WITH_CONCERNS',
       title: 'S7.5 integration agents + S8 commands deep (a+b) — 3 commits, 4 P2 docs-only',
       summary:
@@ -299,13 +314,6 @@ window.MONITOR_DATA = {
       title: 'Socle DS acheve (DS-2/3/4/6 partial) + Monitor D2 livre',
       summary:
         '7 commits : reorg travaux-cowork, F-DS1-01 alpha fix, DS-2 Storybook, DS-3 primitives P1, DS-4 primitives P2, DS-6 partial (app consume tokens.css), D2 dashboard skeleton (ecb222b). 100/100 tests DS + 19/19 app, 0 axe violations.'
-    },
-    {
-      date: '2026-04-09',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'DS-1 scaffold modules/design-system + tokens DTCG 2-tier',
-      summary:
-        'Commit 3b5c96c. Refactor mid-session vers vrai 2-tier (66 primitives + 69 semantic). WCAG AA 8/8 verts. Bloc decouvert : package.json racine manquant, amendement CLAUDE.md L36.'
     }
   ]
 }
