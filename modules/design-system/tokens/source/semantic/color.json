@@ -7,7 +7,7 @@
         "$description": "Fond de page principal (body, #root)"
       },
       "surface": {
-        "$value": "{color.palette.white03}",
+        "$value": "{color.palette.white025}",
         "$type": "color",
         "$description": "Fond card / panel / surface Void Glass"
       }
@@ -26,7 +26,7 @@
     },
     "border": {
       "default": {
-        "$value": "{color.palette.white06}",
+        "$value": "{color.palette.white055}",
         "$type": "color",
         "$description": "Border / divider par defaut"
       }

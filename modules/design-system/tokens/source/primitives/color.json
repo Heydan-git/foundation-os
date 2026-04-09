@@ -26,15 +26,15 @@
         "$type": "color",
         "$description": "Violet 400 (status parking)"
       },
-      "white03": {
-        "$value": "rgba(255, 255, 255, 0.03)",
+      "white025": {
+        "$value": "rgba(255, 255, 255, 0.025)",
         "$type": "color",
-        "$description": "White alpha 3% (surfaces)"
+        "$description": "White alpha 2.5% (surfaces) — canonique Void Glass cf docs/design-system.md"
       },
-      "white06": {
-        "$value": "rgba(255, 255, 255, 0.06)",
+      "white055": {
+        "$value": "rgba(255, 255, 255, 0.055)",
         "$type": "color",
-        "$description": "White alpha 6% (borders)"
+        "$description": "White alpha 5.5% (borders) — canonique Void Glass cf docs/design-system.md"
       },
       "white12": {
         "$value": "rgba(255, 255, 255, 0.12)",
