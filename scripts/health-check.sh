@@ -137,8 +137,8 @@ echo ""
 echo "[INFO]"
 
 # Bundle size
-JS_SIZE=$(echo "$BUILD_OUT" | grep "\.js " | awk '{print $2}' | head -1)
-CSS_SIZE=$(echo "$BUILD_OUT" | grep "\.css " | awk '{print $2}' | head -1)
+JS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.js " | awk '{print $2}' | head -1)
+CSS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.css " | awk '{print $2}' | head -1)
 JS_INT=${JS_SIZE%.*}
 CSS_INT=${CSS_SIZE%.*}
 BUNDLE_WARN=""

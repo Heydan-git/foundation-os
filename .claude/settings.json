@@ -15,11 +15,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/kevinnoel/foundation-os/scripts/hooks/validate-void-glass.sh \"${file_path:-}\""
+            "command": "./scripts/hooks/validate-void-glass.sh \"${file_path:-}\""
           },
           {
             "type": "command",
-            "command": "python3 /Users/kevinnoel/foundation-os/scripts/hooks/security-reminder.py"
+            "command": "python3 ./scripts/hooks/security-reminder.py"
           }
         ]
       }

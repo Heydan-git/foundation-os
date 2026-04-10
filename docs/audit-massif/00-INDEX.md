@@ -1,10 +1,11 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0+S1+S2+S3+S4 DONE, S5 PENDING)
+> **Status** : EN COURS (S0-S12 DONE 50%, S13+ PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-08 (fin S4 architecture orga/scalabilite/maintenabilite)
+> **Derniere maj** : 2026-04-10 (fix F-S12-02 P1, rattrapage drift 7 sessions)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
+> **Source de verite sessions** : `CONTEXT.md` section "Cycle 3 progress"
 
 ## Sessions Cycle 3 (24 sessions S0-S23)
 
@@ -15,14 +16,14 @@
 | S2  Inventaire components            | DONE    | 02-inventaire-components.md | 2026-04-07 | docs(audit) s02 |
 | S3  Fondations Core OS               | DONE    | 03-fondations-core.md       | 2026-04-08 | docs(audit) s03 (402d1b6) |
 | S4  Architecture orga                | DONE    | 04-architecture-orga.md     | 2026-04-08 | docs(audit) s04 |
-| S5  Workflows routing                | PENDING | 05-workflows-routing.md     | — | — |
-| S6  Orchestration automation         | PENDING | 06-orchestration-automation.md | — | — |
-| S7  Agents                           | PENDING | 07-agents.md                | — | — |
-| S8  Commands                         | PENDING | 08-commands.md              | — | — |
-| S9  Scripts hooks                    | PENDING | 09-scripts-hooks.md         | — | — |
-| S10 Skills + BMAD verdict            | PENDING | 10-skills.md                | — | — |
-| S11 Comm securite                    | PENDING | 11-comm-securite.md         | — | — |
-| S12 Memory + anti-compactage         | PENDING | 12-memory-anti-compactage.md | — | — |
+| S5  Workflows routing                | DONE    | 05-workflows-routing.md     | 2026-04-08 | docs(audit) s05 |
+| S6  Orchestration automation         | DONE    | 06-orchestration-automation.md | 2026-04-08 | docs(audit) s06 |
+| S7  Agents                           | DONE    | 07-agents.md                | 2026-04-08 | docs(audit) s07 |
+| S8  Commands                         | DONE    | 08-commands.md              | 2026-04-09 | docs(audit) s08 |
+| S9  Scripts hooks                    | DONE    | 09-scripts-hooks.md         | 2026-04-09 | docs(audit) s09 |
+| S10 Skills + BMAD verdict            | DONE    | 10-skills.md                | 2026-04-09 | docs(audit) s10 |
+| S11 Comm securite                    | DONE    | 11-comm-securite.md         | 2026-04-09 | docs(audit) s11 |
+| S12 Memory + anti-compactage         | DONE    | 12-memory-anti-compactage.md | 2026-04-09 | docs(audit) s12 |
 | S13 Module App                       | PENDING | 13-module-app.md            | — | — |
 | S14 SUGG tech 1                      | PENDING | 14-sugg-tech-1.md           | — | — |
 | S15 SUGG tech 2                      | PENDING | 15-sugg-tech-2.md           | — | — |
@@ -43,8 +44,5 @@
 
 ## Procedure de reprise (apres compactage)
 
-Voir `docs/plans/2026-04-07-audit-massif-final.md` section 4.
-
-## Note
-
-Ce fichier est volontairement minimal. Il sera enrichi en S0 puis a chaque session DONE. Cree maintenant en pre-S0 pour resoudre les refs cassees du spec et garder la baseline SAINE.
+Lire `CONTEXT.md` section "Cycle 3 progress" (source principale) puis le dernier livrable DONE.
+Details : `docs/plans/2026-04-07-audit-massif-final.md` section 4.
