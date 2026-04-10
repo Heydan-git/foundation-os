@@ -1,8 +1,165 @@
 {
   "version": "1.0",
-  "rules": [],
+  "rules": [
+    {
+      "signals": ["debug", "bug", "casse", "erreur", "ne marche pas", "regression", "crash", "traceback", "stack trace"],
+      "tools": ["sp-systematic-debugging", "omc-trace", "omc-debug"],
+      "strategy": "priority",
+      "note": "systematic-debugging d'abord (methodique). Escalade vers trace si multi-hypotheses. omc-debug uniquement pour problemes OMC"
+    },
+    {
+      "signals": ["review", "audit", "verifie", "avant deploy", "revue", "livrable", "regression"],
+      "tools": ["review-agent", "omc-verify", "sp-verification-before-completion"],
+      "strategy": "combine",
+      "note": "review-agent pour l'audit code/coherence. verify pour prouver que ca marche. verification-before-completion avant de clamer done"
+    },
+    {
+      "signals": ["plan", "planifier", "comment faire", "concevoir", "design", "nouvelle feature", "brainstorm", "idee"],
+      "tools": ["sp-brainstorming", "sp-writing-plans", "omc-plan"],
+      "strategy": "priority",
+      "note": "brainstorming pour le design, writing-plans pour le plan d'execution. omc-plan comme alternative"
+    },
+    {
+      "signals": ["health", "sante", "diagnostic", "etat global", "check global", "tout va bien"],
+      "tools": ["health-check", "sync-check"],
+      "strategy": "priority",
+      "note": "health-check pour un check rapide. sync-check pour un audit complet de coherence"
+    },
+    {
+      "signals": ["code", "composant", "page", "react", "supabase", "css", "tailwind", "fix", "implementer", "ajouter", "modifier"],
+      "tools": ["dev-agent", "sp-executing-plans", "omc-autopilot"],
+      "strategy": "priority",
+      "note": "dev-agent pour du code cible. executing-plans si un plan existe. autopilot pour execution autonome complete"
+    },
+    {
+      "signals": ["architecture", "adr", "stack", "schema", "structurer", "option a vs b", "migration db", "comment organiser"],
+      "tools": ["os-architect", "sp-brainstorming"],
+      "strategy": "priority",
+      "note": "os-architect pour decisions techniques. brainstorming si besoin d'explorer les options d'abord"
+    },
+    {
+      "signals": ["documente", "note", "trace", "journalise", "met a jour context", "met a jour docs", "documentation"],
+      "tools": ["doc-agent"],
+      "strategy": "priority",
+      "note": "doc-agent pour toute mise a jour de documentation hors session-end"
+    },
+    {
+      "signals": ["test", "tdd", "tests", "vitest", "couverture", "test first"],
+      "tools": ["sp-test-driven-development", "omc-ultraqa"],
+      "strategy": "priority",
+      "note": "TDD pour implementation test-first. ultraqa pour cycles QA automatises"
+    },
+    {
+      "signals": ["git", "commit", "branche", "merge", "pr", "pull request", "rebase"],
+      "tools": ["sp-finishing-a-development-branch", "sp-using-git-worktrees"],
+      "strategy": "best_match",
+      "note": "finishing pour merge/PR. worktrees pour isolation de feature"
+    },
+    {
+      "signals": ["explore", "cherche", "ou est", "trouve", "codebase", "deepsearch"],
+      "tools": ["omc-external-context"],
+      "strategy": "priority",
+      "note": "Pour recherche dans le code, utiliser Grep/Glob directement. external-context pour docs externes"
+    },
+    {
+      "signals": ["design ui", "interface", "maquette", "composant visuel", "frontend", "page web"],
+      "tools": ["dev-agent", "mcp-figma", "mcp-chrome-devtools"],
+      "strategy": "combine",
+      "note": "dev-agent pour le code. Figma si maquette fournie. Chrome DevTools pour tester le resultat"
+    },
+    {
+      "signals": ["securite", "security", "vulnerabilite", "owasp"],
+      "tools": ["security-reminder"],
+      "strategy": "priority",
+      "note": "Le hook security-reminder se declenche automatiquement. Pour un audit manuel, utiliser review-agent"
+    },
+    {
+      "signals": ["asana", "tache asana", "projet asana"],
+      "tools": ["mcp-asana"],
+      "strategy": "priority",
+      "note": "Acces direct a Asana via MCP"
+    },
+    {
+      "signals": ["notion", "page notion", "wiki"],
+      "tools": ["mcp-notion"],
+      "strategy": "priority",
+      "note": "Acces direct a Notion via MCP"
+    },
+    {
+      "signals": ["figma", "design figma", "maquette figma"],
+      "tools": ["mcp-figma"],
+      "strategy": "priority",
+      "note": "Acces direct a Figma via MCP"
+    },
+    {
+      "signals": ["docs library", "documentation api", "comment utiliser", "reference sdk"],
+      "tools": ["mcp-context7", "omc-external-context"],
+      "strategy": "priority",
+      "note": "Context7 pour docs libraries/frameworks. external-context pour recherche web plus large"
+    },
+    {
+      "signals": ["parallele", "batch", "plusieurs taches", "haut debit"],
+      "tools": ["omc-ultrawork", "sp-dispatching-parallel-agents", "omc-team"],
+      "strategy": "best_match",
+      "note": "ultrawork pour execution parallele. dispatching-parallel-agents pour subagents. team pour coordination"
+    },
+    {
+      "signals": ["autonome", "autopilot", "fais tout", "de a a z", "ralph", "boucle"],
+      "tools": ["omc-autopilot", "omc-ralph", "omc-ralplan"],
+      "strategy": "priority",
+      "note": "autopilot pour execution complete. ralph pour boucle until-done. ralplan si demande vague"
+    },
+    {
+      "signals": ["nettoie", "slop", "code ia", "anti-slop", "deslop", "simplifier code"],
+      "tools": ["omc-ai-slop-cleaner"],
+      "strategy": "priority",
+      "note": "Nettoyage de code genere par IA avec verification anti-regression"
+    },
+    {
+      "signals": ["deploy", "production", "mise en prod", "vercel"],
+      "tools": ["vercel-deploy", "review-agent"],
+      "strategy": "combine",
+      "note": "review-agent d'abord pour verifier, puis deploy via git push"
+    },
+    {
+      "signals": ["session start", "debut session", "brief"],
+      "tools": ["session-start", "cockpit"],
+      "strategy": "priority",
+      "note": "session-start pour le brief. cockpit pour le flow complet"
+    },
+    {
+      "signals": ["session end", "fin session", "cloture"],
+      "tools": ["session-end"],
+      "strategy": "priority",
+      "note": "Toujours session-end pour cloturer"
+    },
+    {
+      "signals": ["sync", "coherence", "verification complete"],
+      "tools": ["sync-check"],
+      "strategy": "priority",
+      "note": "sync-check pour audit complet"
+    },
+    {
+      "signals": ["nouveau module", "new project", "scaffold"],
+      "tools": ["new-project", "module-scaffold"],
+      "strategy": "priority",
+      "note": "/new-project appelle module-scaffold.sh"
+    },
+    {
+      "signals": ["critique", "cynique", "adversarial", "edge case", "failles"],
+      "tools": ["bmad-review-adversarial-general", "bmad-review-edge-case-hunter", "bmad-advanced-elicitation"],
+      "strategy": "best_match",
+      "note": "adversarial pour review cynique. edge-case-hunter pour cas limites. elicitation pour challenger"
+    },
+    {
+      "signals": ["compresser", "distill", "document trop long"],
+      "tools": ["bmad-distillator", "bmad-shard-doc"],
+      "strategy": "best_match",
+      "note": "distillator pour compression lossless. shard-doc pour decoupage en fichiers"
+    }
+  ],
   "strategies": {
-    "priority": "Utiliser le premier outil, passer au suivant si insuffisant",
+    "priority": "Utiliser le premier outil de la liste, passer au suivant si insuffisant",
     "combine": "Utiliser plusieurs outils en sequence",
     "best_match": "Choisir l'outil dont les triggers matchent le plus le contexte"
   },

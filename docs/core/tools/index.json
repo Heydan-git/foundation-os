@@ -1,6 +1,43 @@
 {
   "version": "1.0",
   "updated": "2026-04-10",
-  "total_tools": 0,
-  "categories": {}
+  "total_tools": 96,
+  "categories": {
+    "agents": {
+      "file": "registry/agents.json",
+      "count": 4
+    },
+    "ci": {
+      "file": "registry/ci.json",
+      "count": 2
+    },
+    "commands": {
+      "file": "registry/commands.json",
+      "count": 5
+    },
+    "hooks": {
+      "file": "registry/hooks.json",
+      "count": 4
+    },
+    "mcp": {
+      "file": "registry/mcp.json",
+      "count": 13
+    },
+    "scripts": {
+      "file": "registry/scripts.json",
+      "count": 6
+    },
+    "skills-bmad": {
+      "file": "registry/skills-bmad.json",
+      "count": 12
+    },
+    "skills-omc": {
+      "file": "registry/skills-omc.json",
+      "count": 36
+    },
+    "skills-superpowers": {
+      "file": "registry/skills-superpowers.json",
+      "count": 14
+    }
+  }
 }
