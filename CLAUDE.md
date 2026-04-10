@@ -102,8 +102,7 @@ Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BR
 
 Utilitaires et automation. Spec complete : docs/core/tools.md
 
-Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
-Backlog : ref-checker (a construire sur demande).
+Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), sync-check.sh (/sync), ref-checker.sh (refs cassees), module-scaffold.sh (new-project), session-lock.sh (Cowork), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
 Convention : scripts/ en bash/node, kebab-case, idempotent, exit codes standards.
 
 ## Structure

@@ -13,7 +13,7 @@ interface TestResult {
   data?: any
 }
 
-export const Phase1Demo: React.FC = () => {
+const Phase1Demo: React.FC = () => {
   const [testResults, setTestResults] = useState<TestResult[]>([])
   const [isRunning, setIsRunning] = useState(false)
   const [dbConnectionStatus, setDbConnectionStatus] = useState<'checking' | 'connected' | 'error'>('checking')

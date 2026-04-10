@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '@/lib/AuthContext'
 import { Link, Navigate } from 'react-router-dom'
 import { Card, PageHeader } from '@/components'
-
-const PASSWORD_MIN = 8
+import { PASSWORD_MIN } from '@/lib/constants'
 
 export default function LoginPage() {
   const { user, signIn, signUp, loading } = useAuth()

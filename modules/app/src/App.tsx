@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/lib/AuthContext'
 import Commander from '@/pages/Commander'
@@ -7,14 +8,12 @@ import KnowledgePage from '@/pages/KnowledgePage'
 import LoginPage from '@/pages/LoginPage'
 import Phase1Demo from '@/pages/Phase1Demo'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
-import SupabaseCRUDTest from '@/components/SupabaseCRUDTest'
 import { Navbar } from '@/components'
 
+const SupabaseCRUDTest = lazy(() => import('@/components/SupabaseCRUDTest'))
+
 const globalStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
-  ::-webkit-scrollbar{width:3px}
-  ::-webkit-scrollbar-thumb{background:rgba(94,234,212,.15);border-radius:4px}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -59,7 +58,9 @@ export default function App() {
             <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
-            <Route path="/crud-test" element={<ProtectedRoute><SupabaseCRUDTest /></ProtectedRoute>} />
+            {import.meta.env.DEV && (
+              <Route path="/crud-test" element={<ProtectedRoute><Suspense fallback={null}><SupabaseCRUDTest /></Suspense></ProtectedRoute>} />
+            )}
             <Route path="/phase1-demo" element={<ProtectedRoute><Phase1Demo /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

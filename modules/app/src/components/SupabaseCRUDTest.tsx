@@ -72,14 +72,13 @@ export default function SupabaseCRUDTest() {
       setLoading(true)
       setError(null)
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('sessions')
         .insert([{ ...newSession, phase: null, status: 'active' as const }])
         .select()
 
       if (error) throw error
 
-      console.log('Session créée:', data)
       setSuccess(`Session "${newSession.title}" créée avec succès`)
 
       // Reset form
@@ -107,14 +106,13 @@ export default function SupabaseCRUDTest() {
       setLoading(true)
       setError(null)
 
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('decisions')
         .insert([newDecision])
         .select()
 
       if (error) throw error
 
-      console.log('Décision créée:', data)
       setSuccess(`Décision "${newDecision.title}" créée avec succès`)
 
       // Reset form

@@ -21,7 +21,7 @@ description: >
    - [ ] Decisions toutes datees (YYYY-MM-DD), count ≤ 15 (sinon proposer archivage vers `docs/decisions-log.md`)
    - [ ] Specs `docs/core/*.md` coherentes avec `.claude/agents/` et `.claude/commands/` — **note : sync-check verifie la presence (4+4+5 fichiers) mais pas le contenu, verification manuelle si doute**
    - [ ] Commits conventionnels (`type(scope): description`) — enforce automatiquement par `.git/hooks/commit-msg`
-   - [ ] Refs intactes — `bash scripts/ref-checker.sh` (full-repo) ou directement health-check (depuis P1)
+   - [ ] Refs intactes — `bash scripts/ref-checker.sh` (full-repo) ou directement health-check
    - [ ] Git state : aucun fichier source non-tracke oublie (hors `.omc/`, `.DS_Store`)
 
 ## Hors scope (deleguer)

@@ -37,7 +37,6 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Session created:', data.id)
       return { success: true, data }
     } catch (error: unknown) {
       console.error('Error creating session:', error)
@@ -55,9 +54,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Session updated:', sessionId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating session:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -71,9 +69,8 @@ export const useCommanderMutations = () => {
         .eq('id', sessionId)
 
       if (error) throw error
-      console.log('Session deleted:', sessionId)
       return { success: true }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error deleting session:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -96,9 +93,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Decision created:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating decision:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -114,9 +110,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Decision updated:', decisionId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating decision:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -134,9 +129,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Step marked done:', stepId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error marking step done:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -157,9 +151,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Next step created:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating next step:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -182,9 +175,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Risk added:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error adding risk:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -200,9 +192,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Risk updated:', riskId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating risk:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -223,9 +214,8 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Context added:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error adding context:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -249,9 +239,8 @@ export const useCommanderMutations = () => {
         .select()
 
       if (error) throw error
-      console.log(`Batch created ${data.length} steps for phase ${phase}`)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error batch creating steps:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
@@ -276,7 +265,7 @@ export const useCommanderMutations = () => {
         nextSteps: nextSteps.data || [],
         context: context.data || [],
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching all data:', error)
       return { sessions: [], decisions: [], risks: [], nextSteps: [], context: [] }
     }
@@ -295,9 +284,8 @@ export const useCommanderMutations = () => {
         supabase.from('next_steps').delete().not('id', 'is', null),
         supabase.from('context_blocks').delete().not('id', 'is', null),
       ])
-      console.log('All data cleared')
       return { success: true }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error clearing data:', error)
       return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }

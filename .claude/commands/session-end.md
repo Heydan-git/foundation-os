@@ -12,7 +12,7 @@
    - `bash scripts/health-check.sh` → doit etre SAIN (obligatoire)
    - Pour chaque module actif : `cd modules/[nom] && npm run build`
    - Pour chaque module actif : `cd modules/[nom] && npm test` si tests presents
-4. **Classifier la session selon 4 niveaux** (inspire de PAUL framework) :
+4. **Classifier la session selon 4 niveaux** :
 
    | Statut | Quand l'utiliser | Action requise |
    |--------|------------------|----------------|

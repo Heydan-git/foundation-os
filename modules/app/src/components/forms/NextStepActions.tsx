@@ -48,11 +48,9 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
           onStepUpdate(step.id, step.status)
           console.error('Erreur mise à jour step:', result.error)
         } else {
-          console.log('✅ Step marqué done:', step.id)
         }
       } else {
         // TODO: implement updateStep for non-done transitions
-        console.log(`Step ${step.id} → ${nextStatus} (local only)`)
       }
     } catch (error) {
       // Revert optimistic update
@@ -80,7 +78,6 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
       })
 
       if (result.success) {
-        console.log('✅ Step créé:', result.data?.id)
         setNewStepLabel('')
         onAddStep() // Trigger refresh
       } else {

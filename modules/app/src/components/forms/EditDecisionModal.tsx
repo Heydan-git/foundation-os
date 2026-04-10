@@ -58,14 +58,13 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
       const result = await updateDecision(decision.id, formData)
 
       if (result.success) {
-        console.log('✅ Décision mise à jour:', decision.id)
         onSuccess()
         onClose()
       } else {
         setError(result.error || 'Erreur lors de la mise à jour')
       }
-    } catch (err: any) {
-      setError(err.message || 'Erreur inattendue')
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Erreur inattendue')
     } finally {
       setIsLoading(false)
     }

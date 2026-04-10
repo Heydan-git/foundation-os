@@ -39,7 +39,6 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
       })
 
       if (result.success) {
-        console.log('✅ Session créée avec succès:', result.data?.id)
 
         // Reset form
         setFormData({
@@ -54,8 +53,8 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
       } else {
         setError(result.error || 'Erreur lors de la création')
       }
-    } catch (err: any) {
-      setError(err.message || 'Erreur inattendue')
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Erreur inattendue')
     } finally {
       setIsLoading(false)
     }
