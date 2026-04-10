@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-10',
-    updatedInSession: 'Mega session — cycle 3 cloture, DS-6, React 19+Vite 8+TW4, DS-5 CI, cleanup, securite Supabase',
+    updatedInSession: 'Module Communication v1 + DS-5 verif + migration 003 confirmee',
     nextAction:
-      'Phase 5 : choisir module Finance/Sante/Trading. Leaked Password Protection (SMTP).'
+      'Phase 5 : choisir module Finance/Sante/Trading.'
   },
 
   plans: [
@@ -61,11 +61,11 @@ window.MONITOR_DATA = {
     {
       id: 'cycle3-audit',
       title: 'Cycle 3 — Audit massif',
-      status: 'WIP',
+      status: 'DONE',
       priority: 'P1',
       path: 'docs/plans/2026-04-07-cycle3-implementation.md',
-      progress: { done: 14, total: 24, unit: 'sessions' },
-      currentPhase: 'S12 Memoire + anti-compactage DONE (23 findings final, 5 P1 docs, 8 P2, 9 P3, 1 meta M-S12-01 AMPLIFIE, amplification +15%, PHASE V cloturee). S13 Module App prochaine (PHASE VI) OU pause strategique OU housekeeping batch S21 (~44 fixes)',
+      progress: { done: 24, total: 24, unit: 'sessions' },
+      currentPhase: 'CLOS. 24/24 sessions, 35/42 fixes appliques (83%). Rapport: .archive/audit-massif/23-rapport-final.md',
       startedAt: '2026-04-07',
       sessions: [
         { id: 'S0', title: 'Pre-flight', status: 'DONE', date: '2026-04-07' },
@@ -83,9 +83,9 @@ window.MONITOR_DATA = {
         { id: 'S10', title: 'Skills + BMAD verdict', status: 'DONE', date: '2026-04-09' },
         { id: 'S11', title: 'Communication + securite (a+b) + meta live', status: 'DONE', date: '2026-04-09' },
         { id: 'S12', title: 'Memoire (4 tiers) + anti-compactage (a+b) + demo reprise', status: 'DONE', date: '2026-04-09' },
-        { id: 'S13-S23', title: 'Sessions restantes (11)', status: 'PAUSED' }
+        { id: 'S13-S23', title: 'S13-S23 complete (audit+fixes+rapport)', status: 'DONE', date: '2026-04-10' }
       ],
-      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S12 = 23 findings (5 P1 docs + 8 P2 + 9 P3 + 1 meta M-S12-01 AMPLIFIE) + 23 decisions D-S12-01..23 + 9 learnings L-S12-01..09. 5 P1 tous documentaires : master file section 6 stale 12 sessions, 00-INDEX stale 7 sessions, procedure reprise depend data stale, 4/8 mitigations abandonnees, demo empirique T3 3 sources divergentes (S0/S5/S12). M-S12-01 = 8e occurrence meta cycle 3 : paradoxe auto-reference spec anti-compactage sujette au drift. Amplification +15% (20->23) conforme L-S11-06. PHASE V cloturee (S11+S12). Dette batch S21 cumulee ~44 fixes (S7-S12) effort ~2-3 sessions. 8 meta-patterns formalises cycle 3 (M-S6-01, M-S7-01, M-S8-01, M-S9-xx, M-S10-01, M-S10-02, M-S11-01, M-S12-01).'
+      notes: 'CLOS. 24/24 sessions, 35/42 fixes (83%). 4 P1 fixes, 19 P2, 12 P3. 7 items justifies (4 skips + 3 N/A). Zero regression code.'
     },
     {
       id: 'phase1-fondations',
@@ -144,13 +144,13 @@ window.MONITOR_DATA = {
     {
       id: 'design-system',
       name: 'Design System',
-      status: 'WIP',
+      status: 'DONE',
       detail:
         '5 primitives exportees (Button/Text/Icon/Input/Card), tokens DTCG 2-tier, Storybook 8, 100/100 tests, 0 axe violations.'
     },
     {
       id: 'core-os',
-      name: 'Core OS (Cortex/Memory/Monitor/Tools)',
+      name: 'Core OS (Cortex/Communication/Monitor/Tools)',
       status: 'DONE',
       detail: '4/4 piliers actifs. Specs docs/core/.'
     },
@@ -216,6 +216,12 @@ window.MONITOR_DATA = {
   ],
 
   decisions: [
+    {
+      id: 'D-COM-01',
+      date: '2026-04-10',
+      title: 'Module Communication remplace Memory',
+      summary: 'Nouveau module Core OS. Spec 375L couvre journalisation, indexation, lecture, briefing. CONTEXT.md 400→120L. Brief v10. Nomenclature unifiee.'
+    },
     {
       id: 'D-S12-01..23 + M-S12-01 AMPLIFIE',
       date: '2026-04-09',
@@ -306,6 +312,13 @@ window.MONITOR_DATA = {
     {
       date: '2026-04-10',
       tag: 'DONE',
+      title: 'Module Communication v1 + DS-5 verif + migration 003',
+      summary:
+        '1 commit. Nouveau module Core OS Communication (docs/core/communication.md, 375L) remplace Memory. CONTEXT.md 400→120L. Brief v10 (trajectoire, idees, cap). DS-5 CI verifie (10/10 Playwright+axe). Migration 003 confirmee appliquee.'
+    },
+    {
+      date: '2026-04-10',
+      tag: 'DONE',
       title: 'Mega session — Cycle 3 cloture + DS-6 + React 19 + DS-5 CI + cleanup + securite Supabase',
       summary:
         '10+ commits. Cycle 3 cloture (S22 P3 12 fixes + S23 rapport final + PR #1 merged). DS-6 : 206/254 couleurs migrées vers tokens (97%). Deps : React 19+Vite 8+TW4, build 761→183ms (-76%). DS-5 : Playwright+axe CI gate (10/10 tests). Cleanup : audit archive, dead code (Dashboard+StatPill), session briefs v9, refs 196→33. Supabase : migration 003 updated_at, RLS 6 tables + 24 policies, function search_path fix. CI green.'
@@ -324,20 +337,6 @@ window.MONITOR_DATA = {
       summary:
         '2 commits sur branche audit-massif-cycle3, 11e session consecutive mode MOI strict. Briefing frontload Kevin 5 questions (pattern S11a/S11b, perimetre strict Core OS, tests phase B invocation+historique+RLS, commit docs(audit), fix P1 secu opportuniste si trouve), Kevin delegue "Fait ce que tu recommande je te fait confiance" -> exec reco A/A/C/A/A. (1) b66b003 S11a = remplace placeholder 11-comm-securite.md 6L par livrable 502L phase A lecture 15 fichiers ~600L (4 agents custom + CLAUDE.md directives zero-bullshit + 4 hooks security-reminder 281L/validate-void-glass 39L/pre-commit 21L/commit-msg 20L + 3 .gitignore + 2 workflows CI + settings.json + migration SQL RLS + supabase.ts env refs) + draft 14 findings (0 P1 + 3 P2 + 11 P3 + 1 meta M-S11-01). (2) 969c181 S11b = finalise livrable a 590L avec phase B 3 tests reels : T1 invocation review-agent reelle via Task tool (output OK/Warning/Erreur/Verdict 100% conforme a .claude/agents/review-agent.md L35-40, zero divergence doc vs runtime, addition non-doc "Fichiers verifies :" footer non-bloquante), T2 parsing git log -20 (20/20 commits conformes hook commit-msg, pattern audit emergent confirme sur 5 commits docs(audit): sXX[a]), T3 grep RLS policies USING (21 policies sur 7 tables uniformes auth.role()=authenticated, no user_id filter, no DELETE policy). 2 findings new phase B : F-S11-15 P3 RLS scope user insuffisant Phase 5 multi-user (parking post-cycle3, re-audit obligatoire avant Finance/Sante avec ajout user_id + auth.uid()=user_id), F-S11-16 P3 convention commits audit cycle3 non-documentee (pattern stable sur 5 commits mais absent plan + CLAUDE.md + agents, couple D-S8-12 / D-S9-09). Final : 16 findings (0 P1 + 3 P2 + 13 P3 + 1 meta M-S11-01 AMPLIFIE). 3 P2 : F-S11-01 settings.json absolute paths hardcodes fail-silent pire mode (justifie P2), F-S11-02 pattern P8 substring trop large = DEMONSTRATION LIVE PHASE A (premier Write du livrable BLOQUE par hook security-reminder sur pattern P2 subprocess exec-famille parce que section 3.3 listait les substrings litterales -> reformulation forcee 12 substrings en descriptions neutres -> Write reussi 2e tentative -> passage meta F-S9-18 de theorique code inspection S9 a empirique blocage reel S11 = 7e occurrence meta cycle 3 avec evidence directe irrefutable), F-S11-03 gitignore root minimal manque ~10 patterns defensifs (*.pem/*.key/id_rsa*/credentials.json/.env.*/secrets.json/*.log). M-S11-01 AMPLIFIE live = audit honnete impossible sans workaround reformulation = meta structurel pas cosmetique. 15 decisions D-S11-01..15 dont phase A 13 + phase B 2 nouveaux. 6 learnings L-S11-01..06. Amplification tests reels S11a->S11b +14.3% (14 -> 16) conforme prediction mix moyenne stabilise L-S10-07 (mecanique S9 +5.5% < mix S11 +14.3% < declaratif S8 +25% < meta-declaratif S10 +45%). Observations positives : 0 cles hardcodees modules/app/src (tous via import.meta.env.VITE_*), RLS ENABLE 7 tables, ci.yml safe vs command injection, supabase-ping safe pattern env+secrets, pre-commit+commit-msg version-controlled, hooks fail-loud majoritaire, kill switch ENABLE_SECURITY_REMINDER=0, .env.local correctement ignore (3 .gitignore coherents verifies). Library meta-patterns cycle 3 mise a jour 7 entries : M-S6-01+M-S7-01+M-S8-01+M-S9-xx+M-S10-01+M-S10-02+M-S11-01 NEW. Zero code modules touche, review-agent invoque en read-only. Health final : build 960ms OK (22.12 kB CSS + 457.15 kB JS, 108 modules), 19/19 tests verts (6 fichiers, 1.27s), DS 100/100 non re-verifie (DS inchange), DEGRADED baseline 86 refs identique session-start (zero drift S11a->S11b), F-MON-01 toujours visible respect strict D-S7-01, decisions datees 16. Dette batch S21 cumulee ~40 fixes. Prochaine : S12 Memoire (4 tiers) + anti-compactage (12e consecutive, ferme PHASE V du cycle 3).'
     },
-    {
-      date: '2026-04-09',
-      tag: 'DONE',
-      title: 'S10 Skills + BMAD verdict (a+b) — 2 commits, 16 findings, BMAD dormant garde re-confirme',
-      summary:
-        '2 commits sur branche audit-massif-cycle3, 10e session consecutive mode MOI strict. Directive Kevin S10 : "fait au mieux, pour meilleur qualite et efficacite. Pour les outils on les garde tous, on vas meme en ajouter apres le mega audit." (simplifie scope verdict tous outils gardes, conserve valeur inventaire + tests reels). (1) d506bdc S10a = remplace placeholder 10-skills.md 7L par livrable 390L phase A lecture + inventaire exhaustif 5 sources (4 commands custom + 4 agents custom + 12 BMAD modules + gstack 1 SKILL.md + ~60 binaires + plugins harness) + draft 11 findings (0 P1 + 4 P2 + 7 P3 + 1 meta M-S10-01) + 13 decisions D-S10-01..13 + 6 learnings + 11 cross-refs S1-S9 + BMAD verdict DORMANT GARDE re-confirme. (2) 158b255 S10b = finalise 10-skills.md a 595L avec phase B tests reels : 1 invocation reelle oh-my-claudecode:omc-reference (catalog read-only OK, pas d effet de bord) + 2 lectures source directe (omc-reference/SKILL.md + skill/SKILL.md) + comptage exact cache OMC 37 skills (correction phase A ~40). Decouvertes critiques phase B : F-S10-12 P2 PROMOTED omc-reference frontmatter annonce "Auto-loads when delegating to agents..." MAIS le skill N A PAS ete auto-load dans la session (invocation manuelle Skill tool requise pour obtenir le catalog 19 agents OMC), F-S10-13 P2 NEW flag user-invocable:false declare mais NON enforce par harness (invocation reussie malgre le flag), F-S10-14 P3 NEW OMC commit trailers (Constraint/Rejected/Directive/Confidence/Scope-risk/Not-tested) plus riches que Conventional Commits Foundation = opportunite post-cycle3 cycle 4 evaluation, F-S10-16 P3 NEW omc-reference exemple commit L131-141 meta-auto-referentiel parfait (decrit exactement le commit livrant le skill lui-meme) = pattern OPPOSE a F-S9-18 (hook security-reminder bloque audit de lui-meme) = L-S10-08 auto-reference polarity positive vs negative. Final : 16 findings (0 P1 + 6 P2 + 9 P3 + 1 meta M-S10-01). Amplification tests reels S10a->S10b +45% (11 -> 16) = plus fort que S8 +25% et S9 +5.5% = L-S10-07 regle emergente amplification scale avec niveau abstraction meta (mecanique < declaratif < meta-declaratif). Inventaire exact : 88 skills plugins (corrige de ~91 phase A) + 12 BMAD dormants + ~60 gstack binaires + 4 commands + 4 agents = ~167 points d invocation, ~12 actifs Foundation = ratio usage reel 7.2% = pattern sain concentre custom + ecosysteme en orbite passive. BMAD verdict FINAL DORMANT GARDE re-confirme : couple decision 2026-04-07 (overrule Kevin audit ARCHIVER) + directive explicite Kevin 2026-04-09 + evidence phase B F-S10-12 RENFORCE (si auto-load non tenu, custom Foundation plus robuste). 19 decisions D-S10-01..19 dont D-S10-01 NO ACTION + D-S10-02..04 batch S21 (3 fixes : pointeur CLAUDE.md outils dormants + update docs/tools-audit.md + optionnel docs/skills-inventory.md) + D-S10-14 validation renforcement + D-S10-18/19 meta-guidelines cycle3+ (6 meta-patterns formalises). 8 learnings L-S10-01..08 dont L-S10-07 amplification scale et L-S10-08 polarity. Dette batch S21 cumulee ~34 fixes (S7+S8+S9+S10). Zero code modules touche, zero invocation skill write-capable. Health final : build 688ms OK, 19/19 tests verts (6 fichiers, 1.30s), DEGRADED baseline 84 refs (vs 80 session-start = +4 drift forward-refs docs internes attendu), 0 drift S10a/S10b (84 identique), F-MON-01 TOUJOURS visible (respect strict D-S7-01). Prochaine : S11 audit suivante OU housekeeping batch S21 OU pause strategique (10 sessions deep consecutives = signal fatigue).'
-    },
-    {
-      date: '2026-04-09',
-      tag: 'DONE',
-      title: 'S9 Scripts + hooks (9) deep (a+b) — 2 commits, 19 findings dont 1 P1 cause racine F-MON-01',
-      summary:
-        '2 commits sur branche audit-massif-cycle3, 9e session consecutive mode MOI strict pattern S9a/S9b valide. (1) 53d1d2b S9a = remplace placeholder 09-scripts-hooks.md 7L par livrable 267L phase A lecture line-by-line des 9 scripts Foundation OS (health-check 171L + sync-check 214L + ref-checker 178L + module-scaffold 168L + session-lock 145L + validate-void-glass 38L + security-reminder.py 280L + pre-commit 20L + commit-msg 19L = 1233L total) + audit 4 angles (bug / idempotent / exit codes / output) + draft 18 findings (1 P1 + 6 P2 + 11 P3). (2) 2599d36 S9b = finalise a 412L avec phase B tests reels invocation (health-check full 3x, sync-check full, ref-checker --help + full, session-lock status/force/release sequence, module-scaffold --help seulement destructif, validate-void-glass fichier temp violant + sain, security-reminder stdin JSON safe + violate pattern #6, commit-msg dry strings 3x, pre-commit automatique) + 1 finding nouveau F-S9-19 (lockfile .fos-session.lock corrompu head/started_at vides affichage degrade "EXPIRED depuis" espaces, force+release repare). Final : 19 findings (1 P1 + 7 P2 + 11 P3) + 13 decisions D-S9-01..13 batchees S21 + 6 learnings L-S9-01..06. F-S9-01 P1 CAUSE RACINE F-MON-01 IDENTIFIEE : health-check L140 grep "\\.js " matche ligne prebuild DS "tokens.js + tokens.json" AVANT ligne vite bundle donc awk extrait "Design" au lieu du nombre. Fix trivial grep "^dist/.*\\.js " mais D-S7-01 strict = pas de fix opportuniste batch S21 via D-S9-01. F-S9-03/06 confirment F-S8-13/15 (double verdict sync + polyglot scaffold). F-S9-11/12/13 nouveaux coverage gaps validate-void-glass vs sync-check. F-S9-17 D-S8-12 RETRACT PARTIEL : hook commit-msg correct, le plan cycle3 S9.6 est faux en proposant audit(s09). F-S9-18 meta-finding auto-reference (hook security bloque l audit de lui-meme sur substring matching pattern names). Amplification tests reels S9a->S9b +5.5% (18 -> 19) vs +25% en S8 = L-S9-04 regle emergente calibrer effort par type artefact scripts mecaniques vs commands declaratifs. Dette heritee cumulee batch S21 (S7+S8+S9) ~32 fixes estimes effort ~2-3 sessions. Health final : build 1.07s OK, 19/19 tests verts, DS 100/100, DEGRADED baseline 79 refs (vs 75 session-start = +4 forward-refs docs), F-MON-01 TOUJOURS visible (batch S21 per D-S9-05). Prochaine : S10 Skills + BMAD verdict (10e consecutive).'
-    },
-    /* S7.5/S8 dropped from top-5 — available via git log */
+    /* S10 and older dropped from top-5 — available via git log */
   ]
 }

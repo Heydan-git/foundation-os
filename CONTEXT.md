@@ -19,16 +19,17 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-10 | **[DONE] Housekeeping post-cycle3 — DS-6 + deps upgrade** |
-|            | Scope : 25 fichiers app (couleurs) + config build/deps |
-|            | DS-6 : 206 couleurs hardcodees → var(--fos-*) tokens. 9 primitifs + 9 semantiques |
-|            | Deps : React 18→19, Vite 5→8 (Rolldown), Tailwind 3→4. Build -74% (761→199ms) |
-|            | Decisions : D-HK-01 DS-6 complet, D-HK-02 deps upgrade |
-|            | Commits : `59d115a` DS-6 migration, `67b0188` deps upgrade |
-| 2026-04-10 | **[DONE] S22+S23 Cloture cycle 3** — 12 P3 fixes + rapport final. Cycle 3 : 24/24 (100%), 35/42 fixes. |
-| 2026-04-10 | **[DONE_WITH_CONCERNS] S21 batch P2** — 19/23 fixes, JS -17kB, Dashboard supprime. 4 skips faible impact. |
-| 2026-04-10 | **[DONE] S17-S20 Audit final + fixes P1** — 4/4 P1 fixes (types, RLS, ARIA, guard DEV). 0 P1 restant. |
-| 2026-04-10 | **[DONE] S15-S16 Suggestions tech + strategic** — 20 findings, perf SAIN, anti-bullshit PROPRE. |
+| 2026-04-10 | **[DONE] Module Communication v1 + DS-5 + verif migration 003** |
+|            | Scope : docs/core/communication.md (nouveau), CONTEXT.md, session-start/end, CLAUDE.md, 5 refs docs |
+|            | Communication : spec 375L (journalisation, indexation, lecture, briefing). CONTEXT.md 400→120L |
+|            | DS-5 : CI Playwright + axe gate verifie (10/10 tests, snapshots OK) |
+|            | Migration 003 : confirmee appliquee par Kevin |
+|            | Decisions : D-COM-01 module Communication, nomenclature Memory→Communication, brief v9→v10 |
+|            | Commits : `18079d0` feat(core) Communication module + brief v10 |
+| 2026-04-10 | **[DONE] Housekeeping post-cycle3** — DS-6 + deps upgrade. React 19, Vite 8, Tailwind 4. 2 commits. |
+| 2026-04-10 | **[DONE] S22+S23 Cloture cycle 3** — 12 P3 fixes + rapport final. 24/24 (100%), 35/42 fixes. |
+| 2026-04-10 | **[DONE_WITH_CONCERNS] S21 batch P2** — 19/23 fixes, JS -17kB, Dashboard supprime. 4 skips. |
+| 2026-04-10 | **[DONE] S17-S20 Audit final + fixes P1** — 4/4 P1 fixes. 0 P1 restant. |
 
 > Sessions plus anciennes (S0-S14, Cycle 3 audit + Design System + Monitor Dashboard + Cycles 1-2) disponibles via `git log` et `.archive/audit-massif/23-rapport-final.md`.
 
@@ -45,6 +46,8 @@
 
 ## Idees & Parking
 
+- 💡 **Brief v10 test reel** : prochaine session-start = premier test live du nouveau format. Observer precision et contextualisation. (2026-04-10)
+- 💡 **memory.md cleanup** : fichier toujours present mais plus reference. Supprimer ou garder comme redirect ? (2026-04-10)
 - 💡 **Agent SDK Anthropic** : explorer formalisation Cortex en natif. Pre-requis : SDK mature + evaluation. (S17)
 - 💡 **MCP custom CONTEXT.md** : anti-compactage via contexte a la demande. Spec + implementation. (S17)
 - 💡 **Supabase MCP + Vercel MCP** : quick wins connexion. Installation simple post-cycle3. (S17)
@@ -55,8 +58,9 @@
 ## En attente Kevin
 
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
-- OMC update disponible v4.11.4 (actuel v4.10.1, `omc update`).
+- OMC update disponible v4.11.4 (actuel v4.10.1, `omc update`). Lateral, pas urgent.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
+- ~~Migration 003 updated_at~~ ✅ appliquee (confirme Kevin 2026-04-10)
 
 ## Decisions
 
@@ -64,6 +68,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. Spec 375L, CONTEXT.md 400→120L, brief v10, capture idees, nomenclature unifiee. `18079d0` |
 | D-HK-01 DS-6 complet | 2026-04-10 | 206/254 couleurs → tokens. 9 primitifs + 9 semantiques. 25 fichiers. `59d115a` |
 | D-HK-02 Deps upgrade | 2026-04-10 | React 19, Vite 8, Tailwind 4. Build -74%. `67b0188` |
 | Dashboard supprime | 2026-04-10 | Dead code doublon Commander. Redirect /dashboard→/commander. |
