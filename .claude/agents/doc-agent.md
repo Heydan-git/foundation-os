@@ -1,9 +1,10 @@
 ---
 name: doc-agent
+model: sonnet
 description: >
   Agent documentation Foundation OS. Mise a jour de CONTEXT.md,
   docs/, modules/app/data/. Declencheurs : "documente", "note",
-  "trace", "journalise", "met a jour".
+  "trace", "journalise", "met a jour CONTEXT", "met a jour docs".
 ---
 
 # Foundation OS — Agent Documentation
@@ -28,7 +29,7 @@ description: >
 4 tiers : Session (volatile) → Contexte (CONTEXT.md) → Reference (docs/) → Auto-memory (Claude natif).
 **Une info ne vit que dans UN tier.** Pas de duplication.
 
-Note : `/session-end` execute deja une partie de mes responsabilites (mise a jour CONTEXT.md selon le protocole 4 niveaux PAUL).
+Note : `/session-end` execute deja une partie de mes responsabilites (mise a jour CONTEXT.md selon le protocole 4 niveaux DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED).
 
 ## Regles
 

@@ -9,17 +9,9 @@ import {
   ContextPanel,
   NextStepsPanel,
 } from '@/components/Commander'
+import { LoadingSkeleton } from '@/components/LoadingSkeleton'
 import { useCommander } from '@/lib/useCommander'
-
-// ── Constants ────────────────────────────────────────────────────────
-
-const META = {
-  version: 'v0.1',
-  phase: '00 — Fondation',
-  objectiveCT: 'OS de travail IA-driven · Coopération Claude/Kévin',
-  dataVersion: '1.3.0',
-  lastSync: '2026-04-04',
-}
+import { APP_META } from '@/lib/constants'
 
 const TABS = [
   { id: 'sessions',   label: 'Sessions'   },
@@ -29,27 +21,6 @@ const TABS = [
   { id: 'contextes',  label: 'Contextes'  },
   { id: 'documents',  label: 'Documents'  },
 ]
-
-// ── Loading skeleton ─────────────────────────────────────────────────
-
-function LoadingSkeleton() {
-  return (
-    <div className="flex flex-col" style={{ gap: 8 }}>
-      {[1, 2, 3].map(i => (
-        <div
-          key={i}
-          style={{
-            height: 72,
-            borderRadius: 10,
-            background: 'rgba(255,255,255,.02)',
-            border: '1px solid rgba(255,255,255,.04)',
-            animation: 'pulse 2s infinite',
-          }}
-        />
-      ))}
-    </div>
-  )
-}
 
 // ── Main Page ────────────────────────────────────────────────────────
 
@@ -74,9 +45,9 @@ export default function Commander() {
     <PageContainer>
       <PageHeader
         title="FOS Commander"
-        subtitle={META.objectiveCT}
-        version={META.version}
-        meta={META.phase}
+        subtitle={APP_META.objectiveCT}
+        version={APP_META.version}
+        meta={APP_META.phase}
       >
         <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: '#A78BFA' }}>
           {sessions.length} Sessions
@@ -109,8 +80,8 @@ export default function Commander() {
 
       <Footer
         principles={['Zéro nuisance', 'MD first · JSX second', 'Traçabilité totale']}
-        dataVersion={META.dataVersion}
-        lastSync={META.lastSync}
+        dataVersion={APP_META.dataVersion}
+        lastSync={APP_META.lastSync}
       />
     </PageContainer>
   )

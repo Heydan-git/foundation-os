@@ -10,6 +10,10 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - 100% ou rien — verifier le repertoire courant avant toute operation fichier
 - Plan avant execution, validation Kevin avant changement non-trivial
 - Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
+- Decouper systematiquement chaque tache en phases/sessions courtes pour eviter le compactage (jamais de monolithe, meme pour du "simple")
+- Identifier la cause racine de chaque erreur ou incoherence avant de fixer (pas de patch symptomatique)
+- Actions pragmatiques, conscience des limites — ne jamais tenter ce qui ne peut pas fonctionner (dire "je ne peux pas X" plutot que faire semblant)
+- Sub-agents uniquement quand le contexte global n'est PAS necessaire (zones isolees, faits observables). Tout jugement qui exige ma memoire des sessions/decisions → MOI directement. Les findings type "orphelin/doublon/redondance" d'un sub-agent sont toujours a re-verifier avec contexte global avant validation.
 
 ## A chaque session
 1. Lire CONTEXT.md pour etat actuel + prochaine action
@@ -17,6 +21,16 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 3. Evaluations realistes uniquement — zero bullshit, zero auto-congratulation
 4. Ne jamais ajouter de fonctionnalites non demandees
 5. En fin de session, mettre a jour CONTEXT.md (resume + prochaine action)
+
+## Briefs session (format obligatoire)
+
+Template complet en memoire : `feedback_brief_format.md` (v9, valide 2026-04-09).
+
+**11 sections dans l'ordre** : Etat global (3 barres sante/build/tests) → Mission/Focus/Derniere session → Modules/Acces rapides/Git → Alertes sante/Rappels/Questions en attente → Dernier commit → Termine → En cours → En pause → Reflexions/Parking → Decisions cles/Echeance → Prochaine action/Ton input.
+
+**Regles de rendu** : emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `████░░░░` (12 blocs max), separateurs 32 chars, lignes courtes (safe petit terminal), vulgariser le jargon (glose 3-4 mots), mise en garde automatique si risque regression.
+
+**Questions groupees (plans)** : lors de l'execution d'un plan, poser TOUTES les questions en debut de session, pas au fil de l'eau. Execution ensuite sans interruption sauf imprevu (bug, regression, trade-off inattendu). Memoire : `feedback_frontload_questions.md`.
 
 ## Stack
 Vite + React + TypeScript + Tailwind + Supabase + Vercel
@@ -29,7 +43,7 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - BMAD : dossier _bmad/ (underscore obligatoire)
 
 ## Garde-fous (non-negociable)
-- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore y vivent)
+- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json y vivent — package.json racine = workspace root UNIQUEMENT, pas un projet ; ajoute 2026-04-09 pour npm workspaces + Design System)
 - Ne JAMAIS creer de fichier sans demande explicite de Kevin
 - Ne JAMAIS dupliquer une info qui est deja dans CONTEXT.md
 - Quand un fichier est deplace ou renomme → mettre a jour TOUTES les references (grep + fix)
@@ -88,8 +102,7 @@ Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BR
 
 Utilitaires et automation. Spec complete : docs/core/tools.md
 
-Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
-Backlog : ref-checker (a construire sur demande).
+Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), sync-check.sh (/sync), ref-checker.sh (refs cassees), module-scaffold.sh (new-project), session-lock.sh (Cowork), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
 Convention : scripts/ en bash/node, kebab-case, idempotent, exit codes standards.
 
 ## Structure

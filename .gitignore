@@ -1,9 +1,24 @@
 .env.local
 .env
+.env.*
 node_modules/
 dist/
 .DS_Store
 .fos/
+.fos-session.lock
 .omc/state/
 *.pyc
 __pycache__/
+
+# Secrets & credentials
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+credentials.json
+secrets.json
+*.keystore
+
+# Logs
+*.log

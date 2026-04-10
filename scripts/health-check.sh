@@ -46,7 +46,7 @@ else
 fi
 
 # Structure
-ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|_bmad|docs|modules|scripts|supabase)$' || true)
+ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase)$' || true)
 if [ -z "$ORPHANS" ]; then
   echo -e "  ${GRN}[OK]${RST} Structure racine (0 orphelin)"
 else
@@ -137,8 +137,8 @@ echo ""
 echo "[INFO]"
 
 # Bundle size
-JS_SIZE=$(echo "$BUILD_OUT" | grep "\.js " | awk '{print $2}' | head -1)
-CSS_SIZE=$(echo "$BUILD_OUT" | grep "\.css " | awk '{print $2}' | head -1)
+JS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.js " | awk '{print $2}' | head -1)
+CSS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.css " | awk '{print $2}' | head -1)
 JS_INT=${JS_SIZE%.*}
 CSS_INT=${CSS_SIZE%.*}
 BUNDLE_WARN=""

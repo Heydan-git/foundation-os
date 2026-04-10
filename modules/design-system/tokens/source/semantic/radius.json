@@ -1,0 +1,31 @@
+{
+  "radius": {
+    "component": {
+      "input": {
+        "$value": "{radius.scale.sm}",
+        "$type": "dimension",
+        "$description": "Inputs, buttons, controls (6px)"
+      },
+      "pill": {
+        "$value": "{radius.scale.md}",
+        "$type": "dimension",
+        "$description": "Pills, badges (8px)"
+      },
+      "card": {
+        "$value": "{radius.scale.lg}",
+        "$type": "dimension",
+        "$description": "Cards, panels (12px)"
+      },
+      "modal": {
+        "$value": "{radius.scale.xl}",
+        "$type": "dimension",
+        "$description": "Modals, overlays (16px)"
+      },
+      "round": {
+        "$value": "{radius.scale.full}",
+        "$type": "dimension",
+        "$description": "Avatars, chips ronds"
+      }
+    }
+  }
+}

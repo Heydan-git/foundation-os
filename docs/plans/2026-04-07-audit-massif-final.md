@@ -284,16 +284,16 @@ ID format : `F-S<NN>-<num>` (F = finding, S<NN> = numero session, num = sequenti
 
 **Pourquoi critique** : 24 sessions = risque eleve de compactage en cours d'audit. Chaque compactage perd du contexte si non sauvegarde.
 
-**Mitigation a 8 niveaux** :
+**Mitigation a 8 niveaux** (bilan honnete 2026-04-10, fix F-S12-04 P1) :
 
-1. **Master file (`audit-massif-final.md`)** mis a jour APRES chaque session, contient demande integrale + decisions + plan + procedure reprise + tracking live.
-2. **Index (`docs/audit-massif/00-INDEX.md`)** : table sessions avec status DONE/IN_PROGRESS/PENDING.
-3. **Livrables session self-contained** : chaque MD lisible seul (objectif, methodo, findings, decisions, next).
-4. **CONTEXT.md** : section "Cycle 3 progress" avec une ligne par session.
-5. **Commits messages factuels** : `audit(s07): agents (4) deep + tests → docs/audit-massif/07-agents.md`.
-6. **Procedure de reprise** (section 4 ci-dessous) : ordre precis de re-lecture pour reprendre apres compactage.
-7. **Checkpoint partiel** : si compactage imminent en cours de session, save l'etat partiel dans le livrable + arret propre.
-8. **Re-verification baseline** apres compactage : git status, git log, health-check.sh.
+1. ~~**Master file live tracking**~~ **ABANDONNE** — section 6 jamais mise a jour apres S0 (drift 12 sessions). Deprecie, remplace par CONTEXT.md.
+2. ~~**Index 00-INDEX.md update**~~ **RATTRAPE 2026-04-10** — stale depuis S4 (drift 7 sessions), mis a jour S5-S12 en fix P1.
+3. **Livrables session self-contained** : VIVANT, chaque MD lisible seul. Seule mitigation 100% tenue S0-S12.
+4. **CONTEXT.md** : VIVANT, source operationnelle principale de fait (ratio hot paths 10:1 vs autres tiers). Mis a jour a chaque /session-end.
+5. **Commits messages factuels** : VIVANT, pattern `docs(audit): sNN ...` stable (note : format reel `docs(audit):` pas `audit(sNN):` comme prevu initialement).
+6. **Procedure de reprise** : VIVANT (simplifiee 2026-04-10, pointe CONTEXT.md en source principale).
+7. ~~**Checkpoint partiel**~~ **JAMAIS UTILISE** — aucun compactage n'a eu lieu pendant les 12 sessions (sessions courtes anti-compactage efficaces).
+8. **Re-verification baseline** : VIVANT, health-check.sh execute a chaque session-start et session-end.
 
 ### 3.6 · Strategie sub-agents (recap detaille)
 
@@ -343,20 +343,16 @@ ID format : `F-S<NN>-<num>` (F = finding, S<NN> = numero session, num = sequenti
 
 ## 4. Anti-compactage — Procedure de reprise
 
-Si la conversation Claude est compactee ou si une nouvelle session commence en
-cours d'audit :
+> Mise a jour 2026-04-10 (fix F-S12-03 P1). Simplifiee : CONTEXT.md = source principale.
 
-1. Lire `CLAUDE.md` (imperatifs Foundation OS)
-2. Lire `CONTEXT.md` (etat global Foundation OS, section "Cycle 3 progress")
-3. Lire CE fichier en integralite (`docs/plans/2026-04-07-audit-massif-final.md`)
-4. Lire la **section 6 (Live tracking sessions)** ci-dessous → trouver la
-   prochaine session non DONE
-5. Lire `docs/audit-massif/00-INDEX.md` (cree des S0)
-6. Lire le dernier livrable `docs/audit-massif/[derniere-session-DONE].md`
-7. Verifier `git status` + `git log --oneline -20` + verif branche
-   `audit-massif-cycle3`
-8. Lancer `bash scripts/health-check.sh` pour confirmer baseline SAIN
-9. Reprendre a la prochaine session non DONE
+Si la conversation Claude est compactee ou si une nouvelle session commence :
+
+1. Lire `CONTEXT.md` section "Cycle 3 progress" → trouver la prochaine session non DONE
+2. Lire `CONTEXT.md` section "Prochaine action" → scope et contexte
+3. Lire le dernier livrable `docs/audit-massif/[derniere-session-DONE].md` section 8 (Next)
+4. Verifier `git status` + `git log --oneline -5` + branche `audit-massif-cycle3`
+5. Lancer `bash scripts/health-check.sh`
+6. Reprendre a la prochaine session non DONE
 
 **Les findings et rapports detailles de l'audit seront sauvegardes dans** :
 `docs/audit-massif/` (a creer en S0, pas pendant la preparation).
@@ -378,44 +374,8 @@ cours d'audit :
 
 ---
 
-## 6. Live tracking sessions (mis a jour APRES CHAQUE session)
+## 6. Live tracking sessions
 
-> Section vivante. Status mis a jour a la cloture de chaque session.
-> Findings cles : 3-5 bullets par session apres ecriture du livrable.
-
-| Session | Status | Date | Findings cles | Commit |
-|---------|--------|------|---------------|--------|
-| S0  Pre-flight                       | PENDING | — | — | — |
-| S1  Carto repo                       | PENDING | — | — | — |
-| S2  Inventaire components            | PENDING | — | — | — |
-| S3  Fondations Core OS               | PENDING | — | — | — |
-| S4  Architecture orga                | PENDING | — | — | — |
-| S5  Workflows routing                | PENDING | — | — | — |
-| S6  Orchestration automation         | PENDING | — | — | — |
-| S7  Agents                           | PENDING | — | — | — |
-| S8  Commands                         | PENDING | — | — | — |
-| S9  Scripts hooks                    | PENDING | — | — | — |
-| S10 Skills + BMAD verdict            | PENDING | — | — | — |
-| S11 Comm securite                    | PENDING | — | — | — |
-| S12 Memory + anti-compactage         | PENDING | — | — | — |
-| S13 Module App                       | PENDING | — | — | — |
-| S14 SUGG tech 1 (perf/deps/types)    | PENDING | — | — | — |
-| S15 SUGG tech 2 (cov/ci/db/naming)   | PENDING | — | — | — |
-| S16 SUGG strategic                   | PENDING | — | — | — |
-| S17 External research                | PENDING | — | — | — |
-| S18 Cross-check                      | PENDING | — | — | — |
-| S19 Synthese roadmap (GATE G1)       | PENDING | — | — | — |
-| S20 Fixes P1 critiques               | PENDING | — | — | — |
-| S21 Fixes P2 importants              | PENDING | — | — | — |
-| S22 Fixes P3 cosmetiques (GATE G2)   | PENDING | — | — | — |
-| S23 Verdict + PR (GATE G3)           | PENDING | — | — | — |
-
-### Decisions Kevin (chronologique)
-> A remplir pendant l'execution. Chaque decision = une ligne avec date + contexte + decision.
-
-(vide pour le moment — preparation seulement)
-
-### Findings cles consolides (top 5 par session)
-> A remplir pendant l'execution. Cette section est le resume executif live.
-
-(vide pour le moment — preparation seulement)
+> **DEPRECIE** (2026-04-10, fix F-S12-01 P1). Cette section etait stale depuis S1 (drift 12 sessions).
+> Source de verite unique pour le suivi des sessions : **`CONTEXT.md` section "Cycle 3 progress"**.
+> Les decisions Kevin et findings cles sont dans chaque livrable `docs/audit-massif/NN-*.md` section 4 et 8.

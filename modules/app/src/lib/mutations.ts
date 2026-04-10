@@ -4,6 +4,16 @@
  */
 
 import { supabase } from './supabase'
+import type { Database } from './database.types'
+
+type SessionInsert = Database['public']['Tables']['sessions']['Insert']
+type SessionUpdate = Database['public']['Tables']['sessions']['Update']
+type DecisionInsert = Database['public']['Tables']['decisions']['Insert']
+type DecisionUpdate = Database['public']['Tables']['decisions']['Update']
+type RiskInsert = Database['public']['Tables']['risks']['Insert']
+type RiskUpdate = Database['public']['Tables']['risks']['Update']
+type NextStepInsert = Database['public']['Tables']['next_steps']['Insert']
+type ContextBlockInsert = Database['public']['Tables']['context_blocks']['Insert']
 
 // ── Commander Mutations Hook ─────────────────────────────────────────
 
@@ -11,7 +21,7 @@ export const useCommanderMutations = () => {
 
   // ── Sessions CRUD ─────────────────────────────────────────────────
 
-  const createSession = async (sessionData: any) => {
+  const createSession = async (sessionData: Partial<SessionInsert>) => {
     try {
       const { data, error } = await supabase
         .from('sessions')
@@ -27,15 +37,14 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Session created:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating session:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
-  const updateSession = async (sessionId: string, updates: any) => {
+  const updateSession = async (sessionId: string, updates: SessionUpdate) => {
     try {
       const { data, error } = await supabase
         .from('sessions')
@@ -45,11 +54,10 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Session updated:', sessionId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating session:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
@@ -61,17 +69,16 @@ export const useCommanderMutations = () => {
         .eq('id', sessionId)
 
       if (error) throw error
-      console.log('Session deleted:', sessionId)
       return { success: true }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error deleting session:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
   // ── Decisions CRUD ─────────────────────────────────────────────────
 
-  const createDecision = async (decisionData: any) => {
+  const createDecision = async (decisionData: Partial<DecisionInsert>) => {
     try {
       const { data, error } = await supabase
         .from('decisions')
@@ -86,15 +93,14 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Decision created:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating decision:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
-  const updateDecision = async (decisionId: string, updates: any) => {
+  const updateDecision = async (decisionId: string, updates: DecisionUpdate) => {
     try {
       const { data, error } = await supabase
         .from('decisions')
@@ -104,11 +110,10 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Decision updated:', decisionId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating decision:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
@@ -124,15 +129,14 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Step marked done:', stepId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error marking step done:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
-  const createNextStep = async (stepData: any) => {
+  const createNextStep = async (stepData: Partial<NextStepInsert>) => {
     try {
       const { data, error } = await supabase
         .from('next_steps')
@@ -147,17 +151,16 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Next step created:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating next step:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
   // ── Risks CRUD ─────────────────────────────────────────────────────
 
-  const addRisk = async (riskData: any) => {
+  const addRisk = async (riskData: Partial<RiskInsert>) => {
     try {
       const { data, error } = await supabase
         .from('risks')
@@ -172,15 +175,14 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Risk added:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error adding risk:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
-  const updateRisk = async (riskId: string, updates: any) => {
+  const updateRisk = async (riskId: string, updates: RiskUpdate) => {
     try {
       const { data, error } = await supabase
         .from('risks')
@@ -190,17 +192,16 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Risk updated:', riskId)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating risk:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
   // ── Context CRUD ─────────────────────────────────────────────────
 
-  const addContext = async (contextData: any) => {
+  const addContext = async (contextData: Partial<ContextBlockInsert>) => {
     try {
       const { data, error } = await supabase
         .from('context_blocks')
@@ -213,11 +214,10 @@ export const useCommanderMutations = () => {
         .single()
 
       if (error) throw error
-      console.log('Context added:', data.id)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error adding context:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
@@ -239,11 +239,10 @@ export const useCommanderMutations = () => {
         .select()
 
       if (error) throw error
-      console.log(`Batch created ${data.length} steps for phase ${phase}`)
       return { success: true, data }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error batch creating steps:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 
@@ -266,13 +265,17 @@ export const useCommanderMutations = () => {
         nextSteps: nextSteps.data || [],
         context: context.data || [],
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching all data:', error)
       return { sessions: [], decisions: [], risks: [], nextSteps: [], context: [] }
     }
   }
 
   const clearAllData = async () => {
+    if (!import.meta.env.DEV) {
+      console.error('clearAllData is only available in development mode')
+      return { success: false, error: 'clearAllData is only available in development mode' }
+    }
     try {
       await Promise.all([
         supabase.from('sessions').delete().not('id', 'is', null),
@@ -281,11 +284,10 @@ export const useCommanderMutations = () => {
         supabase.from('next_steps').delete().not('id', 'is', null),
         supabase.from('context_blocks').delete().not('id', 'is', null),
       ])
-      console.log('All data cleared')
       return { success: true }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error clearing data:', error)
-      return { success: false, error: error.message }
+      return { success: false, error: error instanceof Error ? error.message : (error as { message?: string })?.message ?? String(error) }
     }
   }
 

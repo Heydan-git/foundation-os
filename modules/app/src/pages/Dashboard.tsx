@@ -1,15 +1,7 @@
 import { useState } from 'react'
 import { Badge, Card, TabBar, PageHeader, Footer } from '@/components'
 import { useCommander } from '@/lib/useCommander'
-
-// ── Static config (not from DB) ────────────────────────────────────
-
-const META = {
-  name: 'Foundation OS',
-  version: 'v0.1',
-  phase: '00 — Fondation',
-  objectiveCT: 'OS de travail IA-driven · Coopération Claude/Kévin',
-}
+import { APP_META } from '@/lib/constants'
 
 const PIPELINE_PHASES = [
   { num: '00', label: 'Fondation OS',    color: '#A78BFA', status: 'active'  },
@@ -222,9 +214,9 @@ export default function Dashboard() {
     <>
       <PageHeader
         title="FOS Dashboard"
-        subtitle={META.objectiveCT}
-        version={META.version}
-        meta={META.phase}
+        subtitle={APP_META.objectiveCT}
+        version={APP_META.version}
+        meta={APP_META.phase}
       >
         <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: '#A78BFA' }}>
           {PIPELINE_PHASES.length} Phases
@@ -249,7 +241,7 @@ export default function Dashboard() {
 
       <Footer
         principles={['Zéro nuisance', 'MD first · JSX second', 'Traçabilité totale']}
-        dataVersion={META.version}
+        dataVersion={APP_META.version}
         lastSync={new Date().toISOString().split('T')[0]}
       />
     </>

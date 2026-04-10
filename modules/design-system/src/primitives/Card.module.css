@@ -1,0 +1,63 @@
+/**
+ * Card primitive — Foundation OS Design System
+ * Void Glass surface container with header/body/footer slots.
+ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--fos-color-bg-surface);
+  border: 1px solid var(--fos-color-border-default);
+  border-radius: var(--fos-radius-component-card);
+  color: var(--fos-color-text-primary);
+  font-family: var(--fos-font-family-sans);
+  overflow: hidden;
+  transition: border-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
+    background-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
+    transform var(--fos-motion-micro-duration) var(--fos-motion-micro-easing);
+}
+
+/* ── Slots ─────────────────────────────────────────────────── */
+.header {
+  padding: var(--fos-space-scale-4);
+  border-bottom: 1px solid var(--fos-color-border-default);
+}
+
+.body {
+  padding: var(--fos-space-scale-4);
+  flex: 1 1 auto;
+}
+
+.footer {
+  padding: var(--fos-space-scale-4);
+  border-top: 1px solid var(--fos-color-border-default);
+}
+
+/* ── Variants ──────────────────────────────────────────────── */
+.variant-default {
+  /* Base style already applied by .card */
+}
+
+.variant-elevated {
+  box-shadow: var(--fos-surface-card);
+  background: color-mix(in srgb, var(--fos-color-bg-surface) 70%, white);
+}
+
+.variant-interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+.variant-interactive:hover {
+  border-color: color-mix(in srgb, var(--fos-color-border-default) 50%, white);
+  background: color-mix(in srgb, var(--fos-color-bg-surface) 60%, white);
+}
+
+.variant-interactive:active {
+  transform: translateY(1px);
+}
+
+.variant-interactive:focus-visible {
+  outline: 2px solid var(--fos-color-accent-brand);
+  outline-offset: 2px;
+}

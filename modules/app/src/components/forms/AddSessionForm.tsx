@@ -39,7 +39,6 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
       })
 
       if (result.success) {
-        console.log('✅ Session créée avec succès:', result.data?.id)
 
         // Reset form
         setFormData({
@@ -54,8 +53,8 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
       } else {
         setError(result.error || 'Erreur lors de la création')
       }
-    } catch (err: any) {
-      setError(err.message || 'Erreur inattendue')
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Erreur inattendue')
     } finally {
       setIsLoading(false)
     }
@@ -72,7 +71,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-label="Nouvelle session">
       <div className="bg-[#06070C] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">

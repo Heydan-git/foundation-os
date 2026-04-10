@@ -1,0 +1,180 @@
+/**
+ * Button primitive — Foundation OS Design System
+ * Void Glass base, WCAG AA focus ring, 4 variants × 3 sizes × etats.
+ * Toutes les couleurs via --fos-* CSS vars (aucun hex hardcode).
+ */
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fos-space-scale-2);
+  font-family: var(--fos-font-family-sans);
+  font-weight: var(--fos-font-weight-medium);
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: var(--fos-radius-component-input);
+  cursor: pointer;
+  transition: background-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
+    border-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
+    color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
+    opacity var(--fos-motion-micro-duration) var(--fos-motion-micro-easing);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--fos-color-accent-brand);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────────── */
+.size-sm {
+  font-size: var(--fos-font-size-sm);
+  padding: 6px 12px;
+  min-height: 28px;
+}
+
+.size-md {
+  font-size: var(--fos-font-size-base);
+  padding: 8px 16px;
+  min-height: 36px;
+}
+
+.size-lg {
+  font-size: var(--fos-font-size-lg);
+  padding: 12px 20px;
+  min-height: 44px;
+}
+
+/* ── Variant: primary (accent.brand) ───────────────────────────── */
+.variant-primary {
+  background: var(--fos-color-accent-brand);
+  color: var(--fos-color-bg-canvas);
+  border-color: var(--fos-color-accent-brand);
+}
+
+.variant-primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-accent-brand) 85%, white);
+  border-color: color-mix(in srgb, var(--fos-color-accent-brand) 85%, white);
+}
+
+.variant-primary:active:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-accent-brand) 85%, black);
+  border-color: color-mix(in srgb, var(--fos-color-accent-brand) 85%, black);
+}
+
+/* ── Variant: secondary (outline) ──────────────────────────────── */
+.variant-secondary {
+  background: transparent;
+  color: var(--fos-color-text-primary);
+  border-color: var(--fos-color-status-archived);
+}
+
+.variant-secondary:hover:not(:disabled) {
+  background: var(--fos-color-bg-surface);
+  border-color: color-mix(in srgb, var(--fos-color-status-archived) 60%, white);
+}
+
+.variant-secondary:active:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-bg-surface) 80%, white);
+}
+
+/* ── Variant: ghost (transparent, no border) ───────────────────── */
+.variant-ghost {
+  background: transparent;
+  color: var(--fos-color-text-primary);
+  border-color: transparent;
+}
+
+.variant-ghost:hover:not(:disabled) {
+  background: var(--fos-color-bg-surface);
+}
+
+.variant-ghost:active:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-bg-surface) 80%, white);
+}
+
+/* ── Variant: danger (accent.danger) ───────────────────────────── */
+.variant-danger {
+  background: var(--fos-color-accent-danger);
+  color: var(--fos-color-bg-canvas);
+  border-color: var(--fos-color-accent-danger);
+}
+
+.variant-danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-accent-danger) 85%, white);
+  border-color: color-mix(in srgb, var(--fos-color-accent-danger) 85%, white);
+}
+
+.variant-danger:active:not(:disabled) {
+  background: color-mix(in srgb, var(--fos-color-accent-danger) 85%, black);
+  border-color: color-mix(in srgb, var(--fos-color-accent-danger) 85%, black);
+}
+
+/* ── Loading state ─────────────────────────────────────────────── */
+.loading .label {
+  opacity: 0;
+}
+
+.loading .iconLeading,
+.loading .iconTrailing {
+  opacity: 0;
+}
+
+.spinner {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.spinnerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: fosBtnSpinnerPulse 1.2s infinite ease-in-out;
+}
+
+.spinnerDot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.spinnerDot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fosBtnSpinnerPulse {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.4);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ── Icons ─────────────────────────────────────────────────────── */
+.iconLeading,
+.iconTrailing {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.label {
+  display: inline-block;
+  line-height: 1;
+}

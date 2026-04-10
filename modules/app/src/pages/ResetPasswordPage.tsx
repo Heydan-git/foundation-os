@@ -9,8 +9,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/lib/AuthContext'
 import { supabase } from '@/lib/supabase'
 import { Card, PageHeader } from '@/components'
-
-const PASSWORD_MIN = 8
+import { PASSWORD_MIN } from '@/lib/constants'
 const inputStyle: React.CSSProperties = {
   padding: '10px 12px',
   borderRadius: 6,

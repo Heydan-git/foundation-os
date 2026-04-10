@@ -10,7 +10,7 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 |---------------------|-------|----------|
 | architecture, ADR, stack, schema, structurer, option A vs B | os-architect | "Comment structurer finance ?" |
 | code, composant, page, Supabase, React, build, scaffold, CSS, Tailwind | dev-agent | "Ajoute un bouton delete" |
-| documente, note, trace, journalise, met a jour CONTEXT | doc-agent | "Mets a jour CONTEXT.md" |
+| documente, note, trace, journalise, met a jour CONTEXT, met a jour docs | doc-agent | "Mets a jour CONTEXT.md" |
 | verifie, audit, check, revue, regression, deployer | review-agent | "Verifie avant commit" |
 
 ### Regles de priorite
@@ -53,15 +53,7 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 | /new-project | Creer un module | Scaffold modules/[nom]/ → update CONTEXT.md |
 | /sync | Verifier coherence | Structure + refs + CONTEXT.md vs filesystem + Void Glass + MD pairs |
 
-### /sync — Detail
-
-/sync remplace /sync-md avec un scope elargi :
-
-1. **Structure** : racine = 3 fichiers + dossiers attendus, pas d'orphelins
-2. **Modules** : chaque module dans CONTEXT.md existe dans modules/, et vice-versa
-3. **Refs** : grep les noms de fichiers supprimes/deplaces recemment, corriger les refs cassees
-4. **CONTEXT.md** : status des modules, builds, routes, artifacts — tout correspond au filesystem
-5. **App specifique** : MD pairs (`data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx`), Void Glass, TSX < 700 lignes
+Detail de chaque command : `.claude/commands/<nom>.md` (source unique).
 
 ## 4. Agents — Protocole uniforme
 

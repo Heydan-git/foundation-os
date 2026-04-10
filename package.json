@@ -1,0 +1,7 @@
+{
+  "name": "foundation-os-workspace",
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ]
+}

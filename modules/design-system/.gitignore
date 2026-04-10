@@ -1,0 +1,7 @@
+node_modules/
+tokens/build/
+dist/
+storybook-static/
+*.log
+.DS_Store
+.omc/
