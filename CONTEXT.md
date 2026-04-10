@@ -50,13 +50,14 @@ Branche : `audit-massif-cycle3` | Tag baseline : `pre-audit-cycle3` (a8519c8) | 
 | S13 Module App Builder | DONE 2026-04-10 (phase A lecture + phase B sub-agent forms/Commander) | MIX | 13-module-app.md (105L, 43 fichiers ~4500L scannees, 21 findings / 3 P1 code (any bypass types, no DELETE RLS, modals sans ARIA) + 10 P2 + 8 P3 / 13 decisions D-S13-01..13 / premier audit code vivant cycle 3) |
 | S14 SUGG tech 1 | DONE 2026-04-10 (perf + deps + types) | MOI | 14-sugg-tech-1.md (114L, perf SAIN tous seuils, 2 vulns moderate dev-only, 7 packages major outdated, strict=true 0 erreurs mais 38x any explicites / 6 findings 2 P2 + 4 P3 / 5 decisions D-S14-01..05) |
 | S15 SUGG tech 2 | DONE 2026-04-10 (coverage + CI/CD + DB + naming) | MOI | 15-sugg-tech-2.md (10 findings / 5 P2 + 5 P3 / 8 decisions D-S15-01..08 / 4 learnings L-S15-01..04 / coverage 18% file-level / CI local-first dette / DB zero drift types / naming coherent) |
-| S16-S23 | PAUSED (audit lineaire D-S7-01) | voir plan | voir plan (S16 = SUGG strategic doc-cognitif/anti-bullshit/multi-modules) |
+| S16 SUGG strategic | DONE 2026-04-10 (doc cognitif + anti-bullshit + multi-modules) | MOI | 16-sugg-strategic.md (10 findings / 3 P2 + 7 P3 / 6 decisions D-S16-01..06 / 4 learnings L-S16-01..04 / doc cognitif 7/10 / anti-bullshit PROPRE zero fausse metrique / multi-modules 5-7 sessions prep) |
+| S17-S23 | PAUSED (audit lineaire D-S7-01) | voir plan | voir plan (S17 = external research SUB mode) |
 
 Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fonctionnement de l'OS" → 4 decisions integrees dans `docs/audit-massif/00-preflight.md` section 4.2 (learnings metaboliques par session, auto-memory continue, fixes docs-only triviaux OK, rapport S23 section OS-learnings).
 
 ## Prochaine action
 
-1. **S16 SUGG strategic** (16e session cycle3, PHASE VIII). Plan : `docs/plans/2026-04-07-cycle3-implementation.md` section S16. Scope : doc cognitif test, anti-bullshit historique, multi-modules readiness. **Cycle 3 : 15/24 sessions DONE (62%)**. **Dette batch S21 cumulee ~58 fixes** (S7-S15) : ~50 fixes heritage + 8 decisions S15. Effort estime 2-3 sessions housekeeping.
+1. **S17 External research** (17e session cycle3, PHASE IX). Plan : `docs/plans/2026-04-07-cycle3-implementation.md` section S17. Scope : 3 sub-agents paralleles (best practices OS personnels, MCP/OMC nouveaux, frameworks emergents). Mode SUB. **Cycle 3 : 16/24 sessions DONE (67%)**. **Dette batch S21 cumulee ~64 fixes** (S7-S16) : ~58 fixes heritage + 6 decisions S16. Effort estime 2-3 sessions housekeeping.
 
 2. **Housekeeping technique** (post-audit ou entre sessions) :
    - ~~**F-MON-01**~~ FIXE 2026-04-10 (commit 7952834)

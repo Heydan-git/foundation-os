@@ -1,8 +1,8 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0-S15 DONE 62%, S16+ PENDING)
+> **Status** : EN COURS (S0-S16 DONE 67%, S17+ PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-10 (S15 DONE)
+> **Derniere maj** : 2026-04-10 (S16 DONE)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 > **Source de verite sessions** : `CONTEXT.md` section "Cycle 3 progress"
@@ -27,7 +27,7 @@
 | S13 Module App                       | DONE    | 13-module-app.md            | 2026-04-10 | docs(audit) s13 (7eec2d0) |
 | S14 SUGG tech 1                      | DONE    | 14-sugg-tech-1.md           | 2026-04-10 | docs(audit) s14 (c3bccc9) |
 | S15 SUGG tech 2                      | DONE    | 15-sugg-tech-2.md           | 2026-04-10 | docs(audit) s15 |
-| S16 SUGG strategic                   | PENDING | 16-sugg-strategic.md        | — | — |
+| S16 SUGG strategic                   | DONE    | 16-sugg-strategic.md        | 2026-04-10 | docs(audit) s16 |
 | S17 External research                | PENDING | 17-external-research.md     | — | — |
 | S18 Cross-check                      | PENDING | 18-cross-check.md           | — | — |
 | S19 Synthese roadmap (GATE G1)       | PENDING | 19-synthese-roadmap.md      | — | — |
