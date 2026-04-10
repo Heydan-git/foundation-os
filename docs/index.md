@@ -51,7 +51,7 @@
 | CONTEXT.md | Etat actuel du projet, modules, decisions, prochaine action |
 | README.md | Description projet |
 | docs/core/cortex.md | Routing + agents protocol |
-| docs/core/memory.md | 4 tiers de memoire |
+| docs/core/communication.md | Journalisation, indexation, lecture, briefing |
 | docs/core/monitor.md | Health indicators + verdicts |
 | docs/core/tools.md | Automation + scripts |
 | docs/core/architecture-core.md | Architecture Core OS |

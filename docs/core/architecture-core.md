@@ -30,9 +30,9 @@ Le cerveau actif. Trois responsabilites :
 
 Spec complete : [docs/core/cortex.md](cortex.md)
 
-## Memory (Phase 2 — actif)
+## Communication (Phase 2 — actif)
 
-Spec : [docs/core/memory.md](memory.md)
+Spec : [docs/core/communication.md](communication.md)
 - 4 tiers (session/contexte/reference/auto-memory)
 - Decisions avec dates et lifecycle
 - Protocole "quoi va ou" — une info = un seul tier

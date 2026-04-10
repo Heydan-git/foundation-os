@@ -24,7 +24,7 @@ description: >
 | modules/app/data/*.md | Changement d'une route/domaine documente (manuel — les artifacts JSX sont archives) |
 | docs/decisions-log.md | Creer quand CONTEXT.md depasse 15 decisions actives (protocole Memory) |
 
-## Protocole Memory (docs/core/memory.md)
+## Protocole Communication (docs/core/communication.md)
 
 4 tiers : Session (volatile) → Contexte (CONTEXT.md) → Reference (docs/) → Auto-memory (Claude natif).
 **Une info ne vit que dans UN tier.** Pas de duplication.

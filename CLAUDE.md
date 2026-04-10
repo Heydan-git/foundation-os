@@ -77,9 +77,9 @@ Agents : os-architect, dev-agent, doc-agent, review-agent.
 Priorite : match explicite → deleguer. Ambiguite → demander. Aucun match → traiter directement.
 Multi-agent → sequentiel (ex: dev puis review). Trivial (< 1 fichier) → direct.
 
-## Core OS — Memory
+## Core OS — Communication
 
-4 tiers de memoire. Spec complete : docs/core/memory.md
+Journalisation, indexation, lecture, briefing. Spec complete : docs/core/communication.md
 
 | Tier | Support | Quand mettre a jour |
 |------|---------|---------------------|

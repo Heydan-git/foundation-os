@@ -82,7 +82,7 @@ Chaque agent suit le meme protocole :
 ## 5. Limites de Cortex
 
 Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
-- Persistance inter-session structuree → Memory (docs/core/memory.md)
+- Persistance inter-session structuree → Communication (docs/core/communication.md)
 - Metriques et health checks automatiques → Monitor (docs/core/monitor.md)
 - Scripts et automation CLI → Tools (docs/core/tools.md)
 
