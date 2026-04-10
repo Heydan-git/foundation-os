@@ -1,0 +1,290 @@
+[
+  {
+    "id": "bmad-help",
+    "name": "BMad Help",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-help/SKILL.md",
+    "description": "Analyse l'etat courant et la requete pour repondre aux questions BMad ou recommander le prochain skill a utiliser",
+    "usage": "Quand Kevin demande de l'aide BMad, 'what to do next', ou 'par ou commencer'",
+    "triggers": ["bmad help", "aide bmad", "quoi faire bmad", "par ou commencer bmad"],
+    "when_to_use": "Quand on est perdu dans le workflow BMad. Pour savoir quel skill invoquer ensuite",
+    "when_not_to_use": "Quand on sait deja quel skill BMad utiliser. Hors contexte BMad",
+    "depends_on": [],
+    "outputs": "Recommandation du prochain skill avec raisonnement",
+    "examples": [
+      {
+        "situation": "Perdu dans BMad",
+        "command": "bmad help",
+        "result": "Position actuelle + prochain skill recommande"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-brainstorming",
+    "name": "BMad Brainstorming",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-brainstorming/SKILL.md",
+    "description": "Sessions de brainstorming interactives avec techniques creatives diversifiees (6 methodes : user-selected, AI-recommended, random, progressive flow, etc.)",
+    "usage": "Quand Kevin dit 'help me brainstorm' ou 'help me ideate'",
+    "triggers": ["brainstorm bmad", "ideation", "brainstorm creatif"],
+    "when_to_use": "Besoin d'ideation creative avec methodes structurees. Alternative au brainstorming Superpowers",
+    "when_not_to_use": "Design technique (utiliser superpowers:brainstorming). Execution (pas d'ideation)",
+    "depends_on": [],
+    "outputs": "Idees organisees avec technique utilisee",
+    "examples": [
+      {
+        "situation": "Ideation sur un concept",
+        "command": "help me brainstorm",
+        "result": "Session creative avec technique adaptee"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-advanced-elicitation",
+    "name": "BMad Advanced Elicitation",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-advanced-elicitation/SKILL.md",
+    "description": "Pousse le LLM a reconsiderer et ameliorer son output recent. Methodes : socratique, first principles, pre-mortem, red team",
+    "usage": "Quand Kevin demande une critique approfondie ou mentionne une methode (socratique, red team, etc.)",
+    "triggers": ["elicitation", "socratique", "first principles", "pre-mortem", "red team", "critique profonde"],
+    "when_to_use": "Quand un output semble trop simple ou qu'on veut le challenger. Review adversariale d'une proposition",
+    "when_not_to_use": "Output satisfaisant. Pas besoin de critique",
+    "depends_on": [],
+    "outputs": "Output reconsidere et ameliore",
+    "examples": [
+      {
+        "situation": "Challenger un design",
+        "command": "fais un pre-mortem de ce design",
+        "result": "Analyse des failles potentielles avec ameliorations"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-distillator",
+    "name": "BMad Distillator",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-distillator/SKILL.md",
+    "description": "Compression lossless de documents optimisee pour LLM. Preserve chaque fait, decision, contrainte tout en supprimant l'overhead humain. Compression, pas resume",
+    "usage": "Quand Kevin dit 'distill documents' ou 'create a distillate'",
+    "triggers": ["distill", "distillate", "compresser document", "compression lossless"],
+    "when_to_use": "Documents longs a compresser pour un workflow LLM aval. Quand le contexte est trop grand",
+    "when_not_to_use": "Resume (utiliser un resume standard). Document deja court",
+    "depends_on": ["python3"],
+    "outputs": "Distillate hyper-compresse preservant toute l'information",
+    "examples": [
+      {
+        "situation": "Compresser une spec de 500 lignes",
+        "command": "distill docs/specs/ma-spec.md",
+        "result": "Distillate 80 lignes sans perte d'information"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-editorial-review-prose",
+    "name": "BMad Editorial Review Prose",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-editorial-review-prose/SKILL.md",
+    "description": "Copy-editor clinique qui review le texte pour les problemes de communication (clarte, concision, ton, grammaire)",
+    "usage": "Quand Kevin dit 'review for prose' ou 'improve the prose'",
+    "triggers": ["review prose", "ameliore prose", "editorial prose", "clarte texte"],
+    "when_to_use": "Ameliorer la qualite d'ecriture d'un document. Review editoriale de prose",
+    "when_not_to_use": "Review de structure (utiliser editorial-review-structure). Review de code",
+    "depends_on": [],
+    "outputs": "Texte ameliore avec annotations",
+    "examples": [
+      {
+        "situation": "Ameliorer la clarte d'un README",
+        "command": "review for prose README.md",
+        "result": "README avec prose amelioree"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-editorial-review-structure",
+    "name": "BMad Editorial Review Structure",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-editorial-review-structure/SKILL.md",
+    "description": "Editeur structurel qui propose coupes, reorganisation, et simplification tout en preservant la comprehension",
+    "usage": "Quand Kevin dit 'structural review' ou 'editorial review of structure'",
+    "triggers": ["review structure", "reorganiser", "simplifier structure", "editorial structure"],
+    "when_to_use": "Document trop long ou mal organise. Besoin de restructurer sans perdre le contenu",
+    "when_not_to_use": "Review de prose (utiliser editorial-review-prose). Document court et bien structure",
+    "depends_on": [],
+    "outputs": "Proposition de restructuration avec justifications",
+    "examples": [
+      {
+        "situation": "Restructurer un document de 300 lignes",
+        "command": "structural review docs/specs/ma-spec.md",
+        "result": "Proposition de coupes et reorganisation"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-init",
+    "name": "BMad Init",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-init/SKILL.md",
+    "description": "Initialise la config BMad et charge les variables de configuration module-specifiques",
+    "usage": "Setup d'un nouveau projet BMad ou quand un skill a besoin de config",
+    "triggers": ["bmad init", "initialiser bmad", "setup bmad"],
+    "when_to_use": "Premier setup BMad sur un projet. Quand un skill BMad a besoin de valeurs de config",
+    "when_not_to_use": "BMad deja initialise (Foundation OS est deja setup)",
+    "depends_on": ["python3"],
+    "outputs": "Config BMad initialisee",
+    "examples": [
+      {
+        "situation": "Initialiser BMad",
+        "command": "bmad init",
+        "result": "Config creee dans _bmad/_config/"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-party-mode",
+    "name": "BMad Party Mode",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-party-mode/SKILL.md",
+    "description": "Orchestre des discussions de groupe entre tous les agents BMAD installes — conversations multi-agents naturelles",
+    "usage": "Quand Kevin demande 'party mode'",
+    "triggers": ["party mode", "discussion groupe", "tous les agents"],
+    "when_to_use": "Besoin de perspectives multiples sur un sujet via tous les agents BMad simultanément",
+    "when_not_to_use": "Un seul agent suffit. Execution de code",
+    "depends_on": [],
+    "outputs": "Discussion multi-agents avec synthese",
+    "examples": [
+      {
+        "situation": "Discussion collaborative",
+        "command": "party mode",
+        "result": "Agents BMad discutent et synthetisent"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-review-adversarial-general",
+    "name": "BMad Adversarial Review",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-review-adversarial-general/SKILL.md",
+    "description": "Review cynique avec rapport de findings. Cherche les failles, inconsistances, et hypotheses non verifiees",
+    "usage": "Quand Kevin demande 'critical review' ou 'review cynique'",
+    "triggers": ["review cynique", "critical review", "adversarial", "cherche les failles"],
+    "when_to_use": "Challenger un design, une spec, ou un plan avant execution. Trouver les failles avant qu'elles deviennent des bugs",
+    "when_not_to_use": "Review constructive (pas cynique). Code review standard",
+    "depends_on": [],
+    "outputs": "Rapport de findings avec severite",
+    "examples": [
+      {
+        "situation": "Challenger une spec avant implementation",
+        "command": "critical review docs/specs/ma-spec.md",
+        "result": "Rapport avec failles et recommandations"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-review-edge-case-hunter",
+    "name": "BMad Edge Case Hunter",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-review-edge-case-hunter/SKILL.md",
+    "description": "Parcourt chaque chemin de branchement et condition limite, rapporte uniquement les edge cases non geres. Methode-driven, pas attitude-driven",
+    "usage": "Quand on a besoin d'analyse exhaustive des edge cases sur du code, des specs, ou des diffs",
+    "triggers": ["edge case", "cas limites", "boundary", "conditions limites"],
+    "when_to_use": "Analyse exhaustive des edge cases avant livraison. Complementaire de adversarial review",
+    "when_not_to_use": "Review generale (utiliser adversarial review). Code trivial sans branchements",
+    "depends_on": [],
+    "outputs": "Liste des edge cases non geres",
+    "examples": [
+      {
+        "situation": "Verifier les edge cases d'un formulaire",
+        "command": "edge case analysis src/components/LoginForm.tsx",
+        "result": "5 edge cases non geres identifies"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-index-docs",
+    "name": "BMad Index Docs",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-index-docs/SKILL.md",
+    "description": "Genere ou met a jour un index.md qui reference tous les docs dans un dossier",
+    "usage": "Quand Kevin dit 'create index' ou 'update index of files'",
+    "triggers": ["index docs", "creer index", "indexer dossier"],
+    "when_to_use": "Creer un index navigable pour un dossier de documentation",
+    "when_not_to_use": "Dossier avec peu de fichiers (index inutile). Fichiers de code (pas de docs)",
+    "depends_on": [],
+    "outputs": "Fichier index.md genere",
+    "examples": [
+      {
+        "situation": "Indexer le dossier docs/",
+        "command": "create index docs/",
+        "result": "index.md avec references a tous les fichiers"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "bmad-shard-doc",
+    "name": "BMad Shard Doc",
+    "category": "skill-bmad",
+    "path": "_bmad/core/bmad-shard-doc/SKILL.md",
+    "description": "Decoupe un gros document markdown en fichiers plus petits organises par sections niveau 2",
+    "usage": "Quand Kevin dit 'shard document' ou 'decouper le document'",
+    "triggers": ["shard", "decouper document", "split document", "eclater md"],
+    "when_to_use": "Document markdown trop gros (> 300 lignes). Besoin de le decouper en fichiers gérables",
+    "when_not_to_use": "Document court. Document qui doit rester monolithique",
+    "depends_on": [],
+    "outputs": "N fichiers markdown decoupes par section",
+    "examples": [
+      {
+        "situation": "Decouper une spec de 500 lignes",
+        "command": "shard document docs/specs/grosse-spec.md",
+        "result": "8 fichiers markdown par section niveau 2"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  }
+]

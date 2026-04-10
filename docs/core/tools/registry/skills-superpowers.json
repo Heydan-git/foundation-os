@@ -1,0 +1,338 @@
+[
+  {
+    "id": "sp-brainstorming",
+    "name": "Brainstorming",
+    "category": "skill-superpowers",
+    "path": "superpowers:brainstorming",
+    "description": "Transforme une idee en design valide via dialogue collaboratif : exploration contexte → questions → 2-3 approches → design section par section → spec ecrite → transition vers plan",
+    "usage": "/superpowers:brainstorming ou invocation automatique avant tout travail creatif",
+    "triggers": ["brainstorm", "design", "idee", "concevoir", "comment faire", "nouvelle feature"],
+    "when_to_use": "Avant tout travail creatif : features, composants, modules, modifications de comportement. Obligatoire avant d'ecrire du code sur un sujet nouveau",
+    "when_not_to_use": "Tache simple sans design requis. Execution d'un plan deja valide",
+    "depends_on": [],
+    "outputs": "Spec design ecrite dans docs/specs/ + transition vers writing-plans",
+    "examples": [
+      {
+        "situation": "Concevoir un nouveau module",
+        "command": "Invocation automatique quand Kevin dit 'je veux ajouter X'",
+        "result": "Dialogue → spec validee → plan d'implementation"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-writing-plans",
+    "name": "Writing Plans",
+    "category": "skill-superpowers",
+    "path": "superpowers:writing-plans",
+    "description": "Ecrit un plan d'implementation detaille avec taches bite-sized (2-5 min), code complet, commandes exactes, TDD. Zero placeholder",
+    "usage": "/superpowers:writing-plans — invoque automatiquement apres brainstorming",
+    "triggers": ["plan", "planifier", "implementation plan", "ecrire plan"],
+    "when_to_use": "Apres brainstorming quand on a une spec validee. Pour decomposer un travail complexe en etapes executables",
+    "when_not_to_use": "Pas de spec validee (faire brainstorming d'abord). Tache triviale en 1 etape",
+    "depends_on": [],
+    "outputs": "Plan dans docs/specs/ avec taches, fichiers, code, commandes",
+    "examples": [
+      {
+        "situation": "Planifier l'implementation d'un module",
+        "command": "Invoque apres brainstorming",
+        "result": "Plan 15 taches avec code complet et tests"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-executing-plans",
+    "name": "Executing Plans",
+    "category": "skill-superpowers",
+    "path": "superpowers:executing-plans",
+    "description": "Execute un plan tache par tache en inline : charge le plan, review critique, execute chaque step, verifie, marque complete",
+    "usage": "/superpowers:executing-plans",
+    "triggers": ["execute plan", "implementer plan", "lancer plan"],
+    "when_to_use": "Executer un plan ecrit par writing-plans dans la session courante. Alternative a subagent-driven",
+    "when_not_to_use": "Pas de plan ecrit. Taches independantes (utiliser subagent-driven)",
+    "depends_on": [],
+    "outputs": "Plan execute, code ecrit, tests passes, commits faits",
+    "examples": [
+      {
+        "situation": "Implementer un plan de 15 taches",
+        "command": "/superpowers:executing-plans",
+        "result": "Execution sequentielle tache par tache avec verification"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-subagent-driven-development",
+    "name": "Subagent-Driven Development",
+    "category": "skill-superpowers",
+    "path": "superpowers:subagent-driven-development",
+    "description": "Execute un plan en dispatchant un agent frais par tache avec review entre chaque. Iteration rapide, contexte propre par tache",
+    "usage": "/superpowers:subagent-driven-development",
+    "triggers": ["subagent", "agent par tache", "execution parallele plan"],
+    "when_to_use": "Executer un plan avec taches independantes. Alternative a executing-plans pour plus de parallelisme",
+    "when_not_to_use": "Taches tres dependantes les unes des autres. Plan simple faisable en inline",
+    "depends_on": [],
+    "outputs": "Plan execute via subagents avec review a chaque etape",
+    "examples": [
+      {
+        "situation": "10 taches independantes",
+        "command": "/superpowers:subagent-driven-development",
+        "result": "1 agent par tache, review entre chaque"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-systematic-debugging",
+    "name": "Systematic Debugging",
+    "category": "skill-superpowers",
+    "path": "superpowers:systematic-debugging",
+    "description": "Debuggage systematique : reproduire → hypotheses → tester → isoler → fixer. Avant de proposer un fix, toujours comprendre la cause",
+    "usage": "/superpowers:systematic-debugging ou invocation automatique face a un bug",
+    "triggers": ["debug", "bug", "casse", "erreur", "ne marche pas", "regression", "crash"],
+    "when_to_use": "Face a tout bug, test qui echoue, ou comportement inattendu. Obligatoire avant de proposer un fix",
+    "when_not_to_use": "Erreur evidente (typo, import manquant). Probleme de configuration OMC (utiliser omc:debug)",
+    "depends_on": [],
+    "outputs": "Cause racine identifiee, fix applique, verification",
+    "examples": [
+      {
+        "situation": "Test qui echoue sans raison evidente",
+        "command": "Invocation automatique quand un test fail",
+        "result": "Cause racine trouvee, fix applique, test vert"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-test-driven-development",
+    "name": "Test-Driven Development",
+    "category": "skill-superpowers",
+    "path": "superpowers:test-driven-development",
+    "description": "TDD strict : ecrire le test d'abord → verifier qu'il fail → implementer le minimum → verifier qu'il passe → refactor",
+    "usage": "/superpowers:test-driven-development ou keyword 'tdd'",
+    "triggers": ["tdd", "test first", "test driven", "ecrire les tests d'abord"],
+    "when_to_use": "Implementation de features avec tests. Quand la qualite et la couverture sont critiques",
+    "when_not_to_use": "Fichiers de documentation/config. Prototype rapide sans besoin de tests",
+    "depends_on": [],
+    "outputs": "Code avec tests TDD, couverture complete",
+    "examples": [
+      {
+        "situation": "Ajouter une fonction avec TDD",
+        "command": "tdd",
+        "result": "Test fail → code minimal → test pass → refactor"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-verification-before-completion",
+    "name": "Verification Before Completion",
+    "category": "skill-superpowers",
+    "path": "superpowers:verification-before-completion",
+    "description": "Verification obligatoire avant de clamer completion : executer les commandes de verification et confirmer l'output avant toute affirmation de succes",
+    "usage": "Invocation automatique avant de dire 'termine' ou 'ca marche'",
+    "triggers": ["verification", "avant de finir", "prouver que ca marche"],
+    "when_to_use": "Avant de clamer qu'un travail est termine, fixe, ou passe. Avant de committer ou creer une PR",
+    "when_not_to_use": "En cours de travail (pas encore a l'etape verification)",
+    "depends_on": [],
+    "outputs": "Preuve d'execution (output de commande) avant affirmation",
+    "examples": [
+      {
+        "situation": "Avant de dire 'feature terminee'",
+        "command": "Automatique",
+        "result": "Build + tests executes, output montre"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-using-git-worktrees",
+    "name": "Using Git Worktrees",
+    "category": "skill-superpowers",
+    "path": "superpowers:using-git-worktrees",
+    "description": "Cree des worktrees git isoles pour travailler sur des features sans impacter le workspace principal",
+    "usage": "/superpowers:using-git-worktrees",
+    "triggers": ["worktree", "isolation", "branche isolee"],
+    "when_to_use": "Feature qui necessite une isolation du workspace. Avant d'executer un plan sur une branche separee",
+    "when_not_to_use": "Travail direct sur main. Modification doc/config sans risque",
+    "depends_on": ["git"],
+    "outputs": "Worktree git cree avec branche dediee",
+    "examples": [
+      {
+        "situation": "Developper une feature isolee",
+        "command": "/superpowers:using-git-worktrees",
+        "result": "Worktree cree, travail isole"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-finishing-a-development-branch",
+    "name": "Finishing a Development Branch",
+    "category": "skill-superpowers",
+    "path": "superpowers:finishing-a-development-branch",
+    "description": "Guide la completion d'une branche de dev : options structurees pour merge, PR, ou cleanup",
+    "usage": "/superpowers:finishing-a-development-branch",
+    "triggers": ["finir branche", "merge", "pr", "integration"],
+    "when_to_use": "Implementation terminee, tests passes, pret a integrer. Decide entre merge direct, PR, ou cleanup",
+    "when_not_to_use": "En cours d'implementation. Tests qui echouent encore",
+    "depends_on": ["git"],
+    "outputs": "Branche mergee, PR creee, ou cleanup fait",
+    "examples": [
+      {
+        "situation": "Feature terminee sur une branche",
+        "command": "/superpowers:finishing-a-development-branch",
+        "result": "Options presentees : merge/PR/cleanup"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-requesting-code-review",
+    "name": "Requesting Code Review",
+    "category": "skill-superpowers",
+    "path": "superpowers:requesting-code-review",
+    "description": "Demande de code review pour verifier que le travail repond aux requirements",
+    "usage": "/superpowers:requesting-code-review",
+    "triggers": ["code review", "review mon code", "verifie mon travail"],
+    "when_to_use": "Apres completion d'une tache ou feature majeure. Avant merge",
+    "when_not_to_use": "En cours de travail. Pour un simple health-check (utiliser review-agent)",
+    "depends_on": [],
+    "outputs": "Review avec feedback structure",
+    "examples": [
+      {
+        "situation": "Feature terminee, besoin de review",
+        "command": "/superpowers:requesting-code-review",
+        "result": "Review detaillee avec recommendations"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-receiving-code-review",
+    "name": "Receiving Code Review",
+    "category": "skill-superpowers",
+    "path": "superpowers:receiving-code-review",
+    "description": "Traitement rigoureux du feedback de code review — verification technique avant implementation, pas d'accord performatif",
+    "usage": "/superpowers:receiving-code-review",
+    "triggers": ["feedback review", "commentaires review", "repondre a review"],
+    "when_to_use": "Quand on recoit du feedback de code review, surtout si le feedback semble flou ou techniquement questionnable",
+    "when_not_to_use": "Feedback clair et simple a appliquer directement",
+    "depends_on": [],
+    "outputs": "Feedback analyse, verifie, et implemente (ou conteste avec justification)",
+    "examples": [
+      {
+        "situation": "Feedback de PR a traiter",
+        "command": "/superpowers:receiving-code-review",
+        "result": "Chaque commentaire analyse techniquement avant action"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-dispatching-parallel-agents",
+    "name": "Dispatching Parallel Agents",
+    "category": "skill-superpowers",
+    "path": "superpowers:dispatching-parallel-agents",
+    "description": "Dispatche 2+ taches independantes en parallele via subagents quand il n'y a pas de dependance entre elles",
+    "usage": "/superpowers:dispatching-parallel-agents",
+    "triggers": ["parallele", "dispatch agents", "taches independantes"],
+    "when_to_use": "2+ taches sans dependance ni etat partage. Maximiser le throughput",
+    "when_not_to_use": "Taches sequentielles. 1 seule tache",
+    "depends_on": [],
+    "outputs": "Toutes les taches completees en parallele",
+    "examples": [
+      {
+        "situation": "3 recherches independantes",
+        "command": "/superpowers:dispatching-parallel-agents",
+        "result": "3 agents lancee en parallele, resultats agrege"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-writing-skills",
+    "name": "Writing Skills",
+    "category": "skill-superpowers",
+    "path": "superpowers:writing-skills",
+    "description": "Creation, edition, et verification de skills Superpowers avant deploiement",
+    "usage": "/superpowers:writing-skills",
+    "triggers": ["creer skill superpowers", "ecrire skill", "editer skill"],
+    "when_to_use": "Creer ou modifier une skill Superpowers. Verifier qu'une skill fonctionne avant deploy",
+    "when_not_to_use": "Utiliser une skill existante. Creer une skill OMC (utiliser skillify)",
+    "depends_on": [],
+    "outputs": "Skill creee/modifiee et verifiee",
+    "examples": [
+      {
+        "situation": "Creer une nouvelle skill Superpowers",
+        "command": "/superpowers:writing-skills",
+        "result": "Skill ecrite, testee, deployee"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "sp-using-superpowers",
+    "name": "Using Superpowers",
+    "category": "skill-superpowers",
+    "path": "superpowers:using-superpowers",
+    "description": "Skill d'introduction — etablit comment trouver et utiliser les skills, obligation d'invoquer les skills pertinentes avant toute reponse",
+    "usage": "Auto-charge en debut de session",
+    "triggers": ["superpowers", "skills disponibles"],
+    "when_to_use": "Automatique — charge en debut de session pour etablir le workflow skills",
+    "when_not_to_use": "N/A — automatique",
+    "depends_on": [],
+    "outputs": "Workflow skills active",
+    "examples": [
+      {
+        "situation": "Debut de session",
+        "command": "Auto-charge",
+        "result": "Skills disponibles et workflow etabli"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "vercel-deploy",
+    "name": "Vercel Auto-Deploy",
+    "category": "ci",
+    "path": "modules/app/vercel.json",
+    "description": "Deploy automatique sur Vercel a chaque push sur main. Root dir = modules/app. URL : foundation-os.vercel.app",
+    "usage": "git push origin main",
+    "triggers": ["deploy", "production", "mise en prod", "vercel", "publier"],
+    "when_to_use": "Deployer une nouvelle version en production. Automatique a chaque push sur main",
+    "when_not_to_use": "Test local (utiliser npm run dev). Preview branch (Vercel le fait auto)",
+    "depends_on": ["vercel"],
+    "outputs": "Site deploye sur foundation-os.vercel.app",
+    "examples": [
+      {
+        "situation": "Deployer apres merge",
+        "command": "git push origin main",
+        "result": "Deploy automatique sur Vercel en ~1 min"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "supabase-ping",
+    "name": "Supabase Ping",
+    "category": "ci",
+    "path": ".github/workflows/supabase-ping.yml",
+    "description": "Cron hebdomadaire GitHub Actions qui execute SELECT 1 sur Supabase pour eviter la pause automatique apres 7 jours d'inactivite",
+    "usage": "Automatique (GitHub Actions cron hebdo)",
+    "triggers": ["supabase", "database ping", "cron", "keep alive"],
+    "when_to_use": "Automatique — tourne tout seul. Pas d'intervention manuelle",
+    "when_not_to_use": "N/A — automatique",
+    "depends_on": ["github-actions", "supabase"],
+    "outputs": "SELECT 1 execute, Supabase reste actif",
+    "examples": [
+      {
+        "situation": "Chaque semaine automatiquement",
+        "command": "GitHub Actions cron",
+        "result": "Supabase reste actif sans intervention"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-07",
+    "updated": "2026-04-10"
+  }
+]

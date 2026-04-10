@@ -1,0 +1,314 @@
+[
+  {
+    "id": "mcp-asana",
+    "name": "Asana",
+    "category": "mcp",
+    "path": "mcp__claude_ai_Asana",
+    "description": "Gestion de projets et taches Asana — creer/lire/modifier des taches, projets, commentaires. Workspace connecte",
+    "usage": "Automatique via MCP. Actions : get_tasks, create_task, update_tasks, search_objects, add_comment",
+    "triggers": ["asana", "tache asana", "projet asana", "gestion taches"],
+    "when_to_use": "Gerer des taches et projets dans Asana. Chercher, creer, ou mettre a jour des taches",
+    "when_not_to_use": "Gestion de taches locale (utiliser TaskCreate). Taches Foundation OS internes",
+    "depends_on": ["asana-auth"],
+    "outputs": "Taches/projets Asana crees ou mis a jour",
+    "examples": [
+      {
+        "situation": "Lister les taches d'un projet",
+        "command": "MCP get_tasks avec project_id",
+        "result": "Liste des taches Asana"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-notion",
+    "name": "Notion",
+    "category": "mcp",
+    "path": "mcp__claude_ai_Notion",
+    "description": "Lecture et ecriture dans Notion — pages, databases, commentaires, vues. User connecte",
+    "usage": "Automatique via MCP. Actions : notion-search, notion-fetch, notion-create-pages, notion-update-page",
+    "triggers": ["notion", "page notion", "database notion", "wiki"],
+    "when_to_use": "Chercher, lire, ou modifier du contenu dans Notion. Creer des pages ou databases",
+    "when_not_to_use": "Documentation locale (utiliser docs/). Notes temporaires",
+    "depends_on": ["notion-auth"],
+    "outputs": "Contenu Notion cree ou mis a jour",
+    "examples": [
+      {
+        "situation": "Chercher dans Notion",
+        "command": "MCP notion-search query",
+        "result": "Pages Notion matchantes"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-figma",
+    "name": "Figma",
+    "category": "mcp",
+    "path": "mcp__plugin_figma_figma",
+    "description": "Lecture de designs Figma, generation de code depuis designs, creation de diagrammes FigJam, gestion Code Connect",
+    "usage": "Automatique via MCP quand URL Figma fournie. Actions : get_design_context, get_screenshot, generate_diagram",
+    "triggers": ["figma", "design figma", "maquette", "figjam", "code connect"],
+    "when_to_use": "Implementer un design depuis Figma. Lire les specs design. Creer des diagrammes",
+    "when_not_to_use": "Design CSS sans maquette Figma. Composants deja dans le DS",
+    "depends_on": ["figma-auth"],
+    "outputs": "Code genere depuis design, screenshots, diagrammes",
+    "examples": [
+      {
+        "situation": "Implementer une maquette",
+        "command": "Fournir l'URL Figma",
+        "result": "Code React genere depuis le design"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-monday",
+    "name": "Monday.com",
+    "category": "mcp",
+    "path": "mcp__claude_ai_monday_com",
+    "description": "Gestion de boards Monday.com — items, colonnes, updates, documents, dashboards, formulaires",
+    "usage": "Automatique via MCP. Actions : get_board_info, create_item, search, create_doc",
+    "triggers": ["monday", "board monday", "monday.com"],
+    "when_to_use": "Gerer des boards et items Monday.com",
+    "when_not_to_use": "Gestion de taches locale. Si Asana est le PM principal",
+    "depends_on": ["monday-auth"],
+    "outputs": "Items/boards Monday crees ou mis a jour",
+    "examples": [
+      {
+        "situation": "Lister les items d'un board",
+        "command": "MCP get_board_info",
+        "result": "Contenu du board Monday"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-gmail",
+    "name": "Gmail",
+    "category": "mcp",
+    "path": "mcp__claude_ai_Gmail",
+    "description": "Acces Gmail — lire et envoyer des emails. Auth requise",
+    "usage": "Automatique via MCP apres authentification",
+    "triggers": ["gmail", "email", "mail", "envoyer email"],
+    "when_to_use": "Lire ou envoyer des emails via Gmail",
+    "when_not_to_use": "Communication interne projet (pas d'email). Auth non configuree",
+    "depends_on": ["gmail-auth"],
+    "outputs": "Emails lus ou envoyes",
+    "examples": [
+      {
+        "situation": "Lire les derniers emails",
+        "command": "MCP Gmail apres auth",
+        "result": "Liste des emails recents"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-google-calendar",
+    "name": "Google Calendar",
+    "category": "mcp",
+    "path": "mcp__claude_ai_Google_Calendar",
+    "description": "Acces Google Calendar — lire et creer des evenements. Auth requise",
+    "usage": "Automatique via MCP apres authentification",
+    "triggers": ["calendar", "calendrier", "evenement", "rendez-vous"],
+    "when_to_use": "Consulter ou creer des evenements dans Google Calendar",
+    "when_not_to_use": "Planning projet (utiliser Asana). Auth non configuree",
+    "depends_on": ["google-calendar-auth"],
+    "outputs": "Evenements lus ou crees",
+    "examples": [
+      {
+        "situation": "Voir les evenements du jour",
+        "command": "MCP Google Calendar",
+        "result": "Liste des evenements"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-slack",
+    "name": "Slack",
+    "category": "mcp",
+    "path": "mcp__claude_ai_Slack",
+    "description": "Acces Slack — lire et envoyer des messages. Auth requise",
+    "usage": "Automatique via MCP apres authentification",
+    "triggers": ["slack", "message slack", "channel"],
+    "when_to_use": "Lire ou poster des messages Slack",
+    "when_not_to_use": "Communication interne projet. Auth non configuree",
+    "depends_on": ["slack-auth"],
+    "outputs": "Messages lus ou envoyes",
+    "examples": [
+      {
+        "situation": "Poster un message",
+        "command": "MCP Slack",
+        "result": "Message poste dans le channel"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-clickup",
+    "name": "ClickUp",
+    "category": "mcp",
+    "path": "mcp__claude_ai_ClickUp",
+    "description": "Gestion ClickUp — taches, listes, dossiers, documents, time tracking, rappels, chat",
+    "usage": "Automatique via MCP. Actions : clickup_create_task, clickup_filter_tasks, clickup_search",
+    "triggers": ["clickup", "tache clickup"],
+    "when_to_use": "Gerer des taches et projets dans ClickUp",
+    "when_not_to_use": "Si Asana est le PM principal",
+    "depends_on": ["clickup-auth"],
+    "outputs": "Taches/projets ClickUp geres",
+    "examples": [
+      {
+        "situation": "Chercher des taches",
+        "command": "MCP clickup_search",
+        "result": "Taches matchantes"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-chrome-devtools",
+    "name": "Chrome DevTools",
+    "category": "mcp",
+    "path": "mcp__plugin_chrome-devtools-mcp_chrome-devtools",
+    "description": "Controle Chrome via DevTools — navigation, clicks, screenshots, console, network, performance, Lighthouse audit",
+    "usage": "Automatique via MCP. Actions : navigate_page, take_screenshot, click, evaluate_script, lighthouse_audit",
+    "triggers": ["chrome", "devtools", "navigateur", "screenshot page", "lighthouse", "performance web"],
+    "when_to_use": "Tester l'UI dans Chrome, prendre des screenshots, debugger le reseau, auditer les performances",
+    "when_not_to_use": "Tests unitaires (utiliser vitest). Build (utiliser npm run build)",
+    "depends_on": ["chrome"],
+    "outputs": "Screenshots, resultats console, metriques performance",
+    "examples": [
+      {
+        "situation": "Tester une page",
+        "command": "MCP navigate_page + take_screenshot",
+        "result": "Page ouverte + screenshot capture"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-context7",
+    "name": "Context7",
+    "category": "mcp",
+    "path": "mcp__plugin_context7_context7",
+    "description": "Documentation a jour pour libraries, frameworks, SDKs, APIs, CLIs. Preferer a la recherche web pour les docs techniques",
+    "usage": "Automatique via MCP. Actions : resolve-library-id, query-docs",
+    "triggers": ["docs library", "documentation api", "comment utiliser", "reference technique"],
+    "when_to_use": "Consulter la doc d'une library/framework/SDK. Meme pour les bien connus (React, Next.js, etc.) car les docs changent",
+    "when_not_to_use": "Logique metier custom. Refactoring sans lib externe. Concepts generaux de programmation",
+    "depends_on": [],
+    "outputs": "Documentation technique a jour",
+    "examples": [
+      {
+        "situation": "Verifier l'API de React 19",
+        "command": "MCP query-docs react",
+        "result": "Doc officielle React 19 a jour"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-pencil",
+    "name": "Pencil",
+    "category": "mcp",
+    "path": "mcp__pencil",
+    "description": "Editeur pour fichiers .pen — generation et validation de designs web/mobile. Lecture/ecriture de designs encryptes",
+    "usage": "Automatique via MCP pour fichiers .pen. Actions : batch_design, batch_get, get_guidelines",
+    "triggers": ["pencil", "pen file", "design pen"],
+    "when_to_use": "Travailler avec des fichiers .pen pour le design. Ne pas utiliser Read/Grep sur les .pen (encryptes)",
+    "when_not_to_use": "Fichiers non-.pen. Design dans Figma (utiliser MCP Figma)",
+    "depends_on": [],
+    "outputs": "Designs crees ou modifies dans .pen",
+    "examples": [
+      {
+        "situation": "Lire un design .pen",
+        "command": "MCP batch_get",
+        "result": "Contenu du design decode"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-computer-use",
+    "name": "Computer Use",
+    "category": "mcp",
+    "path": "mcp__computer-use",
+    "description": "Controle du bureau — screenshots, clicks, clavier, scroll. Pour apps natives (Maps, Notes, Finder, etc.) et workflows cross-app",
+    "usage": "Automatique via MCP. Actions : screenshot, left_click, type, scroll, open_application",
+    "triggers": ["computer use", "desktop", "app native", "screenshot bureau", "controle souris"],
+    "when_to_use": "Apps natives sans MCP dedie. Workflows cross-app. Quand Chrome DevTools et les MCP dedies ne suffisent pas",
+    "when_not_to_use": "Apps web (utiliser Chrome DevTools). Apps avec MCP dedie (Slack, Gmail, etc.). Commandes shell (utiliser Bash)",
+    "depends_on": [],
+    "outputs": "Actions executees sur le desktop",
+    "examples": [
+      {
+        "situation": "Ouvrir une app native",
+        "command": "MCP open_application + screenshot",
+        "result": "App ouverte, screenshot capture"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "mcp-neon-browser",
+    "name": "Neon Browser",
+    "category": "mcp",
+    "path": "mcp__neon-browser",
+    "description": "Authentification Neon (base de donnees). Auth requise",
+    "usage": "Automatique via MCP apres authentification",
+    "triggers": ["neon", "neon database"],
+    "when_to_use": "Connexion a une base Neon",
+    "when_not_to_use": "Supabase (utiliser directement). Pas de base Neon",
+    "depends_on": ["neon-auth"],
+    "outputs": "Connexion Neon etablie",
+    "examples": [
+      {
+        "situation": "Se connecter a Neon",
+        "command": "MCP authenticate",
+        "result": "Connexion Neon active"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  }
+]
