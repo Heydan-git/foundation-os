@@ -40,7 +40,7 @@ Le projet a commence en avril 2026 comme une collection d'artifacts JSX (`fos-co
 
 Le projet a ensuite mute vers une vraie application React (Vite + TypeScript + Tailwind + Supabase + Vercel). Les artifacts JSX ont ete archives (`.archive/artifacts-jsx/`) et remplaces par des pages TSX (Commander, Knowledge, Dashboard...). Les MD pairs correspondants vivent desormais dans `modules/app/data/`.
 
-Quatre phases iteratives (Phase 1 Fondations → Phase 4 Monitoring) ont ete executees et validees SAIN. Un Cycle 3 d'audit massif (24 sessions S0-S23) est en cours sur la branche `audit-massif-cycle3` — S0, S1, S2, S3 terminees au 2026-04-08, S4 a venir.
+Quatre phases iteratives (Phase 1 Fondations → Phase 4 Monitoring) ont ete executees et validees SAIN. Un Cycle 3 d'audit massif (24 sessions S0-S23) a ete complete (100%, 35/42 fixes) et merge sur `main` le 2026-04-10.
 
 > **Tension observee**. Certains fichiers legacy (par ex. `modules/app/data/commander.md`) contiennent encore un vocabulaire grandiose (« revolution historique », « reference mondiale », « $1B+ potential ») qui contredit directement les anti-bullshit gates actuels du `CLAUDE.md`. C'est une trace de la premiere iteration, pas l'etat revendique aujourd'hui.
 
@@ -80,7 +80,7 @@ Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% ave
 
 | Couche | Composant | Detail / Version |
 |--------|-----------|------------------|
-| Frontend | Vite + React 18 + TypeScript + Tailwind 3 | Module `modules/app`, build ~830 ms, bundle 457 KB JS / 17 KB CSS |
+| Frontend | Vite 8 + React 19 + TypeScript + Tailwind 4 | Module `modules/app`, build ~178 ms, bundle 244 KB JS / 29 KB CSS |
 | Routing | react-router-dom v7 | 8 routes : `/`, `/commander`, `/knowledge`, `/dashboard`, `/crud-test`, `/phase1-demo`, `/login`, `/reset-password` |
 | DB | Supabase (`@supabase/supabase-js`) | 6 tables : `sessions`, `decisions`, `risks`, `next_steps`, `context_blocks`, `docs` — RLS authenticated |
 | Auth | Supabase Auth (email + reset) | `AuthContext` React, ProtectedRoute, LoginPage 148L + ResetPasswordPage 154L |
@@ -89,7 +89,7 @@ Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% ave
 | CI | GitHub Actions | `ci.yml` (Node 24, build + tsc + vitest) + `supabase-ping` (cron hebdo) |
 | Design | Void Glass | fond `#06070C`, accent `#5EEAD4`, Figtree + JetBrains Mono — voir `docs/design-system.md` |
 | Scripts | bash / python | health-check, sync-check, ref-checker, module-scaffold + 2 hooks PreToolUse |
-| AI tooling | Claude Code + OMC + superpowers + gstack + BMAD (dormant) | 4 agents custom + 4 commands + hooks Void Glass / security |
+| AI tooling | Claude Code + OMC + superpowers + gstack + BMAD (dormant) | 4 agents custom + 5 commands + hooks Void Glass / security |
 
 ### 5.1 — Schema de base de donnees
 
@@ -106,25 +106,26 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 
 ---
 
-## 6. Etat reel — verifie (snapshot 2026-04-07)
+## 6. Etat reel — verifie (snapshot 2026-04-10)
 
-> Les valeurs ci-dessous sont un snapshot a la date de generation du manifeste-realiste Cowork. Pour l'etat live, voir `CONTEXT.md` section "App Builder — Etat technique" et le verdict de `bash scripts/health-check.sh`.
+> Les valeurs ci-dessous sont un snapshot. Pour l'etat live, voir `CONTEXT.md` section Metriques et `bash scripts/health-check.sh`.
 
 | Indicateur | Valeur mesuree |
 |------------|----------------|
-| Build modules/app | SAIN, ~830 ms, 107 modules, exit 0 |
-| TypeScript | 0 erreur (`tsc --noEmit`) |
-| Tests Vitest | 19 passed / 19 (1.35 s) |
-| Bundle | JS 457.15 KB, CSS 17.22 KB (sous seuils 600 KB / 40 KB) |
-| References MD | 0 cassee sur 66 references scannees (`ref-checker.sh`) |
-| Health check | SAIN (0 critical, 0 warning) |
-| Void Glass | 0 violation (`#0A0A0B`, Outfit, Inter, system-ui seul) |
+| Build modules/app | OK, ~178 ms, 93 modules, exit 0 |
+| Build modules/design-system | OK (tokens DTCG) |
+| TypeScript app | 0 erreur (`tsc --noEmit`) |
+| Tests Vitest app | 19 passed / 19 |
+| Tests Vitest DS | 100 tests (99 en echec — incompatibilite React 19 test setup) |
+| Bundle app | JS 244 KB, CSS 29 KB (sous seuils 600 KB / 40 KB) |
+| References MD | 0 cassee sur 44 .md scannes (`ref-checker.sh`) |
+| Health check | DEGRADED (DS tests/TS pre-existants) |
+| Void Glass | 0 violation |
 | TSX max | 544 lignes (`Phase1Demo.tsx`) — sous la limite 700 |
-| MCPs connectes | Asana, Notion, Figma, Monday, ClickUp, Computer Use, Context7 |
-| Modules actifs | 1 / 3 (app) — finance et sante planifies, non crees |
-| Phases completees | Phase 1, Phase 2, Phase 3, Phase 4 (Phase 5 = Expansion a venir) |
-| Audit Cycle 3 | 4 / 24 sessions (S0, S1, S2, S3) — S4 architecture orga PENDING |
-| Branche de travail | `audit-massif-cycle3` (tag baseline `pre-audit-cycle3`) |
+| Modules actifs | 2 (app, design-system) — finance et sante prevus |
+| Phases completees | Phase 1, Phase 2, Phase 3, Phase 4 |
+| Audit Cycle 3 | 24/24 sessions (100%), 35/42 fixes, merge main 2026-04-10 |
+| Branche de travail | `main` |
 
 ---
 

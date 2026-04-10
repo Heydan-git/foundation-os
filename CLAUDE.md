@@ -88,7 +88,7 @@ Spec complete : `docs/core/tools.md`. Convention : scripts/ en bash/node, kebab-
 ## Structure
 modules/app/       Module App Builder (React, actif)
 docs/              Architecture, design system, manifeste, guide setup, specs, plans
-docs/core/         Specs Core OS (cortex, memory, monitor, tools)
+docs/core/         Specs Core OS (cortex, communication, monitor, tools)
 scripts/hooks/     Hooks (Void Glass, security)
 supabase/          Migrations DB
 _bmad/             BMAD v6 (12 modules)

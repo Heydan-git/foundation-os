@@ -145,12 +145,6 @@ Rendre avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, esp
 └──────────────────────────────────────────┘
 
 
-┌─ PERSISTANCE ────────────────────────────┐
-│                                          │
-│   ✅ CONTEXT.md   [sections touchees]    │
-│                                          │
-└──────────────────────────────────────────┘
-
 
 ┌─ CAP MIS A JOUR ────────────────────────┐
 │                                          │

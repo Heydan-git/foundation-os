@@ -7,7 +7,7 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | production-ready | `modules/app/` | 7 routes, React 19 + Vite 8 + Tailwind 4, 19 tests, DS-6 done (206 couleurs → tokens) |
+| App Builder | production-ready | `modules/app/` | 5 routes, React 19 + Vite 8 + Tailwind 4, 19 tests, DS-6 done (206 couleurs → tokens) |
 | Design System | DS-1..DS-6 done | `modules/design-system/` | 5 primitives (Button, Text, Icon, Input, Card), 100 tests, tokens DTCG W3C, Storybook 8.6, DS-5 CI done |
 | Core OS | 4/4 actif | `docs/core/` | Cortex (routing), Communication (journalisation), Monitor (health), Tools (automation) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
@@ -19,21 +19,16 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-10 | **[DONE] Cockpit + harmonisation systeme** |
-|            | Scope : /cockpit, CLAUDE.md, agents x4, cortex.md, archives |
-|            | Skill /cockpit : point d'entree unique TDAH (scan+brief+route+cloture) |
-|            | Harmonisation : CLAUDE.md -20L, agents simplifies, 2 docs archivees |
-|            | Decisions : D-COCKPIT-01 point d'entree unique |
-| 2026-04-10 | **[DONE] Cleanup refs + brief v11 TDAH-friendly** |
-|            | Scope : session-start/end, communication.md, CLAUDE.md, memory.md, refs, travaux-cowork |
-|            | Archives : memory.md, 4 travaux-cowork (2026-04-08-*), 3 docs monitor dashboard |
-|            | Refs : 31 cassees → 0 (DEGRADED → SAIN) |
-|            | Brief v11 : cadres box-drawing, zones TDAH, alignement strict |
-|            | Decisions : D-BRIEF-01 format v11 TDAH |
-| 2026-04-10 | **[DONE] Communication v1 + DS-5 + migration 003** — spec 375L, CONTEXT.md 400→120L, brief v10. `18079d0` |
+| 2026-04-10 | **[DONE] Audit Core OS — 14 axes, 27 fixes** |
+|            | Scope : 4 specs, 4 agents, 5 commands, 6 scripts, docs, settings |
+|            | Audit 14 axes → livrable `docs/specs/2026-04-10-core-os-audit.md` |
+|            | P0-P3 : rename Memory→Communication, scripts dynamiques, DS monitoring, demo routes supprimees, settings portable |
+|            | DS fix : @types/react v19, react-dom override, 100/100 tests verts |
+|            | Decisions : D-AUDIT-01 scripts dynamiques, D-AUDIT-02 DS monitoring |
+| 2026-04-10 | **[DONE] Cockpit + harmonisation systeme** — /cockpit TDAH, CLAUDE.md -20L, agents simplifies. |
+| 2026-04-10 | **[DONE] Cleanup refs + brief v11 TDAH-friendly** — 31 refs cassees → 0, brief v11. |
+| 2026-04-10 | **[DONE] Communication v1 + DS-5 + migration 003** — spec 375L, CONTEXT.md 400→120L. `18079d0` |
 | 2026-04-10 | **[DONE] Housekeeping post-cycle3** — DS-6 + deps upgrade. React 19, Vite 8, Tailwind 4. |
-| 2026-04-10 | **[DONE] S22+S23 Cloture cycle 3** — 24/24 (100%), 35/42 fixes. |
-| 2026-04-10 | **[DONE_WITH_CONCERNS] S21 batch P2** — 19/23 fixes, JS -17kB, Dashboard supprime. |
 
 > Sessions plus anciennes (S0-S14, Cycle 3 audit + Design System + Monitor Dashboard + Cycles 1-2) disponibles via `git log` et `.archive/audit-massif/23-rapport-final.md`.
 
@@ -55,6 +50,7 @@
 - 💡 **Supabase MCP + Vercel MCP** : quick wins connexion. Installation simple post-cycle3. (S17)
 - 🔮 **modules/shared** : extraction auth+DB. Premature tant qu'1 seul module actif — a faire quand 2e module. (S19)
 - 🔮 **DS-6 complet** : exporter tokens DTCG vers Figma/Penpot. Nice-to-have. (D-DS-21)
+- 💡 **Storybook 9 + React 19** : upgrader quand Storybook 9 sort pour retirer les overrides react-dom. (audit 2026-04-10)
 - ❓ **Cowork : methodo ou produit ?** : Foundation OS = apprentissage methodologique ou produit Phase 5+ ? A trancher avant Sprint 1 Cowork. (S7)
 
 ## En attente Kevin
@@ -70,6 +66,8 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-AUDIT-01 Scripts dynamiques | 2026-04-10 | health-check + sync-check decouvrent modules/agents/commands dynamiquement. Plus de listes hardcodees. |
+| D-AUDIT-02 DS monitoring | 2026-04-10 | Design System visible dans health-check (build + TS + 100 tests). react-dom v19 force via overrides. |
 | D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. Routing auto via Cortex. |
 | D-BRIEF-01 Format v11 TDAH | 2026-04-10 | Cadres box-drawing, zones visuelles, alignement strict. Remplace separateurs plats v10. Kevin TDAH. |
 | D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. Spec 375L, CONTEXT.md 400→120L, brief v10, capture idees, nomenclature unifiee. `18079d0` |
@@ -89,10 +87,10 @@
 
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
-| App Builder | OK 199ms | 244 kB | 29 kB | 19/19 | 7 |
+| App Builder | OK 200ms | 473 kB | 24 kB | 19/19 | 5 |
 | Design System | OK tokens | — | — | 100/100 | — |
 
-Seuils : JS > 600 kB 🟡, JS > 800 kB 🔴, CSS > 40 kB 🟡.
+Seuils : voir `docs/core/monitor.md` section 4 (source unique).
 Health-check : SAIN (0 critical, 0 warning). Refs nettoyees 2026-04-10.
 Deploy : https://foundation-os.vercel.app/
 DB : Supabase, 6 tables + updated_at triggers (migration 003 appliquee).

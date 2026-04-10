@@ -76,11 +76,11 @@ Les seuils evoluent avec le projet. Quand un seuil change :
 - Mettre a jour ce document
 - Ajouter la raison du changement
 
-Seuils actuels bases sur l'etat du 2026-04-07 :
-- Build time baseline : ~800ms (alerte si > 2000ms)
-- Bundle JS baseline : ~457KB (alerte si > 600KB)
-- Bundle CSS baseline : ~17KB (alerte si > 40KB)
-- Modules actifs : 1 (app). Ajouter les nouveaux au fur et a mesure.
+Seuils actuels bases sur l'etat du 2026-04-10 :
+- Build time baseline : ~178ms (alerte si > 2000ms)
+- Bundle JS baseline : ~244KB (alerte si > 600KB)
+- Bundle CSS baseline : ~29KB (alerte si > 40KB)
+- Modules actifs : 2 (app, design-system). Ajouter les nouveaux au fur et a mesure.
 
 Note : ces seuils sont la source de verite unique. `CLAUDE.md` (section Token-awareness) et `scripts/health-check.sh` (pre-commit) doivent s'y aligner.
 

@@ -23,27 +23,38 @@ echo ""
 
 echo "[CRITICAL]"
 
-# Build (alerte WARNING si > 1500ms, BROKEN si fail — seuils source : docs/core/monitor.md)
-BUILD_OUT=$(cd modules/app && npm run build 2>&1)
-if echo "$BUILD_OUT" | grep -q "built in"; then
-  BUILD_TIME=$(echo "$BUILD_OUT" | grep "built in" | sed 's/.*built in //')
-  # Convertit en ms (parse "845ms", "845 ms", "1.23s", "1.23 s")
-  BT_NS="${BUILD_TIME// /}"
-  BUILD_MS_INT=0
-  case "$BT_NS" in
-    *ms) BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%ms}}" 2>/dev/null) ;;
-    *s)  BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%s} * 1000}" 2>/dev/null) ;;
-  esac
-  if [ "${BUILD_MS_INT:-0}" -gt 1500 ] 2>/dev/null; then
-    echo -e "  ${YEL}[WARN]${RST} Build modules/app ($BUILD_TIME — derive >1500ms, baseline ~800ms)"
-    WARNING=$((WARNING + 1))
+# Build — decouverte dynamique de tous les modules (seuils source : docs/core/monitor.md)
+APP_BUILD_OUT=""
+for PKG in modules/*/package.json; do
+  MOD_DIR=$(dirname "$PKG")
+  MOD_NAME=$(basename "$MOD_DIR")
+  MOD_BUILD_OUT=$(cd "$MOD_DIR" && npm run build 2>&1)
+  MOD_BUILD_RC=$?
+  # Sauvegarder le build output app pour la section INFO (bundle size)
+  [ "$MOD_NAME" = "app" ] && APP_BUILD_OUT="$MOD_BUILD_OUT"
+  if echo "$MOD_BUILD_OUT" | grep -q "built in"; then
+    # Vite build — parse le temps
+    BUILD_TIME=$(echo "$MOD_BUILD_OUT" | grep "built in" | sed 's/.*built in //')
+    BT_NS="${BUILD_TIME// /}"
+    BUILD_MS_INT=0
+    case "$BT_NS" in
+      *ms) BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%ms}}" 2>/dev/null) ;;
+      *s)  BUILD_MS_INT=$(awk "BEGIN{printf \"%d\", ${BT_NS%s} * 1000}" 2>/dev/null) ;;
+    esac
+    if [ "${BUILD_MS_INT:-0}" -gt 1500 ] 2>/dev/null; then
+      echo -e "  ${YEL}[WARN]${RST} Build $MOD_DIR ($BUILD_TIME — derive >1500ms)"
+      WARNING=$((WARNING + 1))
+    else
+      echo -e "  ${GRN}[OK]${RST} Build $MOD_DIR ($BUILD_TIME)"
+    fi
+  elif [ $MOD_BUILD_RC -eq 0 ]; then
+    # Non-vite build (tokens, etc.) — exit 0 = OK
+    echo -e "  ${GRN}[OK]${RST} Build $MOD_DIR"
   else
-    echo -e "  ${GRN}[OK]${RST} Build modules/app ($BUILD_TIME)"
+    echo -e "  ${RED}[KO]${RST} Build $MOD_DIR FAILED"
+    CRITICAL=$((CRITICAL + 1))
   fi
-else
-  echo -e "  ${RED}[KO]${RST} Build modules/app FAILED"
-  CRITICAL=$((CRITICAL + 1))
-fi
+done
 
 # Structure
 ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase)$' || true)
@@ -54,15 +65,19 @@ else
   CRITICAL=$((CRITICAL + 1))
 fi
 
-# TypeScript
-TS_OUT=$(cd modules/app && npx tsc --noEmit 2>&1)
-if [ $? -eq 0 ]; then
-  echo -e "  ${GRN}[OK]${RST} TypeScript compile (0 erreur)"
-else
-  TS_ERRORS=$(echo "$TS_OUT" | grep "error TS" | wc -l | tr -d ' ')
-  echo -e "  ${RED}[KO]${RST} TypeScript $TS_ERRORS erreurs"
-  CRITICAL=$((CRITICAL + 1))
-fi
+# TypeScript — pour chaque module avec tsconfig
+for PKG in modules/*/package.json; do
+  MOD_DIR=$(dirname "$PKG")
+  [ -f "$MOD_DIR/tsconfig.json" ] || continue
+  TS_OUT=$(cd "$MOD_DIR" && npx tsc --noEmit 2>&1)
+  if [ $? -eq 0 ]; then
+    echo -e "  ${GRN}[OK]${RST} TypeScript $MOD_DIR (0 erreur)"
+  else
+    TS_ERRORS=$(echo "$TS_OUT" | grep "error TS" | wc -l | tr -d ' ')
+    echo -e "  ${RED}[KO]${RST} TypeScript $MOD_DIR $TS_ERRORS erreurs"
+    CRITICAL=$((CRITICAL + 1))
+  fi
+done
 
 echo ""
 
@@ -117,18 +132,24 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# Tests vitest (modules/app)
-TEST_OUT=$(cd modules/app && npm test --silent 2>&1 || true)
-TEST_LINE=$(echo "$TEST_OUT" | grep -E "^[[:space:]]*Tests[[:space:]]+" | head -1 | sed 's/^[[:space:]]*//')
-if echo "$TEST_LINE" | grep -q "failed"; then
-  echo -e "  ${YEL}[WARN]${RST} $TEST_LINE"
-  WARNING=$((WARNING + 1))
-elif [ -n "$TEST_LINE" ]; then
-  echo -e "  ${GRN}[OK]${RST} Vitest — $TEST_LINE"
-else
-  echo -e "  ${YEL}[WARN]${RST} Vitest — output illisible"
-  WARNING=$((WARNING + 1))
-fi
+# Tests vitest — decouverte dynamique des modules avec script "test"
+for PKG in modules/*/package.json; do
+  MOD_DIR=$(dirname "$PKG")
+  MOD_NAME=$(basename "$MOD_DIR")
+  # Verifie que le module a un script "test"
+  node -e "const p=require('./$PKG'); process.exit(p.scripts && p.scripts.test ? 0 : 1)" 2>/dev/null || continue
+  MOD_TEST_OUT=$(cd "$MOD_DIR" && npm test --silent 2>&1 || true)
+  MOD_TEST_LINE=$(echo "$MOD_TEST_OUT" | grep -E "^[[:space:]]*Tests[[:space:]]+" | head -1 | sed 's/^[[:space:]]*//')
+  if echo "$MOD_TEST_LINE" | grep -q "failed"; then
+    echo -e "  ${YEL}[WARN]${RST} Vitest $MOD_NAME — $MOD_TEST_LINE"
+    WARNING=$((WARNING + 1))
+  elif [ -n "$MOD_TEST_LINE" ]; then
+    echo -e "  ${GRN}[OK]${RST} Vitest $MOD_NAME — $MOD_TEST_LINE"
+  else
+    echo -e "  ${YEL}[WARN]${RST} Vitest $MOD_NAME — output illisible"
+    WARNING=$((WARNING + 1))
+  fi
+done
 
 echo ""
 
@@ -137,8 +158,8 @@ echo ""
 echo "[INFO]"
 
 # Bundle size
-JS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.js " | awk '{print $2}' | head -1)
-CSS_SIZE=$(echo "$BUILD_OUT" | grep "^dist/.*\.css " | awk '{print $2}' | head -1)
+JS_SIZE=$(echo "$APP_BUILD_OUT" | grep "^dist/.*\.js " | awk '{print $2}' | head -1)
+CSS_SIZE=$(echo "$APP_BUILD_OUT" | grep "^dist/.*\.css " | awk '{print $2}' | head -1)
 JS_INT=${JS_SIZE%.*}
 CSS_INT=${CSS_SIZE%.*}
 BUNDLE_WARN=""
@@ -154,6 +175,17 @@ fi
 # Decisions dated (annee any 20XX, evite Y2027 bug)
 DATED=$(grep -E "^\| .* \| 20[0-9]{2}-[0-9]{2}-[0-9]{2}" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
 echo -e "  ${DIM}[OK]${RST} Decisions datees: $DATED"
+
+# CONTEXT.md taille (budget < 150L, garde-fou 200L — spec communication.md section 4.2)
+CTX_LINES=$(wc -l < CONTEXT.md 2>/dev/null | tr -d ' ')
+if [ "${CTX_LINES:-0}" -gt 200 ]; then
+  echo -e "  ${YEL}[WARN]${RST} CONTEXT.md ${CTX_LINES}L (> 200L garde-fou — compresser)"
+  WARNING=$((WARNING + 1))
+elif [ "${CTX_LINES:-0}" -gt 150 ]; then
+  echo -e "  ${DIM}[OK]${RST} CONTEXT.md ${CTX_LINES}L (> 150L budget, surveiller)"
+else
+  echo -e "  ${DIM}[OK]${RST} CONTEXT.md ${CTX_LINES}L"
+fi
 
 echo ""
 

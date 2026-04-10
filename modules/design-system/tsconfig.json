@@ -15,5 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src/**/*", ".storybook/**/*", "scripts/**/*"]
+  "include": ["src/**/*", "test/**/*", "scripts/**/*"],
+  "exclude": ["src/**/*.stories.tsx", ".storybook/**/*"]
 }

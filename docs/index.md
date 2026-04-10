@@ -1,7 +1,7 @@
 # Foundation OS — Index
 
 > Carte de navigation du projet. Mis a jour a chaque session-end.
-> Derniere mise a jour : 2026-04-07
+> Derniere mise a jour : 2026-04-10
 
 ## Code (modules/app/src/)
 
@@ -35,8 +35,8 @@
 | .claude/settings.json | Permissions + hooks (Void Glass, security) |
 | .claude/settings.local.json | Permissions locales (gitignored) |
 | .claude/agents/ | 4 agents (os-architect, dev-agent, doc-agent, review-agent) |
-| .claude/commands/ | 4 commands (session-start, session-end, new-project, sync) |
-| modules/app/package.json | Dependencies (React 18, Vite 5, Supabase, Tailwind) |
+| .claude/commands/ | 5 commands (session-start, session-end, new-project, sync, cockpit) |
+| modules/app/package.json | Dependencies (React 19, Vite 8, Supabase, Tailwind 4) |
 | modules/app/vite.config.ts | Vite config (alias @, React plugin) |
 | modules/app/tailwind.config.js | Fonts Figtree + JetBrains Mono |
 | modules/app/vercel.json | SPA rewrites |
@@ -50,8 +50,8 @@
 | CLAUDE.md | Regles operationnelles (imperatifs, gates, Core OS routing) |
 | CONTEXT.md | Etat actuel du projet, modules, decisions, prochaine action |
 | README.md | Description projet |
-| docs/core/cortex.md | Routing + agents protocol |
-| docs/core/communication.md | Journalisation, indexation, lecture, briefing |
+| docs/core/cortex.md | Routing + agents protocol + cockpit |
+| docs/core/communication.md | Journalisation, indexation, lecture, briefing (ex-Memory) |
 | docs/core/monitor.md | Health indicators + verdicts |
 | docs/core/tools.md | Automation + scripts |
 | docs/core/architecture-core.md | Architecture Core OS |

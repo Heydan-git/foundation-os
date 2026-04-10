@@ -1,15 +1,13 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/lib/AuthContext'
 import Commander from '@/pages/Commander'
 import IndexPage from '@/pages/IndexPage'
 import KnowledgePage from '@/pages/KnowledgePage'
 import LoginPage from '@/pages/LoginPage'
-import Phase1Demo from '@/pages/Phase1Demo'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import { Navbar } from '@/components'
 
-const SupabaseCRUDTest = lazy(() => import('@/components/SupabaseCRUDTest'))
 
 const globalStyles = `
   *{box-sizing:border-box;margin:0;padding:0}
@@ -57,10 +55,6 @@ export default function App() {
             <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
             <Route path="/dashboard" element={<Navigate to="/commander" replace />} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
-            {import.meta.env.DEV && (
-              <Route path="/crud-test" element={<ProtectedRoute><Suspense fallback={null}><SupabaseCRUDTest /></Suspense></ProtectedRoute>} />
-            )}
-            <Route path="/phase1-demo" element={<ProtectedRoute><Phase1Demo /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </AppShell>

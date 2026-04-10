@@ -164,5 +164,11 @@ fi
 
 echo ""
 echo -e "${GRN}Module $NAME_CAP scaffold dans $TARGET${RST}"
-echo -e "${DIM}Prochaine etape : decider stack avec Kevin avant de coder${RST}"
+echo ""
+echo -e "${YEL}Checklist post-scaffold :${RST}"
+echo "  - [ ] health-check.sh detectera le nouveau module automatiquement (build + tests)"
+echo "  - [ ] Ajouter un tsconfig.json si TypeScript (sinon tsc --noEmit sera skip)"
+echo "  - [ ] Mettre a jour docs/core/monitor.md section 4 (modules actifs)"
+echo "  - [ ] Verifier que CLAUDE.md routing couvre les signaux du nouveau module"
+echo "  - [ ] Decider stack avec Kevin avant de coder"
 exit 0

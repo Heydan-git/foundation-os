@@ -24,8 +24,8 @@ Decisions stables migres depuis CONTEXT.md "Decisions actives" lors du housekeep
 
 | Decision | Date | Detail |
 |----------|------|--------|
-| Memoire | 2026-04-05 | 4 tiers (session/contexte/reference/auto-memory) — docs/core/memory.md |
-| Core OS | 2026-04-05 | 4 modules actifs (Cortex, Memory, Monitor, Tools). Specs : docs/core/ |
+| Memoire | 2026-04-05 | 4 tiers (session/contexte/reference/auto-memory) — docs/core/communication.md |
+| Core OS | 2026-04-05 | 4 modules actifs (Cortex, Communication, Monitor, Tools). Specs : docs/core/ |
 | Foundation v2 | 2026-04-05 | Approche C iterative 5 phases. Spec : docs/specs/2026-04-05-foundation-os-v2-design.md |
 | Phase 1 DONE | 2026-04-05 | Fondations : CLAUDE.md v2, security-guidance, gstack, index navigation |
 | Phase 2.1 DONE | 2026-04-07 | Tests : 16 nouveaux, mocks Supabase via vi.hoisted, 19 total. Plan Phase 2 ecrit. |

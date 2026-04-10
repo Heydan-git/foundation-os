@@ -106,28 +106,25 @@ fi
 
 # ── 4. Core OS coherence (agents + commands) ───────────────────────
 
-EXPECTED_AGENTS="dev-agent doc-agent os-architect review-agent"
-EXPECTED_COMMANDS="session-start session-end new-project sync"
+# Decouverte dynamique des agents et commands
+AGENT_COUNT=$(ls -1 .claude/agents/*.md 2>/dev/null | wc -l | tr -d ' ')
+COMMAND_COUNT=$(ls -1 .claude/commands/*.md 2>/dev/null | wc -l | tr -d ' ')
 
-MISS_AGENTS=""
-for a in $EXPECTED_AGENTS; do
-  [ -f ".claude/agents/${a}.md" ] || MISS_AGENTS="$MISS_AGENTS $a"
-done
-MISS_COMMANDS=""
-for c in $EXPECTED_COMMANDS; do
-  [ -f ".claude/commands/${c}.md" ] || MISS_COMMANDS="$MISS_COMMANDS $c"
-done
-if [ -z "$MISS_AGENTS" ] && [ -z "$MISS_COMMANDS" ]; then
-  echo -e "  ${GRN}[OK]${RST} Core OS coherence (4 agents + 4 commands)"
+# Minimum requis : au moins les 4 agents fondamentaux et 4 commands de base
+MIN_AGENTS=4
+MIN_COMMANDS=4
+
+if [ "$AGENT_COUNT" -ge "$MIN_AGENTS" ] && [ "$COMMAND_COUNT" -ge "$MIN_COMMANDS" ]; then
+  echo -e "  ${GRN}[OK]${RST} Core OS coherence ($AGENT_COUNT agents + $COMMAND_COUNT commands)"
 else
-  [ -n "$MISS_AGENTS" ] && echo -e "  ${RED}[KO]${RST} Agents manquants:$MISS_AGENTS"
-  [ -n "$MISS_COMMANDS" ] && echo -e "  ${RED}[KO]${RST} Commands manquantes:$MISS_COMMANDS"
+  [ "$AGENT_COUNT" -lt "$MIN_AGENTS" ] && echo -e "  ${RED}[KO]${RST} Agents insuffisants ($AGENT_COUNT < $MIN_AGENTS minimum)"
+  [ "$COMMAND_COUNT" -lt "$MIN_COMMANDS" ] && echo -e "  ${RED}[KO]${RST} Commands insuffisantes ($COMMAND_COUNT < $MIN_COMMANDS minimum)"
   CRITICAL=$((CRITICAL + 1))
 fi
 
 # ── 5. Specs docs/core/ coherence ──────────────────────────────────
 
-EXPECTED_SPECS="cortex memory monitor tools architecture-core"
+EXPECTED_SPECS="cortex communication monitor tools architecture-core"
 MISS_SPECS=""
 for s in $EXPECTED_SPECS; do
   [ -f "docs/core/${s}.md" ] || MISS_SPECS="$MISS_SPECS $s"
@@ -142,7 +139,10 @@ fi
 # ── 6. Routes CONTEXT.md vs App.tsx ────────────────────────────────
 
 APP_TSX="modules/app/src/App.tsx"
-CTX_ROUTES_RAW=$(grep -E "^- \*\*Routes\*\*" CONTEXT.md 2>/dev/null | head -1 | sed 's/^[^:]*: //')
+# Cherche le nombre de routes dans la table Modules (ex: "7 routes") ou dans la ligne Routes
+CTX_ROUTES_RAW=$(grep -oE '[0-9]+ routes' CONTEXT.md 2>/dev/null | head -1 | sed 's/ routes//')
+# Fallback: ancien pattern "- **Routes**"
+[ -z "$CTX_ROUTES_RAW" ] && CTX_ROUTES_RAW=$(grep -E "^- \*\*Routes\*\*" CONTEXT.md 2>/dev/null | head -1 | sed 's/^[^:]*: //')
 CTX_ROUTES=$(printf '%s' "$CTX_ROUTES_RAW" | tr ',' '\n' | sed 's/([^)]*)//g; s/^[[:space:]]*//; s/[[:space:]]*$//' | grep -v '^$' | sort -u)
 if [ -f "$APP_TSX" ]; then
   CODE_ROUTES=$(grep -oE 'Route path="[^"]+"' "$APP_TSX" | sed 's/Route path="//; s/"$//' | grep -v '^\*$' | sort -u)

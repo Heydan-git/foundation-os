@@ -16,6 +16,19 @@ Module Core OS responsable de la journalisation, l'indexation, la lecture du pro
 ### Regle d'or
 **Une information ne vit que dans UN tier.** Pas de duplication. Si c'est dans docs/, CONTEXT.md pointe vers le doc.
 
+### Auto-memory — ce qui y va (et ce qui n'y va pas)
+
+Le tier auto-memory (`~/.claude/projects/.../memory/`) est gere par Claude Code natif. Il sert a stocker ce qui est **utile entre sessions mais pas operationnel** :
+
+| Va dans auto-memory | Ne va PAS dans auto-memory |
+|---------------------|---------------------------|
+| Profil utilisateur (role, preferences, TDAH) | Etat du projet (→ CONTEXT.md) |
+| Feedback sur le comportement de Claude | Architecture, specs (→ docs/) |
+| Patterns de travail valides | Decisions techniques (→ CONTEXT.md > Decisions) |
+| Conventions non-evidentes | Metriques, builds (→ CONTEXT.md > Metriques) |
+
+**Test** : si l'information change a chaque session → CONTEXT.md. Si elle est stable et concerne *comment travailler* plutot que *ou on en est* → auto-memory.
+
 ### CONTEXT.md = source unique operationnelle
 Tout ce qui est necessaire pour comprendre l'etat courant du projet et produire un brief se trouve dans CONTEXT.md. Aucun autre fichier n'est requis pour le brief. Les fichiers d'archive (decisions-log.md, .archive/) existent pour reference historique, pas pour l'operation courante.
 

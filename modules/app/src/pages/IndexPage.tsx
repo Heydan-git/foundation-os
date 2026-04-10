@@ -34,22 +34,6 @@ const MODULES: Module[] = [
     color: 'var(--fos-color-status-wip)',
     status: 'static',
   },
-  {
-    id: 'crud-test',
-    route: '/crud-test',
-    label: 'Test CRUD Supabase',
-    subtitle: 'Creer, lire, modifier, supprimer sessions et decisions',
-    color: 'var(--fos-color-status-done)',
-    status: 'functional',
-  },
-  {
-    id: 'phase1-demo',
-    route: '/phase1-demo',
-    label: 'Phase 1 Validation',
-    subtitle: 'Suite de tests automatises pour valider les operations CRUD',
-    color: 'var(--fos-color-status-paused)',
-    status: 'functional',
-  },
 ]
 
 const STATUS_COLORS: Record<string, string> = {

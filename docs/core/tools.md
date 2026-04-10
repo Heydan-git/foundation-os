@@ -78,5 +78,5 @@ Ce que Tools fait :
 
 Ce que Tools ne fait PAS :
 - Runtime intelligence (→ Cortex)
-- Persistance de donnees (→ Memory)
+- Persistance de donnees (→ Communication)
 - Definition des indicateurs (→ Monitor)

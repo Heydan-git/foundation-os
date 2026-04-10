@@ -1,22 +1,25 @@
 # Core OS — Architecture
 
-4 modules qui forment le cerveau de Foundation OS.
+4 modules + 1 orchestrateur qui forment le cerveau de Foundation OS.
 
 ## Couches
 
 ```
-MODULES  (app, finance, sante)          Projets concrets
-CORE OS  (cortex, memory, monitor,      Intelligence
-          tools)
+COCKPIT  (/cockpit)                     Super-pilote (optionnel)
+MODULES  (app, design-system, ...)      Projets concrets
+CORE OS  (cortex, communication,        Intelligence
+          monitor, tools)
 TOOLKIT  (OMC, BMAD, MCP)              Outils externes
 ```
+
+Cockpit est un wrapper optionnel au-dessus de Cortex. Il automatise scan → brief → routing → execution → cloture. Les commands /session-start, /session-end, /sync, /new-project restent utilisables independamment. Spec : `docs/specs/2026-04-10-cockpit-design.md`.
 
 ## Modules
 
 | Module | Role | Phase | Status | Runtime |
 |--------|------|-------|--------|---------|
 | Cortex | Routing, contexte, orchestration | 1 | actif | CLAUDE.md, .claude/agents/, .claude/commands/ |
-| Memory | Persistance structuree, tiers, decisions | 2 | actif | CONTEXT.md, docs/, auto-memory |
+| Communication | Journalisation, indexation, lecture, briefing | 2 | actif | CONTEXT.md, docs/, auto-memory |
 | Monitor | Health indicators, severite, seuils | 3 | actif | Integre dans /sync et review-agent |
 | Tools | Validators, scripts, CI/CD | 4 | actif | scripts/, .github/, hooks |
 
