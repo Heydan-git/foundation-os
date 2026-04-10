@@ -1,0 +1,103 @@
+[
+  {
+    "id": "validate-void-glass",
+    "name": "Void Glass Validator",
+    "category": "hook",
+    "path": "scripts/hooks/validate-void-glass.sh",
+    "description": "Hook PreToolUse Claude — bloque l'ecriture de couleurs interdites et fonts interdites dans les fichiers JSX/TSX/CSS selon le Design System",
+    "usage": "Automatique via .claude/settings.json PreToolUse sur Write|Edit|MultiEdit",
+    "triggers": ["void glass", "couleur interdite", "font interdite", "design system"],
+    "when_to_use": "Automatique — se declenche a chaque Write/Edit/MultiEdit sur fichiers JSX/TSX/CSS. Bloque si violation detectee",
+    "when_not_to_use": "N/A — automatique, pas d'invocation manuelle",
+    "depends_on": [],
+    "outputs": "Message OK ou liste de violations. Exit 0=OK, 1=violation detectee",
+    "examples": [
+      {
+        "situation": "Ecriture d'un composant avec couleur interdite",
+        "command": "Automatique lors de Edit sur .tsx",
+        "result": "Bloque avec message : Couleur interdite"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "security-reminder",
+    "name": "Security Reminder",
+    "category": "hook",
+    "path": "scripts/hooks/security-reminder.py",
+    "description": "Hook PreToolUse Claude — detecte 9 patterns de code dangereux (OWASP top risks) et affiche un warning unique par session avec alternative securisee",
+    "usage": "Automatique via .claude/settings.json PreToolUse sur Write|Edit|MultiEdit",
+    "triggers": ["securite", "security", "risque code"],
+    "when_to_use": "Automatique — se declenche a chaque Write/Edit/MultiEdit. Warning unique par fichier/pattern par session",
+    "when_not_to_use": "N/A — automatique. Desactivable via ENABLE_SECURITY_REMINDER=0",
+    "depends_on": ["python3"],
+    "outputs": "Warning detaille avec alternative securisee. Exit 0=OK, 2=warning bloquant (premiere occurrence)",
+    "examples": [
+      {
+        "situation": "Ecriture de code avec pattern risque",
+        "command": "Automatique lors de Write sur .ts",
+        "result": "Warning securite avec pattern securise alternatif propose"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "commit-msg",
+    "name": "Commit Message Validator",
+    "category": "hook",
+    "path": "scripts/git-hooks/commit-msg",
+    "description": "Hook git commit-msg — enforce le format conventional commits (type(scope): description). 11 types supportes",
+    "usage": "Automatique a chaque git commit. Install : cp scripts/git-hooks/commit-msg .git/hooks/commit-msg",
+    "triggers": ["commit", "conventional", "message format"],
+    "when_to_use": "Automatique — se declenche a chaque commit. Bloque si le message ne suit pas le format",
+    "when_not_to_use": "N/A — automatique",
+    "depends_on": [],
+    "outputs": "Message d'erreur avec format attendu. Exit 0=OK, 1=format invalide",
+    "examples": [
+      {
+        "situation": "Commit avec bon format",
+        "command": "git commit -m 'feat(app): add login page'",
+        "result": "Commit accepte"
+      },
+      {
+        "situation": "Commit avec mauvais format",
+        "command": "git commit -m 'added login'",
+        "result": "ERREUR: Format conventional commit invalide"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "pre-commit-hook",
+    "name": "Pre-commit Health Gate",
+    "category": "hook",
+    "path": "scripts/git-hooks/pre-commit",
+    "description": "Hook git pre-commit — execute health-check.sh avant chaque commit. BROKEN = bloque, DEGRADED = warning, SAIN = passe",
+    "usage": "Automatique a chaque git commit. Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit",
+    "triggers": ["pre-commit", "commit gate", "health gate"],
+    "when_to_use": "Automatique — empeche de committer du code casse",
+    "when_not_to_use": "N/A — automatique",
+    "depends_on": ["health-check.sh"],
+    "outputs": "Rapport health-check + message COMMIT BLOQUE ou WARNING. Exit 0=autorise, 1=bloque",
+    "examples": [
+      {
+        "situation": "Commit avec build casse",
+        "command": "git commit",
+        "result": "COMMIT BLOQUE : health-check = BROKEN"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-07",
+    "updated": "2026-04-10"
+  }
+]

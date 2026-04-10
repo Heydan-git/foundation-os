@@ -1,0 +1,98 @@
+[
+  {
+    "id": "dev-agent",
+    "name": "Dev Agent",
+    "category": "agent",
+    "path": ".claude/agents/dev-agent.md",
+    "description": "Agent developpement — code React/Vite/TypeScript, composants Void Glass, Supabase, Vercel. Modele sonnet. Herite des regles CLAUDE.md",
+    "usage": "Delegation automatique via Cortex ou invocation directe via Agent tool",
+    "triggers": ["code", "composant", "page", "supabase", "react", "build", "scaffold", "css", "tailwind", "fix", "bug ui"],
+    "when_to_use": "Ecrire ou modifier du code dans modules/app/ ou modules/design-system/. Creer des composants, pages, hooks, mutations. Fixer des bugs UI",
+    "when_not_to_use": "Decisions d'architecture (→ os-architect). Mise a jour docs/CONTEXT.md (→ doc-agent). Audit pre-deploy (→ review-agent)",
+    "depends_on": ["CONTEXT.md", "docs/design-system.md"],
+    "outputs": "Code modifie/cree, build status. Conventional commits : feat(app):/fix(app):/refactor(app):",
+    "examples": [
+      {
+        "situation": "Ajouter un bouton delete sur une page",
+        "command": "Delegation automatique quand Kevin dit 'ajoute un bouton delete'",
+        "result": "Composant modifie, build verifie, commit propose"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "os-architect",
+    "name": "OS Architect",
+    "category": "agent",
+    "path": ".claude/agents/os-architect.md",
+    "description": "Architecte Foundation OS — decisions de stack, structure modules, schema DB, ADR. Modele opus. Propose avant d'executer, alignement Kevin requis",
+    "usage": "Delegation automatique via Cortex ou invocation directe via Agent tool",
+    "triggers": ["architecture", "adr", "stack", "schema", "structurer", "option a vs b", "comment organiser", "migration db"],
+    "when_to_use": "Decisions de stack et structure. Schema DB (Supabase, migrations). Architecture monorepo et Core OS. Quand il y a un choix technique a faire",
+    "when_not_to_use": "Code React/UI (→ dev-agent). Documentation (→ doc-agent). Audit (→ review-agent)",
+    "depends_on": ["CONTEXT.md", "docs/architecture.md"],
+    "outputs": "Pattern decision (Probleme/Options/Recommande/Impact) + fichiers impactes + prochaine etape",
+    "examples": [
+      {
+        "situation": "Choisir la structure du module Finance",
+        "command": "Delegation quand Kevin dit 'comment structurer finance ?'",
+        "result": "Options A/B/C avec recommandation, attente validation Kevin"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "review-agent",
+    "name": "Review Agent",
+    "category": "agent",
+    "path": ".claude/agents/review-agent.md",
+    "description": "Agent revue — coherence, audit, zero regression. Execute health-check + sync-check + checks manuels. Rapport OK/Warning/Erreur avec verdict LIVRABLE ou A CORRIGER",
+    "usage": "Delegation automatique via Cortex ou invocation directe via Agent tool",
+    "triggers": ["verifie", "audit", "check", "revue", "regression", "deployer", "avant deploy", "review", "livrable"],
+    "when_to_use": "Avant un deploy ou une livraison. Pour verifier la coherence globale. Quand Kevin dit 'verifie tout' ou 'est-ce que c'est livrable'",
+    "when_not_to_use": "Ecriture de code (→ dev-agent). Decisions d'architecture (→ os-architect). Mise a jour docs (→ doc-agent)",
+    "depends_on": ["health-check.sh", "sync-check.sh", "CONTEXT.md"],
+    "outputs": "Rapport structure : OK/Warning/Erreur + verdict LIVRABLE ou A CORRIGER",
+    "examples": [
+      {
+        "situation": "Verification avant merge",
+        "command": "Delegation quand Kevin dit 'verifie avant de deployer'",
+        "result": "Rapport complet avec verdict LIVRABLE"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "doc-agent",
+    "name": "Doc Agent",
+    "category": "agent",
+    "path": ".claude/agents/doc-agent.md",
+    "description": "Agent documentation — mise a jour CONTEXT.md, docs/, modules/app/data/. Protocole Communication 4 tiers. N'intervient PAS en session-end (gere par /session-end directement)",
+    "usage": "Delegation automatique via Cortex ou invocation directe via Agent tool",
+    "triggers": ["documente", "note", "trace", "journalise", "met a jour context", "met a jour docs", "documentation"],
+    "when_to_use": "Mise a jour de CONTEXT.md hors session-end. Documentation technique (docs/). Quand les decisions/modules/specs changent et doivent etre documentes",
+    "when_not_to_use": "En fin de session (/session-end gere CONTEXT.md). Code (→ dev-agent). Architecture (→ os-architect). Audit (→ review-agent)",
+    "depends_on": ["CONTEXT.md"],
+    "outputs": "Fichiers mis a jour, sections modifiees. Format court",
+    "examples": [
+      {
+        "situation": "Documenter une nouvelle decision",
+        "command": "Delegation quand Kevin dit 'met a jour les decisions dans CONTEXT'",
+        "result": "CONTEXT.md section Decisions mise a jour"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-05",
+    "updated": "2026-04-10"
+  }
+]
