@@ -17,7 +17,6 @@ const ITEMS: NavItem[] = [
   { to: '/', label: 'Home' },
   { to: '/commander', label: 'Commander' },
   { to: '/knowledge', label: 'Knowledge' },
-  { to: '/dashboard', label: 'Dashboard' },
 ]
 
 const linkBase: React.CSSProperties = {

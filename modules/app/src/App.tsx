@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/lib/AuthContext'
 import Commander from '@/pages/Commander'
-import Dashboard from '@/pages/Dashboard'
 import IndexPage from '@/pages/IndexPage'
 import KnowledgePage from '@/pages/KnowledgePage'
 import LoginPage from '@/pages/LoginPage'
@@ -56,7 +55,7 @@ export default function App() {
             <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/" element={<ProtectedRoute><IndexPage /></ProtectedRoute>} />
             <Route path="/commander" element={<ProtectedRoute><Commander /></ProtectedRoute>} />
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<Navigate to="/commander" replace />} />
             <Route path="/knowledge" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
             {import.meta.env.DEV && (
               <Route path="/crud-test" element={<ProtectedRoute><Suspense fallback={null}><SupabaseCRUDTest /></Suspense></ProtectedRoute>} />

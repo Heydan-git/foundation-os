@@ -110,10 +110,10 @@ Directive meta Kevin (2026-04-07 mid-S0) : "nourrir l'audit pour ameliorer le fo
 
 ## App Builder — Etat technique
 
-- **Routes** : / (index), /commander, /knowledge, /dashboard, /crud-test, /phase1-demo, /login, /reset-password
-- **Build** : OK (728ms, JS 457.15kB / CSS 22.12kB, 108 modules) — sous seuils 600KB/40KB. **2026-04-09 DS-6 partial** : CSS bundle 17.22 → 22.12 kB (+4.9 kB = tokens.css inlined via src/main.tsx import de @foundation-os/design-system/tokens.css). Prebuild workspace chain assure que tokens/build/ est genere avant chaque build/dev/test modules/app (overhead ~80ms vs baseline pre-DS).
+- **Routes** : / (index), /commander, /knowledge, /dashboard (redirect→/commander), /crud-test (DEV-only), /phase1-demo, /login, /reset-password
+- **Build** : OK (881ms, JS 440.22kB / CSS 22.12kB) — sous seuils 600KB/40KB. **2026-04-10 S21** : JS 457→440 kB (-17kB via Dashboard removal + lazy SupabaseCRUDTest chunk 8.89kB).
 - **Tests** : 19 (6 fichiers : app, supabase, mutations, useCommander, AuthContext, forms)
-- **Navbar** : sticky top, NavLink active state (Home / Commander / Knowledge / Dashboard), bouton deconnexion integre
+- **Navbar** : sticky top, NavLink active state (Home / Commander / Knowledge), bouton deconnexion integre
 - **Artifacts JSX** : 0 dans src/artifacts/ (supprime). Tous archives dans `.archive/artifacts-jsx/` (7 fichiers)
 - **Deploy** : https://foundation-os.vercel.app/ (root dir modules/app, live)
 - **DB** : Supabase, 6 tables (sessions, decisions, risks, next_steps, context_blocks, docs)
