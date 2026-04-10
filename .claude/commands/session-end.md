@@ -5,11 +5,11 @@
 1. Lister les fichiers crees, modifies et supprimes dans cette session
 2. Verifier la coherence :
    - Aucun nouveau fichier a la racine (sinon le deplacer)
-   - Pas de references cassees (grep les noms de fichiers deplaces/supprimes)
+   - Pas de references cassees (`bash scripts/ref-checker.sh` pour verifier)
    - Chaque fichier cree est dans le bon dossier
    - Modules dans CONTEXT.md correspondent a modules/ sur le filesystem
 3. Verifier l'etat technique :
-   - `bash scripts/health-check.sh` → doit etre SAIN (obligatoire)
+   - `bash scripts/health-check.sh` → doit etre SAIN (obligatoire). DEGRADED → statut DONE_WITH_CONCERNS + documenter le warning explicitement
    - Pour chaque module actif : `cd modules/[nom] && npm run build`
    - Pour chaque module actif : `cd modules/[nom] && npm test` si tests presents
 4. **Classifier la session selon 4 niveaux** :

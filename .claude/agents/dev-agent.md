@@ -1,5 +1,6 @@
 ---
 name: dev-agent
+model: sonnet
 description: >
   Agent developpement Foundation OS. Code React/Vite/TypeScript,
   composants Void Glass, Supabase, Vercel. Declencheurs : "code",

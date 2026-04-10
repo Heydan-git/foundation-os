@@ -2,7 +2,7 @@
 
 ## Workflow
 
-1. Lire CONTEXT.md → etat actuel + prochaine action
+1. Lire CONTEXT.md → etat actuel + prochaine action (si CONTEXT.md absent → abort avec erreur explicite)
 2. Detecter les modules actifs :
    - Lister modules/ → pour chaque sous-dossier avec package.json, c'est un module actif
    - Verifier que CONTEXT.md les liste tous
@@ -11,8 +11,8 @@
    - Pas de fichiers orphelins a la racine (sinon signaler)
 4. Verifier l'etat technique :
    - `git status` : changements non commites ?
-   - Pour chaque module actif : `cd modules/[nom] && npm run build`
-   - `bash scripts/health-check.sh` — si BROKEN, ne pas demarrer (signaler les erreurs critiques avant)
+   - Pour chaque module actif : `cd modules/[nom] && npm run build` (ou `npm run build -w modules/[nom]` via workspaces)
+   - `bash scripts/health-check.sh` — si BROKEN ou build failure, ne pas demarrer (signaler les erreurs critiques avant)
 5. Annoncer en format court :
 
 ```

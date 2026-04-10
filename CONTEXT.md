@@ -6,7 +6,7 @@
 
 | Module | Status | Detail |
 |--------|--------|--------|
-| App Builder | production-ready | 8 routes, Navbar 4 items, KnowledgePage integree, 0 artifact JSX, Vitest 19 tests, build 728ms. **2026-04-09 DS-6 partial** : consomme @foundation-os/design-system/tokens.css via src/main.tsx import + prebuild workspace chain (prebuild/predev/pretest). CSS bundle 17.22 → 22.12 kB (+4.9 kB tokens inlined), JS unchanged 457 kB. |
+| App Builder | production-ready | 7 routes, Navbar 3 items, KnowledgePage integree, Vitest 19 tests, build ~980ms. **2026-04-09 DS-6 partial** : consomme @foundation-os/design-system/tokens.css via src/main.tsx import + prebuild workspace chain (prebuild/predev/pretest). CSS 22.12 kB, JS 440 kB. |
 | Core OS | 4/4 actif | Cortex (routing), Memory (tiers), Monitor (health), Tools (automation). Specs : docs/core/ |
 | Cowork Co-work | actif (non-branche) | Cowork Desktop + Claude Code CLI sur meme repo. docs/travaux-cowork/2026-04-08-instructions-cowork/ (01-project-instructions.md 249L + 02-anti-collision.md 173L) + scripts/session-lock.sh (146L executable, TTL 30min) + .gitignore .fos-session.lock. Non branche a /session-start /session-end — Action 2 Cowork Sprint 1. |
 | Plan-Router | PROPOSITION | docs/travaux-cowork/2026-04-08-plan-router/ (00-INDEX + 01-spec 265L + 02-setup 236L). 5 profils SCAN/CODE/ARCHITECT/AUDIT/DOC pour annoter phases de plan avec model+effort+agent. 6 questions ouvertes Q1-Q6 bloquent execution. Dogfooding planifie S7. |

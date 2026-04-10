@@ -1,9 +1,10 @@
 ---
 name: doc-agent
+model: sonnet
 description: >
   Agent documentation Foundation OS. Mise a jour de CONTEXT.md,
   docs/, modules/app/data/. Declencheurs : "documente", "note",
-  "trace", "journalise", "met a jour".
+  "trace", "journalise", "met a jour CONTEXT", "met a jour docs".
 ---
 
 # Foundation OS — Agent Documentation

@@ -1,5 +1,6 @@
 ---
 name: os-architect
+model: opus
 description: >
   Architecte Foundation OS. Decisions d'architecture, stack,
   structure modules, schema DB. Declencheurs : "architecture",

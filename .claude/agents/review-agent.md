@@ -1,5 +1,6 @@
 ---
 name: review-agent
+model: sonnet
 description: >
   Agent revue Foundation OS. Coherence, audit, zero regression.
   Declencheurs : "verifie", "audit", "check", "revue",
