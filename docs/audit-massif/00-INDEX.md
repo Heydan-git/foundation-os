@@ -1,8 +1,8 @@
 # Cycle 3 — Audit Massif Final / INDEX
 
-> **Status** : EN COURS (S0-S12 DONE 50%, S13+ PENDING)
+> **Status** : EN COURS (S0-S15 DONE 62%, S16+ PENDING)
 > **Cree** : 2026-04-07 (preparation, avant S0)
-> **Derniere maj** : 2026-04-10 (fix F-S12-02 P1, rattrapage drift 7 sessions)
+> **Derniere maj** : 2026-04-10 (S15 DONE)
 > **Plan complet** : `docs/plans/2026-04-07-audit-massif-final.md`
 > **Branche** : `audit-massif-cycle3` | **Tag baseline** : `pre-audit-cycle3` (a8519c8)
 > **Source de verite sessions** : `CONTEXT.md` section "Cycle 3 progress"
@@ -24,9 +24,9 @@
 | S10 Skills + BMAD verdict            | DONE    | 10-skills.md                | 2026-04-09 | docs(audit) s10 |
 | S11 Comm securite                    | DONE    | 11-comm-securite.md         | 2026-04-09 | docs(audit) s11 |
 | S12 Memory + anti-compactage         | DONE    | 12-memory-anti-compactage.md | 2026-04-09 | docs(audit) s12 |
-| S13 Module App                       | PENDING | 13-module-app.md            | — | — |
-| S14 SUGG tech 1                      | PENDING | 14-sugg-tech-1.md           | — | — |
-| S15 SUGG tech 2                      | PENDING | 15-sugg-tech-2.md           | — | — |
+| S13 Module App                       | DONE    | 13-module-app.md            | 2026-04-10 | docs(audit) s13 (7eec2d0) |
+| S14 SUGG tech 1                      | DONE    | 14-sugg-tech-1.md           | 2026-04-10 | docs(audit) s14 (c3bccc9) |
+| S15 SUGG tech 2                      | DONE    | 15-sugg-tech-2.md           | 2026-04-10 | docs(audit) s15 |
 | S16 SUGG strategic                   | PENDING | 16-sugg-strategic.md        | — | — |
 | S17 External research                | PENDING | 17-external-research.md     | — | — |
 | S18 Cross-check                      | PENDING | 18-cross-check.md           | — | — |
