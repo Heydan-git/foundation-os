@@ -1,65 +1,105 @@
 # /session-end — Cloturer une session Foundation OS
 
-## Workflow
+Produit le brief de fin de session au format v9 et met a jour CONTEXT.md + Monitor Dashboard.
+Ref format : memory `feedback_brief_format.md` + CLAUDE.md section "Briefs session".
 
-1. Lister les fichiers crees, modifies et supprimes dans cette session
-2. Verifier la coherence :
+## Phase 1 — Inventaire des changements
+
+1. `git diff --name-status HEAD` : fichiers crees (A), modifies (M), supprimes (D) cette session
+2. Si aucun changement → brief minimal "Session sans modification" + skip phases 3-5
+
+## Phase 2 — Verification coherence + technique (parallele)
+
+Lancer en parallele :
+
+1. **Structure** :
    - Aucun nouveau fichier a la racine (sinon le deplacer)
-   - Pas de references cassees (`bash scripts/ref-checker.sh` pour verifier)
-   - Chaque fichier cree est dans le bon dossier
-   - Modules dans CONTEXT.md correspondent a modules/ sur le filesystem
-3. Verifier l'etat technique :
-   - `bash scripts/health-check.sh` → doit etre SAIN (obligatoire). DEGRADED → statut DONE_WITH_CONCERNS + documenter le warning explicitement
-   - Pour chaque module actif : `cd modules/[nom] && npm run build`
-   - Pour chaque module actif : `cd modules/[nom] && npm test` si tests presents
-4. **Classifier la session selon 4 niveaux** :
+   - `bash scripts/ref-checker.sh` : references cassees
+   - Modules dans CONTEXT.md correspondent a `modules/` sur le filesystem
+2. **Build** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
+3. **Tests** : pour chaque module avec tests → `npm test -w modules/[nom]`
+4. **Health-check** : `bash scripts/health-check.sh`
 
-   | Statut | Quand l'utiliser | Action requise |
-   |--------|------------------|----------------|
-   | **DONE** | Toutes les taches finies, build + tests verts, health-check SAIN | Passer a la suite |
-   | **DONE_WITH_CONCERNS** | Livre mais avec dette/risque a documenter (perf, edge case, build degrade) | Documenter les concerns dans CONTEXT.md, prefixer le resume avec `[DONE_WITH_CONCERNS]` |
-   | **NEEDS_CONTEXT** | Bloque par manque d'info Kevin (decision, donnee, credentials) | Lister les questions dans CONTEXT.md, prefixer avec `[NEEDS_CONTEXT]` |
-   | **BLOCKED** | Impossible de continuer (bug externe, dep cassee, API down) | Documenter le blocage + workaround tente, prefixer avec `[BLOCKED]` |
+## Phase 3 — Classifier la session
 
-   Le statut se decide a partir des faits du step 3 (health-check, build, tests) et de l'etat des taches du plan en cours. Pas d'auto-congratulation : DONE n'est valide que si **tout** est vert et **toutes** les taches du scope ont ete livrees.
+| Statut | Condition | Action |
+|--------|-----------|--------|
+| **DONE** | Toutes taches finies, build + tests verts, health SAIN | Rien |
+| **DONE_WITH_CONCERNS** | Livre mais dette/risque a documenter | Documenter dans CONTEXT.md |
+| **NEEDS_CONTEXT** | Bloque par manque d'info Kevin | Lister les questions |
+| **BLOCKED** | Impossible de continuer (bug externe, dep cassee) | Documenter blocage + workaround tente |
 
-5. Mettre a jour CONTEXT.md (protocole Memory — docs/core/memory.md) :
-   - Ajouter cette session dans "Dernieres sessions" (garder max 5) avec le statut prefixe entre crochets si != DONE
-   - Mettre a jour "Prochaine action" avec la suite logique
-   - Mettre a jour le status des modules si changement
-   - Ajouter les nouvelles decisions si applicable (avec date YYYY-MM-DD)
-   - Mettre a jour "Etat technique" si builds/routes/artifacts changent
-   - Si un fondamental a change → mettre a jour aussi docs/ (reference tier)
+Le statut se decide a partir des faits (health-check, build, tests) et de l'etat des taches du scope. DONE n'est valide que si **tout** est vert et **toutes** les taches du scope sont livrees.
 
-5.5. Mettre a jour le Monitor Dashboard (`docs/monitor/data.js`) — edition additive :
-   - `meta.updatedAt` = date du jour (YYYY-MM-DD)
-   - `meta.updatedInSession` = libelle court de la session
-   - `meta.nextAction` = prochaine action mise a jour (miroir step 5)
-   - `plans[*].sessions` : append/update pour les sessions touchees
-   - `plans[*].currentPhase` + `notes` si change
-   - `recentSessions` : prepend nouvelle entree, pop la plus ancienne si > 5
-   - `decisions` : append si nouvelle D-XXX
-   - `modules` + `initiatives` : update si status change
-   - Verification : ouvrir `docs/monitor/index.html`, verifier 0 erreur console
+## Phase 4 — Mettre a jour CONTEXT.md
 
-6. Proposer un commit si des changements sont en attente
-7. Annoncer en format court :
+Protocole Memory (docs/core/memory.md) :
 
+- **Dernieres sessions** : ajouter cette session en tete (garder max 5). Prefixer `[STATUT]` si != DONE. Format : date + titre court + 1-2 phrases factuelles + commits
+- **Prochaine action** : mettre a jour avec la suite logique
+- **Modules** : mettre a jour le status si changement
+- **Decisions actives** : ajouter les nouvelles (avec date YYYY-MM-DD)
+- **Etat technique** : mettre a jour si builds/routes/artifacts changent
+- Si un fondamental a change → mettre a jour aussi docs/ (reference tier)
+
+## Phase 4.5 — Mettre a jour Monitor Dashboard
+
+Edition additive de `docs/monitor/data.js` :
+
+- `meta.updatedAt` = date du jour
+- `meta.updatedInSession` = libelle court session
+- `meta.nextAction` = miroir prochaine action (phase 4)
+- `plans[*].sessions` : append/update sessions touchees
+- `plans[*].currentPhase` + `notes` si change
+- `recentSessions` : prepend entree, pop si > 5
+- `decisions` : append si nouvelle D-XXX
+- `modules` + `initiatives` : update si status change
+
+## Phase 5 — Proposer commit
+
+Si des changements sont en attente → proposer un commit (conventional commits, pas d'auto-congratulation).
+
+## Phase 6 — Produire le brief de cloture v9
+
+Rendre dans cet ordre, avec separateurs `────────────────────────────────` :
+
+### 1. Entete
 ```
-Session cloturee — [date]
-Statut : [DONE | DONE_WITH_CONCERNS | NEEDS_CONTEXT | BLOCKED]
-
-Modifie : [liste fichiers]
-Build : [OK/KO par module]
-Tests : [N tests, X failures]
-Health-check : [SAIN/DEGRADED/BROKEN]
-CONTEXT.md : mis a jour
-Prochaine action : [quoi faire ensuite]
+SESSION CLOTUREE · YYYY-MM-DD
+Statut : [DONE / DONE_WITH_CONCERNS / NEEDS_CONTEXT / BLOCKED]
 ```
 
-Si statut != DONE, ajouter une section :
+### 2. Etat technique
 ```
-Concerns / Questions / Blockage :
-- [description du point d'attention]
+🟢 Build         [OK/KO par module]
+🟢 Tests (N)     [N/N verts]
+🟢 Health-check  [SAIN/DEGRADED/BROKEN]
+```
+Couleur selon etat reel : 🟢 OK / 🟡 degrade / 🔴 casse.
+
+### 3. Ce qui a ete fait
+- 📅 Commits livres : hash + titre + bullets vulgarises (glose jargon)
+- 📁 Fichiers : N crees, N modifies, N supprimes
+
+### 4. Mises a jour persistance
+- CONTEXT.md : ✅ mis a jour
+- Monitor Dashboard : ✅ mis a jour (ou ⏭ skip si aucun changement pertinent)
+
+### 5. Prochaine action
+- 🎯 Suite logique extraite de CONTEXT.md apres mise a jour
+
+### 6. Concerns (seulement si statut != DONE)
+```
+⚠ Concerns / Questions / Blocage :
+- [description point d'attention]
 - [workaround tente si BLOCKED]
 ```
+
+## Regles de rendu (rappel)
+
+- Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
+- Separateurs : `────────────────────────────────` 32 chars
+- Lignes courtes : ~60 chars max
+- Vulgariser : glose 3-4 mots pour tout jargon
+- Mise en garde : si simplification cache un risque → `> ⚠`
+- Pas de mots interdits : revolution, historique, accomplish, etc.
