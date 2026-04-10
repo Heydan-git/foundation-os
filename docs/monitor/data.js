@@ -13,10 +13,10 @@
 window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
-    updatedAt: '2026-04-09',
-    updatedInSession: 'S11 Communication + securite (a+b) — 2 commits, 16 findings final (+14.3% amplification), meta M-S11-01 LIVE demontre par blocage hook security-reminder sur le Write',
+    updatedAt: '2026-04-10',
+    updatedInSession: 'S12 Memoire (4 tiers) + anti-compactage (a+b) — 3 commits, 23 findings final (5 P1 + 8 P2 + 9 P3 + 1 meta M-S12-01 AMPLIFIE), amplification +15%, PHASE V cloturee, cycle 3 50%',
     nextAction:
-      'Cycle 3 — S12 Memoire (4 tiers) + anti-compactage (mode MOI 12e consecutive si poursuivi, ferme PHASE V du cycle 3). Alternative legitime : pause strategique / housekeeping batch S21 (~40 fixes cumules S7+S8+S9+S10+S11) apres 11 sessions audit deep consecutives. Decision D-S7-01 audit lineaire inchangee.'
+      'Cycle 3 — S13 Module App Builder deep (mode MIX 13e consecutive, debute PHASE VI) OU pause strategique / housekeeping batch S21 (~44 fixes cumules S7-S12) apres 12 sessions audit deep consecutives. Decision D-S7-01 audit lineaire inchangee.'
   },
 
   plans: [
@@ -64,8 +64,8 @@ window.MONITOR_DATA = {
       status: 'WIP',
       priority: 'P1',
       path: 'docs/plans/2026-04-07-cycle3-implementation.md',
-      progress: { done: 13, total: 24, unit: 'sessions' },
-      currentPhase: 'S11 Communication + securite DONE (16 findings final, 0 P1, 3 P2, 13 P3, 1 meta M-S11-01 AMPLIFIE live via blocage hook security-reminder sur le Write du livrable, amplification +14.3%), S12 Memoire prochaine (ferme PHASE V) OU pause strategique',
+      progress: { done: 14, total: 24, unit: 'sessions' },
+      currentPhase: 'S12 Memoire + anti-compactage DONE (23 findings final, 5 P1 docs, 8 P2, 9 P3, 1 meta M-S12-01 AMPLIFIE, amplification +15%, PHASE V cloturee). S13 Module App prochaine (PHASE VI) OU pause strategique OU housekeeping batch S21 (~44 fixes)',
       startedAt: '2026-04-07',
       sessions: [
         { id: 'S0', title: 'Pre-flight', status: 'DONE', date: '2026-04-07' },
@@ -82,10 +82,10 @@ window.MONITOR_DATA = {
         { id: 'S9', title: 'Scripts + hooks (9) deep + tests reels', status: 'DONE', date: '2026-04-09' },
         { id: 'S10', title: 'Skills + BMAD verdict', status: 'DONE', date: '2026-04-09' },
         { id: 'S11', title: 'Communication + securite (a+b) + meta live', status: 'DONE', date: '2026-04-09' },
-        { id: 'S12', title: 'Memoire (4 tiers) + anti-compactage', status: 'PENDING' },
+        { id: 'S12', title: 'Memoire (4 tiers) + anti-compactage (a+b) + demo reprise', status: 'DONE', date: '2026-04-09' },
         { id: 'S13-S23', title: 'Sessions restantes (11)', status: 'PAUSED' }
       ],
-      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S11 = 16 findings (0 P1 + 3 P2 + 13 P3 + 1 meta M-S11-01 AMPLIFIE) + 15 decisions D-S11-01..15 (6 batch S21 housekeeping + 4 parking post-cycle3 + 2 merge D-S7-04/D-S7-02 + 3 trace only/library) + 6 learnings L-S11-01..06 dont L-S11-03 meta-pattern auto-reference theorique->empirique et L-S11-05 hooks fail-loud majoritaire sauf settings.json silent. M-S11-01 AMPLIFIE live : blocage reel du Write du livrable par security-reminder sur pattern P2 subprocess exec-famille = 7e occurrence meta cycle 3 avec evidence directe irrefutable (passage theorique S9 -> empirique S11). Amplification tests reels +14.3% (vs +45% S10 vs +25% S8 vs +5.5% S9) = L-S11-06 confirme stabilise L-S10-07 regle differentielle par niveau abstraction meta. Dette batch S21 cumulee ~40 fixes (S7+S8+S9+S10+S11) effort ~2-3 sessions. 7 meta-patterns formalises cycle 3 (M-S6-01, M-S7-01, M-S8-01, M-S9-xx, M-S10-01, M-S10-02, M-S11-01).'
+      notes: 'Decision D-S7-01 : audit lineaire S7-S23 puis fixes en bloc. S12 = 23 findings (5 P1 docs + 8 P2 + 9 P3 + 1 meta M-S12-01 AMPLIFIE) + 23 decisions D-S12-01..23 + 9 learnings L-S12-01..09. 5 P1 tous documentaires : master file section 6 stale 12 sessions, 00-INDEX stale 7 sessions, procedure reprise depend data stale, 4/8 mitigations abandonnees, demo empirique T3 3 sources divergentes (S0/S5/S12). M-S12-01 = 8e occurrence meta cycle 3 : paradoxe auto-reference spec anti-compactage sujette au drift. Amplification +15% (20->23) conforme L-S11-06. PHASE V cloturee (S11+S12). Dette batch S21 cumulee ~44 fixes (S7-S12) effort ~2-3 sessions. 8 meta-patterns formalises cycle 3 (M-S6-01, M-S7-01, M-S8-01, M-S9-xx, M-S10-01, M-S10-02, M-S11-01, M-S12-01).'
     },
     {
       id: 'phase1-fondations',
@@ -217,6 +217,13 @@ window.MONITOR_DATA = {
 
   decisions: [
     {
+      id: 'D-S12-01..23 + M-S12-01 AMPLIFIE',
+      date: '2026-04-09',
+      title: 'Audit memoire (4 tiers) + anti-compactage + meta M-S12-01 paradoxe auto-reference',
+      summary:
+        '23 decisions issues audit S12 Memoire + anti-compactage (12e consecutive mode MOI, ferme PHASE V). 5 P1 documentaires batch S21 : D-S12-01 master file section 6 TOUT STALE drift 12 sessions, D-S12-02 00-INDEX drift 7 sessions, D-S12-03 procedure reprise depend data stale, D-S12-04 4/8 mitigations abandonnees, D-S12-21 NEW phase B demo empirique T3 3 sources divergentes (S0/S5/S12). 8 P2 : D-S12-05 decisions 17>15 spec, D-S12-06 OMC version stale, D-S12-07/08 auto-memory stale (project_structure + tools_inventory), D-S12-09/22 commit format drift 16:10 stale/runtime (4e cross-ref D-S8-12+D-S9-09+D-S11-15), D-S12-10 memory.md blind spot .omc, D-S12-11 project-memory.json cache stale. 9 P3 batch S21. M-S12-01 = 8e meta cycle 3 : paradoxe auto-reference spec anti-compactage sujette au drift. 9 learnings L-S12-01..09 : spec anti-drift sans update auto = spec auto-drift, CONTEXT.md tier operationnel unique ratio 10:1, amplification theorique->empirique via test scenarise. Amplification +15% (20->23). Dette batch S21 ~44 fixes cumulees.'
+    },
+    {
       id: 'D-S11-01..15 + M-S11-01 LIVE',
       date: '2026-04-09',
       title: 'Audit communication + securite + meta M-S11-01 LIVE amplifie',
@@ -299,6 +306,13 @@ window.MONITOR_DATA = {
     {
       date: '2026-04-09',
       tag: 'DONE',
+      title: 'S12 Memoire (4 tiers) + anti-compactage (a+b) — 3 commits, 23 findings (5 P1 docs), meta M-S12-01 AMPLIFIE, PHASE V close',
+      summary:
+        '3 commits sur branche audit-massif-cycle3, 12e session consecutive mode MOI strict, ferme PHASE V. Pre-session : d959213 recup livrable orphelin 07-agents.md (402L working tree non-committe depuis 2026-04-08). Briefing frontload 6 questions, Kevin delegue "fait ce que tu recommande". (1) d959213 S7 orphan recup. (2) 2190988 S12a = remplace placeholder 12-memory-anti-compactage.md 6L par livrable 466L phase A lecture 4 tiers (Session conforme / Contexte CONTEXT.md vivant 17 decisions > 15 max spec / Reference docs/ index.md 2j stale / Auto-memory 100% integrite MEMORY.md 10/10 mais 2 fichiers stale) + audit anti-compactage (master file section 6 TOUT STALE drift 12 sessions + 00-INDEX drift 7 sessions + 4/8 mitigations abandonnees + test mental reprise = CONTEXT.md seul operationnel) + doublons cross-files (15 analyses : 3 OK pointeurs + 4 duplication factuelle + 5 stales). (3) 40733dc S12b = finalise 576L avec 4 tests reels : T1 MEMORY.md 10=10 zero drift, T2 grep commit format 16 stale / 10 runtime ratio 1.6:1, T3 reprise scenarisee 3 sources -> 3 reponses differentes (S0/S5/S12) = DEMO EMPIRIQUE F-S12-03 P1, T4 commits 4/5 pattern docs(audit) stable convention non documentee. 3 new findings phase B : F-S12-20 P1 demo empirique T3, F-S12-21 P2 quantification drift, F-S12-22 P3 convention. Final : 23 findings (5 P1 + 8 P2 + 9 P3 + 1 meta M-S12-01). 5 P1 tous documentaires : master file stale 12 sessions, 00-INDEX stale 7 sessions, procedure reprise depend data stale, 4/8 mitigations abandonnees, demo empirique 3 sources divergentes. M-S12-01 = 8e meta cycle 3 paradoxe auto-reference anti-compactage (passage theorique -> empirique meme pattern M-S11-01). Amplification +15% (20->23). 23 decisions D-S12-01..23, 9 learnings L-S12-01..09 dont L-S12-01 spec anti-drift sans update auto = spec auto-drift + L-S12-02 CONTEXT.md tier unique ratio 10:1. Zero code modules touche. Health : build 1.44s OK, 19/19 tests, DEGRADED baseline 84 refs zero drift session-start -> S12a -> S12b. Cycle 3 : 12/24 (50%). Prochaine : S13 Module App OU pause OU housekeeping S21 ~44 fixes.'
+    },
+    {
+      date: '2026-04-09',
+      tag: 'DONE',
       title: 'S11 Communication + securite (a+b) — 2 commits, 16 findings, meta M-S11-01 LIVE demontre par blocage hook security-reminder',
       summary:
         '2 commits sur branche audit-massif-cycle3, 11e session consecutive mode MOI strict. Briefing frontload Kevin 5 questions (pattern S11a/S11b, perimetre strict Core OS, tests phase B invocation+historique+RLS, commit docs(audit), fix P1 secu opportuniste si trouve), Kevin delegue "Fait ce que tu recommande je te fait confiance" -> exec reco A/A/C/A/A. (1) b66b003 S11a = remplace placeholder 11-comm-securite.md 6L par livrable 502L phase A lecture 15 fichiers ~600L (4 agents custom + CLAUDE.md directives zero-bullshit + 4 hooks security-reminder 281L/validate-void-glass 39L/pre-commit 21L/commit-msg 20L + 3 .gitignore + 2 workflows CI + settings.json + migration SQL RLS + supabase.ts env refs) + draft 14 findings (0 P1 + 3 P2 + 11 P3 + 1 meta M-S11-01). (2) 969c181 S11b = finalise livrable a 590L avec phase B 3 tests reels : T1 invocation review-agent reelle via Task tool (output OK/Warning/Erreur/Verdict 100% conforme a .claude/agents/review-agent.md L35-40, zero divergence doc vs runtime, addition non-doc "Fichiers verifies :" footer non-bloquante), T2 parsing git log -20 (20/20 commits conformes hook commit-msg, pattern audit emergent confirme sur 5 commits docs(audit): sXX[a]), T3 grep RLS policies USING (21 policies sur 7 tables uniformes auth.role()=authenticated, no user_id filter, no DELETE policy). 2 findings new phase B : F-S11-15 P3 RLS scope user insuffisant Phase 5 multi-user (parking post-cycle3, re-audit obligatoire avant Finance/Sante avec ajout user_id + auth.uid()=user_id), F-S11-16 P3 convention commits audit cycle3 non-documentee (pattern stable sur 5 commits mais absent plan + CLAUDE.md + agents, couple D-S8-12 / D-S9-09). Final : 16 findings (0 P1 + 3 P2 + 13 P3 + 1 meta M-S11-01 AMPLIFIE). 3 P2 : F-S11-01 settings.json absolute paths hardcodes fail-silent pire mode (justifie P2), F-S11-02 pattern P8 substring trop large = DEMONSTRATION LIVE PHASE A (premier Write du livrable BLOQUE par hook security-reminder sur pattern P2 subprocess exec-famille parce que section 3.3 listait les substrings litterales -> reformulation forcee 12 substrings en descriptions neutres -> Write reussi 2e tentative -> passage meta F-S9-18 de theorique code inspection S9 a empirique blocage reel S11 = 7e occurrence meta cycle 3 avec evidence directe irrefutable), F-S11-03 gitignore root minimal manque ~10 patterns defensifs (*.pem/*.key/id_rsa*/credentials.json/.env.*/secrets.json/*.log). M-S11-01 AMPLIFIE live = audit honnete impossible sans workaround reformulation = meta structurel pas cosmetique. 15 decisions D-S11-01..15 dont phase A 13 + phase B 2 nouveaux. 6 learnings L-S11-01..06. Amplification tests reels S11a->S11b +14.3% (14 -> 16) conforme prediction mix moyenne stabilise L-S10-07 (mecanique S9 +5.5% < mix S11 +14.3% < declaratif S8 +25% < meta-declaratif S10 +45%). Observations positives : 0 cles hardcodees modules/app/src (tous via import.meta.env.VITE_*), RLS ENABLE 7 tables, ci.yml safe vs command injection, supabase-ping safe pattern env+secrets, pre-commit+commit-msg version-controlled, hooks fail-loud majoritaire, kill switch ENABLE_SECURITY_REMINDER=0, .env.local correctement ignore (3 .gitignore coherents verifies). Library meta-patterns cycle 3 mise a jour 7 entries : M-S6-01+M-S7-01+M-S8-01+M-S9-xx+M-S10-01+M-S10-02+M-S11-01 NEW. Zero code modules touche, review-agent invoque en read-only. Health final : build 960ms OK (22.12 kB CSS + 457.15 kB JS, 108 modules), 19/19 tests verts (6 fichiers, 1.27s), DS 100/100 non re-verifie (DS inchange), DEGRADED baseline 86 refs identique session-start (zero drift S11a->S11b), F-MON-01 toujours visible respect strict D-S7-01, decisions datees 16. Dette batch S21 cumulee ~40 fixes. Prochaine : S12 Memoire (4 tiers) + anti-compactage (12e consecutive, ferme PHASE V du cycle 3).'
@@ -324,12 +338,7 @@ window.MONITOR_DATA = {
       summary:
         '3 commits sur branche audit-massif-cycle3, 8e session consecutive mode MOI strict. (1) d4fc729 S7.5 integration = update CONTEXT.md cycle3 table ligne 43 (S7 "non-integre" -> "integre 2026-04-09 S7.5") + ajout D-S7-02..09 Decisions actives + prochaine action -> S8. (2) 80c18cb S8a = remplace placeholder 08-commands.md 6L par livrable 266L sections 1-4 + draft 6 + 7 decisions + 8 learnings apres lecture 4 commands (session-start 30L / session-end 65L / new-project 49L / sync 79L = 223L total) + audit 4 angles A1-A4, 12 findings draft (3 P2 + 9 P3). (3) 9256ee8 S8b = finalise 08-commands.md a 433L avec phase B tests reels : comparaison /session-start spec v1 vs brief v9 live (gap 24x confirme F-S8-01), bash scripts/sync-check.sh full run exit 2 DEGRADED (spec factuellement incomplet TypeScript+Vitest+section [EXTENDED] absents + double verdict = F-S8-14 nouveau P2 + F-S8-13 P3), bash scripts/module-scaffold.sh --help exit 0 + lecture source 168L (F-S8-09 confirme divergences template README + F-S8-15 polyglot bash+Python 46L Python embed). Final : 15 findings (0 P1 + 4 P2 + 11 P3 + 1 meta M-S8-01 formalise 3e occurrence pattern spec MD vs code source apres F-S5-20 + M-S6-01), 12 decisions D-S8-01..12 toutes batchees S21/S9/S20 sauf D-S8-05 no action, 5 learnings L-S8-01..05 (notamment L-S8-04 tests reels amplifient findings statiques +25% et L-S8-05 garde-fous externes masquent dette specs inferieures). Cross-refs : F-S8-07 mirror F-S7-09 (PAUL), F-S8-12 mirror F-S7-07 (asymetrie), F-S8-04 drift D-DS-20 workspace chain. Concerns : 4 P2 docs-only batchables S21 convention D-S7-01 + health DEGRADED baseline 75 refs identique (zero drift). Kevin a delegue conduite ("je te fait confiance, fait au mieux pour qualite resultat") et valide option B batch S21. Build 1.06s OK, 19/19 tests verts, 100/100 DS tests. Prochaine : S9 Scripts + hooks (9) deep pattern S9a/S9b probable.'
     },
-    {
-      date: '2026-04-09',
-      tag: 'DONE',
-      title: 'Reforme communication — format brief v9 + questions groupees + CLAUDE.md',
-      summary:
-        'Session meta-workflow zero code modules. 2 axes : (1) frontload questions en debut de plan (toutes les questions d un coup puis execution sans interruption sauf imprevus), (2) briefs pedagogiques hierarchises 2 niveaux (clair par defaut + technique sur demande). 9 iterations du format brief negociees avec Kevin avant validation finale v9 = 11 sections (Etat global, Mission/Focus/Derniere session, Modules/Acces rapides/Git, Alertes/Rappels/Questions en attente, Dernier commit, Termine, En cours, En pause, Reflexions/Parking, Decisions cles/Echeance, Prochaine action/Input) + regles rendu (emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres ████░░░░ 12 max, separateurs 32 chars, lignes courtes, vulgarisation glose 3-4 mots). 3 fichiers memoire crees : feedback_frontload_questions + feedback_communication_pedagogique + feedback_brief_format. CLAUDE.md +10L nouvelle section Briefs session (format obligatoire). Zero regression health (DEGRADED baseline 75 refs), build modules/app 757ms, 19/19 tests verts. Piste A/B toujours pending (Kevin a reporte le choix pour finir la reforme com).'
+    /* Reforme communication brief v9 dropped from top-5 — available via git log */
     },
   ]
 }
