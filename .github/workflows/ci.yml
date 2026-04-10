@@ -32,6 +32,17 @@ jobs:
       - name: Build App
         run: npm run build -w modules/app
 
-      - name: Tests
+      - name: Tests App
         working-directory: modules/app
         run: npx vitest run
+
+      - name: Tests Design System
+        working-directory: modules/design-system
+        run: npx vitest run
+
+      - name: Install Playwright
+        run: npx playwright install chromium
+
+      - name: Visual + A11y (Playwright)
+        working-directory: modules/design-system
+        run: npm run test:e2e
