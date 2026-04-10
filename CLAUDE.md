@@ -71,39 +71,19 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 
 ## Core OS — Routing
 
-Cortex route les taches vers l'agent adapte. Table signaux → agents : `docs/core/cortex.md` section 1 (source unique).
-
-Agents : os-architect, dev-agent, doc-agent, review-agent.
-Priorite : match explicite → deleguer. Ambiguite → demander. Aucun match → traiter directement.
-Multi-agent → sequentiel (ex: dev puis review). Trivial (< 1 fichier) → direct.
+Spec complete : `docs/core/cortex.md`. Table signaux → agents section 1. Point d'entree simplifie : `/cockpit`.
 
 ## Core OS — Communication
 
-Journalisation, indexation, lecture, briefing. Spec complete : docs/core/communication.md
-
-| Tier | Support | Quand mettre a jour |
-|------|---------|---------------------|
-| Session | Conversation | Automatique (volatile) |
-| Contexte | CONTEXT.md | Chaque /session-end |
-| Reference | docs/ | Quand un fondamental change |
-| Auto-memory | Claude natif | Automatique |
-
-Regle d'or : une info ne vit que dans UN tier. Pas de duplication.
-Decisions dans CONTEXT.md : toujours avec date (YYYY-MM-DD).
+Spec complete : `docs/core/communication.md`. 4 tiers (Session/Contexte/Reference/Auto-memory). Regle d'or : une info ne vit que dans UN tier.
 
 ## Core OS — Monitor
 
-Health indicators par severite. Spec complete + seuils : `docs/core/monitor.md` (source unique).
-
-Execution : `bash scripts/health-check.sh` (appele par pre-commit et /session-end).
-Verdicts : SAIN (0 critical, 0 warning) / DEGRADED (0 critical, 1+ warning) / BROKEN (1+ critical).
+Spec complete + seuils : `docs/core/monitor.md`. Execution : `bash scripts/health-check.sh`.
 
 ## Core OS — Tools
 
-Utilitaires et automation. Spec complete : docs/core/tools.md
-
-Existants : validate-void-glass.sh (hook), security-reminder.py (hook), commit-msg (git hook), health-check.sh (Monitor), sync-check.sh (/sync), ref-checker.sh (refs cassees), module-scaffold.sh (new-project), session-lock.sh (Cowork), supabase-ping (GitHub Actions cron), Vercel auto-deploy.
-Convention : scripts/ en bash/node, kebab-case, idempotent, exit codes standards.
+Spec complete : `docs/core/tools.md`. Convention : scripts/ en bash/node, kebab-case, idempotent.
 
 ## Structure
 modules/app/       Module App Builder (React, actif)
@@ -129,12 +109,14 @@ Protocole uniforme : entree (CONTEXT.md + scope) → execution → sortie (rappo
 Spec agents : docs/core/cortex.md section 4.
 
 ## Commands (.claude/commands/)
+- /cockpit       : point d'entree unique — scan + brief + routing + cloture (TDAH-friendly)
 - /session-start : contexte + structure check + build tous modules actifs + announce
 - /session-end   : list changes + coherence + build + update CONTEXT.md + propose commit
 - /new-project   : scaffold modules/[nom]/ + update CONTEXT.md
 - /sync          : coherence projet entiere (structure, refs, CONTEXT.md vs filesystem, Void Glass)
 
 ## Reference
-- Directive complete : docs/directive-v1.md
 - Design spec v2 : docs/specs/2026-04-05-foundation-os-v2-design.md
 - Plan Phase 1 : docs/plans/2026-04-05-phase1-fondations.md
+- Cockpit spec : docs/specs/2026-04-10-cockpit-design.md
+- Archives : `.archive/` (directive-v1.md, tools-audit.md)

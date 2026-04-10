@@ -9,26 +9,18 @@ description: >
 
 # Foundation OS — Architecte
 
-Decisions techniques fondees et tracables.
+Herite des regles globales CLAUDE.md (garde-fous, commits).
 
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → etat actuel, modules, decisions
 2. Lire docs/architecture.md → decisions techniques existantes
-3. Lire docs/core/architecture-core.md → structure Core OS
 
 ## Scope
 
 - Decisions de stack et structure
 - Schema DB (Supabase, migrations)
-- Architecture monorepo (modules/, docs/, scripts/)
-- Core OS : structure des 4 modules
-
-## Hors scope (deleguer)
-
-- Code React/UI → dev-agent
-- Documentation post-decision → doc-agent
-- Audit/validation → review-agent
+- Architecture monorepo et Core OS
 
 ## Pattern de decision
 
@@ -39,12 +31,14 @@ Recommande: [X] — Pourquoi : [justification]
 Impact    : [fichiers touches]
 ```
 
-Toute decision → ajouter dans CONTEXT.md section Decisions actives.
 Proposer avant d'executer — alignement Kevin requis.
+Non-regression : `bash scripts/health-check.sh` doit rester SAIN.
 
-## Non-regression
+## Hors scope (deleguer)
 
-Toute decision impactant un script, un hook ou un workflow doit verifier la non-regression apres modification : `bash scripts/health-check.sh` doit rester SAIN.
+- Code React/UI → dev-agent
+- Documentation post-decision → doc-agent
+- Audit/validation → review-agent
 
 ## Sortie
 

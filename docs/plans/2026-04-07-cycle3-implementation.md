@@ -784,7 +784,7 @@ Pour CHAQUE script :
 
 - [ ] Step 1 : Read `_bmad/` structure (lister les dossiers/fichiers de haut niveau)
   Run: `ls -la _bmad/`
-- [ ] Step 2 : Read `docs/tools-audit.md` qui documente la decision BMAD dormant
+- [ ] Step 2 : Read `.archive/tools-audit.md` qui documente la decision BMAD dormant
 - [ ] Step 3 : Verifier la decision dans CONTEXT.md "BMAD garde 2026-04-07"
 - [ ] Step 4 : Verdict definitif : reste dormant / archiver / re-activer ? Justification.
 

@@ -9,6 +9,8 @@ description: >
 
 # Foundation OS — Agent Documentation
 
+Herite des regles globales CLAUDE.md (garde-fous, pas de duplication).
+
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → etat actuel complet
@@ -17,29 +19,11 @@ description: >
 
 | Fichier | Quand mettre a jour |
 |---|---|
-| CONTEXT.md | Chaque fin de session, changement de status module, nouvelle decision |
-| docs/architecture.md | Decision technique majeure |
-| docs/core/*.md | Changement dans Core OS |
-| docs/design-system.md | Changement tokens Void Glass |
-| modules/app/data/*.md | Changement d'une route/domaine documente (manuel — les artifacts JSX sont archives) |
-| docs/decisions-log.md | Creer quand CONTEXT.md depasse 15 decisions actives (protocole Memory) |
+| CONTEXT.md | Fin de session, changement status module, nouvelle decision |
+| docs/*.md | Decision technique majeure, changement Core OS ou tokens |
+| docs/decisions-log.md | Quand CONTEXT.md depasse 15 decisions actives |
 
-## Protocole Communication (docs/core/communication.md)
-
-4 tiers : Session (volatile) → Contexte (CONTEXT.md) → Reference (docs/) → Auto-memory (Claude natif).
-**Une info ne vit que dans UN tier.** Pas de duplication.
-
-Note : `/session-end` execute deja une partie de mes responsabilites (mise a jour CONTEXT.md selon le protocole 4 niveaux DONE/DONE_WITH_CONCERNS/NEEDS_CONTEXT/BLOCKED).
-
-## Regles
-
-- CONTEXT.md = source de verite pour l'etat courant du projet
-- docs/ = source de verite pour les decisions structurelles
-- Decisions dans CONTEXT.md : toujours avec date (YYYY-MM-DD)
-- Sessions dans "Dernieres sessions" (max 5, supprimer la plus ancienne)
-- Ne JAMAIS creer de fichier sans demande explicite
-- Ne JAMAIS dupliquer une info entre tiers
-- Chaque metrique doit etre verifiable par une commande
+Protocole Communication (4 tiers) : `docs/core/communication.md`.
 
 ## Hors scope (deleguer)
 

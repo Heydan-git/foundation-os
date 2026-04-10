@@ -19,6 +19,11 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-10 | **[DONE] Cockpit + harmonisation systeme** |
+|            | Scope : /cockpit, CLAUDE.md, agents x4, cortex.md, archives |
+|            | Skill /cockpit : point d'entree unique TDAH (scan+brief+route+cloture) |
+|            | Harmonisation : CLAUDE.md -20L, agents simplifies, 2 docs archivees |
+|            | Decisions : D-COCKPIT-01 point d'entree unique |
 | 2026-04-10 | **[DONE] Cleanup refs + brief v11 TDAH-friendly** |
 |            | Scope : session-start/end, communication.md, CLAUDE.md, memory.md, refs, travaux-cowork |
 |            | Archives : memory.md, 4 travaux-cowork (2026-04-08-*), 3 docs monitor dashboard |
@@ -45,7 +50,6 @@
 
 ## Idees & Parking
 
-- 💡 **Brief v11 test reel** : premier test live du format TDAH box-drawing a faire prochaine session. (2026-04-10)
 - 💡 **Agent SDK Anthropic** : explorer formalisation Cortex en natif. Pre-requis : SDK mature + evaluation. (S17)
 - 💡 **MCP custom CONTEXT.md** : anti-compactage via contexte a la demande. Spec + implementation. (S17)
 - 💡 **Supabase MCP + Vercel MCP** : quick wins connexion. Installation simple post-cycle3. (S17)
@@ -66,6 +70,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. Routing auto via Cortex. |
 | D-BRIEF-01 Format v11 TDAH | 2026-04-10 | Cadres box-drawing, zones visuelles, alignement strict. Remplace separateurs plats v10. Kevin TDAH. |
 | D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. Spec 375L, CONTEXT.md 400→120L, brief v10, capture idees, nomenclature unifiee. `18079d0` |
 | D-HK-01 DS-6 complet | 2026-04-10 | 206/254 couleurs → tokens. 9 primitifs + 9 semantiques. 25 fichiers. `59d115a` |

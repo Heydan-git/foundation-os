@@ -13,21 +13,21 @@
 ### Task 1: Sauvegarder la directive originale
 
 **Files:**
-- Create: `docs/directive-v1.md`
+- Create: `.archive/directive-v1.md`
 
 - [ ] **Step 1: Ecrire la directive complete dans docs/**
 
-Sauvegarder la directive de Kevin (12 sections, IMP-01 a IMP-18, P0-P9) telle quelle dans `docs/directive-v1.md` comme document de reference permanent. Contenu = la directive fournie par Kevin le 2026-04-05, non modifiee.
+Sauvegarder la directive de Kevin (12 sections, IMP-01 a IMP-18, P0-P9) telle quelle dans `.archive/directive-v1.md` comme document de reference permanent. Contenu = la directive fournie par Kevin le 2026-04-05, non modifiee.
 
 - [ ] **Step 2: Verifier le fichier**
 
-Run: `wc -l docs/directive-v1.md && head -5 docs/directive-v1.md`
+Run: `wc -l .archive/directive-v1.md && head -5 .archive/directive-v1.md`
 Expected: fichier existant, commence par "# Foundation OS — Directive Claude Code"
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add docs/directive-v1.md
+git add .archive/directive-v1.md
 git commit -m "docs: sauvegarder directive originale Kevin v1"
 ```
 
@@ -290,7 +290,7 @@ Documenter dans CONTEXT.md lors de la session-end.
 | docs/core/tools.md | Automation + scripts |
 | docs/design-system.md | Void Glass tokens |
 | docs/architecture.md | Architecture globale |
-| docs/directive-v1.md | Directive Claude Code originale |
+| .archive/directive-v1.md | Directive Claude Code originale |
 | docs/specs/2026-04-05-foundation-os-v2-design.md | Design spec v2 |
 
 ## Scripts
@@ -355,7 +355,7 @@ test -f scripts/hooks/security-reminder.py && echo "OK: installe" || echo "FAIL:
 test -f ~/.claude/skills/gstack/SKILL.md && echo "OK: installe" || echo "FAIL: manquant"
 
 # directive sauvegardee
-test -f docs/directive-v1.md && echo "OK: sauvegardee" || echo "FAIL: manquante"
+test -f .archive/directive-v1.md && echo "OK: sauvegardee" || echo "FAIL: manquante"
 
 # index existe
 test -f docs/index.md && echo "OK: cree" || echo "FAIL: manquant"
@@ -380,7 +380,7 @@ Expected: status = completed, conclusion = success
 
 | # | Message | Fichiers |
 |---|---------|----------|
-| 1 | `docs: sauvegarder directive originale Kevin v1` | docs/directive-v1.md |
+| 1 | `docs: sauvegarder directive originale Kevin v1` | .archive/directive-v1.md |
 | 2 | `docs(claude): CLAUDE.md v2 — imperatifs integres, compact` | CLAUDE.md |
 | 3 | `chore: supprimer safeguards.json — config sans implementation` | .claude/safeguards.json (supprime) |
 | 4 | `chore: trimmer settings.local.json — garder permissions utiles uniquement` | .claude/settings.local.json |

@@ -87,3 +87,16 @@ Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
 - Scripts et automation CLI → Tools (docs/core/tools.md)
 
 Status : les 4 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE).
+
+## 6. Cockpit — Point d'entree simplifie
+
+Le skill `/cockpit` est un super-pilote optionnel au-dessus de Cortex.
+
+Il automatise le workflow complet : scan → brief v11 → routing → execution → cloture.
+Kevin n'a plus a choisir entre /session-start, agents, ou /session-end.
+
+**Coexistence** : les commandes /session-start, /session-end, /sync, /new-project restent intactes et utilisables independamment.
+
+**Routing** : le cockpit utilise la table de routing section 1 (memes signaux, memes agents). La seule difference : le routing est automatique au lieu de manuel.
+
+**Spec complete** : `docs/specs/2026-04-10-cockpit-design.md`

@@ -9,6 +9,8 @@ description: >
 
 # Foundation OS — Agent Revue
 
+Herite des regles globales CLAUDE.md (garde-fous, commits).
+
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → etat attendu
@@ -16,14 +18,9 @@ description: >
 
 ## Methode
 
-1. **Executer `bash scripts/health-check.sh`** — retourne SAIN/DEGRADED/BROKEN base sur les indicateurs Monitor (`docs/core/monitor.md` Critical + Warning). Source de verite unique pour les seuils.
-2. **Checks review-specifiques** (non couverts par health-check) :
-   - [ ] CONTEXT.md : modules, routes, etat technique correspondent au filesystem (`bash scripts/sync-check.sh` couvre routes + modules + Core OS presence)
-   - [ ] Decisions toutes datees (YYYY-MM-DD), count ≤ 15 (sinon proposer archivage vers `docs/decisions-log.md`)
-   - [ ] Specs `docs/core/*.md` coherentes avec `.claude/agents/` et `.claude/commands/` — **note : sync-check verifie la presence (4+4+5 fichiers) mais pas le contenu, verification manuelle si doute**
-   - [ ] Commits conventionnels (`type(scope): description`) — enforce automatiquement par `.git/hooks/commit-msg`
-   - [ ] Refs intactes — `bash scripts/ref-checker.sh` (full-repo) ou directement health-check
-   - [ ] Git state : aucun fichier source non-tracke oublie (hors `.omc/`, `.DS_Store`)
+1. `bash scripts/health-check.sh` — SAIN/DEGRADED/BROKEN (source verite seuils : `docs/core/monitor.md`)
+2. `bash scripts/sync-check.sh` — coherence CONTEXT.md vs filesystem
+3. Checks manuels si doute : decisions datees, specs vs agents, git state
 
 ## Hors scope (deleguer)
 

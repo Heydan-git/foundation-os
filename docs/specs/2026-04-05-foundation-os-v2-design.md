@@ -51,7 +51,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 - Les instructions impossibles techniquement (prediction compactage, auto-amelioration persistante)
 
 **Externaliser vers docs/ :**
-- Directive originale complete → `docs/directive-v1.md`
+- Directive originale complete → `.archive/directive-v1.md`
 - Details des imperatifs → reference, pas prompt permanent
 
 ### 1.2 — Nettoyage dead weight
@@ -76,7 +76,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 
 ### 1.4 — Memoire de reference
 
-- Sauvegarder directive complete dans `docs/directive-v1.md`
+- Sauvegarder directive complete dans `.archive/directive-v1.md`
 - Creer `docs/index.md` — sommaire de navigation minimal :
   - Ou trouver quoi (code, config, specs, scripts)
   - Mis a jour a chaque session-end
@@ -88,7 +88,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 - [ ] safeguards.json supprime
 - [ ] security-guidance hook actif (test : ecrire un dangerouslySetInnerHTML → bloque)
 - [ ] gstack installe (`ls ~/.claude/skills/gstack/SKILL.md`)
-- [ ] `docs/directive-v1.md` existe
+- [ ] `.archive/directive-v1.md` existe
 - [ ] `docs/index.md` existe
 
 ---
@@ -192,14 +192,14 @@ Mis a jour a chaque session-end si des fichiers sont crees/deplaces.
 | Outil | Question | Si non utilise |
 |-------|----------|----------------|
 | BMAD (12 modules) | Utilise en session ? Resultat ? | Archiver dans .archive/ |
-| OMC skills (30+) | Lesquels invoques ? Lesquels utiles ? | Documenter dans docs/tools-audit.md |
+| OMC skills (30+) | Lesquels invoques ? Lesquels utiles ? | Documenter dans .archive/tools-audit.md |
 | Coderabbit | Overlap avec code-review Anthropic ? | Garder le meilleur, virer l'autre |
 
 ### Critere de succes Phase 3
 
 - [ ] /session-end genere un statut 4-niveaux
 - [ ] `docs/index.md` existe et reflette la structure reelle
-- [ ] Audit BMAD + OMC documente dans `docs/tools-audit.md`
+- [ ] Audit BMAD + OMC documente dans `.archive/tools-audit.md`
 - [ ] `health-check.sh` = SAIN
 
 ---

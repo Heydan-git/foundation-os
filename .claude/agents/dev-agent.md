@@ -11,35 +11,21 @@ description: >
 
 # Foundation OS — Agent Dev
 
+Herite des regles globales CLAUDE.md (Void Glass, commits, garde-fous).
+
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → modules actifs, etat technique
 2. Lire docs/design-system.md → tokens Void Glass
 
-## Stack
-
-Vite + React + TypeScript + Tailwind + Supabase + Vercel
-
 ## Structure App Builder
 
 ```
 modules/app/src/
-  components/    Composants reutilisables (Badge, Card, Layout, Navbar, TabBar, forms/, Commander/)
-  pages/         Pages routes (Commander, Dashboard, IndexPage, KnowledgePage, LoginPage, Phase1Demo, ResetPasswordPage)
-  lib/           AuthContext.tsx, supabase.ts, mutations.ts, useCommander.ts, database.types.ts
+  components/    Composants reutilisables
+  pages/         Pages routes
+  lib/           AuthContext, supabase, mutations, hooks, types
 ```
-
-MD de reference dans `modules/app/data/` (7 fichiers). Artifacts JSX historiques archives dans `.archive/artifacts-jsx/` (7 fichiers, ne plus modifier).
-
-## Contraintes
-
-- TSX < 700 lignes — decouper si plus
-- Void Glass : #06070C fond, Figtree UI, JetBrains Mono code
-- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul
-- Supabase : SDK direct, pas de backend custom
-- Build : `cd modules/app && npm run build` doit passer
-- Seuils bundle : source de verite = `docs/core/monitor.md` (JS < 600KB, CSS < 40KB)
-- Le hook PreToolUse `validate-void-glass.sh` bloque tout Edit/Write avec couleur ou font interdite (case-insensitive)
 
 ## Hors scope (deleguer)
 

@@ -17,7 +17,7 @@
 |-------|-------|-----------|---------|
 | **3.1** | Session-end 4 niveaux | `.claude/commands/session-end.md` + section CONTEXT.md | Workflow update + 1 essai a vide |
 | **3.2** | Index de navigation | `docs/index.md` re-aligne | Refletter etat reel post-Phase 2 |
-| **3.3** | Audit BMAD + OMC | `docs/tools-audit.md` (nouveau) | Decisions documentees par outil |
+| **3.3** | Audit BMAD + OMC | `.archive/tools-audit.md` (nouveau) | Decisions documentees par outil |
 
 Phase 3 est completee quand toutes les checkboxes du critere global de la spec (ligne 198-204) sont cochees.
 
@@ -89,7 +89,7 @@ Phase 3 est completee quand toutes les checkboxes du critere global de la spec (
 - [ ] **Step 4** : Ajouter au tableau "Specs & Docs" :
   - `docs/plans/2026-04-07-phase2-app-hardening.md`
   - `docs/plans/2026-04-07-phase3-os-intelligence.md` (ce plan-ci)
-  - `docs/tools-audit.md` (cree en Task 3.3)
+  - `.archive/tools-audit.md` (cree en Task 3.3)
 
 - [ ] **Step 5** : Mettre a jour la section "Outils externes" avec les statuts post-audit (depend de Task 3.3).
 
@@ -104,7 +104,7 @@ Phase 3 est completee quand toutes les checkboxes du critere global de la spec (
 **Objectif :** Decider quoi garder, quoi archiver, quoi documenter sans ceremonie. Pas un audit academique : 1 ligne de verdict par outil.
 
 **Files:**
-- Create: `docs/tools-audit.md`
+- Create: `.archive/tools-audit.md`
 - Modify possible: `_bmad/` (si on decide d'archiver) — A NE PAS FAIRE sans OK Kevin explicite, juste documenter la recommandation
 
 ### Steps
@@ -124,7 +124,7 @@ Phase 3 est completee quand toutes les checkboxes du critere global de la spec (
   - Si Coderabbit installe ET code-review Anthropic installe → garder un seul (le plus utilise / le plus integre).
   - Verdict a documenter dans `tools-audit.md`.
 
-- [ ] **Step 4** : Ecrire `docs/tools-audit.md` avec ce format :
+- [ ] **Step 4** : Ecrire `.archive/tools-audit.md` avec ce format :
 
   ```markdown
   # Tools Audit — 2026-04-07
@@ -180,7 +180,7 @@ Phase 3 est completee quand toutes les checkboxes du critere global de la spec (
 
 - [ ] /session-end genere un statut 4-niveaux
 - [ ] `docs/index.md` existe et reflette la structure reelle
-- [ ] Audit BMAD + OMC documente dans `docs/tools-audit.md`
+- [ ] Audit BMAD + OMC documente dans `.archive/tools-audit.md`
 - [ ] `health-check.sh` = SAIN
 
 ---
@@ -191,7 +191,7 @@ Phase 3 est completee quand toutes les checkboxes du critere global de la spec (
 |---|---------|--------|
 | 1 | `.claude/commands/session-end.md` | Modify — workflow + 4 niveaux statut |
 | 2 | `docs/index.md` | Modify — re-aligner avec etat reel post-Phase 2 |
-| 3 | `docs/tools-audit.md` | Create — verdicts BMAD / OMC / Coderabbit |
+| 3 | `.archive/tools-audit.md` | Create — verdicts BMAD / OMC / Coderabbit |
 | 4 | `CONTEXT.md` | Modify — session log + prochaine action + decisions |
 
 Total : 1 fichier cree, 3 fichiers modifies, 1 commit final.
