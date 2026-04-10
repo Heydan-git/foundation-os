@@ -11,14 +11,18 @@ const STORIES = [
 
 for (const story of STORIES) {
   test.describe(story.name, () => {
-    test(`visual snapshot`, async ({ page }) => {
-      await page.goto(`/iframe.html?id=${story.id}&viewMode=story`)
-      await page.waitForLoadState('networkidle')
-      await expect(page).toHaveScreenshot(`${story.name}.png`, {
-        maxDiffPixelRatio: 0.01,
+    // Visual snapshots: local dev only (OS-dependent font rendering)
+    if (!process.env.CI) {
+      test(`visual snapshot`, async ({ page }) => {
+        await page.goto(`/iframe.html?id=${story.id}&viewMode=story`)
+        await page.waitForLoadState('networkidle')
+        await expect(page).toHaveScreenshot(`${story.name}.png`, {
+          maxDiffPixelRatio: 0.01,
+        })
       })
-    })
+    }
 
+    // Axe a11y: runs everywhere (CI + local)
     test(`axe accessibility`, async ({ page }) => {
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story`)
       await page.waitForLoadState('networkidle')

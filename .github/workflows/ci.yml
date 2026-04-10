@@ -41,8 +41,10 @@ jobs:
         run: npx vitest run
 
       - name: Install Playwright
-        run: npx playwright install chromium
+        run: npx playwright install --with-deps chromium
 
-      - name: Visual + A11y (Playwright)
+      - name: A11y Gate (Playwright + axe)
         working-directory: modules/design-system
         run: npm run test:e2e
+        env:
+          CI: true
