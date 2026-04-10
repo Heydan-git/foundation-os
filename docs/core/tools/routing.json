@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "rules": [],
+  "strategies": {
+    "priority": "Utiliser le premier outil, passer au suivant si insuffisant",
+    "combine": "Utiliser plusieurs outils en sequence",
+    "best_match": "Choisir l'outil dont les triggers matchent le plus le contexte"
+  },
+  "fallback": "Si aucune regle ne matche, traiter directement sans outil"
+}
