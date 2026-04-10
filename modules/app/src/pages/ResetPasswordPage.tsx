@@ -13,9 +13,9 @@ import { PASSWORD_MIN } from '@/lib/constants'
 const inputStyle: React.CSSProperties = {
   padding: '10px 12px',
   borderRadius: 6,
-  border: '1px solid rgba(255,255,255,.055)',
-  background: 'rgba(255,255,255,.025)',
-  color: '#FAFAFA',
+  border: '1px solid var(--fos-color-border-default)',
+  background: 'var(--fos-color-bg-surface)',
+  color: 'var(--fos-color-text-bright)',
   fontSize: 13,
   fontFamily: "'Figtree',sans-serif",
   outline: 'none',
@@ -26,7 +26,7 @@ const ctaStyle: React.CSSProperties = {
   borderRadius: 8,
   border: 'none',
   background: 'rgba(94,234,212,.12)',
-  color: '#5EEAD4',
+  color: 'var(--fos-color-accent-brand)',
   fontSize: 13,
   fontWeight: 600,
   fontFamily: "'Figtree',sans-serif",
@@ -113,10 +113,10 @@ export default function ResetPasswordPage() {
             )}
 
             {error && (
-              <p style={{ fontSize: 11, color: '#EF4444', padding: '6px 0' }}>{error}</p>
+              <p style={{ fontSize: 11, color: 'var(--fos-color-accent-danger)', padding: '6px 0' }}>{error}</p>
             )}
             {info && (
-              <p style={{ fontSize: 11, color: '#5EEAD4', padding: '6px 0' }}>{info}</p>
+              <p style={{ fontSize: 11, color: 'var(--fos-color-accent-brand)', padding: '6px 0' }}>{info}</p>
             )}
 
             <button
@@ -137,7 +137,7 @@ export default function ResetPasswordPage() {
               style={{
                 textAlign: 'center',
                 padding: '4px 0',
-                color: '#52525B',
+                color: 'var(--fos-color-text-faint)',
                 fontSize: 11,
                 fontFamily: "'Figtree',sans-serif",
                 textDecoration: 'none',

@@ -52,7 +52,7 @@ export const JOURNAL: JournalEntry[] = [
 
 export const FRAMEWORKS: Framework[] = [
   {
-    id: 'BMAD', label: 'BMAD v6', tag: 'Process', tagColor: '#A78BFA',
+    id: 'BMAD', label: 'BMAD v6', tag: 'Process', tagColor: 'var(--fos-color-status-parking)',
     lines: [
       'Framework multi-agents agile',
       '8 agents : Analyst (Mary), PM (John), UX (Sally), Architect (Winston), SM (Bob), Dev (Amelia), QA (Quinn), Quick Flow (Barry)',
@@ -66,7 +66,7 @@ export const FRAMEWORKS: Framework[] = [
     ],
   },
   {
-    id: 'CLAUDIFY', label: 'Claudify', tag: 'Execution', tagColor: '#5EEAD4',
+    id: 'CLAUDIFY', label: 'Claudify', tag: 'Execution', tagColor: 'var(--fos-color-accent-brand)',
     lines: [
       'Ressource / blog sur les workflows Claude Code',
       'CLAUDE.md = fichier racine ≤100 lignes (Boris Cherny, createur)',
@@ -77,7 +77,7 @@ export const FRAMEWORKS: Framework[] = [
     ],
   },
   {
-    id: 'HYBRIDE', label: 'Hybride', tag: 'Recommande', tagColor: '#22C55E',
+    id: 'HYBRIDE', label: 'Hybride', tag: 'Recommande', tagColor: 'var(--fos-color-status-done)',
     lines: [
       'BMAD pour le process : phases, agents, gouvernance agile, docs as code',
       "Claudify pour l'execution : CLAUDE.md, hooks, skills, slash commands",
@@ -89,7 +89,7 @@ export const FRAMEWORKS: Framework[] = [
 
 export const STACK: StackLayer[] = [
   {
-    id: 'L1', label: 'L1 · Setup L1a + L1b', status: 'files_ready', statusColor: '#F59E0B',
+    id: 'L1', label: 'L1 · Setup L1a + L1b', status: 'files_ready', statusColor: 'var(--fos-color-status-paused)',
     sublayers: [
       { id: 'L1a', label: 'Claude.ai Projects', desc: 'Contexte cross-device, Knowledge base always-on.' },
       { id: 'L1b', label: 'Cowork desktop', desc: 'Agent local qui lit/ecrit les fichiers directement.' },
@@ -98,21 +98,21 @@ export const STACK: StackLayer[] = [
     action: 'Creer projet Claude.ai → coller FOS-PROJECT-INSTRUCTIONS.md → uploader ~20 MD',
   },
   {
-    id: 'L2', label: 'L2 · Claude Code', status: 'configured', statusColor: '#22C55E',
+    id: 'L2', label: 'L2 · Claude Code', status: 'configured', statusColor: 'var(--fos-color-status-done)',
     sublayers: [],
     items: ['CLAUDE.md (compact)', 'settings.json (hooks)', 'agents/', 'commands/', 'skills/'],
     action: 'Deploye dans .claude/ avec hooks Void Glass + security',
     note: 'Hooks : PreToolUse(Write/Edit) → validate-void-glass.sh + security-reminder.py',
   },
   {
-    id: 'L3', label: 'L3 · BMAD v6', status: 'installed', statusColor: '#5EEAD4',
+    id: 'L3', label: 'L3 · BMAD v6', status: 'installed', statusColor: 'var(--fos-color-accent-brand)',
     sublayers: [],
     items: ['Analyst', 'PM', 'UX', 'Architect', 'SM', 'Dev', 'QA', 'Quick Flow', '+ sidecars'],
     action: 'Installe via npx bmad-method install — a auditer Phase 3',
     note: 'Dossier : _bmad/ (underscore, breaking change v6)',
   },
   {
-    id: 'L4', label: 'L4 · MCP Plugins', status: 'connected', statusColor: '#5EEAD4',
+    id: 'L4', label: 'L4 · MCP Plugins', status: 'connected', statusColor: 'var(--fos-color-accent-brand)',
     sublayers: [],
     items: ['Notion', 'Figma', 'Asana', 'Monday', 'ClickUp', 'Computer Use', 'Context7'],
     action: '7 MCPs connectes, voir CONTEXT.md section MCP',
@@ -120,10 +120,10 @@ export const STACK: StackLayer[] = [
 ]
 
 export const ROADMAP: RoadmapItem[] = [
-  { id: 'v0.1', label: 'v0.1', date: '02.04.26', status: 'done', color: '#22C55E', desc: 'Manifeste · Journal · Memoire 4 couches · Garde-fous · Frameworks analyses' },
-  { id: 'phase1', label: 'Phase 1', date: '05.04.26', status: 'done', color: '#22C55E', desc: 'Fondations : CLAUDE.md v2, security-guidance, gstack, index navigation' },
-  { id: 'phase2', label: 'Phase 2', date: '07.04.26', status: 'active', color: '#5EEAD4', desc: 'App Hardening : 16 tests, Navbar, Auth complete, integration artifacts' },
-  { id: 'phase3', label: 'Phase 3', date: 'a venir', status: 'pending', color: '#94A3B8', desc: 'OS Intelligence : session-end 4 niveaux, audit BMAD/OMC, doc index' },
-  { id: 'phase4', label: 'Phase 4', date: 'a venir', status: 'pending', color: '#94A3B8', desc: 'Monitoring : pre-commit health-check, bundle size tracking' },
-  { id: 'phase5', label: 'Phase 5', date: 'a venir', status: 'pending', color: '#94A3B8', desc: 'Expansion : premier nouveau module (Finance, Sante ou Trading)' },
+  { id: 'v0.1', label: 'v0.1', date: '02.04.26', status: 'done', color: 'var(--fos-color-status-done)', desc: 'Manifeste · Journal · Memoire 4 couches · Garde-fous · Frameworks analyses' },
+  { id: 'phase1', label: 'Phase 1', date: '05.04.26', status: 'done', color: 'var(--fos-color-status-done)', desc: 'Fondations : CLAUDE.md v2, security-guidance, gstack, index navigation' },
+  { id: 'phase2', label: 'Phase 2', date: '07.04.26', status: 'active', color: 'var(--fos-color-accent-brand)', desc: 'App Hardening : 16 tests, Navbar, Auth complete, integration artifacts' },
+  { id: 'phase3', label: 'Phase 3', date: 'a venir', status: 'pending', color: 'var(--fos-color-text-subtle)', desc: 'OS Intelligence : session-end 4 niveaux, audit BMAD/OMC, doc index' },
+  { id: 'phase4', label: 'Phase 4', date: 'a venir', status: 'pending', color: 'var(--fos-color-text-subtle)', desc: 'Monitoring : pre-commit health-check, bundle size tracking' },
+  { id: 'phase5', label: 'Phase 5', date: 'a venir', status: 'pending', color: 'var(--fos-color-text-subtle)', desc: 'Expansion : premier nouveau module (Finance, Sante ou Trading)' },
 ]

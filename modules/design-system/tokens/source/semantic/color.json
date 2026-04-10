@@ -18,10 +18,45 @@
         "$type": "color",
         "$description": "Texte principal (haute lisibilite)"
       },
+      "bright": {
+        "$value": "{color.palette.zinc50}",
+        "$type": "color",
+        "$description": "Texte brillant (headings, labels forts)"
+      },
+      "body": {
+        "$value": "{color.palette.zinc300}",
+        "$type": "color",
+        "$description": "Texte body clair (paragraphes)"
+      },
+      "secondary": {
+        "$value": "{color.palette.zinc400}",
+        "$type": "color",
+        "$description": "Texte secondaire (descriptions)"
+      },
       "muted": {
         "$value": "{color.palette.white42}",
         "$type": "color",
-        "$description": "Texte secondaire (captions, helpers)"
+        "$description": "Texte muted (captions, helpers)"
+      },
+      "subtle": {
+        "$value": "{color.palette.slate400}",
+        "$type": "color",
+        "$description": "Texte subtle (badges, info muted)"
+      },
+      "tertiary": {
+        "$value": "{color.palette.zinc500}",
+        "$type": "color",
+        "$description": "Texte tertiaire (dates, metadata)"
+      },
+      "faint": {
+        "$value": "{color.palette.zinc600}",
+        "$type": "color",
+        "$description": "Texte faint (labels dim)"
+      },
+      "ghost": {
+        "$value": "{color.palette.zinc700}",
+        "$type": "color",
+        "$description": "Texte ghost (ultra-dim separateurs)"
       }
     },
     "border": {
@@ -63,6 +98,16 @@
         "$value": "{color.palette.white12}",
         "$type": "color",
         "$description": "Archived / dormant"
+      },
+      "done": {
+        "$value": "{color.palette.green}",
+        "$type": "color",
+        "$description": "Done / success"
+      },
+      "alert": {
+        "$value": "{color.palette.orange}",
+        "$type": "color",
+        "$description": "Alert / phase highlight"
       }
     },
     "glow": {

@@ -15,7 +15,7 @@ const MODULES: Module[] = [
     route: '/commander',
     label: 'FOS Commander',
     subtitle: 'Sessions, Decisions, Risques, Next Steps (Supabase CRUD)',
-    color: '#A78BFA',
+    color: 'var(--fos-color-status-parking)',
     status: 'functional',
   },
   {
@@ -23,7 +23,7 @@ const MODULES: Module[] = [
     route: '/knowledge',
     label: 'FOS Knowledge',
     subtitle: 'Manifeste, Journal, Frameworks, Stack, Roadmap (knowledge base)',
-    color: '#5EEAD4',
+    color: 'var(--fos-color-accent-brand)',
     status: 'static',
   },
   {
@@ -31,7 +31,7 @@ const MODULES: Module[] = [
     route: '/dashboard',
     label: 'Dashboard',
     subtitle: 'Pipeline, Sessions, Decisions, Risques (donnees statiques)',
-    color: '#3B82F6',
+    color: 'var(--fos-color-status-wip)',
     status: 'static',
   },
   {
@@ -39,7 +39,7 @@ const MODULES: Module[] = [
     route: '/crud-test',
     label: 'Test CRUD Supabase',
     subtitle: 'Creer, lire, modifier, supprimer sessions et decisions',
-    color: '#22C55E',
+    color: 'var(--fos-color-status-done)',
     status: 'functional',
   },
   {
@@ -47,14 +47,14 @@ const MODULES: Module[] = [
     route: '/phase1-demo',
     label: 'Phase 1 Validation',
     subtitle: 'Suite de tests automatises pour valider les operations CRUD',
-    color: '#F59E0B',
+    color: 'var(--fos-color-status-paused)',
     status: 'functional',
   },
 ]
 
 const STATUS_COLORS: Record<string, string> = {
-  functional: '#22C55E',
-  static: '#94A3B8',
+  functional: 'var(--fos-color-status-done)',
+  static: 'var(--fos-color-text-subtle)',
 }
 
 export default function IndexPage() {
@@ -63,7 +63,7 @@ export default function IndexPage() {
   return (
     <div
       className="min-h-screen p-8"
-      style={{ backgroundColor: '#06070C', fontFamily: "'Figtree', sans-serif" }}
+      style={{ backgroundColor: 'var(--fos-color-bg-canvas)', fontFamily: "'Figtree', sans-serif" }}
     >
       <style>{`
         @keyframes fadeIn {
@@ -83,7 +83,7 @@ export default function IndexPage() {
               width: 9,
               height: 9,
               borderRadius: '50%',
-              background: '#5EEAD4',
+              background: 'var(--fos-color-accent-brand)',
               display: 'inline-block',
               animation: 'pulse 3s infinite',
             }}
@@ -93,7 +93,7 @@ export default function IndexPage() {
               fontFamily: "'Figtree', sans-serif",
               fontSize: 28,
               fontWeight: 700,
-              color: '#FAFAFA',
+              color: 'var(--fos-color-text-bright)',
               letterSpacing: '-.02em',
             }}
           >
@@ -103,7 +103,7 @@ export default function IndexPage() {
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
-              color: '#F59E0B',
+              color: 'var(--fos-color-status-paused)',
               background: 'rgba(245,158,11,.1)',
               padding: '2px 8px',
               borderRadius: 4,
@@ -112,7 +112,7 @@ export default function IndexPage() {
             Prototype
           </span>
         </div>
-        <p style={{ fontSize: 13, color: '#52525B' }}>
+        <p style={{ fontSize: 13, color: 'var(--fos-color-text-faint)' }}>
           OS de travail IA-driven -- Prototype fonctionnel avec CRUD Supabase
         </p>
 
@@ -125,7 +125,7 @@ export default function IndexPage() {
               fontSize: 11,
               fontFamily: "'JetBrains Mono', monospace",
               background: 'rgba(34,197,94,.12)',
-              color: '#22C55E',
+              color: 'var(--fos-color-status-done)',
             }}
           >
             {MODULES.filter((m) => m.status === 'functional').length} Functional
@@ -137,7 +137,7 @@ export default function IndexPage() {
               fontSize: 11,
               fontFamily: "'JetBrains Mono', monospace",
               background: 'rgba(148,163,184,.12)',
-              color: '#94A3B8',
+              color: 'var(--fos-color-text-subtle)',
             }}
           >
             {MODULES.filter((m) => m.status === 'static').length} Static
@@ -157,8 +157,8 @@ export default function IndexPage() {
             className="module-card text-left"
             style={{
               animation: `fadeIn .3s ease-out ${i * 60}ms both`,
-              background: 'rgba(255,255,255,.025)',
-              border: '1px solid rgba(255,255,255,.055)',
+              background: 'var(--fos-color-bg-surface)',
+              border: '1px solid var(--fos-color-border-default)',
               borderRadius: 12,
               padding: '20px 22px',
               cursor: 'pointer',
@@ -199,14 +199,14 @@ export default function IndexPage() {
                 fontFamily: "'Figtree', sans-serif",
                 fontSize: 15,
                 fontWeight: 600,
-                color: '#FAFAFA',
+                color: 'var(--fos-color-text-bright)',
                 marginBottom: 5,
               }}
             >
               {mod.label}
             </h2>
 
-            <p style={{ fontSize: 11, color: '#71717A', lineHeight: 1.5, marginBottom: 14 }}>
+            <p style={{ fontSize: 11, color: 'var(--fos-color-text-tertiary)', lineHeight: 1.5, marginBottom: 14 }}>
               {mod.subtitle}
             </p>
 
@@ -233,7 +233,7 @@ export default function IndexPage() {
               style={{
                 fontSize: 10,
                 fontFamily: "'JetBrains Mono', monospace",
-                color: '#3F3F46',
+                color: 'var(--fos-color-text-ghost)',
                 letterSpacing: '.08em',
               }}
             >
@@ -245,7 +245,7 @@ export default function IndexPage() {
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 9,
-            color: '#3F3F46',
+            color: 'var(--fos-color-text-ghost)',
           }}
         >
           v0.1 PROTOTYPE

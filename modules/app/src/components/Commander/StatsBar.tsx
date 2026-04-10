@@ -22,19 +22,19 @@ export function StatsBar({ sessions, decisions, risks, nextSteps, source }: Stat
 
   return (
     <div className="flex flex-wrap items-center" style={{ gap: 8, marginBottom: 4 }}>
-      <Pill value={sessions.length}   label="Sessions"  color="#A78BFA" />
-      <Pill value={decisions.length}  label="ADR"       color="#3B82F6" />
-      <Pill value={openRisks}         label="Risques"   color="#EF4444" />
-      <Pill value={nextSteps.length}  label="NextSteps" color="#22C55E" />
-      <Pill value={todoPct}           label="% done"    color="#5EEAD4" />
+      <Pill value={sessions.length}   label="Sessions"  color="var(--fos-color-status-parking)" />
+      <Pill value={decisions.length}  label="ADR"       color="var(--fos-color-status-wip)" />
+      <Pill value={openRisks}         label="Risques"   color="var(--fos-color-accent-danger)" />
+      <Pill value={nextSteps.length}  label="NextSteps" color="var(--fos-color-status-done)" />
+      <Pill value={todoPct}           label="% done"    color="var(--fos-color-accent-brand)" />
       <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 6 }}>
         <span style={{
           width: 6, height: 6, borderRadius: '50%',
-          background: source === 'supabase' ? '#5EEAD4' : '#F97316',
+          background: source === 'supabase' ? 'var(--fos-color-accent-brand)' : 'var(--fos-color-status-alert)',
           display: 'inline-block',
           animation: source === 'supabase' ? 'pulse 3s infinite' : 'none',
         }} />
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: '#52525B', letterSpacing: '.08em' }}>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: 'var(--fos-color-text-faint)', letterSpacing: '.08em' }}>
           {source === 'supabase' ? 'SUPABASE LIVE' : 'SEED DATA'}
         </span>
       </div>

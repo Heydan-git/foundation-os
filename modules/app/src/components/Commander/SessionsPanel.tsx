@@ -13,20 +13,20 @@ export function SessionsPanel({ sessions }: SessionsPanelProps) {
           <Card>
             <div className="flex items-start justify-between" style={{ marginBottom: 8 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: '#5EEAD4', letterSpacing: '.08em' }}>{s.id}</span>
-                <span style={{ fontSize: 10, color: '#52525B' }}>{s.date}</span>
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--fos-color-accent-brand)', letterSpacing: '.08em' }}>{s.id}</span>
+                <span style={{ fontSize: 10, color: 'var(--fos-color-text-faint)' }}>{s.date}</span>
               </div>
-              <Badge label="session" color="#5EEAD4" />
+              <Badge label="session" color="var(--fos-color-accent-brand)" />
             </div>
-            <h3 style={{ fontSize: 12, fontWeight: 600, color: '#FAFAFA', marginBottom: 6 }}>{s.title}</h3>
+            <h3 style={{ fontSize: 12, fontWeight: 600, color: 'var(--fos-color-text-bright)', marginBottom: 6 }}>{s.title}</h3>
             {s.items && (
-              <p style={{ fontSize: 10, color: '#71717A', marginBottom: 4 }}>
-                <span style={{ color: '#3F3F46' }}>Items · </span>{s.items}
+              <p style={{ fontSize: 10, color: 'var(--fos-color-text-tertiary)', marginBottom: 4 }}>
+                <span style={{ color: 'var(--fos-color-text-ghost)' }}>Items · </span>{s.items}
               </p>
             )}
             {s.decisions && (
-              <p style={{ fontSize: 10, color: '#71717A' }}>
-                <span style={{ color: '#3F3F46' }}>Décisions · </span>{s.decisions}
+              <p style={{ fontSize: 10, color: 'var(--fos-color-text-tertiary)' }}>
+                <span style={{ color: 'var(--fos-color-text-ghost)' }}>Décisions · </span>{s.decisions}
               </p>
             )}
           </Card>

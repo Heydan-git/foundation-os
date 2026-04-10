@@ -14,7 +14,7 @@ export function Card({ children, style, onClick, selected }: CardProps) {
       className="hov"
       style={{
         background: selected ? 'rgba(94,234,212,0.10)' : 'rgba(255,255,255,.02)',
-        border: selected ? '1px solid #5EEAD4' : '1px solid rgba(255,255,255,.05)',
+        border: selected ? '1px solid var(--fos-color-accent-brand)' : '1px solid rgba(255,255,255,.05)',
         borderRadius: 10,
         padding: 14,
         cursor: onClick ? 'pointer' : undefined,

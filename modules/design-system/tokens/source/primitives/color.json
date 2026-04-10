@@ -70,6 +70,51 @@
         "$value": "rgba(59, 130, 246, 0.09)",
         "$type": "color",
         "$description": "Blue 9% (orb glow background)"
+      },
+      "green": {
+        "$value": "#22C55E",
+        "$type": "color",
+        "$description": "Green 500 (success, done)"
+      },
+      "orange": {
+        "$value": "#F97316",
+        "$type": "color",
+        "$description": "Orange 500 (alert, phase)"
+      },
+      "zinc50": {
+        "$value": "#FAFAFA",
+        "$type": "color",
+        "$description": "Zinc 50 (texte bright/headings)"
+      },
+      "zinc300": {
+        "$value": "#D4D4D8",
+        "$type": "color",
+        "$description": "Zinc 300 (texte body clair)"
+      },
+      "zinc400": {
+        "$value": "#A1A1AA",
+        "$type": "color",
+        "$description": "Zinc 400 (texte secondaire)"
+      },
+      "slate400": {
+        "$value": "#94A3B8",
+        "$type": "color",
+        "$description": "Slate 400 (texte muted info)"
+      },
+      "zinc500": {
+        "$value": "#71717A",
+        "$type": "color",
+        "$description": "Zinc 500 (texte tertiaire)"
+      },
+      "zinc600": {
+        "$value": "#52525B",
+        "$type": "color",
+        "$description": "Zinc 600 (texte faint)"
+      },
+      "zinc700": {
+        "$value": "#3F3F46",
+        "$type": "color",
+        "$description": "Zinc 700 (texte ghost)"
       }
     }
   }

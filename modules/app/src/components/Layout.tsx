@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#06070C' }}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--fos-color-bg-canvas)' }}>
       {children}
     </div>
   )
@@ -39,22 +39,22 @@ export function PageHeader({ title, subtitle, version, meta, children }: PageHea
         <div>
           <h1
             className="flex items-center"
-            style={{ fontFamily: "'Figtree',sans-serif", fontSize: 17, fontWeight: 700, color: '#FAFAFA', letterSpacing: '-.02em', gap: 8, display: 'flex', alignItems: 'center', marginBottom: 4 }}
+            style={{ fontFamily: "'Figtree',sans-serif", fontSize: 17, fontWeight: 700, color: 'var(--fos-color-text-bright)', letterSpacing: '-.02em', gap: 8, display: 'flex', alignItems: 'center', marginBottom: 4 }}
           >
-            <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#5EEAD4', display: 'inline-block', animation: 'pulse 3s infinite', flexShrink: 0 }} />
+            <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--fos-color-accent-brand)', display: 'inline-block', animation: 'pulse 3s infinite', flexShrink: 0 }} />
             {title}
           </h1>
           {subtitle && (
-            <p style={{ fontSize: 10, color: '#52525B' }}>{subtitle}</p>
+            <p style={{ fontSize: 10, color: 'var(--fos-color-text-faint)' }}>{subtitle}</p>
           )}
         </div>
         {(version || meta) && (
           <div style={{ textAlign: 'right' }}>
             {version && (
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: '#3F3F46' }}>{version}</span>
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: 'var(--fos-color-text-ghost)' }}>{version}</span>
             )}
             {meta && (
-              <p style={{ fontSize: 9, color: '#3F3F46', marginTop: 2 }}>{meta}</p>
+              <p style={{ fontSize: 9, color: 'var(--fos-color-text-ghost)', marginTop: 2 }}>{meta}</p>
             )}
           </div>
         )}
@@ -80,11 +80,11 @@ export function Footer({ principles = [], dataVersion, lastSync }: FooterProps) 
       <div className="flex items-center justify-between flex-wrap" style={{ gap: 8 }}>
         <div className="flex flex-wrap" style={{ gap: 12 }}>
           {principles.map((p, i) => (
-            <span key={i} style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: '#3F3F46', letterSpacing: '.08em' }}>{p}</span>
+            <span key={i} style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--fos-color-text-ghost)', letterSpacing: '.08em' }}>{p}</span>
           ))}
         </div>
         {(dataVersion || lastSync) && (
-          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: '#3F3F46' }}>
+          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: 'var(--fos-color-text-ghost)' }}>
             {dataVersion && `DATA_VERSION ${dataVersion}`}
             {dataVersion && lastSync && ' · '}
             {lastSync && `LAST_SYNC ${lastSync}`}

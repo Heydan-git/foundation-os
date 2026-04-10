@@ -406,11 +406,11 @@ const Phase1Demo: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#06070C] text-white p-8">
+    <div className="min-h-screen bg-[var(--fos-color-bg-canvas)] text-white p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#5EEAD4] mb-2 font-['Figtree']">
+          <h1 className="text-3xl font-bold text-[var(--fos-color-accent-brand)] mb-2 font-['Figtree']">
             Phase 1 CRUD Validation
           </h1>
           <p className="text-gray-400 font-['JetBrains_Mono']">
@@ -443,7 +443,7 @@ const Phase1Demo: React.FC = () => {
           <button
             onClick={runAllTests}
             disabled={isRunning || dbConnectionStatus !== 'connected'}
-            className="px-6 py-3 bg-[#5EEAD4] text-[#06070C] rounded-lg font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-['Figtree']"
+            className="px-6 py-3 bg-[var(--fos-color-accent-brand)] text-[var(--fos-color-bg-canvas)] rounded-lg font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-['Figtree']"
           >
             {isRunning ? 'Running Tests...' : 'Run All CRUD Tests'}
           </button>
@@ -461,7 +461,7 @@ const Phase1Demo: React.FC = () => {
         {testResults.length > 0 && (
           <div className="mb-6 p-4 bg-black/20 border border-gray-800 rounded-lg">
             <div className="text-center">
-              <div className="text-2xl font-bold text-[#5EEAD4] font-['JetBrains_Mono']">
+              <div className="text-2xl font-bold text-[var(--fos-color-accent-brand)] font-['JetBrains_Mono']">
                 {calculateSuccessRate()}% Success Rate
               </div>
               <div className="text-sm text-gray-400 font-['Figtree']">
@@ -473,7 +473,7 @@ const Phase1Demo: React.FC = () => {
 
         {/* Test Results */}
         <div className="space-y-3">
-          <h2 className="text-xl font-medium text-[#5EEAD4] mb-4 font-['Figtree']">
+          <h2 className="text-xl font-medium text-[var(--fos-color-accent-brand)] mb-4 font-['Figtree']">
             Test Results
           </h2>
 
@@ -525,7 +525,7 @@ const Phase1Demo: React.FC = () => {
 
         {/* Environment Info */}
         <div className="mt-8 p-4 bg-black/20 border border-gray-800 rounded-lg">
-          <h3 className="font-medium text-[#5EEAD4] mb-2 font-['Figtree']">Environment</h3>
+          <h3 className="font-medium text-[var(--fos-color-accent-brand)] mb-2 font-['Figtree']">Environment</h3>
           <div className="grid grid-cols-2 gap-4 text-sm font-['JetBrains_Mono']">
             <div>
               <span className="text-gray-400">Supabase URL:</span>

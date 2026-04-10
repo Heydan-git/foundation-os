@@ -6,10 +6,10 @@ interface NextStepsPanelProps {
 }
 
 const priorityColor = (p: string) =>
-  ({ critical: '#EF4444', high: '#F97316', medium: '#EAB308', low: '#94A3B8' }[p] ?? '#94A3B8')
+  ({ critical: 'var(--fos-color-accent-danger)', high: 'var(--fos-color-status-alert)', medium: '#EAB308', low: 'var(--fos-color-text-subtle)' }[p] ?? 'var(--fos-color-text-subtle)')
 
 const statusColor = (s: string) =>
-  ({ todo: '#52525B', in_progress: '#5EEAD4', done: '#22C55E' }[s] ?? '#52525B')
+  ({ todo: 'var(--fos-color-text-faint)', in_progress: 'var(--fos-color-accent-brand)', done: 'var(--fos-color-status-done)' }[s] ?? 'var(--fos-color-text-faint)')
 
 export function NextStepsPanel({ nextSteps }: NextStepsPanelProps) {
   const todo       = nextSteps.filter(n => n.status === 'todo')
@@ -31,13 +31,13 @@ export function NextStepsPanel({ nextSteps }: NextStepsPanelProps) {
                   flexShrink: 0,
                   animation: n.status === 'in_progress' ? 'pulse 2s infinite' : 'none',
                 }} />
-                <span style={{ fontSize: 12, color: n.status === 'done' ? '#52525B' : '#FAFAFA', textDecoration: n.status === 'done' ? 'line-through' : 'none' }}>
+                <span style={{ fontSize: 12, color: n.status === 'done' ? 'var(--fos-color-text-faint)' : 'var(--fos-color-text-bright)', textDecoration: n.status === 'done' ? 'line-through' : 'none' }}>
                   {n.label}
                 </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 {n.phase && (
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: '#3F3F46' }}>{n.phase}</span>
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: 'var(--fos-color-text-ghost)' }}>{n.phase}</span>
                 )}
                 <Badge label={n.priority} color={priorityColor(n.priority)} />
                 <Badge label={n.status}   color={statusColor(n.status)} />

@@ -49,16 +49,16 @@ export default function Commander() {
         version={APP_META.version}
         meta={APP_META.phase}
       >
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: '#A78BFA' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--fos-color-status-parking)' }}>
           {sessions.length} Sessions
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: '#3B82F6' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--fos-color-status-wip)' }}>
           {decisions.length} ADR
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(239,68,68,.15)', color: '#EF4444' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(239,68,68,.15)', color: 'var(--fos-color-accent-danger)' }}>
           {risks.filter(r => r.status === 'open').length} Risques
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(34,197,94,.15)', color: '#22C55E' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(34,197,94,.15)', color: 'var(--fos-color-status-done)' }}>
           {nextSteps.filter(n => n.status !== 'done').length} Next Steps
         </div>
       </PageHeader>

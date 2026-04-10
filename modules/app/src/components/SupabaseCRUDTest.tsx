@@ -191,11 +191,11 @@ export default function SupabaseCRUDTest() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#06070C] text-white p-6">
+    <div className="min-h-screen bg-[var(--fos-color-bg-canvas)] text-white p-6">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#5EEAD4] mb-2">
+          <h1 className="text-3xl font-bold text-[var(--fos-color-accent-brand)] mb-2">
             Foundation OS - Test CRUD Supabase
           </h1>
           <p className="text-white/70">
@@ -222,7 +222,7 @@ export default function SupabaseCRUDTest() {
             <button
               onClick={loadData}
               disabled={loading}
-              className="px-4 py-2 bg-[#5EEAD4] text-black rounded-lg font-medium hover:bg-[#5EEAD4]/80 disabled:opacity-50"
+              className="px-4 py-2 bg-[var(--fos-color-accent-brand)] text-black rounded-lg font-medium hover:bg-[var(--fos-color-accent-brand)]/80 disabled:opacity-50"
             >
               {loading ? 'Chargement...' : '🔄 Recharger données'}
             </button>
@@ -235,7 +235,7 @@ export default function SupabaseCRUDTest() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Sessions Section */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-[#5EEAD4]">Sessions</h2>
+            <h2 className="text-2xl font-bold text-[var(--fos-color-accent-brand)]">Sessions</h2>
 
             {/* Create Session Form */}
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">
@@ -275,7 +275,7 @@ export default function SupabaseCRUDTest() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-4 py-2 bg-[#5EEAD4] text-black rounded-lg font-medium hover:bg-[#5EEAD4]/80 disabled:opacity-50"
+                  className="w-full px-4 py-2 bg-[var(--fos-color-accent-brand)] text-black rounded-lg font-medium hover:bg-[var(--fos-color-accent-brand)]/80 disabled:opacity-50"
                 >
                   {loading ? 'Création...' : '✨ Créer Session'}
                 </button>
@@ -288,7 +288,7 @@ export default function SupabaseCRUDTest() {
                 <div key={session.id} className="bg-white/5 border border-white/10 rounded-lg p-4">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h4 className="font-semibold text-[#5EEAD4]">{session.title}</h4>
+                      <h4 className="font-semibold text-[var(--fos-color-accent-brand)]">{session.title}</h4>
                       <p className="text-sm text-white/70">{session.date}</p>
                     </div>
                     <div className="flex gap-2">
@@ -315,7 +315,7 @@ export default function SupabaseCRUDTest() {
 
           {/* Decisions Section */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-[#5EEAD4]">Décisions</h2>
+            <h2 className="text-2xl font-bold text-[var(--fos-color-accent-brand)]">Décisions</h2>
 
             {/* Create Decision Form */}
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">
@@ -367,7 +367,7 @@ export default function SupabaseCRUDTest() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-4 py-2 bg-[#5EEAD4] text-black rounded-lg font-medium hover:bg-[#5EEAD4]/80 disabled:opacity-50"
+                  className="w-full px-4 py-2 bg-[var(--fos-color-accent-brand)] text-black rounded-lg font-medium hover:bg-[var(--fos-color-accent-brand)]/80 disabled:opacity-50"
                 >
                   {loading ? 'Création...' : '💡 Créer Décision'}
                 </button>
@@ -380,7 +380,7 @@ export default function SupabaseCRUDTest() {
                 <div key={decision.id} className="bg-white/5 border border-white/10 rounded-lg p-4">
                   <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h4 className="font-semibold text-[#5EEAD4]">{decision.title}</h4>
+                      <h4 className="font-semibold text-[var(--fos-color-accent-brand)]">{decision.title}</h4>
                       <p className="text-sm text-white/70">{decision.date}</p>
                     </div>
                     <div className="flex gap-2">

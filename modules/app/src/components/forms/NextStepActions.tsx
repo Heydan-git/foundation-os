@@ -107,8 +107,8 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
         return <div className="w-4 h-4 border-2 border-yellow-400 rounded bg-yellow-400/20" />
       case 'done':
         return (
-          <div className="w-4 h-4 bg-[#5EEAD4] rounded flex items-center justify-center">
-            <svg className="w-3 h-3 text-[#06070C]" fill="currentColor" viewBox="0 0 20 20">
+          <div className="w-4 h-4 bg-[var(--fos-color-accent-brand)] rounded flex items-center justify-center">
+            <svg className="w-3 h-3 text-[var(--fos-color-bg-canvas)]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
           </div>
@@ -120,7 +120,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
     switch (status) {
       case 'todo': return 'text-gray-400'
       case 'in_progress': return 'text-yellow-400'
-      case 'done': return 'text-[#5EEAD4] line-through opacity-70'
+      case 'done': return 'text-[var(--fos-color-accent-brand)] line-through opacity-70'
     }
   }
 
@@ -138,7 +138,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
     <div className="space-y-3">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-medium text-[#5EEAD4] font-sans">
+        <h3 className="text-lg font-medium text-[var(--fos-color-accent-brand)] font-sans">
           Next Steps
         </h3>
         <span className="text-sm text-gray-400 font-mono">
@@ -212,7 +212,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
           value={newStepLabel}
           onChange={(e) => setNewStepLabel(e.target.value)}
           placeholder="Ajouter une nouvelle action..."
-          className="flex-1 px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[#5EEAD4] focus:outline-none font-mono text-sm"
+          className="flex-1 px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono text-sm"
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               handleAddStep()
@@ -222,7 +222,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
         <button
           onClick={handleAddStep}
           disabled={!newStepLabel.trim() || isAddingStep}
-          className="px-4 py-2 bg-[#5EEAD4] text-[#06070C] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans text-sm"
+          className="px-4 py-2 bg-[var(--fos-color-accent-brand)] text-[var(--fos-color-bg-canvas)] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans text-sm"
         >
           {isAddingStep ? '...' : '+'}
         </button>
