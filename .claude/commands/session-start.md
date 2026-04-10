@@ -1,6 +1,6 @@
 # /session-start — Demarrer une session Foundation OS
 
-Produit le brief de debut de session au format v10 (11 sections, emojis couleur, barres, separateurs 32 chars, lignes courtes).
+Produit le brief de debut de session au format v11 (TDAH-friendly : cadres box-drawing, colonnes alignees, zones visuelles).
 Ref spec : `docs/core/communication.md` section 6.1 + CLAUDE.md section "Briefs session".
 
 ## Phase 1 — Collecte automatique (parallele)
@@ -22,93 +22,195 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 - Modules dans CONTEXT.md correspondent a `modules/` sur le filesystem
 - CONTEXT.md < 200 lignes (sinon warning "CONTEXT.md trop long, compresser les sessions/decisions anciennes")
 
-## Phase 3 — Produire le brief v10
+## Phase 3 — Produire le brief v11
 
-Rendre les 11 sections ci-dessous dans cet ordre, avec separateurs `────────────────────────────────` entre chaque.
+Rendre les sections ci-dessous avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, espacement genereux.
 
-### 1. Entete + etat global
+**Principe : chaque zone = un cadre `┌─ TITRE ─┐ ... └─┘`**. Blanc entre chaque cadre. Contenu indente 3 espaces apres le `│`.
+
+### Template complet (copier la structure exacte)
+
 ```
-FOUNDATION OS · Brief · YYYY-MM-DD
+╔══════════════════════════════════════════╗
+║   FOUNDATION OS · Brief · YYYY-MM-DD    ║
+╚══════════════════════════════════════════╝
 
-🟢 Sante projet  ████████████ 100%
-🟢 Build         ████████████ OK
-🟢 Tests (N)     ████████████ N/N
+
+┌─ SANTE ──────────────────────────────────┐
+│                                          │
+│   🟢 Projet   ████████████       100%    │
+│   🟢 Build    ████████████        OK     │
+│   🟢 Tests    ████████████     19/19     │
+│   🟢 Health   SAIN                       │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ TRAJECTOIRE ────────────────────────────┐
+│                                          │
+│   🎬 Mission    [objectif long terme]    │
+│   🎯 Focus      [sujet du moment]       │
+│   📈 Tendance   ▲/▶/▼ [5 mots]         │
+│   ⏱  Derniere   [il y a X] · [decide]   │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ MODULES ────────────────────────────────┐
+│                                          │
+│   Code                                   │
+│     🟢 App Builder      modules/app/     │
+│     🟢 Design System    modules/ds/      │
+│   Meta                                   │
+│     🟢 Core OS (4/4)    docs/core/       │
+│     🔵 Cowork           docs/travaux/    │
+│   Prevu                                  │
+│     ⚫ Finance   ⚫ Sante   ⚫ Trading   │
+│                                          │
+├─ ACCES ──────────────────────────────────┤
+│   🔗 Prod   [URL]                        │
+│   🔗 Dev    cd modules/app && npm dev    │
+│   🌿 Git    [branche] · [N] modifies    │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ ⚠ ATTENTION ────────────────────────────┐
+│                                          │
+│   🚨 Alertes                             │
+│     [health-check warnings/criticals]    │
+│                                          │
+│   📌 Rappels                             │
+│     [dette, concerns precedentes]        │
+│                                          │
+│   ❓ En attente Kevin                    │
+│     · [action 1]                         │
+│     · [action 2]                         │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ DERNIER TRAVAIL ────────────────────────┐
+│                                          │
+│   📅 Commit  [hash] [titre]              │
+│     · [bullet vulgarise 1]              │
+│     · [bullet vulgarise 2]              │
+│     · [bullet vulgarise 3]              │
+│                                          │
+│   🧠 Decisions                           │
+│     · [D-XX-01] [titre]                 │
+│     · [D-XX-02] [titre]                 │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ STATUT PROJET ──────────────────────────┐
+│                                          │
+│   ✅ [Nom]         ████████████   100%   │
+│   ✅ [Nom]         ████████████   100%   │
+│   🔄 [Nom]         ██████░░░░░░    50%   │
+│   ⏸  [Nom]         en pause             │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ IDEES & PARKING ────────────────────────┐
+│                                          │
+│   💡 [idee concrete 1]                   │
+│   💡 [idee concrete 2]                   │
+│   🔮 [option future]                     │
+│   ❓ [question ouverte]                  │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ REFLEXION ──────────────────────────────┐
+│                                          │
+│   💭 [decision en suspens]               │
+│   💭 [question strategique]              │
+│   🔗 [lien idee ↔ travail en cours]     │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ HISTORIQUE ─────────────────────────────┐
+│                                          │
+│   🧠 [date] [D-XX] [titre decision]     │
+│   🧠 [date] [D-XX] [titre decision]     │
+│   🧠 [date] [D-XX] [titre decision]     │
+│                                          │
+│   📆 Echeance  [date ou "pas fixee"]    │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ CAP ────────────────────────────────────┐
+│                                          │
+│   🎯 Direction                           │
+│     [ou on va et pourquoi]              │
+│                                          │
+│   🛤  Pistes                             │
+│     A. [option A]                       │
+│     B. [option B]                       │
+│     C. [option C]                       │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+╔═ INPUT ══════════════════════════════════╗
+║                                          ║
+║   📥 Questions pour Kevin                ║
+║     1. [question 1]                      ║
+║     2. [question 2]                      ║
+║     3. [question 3]                      ║
+║                                          ║
+║   On y va ?                              ║
+║                                          ║
+╚══════════════════════════════════════════╝
 ```
-Barres : 12 blocs max (`█` plein, `░` vide). Couleur selon etat reel : 🟢 OK / 🟡 warning / 🔴 casse.
-
-### 2. Trajectoire
-- 🎬 **Mission** : objectif long terme (extrait de Cap)
-- 🎯 **Focus** : sujet du moment (chantier en cours ou cap immediat)
-- 📈 **Tendance** : evolution depuis derniere session (mieux / pareil / pire + pourquoi en ~5 mots)
-- ⏱ **Derniere session** : date relative ("il y a X") + ce qui a ete **decide** (pas juste fait)
-
-### 3. Infrastructure
-- 🗂 **Modules** : grouper Code (app, design-system) / Meta (Core OS, Cowork...) avec status + path
-- 🔗 **Acces rapides** : URL prod + `npm run dev` + GitHub + Supabase
-- 🌿 **Git** : branche + N fichiers non commites + N tracked modifies
-
-### 4. Attention
-- 🚨 **Alertes** : health-check warnings/criticals
-- 📌 **Rappels** : dette, concerns session precedente
-- ❓ **En attente Kevin** : actions/questions humaines pending (CONTEXT.md section dediee)
-
-### 5. Travail precedent
-- 📅 Dernier commit : hash + titre + 3 bullets vulgarises (jargon glose 3-4 mots)
-- 🧠 Decisions prises : decisions de la derniere session (ID + titre, pas juste les faits)
-
-### 6. Statut projet
-- ✅ **Termine** : barres 100% `████████████`
-- 🔄 **En cours** : barres % + ratio + note
-- ⏸ **En pause** : bullets courts
-
-### 7. Idees & Parking
-- 💡 Idees concretes en attente (extrait de CONTEXT.md > Idees & Parking)
-- 🔮 Options futures
-- ❓ Questions ouvertes a trancher
-
-### 8. Reflexion
-- 💭 Decisions en suspens (bullets questions)
-- 🔗 Liens entre idees et travail en cours (contextualisation)
-
-### 9. Historique
-- 🧠 3 dernieres decisions cles (date + code + titre) — CONTEXT.md > Decisions
-- 📆 Prochaine echeance OU "pas de date cible fixee"
-
-### 10. Cap
-- 🎯 **Direction** : ou on va a moyen terme et pourquoi (extrait de CONTEXT.md > Cap)
-- 🛤 **Pistes** : 2-3 options A/B/C pour la prochaine action
-
-### 11. Input
-- 📥 **Questions pour Kevin** : toutes groupees (pas au fil de l'eau)
-- Terminer par `On y va ?`
 
 ## Phase 4 — Attendre confirmation
 
 Terminer par `On y va ?` et attendre l'input de Kevin avant de commencer.
 
-## Regles de rendu
+## Regles de rendu v11 (TDAH-friendly)
 
+### Structure visuelle
+- **Cadres** : chaque section dans un cadre `┌─ TITRE ─┐ ... └─┘` (42 chars largeur)
+- **Entete et Input** : double trait `╔═══╗ ... ╚═══╝` (zones d'ancrage debut/fin)
+- **Sous-sections** : separateur interne `├─ SOUS-TITRE ─┤`
+- **Blanc** : 2 lignes vides entre chaque cadre (respiration visuelle)
+- **Indentation** : 3 espaces apres `│` pour le contenu
+
+### Alignement
+- Labels : emoji + mot, padde a 12 chars (ex: `🎬 Mission  `)
+- Valeurs : alignees a droite pour les chiffres (%, N/N)
+- Barres : 12 blocs `████████████` toujours a la meme colonne
+- Colonnes consistantes dans chaque cadre
+
+### Couleurs et symboles
 - Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
-- Barres : `████░░░░░░░░` 12 blocs, % aligne a droite
-- Separateurs : `────────────────────────────────` 32 chars box-drawing
-- Lignes courtes : ~60 chars max, indentation 2-4 espaces
-- Vulgariser : glose 3-4 mots pour tout jargon. "build rapide OK" > "build 728ms bundle 457kB"
-- Mise en garde : si simplification cache un risque → signaler avec `> ⚠`
+- Tendance : ▲ mieux / ▶ pareil / ▼ pire
+- Barres : `█` plein, `░` vide
+
+### Texte
+- Lignes courtes : ~55 chars max (interieur cadre)
+- Vulgariser : glose 3-4 mots pour tout jargon
+- Mise en garde : si simplification cache un risque → `⚠ [risque]` en rouge
 - Mots interdits : revolution, historique, accomplish, reference mondiale
 
 ## Sources de donnees
 
 | Section brief | Source CONTEXT.md | Source live |
 |---------------|-------------------|------------|
-| Etat global | — | health-check + build |
+| Sante | — | health-check + build |
 | Trajectoire | Cap + Sessions recentes | git log -1 |
 | Modules | Modules | — |
-| Git | — | git status + branch |
-| Alertes | — | health-check |
-| En attente Kevin | En attente Kevin | — |
-| Dernier commit | — | git log -1 + git show |
-| Decisions recentes | Sessions recentes + Decisions | — |
+| Acces/Git | — | git status + branch |
+| Attention | En attente Kevin | health-check |
+| Dernier travail | Sessions recentes + Decisions | git log -1 |
 | Statut projet | Modules + Chantier en cours | — |
 | Idees | Idees & Parking | — |
+| Reflexion | Idees & Parking | — |
 | Historique | Decisions (3 recentes) | — |
 | Cap | Cap | — |

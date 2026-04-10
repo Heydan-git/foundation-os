@@ -196,131 +196,79 @@ Ces lectures sont a la demande, pas systematiques.
 
 ## 6. Briefing — Comment on presente
 
-### 6.1 Brief de debut de session (v10)
+### 6.1 Brief de debut de session (v11 — TDAH-friendly)
 
-**11 sections dans cet ordre**, separateurs `────────────────────────────────` entre chaque.
+**11 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
 
-#### Section 1. Entete + etat global
-```
-FOUNDATION OS · Brief · YYYY-MM-DD
+Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, respiration entre blocs.
 
-🟢 Sante projet  ████████████ 100%
-🟢 Build         ████████████ OK
-🟢 Tests (N)     ████████████ N/N
-```
+#### Sections (contenu identique v10, rendu ameliore)
 
-#### Section 2. Trajectoire (nouveau — remplace "Contexte strategique")
-- 🎬 **Mission** : objectif long terme (extrait de Cap)
-- 🎯 **Focus** : sujet du moment (chantier en cours ou cap immediat)
-- 📈 **Tendance** : evolution depuis derniere session (mieux/pareil/pire + pourquoi en 5 mots)
-- ⏱ **Derniere session** : date relative + ce qui a ete **decide** (pas juste fait)
+1. **SANTE** : 4 lignes (projet/build/tests/health), barres 12 blocs, % aligne a droite
+2. **TRAJECTOIRE** : mission/focus/tendance(▲▶▼)/derniere session
+3. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
+4. **ATTENTION** : alertes/rappels/en attente Kevin
+5. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
+6. **STATUT PROJET** : barres progression par chantier
+7. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
+8. **REFLEXION** : questions en suspens + liens idees↔travail
+9. **HISTORIQUE** : 3 decisions recentes + echeance
+10. **CAP** : direction + pistes A/B/C
+11. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
 
-#### Section 3. Infrastructure
-- 🗂 **Modules** : grouper Code / Meta avec status
-- 🔗 **Acces rapides** : URL prod + dev + GitHub + Supabase
-- 🌿 **Git** : branche + fichiers non commites
+Entete et Input en double trait `╔═══╗` pour ancrer debut/fin visuellement.
 
-#### Section 4. Attention
-- 🚨 **Alertes** : health-check warnings/criticals
-- 📌 **Rappels** : dette, concerns session precedente
-- ❓ **En attente Kevin** : actions/questions humaines pending
+### 6.2 Brief de fin de session (v11 — TDAH-friendly)
 
-#### Section 5. Travail precedent
-- 📅 Dernier commit : hash + titre + 3 bullets vulgarises
-- 🧠 Decisions prises : les decisions de la derniere session (pas juste les faits)
+**6 sections** en cadres box-drawing :
 
-#### Section 6. Statut projet
-- ✅ **Termine** : barres 100%
-- 🔄 **En cours** : barres % + ratio + note
-- ⏸ **En pause** : bullets courts
+1. **Entete** (double trait) : date + statut (DONE / CONCERNS / NEEDS_CONTEXT / BLOCKED)
+2. **ETAT TECHNIQUE** : build/tests/health/refs
+3. **CE QUI A ETE FAIT** : commits vulgarises + fichiers + decisions
+4. **IDEES CAPTUREES** : reflexions/pistes sauvees dans CONTEXT.md
+5. **CAP MIS A JOUR** : direction + prochaine action
+6. **CONCERNS** (si != DONE) : description du blocage
 
-#### Section 7. Idees & Parking (nouveau)
-- 💡 Idees concretes en attente
-- 🔮 Options futures
-- ❓ Questions ouvertes
+Section "Persistance" supprimee (redondante — CONTEXT.md est toujours mis a jour).
 
-#### Section 8. Reflexion
-- 💭 Decisions en suspens
-- 🔗 Liens entre idees et travail en cours (contextualisation)
+### 6.3 Regles de rendu v11
 
-#### Section 9. Historique
-- 🧠 3 dernieres decisions (date + code + titre)
-- 📆 Prochaine echeance OU "pas de date cible fixee"
+#### Structure visuelle
+- **Cadres** : `┌─ TITRE ─┐ ... └─┘` (42 chars largeur fixe)
+- **Entete/Input** : double trait `╔═══╗ ... ╚═══╝` (ancrage visuel debut/fin)
+- **Sous-sections** : `├─ SOUS-TITRE ─┤` (subdivision interne)
+- **Blanc** : 2 lignes vides entre chaque cadre
+- **Indentation** : 3 espaces apres `│`
 
-#### Section 10. Cap
-- 🎯 **Direction** : ou on va a moyen terme et pourquoi
-- 🛤 **Pistes** : 2-3 options A/B/C pour la prochaine action
+#### Alignement
+- Labels : emoji + mot, padde a 12 chars
+- Valeurs numeriques : alignees a droite
+- Barres : `████████████` (12 blocs) toujours a la meme colonne
+- Colonnes consistantes dans chaque cadre
 
-#### Section 11. Input
-- 📥 **Questions pour Kevin** : toutes groupees en debut (pas au fil de l'eau)
-- Terminer par `On y va ?`
-
-### 6.2 Brief de fin de session (v10)
-
-**7 sections** :
-
-#### Section 1. Entete
-```
-SESSION CLOTUREE · YYYY-MM-DD
-Statut : [DONE / DONE_WITH_CONCERNS / NEEDS_CONTEXT / BLOCKED]
-```
-
-#### Section 2. Etat technique
-```
-🟢 Build         [OK/KO par module]
-🟢 Tests (N)     [N/N verts]
-🟢 Health-check  [SAIN/DEGRADED/BROKEN]
-```
-
-#### Section 3. Ce qui a ete fait
-- 📅 Commits livres : hash + titre + bullets vulgarises
-- 📁 Fichiers : N crees, N modifies, N supprimes
-- 🧠 Decisions prises cette session (avec ID)
-
-#### Section 4. Idees capturees (nouveau)
-- 💡 Reflexions/pistes qui ont emerge pendant la session
-- Sauvees dans CONTEXT.md > Idees & Parking
-
-#### Section 5. Mises a jour persistance
-- CONTEXT.md : ✅ mis a jour (lister les sections touchees)
-- Monitor Dashboard : ✅/⏭
-
-#### Section 6. Cap mis a jour
-- 🎯 Direction apres cette session
-- 🛤 Prochaine action concrete
-
-#### Section 7. Concerns (seulement si != DONE)
-```
-⚠ Concerns / Questions / Blocage :
-- [description]
-```
-
-### 6.3 Regles de rendu (identique v9)
-
+#### Couleurs et symboles
 - Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
-- Barres : `████░░░░░░░░` 12 blocs, % aligne a droite
-- Separateurs : `────────────────────────────────` 32 chars
-- Lignes courtes : ~60 chars max, indentation 2-4 espaces
+- Tendance : ▲ mieux / ▶ pareil / ▼ pire
+- Barres : `█` plein, `░` vide
+
+#### Texte
+- Lignes courtes : ~55 chars max (interieur cadre)
 - Vulgariser : glose 3-4 mots pour tout jargon
-- Mise en garde : si simplification cache un risque → `> ⚠`
+- Mise en garde : `⚠ [risque]` si simplification cache un danger
 - Mots interdits : revolution, historique, accomplish, reference mondiale
 
 ### 6.4 Sources de donnees pour le brief
 
 | Section brief | Source dans CONTEXT.md | Source live |
 |---------------|----------------------|------------|
-| Etat global | — | health-check + build |
+| Sante | — | health-check + build |
 | Trajectoire | Cap + Sessions recentes | git log -1 |
-| Modules | Modules | — |
-| Acces rapides | — | git remote + package.json |
-| Git | — | git status + branch |
-| Alertes | — | health-check |
-| Rappels | Sessions recentes (concerns) | — |
-| En attente Kevin | En attente Kevin | — |
-| Dernier commit | — | git log -1 + git show |
-| Decisions recentes | Sessions recentes + Decisions | — |
+| Modules + Acces | Modules | git status + branch |
+| Attention | En attente Kevin | health-check |
+| Dernier travail | Sessions recentes + Decisions | git log -1 |
 | Statut projet | Modules + Chantier en cours | — |
 | Idees | Idees & Parking | — |
+| Reflexion | Idees & Parking | — |
 | Historique | Decisions (3 recentes) | — |
 | Cap | Cap | — |
 
@@ -361,7 +309,7 @@ Max 10 idees en parking. Au-dela, forcer une priorisation : garder les 10 plus p
 
 ## 9. Migration depuis Memory
 
-Cette spec remplace `docs/core/memory.md`. Les changements :
+Cette spec remplace l'ancien module Memory (archive : `.archive/memory.md`). Les changements :
 
 | Aspect | Memory (ancien) | Communication (nouveau) |
 |--------|----------------|------------------------|

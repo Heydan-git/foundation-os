@@ -1,6 +1,6 @@
 # /session-end — Cloturer une session Foundation OS
 
-Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v10.
+Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v11 (TDAH-friendly).
 Ref spec : `docs/core/communication.md` + CLAUDE.md section "Briefs session".
 
 ## Phase 1 — Inventaire des changements
@@ -93,69 +93,103 @@ Mettre a jour chaque section dans cet ordre. Pour chaque section, verifier si un
 - Verifier < 200 lignes (sinon warning + compresser)
 - Verifier coherence : ce qui est dans les sessions recentes correspond aux commits reels
 
-## Phase 5.5 — Mettre a jour Monitor Dashboard
-
-Edition additive de `docs/monitor/data.js` :
-
-- `meta.updatedAt` = date du jour
-- `meta.updatedInSession` = libelle court session
-- `meta.nextAction` = miroir Cap (phase 5.2)
-- `plans[*].sessions` : append/update sessions touchees
-- `plans[*].currentPhase` + `notes` si change
-- `recentSessions` : prepend entree, pop si > 5
-- `decisions` : append si nouvelle D-XXX
-- `modules` + `initiatives` : update si status change
-
 ## Phase 6 — Proposer commit
 
 Si des changements sont en attente → proposer un commit (conventional commits, pas d'auto-congratulation).
 
-## Phase 7 — Produire le brief de cloture v10
+## Phase 7 — Produire le brief de cloture v11
 
-Rendre dans cet ordre, avec separateurs `────────────────────────────────` :
+Rendre avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, espacement genereux.
 
-### 1. Entete
+### Template complet
+
 ```
-SESSION CLOTUREE · YYYY-MM-DD
-Statut : [DONE / DONE_WITH_CONCERNS / NEEDS_CONTEXT / BLOCKED]
+╔══════════════════════════════════════════╗
+║   SESSION CLOTUREE · YYYY-MM-DD         ║
+║   Statut : [DONE / CONCERNS / ...]      ║
+╚══════════════════════════════════════════╝
+
+
+┌─ ETAT TECHNIQUE ─────────────────────────┐
+│                                          │
+│   🟢 Build    [OK/KO par module]         │
+│   🟢 Tests    [N/N verts]               │
+│   🟢 Health   [SAIN/DEGRADED/BROKEN]     │
+│   🟢 Refs     [N .md scannes, 0 cassee] │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ CE QUI A ETE FAIT ─────────────────────┐
+│                                          │
+│   📅 Commits                             │
+│     · [hash] [titre]                    │
+│       [bullet vulgarise 1]             │
+│       [bullet vulgarise 2]             │
+│                                          │
+│   📁 Fichiers                            │
+│     [N] crees · [N] modifies · [N] sup  │
+│                                          │
+│   🧠 Decisions                           │
+│     · [D-XX-01] [titre]                │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ IDEES CAPTUREES ────────────────────────┐
+│                                          │
+│   💡 [idee 1]                            │
+│   💡 [idee 2]                            │
+│   (ou "Pas de nouvelle idee")           │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ PERSISTANCE ────────────────────────────┐
+│                                          │
+│   ✅ CONTEXT.md   [sections touchees]    │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ CAP MIS A JOUR ────────────────────────┐
+│                                          │
+│   🎯 Direction                           │
+│     [ou on va apres cette session]      │
+│                                          │
+│   🛤  Prochaine action                   │
+│     [action concrete]                   │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ ⚠ CONCERNS ────────────────────────────┐
+│   (seulement si statut != DONE)         │
+│                                          │
+│   [description du concern/blocage]      │
+│                                          │
+└──────────────────────────────────────────┘
 ```
 
-### 2. Etat technique
-```
-🟢 Build         [OK/KO par module]
-🟢 Tests (N)     [N/N verts]
-🟢 Health-check  [SAIN/DEGRADED/BROKEN]
-```
-Couleur selon etat reel : 🟢 OK / 🟡 degrade / 🔴 casse.
+## Regles de rendu v11 (TDAH-friendly)
 
-### 3. Ce qui a ete fait
-- 📅 Commits livres : hash + titre + bullets vulgarises (glose jargon)
-- 📁 Fichiers : N crees, N modifies, N supprimes
-- 🧠 Decisions prises cette session (avec ID)
+### Structure visuelle
+- **Cadres** : chaque section dans un cadre `┌─ TITRE ─┐ ... └─┘` (42 chars largeur)
+- **Entete** : double trait `╔═══╗ ... ╚═══╝` (zone d'ancrage)
+- **Blanc** : 2 lignes vides entre chaque cadre (respiration visuelle)
+- **Indentation** : 3 espaces apres `│` pour le contenu
 
-### 4. Idees capturees
-- 💡 Reflexions/pistes qui ont emerge (sauvees dans CONTEXT.md > Idees & Parking)
-- Si aucune → "Pas de nouvelle idee cette session"
+### Alignement
+- Labels : emoji + mot, padde a 12 chars
+- Valeurs : alignees a droite pour les chiffres
+- Colonnes consistantes dans chaque cadre
 
-### 5. Mises a jour persistance
-- CONTEXT.md : ✅ mis a jour (lister les sections touchees)
-- Monitor Dashboard : ✅/⏭
-
-### 6. Cap mis a jour
-- 🎯 Direction apres cette session
-- 🛤 Prochaine action concrete
-
-### 7. Concerns (seulement si statut != DONE)
-```
-⚠ Concerns / Questions / Blocage :
-- [description]
-```
-
-## Regles de rendu
-
+### Couleurs et symboles
 - Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
-- Separateurs : `────────────────────────────────` 32 chars
-- Lignes courtes : ~60 chars max
+- Barres : `█` plein, `░` vide (12 blocs max)
+
+### Texte
+- Lignes courtes : ~55 chars max (interieur cadre)
 - Vulgariser : glose 3-4 mots pour tout jargon
-- Mise en garde : si simplification cache un risque → `> ⚠`
+- Mise en garde : si simplification cache un risque → `⚠ [risque]`
 - Mots interdits : revolution, historique, accomplish, reference mondiale

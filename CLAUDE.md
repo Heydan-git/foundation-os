@@ -24,11 +24,11 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 
 ## Briefs session (format obligatoire)
 
-Template complet en memoire : `feedback_brief_format.md` (v9, valide 2026-04-09).
+Format v11 (TDAH-friendly, valide 2026-04-10). Spec complete : `docs/core/communication.md` section 6.
 
-**11 sections dans l'ordre** : Etat global (3 barres sante/build/tests) → Mission/Focus/Derniere session → Modules/Acces rapides/Git → Alertes sante/Rappels/Questions en attente → Dernier commit → Termine → En cours → En pause → Reflexions/Parking → Decisions cles/Echeance → Prochaine action/Ton input.
+**11 sections dans cadres box-drawing** : Sante → Trajectoire → Modules+Acces → Attention → Dernier travail → Statut projet → Idees → Reflexion → Historique → Cap → Input.
 
-**Regles de rendu** : emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `████░░░░` (12 blocs max), separateurs 32 chars, lignes courtes (safe petit terminal), vulgariser le jargon (glose 3-4 mots), mise en garde automatique si risque regression.
+**Regles de rendu v11** : cadres `┌─ TITRE ─┐ ... └─┘` (42 chars), entete/input en double trait `╔═══╗`, 2 lignes vides entre cadres, labels paddes 12 chars, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `████░░░░` (12 blocs), tendance ▲▶▼, lignes ~55 chars max, vulgariser le jargon.
 
 **Questions groupees (plans)** : lors de l'execution d'un plan, poser TOUTES les questions en debut de session, pas au fil de l'eau. Execution ensuite sans interruption sauf imprevu (bug, regression, trade-off inattendu). Memoire : `feedback_frontload_questions.md`.
 

@@ -105,7 +105,7 @@ Les primitives (Button, Text, etc.) sont disponibles pour import nomme des que `
 
 ## Refs
 
-- Spec DS bootstrap : `docs/travaux-cowork/2026-04-08-design-system-bootstrap/01-spec.md`
-- Plan 6 sessions   : `docs/travaux-cowork/2026-04-08-design-system-bootstrap/02-plan.md`
+- Spec DS bootstrap : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/01-spec.md`
+- Plan 6 sessions   : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/02-plan.md`
 - Void Glass source : `docs/design-system.md`
 - Storybook local   : http://localhost:6006/ (apres `npm run storybook`)

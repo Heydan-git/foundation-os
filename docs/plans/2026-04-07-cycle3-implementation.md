@@ -446,7 +446,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 ### Task S3.2 : Lecture deep docs/core/
 
 - [ ] Step 1 : Read `docs/core/cortex.md` ligne par ligne, capturer specs routing
-- [ ] Step 2 : Read `docs/core/memory.md` ligne par ligne, capturer 4 tiers
+- [ ] Step 2 : Read `docs/core/communication.md` ligne par ligne, capturer 4 tiers (ex-memory.md)
 - [ ] Step 3 : Read `docs/core/monitor.md` ligne par ligne, capturer health indicators
 - [ ] Step 4 : Read `docs/core/tools.md` ligne par ligne, capturer outils existants/backlog
 - [ ] Step 5 : Read `docs/core/architecture-core.md` pour vue d'ensemble
