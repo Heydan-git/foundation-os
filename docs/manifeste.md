@@ -65,7 +65,7 @@ Foundation OS se lit comme 3 couches empilees, documentees dans `docs/architectu
 | Monitor | Health indicators par severite, verdicts SAIN / DEGRADED / BROKEN | `scripts/health-check.sh`, integre a `review-agent` et `/sync` | actif |
 | Tools | Validators, scripts, CI/CD, hooks — automation locale | `scripts/`, `.github/workflows/`, hooks git + Claude | actif |
 
-Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% avec leurs specs. Voir `docs/audit-massif/03-fondations-core.md`.
+Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% avec leurs specs. Voir `.archive/audit-massif/03-fondations-core.md`.
 
 ### 4.2 — Agents et commands
 
@@ -218,7 +218,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 | Documents Core OS | 5 specs | `docs/core/` (cortex, memory, monitor, tools, architecture-core) |
 | Plans de phases | 7 plans dates | `docs/plans/` (phase1 → phase4, cycle3, finition-os, audit-massif) |
 | Specs | 1 design spec v2 | `docs/specs/2026-04-05-foundation-os-v2-design.md` |
-| Audit massif Cycle 3 | 4 livrables rediges + 20 placeholders | `docs/audit-massif/` (00-INDEX + 00-preflight + 01-carto + 02-inventaire + 03-fondations-core) |
+| Audit massif Cycle 3 | 4 livrables rediges + 20 placeholders | `.archive/audit-massif/` (00-INDEX + 00-preflight + 01-carto + 02-inventaire + 03-fondations-core) |
 | Agents Claude | 4 agents / 193L | `.claude/agents/` |
 | Commands Claude | 4 commands / 211L | `.claude/commands/` |
 | Scripts bash + python | 8 scripts / ~1088L | `scripts/` + `scripts/hooks/` + `scripts/git-hooks/` |
@@ -275,7 +275,7 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 
 ### Sources lues pour ce manifeste
 
-`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/memory.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `docs/directive-v1.md`, `docs/index.md`, `docs/design-system.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `docs/audit-massif/00-INDEX.md`, `docs/audit-massif/00-preflight.md`, `docs/audit-massif/01-carto-repo.md`, `docs/audit-massif/02-inventaire-components.md`, `docs/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
+`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/memory.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `docs/directive-v1.md`, `docs/index.md`, `docs/design-system.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
 
 ### Refs externes
 
@@ -283,4 +283,4 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 - Manifeste-realiste source (PDF Cowork, 12 sections) : `.archive/manifestes/foundation-os-manifeste-realiste-2026-04-07.pdf`
 - Live state : `CONTEXT.md` section "App Builder — Etat technique"
 - Inventaire vivant : `docs/index.md`
-- Audit en cours : `docs/audit-massif/` (4 livrables + 20 placeholders)
+- Audit en cours : `.archive/audit-massif/` (4 livrables + 20 placeholders)

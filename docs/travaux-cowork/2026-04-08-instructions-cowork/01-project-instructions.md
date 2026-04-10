@@ -63,7 +63,7 @@ Vue résumée. **Table complète + règles d'arbitrage** : `docs/travaux-cowork/
 | `.claude/`, `scripts/*.sh`, `CLAUDE.md`, Git | 🚫 read-only / exec | ✅ propriétaire |
 | `modules/app/src/**` (code prod) | 🚫 sauf demande Kévin | ✅ propriétaire |
 | `CONTEXT.md`, `docs/core/*` | ✅ avec verrou | ✅ avec verrou |
-| `docs/travaux-cowork/**`, `docs/specs/`, `docs/plans/`, `docs/audit-massif/` | ✅ | ✅ |
+| `docs/travaux-cowork/**`, `docs/specs/`, `docs/plans/`, `.archive/audit-massif/` | ✅ | ✅ |
 | MCPs, skills, computer-use, livrables docx/xlsx/pptx/pdf | ✅ propriétaire | 🚫 |
 
 ### 📜 Principes de non-collision

@@ -3,7 +3,7 @@
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 > Spec source : `docs/plans/2026-04-07-audit-massif-final.md` (lecture obligatoire avant chaque session).
 
-**Goal:** Executer l'audit massif final de Foundation OS en 24 sessions (S0-S23), produire 24 livrables MD dans `docs/audit-massif/`, appliquer fixes en 3 batches sur branche dediee, valider zero regression, livrer PR `audit-massif-cycle3 → main`.
+**Goal:** Executer l'audit massif final de Foundation OS en 24 sessions (S0-S23), produire 24 livrables MD dans `.archive/audit-massif/`, appliquer fixes en 3 batches sur branche dediee, valider zero regression, livrer PR `audit-massif-cycle3 → main`.
 
 **Architecture:** Branche dediee `audit-massif-cycle3` cree en S0, tag baseline `pre-audit-cycle3`, 13 phases / 24 sessions, sub-agents restreints a 5 sessions (S1, S13, S14, S17, S18), 19 sessions executees MOI directement, 3 gates Kevin (G1 apres S19, G2 apres S22, G3 apres S23), anti-compactage robuste via master file + INDEX + livrables MD self-contained, commits incrementaux 1-par-session, PR finale en S23.
 
@@ -17,18 +17,18 @@
 - `CLAUDE.md` — imperatifs Foundation OS
 - `CONTEXT.md` — etat global, section "Cycle 3 progress"
 - `docs/plans/2026-04-07-audit-massif-final.md` — LE spec (deja existe, 420L)
-- `docs/audit-massif/00-INDEX.md` — INDEX sessions (deja existe placeholder, sera enrichi en S0)
+- `.archive/audit-massif/00-INDEX.md` — INDEX sessions (deja existe placeholder, sera enrichi en S0)
 
 **Fichiers crees pendant l'execution**
-- `docs/audit-massif/00-preflight.md` (S0)
-- `docs/audit-massif/01-carto-repo.md` (S1)
-- `docs/audit-massif/02-inventaire-components.md` (S2)
+- `.archive/audit-massif/00-preflight.md` (S0)
+- `.archive/audit-massif/01-carto-repo.md` (S1)
+- `.archive/audit-massif/02-inventaire-components.md` (S2)
 - ... 24 livrables au total
-- `docs/audit-massif/23-rapport-final.md` (S23)
+- `.archive/audit-massif/23-rapport-final.md` (S23)
 
 **Fichiers modifies pendant l'execution**
 - `docs/plans/2026-04-07-audit-massif-final.md` — section 6 live tracking apres chaque session
-- `docs/audit-massif/00-INDEX.md` — status sessions
+- `.archive/audit-massif/00-INDEX.md` — status sessions
 - `CONTEXT.md` — section "Cycle 3 progress" + entrees Dernieres sessions
 
 **Fichiers code modifies UNIQUEMENT en S20-S22 (apres Gate G1)**
@@ -74,8 +74,8 @@
 - [ ] Step PR1 : Lire `CLAUDE.md` (imperatifs)
 - [ ] Step PR2 : Lire `CONTEXT.md` section "Cycle 3 progress"
 - [ ] Step PR3 : Lire `docs/plans/2026-04-07-audit-massif-final.md` section 6 live tracking
-- [ ] Step PR4 : Lire `docs/audit-massif/00-INDEX.md`
-- [ ] Step PR5 : Lire le livrable de la session precedente `docs/audit-massif/[N-1].md` (sauf S0)
+- [ ] Step PR4 : Lire `.archive/audit-massif/00-INDEX.md`
+- [ ] Step PR5 : Lire le livrable de la session precedente `.archive/audit-massif/[N-1].md` (sauf S0)
 - [ ] Step PR6 : Verifier branche actuelle (main pour S0, audit-massif-cycle3 pour S1+)
   Run: `git status && git branch --show-current`
 - [ ] Step PR7 : Verifier baseline saine
@@ -93,11 +93,11 @@
 - [ ] Step PO2 : Pour S20-S22 (fixes) : run health/sync/refs/vitest
   Run: `bash scripts/health-check.sh && bash scripts/sync-check.sh && bash scripts/ref-checker.sh`
   Expected: tous SAIN, vitest 19/19
-- [ ] Step PO3 : Update `docs/audit-massif/00-INDEX.md` : ligne session = DONE + date + commit hash
+- [ ] Step PO3 : Update `.archive/audit-massif/00-INDEX.md` : ligne session = DONE + date + commit hash
 - [ ] Step PO4 : Update `docs/plans/2026-04-07-audit-massif-final.md` section 6 : status, findings cles top 3-5
 - [ ] Step PO5 : Update `CONTEXT.md` section "Cycle 3 progress" (1 ligne)
 - [ ] Step PO6 : Stage les fichiers
-  Run: `git add docs/audit-massif/[livrable].md docs/plans/2026-04-07-audit-massif-final.md docs/audit-massif/00-INDEX.md CONTEXT.md`
+  Run: `git add .archive/audit-massif/[livrable].md docs/plans/2026-04-07-audit-massif-final.md .archive/audit-massif/00-INDEX.md CONTEXT.md`
 - [ ] Step PO7 : Commit
   Run: `git commit -m "audit(s<NN>): <description>" --signoff` (selon convention Foundation OS)
 - [ ] Step PO8 : Annoncer fin de session a Kevin + objectif prochaine session
@@ -106,7 +106,7 @@
 
 # PHASE 0 — Pre-flight (S0)
 
-> Mode : MOI | Livrable : `docs/audit-massif/00-preflight.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/00-preflight.md`
 > Pre-conditions : sur main, baseline SAINE, 0 commits ahead origin (apres push Kevin)
 
 ### Task S0.1 : Action Kevin manuelle — push commits ahead
@@ -168,7 +168,7 @@
 ### Task S0.5 : Ecrire le livrable 00-preflight.md
 
 **Files:**
-- Create: `docs/audit-massif/00-preflight.md`
+- Create: `.archive/audit-massif/00-preflight.md`
 
 - [ ] Step 1 : Ecrire le livrable avec tous les metrics baseline captures aux Tasks S0.4
   Format selon template livrable du spec (objectif, methodologie, findings, decisions, cross-references, out-of-scope, next session).
@@ -204,7 +204,7 @@ Aucune decision metier en S0. Setup pur.
 
 ## 5. Cross-references
 - Spec : docs/plans/2026-04-07-audit-massif-final.md
-- INDEX : docs/audit-massif/00-INDEX.md
+- INDEX : .archive/audit-massif/00-INDEX.md
 
 ## 6. Out-of-scope flagges
 Aucun.
@@ -216,7 +216,7 @@ S1 — Carto repo file-by-file (mode MIX, sub-agents Explore parallele).
 ### Task S0.6 : Update INDEX et master file
 
 **Files:**
-- Modify: `docs/audit-massif/00-INDEX.md` (line containing "S0  Pre-flight")
+- Modify: `.archive/audit-massif/00-INDEX.md` (line containing "S0  Pre-flight")
 - Modify: `docs/plans/2026-04-07-audit-massif-final.md` section 6
 
 - [ ] Step 1 : Update 00-INDEX.md ligne S0 : status PENDING → DONE + date 2026-04-07 + commit (apres commit fait)
@@ -235,7 +235,7 @@ S1 — Carto repo file-by-file (mode MIX, sub-agents Explore parallele).
 **Files:** All files modified above
 
 - [ ] Step 1 : Stage les fichiers
-  Run: `git add docs/audit-massif/00-preflight.md docs/audit-massif/00-INDEX.md docs/plans/2026-04-07-audit-massif-final.md CONTEXT.md`
+  Run: `git add .archive/audit-massif/00-preflight.md .archive/audit-massif/00-INDEX.md docs/plans/2026-04-07-audit-massif-final.md CONTEXT.md`
 - [ ] Step 2 : Commit
   Run:
   ```bash
@@ -245,7 +245,7 @@ audit(s00): preflight setup branche audit-massif-cycle3 + tag baseline
 - Branche audit-massif-cycle3 creee depuis main
 - Tag pre-audit-cycle3 pose sur HEAD baseline
 - Capture metrics baseline : health SAIN, sync 6/6, refs 0/40, vitest 19/19, bundle ~474kB
-- Livrable docs/audit-massif/00-preflight.md cree
+- Livrable .archive/audit-massif/00-preflight.md cree
 
 Cycle 3 demarre. Prochaine session : S1 carto repo file-by-file.
 
@@ -260,7 +260,7 @@ EOF
 ### Task S0.9 : Annoncer fin S0
 
 - [ ] Step 1 : Annoncer a Kevin :
-  "S0 done. Branche `audit-massif-cycle3` cree, tag `pre-audit-cycle3` pose, baseline capturee dans `docs/audit-massif/00-preflight.md`. Prochaine session : S1 — Carto repo file-by-file (mode MIX). On y va ?"
+  "S0 done. Branche `audit-massif-cycle3` cree, tag `pre-audit-cycle3` pose, baseline capturee dans `.archive/audit-massif/00-preflight.md`. Prochaine session : S1 — Carto repo file-by-file (mode MIX). On y va ?"
 
 ---
 
@@ -268,7 +268,7 @@ EOF
 
 ## Session S1 — Carto repo file-by-file (mode MIX)
 
-> Mode : MIX | Livrable : `docs/audit-massif/01-carto-repo.md`
+> Mode : MIX | Livrable : `.archive/audit-massif/01-carto-repo.md`
 > Sub-agents : 3 Explore en parallele sur dossiers ISOLES, MOI consolide
 
 ### Task S1.1 : Pre-session ritual (Steps PR1-PR8)
@@ -345,7 +345,7 @@ date, et 1-2 mots-cles.
 [CONTRAINTES]
 - Ne pas modifier
 - Pas hors de ces fichiers
-- Skip docs/audit-massif/ (cree par cet audit)
+- Skip .archive/audit-massif/ (cree par cet audit)
 
 [FORMAT DE SORTIE]
 Tableau MD avec colonnes : path | lines | role | keywords | category
@@ -361,7 +361,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 ### Task S1.4 : Ecrire le livrable 01-carto-repo.md
 
 **Files:**
-- Create: `docs/audit-massif/01-carto-repo.md`
+- Create: `.archive/audit-massif/01-carto-repo.md`
 
 - [ ] Step 1 : Ecrire le livrable selon template (objectif/methodo/findings/decisions/refs/oos/next)
   - Findings cles : top 5 anomalies decouvertes
@@ -370,13 +370,13 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ### Task S1.5 : Post-session ritual (Steps PO1-PO8)
 
-- [ ] Commit message : `audit(s01): carto repo file-by-file → docs/audit-massif/01-carto-repo.md`
+- [ ] Commit message : `audit(s01): carto repo file-by-file → .archive/audit-massif/01-carto-repo.md`
 
 ---
 
 ## Session S2 — Inventaire components + smoke tests (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/02-inventaire-components.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/02-inventaire-components.md`
 > 4 agents + 4 commands + 8 scripts (4 racine + 2 hooks + 2 git-hooks) + skills + MCP + CI workflows
 
 ### Task S2.1 : Pre-session ritual
@@ -423,14 +423,14 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 ### Task S2.7 : Ecrire livrable 02-inventaire-components.md
 
 **Files:**
-- Create: `docs/audit-massif/02-inventaire-components.md`
+- Create: `.archive/audit-massif/02-inventaire-components.md`
 
 - [ ] Step 1 : Ecrire selon template avec section dediee a chaque categorie (agents, commands, scripts, hooks, skills, MCP, CI)
 - [ ] Step 2 : Findings cles : 3-5 anomalies (orphelins, deprecates, missing, etc.)
 
 ### Task S2.8 : Post-session ritual
 
-- [ ] Commit message : `audit(s02): inventaire components + smoke tests → docs/audit-massif/02-inventaire-components.md`
+- [ ] Commit message : `audit(s02): inventaire components + smoke tests → .archive/audit-massif/02-inventaire-components.md`
 
 ---
 
@@ -438,7 +438,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ## Session S3 — OS Foundation + Core OS (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/03-fondations-core.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/03-fondations-core.md`
 > Verifier que les 4 piliers Core OS (Cortex/Memory/Monitor/Tools) sont reels
 
 ### Task S3.1 : Pre-session ritual
@@ -484,7 +484,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ## Session S4 — Architecture organicite/scalabilite/maintenabilite (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/04-architecture-orga.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/04-architecture-orga.md`
 
 ### Task S4.1 : Pre-session ritual
 
@@ -527,7 +527,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ## Session S5 — Workflows + commands + routing Cortex (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/05-workflows-routing.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/05-workflows-routing.md`
 > Run chaque command avec cas reel + cas piege + tester routing
 
 ### Task S5.1 : Pre-session ritual
@@ -577,7 +577,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ## Session S6 — Skills d'orchestration + automation + hooks chain (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/06-orchestration-automation.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/06-orchestration-automation.md`
 > Hooks PreToolUse, CI/CD chain end-to-end, git hooks, deploy
 
 ### Task S6.1 : Pre-session ritual
@@ -631,7 +631,7 @@ Tableau MD avec colonnes : path | lines | role | keywords | category
 
 ## Session S7 — Agents (4) deep + tests reels (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/07-agents.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/07-agents.md`
 > os-architect, dev-agent, doc-agent, review-agent
 
 ### Task S7.1 : Pre-session ritual
@@ -669,7 +669,7 @@ Pour CHAQUE agent (S7.3.1 = os-architect, S7.3.2 = dev, S7.3.3 = doc, S7.3.4 = r
 
 ## Session S8 — Commands (4) deep + tests reels (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/08-commands.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/08-commands.md`
 > session-start, session-end, new-project, sync
 
 ### Task S8.1 : Pre-session ritual
@@ -708,7 +708,7 @@ Pour CHAQUE command :
 
 ## Session S9 — Scripts + hooks (9) deep + tests (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/09-scripts-hooks.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/09-scripts-hooks.md`
 > 9 scripts : health-check, sync-check, ref-checker, module-scaffold, validate-void-glass, security-reminder, pre-commit, commit-msg + (potentiels autres)
 
 ### Task S9.1 : Pre-session ritual
@@ -759,7 +759,7 @@ Pour CHAQUE script :
 
 ## Session S10 — Skills + BMAD verdict (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/10-skills.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/10-skills.md`
 > Skills internes Foundation OS (probably aucun) + externes (superpowers, OMC, gstack, BMAD) + verdict BMAD definitif (SUGG-10)
 
 ### Task S10.1 : Pre-session ritual
@@ -800,7 +800,7 @@ Pour CHAQUE script :
 
 ## Session S11 — Communication + securite (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/11-comm-securite.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/11-comm-securite.md`
 
 ### Task S11.1 : Pre-session ritual
 
@@ -838,7 +838,7 @@ Pour CHAQUE script :
 
 ## Session S12 — Memoire (4 tiers) + anti-compactage (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/12-memory-anti-compactage.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/12-memory-anti-compactage.md`
 > SUGG-11 memory tier audit (reel vs theorie)
 
 ### Task S12.1 : Pre-session ritual
@@ -884,7 +884,7 @@ Pour CHAQUE script :
 
 ## Session S13 — Audit modules/app complet (mode MIX)
 
-> Mode : MIX | Livrable : `docs/audit-massif/13-module-app.md`
+> Mode : MIX | Livrable : `.archive/audit-massif/13-module-app.md`
 > Sub-agent OK pour lecture isolee, MOI pour logique mutations/auth/db
 
 ### Task S13.1 : Pre-session ritual
@@ -954,7 +954,7 @@ Tableau MD : finding | file:line | severite (P1/P2/P3) | preuve
 
 ## Session S14 — SUGG tech part 1 (perf + deps + types) (mode MIX)
 
-> Mode : MIX | Livrable : `docs/audit-massif/14-sugg-tech-1.md`
+> Mode : MIX | Livrable : `.archive/audit-massif/14-sugg-tech-1.md`
 > SUGG-1 perf + SUGG-6 deps (sub-agents) + SUGG-7 types (MOI)
 
 ### Task S14.1 : Pre-session ritual
@@ -1033,7 +1033,7 @@ deps non utilisees.
 
 ## Session S15 — SUGG tech part 2 (coverage + ci/cd + db + naming) (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/15-sugg-tech-2.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/15-sugg-tech-2.md`
 > SUGG-3 coverage + SUGG-4 ci/cd + SUGG-5 db + SUGG-8 naming
 
 ### Task S15.1 : Pre-session ritual
@@ -1084,7 +1084,7 @@ deps non utilisees.
 
 ## Session S16 — SUGG strategic (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/16-sugg-strategic.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/16-sugg-strategic.md`
 > SUGG-2 doc cognitif + SUGG-9 anti-bullshit + SUGG-12 multi-modules
 > (SUGG-10 BMAD verdict deja fait en S10, SUGG-11 memory tier deja en S12)
 
@@ -1123,7 +1123,7 @@ deps non utilisees.
 
 ## Session S17 — External research (mode SUB)
 
-> Mode : SUB | Livrable : `docs/audit-massif/17-external-research.md`
+> Mode : SUB | Livrable : `.archive/audit-massif/17-external-research.md`
 > 3 sub-agents en parallele, MOI consolide
 
 ### Task S17.1 : Pre-session ritual
@@ -1237,7 +1237,7 @@ Foundation OS (high/medium/low) + recommendation import (oui/non + comment).
 
 ## Session S18 — Cross-check independant (mode SUB)
 
-> Mode : SUB | Livrable : `docs/audit-massif/18-cross-check.md`
+> Mode : SUB | Livrable : `.archive/audit-massif/18-cross-check.md`
 > 3 sub-agents (verifier/critic/review-agent) sur findings phases 2-17
 
 ### Task S18.1 : Pre-session ritual
@@ -1315,14 +1315,14 @@ Tableau : fix_id | description | faisabilite (high/med/low) | risque regression
 
 ## Session S19 — Synthese transversale + roadmap fixes (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/19-synthese-roadmap.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/19-synthese-roadmap.md`
 > LE document maitre. **GATE G1 obligatoire avant S20.**
 
 ### Task S19.1 : Pre-session ritual
 
 ### Task S19.2 : Read tous les livrables S1-S18
 
-- [ ] Step 1 : Read sequentiel docs/audit-massif/01-*.md a 18-*.md
+- [ ] Step 1 : Read sequentiel .archive/audit-massif/01-*.md a 18-*.md
 - [ ] Step 2 : Capturer tous les findings categorise (confirmes apres cross-check S18)
 
 ### Task S19.3 : Consolidation findings P1/P2/P3
@@ -1372,7 +1372,7 @@ Tableau : fix_id | description | faisabilite (high/med/low) | risque regression
 
 ## Session S20 — Application batch P1 critiques (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/20-fixes-p1-applied.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/20-fixes-p1-applied.md`
 > Application + verification zero regression apres CHAQUE fix
 
 ### Task S20.1 : Pre-session ritual + verifier Gate G1 valide
@@ -1423,7 +1423,7 @@ Pour CHAQUE fix dans la liste batch P1 :
 
 ## Session S21 — Application batch P2 importants (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/21-fixes-p2-applied.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/21-fixes-p2-applied.md`
 > Memes steps que S20 mais pour batch P2
 
 ### Task S21.1 : Pre-session ritual + verifier S20 SAINE
@@ -1442,7 +1442,7 @@ Pour CHAQUE fix dans la liste batch P1 :
 
 ## Session S22 — Application batch P3 cosmetiques (mode MOI) — GATE G2
 
-> Mode : MOI | Livrable : `docs/audit-massif/22-fixes-p3-applied.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/22-fixes-p3-applied.md`
 
 ### Task S22.1 : Pre-session ritual + verifier S21 SAINE
 
@@ -1476,7 +1476,7 @@ Pour CHAQUE fix dans la liste batch P1 :
 
 ## Session S23 — Verification finale + rapport + PR (mode MOI)
 
-> Mode : MOI | Livrable : `docs/audit-massif/23-rapport-final.md`
+> Mode : MOI | Livrable : `.archive/audit-massif/23-rapport-final.md`
 > Re-run complet, comparaison baseline, PR audit-massif-cycle3 → main, GATE G3
 
 ### Task S23.1 : Pre-session ritual + verifier Gate G2 valide
@@ -1568,15 +1568,15 @@ Audit massif final Foundation OS execute en 24 sessions (S0-S23) selon spec
 
 ## Test plan
 
-- [ ] Reviewer le rapport final `docs/audit-massif/23-rapport-final.md`
+- [ ] Reviewer le rapport final `.archive/audit-massif/23-rapport-final.md`
 - [ ] Verifier les fixes appliques (commits S20-S22)
 - [ ] Run health-check + tests + build localement
 - [ ] Merger si OK
 
 ## Rapport detaille
 
-Voir `docs/audit-massif/23-rapport-final.md` (LE document maitre du rapport
-final) ainsi que les 23 livrables sessions dans `docs/audit-massif/`.
+Voir `.archive/audit-massif/23-rapport-final.md` (LE document maitre du rapport
+final) ainsi que les 23 livrables sessions dans `.archive/audit-massif/`.
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 EOF

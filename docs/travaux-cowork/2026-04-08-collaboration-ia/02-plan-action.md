@@ -139,7 +139,7 @@ Pour un projet solo (Kevin uniquement), Reach n'a plus de sens classique. Je le 
 - 🎯 **Objectif** : reduire la friction "qu'est-ce que je fais ensuite" en debut de session
 - 📝 **Implementation** :
   - Nouveau fichier `.claude/commands/triage.md`
-  - Workflow : (1) parser tous les findings open dans docs/audit-massif/*.md, (2) extraire priorite + estimation cout + bloquant Phase 5, (3) score, (4) afficher top 5
+  - Workflow : (1) parser tous les findings open dans .archive/audit-massif/*.md, (2) extraire priorite + estimation cout + bloquant Phase 5, (3) score, (4) afficher top 5
 - 💰 **Cout** : 2h
 - ✅ **Acceptance** : `/triage` retourne une liste ordonnee avec ID + score + raison
 

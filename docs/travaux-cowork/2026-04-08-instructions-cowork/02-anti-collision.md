@@ -35,7 +35,7 @@ En production : 1 + 2 + 3 + 4 + 5 suffisent. 6 + 7 si on observe des collisions 
 | `CONTEXT.md` | partagé | ✅ avec verrou | ✅ avec verrou |
 | `docs/core/*` | partagé | 🟡 lecture, écriture sur demande | ✅ |
 | `docs/travaux-cowork/**` | partagé | ✅ | ✅ |
-| `docs/specs/`, `docs/plans/`, `docs/audit-massif/` | partagé | ✅ livrables | ✅ livrables |
+| `docs/specs/`, `docs/plans/`, `.archive/audit-massif/` | partagé | ✅ livrables | ✅ livrables |
 | `modules/app/data/*.md` (MD pairs) | partagé | ✅ | ✅ |
 | `.archive/artifacts-jsx/*` | gelé | 🟡 read | 🟡 read |
 | `_bmad/` | dormant | 🚫 | 🚫 |

@@ -45,7 +45,7 @@
 Foundation OS
 ├── modules/app/        React+TS+Vite+Tailwind+Supabase, deploye Vercel
 ├── docs/core/          4 specs piliers (cortex, memory, monitor, tools) + architecture-core
-├── docs/audit-massif/  Cycle 3 (S0-S6 DONE, S7-S23 PENDING)
+├── .archive/audit-massif/  Cycle 3 (S0-S6 DONE, S7-S23 PENDING)
 ├── docs/plans/         Plans actifs/historiques
 ├── docs/specs/         Designs versionnes
 ├── docs/decisions-log.md  17 ADRs archivees

@@ -189,7 +189,7 @@ L'audit doit couvrir TOUS les aspects suivants :
 
 | #   | Phase | Session | Mode | Livrable | Detail |
 |-----|-------|---------|------|----------|--------|
-| S0  | 0 — Pre-flight | Setup baseline | [MOI] | 00-preflight.md | Push 3 commits Kevin, branche audit-massif-cycle3, tag pre-audit-cycle3, mkdir docs/audit-massif/, init 00-INDEX.md |
+| S0  | 0 — Pre-flight | Setup baseline | [MOI] | 00-preflight.md | Push 3 commits Kevin, branche audit-massif-cycle3, tag pre-audit-cycle3, mkdir .archive/audit-massif/, init 00-INDEX.md |
 | S1  | I — Reconnaissance | Carto repo file-by-file | [MIX] | 01-carto-repo.md | Sub-agents Explore en parallele sur dossiers ISOLES (modules/app/src, .github, supabase), MOI consolide tableau exhaustif |
 | S2  | I — Reconnaissance | Inventaire components + smoke tests | [MOI] | 02-inventaire-components.md | 4 agents, 4 commands, 9 scripts, 2 hooks, skills, MCP, CI workflows. Run --help / status sur chacun |
 | S3  | II — Fondations | OS Foundation + Core OS (4 piliers) | [MOI] | 03-fondations-core.md | Cortex/Memory/Monitor/Tools : reels ou theoriques ? Test chacun |
@@ -227,7 +227,7 @@ L'audit doit couvrir TOUS les aspects suivants :
 - [ ] Annonce de l'objectif precis a Kevin
 
 **Done criteria** (pour cloturer chaque session) :
-- [ ] Livrable docs/audit-massif/[session].md ecrit, source line:file pour chaque finding
+- [ ] Livrable .archive/audit-massif/[session].md ecrit, source line:file pour chaque finding
 - [ ] Aucun bullshit / aucune metrique inventee (auto-revue avant cloture)
 - [ ] Pour sessions S20-S22 : health/sync/refs/vitest/build apres CHAQUE fix
 - [ ] 00-INDEX.md mis a jour (status DONE)
@@ -243,7 +243,7 @@ L'audit doit couvrir TOUS les aspects suivants :
 
 ### 3.4 · Livrables
 
-**24 livrables MD** dans `docs/audit-massif/` (00 a 23) + 1 master file `docs/plans/2026-04-07-audit-massif-final.md` (ce fichier).
+**24 livrables MD** dans `.archive/audit-massif/` (00 a 23) + 1 master file `docs/plans/2026-04-07-audit-massif-final.md` (ce fichier).
 
 **Template livrable session** (applique a chaque MD) :
 ```
@@ -334,7 +334,7 @@ ID format : `F-S<NN>-<num>` (F = finding, S<NN> = numero session, num = sequenti
 - Format conventional commits : `audit(s<NN>): <description courte>`
 - Exemples :
   - `audit(s00): preflight setup branche audit-massif-cycle3 + tag baseline`
-  - `audit(s01): carto repo file-by-file → docs/audit-massif/01-carto-repo.md`
+  - `audit(s01): carto repo file-by-file → .archive/audit-massif/01-carto-repo.md`
   - `audit(s20): apply fixes batch P1 (5 critiques)`
 - Sur la branche `audit-massif-cycle3` UNIQUEMENT, jamais sur main
 - PR finale en S23 avec body detaille (voir section 3.4 livrables)
@@ -349,13 +349,13 @@ Si la conversation Claude est compactee ou si une nouvelle session commence :
 
 1. Lire `CONTEXT.md` section "Cycle 3 progress" → trouver la prochaine session non DONE
 2. Lire `CONTEXT.md` section "Prochaine action" → scope et contexte
-3. Lire le dernier livrable `docs/audit-massif/[derniere-session-DONE].md` section 8 (Next)
+3. Lire le dernier livrable `.archive/audit-massif/[derniere-session-DONE].md` section 8 (Next)
 4. Verifier `git status` + `git log --oneline -5` + branche `audit-massif-cycle3`
 5. Lancer `bash scripts/health-check.sh`
 6. Reprendre a la prochaine session non DONE
 
 **Les findings et rapports detailles de l'audit seront sauvegardes dans** :
-`docs/audit-massif/` (a creer en S0, pas pendant la preparation).
+`.archive/audit-massif/` (a creer en S0, pas pendant la preparation).
 
 ---
 
@@ -378,4 +378,4 @@ Si la conversation Claude est compactee ou si une nouvelle session commence :
 
 > **DEPRECIE** (2026-04-10, fix F-S12-01 P1). Cette section etait stale depuis S1 (drift 12 sessions).
 > Source de verite unique pour le suivi des sessions : **`CONTEXT.md` section "Cycle 3 progress"**.
-> Les decisions Kevin et findings cles sont dans chaque livrable `docs/audit-massif/NN-*.md` section 4 et 8.
+> Les decisions Kevin et findings cles sont dans chaque livrable `.archive/audit-massif/NN-*.md` section 4 et 8.

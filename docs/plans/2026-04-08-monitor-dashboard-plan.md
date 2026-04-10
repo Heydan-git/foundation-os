@@ -126,7 +126,7 @@ To :
 
 New entry :
 ```
-| 2026-04-08 | **[IN_PROGRESS] Dashboard monitor D1/3 — Spec + plan + pause cycle3**. Mini-projet outil interne meta-OS lance en pause du mega audit cycle3. Sur branche audit-massif-cycle3. Session precedente avait bugge mais S7 deja livre sur disque (docs/audit-massif/07-agents.md 402L DONE 2026-04-08, a integrer dans CONTEXT.md en S7.5 plus tard). Kevin demande mise en pause du mega audit pour construire un dashboard HTML qui monitore visuellement tous les plans + modules + initiatives + decisions + sessions. Brainstorm + design spec valide en 3 questions (forme/scope/update) + 5 sections presentees + full approval. Spec committee docs/specs/2026-04-08-monitor-dashboard-design.md (374L, commit b15cdc0) puis plan committee docs/plans/2026-04-08-monitor-dashboard-plan.md. **5 decisions D-MON-01..05** : (01) standalone HTML docs/monitor/ pas React, (02) scope large plans+modules+initiatives+decisions+sessions, (03) update manuel v1 via nouvelle etape session-end, (04) extraction docs/design-system/tokens.css partagee = enrichir le DS comme demande Kevin, (05) decoupage 3 sessions D1/D2/D3 pattern S6 anti-compactage. **4 nouveaux tokens Void Glass identifies** : --fos-accent-wip/paused/parking/archived (cibles #3B82F6/#F59E0B/#A78BFA/rgba white 12%, les 2 derniers derives des orbs existants). Health check DEGRADED 11→23 refs cassees (forward-refs spec vers futurs fichiers, normales pour design doc, se resorberont en D2/D3). Zero regression modules/app (build 769ms OK, 19/19 tests). 2 commits : (spec) b15cdc0 + (plan) a venir. Prochaine : Session D2 implementation skeleton. |
+| 2026-04-08 | **[IN_PROGRESS] Dashboard monitor D1/3 — Spec + plan + pause cycle3**. Mini-projet outil interne meta-OS lance en pause du mega audit cycle3. Sur branche audit-massif-cycle3. Session precedente avait bugge mais S7 deja livre sur disque (.archive/audit-massif/07-agents.md 402L DONE 2026-04-08, a integrer dans CONTEXT.md en S7.5 plus tard). Kevin demande mise en pause du mega audit pour construire un dashboard HTML qui monitore visuellement tous les plans + modules + initiatives + decisions + sessions. Brainstorm + design spec valide en 3 questions (forme/scope/update) + 5 sections presentees + full approval. Spec committee docs/specs/2026-04-08-monitor-dashboard-design.md (374L, commit b15cdc0) puis plan committee docs/plans/2026-04-08-monitor-dashboard-plan.md. **5 decisions D-MON-01..05** : (01) standalone HTML docs/monitor/ pas React, (02) scope large plans+modules+initiatives+decisions+sessions, (03) update manuel v1 via nouvelle etape session-end, (04) extraction docs/design-system/tokens.css partagee = enrichir le DS comme demande Kevin, (05) decoupage 3 sessions D1/D2/D3 pattern S6 anti-compactage. **4 nouveaux tokens Void Glass identifies** : --fos-accent-wip/paused/parking/archived (cibles #3B82F6/#F59E0B/#A78BFA/rgba white 12%, les 2 derniers derives des orbs existants). Health check DEGRADED 11→23 refs cassees (forward-refs spec vers futurs fichiers, normales pour design doc, se resorberont en D2/D3). Zero regression modules/app (build 769ms OK, 19/19 tests). 2 commits : (spec) b15cdc0 + (plan) a venir. Prochaine : Session D2 implementation skeleton. |
 ```
 
 - [ ] **Step 5** : Update Prochaine action section — replace current action 1 with dashboard D2
@@ -137,7 +137,7 @@ Replace existing action 1 with :
 
 2. **Dashboard monitor — Session D3 integration**. Apres D2. README.md + /session-end step 5.5 + tests visuels finaux + CONTEXT.md dashboard DONE. Plan section Session D3.
 
-3. **Cycle 3 — S7.5 integration + reprise S8 Commands deep** (apres dashboard D3). S7 Agents est DONE sur disque (docs/audit-massif/07-agents.md 402L) mais non integre CONTEXT.md, a integrer en debut de session reprise. Puis S8 commands (4) deep audit. Decision D-S7-01 inchangee : audit lineaire S8-S23 puis fixes en bloc.
+3. **Cycle 3 — S7.5 integration + reprise S8 Commands deep** (apres dashboard D3). S7 Agents est DONE sur disque (.archive/audit-massif/07-agents.md 402L) mais non integre CONTEXT.md, a integrer en debut de session reprise. Puis S8 commands (4) deep audit. Decision D-S7-01 inchangee : audit lineaire S8-S23 puis fixes en bloc.
 
 4. **Phase 5 Expansion** (apres cycle3 S23 + fixes + G3 merge) : inchange.
 
@@ -695,7 +695,7 @@ Expected : page still mostly blank (no data yet), but background is `#06070C`, f
 **Files:**
 - Create : `docs/monitor/data.js`
 
-**Rationale :** Canonical snapshot of Foundation OS state at 2026-04-08 D2 session. Hand-extracted from CONTEXT.md + docs/plans/ + docs/audit-massif/.
+**Rationale :** Canonical snapshot of Foundation OS state at 2026-04-08 D2 session. Hand-extracted from CONTEXT.md + docs/plans/ + .archive/audit-massif/.
 
 - [ ] **Step 1** : Write full data.js
 
@@ -1647,7 +1647,7 @@ New entry :
 - [ ] **Step 3** : Update Prochaine action — replace dashboard items with cycle3 resume
 
 ```
-1. **Cycle 3 — S7.5 integration CONTEXT.md + reprise S8 Commands deep** (mode MOI strict). Sur branche audit-massif-cycle3. S7 Agents est DONE sur disque (docs/audit-massif/07-agents.md 402L DONE 2026-04-08 par session qui avait bugge). Integration S7.5 = ajouter S7 dans Cycle3 progress table + update nextAction + lire 07-agents.md pour extraire findings/decisions/learnings. Puis enchainer S8 Commands (4) deep audit (4 commands : session-start, session-end, new-project, sync) selon plan cycle3 ligne ~700+. Mode MOI strict 8e consecutive. Decision D-S7-01 inchangee : audit lineaire puis fixes en bloc.
+1. **Cycle 3 — S7.5 integration CONTEXT.md + reprise S8 Commands deep** (mode MOI strict). Sur branche audit-massif-cycle3. S7 Agents est DONE sur disque (.archive/audit-massif/07-agents.md 402L DONE 2026-04-08 par session qui avait bugge). Integration S7.5 = ajouter S7 dans Cycle3 progress table + update nextAction + lire 07-agents.md pour extraire findings/decisions/learnings. Puis enchainer S8 Commands (4) deep audit (4 commands : session-start, session-end, new-project, sync) selon plan cycle3 ligne ~700+. Mode MOI strict 8e consecutive. Decision D-S7-01 inchangee : audit lineaire puis fixes en bloc.
 
 2. **Phase 5 Expansion** (apres cycle3 S23 + fixes + G3 merge) : inchange, choisir Finance/Sante/Trading.
 
