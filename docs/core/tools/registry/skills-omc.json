@@ -1,0 +1,866 @@
+[
+  {
+    "id": "omc-autopilot",
+    "name": "Autopilot",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:autopilot",
+    "description": "Execution autonome complete : de l'idee au code fonctionnel. Brainstorm, plan, code, test, commit en un seul flow",
+    "usage": "/oh-my-claudecode:autopilot ou keyword 'autopilot'",
+    "triggers": ["autopilot", "autonome", "fais tout", "de a a z", "execute tout seul"],
+    "when_to_use": "Tache claire avec scope defini quand on veut une execution complete sans interruption. Ideal pour features bien definies",
+    "when_not_to_use": "Tache ambigue necessitant des clarifications. Quand le contexte global est critique (sous-agents). Quand Kevin veut valider chaque etape",
+    "depends_on": [],
+    "outputs": "Code fonctionnel, tests, commit",
+    "examples": [
+      {
+        "situation": "Implementer une feature complete",
+        "command": "autopilot: ajoute la page settings",
+        "result": "Feature implementee, testee, committee"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ralph",
+    "name": "Ralph Loop",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ralph",
+    "description": "Boucle auto-referentielle jusqu'a completion de la tache avec verification configurable. Itere jusqu'a ce que le critere de succes soit atteint",
+    "usage": "/oh-my-claudecode:ralph ou keyword 'ralph'",
+    "triggers": ["ralph", "boucle", "iterate", "jusqu'a ce que", "loop until"],
+    "when_to_use": "Tache avec critere de succes clair mais qui peut necessiter plusieurs iterations (fix de bugs, optimisation, convergence)",
+    "when_not_to_use": "Tache exploratoire sans critere de fin clair. Quand une seule passe suffit",
+    "depends_on": [],
+    "outputs": "Tache completee avec verification de succes",
+    "examples": [
+      {
+        "situation": "Fixer tous les tests cassés",
+        "command": "ralph: tous les tests doivent passer",
+        "result": "Itere fix par fix jusqu'a 100% tests verts"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ultrawork",
+    "name": "Ultrawork",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ultrawork",
+    "description": "Moteur d'execution parallele pour completion de taches a haut debit. Dispatche des agents en parallele sur des sous-taches independantes",
+    "usage": "/oh-my-claudecode:ultrawork ou keyword 'ulw'",
+    "triggers": ["ultrawork", "ulw", "parallele", "haut debit", "batch"],
+    "when_to_use": "2+ taches independantes qui peuvent etre travaillees en parallele. Gros volume de travail decomposable",
+    "when_not_to_use": "Taches sequentielles avec dependances. Tache unique simple",
+    "depends_on": [],
+    "outputs": "Toutes les sous-taches completees en parallele",
+    "examples": [
+      {
+        "situation": "Documenter 10 fichiers en parallele",
+        "command": "ulw: documente tous les composants dans src/components/",
+        "result": "10 agents documentent en parallele"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-team",
+    "name": "Team",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:team",
+    "description": "N agents coordonnes sur une liste de taches partagee en mode equipe Claude Code natif",
+    "usage": "/oh-my-claudecode:team",
+    "triggers": ["team", "equipe", "agents coordonnes", "collaboration"],
+    "when_to_use": "Gros chantier necessitant plusieurs agents coordonnes avec une task list partagee",
+    "when_not_to_use": "Tache simple faisable par un seul agent. Quand le contexte global est critique",
+    "depends_on": [],
+    "outputs": "Task list completee par l'equipe d'agents",
+    "examples": [
+      {
+        "situation": "Refactoring multi-fichiers",
+        "command": "/oh-my-claudecode:team",
+        "result": "Agents repartis sur les fichiers, coordination via task list"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ralplan",
+    "name": "Ralplan",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ralplan",
+    "description": "Point d'entree consensus planning — bloque les demandes vagues ralph/autopilot/team avec un gate de clarification avant execution",
+    "usage": "/oh-my-claudecode:ralplan ou keyword 'ralplan'",
+    "triggers": ["ralplan", "planifier avant", "clarifie d'abord"],
+    "when_to_use": "Quand une demande est trop vague pour autopilot/ralph/team. Force la clarification avant execution",
+    "when_not_to_use": "Demande deja claire et bien definie — utiliser directement autopilot/ralph",
+    "depends_on": [],
+    "outputs": "Plan clarifie puis execution via le bon workflow",
+    "examples": [
+      {
+        "situation": "Demande vague type 'ameliore le projet'",
+        "command": "ralplan: ameliore le projet",
+        "result": "Questions de clarification puis execution ciblee"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-plan",
+    "name": "Plan",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:plan",
+    "description": "Planning strategique avec workflow d'interview optionnel. Analyse, decompose, et planifie avant execution",
+    "usage": "/oh-my-claudecode:plan",
+    "triggers": ["plan omc", "planification strategique"],
+    "when_to_use": "Besoin de planifier une approche complexe avant de coder. Alternative au brainstorming Superpowers",
+    "when_not_to_use": "Tache simple sans besoin de planification. Utiliser superpowers:brainstorming pour le design",
+    "depends_on": [],
+    "outputs": "Plan structure avec etapes",
+    "examples": [
+      {
+        "situation": "Planifier un nouveau module",
+        "command": "/oh-my-claudecode:plan",
+        "result": "Plan detaille avec phases et etapes"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ultraqa",
+    "name": "UltraQA",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ultraqa",
+    "description": "Workflow de QA cyclique : test → verifie → fix → repete jusqu'a ce que l'objectif soit atteint",
+    "usage": "/oh-my-claudecode:ultraqa",
+    "triggers": ["ultraqa", "qa", "quality assurance", "test cycle"],
+    "when_to_use": "Verification exhaustive d'une feature ou d'un module. Cycle test-fix-retest automatise",
+    "when_not_to_use": "Tests unitaires simples (vitest directement). Premiere implementation (coder d'abord)",
+    "depends_on": [],
+    "outputs": "Feature verifiee, bugs fixes, tests verts",
+    "examples": [
+      {
+        "situation": "QA complete d'une page",
+        "command": "/oh-my-claudecode:ultraqa",
+        "result": "Cycle test-fix-retest jusqu'a 100% fonctionnel"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-cancel",
+    "name": "Cancel",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:cancel",
+    "description": "Annule tout mode d'execution actif (autopilot, ralph, ultrawork, team, etc.)",
+    "usage": "/oh-my-claudecode:cancel ou keyword 'cancelomc'",
+    "triggers": ["cancel", "cancelomc", "arrete", "stop omc"],
+    "when_to_use": "Quand un mode d'execution est actif et qu'on veut l'arreter. Quand le travail est termine ou bloque",
+    "when_not_to_use": "Quand aucun mode n'est actif",
+    "depends_on": [],
+    "outputs": "Mode annule, retour au mode normal",
+    "examples": [
+      {
+        "situation": "Arreter un autopilot en cours",
+        "command": "cancelomc",
+        "result": "Mode autopilot annule"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-deep-interview",
+    "name": "Deep Interview",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:deep-interview",
+    "description": "Interview socratique approfondie avec gating mathematique d'ambiguite avant execution autonome",
+    "usage": "/oh-my-claudecode:deep-interview ou keyword 'deep interview'",
+    "triggers": ["deep interview", "interview", "socratique", "clarifier en profondeur"],
+    "when_to_use": "Quand une demande est complexe et necessite une exploration approfondie des besoins avant de coder",
+    "when_not_to_use": "Demande simple et claire. Quand on veut aller vite sans interview",
+    "depends_on": [],
+    "outputs": "Requirements cristallises puis execution",
+    "examples": [
+      {
+        "situation": "Definir les specs d'un module complexe",
+        "command": "/oh-my-claudecode:deep-interview",
+        "result": "Serie de questions socratiques puis specs claires"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-deep-dive",
+    "name": "Deep Dive",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:deep-dive",
+    "description": "Pipeline 2 etapes : trace (investigation causale) → deep-interview (cristallisation requirements) avec injection 3 points",
+    "usage": "/oh-my-claudecode:deep-dive",
+    "triggers": ["deep dive", "investigation profonde", "analyse complete"],
+    "when_to_use": "Besoin d'investiguer un probleme en profondeur puis de cristalliser les requirements",
+    "when_not_to_use": "Probleme simple avec cause evidente. Quand on connait deja la solution",
+    "depends_on": [],
+    "outputs": "Investigation causale + requirements cristallises",
+    "examples": [
+      {
+        "situation": "Bug complexe multi-couches",
+        "command": "/oh-my-claudecode:deep-dive",
+        "result": "Trace causale puis requirements clairs pour le fix"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-trace",
+    "name": "Trace",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:trace",
+    "description": "Tracing causal base sur des preuves — orchestre des hypotheses concurrentes avec agents traceurs en mode equipe Claude",
+    "usage": "/oh-my-claudecode:trace",
+    "triggers": ["trace", "tracer", "cause racine", "hypotheses"],
+    "when_to_use": "Bug complexe avec plusieurs causes possibles. Besoin de tester des hypotheses concurrentes",
+    "when_not_to_use": "Bug simple avec stack trace evidente. Probleme non-reproductible",
+    "depends_on": [],
+    "outputs": "Hypothese gagnante avec preuves, recommandation de fix",
+    "examples": [
+      {
+        "situation": "Regression inexpliquee",
+        "command": "/oh-my-claudecode:trace",
+        "result": "3 hypotheses testees en parallele, cause racine identifiee"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 4,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-debug",
+    "name": "Debug",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:debug",
+    "description": "Diagnostique la session OMC ou l'etat du repo en utilisant logs, traces, state, et reproduction ciblee",
+    "usage": "/oh-my-claudecode:debug",
+    "triggers": ["debug omc", "diagnostique", "session cassee", "omc marche pas"],
+    "when_to_use": "Quand OMC ou une session ne fonctionne pas correctement. Problemes de configuration ou d'etat",
+    "when_not_to_use": "Debug de code applicatif (utiliser systematic-debugging). Bug dans le code projet",
+    "depends_on": [],
+    "outputs": "Diagnostic avec cause et solution",
+    "examples": [
+      {
+        "situation": "OMC ne repond pas correctement",
+        "command": "/oh-my-claudecode:debug",
+        "result": "Diagnostic : state corrompu, solution : reset state"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-verify",
+    "name": "Verify",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:verify",
+    "description": "Verifie qu'un changement fonctionne reellement avant de clamer completion. Evidence-based verification",
+    "usage": "/oh-my-claudecode:verify",
+    "triggers": ["verify", "verifie omc", "ca marche vraiment"],
+    "when_to_use": "Apres avoir implemente un changement, pour verifier qu'il fonctionne reellement (pas juste 'ca devrait marcher')",
+    "when_not_to_use": "Avant d'avoir code quoi que ce soit. Pour un audit complet (utiliser review-agent)",
+    "depends_on": [],
+    "outputs": "Preuve que le changement fonctionne (ou pas)",
+    "examples": [
+      {
+        "situation": "Verifier qu'un fix est reel",
+        "command": "/oh-my-claudecode:verify",
+        "result": "Test execute, output montre, verification factuelle"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ai-slop-cleaner",
+    "name": "AI Slop Cleaner",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ai-slop-cleaner",
+    "description": "Nettoie le code genere par IA (slop) avec un workflow deletion-first safe pour les regressions, mode reviewer-only optionnel",
+    "usage": "/oh-my-claudecode:ai-slop-cleaner ou keyword 'deslop' ou 'anti-slop'",
+    "triggers": ["deslop", "anti-slop", "slop", "nettoie code ia", "code genere"],
+    "when_to_use": "Apres generation de code par IA pour nettoyer le bloat, les commentaires inutiles, les abstractions prematurees",
+    "when_not_to_use": "Code ecrit manuellement. Code deja propre et minimal",
+    "depends_on": [],
+    "outputs": "Code nettoye, regressions verifiees",
+    "examples": [
+      {
+        "situation": "Nettoyer du code genere",
+        "command": "deslop",
+        "result": "Code simplifie, tests toujours verts"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ccg",
+    "name": "CCG (Claude-Codex-Gemini)",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ccg",
+    "description": "Orchestration tri-modele : envoie la question a Codex et Gemini via /ask, puis Claude synthetise les resultats",
+    "usage": "/oh-my-claudecode:ccg ou keyword 'ccg'",
+    "triggers": ["ccg", "tri-modele", "claude codex gemini", "3 modeles"],
+    "when_to_use": "Decision technique ou on veut plusieurs perspectives de modeles differents",
+    "when_not_to_use": "Tache simple sans besoin de consensus multi-modele. Execution (pas de l'analyse)",
+    "depends_on": [],
+    "outputs": "Synthese des 3 perspectives avec recommandation",
+    "examples": [
+      {
+        "situation": "Choisir entre 2 architectures",
+        "command": "ccg: quelle architecture pour le module Finance ?",
+        "result": "3 perspectives synthetisees en recommandation"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-sciomc",
+    "name": "SciOMC",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:sciomc",
+    "description": "Orchestre des agents scientifiques en parallele pour analyse comprehensive avec mode AUTO",
+    "usage": "/oh-my-claudecode:sciomc",
+    "triggers": ["sciomc", "scientifique", "analyse data", "recherche"],
+    "when_to_use": "Analyse de donnees ou recherche necessitant plusieurs angles d'investigation en parallele",
+    "when_not_to_use": "Tache de code standard. Analyse simple faisable en une passe",
+    "depends_on": [],
+    "outputs": "Analyse comprehensive multi-angle",
+    "examples": [
+      {
+        "situation": "Analyser les patterns d'utilisation",
+        "command": "/oh-my-claudecode:sciomc",
+        "result": "Analyse multi-agent avec synthese"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-external-context",
+    "name": "External Context",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:external-context",
+    "description": "Invoque des agents document-specialist en parallele pour recherches web externes et consultation de documentation",
+    "usage": "/oh-my-claudecode:external-context",
+    "triggers": ["external context", "documentation externe", "recherche web", "docs api"],
+    "when_to_use": "Besoin de consulter de la documentation externe, des API docs, ou de faire de la recherche web pour un contexte technique",
+    "when_not_to_use": "Information disponible dans le projet. Question sur le code existant (utiliser explore)",
+    "depends_on": [],
+    "outputs": "Documentation et contexte externe agrege",
+    "examples": [
+      {
+        "situation": "Comprendre une API externe",
+        "command": "/oh-my-claudecode:external-context",
+        "result": "Documentation API recuperee et synthetisee"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 5,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-self-improve",
+    "name": "Self Improve",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:self-improve",
+    "description": "Moteur d'amelioration de code evolutif autonome avec selection par tournoi",
+    "usage": "/oh-my-claudecode:self-improve",
+    "triggers": ["self improve", "amelioration autonome", "evolution code"],
+    "when_to_use": "Quand on veut que le code s'ameliore iterativement avec selection des meilleures variantes",
+    "when_not_to_use": "Changement cible avec spec precise. Code qui n'a pas besoin d'optimisation",
+    "depends_on": [],
+    "outputs": "Code ameliore via selection evolutive",
+    "examples": [
+      {
+        "situation": "Optimiser un algorithme",
+        "command": "/oh-my-claudecode:self-improve",
+        "result": "Variantes testees, meilleure selectionnee"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-skillify",
+    "name": "Skillify",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:skillify",
+    "description": "Transforme un workflow repetitif de la session courante en un skill OMC reutilisable",
+    "usage": "/oh-my-claudecode:skillify",
+    "triggers": ["skillify", "creer skill", "transformer en skill"],
+    "when_to_use": "Quand un workflow se repete et merite d'etre formalise en skill reutilisable",
+    "when_not_to_use": "Workflow unique qui ne se repetera pas. Skill qui existe deja",
+    "depends_on": [],
+    "outputs": "Draft de skill OMC pret a etre installe",
+    "examples": [
+      {
+        "situation": "Formaliser un workflow de review",
+        "command": "/oh-my-claudecode:skillify",
+        "result": "Skill draft cree a partir du workflow de la session"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-learner",
+    "name": "Learner",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:learner",
+    "description": "Extrait un skill appris de la conversation courante",
+    "usage": "/oh-my-claudecode:learner",
+    "triggers": ["learner", "apprendre", "extraire skill"],
+    "when_to_use": "Apres avoir resolu un probleme de maniere interessante, pour capturer la methode en skill",
+    "when_not_to_use": "Pas de pattern interessant dans la session",
+    "depends_on": [],
+    "outputs": "Skill appris extrait",
+    "examples": [
+      {
+        "situation": "Capturer une methode de debug",
+        "command": "/oh-my-claudecode:learner",
+        "result": "Skill de debug capture depuis la session"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-remember",
+    "name": "Remember",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:remember",
+    "description": "Revue des connaissances projet reutilisables — decide ce qui va en project memory, notepad, ou docs durables",
+    "usage": "/oh-my-claudecode:remember",
+    "triggers": ["remember", "retiens", "memorise", "sauvegarde connaissance"],
+    "when_to_use": "En fin de session pour sauvegarder les apprentissages. Quand Kevin dit 'retiens ca'",
+    "when_not_to_use": "Information deja dans CONTEXT.md ou CLAUDE.md",
+    "depends_on": [],
+    "outputs": "Connaissance sauvegardee dans le bon tier",
+    "examples": [
+      {
+        "situation": "Sauvegarder un pattern decouvert",
+        "command": "/oh-my-claudecode:remember",
+        "result": "Pattern sauve en project memory"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 6,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-deepinit",
+    "name": "Deep Init",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:deepinit",
+    "description": "Initialisation profonde de codebase avec documentation hierarchique AGENTS.md",
+    "usage": "/oh-my-claudecode:deepinit",
+    "triggers": ["deepinit", "init profond", "initialiser codebase"],
+    "when_to_use": "Premier setup d'un projet existant avec OMC. Generer la documentation AGENTS.md hierarchique",
+    "when_not_to_use": "Projet deja initialise avec OMC. Projet Foundation OS (deja setup)",
+    "depends_on": [],
+    "outputs": "AGENTS.md hierarchique genere",
+    "examples": [
+      {
+        "situation": "Initialiser un nouveau repo",
+        "command": "/oh-my-claudecode:deepinit",
+        "result": "Documentation AGENTS.md generee pour tout le codebase"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-visual-verdict",
+    "name": "Visual Verdict",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:visual-verdict",
+    "description": "QA visuelle structuree — verdict pour comparaisons screenshot vs reference",
+    "usage": "/oh-my-claudecode:visual-verdict",
+    "triggers": ["visual verdict", "qa visuelle", "comparaison screenshot"],
+    "when_to_use": "Comparer un screenshot de l'UI avec une reference pour verifier la fidelite visuelle",
+    "when_not_to_use": "QA fonctionnelle (utiliser ultraqa). Tests unitaires",
+    "depends_on": [],
+    "outputs": "Verdict structure avec differences annotees",
+    "examples": [
+      {
+        "situation": "Verifier qu'une page matche le design Figma",
+        "command": "/oh-my-claudecode:visual-verdict",
+        "result": "Verdict avec liste des ecarts visuels"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-hud",
+    "name": "HUD",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:hud",
+    "description": "Configure les options d'affichage du HUD OMC (layout, presets, elements affiches)",
+    "usage": "/oh-my-claudecode:hud",
+    "triggers": ["hud", "affichage omc", "display omc"],
+    "when_to_use": "Configurer ce que le HUD affiche pendant les sessions OMC",
+    "when_not_to_use": "Pas besoin de configurer l'affichage",
+    "depends_on": [],
+    "outputs": "Configuration HUD mise a jour",
+    "examples": [
+      {
+        "situation": "Changer le layout du HUD",
+        "command": "/oh-my-claudecode:hud",
+        "result": "HUD reconfigure"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-project-session-manager",
+    "name": "Project Session Manager",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:project-session-manager",
+    "description": "Gestionnaire d'environnement dev worktree-first pour issues, PRs, et features avec sessions tmux optionnelles",
+    "usage": "/oh-my-claudecode:project-session-manager",
+    "triggers": ["session manager", "worktree", "issue branch", "pr branch"],
+    "when_to_use": "Gerer des branches de travail isolees pour issues/PRs avec worktrees git",
+    "when_not_to_use": "Travail direct sur main. Projet simple sans branches",
+    "depends_on": ["git", "tmux"],
+    "outputs": "Worktree cree avec session tmux",
+    "examples": [
+      {
+        "situation": "Travailler sur une issue isolee",
+        "command": "/oh-my-claudecode:project-session-manager",
+        "result": "Worktree cree, branche isolee, session tmux ouverte"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-ask",
+    "name": "Ask",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:ask",
+    "description": "Routeur process-first pour Claude, Codex, ou Gemini via omc ask, avec capture d'artifacts",
+    "usage": "/oh-my-claudecode:ask",
+    "triggers": ["ask", "demande a codex", "demande a gemini"],
+    "when_to_use": "Poser une question a un autre modele (Codex, Gemini) pour obtenir une perspective differente",
+    "when_not_to_use": "Question simple que Claude peut repondre seul",
+    "depends_on": [],
+    "outputs": "Reponse du modele cible avec artifacts",
+    "examples": [
+      {
+        "situation": "Demander l'avis de Gemini",
+        "command": "/oh-my-claudecode:ask gemini: comment structurer X",
+        "result": "Reponse Gemini capturee"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-skill",
+    "name": "Skill Manager",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:skill",
+    "description": "Gestion des skills locales — lister, ajouter, supprimer, chercher, editer, wizard de setup",
+    "usage": "/oh-my-claudecode:skill",
+    "triggers": ["skill manager", "gerer skills", "ajouter skill", "lister skills"],
+    "when_to_use": "Gerer les skills OMC installees : ajouter, supprimer, lister, configurer",
+    "when_not_to_use": "Utiliser une skill (invocation directe). Creer une skill (utiliser skillify)",
+    "depends_on": [],
+    "outputs": "Liste, ajout, ou suppression de skills",
+    "examples": [
+      {
+        "situation": "Lister les skills installees",
+        "command": "/oh-my-claudecode:skill list",
+        "result": "Liste de toutes les skills avec descriptions"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-omc-reference",
+    "name": "OMC Reference",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:omc-reference",
+    "description": "Catalogue d'agents OMC, outils disponibles, routing pipeline equipe, protocole commit, et registre de skills. Auto-charge lors de delegation",
+    "usage": "/oh-my-claudecode:omc-reference",
+    "triggers": ["omc reference", "catalogue agents", "reference omc"],
+    "when_to_use": "Consulter la reference complete OMC : agents, tools, pipelines, protocoles",
+    "when_not_to_use": "Utilisation normale — ce n'est qu'une reference",
+    "depends_on": [],
+    "outputs": "Documentation de reference OMC",
+    "examples": [
+      {
+        "situation": "Comprendre quel agent utiliser",
+        "command": "/oh-my-claudecode:omc-reference",
+        "result": "Catalogue complet avec descriptions et routing"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-setup",
+    "name": "OMC Setup",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:omc-setup",
+    "description": "Installe ou rafraichit oh-my-claudecode pour plugin, npm, et local-dev depuis le flow de setup canonique",
+    "usage": "/oh-my-claudecode:omc-setup",
+    "triggers": ["setup omc", "installer omc", "configurer omc"],
+    "when_to_use": "Premiere installation ou mise a jour de OMC",
+    "when_not_to_use": "OMC deja installe et a jour",
+    "depends_on": [],
+    "outputs": "OMC installe/mis a jour",
+    "examples": [
+      {
+        "situation": "Installer OMC sur un nouveau projet",
+        "command": "setup omc",
+        "result": "OMC installe avec plugins et config"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-omc-doctor",
+    "name": "OMC Doctor",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:omc-doctor",
+    "description": "Diagnostique et corrige les problemes d'installation OMC",
+    "usage": "/oh-my-claudecode:omc-doctor",
+    "triggers": ["omc doctor", "omc casse", "probleme installation"],
+    "when_to_use": "Quand OMC ne fonctionne pas correctement apres installation",
+    "when_not_to_use": "OMC fonctionne normalement",
+    "depends_on": [],
+    "outputs": "Diagnostic et corrections appliquees",
+    "examples": [
+      {
+        "situation": "OMC ne demarre pas",
+        "command": "/oh-my-claudecode:omc-doctor",
+        "result": "Diagnostic : probleme X, correction appliquee"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-writer-memory",
+    "name": "Writer Memory",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:writer-memory",
+    "description": "Systeme de memoire agentique pour ecrivains — suivi personnages, relations, scenes, themes",
+    "usage": "/oh-my-claudecode:writer-memory",
+    "triggers": ["writer memory", "memoire ecrivain", "personnages", "scenes"],
+    "when_to_use": "Projets d'ecriture creative : suivi de personnages, relations, arcs narratifs",
+    "when_not_to_use": "Projets de code (pas d'ecriture creative). Documentation technique",
+    "depends_on": [],
+    "outputs": "Base de connaissances narrative mise a jour",
+    "examples": [
+      {
+        "situation": "Suivre les personnages d'un roman",
+        "command": "/oh-my-claudecode:writer-memory",
+        "result": "Fiches personnages, relations, et scenes trackees"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-release",
+    "name": "Release",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:release",
+    "description": "Workflow de release automatise pour oh-my-claudecode",
+    "usage": "/oh-my-claudecode:release",
+    "triggers": ["release omc", "publier omc"],
+    "when_to_use": "Publier une nouvelle version de OMC",
+    "when_not_to_use": "Release de Foundation OS (pas OMC). Pas mainteneur OMC",
+    "depends_on": [],
+    "outputs": "Version OMC publiee",
+    "examples": [
+      {
+        "situation": "Publier OMC v4.12",
+        "command": "/oh-my-claudecode:release",
+        "result": "Release workflow execute"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 10,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-configure-notifications",
+    "name": "Configure Notifications",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:configure-notifications",
+    "description": "Configure les integrations de notification (Telegram, Discord, Slack) en langage naturel",
+    "usage": "/oh-my-claudecode:configure-notifications",
+    "triggers": ["notifications", "telegram", "discord", "slack notif"],
+    "when_to_use": "Configurer les notifications OMC vers Telegram/Discord/Slack",
+    "when_not_to_use": "Pas besoin de notifications externes",
+    "depends_on": [],
+    "outputs": "Integration notification configuree",
+    "examples": [
+      {
+        "situation": "Recevoir des notifs Telegram",
+        "command": "/oh-my-claudecode:configure-notifications",
+        "result": "Bot Telegram configure pour les alertes"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-mcp-setup",
+    "name": "MCP Setup",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:mcp-setup",
+    "description": "Configure les serveurs MCP populaires pour des capacites d'agent ameliorees",
+    "usage": "/oh-my-claudecode:mcp-setup",
+    "triggers": ["mcp setup", "configurer mcp", "ajouter mcp"],
+    "when_to_use": "Ajouter ou configurer un serveur MCP (Figma, Slack, etc.)",
+    "when_not_to_use": "MCP deja configure. Utilisation d'un MCP existant",
+    "depends_on": [],
+    "outputs": "Serveur MCP configure et connecte",
+    "examples": [
+      {
+        "situation": "Ajouter le MCP Figma",
+        "command": "/oh-my-claudecode:mcp-setup",
+        "result": "MCP Figma installe et configure"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 8,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-omc-teams",
+    "name": "OMC Teams",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:omc-teams",
+    "description": "Runtime CLI-team pour workers claude, codex, ou gemini dans des panes tmux quand on a besoin d'execution parallele par processus",
+    "usage": "/oh-my-claudecode:omc-teams",
+    "triggers": ["omc teams", "tmux workers", "execution parallele processus"],
+    "when_to_use": "Besoin de lancer plusieurs workers en parallele dans des processus separes (tmux)",
+    "when_not_to_use": "Parallelisme via subagents Claude natifs (utiliser ultrawork ou team)",
+    "depends_on": ["tmux"],
+    "outputs": "Workers lances dans des panes tmux",
+    "examples": [
+      {
+        "situation": "3 workers en parallele",
+        "command": "/oh-my-claudecode:omc-teams",
+        "result": "3 panes tmux avec workers actifs"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 7,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "omc-setup-main",
+    "name": "Setup",
+    "category": "skill-omc",
+    "path": "oh-my-claudecode:setup",
+    "description": "Routeur principal de setup — redirige vers le bon flow OMC (install, doctor, MCP)",
+    "usage": "/oh-my-claudecode:setup",
+    "triggers": ["setup", "installer", "configurer"],
+    "when_to_use": "Point d'entree pour tout setup OMC : installation, diagnostic, ou MCP",
+    "when_not_to_use": "Quand on sait exactement quel setup on veut (utiliser omc-setup/omc-doctor/mcp-setup directement)",
+    "depends_on": [],
+    "outputs": "Redirection vers le bon flow de setup",
+    "examples": [
+      {
+        "situation": "Setup general",
+        "command": "setup omc",
+        "result": "Redirige vers omc-setup ou omc-doctor selon le contexte"
+      }
+    ],
+    "auto_routing": false,
+    "priority": 9,
+    "added": "2026-04-10",
+    "updated": "2026-04-10"
+  }
+]
