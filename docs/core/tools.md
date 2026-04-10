@@ -2,6 +2,16 @@
 
 Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 
+## 1b. Catalogue complet (Tools v2)
+
+Inventaire exhaustif de tous les outils : `docs/core/tools/index.json` (97 outils, 9 categories).
+Registres par categorie : `docs/core/tools/registry/*.json`.
+Routing etendu : `docs/core/tools/routing.json` (26 regles, 14 domaines).
+Vue lisible : `docs/core/tools/README.md`.
+Script CLI : `bash scripts/tool-register.sh --help`.
+
+Le catalogue est la source de verite pour le routing intelligent.
+
 ## 1. Inventaire des outils existants
 
 ### Validators (scripts/hooks/)

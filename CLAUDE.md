@@ -83,7 +83,10 @@ Spec complete + seuils : `docs/core/monitor.md`. Execution : `bash scripts/healt
 
 ## Core OS — Tools
 
-Spec complete : `docs/core/tools.md`. Convention : scripts/ en bash/node, kebab-case, idempotent.
+Spec base : `docs/core/tools.md`. Catalogue complet : `docs/core/tools/index.json` (97 outils).
+Routing etendu : `docs/core/tools/routing.json`. CLI : `bash scripts/tool-register.sh`.
+En session-start, lire l'index pour le routing intelligent des outils.
+Quand un outil evolue, mettre a jour sa doc via `tool-register.sh rebuild`.
 
 ## Structure
 modules/app/       Module App Builder (React, actif)

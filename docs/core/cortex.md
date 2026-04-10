@@ -4,6 +4,12 @@ Module d'intelligence de Foundation OS. Routing, contexte, orchestration.
 
 ## 1. Routing — Arbre de decision
 
+### Routing etendu (Tools v2)
+
+Avant la table agents ci-dessous, verifier `docs/core/tools/routing.json` pour un match plus granulaire (26 regles couvrant 97 outils). Si un outil/skill matche → l'utiliser directement. Sinon → fallback sur la table agents.
+
+### Table agents
+
 Quand une tache arrive, Cortex la route vers l'agent adapte.
 
 | Signal dans la tache | Agent | Exemples |

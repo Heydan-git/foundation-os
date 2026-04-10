@@ -9,7 +9,7 @@
 |--------|--------|------|--------|
 | App Builder | production-ready | `modules/app/` | 5 routes, React 19 + Vite 8 + Tailwind 4, 19 tests, DS-6 done (206 couleurs → tokens) |
 | Design System | DS-1..DS-6 done | `modules/design-system/` | 5 primitives (Button, Text, Icon, Input, Card), 100 tests, tokens DTCG W3C, Storybook 8.6, DS-5 CI done |
-| Core OS | 4/4 actif | `docs/core/` | Cortex (routing), Communication (journalisation), Monitor (health), Tools (automation) |
+| Core OS | 4/4 actif | `docs/core/` | Cortex (routing), Communication (journalisation), Monitor (health), Tools v2 (97 outils, catalogue + routing + CLI) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
 | Finance | prevu | — | Pas encore cree |
@@ -66,6 +66,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 97 outils documentes (9 categories), routing etendu (26 regles), tool-register.sh CLI, patterns.json. Spec `docs/specs/2026-04-10-tools-module-v2-design.md` |
 | D-AUDIT-01 Scripts dynamiques | 2026-04-10 | health-check + sync-check decouvrent modules/agents/commands dynamiquement. Plus de listes hardcodees. |
 | D-AUDIT-02 DS monitoring | 2026-04-10 | Design System visible dans health-check (build + TS + 100 tests). react-dom v19 force via overrides. |
 | D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. Routing auto via Cortex. |
