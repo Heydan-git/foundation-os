@@ -14,9 +14,9 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-10',
-    updatedInSession: 'S12 Memoire (4 tiers) + anti-compactage (a+b) — 3 commits, 23 findings final (5 P1 + 8 P2 + 9 P3 + 1 meta M-S12-01 AMPLIFIE), amplification +15%, PHASE V cloturee, cycle 3 50%',
+    updatedInSession: 'S21 Batch P2 — 19/23 fixes, 2 commits, JS 457→440kB (-17kB), cycle 3 87%',
     nextAction:
-      'Cycle 3 — S13 Module App Builder deep (mode MIX 13e consecutive, debute PHASE VI) OU pause strategique / housekeeping batch S21 (~44 fixes cumules S7-S12) apres 12 sessions audit deep consecutives. Decision D-S7-01 audit lineaire inchangee.'
+      'S22 Batch P3 (~15 fixes cosmetic) + S23 Cloture cycle 3. Appliquer migration 003 updated_at sur Supabase.'
   },
 
   plans: [
@@ -304,6 +304,13 @@ window.MONITOR_DATA = {
 
   recentSessions: [
     {
+      date: '2026-04-10',
+      tag: 'DONE_WITH_CONCERNS',
+      title: 'S21 Batch P2 — 19/23 fixes, 2 commits, JS -17kB, Dashboard removed, updated_at migration',
+      summary:
+        '2 commits sur branche audit-massif-cycle3, 21e session cycle 3. (1) cdd9d4e 17 fixes : console.log cleanup 19x, Phase1Demo double export, any→unknown 14 catch, SupabaseCRUDTest DEV-only lazy (-8.73kB chunk), seed data extrait, PASSWORD_MIN+APP_META partages, LoadingSkeleton partage, Google Fonts → index.html, globalStyles dedup, KnowledgePage 120L data extraite, CI DS build+cache+workspaces, sync.md 80→16L, PAUL jargon supprime 4 fichiers, CLAUDE.md tools MAJ. (2) 4e896e8 Dashboard removal redirect /commander (-8.55kB) + migration 003 updated_at 6 tables triggers. JS 457→440kB. Concerns : 4 skips faible impact, health DEGRADED 83 refs baseline. Cycle 3 : 21/24 (87%).'
+    },
+    {
       date: '2026-04-09',
       tag: 'DONE',
       title: 'S12 Memoire (4 tiers) + anti-compactage (a+b) — 3 commits, 23 findings (5 P1 docs), meta M-S12-01 AMPLIFIE, PHASE V close',
@@ -331,14 +338,6 @@ window.MONITOR_DATA = {
       summary:
         '2 commits sur branche audit-massif-cycle3, 9e session consecutive mode MOI strict pattern S9a/S9b valide. (1) 53d1d2b S9a = remplace placeholder 09-scripts-hooks.md 7L par livrable 267L phase A lecture line-by-line des 9 scripts Foundation OS (health-check 171L + sync-check 214L + ref-checker 178L + module-scaffold 168L + session-lock 145L + validate-void-glass 38L + security-reminder.py 280L + pre-commit 20L + commit-msg 19L = 1233L total) + audit 4 angles (bug / idempotent / exit codes / output) + draft 18 findings (1 P1 + 6 P2 + 11 P3). (2) 2599d36 S9b = finalise a 412L avec phase B tests reels invocation (health-check full 3x, sync-check full, ref-checker --help + full, session-lock status/force/release sequence, module-scaffold --help seulement destructif, validate-void-glass fichier temp violant + sain, security-reminder stdin JSON safe + violate pattern #6, commit-msg dry strings 3x, pre-commit automatique) + 1 finding nouveau F-S9-19 (lockfile .fos-session.lock corrompu head/started_at vides affichage degrade "EXPIRED depuis" espaces, force+release repare). Final : 19 findings (1 P1 + 7 P2 + 11 P3) + 13 decisions D-S9-01..13 batchees S21 + 6 learnings L-S9-01..06. F-S9-01 P1 CAUSE RACINE F-MON-01 IDENTIFIEE : health-check L140 grep "\\.js " matche ligne prebuild DS "tokens.js + tokens.json" AVANT ligne vite bundle donc awk extrait "Design" au lieu du nombre. Fix trivial grep "^dist/.*\\.js " mais D-S7-01 strict = pas de fix opportuniste batch S21 via D-S9-01. F-S9-03/06 confirment F-S8-13/15 (double verdict sync + polyglot scaffold). F-S9-11/12/13 nouveaux coverage gaps validate-void-glass vs sync-check. F-S9-17 D-S8-12 RETRACT PARTIEL : hook commit-msg correct, le plan cycle3 S9.6 est faux en proposant audit(s09). F-S9-18 meta-finding auto-reference (hook security bloque l audit de lui-meme sur substring matching pattern names). Amplification tests reels S9a->S9b +5.5% (18 -> 19) vs +25% en S8 = L-S9-04 regle emergente calibrer effort par type artefact scripts mecaniques vs commands declaratifs. Dette heritee cumulee batch S21 (S7+S8+S9) ~32 fixes estimes effort ~2-3 sessions. Health final : build 1.07s OK, 19/19 tests verts, DS 100/100, DEGRADED baseline 79 refs (vs 75 session-start = +4 forward-refs docs), F-MON-01 TOUJOURS visible (batch S21 per D-S9-05). Prochaine : S10 Skills + BMAD verdict (10e consecutive).'
     },
-    {
-      date: '2026-04-09',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'S7.5 integration agents + S8 commands deep (a+b) — 3 commits, 4 P2 docs-only',
-      summary:
-        '3 commits sur branche audit-massif-cycle3, 8e session consecutive mode MOI strict. (1) d4fc729 S7.5 integration = update CONTEXT.md cycle3 table ligne 43 (S7 "non-integre" -> "integre 2026-04-09 S7.5") + ajout D-S7-02..09 Decisions actives + prochaine action -> S8. (2) 80c18cb S8a = remplace placeholder 08-commands.md 6L par livrable 266L sections 1-4 + draft 6 + 7 decisions + 8 learnings apres lecture 4 commands (session-start 30L / session-end 65L / new-project 49L / sync 79L = 223L total) + audit 4 angles A1-A4, 12 findings draft (3 P2 + 9 P3). (3) 9256ee8 S8b = finalise 08-commands.md a 433L avec phase B tests reels : comparaison /session-start spec v1 vs brief v9 live (gap 24x confirme F-S8-01), bash scripts/sync-check.sh full run exit 2 DEGRADED (spec factuellement incomplet TypeScript+Vitest+section [EXTENDED] absents + double verdict = F-S8-14 nouveau P2 + F-S8-13 P3), bash scripts/module-scaffold.sh --help exit 0 + lecture source 168L (F-S8-09 confirme divergences template README + F-S8-15 polyglot bash+Python 46L Python embed). Final : 15 findings (0 P1 + 4 P2 + 11 P3 + 1 meta M-S8-01 formalise 3e occurrence pattern spec MD vs code source apres F-S5-20 + M-S6-01), 12 decisions D-S8-01..12 toutes batchees S21/S9/S20 sauf D-S8-05 no action, 5 learnings L-S8-01..05 (notamment L-S8-04 tests reels amplifient findings statiques +25% et L-S8-05 garde-fous externes masquent dette specs inferieures). Cross-refs : F-S8-07 mirror F-S7-09 (PAUL), F-S8-12 mirror F-S7-07 (asymetrie), F-S8-04 drift D-DS-20 workspace chain. Concerns : 4 P2 docs-only batchables S21 convention D-S7-01 + health DEGRADED baseline 75 refs identique (zero drift). Kevin a delegue conduite ("je te fait confiance, fait au mieux pour qualite resultat") et valide option B batch S21. Build 1.06s OK, 19/19 tests verts, 100/100 DS tests. Prochaine : S9 Scripts + hooks (9) deep pattern S9a/S9b probable.'
-    },
-    /* Reforme communication brief v9 dropped from top-5 — available via git log */
-    },
+    /* S7.5/S8 dropped from top-5 — available via git log */
   ]
 }
