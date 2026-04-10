@@ -6,10 +6,24 @@
     "path": "scripts/health-check.sh",
     "description": "Execute tous les indicateurs Monitor (build, TS, structure, tests, Void Glass, refs) et produit un verdict SAIN/DEGRADED/BROKEN",
     "usage": "bash scripts/health-check.sh",
-    "triggers": ["health", "sante", "diagnostic", "etat", "check global", "tout va bien", "broken", "degraded"],
+    "triggers": [
+      "health",
+      "sante",
+      "diagnostic",
+      "etat",
+      "check global",
+      "tout va bien",
+      "broken",
+      "degraded"
+    ],
     "when_to_use": "Verifier l'etat global du projet : avant commit (auto via pre-commit), en session-start, quand quelque chose semble casse, apres un changement majeur",
     "when_not_to_use": "Pour un check cible sur un seul module (utiliser npm run build directement). Pour les refs seules (utiliser ref-checker.sh)",
-    "depends_on": ["npm", "vitest", "tsc", "ref-checker.sh"],
+    "depends_on": [
+      "npm",
+      "vitest",
+      "tsc",
+      "ref-checker.sh"
+    ],
     "outputs": "Rapport texte avec sections CRITICAL/WARNING/INFO + verdict final. Exit codes : 0=SAIN, 1=BROKEN, 2=DEGRADED",
     "examples": [
       {
@@ -35,10 +49,20 @@
     "path": "scripts/sync-check.sh",
     "description": "Audit complet de coherence : health-check + modules vs CONTEXT.md + refs last commit + Core OS coherence (agents+commands) + specs presentes + routes App.tsx vs CONTEXT + fonts Void Glass",
     "usage": "bash scripts/sync-check.sh",
-    "triggers": ["sync", "coherence", "audit", "verification complete", "tout est aligne"],
+    "triggers": [
+      "sync",
+      "coherence",
+      "audit",
+      "verification complete",
+      "tout est aligne"
+    ],
     "when_to_use": "Audit complet de coherence du projet. Appele par /sync. Quand on veut verifier que CONTEXT.md, le code, et les specs sont alignes",
     "when_not_to_use": "Pour un simple health-check (utiliser health-check.sh). Pour un audit refs full-repo (utiliser ref-checker.sh)",
-    "depends_on": ["health-check.sh", "ref-checker.sh", "python3"],
+    "depends_on": [
+      "health-check.sh",
+      "ref-checker.sh",
+      "python3"
+    ],
     "outputs": "Rapport health-check + section EXTENDED (7 checks supplementaires). Exit codes : 0=SAIN, 1=BROKEN, 2=DEGRADED",
     "examples": [
       {
@@ -59,7 +83,13 @@
     "path": "scripts/ref-checker.sh",
     "description": "Detecte les refs cassees dans tous les .md du repo : liens markdown [text](path) resolus relatif au fichier source + refs backtick `dir/file` resolues relatif a la racine. Code-block aware",
     "usage": "bash scripts/ref-checker.sh",
-    "triggers": ["refs", "liens casses", "broken links", "references", "markdown links"],
+    "triggers": [
+      "refs",
+      "liens casses",
+      "broken links",
+      "references",
+      "markdown links"
+    ],
     "when_to_use": "Audit full-repo des refs a un instant T. Complementaire de sync-check (qui ne scanne que HEAD~1..HEAD). Apres renommage/suppression de fichiers",
     "when_not_to_use": "Pour un check rapide du dernier commit seulement (sync-check le fait deja)",
     "depends_on": [],
@@ -83,10 +113,17 @@
     "path": "scripts/module-scaffold.sh",
     "description": "Scaffold un nouveau module Foundation OS : cree modules/<nom>/{README.md, package.json, src/.gitkeep} et met a jour la table Modules dans CONTEXT.md. Kebab-case, idempotent",
     "usage": "bash scripts/module-scaffold.sh <nom-module>",
-    "triggers": ["nouveau module", "scaffold", "creer module", "new project"],
+    "triggers": [
+      "nouveau module",
+      "scaffold",
+      "creer module",
+      "new project"
+    ],
     "when_to_use": "Creer un nouveau module dans modules/. Appele par /new-project. Valide le nom (kebab-case), refuse si le module existe deja",
     "when_not_to_use": "Pour ajouter des fichiers a un module existant (editer directement)",
-    "depends_on": ["python3"],
+    "depends_on": [
+      "python3"
+    ],
     "outputs": "Dossier modules/<nom>/ avec README.md, package.json, src/.gitkeep + CONTEXT.md mis a jour. Exit codes : 0=OK, 1=erreur",
     "examples": [
       {
@@ -107,7 +144,13 @@
     "path": "scripts/session-lock.sh",
     "description": "Verrou local anti-collision entre Cowork Desktop et Claude Code CLI. Fichier .fos-session.lock avec TTL 30min. Commandes : acquire, release, status, force",
     "usage": "bash scripts/session-lock.sh <acquire|release|status|force> [head]",
-    "triggers": ["lock", "verrou", "session", "collision", "cowork"],
+    "triggers": [
+      "lock",
+      "verrou",
+      "session",
+      "collision",
+      "cowork"
+    ],
     "when_to_use": "Eviter les conflits quand deux tetes (Cowork Desktop + CLI) travaillent sur le meme repo. Utilise automatiquement par le workflow Cowork",
     "when_not_to_use": "En mode solo CLI (pas de Cowork Desktop actif)",
     "depends_on": [],
@@ -136,10 +179,16 @@
     "path": "scripts/git-hooks/pre-commit",
     "description": "Hook git pre-commit : execute health-check.sh, bloque le commit si BROKEN (exit 1), autorise avec warning si DEGRADED (exit 0)",
     "usage": "Automatique a chaque git commit. Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit",
-    "triggers": ["pre-commit", "commit", "hook git"],
+    "triggers": [
+      "pre-commit",
+      "commit",
+      "hook git"
+    ],
     "when_to_use": "Automatique — se declenche a chaque commit. Bloque si le projet est BROKEN",
     "when_not_to_use": "N/A — automatique",
-    "depends_on": ["health-check.sh"],
+    "depends_on": [
+      "health-check.sh"
+    ],
     "outputs": "Rapport health-check + message COMMIT BLOQUE ou WARNING. Exit codes : 0=autorise, 1=bloque",
     "examples": [
       {
@@ -156,6 +205,43 @@
     "auto_routing": false,
     "priority": 10,
     "added": "2026-04-07",
+    "updated": "2026-04-10"
+  },
+  {
+    "id": "tool-register",
+    "name": "Tool Register",
+    "category": "script",
+    "path": "scripts/tool-register.sh",
+    "description": "CLI pour gerer le catalogue Tools v2 : scan des outils non-enregistres, rebuild index.json + README.md, ajout de squelettes",
+    "usage": "bash scripts/tool-register.sh <scan|rebuild|add> [options]",
+    "triggers": [
+      "register",
+      "catalogue",
+      "inventaire outils",
+      "ajouter outil",
+      "scan outils"
+    ],
+    "when_to_use": "Ajouter un nouvel outil au catalogue, detecter les outils non-enregistres, ou regenerer index + README apres modification manuelle",
+    "when_not_to_use": "Pour documenter un outil en detail (demander a Claude). Pour utiliser un outil (invocation directe)",
+    "depends_on": [
+      "node"
+    ],
+    "outputs": "Registre JSON mis a jour, index.json et README.md regeneres",
+    "examples": [
+      {
+        "situation": "Scanner les outils manquants",
+        "command": "bash scripts/tool-register.sh scan",
+        "result": "Liste des scripts/commands/agents non-enregistres"
+      },
+      {
+        "situation": "Regenerer apres modif manuelle",
+        "command": "bash scripts/tool-register.sh rebuild",
+        "result": "index.json + README.md regeneres"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 3,
+    "added": "2026-04-10",
     "updated": "2026-04-10"
   }
 ]

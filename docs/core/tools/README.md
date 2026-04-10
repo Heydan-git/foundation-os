@@ -11,11 +11,11 @@
 | commands | 5 |
 | hooks | 4 |
 | mcp | 13 |
-| scripts | 6 |
+| scripts | 7 |
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| **Total** | **96** |
+| **Total** | **97** |
 
 ## Agents
 
@@ -80,6 +80,7 @@
 | Module Scaffold | Scaffold un nouveau module Foundation OS : cree modules/<nom>/{README. | `bash scripts/module-scaffold.sh <nom-module>` |
 | Session Lock | Verrou local anti-collision entre Cowork Desktop et Claude Code CLI. F | `bash scripts/session-lock.sh <acquire/release/status/force> [head]` |
 | Pre-commit Hook | Hook git pre-commit : execute health-check.sh, bloque le commit si BRO | `Automatique a chaque git commit. Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit` |
+| Tool Register | CLI pour gerer le catalogue Tools v2 : scan des outils non-enregistres | `bash scripts/tool-register.sh <scan/rebuild/add> [options]` |
 
 ## Skills-bmad
 
