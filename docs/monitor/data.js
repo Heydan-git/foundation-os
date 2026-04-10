@@ -14,20 +14,20 @@ window.MONITOR_DATA = {
   meta: {
     version: '0.1.0',
     updatedAt: '2026-04-10',
-    updatedInSession: 'S21 Batch P2 — 19/23 fixes, 2 commits, JS 457→440kB (-17kB), cycle 3 87%',
+    updatedInSession: 'Mega session — cycle 3 cloture, DS-6, React 19+Vite 8+TW4, DS-5 CI, cleanup, securite Supabase',
     nextAction:
-      'S22 Batch P3 (~15 fixes cosmetic) + S23 Cloture cycle 3. Appliquer migration 003 updated_at sur Supabase.'
+      'Phase 5 : choisir module Finance/Sante/Trading. Leaked Password Protection (SMTP).'
   },
 
   plans: [
     {
       id: 'ds-bootstrap',
       title: 'Design System bootstrap',
-      status: 'WIP',
+      status: 'DONE',
       priority: 'P0',
       path: 'docs/travaux-cowork/2026-04-08-design-system-bootstrap/02-plan.md',
-      progress: { done: 5, total: 6, unit: 'sessions' },
-      currentPhase: 'DS-6 partial livre (tokens.css consumption) — DS-5 CI reporte housekeeping',
+      progress: { done: 6, total: 6, unit: 'sessions' },
+      currentPhase: 'DS-1..DS-6 DONE. CI Playwright+axe gate active.',
       startedAt: '2026-04-08',
       sessions: [
         { id: 'DS-0', title: 'Cadrage spec + plan + 10 questions', status: 'DONE', date: '2026-04-08' },
@@ -35,11 +35,11 @@ window.MONITOR_DATA = {
         { id: 'DS-2', title: 'Storybook 8 + preview Void Glass + Welcome', status: 'DONE', date: '2026-04-09' },
         { id: 'DS-3', title: 'Primitives P1 Button + Text + Icon', status: 'DONE', date: '2026-04-09' },
         { id: 'DS-4', title: 'Primitives P2 Input + Card', status: 'DONE', date: '2026-04-09' },
-        { id: 'DS-5', title: 'CI Playwright visual + axe gate', status: 'PENDING' },
-        { id: 'DS-6', title: 'DTCG export + app consume (partial)', status: 'WIP', date: '2026-04-09' }
+        { id: 'DS-5', title: 'CI Playwright visual + axe gate', status: 'DONE', date: '2026-04-10' },
+        { id: 'DS-6', title: '206 colors migrated to tokens (97%)', status: 'DONE', date: '2026-04-10' }
       ],
       notes:
-        '5 primitives exportees (100/100 tests, 0 axe violations). modules/app importe tokens.css via prebuild chain. Reste DS-5 CI + DS-6 export-dtcg.'
+        '5 primitives (100/100 tests, 0 axe violations). DS-6: 206/254 colors tokenized. DS-5: Playwright+axe CI gate. React 19+Vite 8+TW4.'
     },
     {
       id: 'monitor-dashboard',
@@ -305,10 +305,10 @@ window.MONITOR_DATA = {
   recentSessions: [
     {
       date: '2026-04-10',
-      tag: 'DONE_WITH_CONCERNS',
-      title: 'S21 Batch P2 — 19/23 fixes, 2 commits, JS -17kB, Dashboard removed, updated_at migration',
+      tag: 'DONE',
+      title: 'Mega session — Cycle 3 cloture + DS-6 + React 19 + DS-5 CI + cleanup + securite Supabase',
       summary:
-        '2 commits sur branche audit-massif-cycle3, 21e session cycle 3. (1) cdd9d4e 17 fixes : console.log cleanup 19x, Phase1Demo double export, any→unknown 14 catch, SupabaseCRUDTest DEV-only lazy (-8.73kB chunk), seed data extrait, PASSWORD_MIN+APP_META partages, LoadingSkeleton partage, Google Fonts → index.html, globalStyles dedup, KnowledgePage 120L data extraite, CI DS build+cache+workspaces, sync.md 80→16L, PAUL jargon supprime 4 fichiers, CLAUDE.md tools MAJ. (2) 4e896e8 Dashboard removal redirect /commander (-8.55kB) + migration 003 updated_at 6 tables triggers. JS 457→440kB. Concerns : 4 skips faible impact, health DEGRADED 83 refs baseline. Cycle 3 : 21/24 (87%).'
+        '10+ commits. Cycle 3 cloture (S22 P3 12 fixes + S23 rapport final + PR #1 merged). DS-6 : 206/254 couleurs migrées vers tokens (97%). Deps : React 19+Vite 8+TW4, build 761→183ms (-76%). DS-5 : Playwright+axe CI gate (10/10 tests). Cleanup : audit archive, dead code (Dashboard+StatPill), session briefs v9, refs 196→33. Supabase : migration 003 updated_at, RLS 6 tables + 24 policies, function search_path fix. CI green.'
     },
     {
       date: '2026-04-09',
