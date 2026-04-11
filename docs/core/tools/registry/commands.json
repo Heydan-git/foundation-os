@@ -96,6 +96,30 @@
     "updated": "2026-04-10"
   },
   {
+    "id": "plan-os",
+    "name": "/plan-os",
+    "category": "command",
+    "path": ".claude/commands/plan-os.md",
+    "description": "Generateur de plan Foundation OS : wrapper par-dessus superpowers:writing-plans avec routing modele automatique (haiku/sonnet/opus), regle sub-agent stricte (3 conditions), versionnement dans docs/plans/, validation bloc par bloc",
+    "usage": "/plan-os <demande>",
+    "triggers": ["plan-os", "genere un plan", "planifier", "decoupe", "routing modele", "plan token"],
+    "when_to_use": "Tache non-triviale (> 3 fichiers, > 1 domaine, > 30min). Besoin d'economie de tokens et de tracabilite versionnee",
+    "when_not_to_use": "Tache triviale, exploration pure (utiliser Agent Explore), bug fix avec cause racine claire",
+    "depends_on": ["superpowers:writing-plans", "docs/core/planner.md", "docs/plans/_template-plan.md"],
+    "outputs": "Plan versionne dans docs/plans/YYYY-MM-DD-nom-plan.md avec frontmatter YAML, routing modele, decoupage sub-agent, validation bloc par bloc",
+    "examples": [
+      {
+        "situation": "Nouvelle feature cross-module",
+        "command": "/plan-os ajouter authentification Supabase au module Finance",
+        "result": "Plan genere, routing sonnet/opus, 4 blocs, validation attendue"
+      }
+    ],
+    "auto_routing": true,
+    "priority": 2,
+    "added": "2026-04-11",
+    "updated": "2026-04-11"
+  },
+  {
     "id": "new-project",
     "name": "/new-project",
     "category": "command",

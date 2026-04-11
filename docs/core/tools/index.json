@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "updated": "2026-04-10",
-  "total_tools": 97,
+  "updated": "2026-04-11",
+  "total_tools": 98,
   "categories": {
     "agents": {
       "file": "registry/agents.json",
@@ -13,7 +13,7 @@
     },
     "commands": {
       "file": "registry/commands.json",
-      "count": 5
+      "count": 6
     },
     "hooks": {
       "file": "registry/hooks.json",

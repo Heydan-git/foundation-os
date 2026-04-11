@@ -1,6 +1,6 @@
 # Foundation OS — Toolbox
 
-> Auto-genere le 2026-04-10 depuis registry/*.json. Ne pas editer manuellement.
+> Auto-genere le 2026-04-11 depuis registry/*.json. Ne pas editer manuellement.
 
 ## Resume
 
@@ -8,14 +8,14 @@
 |-----------|--------|
 | agents | 4 |
 | ci | 2 |
-| commands | 5 |
+| commands | 6 |
 | hooks | 4 |
 | mcp | 13 |
 | scripts | 7 |
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| **Total** | **97** |
+| **Total** | **98** |
 
 ## Agents
 
@@ -41,6 +41,7 @@
 | /session-start | Brief de debut de session au format v11 TDAH-friendly : collecte paral | `/session-start` |
 | /session-end | Cloture de session : inventaire git diff → verification coherence + bu | `/session-end` |
 | /sync | Audit complet de coherence : lance sync-check.sh qui execute health-ch | `/sync` |
+| /plan-os | Generateur de plan Foundation OS : wrapper par-dessus superpowers:writ | `/plan-os <demande>` |
 | /new-project | Scaffold un nouveau module : lance module-scaffold.sh qui cree modules | `/new-project <nom-module>` |
 
 ## Hooks

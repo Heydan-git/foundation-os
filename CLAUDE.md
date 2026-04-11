@@ -115,6 +115,7 @@ Spec agents : docs/core/cortex.md section 4.
 - /cockpit       : point d'entree unique — scan + brief + routing + cloture (TDAH-friendly)
 - /session-start : contexte + structure check + build tous modules actifs + announce
 - /session-end   : list changes + coherence + build + update CONTEXT.md + propose commit
+- /plan-os       : generateur de plan — routing modele auto (haiku/sonnet/opus) + regle sub-agent + versionnement docs/plans/
 - /new-project   : scaffold modules/[nom]/ + update CONTEXT.md
 - /sync          : coherence projet entiere (structure, refs, CONTEXT.md vs filesystem, Void Glass)
 

@@ -9,7 +9,7 @@
 |--------|--------|------|--------|
 | App Builder | production-ready | `modules/app/` | 5 routes, React 19 + Vite 8 + Tailwind 4, 19 tests, DS-6 done (206 couleurs → tokens) |
 | Design System | DS-1..DS-6 done | `modules/design-system/` | 5 primitives (Button, Text, Icon, Input, Card), 100 tests, tokens DTCG W3C, Storybook 8.6, DS-5 CI done |
-| Core OS | 4/4 actif | `docs/core/` | Cortex (routing), Communication (journalisation), Monitor (health), Tools v2 (97 outils, catalogue + routing + CLI) |
+| Core OS | 5/5 actif | `docs/core/` | Cortex (routing), Communication (journalisation), Monitor (health), Tools v2 (97 outils), Planner (/plan-os — routing modele + sub-agent gate + versionnement) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
 | Finance | prevu | — | Pas encore cree |
@@ -19,6 +19,14 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-11 | **[DONE] Planner MVP — /plan-os + spec + template** |
+|            | Scope : module Core OS Planner (generateur de plan avec routing modele + sub-agent gate) |
+|            | Livres : `docs/core/planner.md` (spec), `docs/plans/_template-plan.md`, `.claude/commands/plan-os.md`, registre commands.json |
+|            | Routing auto : haiku (lookups) / sonnet (exec standard) / opus (archi, decisions) — default conservateur |
+|            | Sub-agent gate : 3 conditions (zone isolee + sans memoire session + sortie observable), sinon main session |
+|            | Dependance : `superpowers:writing-plans` en moteur (accepte trade-off) |
+|            | Decisions : D-PLAN-01 Planner MVP wrapper Superpowers |
+|            | Phase 2 backlog : log tokens reels vs estimes, calibration heuristiques |
 | 2026-04-11 | **[DONE] Tools v2 — catalogue complet 97 outils** |
 |            | Scope : nouveau module Core OS Tools v2 (brainstorm → spec → plan → execution) |
 |            | Catalogue : 7 scripts, 4 hooks, 5 commands, 4 agents, 36 OMC, 14 Superpowers, 12 BMAD, 13 MCP, 2 CI |
@@ -68,6 +76,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | `/plan-os` wrapper par-dessus `superpowers:writing-plans` + routing modele auto + sub-agent gate 3 conditions + versionnement `docs/plans/`. Spec `docs/core/planner.md`. Phase 2 (log reel) en backlog. |
 | D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 97 outils documentes (9 categories), routing etendu (26 regles), tool-register.sh CLI, patterns.json. Spec `docs/specs/2026-04-10-tools-module-v2-design.md` |
 | D-AUDIT-01 Scripts dynamiques | 2026-04-10 | health-check + sync-check decouvrent modules/agents/commands dynamiquement. Plus de listes hardcodees. |
 | D-AUDIT-02 DS monitoring | 2026-04-10 | Design System visible dans health-check (build + TS + 100 tests). react-dom v19 force via overrides. |

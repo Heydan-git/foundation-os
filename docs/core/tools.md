@@ -79,12 +79,24 @@ Priorite par impact. Ne construire que sur demande explicite.
 - **Exit codes** — 0 = OK, 1 = erreur, 2 = warning
 - **Pas de dependance externe** sauf si absolument necessaire
 
+## 4b. Planner (module Core OS — commande /plan-os)
+
+Generateur de plans d'execution avec routing modele automatique (haiku/sonnet/opus), regle sub-agent stricte (3 conditions), versionnement dans `docs/plans/`.
+
+- Spec : `docs/core/planner.md`
+- Commande : `.claude/commands/plan-os.md`
+- Template : `docs/plans/_template-plan.md`
+- Depend de : `superpowers:writing-plans` (moteur), `docs/plans/` (sortie)
+
+Objectif : economiser des tokens sur les taches longues sans degrader la qualite. Kevin valide toujours bloc par bloc avant execution.
+
 ## 5. Limites de Tools
 
 Ce que Tools fait :
 - Automation locale (scripts, hooks, validators)
 - CI/CD config (GitHub Actions, Vercel)
 - Helpers pour les autres modules Core OS (health-check pour Monitor, ref-checker pour Cortex)
+- Planner (commande /plan-os) pour economie de tokens et tracabilite des plans
 
 Ce que Tools ne fait PAS :
 - Runtime intelligence (→ Cortex)
