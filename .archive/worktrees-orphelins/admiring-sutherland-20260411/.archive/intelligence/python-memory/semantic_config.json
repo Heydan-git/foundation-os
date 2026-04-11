@@ -1,0 +1,13 @@
+{
+  "semantic_memory": {
+    "enabled": true,
+    "chroma_path": "/Users/kevinnoel/foundation-os/.fos/memory/semantic",
+    "collections": [
+      "fos_conversations",
+      "fos_knowledge",
+      "fos_errors_solutions"
+    ],
+    "version": "1.0.0",
+    "setup_date": "2026-04-04T23:52:29.988932"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "agents": [
+    {
+      "agent_id": "a38eaa185ca21bbc5",
+      "agent_type": "general-purpose",
+      "started_at": "2026-04-05T11:15:30.036Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-05T11:17:42.367Z",
+      "duration_ms": 132331
+    },
+    {
+      "agent_id": "a5ba0d513d002e61e",
+      "agent_type": "general-purpose",
+      "started_at": "2026-04-05T11:15:36.711Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-05T11:18:11.856Z",
+      "duration_ms": 155145
+    },
+    {
+      "agent_id": "a1b100fde2dbc5b14",
+      "agent_type": "general-purpose",
+      "started_at": "2026-04-05T11:15:43.404Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-05T11:18:47.737Z",
+      "duration_ms": 184333
+    },
+    {
+      "agent_id": "a6361e3bbc231b664",
+      "agent_type": "general-purpose",
+      "started_at": "2026-04-05T11:20:04.711Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-05T11:22:05.540Z",
+      "duration_ms": 120829
+    },
+    {
+      "agent_id": "aed1892b6818ce83d",
+      "agent_type": "claude-code-guide",
+      "started_at": "2026-04-11T06:20:35.065Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-11T06:21:04.853Z",
+      "duration_ms": 29788
+    }
+  ],
+  "total_spawned": 5,
+  "total_completed": 5,
+  "total_failed": 0,
+  "last_updated": "2026-04-11T06:21:04.956Z"
+}

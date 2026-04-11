@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"git worktree list && echo \\\"---\\\" && ls .claude/worktrees/ 2>&1 && echo \\\"---\\\" && ls .claude/ 2>&1\",\"description\":\"Check worktree state\"}",
+  "error": "Exit code 1\n/Users/kevinnoel/foundation-os                                        6413ac9 [main]\n/Users/kevinnoel/foundation-os/.claude/worktrees/admiring-sutherland  c979262 [claude/admiring-sutherland]\n---\nls: .claude/worktrees/: No such file or directory\n[rerun: b22]",
+  "timestamp": "2026-04-11T06:23:40.446Z",
+  "retry_count": 3
+}

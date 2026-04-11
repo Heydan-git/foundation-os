@@ -79,6 +79,17 @@ Priorite par impact. Ne construire que sur demande explicite.
 - **Exit codes** — 0 = OK, 1 = erreur, 2 = warning
 - **Pas de dependance externe** sauf si absolument necessaire
 
+## 4c. Worktrees (feature Claude Code native)
+
+Feature native de la harness Claude Code pour travailler en parallele sur plusieurs branches isolees (`claude --worktree`, `.claude/worktrees/<nom>/`).
+
+- Spec : `docs/core/worktrees.md`
+- Reference officielle : https://code.claude.com/docs/en/common-workflows.md
+- Integration : `.claude/worktrees/` dans `.gitignore` + exclu du scan `ref-checker.sh`
+- Orphelins archives dans `.archive/worktrees-orphelins/`
+
+Usage : `claude --worktree <nom>` pour isoler un plan risque. Nettoyage automatique par Claude Code en fin de session si aucun changement.
+
 ## 4b. Planner (module Core OS — commande /plan-os)
 
 Generateur de plans d'execution avec routing modele automatique (haiku/sonnet/opus), regle sub-agent stricte (3 conditions), versionnement dans `docs/plans/`.

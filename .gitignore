@@ -7,6 +7,7 @@ dist/
 .fos/
 .fos-session.lock
 .omc/state/
+.claude/worktrees/
 *.pyc
 __pycache__/
 
