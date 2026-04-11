@@ -1,0 +1,55 @@
+{
+  "control": {
+    "sm": {
+      "height": {
+        "$value": "{size.control.28}",
+        "$type": "dimension",
+        "$description": "Compact control — tight lists, toolbars"
+      },
+      "paddingX": {
+        "$value": "{space.scale.3}",
+        "$type": "dimension",
+        "$description": "12px horizontal padding"
+      },
+      "paddingY": {
+        "$value": "{space.scale.1}",
+        "$type": "dimension",
+        "$description": "4px vertical padding"
+      }
+    },
+    "md": {
+      "height": {
+        "$value": "{size.control.36}",
+        "$type": "dimension",
+        "$description": "Default control — forms, buttons"
+      },
+      "paddingX": {
+        "$value": "{space.scale.4}",
+        "$type": "dimension",
+        "$description": "16px horizontal padding"
+      },
+      "paddingY": {
+        "$value": "{space.scale.2}",
+        "$type": "dimension",
+        "$description": "8px vertical padding"
+      }
+    },
+    "lg": {
+      "height": {
+        "$value": "{size.control.44}",
+        "$type": "dimension",
+        "$description": "Comfortable control — primary CTAs, touch"
+      },
+      "paddingX": {
+        "$value": "{space.scale.5}",
+        "$type": "dimension",
+        "$description": "20px horizontal padding"
+      },
+      "paddingY": {
+        "$value": "{space.scale.3}",
+        "$type": "dimension",
+        "$description": "12px vertical padding"
+      }
+    }
+  }
+}

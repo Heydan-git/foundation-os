@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   background: var(--fos-color-bg-surface);
-  border: 1px solid var(--fos-color-border-default);
+  border: var(--fos-border-width-hairline) solid var(--fos-color-border-default);
   border-radius: var(--fos-radius-component-card);
   color: var(--fos-color-text-primary);
   font-family: var(--fos-font-family-sans);
@@ -20,7 +20,7 @@
 /* ── Slots ─────────────────────────────────────────────────── */
 .header {
   padding: var(--fos-space-scale-4);
-  border-bottom: 1px solid var(--fos-color-border-default);
+  border-bottom: var(--fos-border-width-hairline) solid var(--fos-color-border-default);
 }
 
 .body {
@@ -30,7 +30,7 @@
 
 .footer {
   padding: var(--fos-space-scale-4);
-  border-top: 1px solid var(--fos-color-border-default);
+  border-top: var(--fos-border-width-hairline) solid var(--fos-color-border-default);
 }
 
 /* ── Variants ──────────────────────────────────────────────── */
@@ -58,6 +58,6 @@
 }
 
 .variant-interactive:focus-visible {
-  outline: 2px solid var(--fos-color-accent-brand);
-  outline-offset: 2px;
+  outline: var(--fos-border-width-thick) solid var(--fos-color-accent-brand);
+  outline-offset: var(--fos-border-width-thick);
 }

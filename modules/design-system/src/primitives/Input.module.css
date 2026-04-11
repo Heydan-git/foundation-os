@@ -14,18 +14,18 @@
   font-size: var(--fos-font-size-sm);
   font-weight: var(--fos-font-weight-medium);
   color: var(--fos-color-text-primary);
-  line-height: 1.4;
+  line-height: var(--fos-font-line-height-normal);
 }
 
 .inputWrapper {
   display: flex;
   align-items: center;
   gap: var(--fos-space-scale-2);
-  padding: 0 var(--fos-space-scale-3);
+  padding: 0 var(--fos-control-md-padding-x);
   background: var(--fos-color-bg-surface);
-  border: 1px solid var(--fos-color-border-default);
+  border: var(--fos-border-width-hairline) solid var(--fos-color-border-default);
   border-radius: var(--fos-radius-component-input);
-  min-height: 36px;
+  min-height: var(--fos-control-md-height);
   transition: border-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing),
     background-color var(--fos-motion-micro-duration) var(--fos-motion-micro-easing);
 }
@@ -35,8 +35,8 @@
 }
 
 .inputWrapper:focus-within:not(.disabled) {
-  outline: 2px solid var(--fos-color-accent-brand);
-  outline-offset: 2px;
+  outline: var(--fos-border-width-thick) solid var(--fos-color-accent-brand);
+  outline-offset: var(--fos-border-width-thick);
   border-color: var(--fos-color-accent-brand);
 }
 
@@ -46,12 +46,12 @@
   background: transparent;
   border: 0;
   outline: none;
-  padding: 8px 0;
+  padding: var(--fos-control-md-padding-y) 0;
   font-family: inherit;
   font-size: var(--fos-font-size-base);
   font-weight: var(--fos-font-weight-regular);
   color: var(--fos-color-text-primary);
-  line-height: 1.4;
+  line-height: var(--fos-font-line-height-normal);
 }
 
 .input::placeholder {
@@ -99,7 +99,7 @@
   font-size: var(--fos-font-size-sm);
   font-weight: var(--fos-font-weight-regular);
   color: var(--fos-color-text-primary);
-  line-height: 1.4;
+  line-height: var(--fos-font-line-height-normal);
 }
 
 .hint-error {
