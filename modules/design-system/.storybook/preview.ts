@@ -9,9 +9,8 @@
  */
 import type { Preview } from '@storybook/react'
 
-// CSS vars Void Glass (--fos-*) — output du build Style Dictionary
-// (relative path car self-import workspace pas garanti pour fichiers non-exports)
-import '../tokens/build/tokens.css'
+// Globals DS : Tailwind + tokens --fos-* + bridge shadcn vars (Void Glass dark)
+import '../src/styles/globals.css'
 
 // Charge Figtree + JetBrains Mono depuis Google Fonts pour la preview
 const fontLink = document.createElement('link')
