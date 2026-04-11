@@ -19,26 +19,16 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-11 | **[DONE] Planner MVP — /plan-os + spec + template** |
-|            | Scope : module Core OS Planner (generateur de plan avec routing modele + sub-agent gate) |
-|            | Livres : `docs/core/planner.md` (spec), `docs/plans/_template-plan.md`, `.claude/commands/plan-os.md`, registre commands.json |
-|            | Routing auto : haiku (lookups) / sonnet (exec standard) / opus (archi, decisions) — default conservateur |
-|            | Sub-agent gate : 3 conditions (zone isolee + sans memoire session + sortie observable), sinon main session |
-|            | Dependance : `superpowers:writing-plans` en moteur (accepte trade-off) |
-|            | Decisions : D-PLAN-01 Planner MVP wrapper Superpowers |
-|            | Phase 2 backlog : log tokens reels vs estimes, calibration heuristiques |
-| 2026-04-11 | **[DONE] Tools v2 — catalogue complet 97 outils** |
-|            | Scope : nouveau module Core OS Tools v2 (brainstorm → spec → plan → execution) |
-|            | Catalogue : 7 scripts, 4 hooks, 5 commands, 4 agents, 36 OMC, 14 Superpowers, 12 BMAD, 13 MCP, 2 CI |
-|            | Routing : 26 regles, 14 domaines fonctionnels dans `docs/core/tools/routing.json` |
-|            | CLI : `scripts/tool-register.sh` (scan/rebuild/add) |
-|            | Integration : tools.md, cortex.md, CLAUDE.md, CONTEXT.md mis a jour |
-|            | Decisions : D-TOOLS-01 Catalogue modulaire v2 |
-|            | Commits : 8 commits (c979262 → 40e197c) |
-| 2026-04-10 | **[DONE] Audit Core OS — 14 axes, 27 fixes** — rename Memory→Communication, scripts dynamiques, DS monitoring. `21354c9` |
-| 2026-04-10 | **[DONE] Cockpit + harmonisation** — /cockpit TDAH, CLAUDE.md -20L. `7cbb391` |
-| 2026-04-10 | **[DONE] Cleanup refs + brief v11** — 31 refs cassees → 0. `18436e9` |
-| 2026-04-10 | **[DONE] Communication v1 + DS-5 + migration 003** — spec 375L, CONTEXT.md 400→120L. `18079d0` |
+| 2026-04-11 | **[DONE] Planner MVP + Worktrees feature + health SAIN** |
+|            | Scope : 2 nouveaux modules Core OS (Planner, Worktrees) + nettoyage health-check |
+|            | Planner : spec `docs/core/planner.md`, commande `/plan-os`, template `docs/plans/_template-plan.md`, registre, routing auto (haiku/sonnet/opus), sub-agent gate 3 conditions, wrapper `superpowers:writing-plans` |
+|            | Worktrees : doc officielle integree `docs/core/worktrees.md`, `.gitignore` + `ref-checker.sh` exclusion, feature native Claude Code documentee |
+|            | Cleanup : worktree orphelin `admiring-sutherland` archive dans `.archive/worktrees-orphelins/`, branche supprimee, 95 refs cassees → 0 |
+|            | Decisions : D-PLAN-01 Planner MVP wrapper Superpowers, D-WT-01 Worktrees integres Core OS |
+|            | Phase 2 backlog Planner : log tokens reels vs estimes, calibration heuristiques |
+|            | Commits : 6413ac9 (planner) + 962c174 (worktrees) |
+| 2026-04-11 | **[DONE] Tools v2 — catalogue 97 outils, routing 26 regles, CLI tool-register.sh**. D-TOOLS-01. `40e197c` |
+| 2026-04-10 | **[DONE] Audit Core OS + Cockpit + Communication v1** — 27 fixes, /cockpit TDAH, rename Memory→Communication. `21354c9`/`7cbb391`/`18079d0` |
 
 > Sessions plus anciennes (S0-S14, Cycle 3 audit + Design System + Monitor Dashboard + Cycles 1-2) disponibles via `git log` et `.archive/audit-massif/23-rapport-final.md`.
 
