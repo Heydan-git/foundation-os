@@ -19,16 +19,18 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-10 | **[DONE] Audit Core OS — 14 axes, 27 fixes** |
-|            | Scope : 4 specs, 4 agents, 5 commands, 6 scripts, docs, settings |
-|            | Audit 14 axes → livrable `docs/specs/2026-04-10-core-os-audit.md` |
-|            | P0-P3 : rename Memory→Communication, scripts dynamiques, DS monitoring, demo routes supprimees, settings portable |
-|            | DS fix : @types/react v19, react-dom override, 100/100 tests verts |
-|            | Decisions : D-AUDIT-01 scripts dynamiques, D-AUDIT-02 DS monitoring |
-| 2026-04-10 | **[DONE] Cockpit + harmonisation systeme** — /cockpit TDAH, CLAUDE.md -20L, agents simplifies. |
-| 2026-04-10 | **[DONE] Cleanup refs + brief v11 TDAH-friendly** — 31 refs cassees → 0, brief v11. |
+| 2026-04-11 | **[DONE] Tools v2 — catalogue complet 97 outils** |
+|            | Scope : nouveau module Core OS Tools v2 (brainstorm → spec → plan → execution) |
+|            | Catalogue : 7 scripts, 4 hooks, 5 commands, 4 agents, 36 OMC, 14 Superpowers, 12 BMAD, 13 MCP, 2 CI |
+|            | Routing : 26 regles, 14 domaines fonctionnels dans `docs/core/tools/routing.json` |
+|            | CLI : `scripts/tool-register.sh` (scan/rebuild/add) |
+|            | Integration : tools.md, cortex.md, CLAUDE.md, CONTEXT.md mis a jour |
+|            | Decisions : D-TOOLS-01 Catalogue modulaire v2 |
+|            | Commits : 8 commits (c979262 → 40e197c) |
+| 2026-04-10 | **[DONE] Audit Core OS — 14 axes, 27 fixes** — rename Memory→Communication, scripts dynamiques, DS monitoring. `21354c9` |
+| 2026-04-10 | **[DONE] Cockpit + harmonisation** — /cockpit TDAH, CLAUDE.md -20L. `7cbb391` |
+| 2026-04-10 | **[DONE] Cleanup refs + brief v11** — 31 refs cassees → 0. `18436e9` |
 | 2026-04-10 | **[DONE] Communication v1 + DS-5 + migration 003** — spec 375L, CONTEXT.md 400→120L. `18079d0` |
-| 2026-04-10 | **[DONE] Housekeeping post-cycle3** — DS-6 + deps upgrade. React 19, Vite 8, Tailwind 4. |
 
 > Sessions plus anciennes (S0-S14, Cycle 3 audit + Design System + Monitor Dashboard + Cycles 1-2) disponibles via `git log` et `.archive/audit-massif/23-rapport-final.md`.
 
