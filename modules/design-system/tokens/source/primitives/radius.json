@@ -1,31 +1,18 @@
 {
   "radius": {
-    "scale": {
-      "none": {
-        "$value": "0px",
-        "$type": "dimension"
-      },
-      "sm": {
-        "$value": "6px",
-        "$type": "dimension"
-      },
-      "md": {
-        "$value": "8px",
-        "$type": "dimension"
-      },
-      "lg": {
-        "$value": "12px",
-        "$type": "dimension"
-      },
-      "xl": {
-        "$value": "16px",
-        "$type": "dimension"
-      },
-      "full": {
-        "$value": "9999px",
-        "$type": "dimension",
-        "$description": "Round shape (avatars, chips)"
-      }
+    "base": {
+      "$value": "0.625rem",
+      "$type": "dimension",
+      "$description": "Shadcn --radius base (10px)"
+    }
+  },
+  "ds": {
+    "radius": {
+      "sm": { "$value": "4px", "$type": "dimension" },
+      "md": { "$value": "6px", "$type": "dimension" },
+      "lg": { "$value": "8px", "$type": "dimension" },
+      "xl": { "$value": "12px", "$type": "dimension" },
+      "full": { "$value": "9999px", "$type": "dimension" }
     }
   }
 }

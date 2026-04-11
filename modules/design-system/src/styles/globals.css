@@ -1,13 +1,16 @@
 /**
  * Foundation OS — Design System globals
  *
- * Architecture (3 couches) :
- *   1. Tokens DTCG (tokens/build/tokens.css) — source de verite (--fos-*)
- *   2. Bridge shadcn (:root) — mappe --fos-* vers les vars shadcn standard
- *   3. @theme inline — genere les utilitaires Tailwind (bg-background, text-primary…)
+ * Source of truth : tokens/source/**\/*.json (DTCG)
+ *   → Style Dictionary → tokens/build/tokens.css (--fos-*)
  *
- * Void Glass DARK-ONLY — pas de .light. Fond #06070C, turquoise #5EEAD4.
- * Modifier Void Glass : editer tokens/source/**, rebuild, les composants suivent.
+ * Cette feuille fait le bridge entre les tokens --fos-* et :
+ *   - les vars shadcn (--background, --primary, etc.) pour les composants ui/
+ *   - les vars --ds-* pour les classes utilitaires Figma Make (bg-ds-surface-0,
+ *     text-ds-fg, rounded-ds-full, etc.)
+ *
+ * DARK-ONLY : les valeurs dans :root sont deja les valeurs dark, pas de
+ * bascule light/dark. Iso Figma Make design.
  */
 
 @import 'tailwindcss';
@@ -17,106 +20,149 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ── Bridge shadcn vars → fos tokens (Void Glass dark) ─────────── */
-  --background: var(--fos-color-bg-canvas);
-  --foreground: var(--fos-color-text-primary);
+  --font-size: 16px;
 
-  --card: var(--fos-color-bg-surface);
-  --card-foreground: var(--fos-color-text-primary);
+  /* ── Shadcn vars → --fos-* ────────────────────────────────────────── */
+  --background: var(--fos-color-shadcn-background);
+  --foreground: var(--fos-color-shadcn-foreground);
 
-  --popover: var(--fos-color-bg-surface);
-  --popover-foreground: var(--fos-color-text-primary);
+  --card: var(--fos-color-shadcn-card-bg);
+  --card-foreground: var(--fos-color-shadcn-card-fg);
 
-  --primary: var(--fos-color-accent-brand);
-  --primary-foreground: var(--fos-color-bg-canvas);
+  --popover: var(--fos-color-shadcn-popover-bg);
+  --popover-foreground: var(--fos-color-shadcn-popover-fg);
 
-  --secondary: var(--fos-color-bg-surface);
-  --secondary-foreground: var(--fos-color-text-primary);
+  --primary: var(--fos-color-shadcn-primary-bg);
+  --primary-foreground: var(--fos-color-shadcn-primary-fg);
 
-  --muted: var(--fos-color-bg-surface);
-  --muted-foreground: var(--fos-color-text-muted);
+  --secondary: var(--fos-color-shadcn-secondary-bg);
+  --secondary-foreground: var(--fos-color-shadcn-secondary-fg);
 
-  --accent: var(--fos-color-bg-surface);
-  --accent-foreground: var(--fos-color-text-primary);
+  --muted: var(--fos-color-shadcn-muted-bg);
+  --muted-foreground: var(--fos-color-shadcn-muted-fg);
 
-  --destructive: var(--fos-color-accent-danger);
-  --destructive-foreground: var(--fos-color-text-bright);
+  --accent: var(--fos-color-shadcn-accent-bg);
+  --accent-foreground: var(--fos-color-shadcn-accent-fg);
 
-  --border: var(--fos-color-border-default);
-  --input: var(--fos-color-bg-surface);
-  --input-background: var(--fos-color-bg-surface);
-  --switch-background: var(--fos-color-bg-surface);
-  --ring: var(--fos-color-accent-brand);
+  --destructive: var(--fos-color-shadcn-destructive-bg);
+  --destructive-foreground: var(--fos-color-shadcn-destructive-fg);
 
-  /* Charts — status palette */
-  --chart-1: var(--fos-color-status-wip);
-  --chart-2: var(--fos-color-accent-brand);
-  --chart-3: var(--fos-color-status-parking);
-  --chart-4: var(--fos-color-status-done);
-  --chart-5: var(--fos-color-status-alert);
+  --border: var(--fos-color-shadcn-border);
+  --input: var(--fos-color-shadcn-input);
+  --input-background: var(--fos-color-shadcn-input-background);
+  --switch-background: var(--fos-color-shadcn-switch-background);
+  --ring: var(--fos-color-shadcn-ring);
 
-  /* Sidebar */
-  --sidebar: var(--fos-color-bg-canvas);
-  --sidebar-foreground: var(--fos-color-text-primary);
-  --sidebar-primary: var(--fos-color-accent-brand);
-  --sidebar-primary-foreground: var(--fos-color-bg-canvas);
-  --sidebar-accent: var(--fos-color-bg-surface);
-  --sidebar-accent-foreground: var(--fos-color-text-primary);
-  --sidebar-border: var(--fos-color-border-default);
-  --sidebar-ring: var(--fos-color-accent-brand);
+  --chart-1: var(--fos-color-shadcn-chart-1);
+  --chart-2: var(--fos-color-shadcn-chart-2);
+  --chart-3: var(--fos-color-shadcn-chart-3);
+  --chart-4: var(--fos-color-shadcn-chart-4);
+  --chart-5: var(--fos-color-shadcn-chart-5);
 
-  /* Radius — map sur semantic radius tokens */
-  --radius: var(--fos-radius-component-card);
+  --sidebar: var(--fos-color-shadcn-sidebar-bg);
+  --sidebar-foreground: var(--fos-color-shadcn-sidebar-fg);
+  --sidebar-primary: var(--fos-color-shadcn-sidebar-primary-bg);
+  --sidebar-primary-foreground: var(--fos-color-shadcn-sidebar-primary-fg);
+  --sidebar-accent: var(--fos-color-shadcn-sidebar-accent-bg);
+  --sidebar-accent-foreground: var(--fos-color-shadcn-sidebar-accent-fg);
+  --sidebar-border: var(--fos-color-shadcn-sidebar-border);
+  --sidebar-ring: var(--fos-color-shadcn-sidebar-ring);
 
-  /* Fonts — Figtree / JetBrains Mono */
+  --radius: var(--fos-radius-base);
+
   --font-sans: var(--fos-font-family-sans);
   --font-mono: var(--fos-font-family-mono);
-
-  --font-weight-normal: var(--fos-font-weight-regular);
+  --font-weight-normal: var(--fos-font-weight-normal);
   --font-weight-medium: var(--fos-font-weight-medium);
   --font-weight-semibold: var(--fos-font-weight-semibold);
   --font-weight-bold: var(--fos-font-weight-bold);
+
+  /* ── --ds-* vars → --fos-* ────────────────────────────────────────── */
+  --ds-surface-0: var(--fos-color-ds-surface-0);
+  --ds-surface-1: var(--fos-color-ds-surface-1);
+  --ds-surface-2: var(--fos-color-ds-surface-2);
+  --ds-surface-3: var(--fos-color-ds-surface-3);
+  --ds-fg: var(--fos-color-ds-fg);
+  --ds-border: var(--fos-color-ds-border);
+  --ds-blue: var(--fos-color-ds-blue);
+  --ds-purple: var(--fos-color-ds-purple);
+  --ds-emerald: var(--fos-color-ds-emerald);
+  --ds-amber: var(--fos-color-ds-amber);
+  --ds-rose: var(--fos-color-ds-rose);
+  --ds-cyan: var(--fos-color-ds-cyan);
+  --ds-teal: var(--fos-color-ds-teal);
+  --ds-sky: var(--fos-color-ds-sky);
+  --ds-violet: var(--fos-color-ds-violet);
+  --ds-indigo: var(--fos-color-ds-indigo);
+  --ds-orange: var(--fos-color-ds-orange);
+
+  --ds-space-px: var(--fos-ds-space-px);
+  --ds-space-0_5: var(--fos-ds-space-0-5);
+  --ds-space-1: var(--fos-ds-space-1);
+  --ds-space-1_5: var(--fos-ds-space-1-5);
+  --ds-space-2: var(--fos-ds-space-2);
+  --ds-space-2_5: var(--fos-ds-space-2-5);
+  --ds-space-3: var(--fos-ds-space-3);
+  --ds-space-4: var(--fos-ds-space-4);
+  --ds-space-5: var(--fos-ds-space-5);
+  --ds-space-6: var(--fos-ds-space-6);
+  --ds-space-8: var(--fos-ds-space-8);
+  --ds-space-10: var(--fos-ds-space-10);
+
+  --ds-text-2xs: var(--fos-ds-text-2xs);
+  --ds-text-xs: var(--fos-ds-text-xs);
+  --ds-text-sm: var(--fos-ds-text-sm);
+  --ds-text-md: var(--fos-ds-text-md);
+  --ds-text-base: var(--fos-ds-text-base);
+  --ds-text-lg: var(--fos-ds-text-lg);
+  --ds-text-xl: var(--fos-ds-text-xl);
+  --ds-text-2xl: var(--fos-ds-text-2xl);
+  --ds-text-display: var(--fos-ds-text-display);
+
+  --ds-radius-sm: var(--fos-ds-radius-sm);
+  --ds-radius-md: var(--fos-ds-radius-md);
+  --ds-radius-lg: var(--fos-ds-radius-lg);
+  --ds-radius-xl: var(--fos-ds-radius-xl);
+  --ds-radius-full: var(--fos-ds-radius-full);
+
+  --ds-shadow-inset: var(--fos-ds-shadow-inset);
+  --ds-shadow-card: var(--fos-ds-shadow-card);
+  --ds-shadow-modal: var(--fos-ds-shadow-modal);
+  --ds-shadow-dropdown: var(--fos-ds-shadow-dropdown);
 }
 
-/* ── Theme inline : generation des utilitaires Tailwind ──────────── */
 @theme inline {
-  /* Colors */
+  /* ── Shadcn Tailwind utilities ────────────────────────────────────── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-
   --color-border: var(--border);
   --color-input: var(--input);
   --color-input-background: var(--input-background);
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
-
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -126,13 +172,54 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Radius */
-  --radius-sm: calc(var(--radius) - 6px);
-  --radius-md: calc(var(--radius) - 4px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* ── DS Tailwind utilities ────────────────────────────────────────── */
+  --color-ds-surface-0: var(--ds-surface-0);
+  --color-ds-surface-1: var(--ds-surface-1);
+  --color-ds-surface-2: var(--ds-surface-2);
+  --color-ds-surface-3: var(--ds-surface-3);
+  --color-ds-fg: var(--ds-fg);
+  --color-ds-border: var(--ds-border);
+  --color-ds-blue: var(--ds-blue);
+  --color-ds-purple: var(--ds-purple);
+  --color-ds-emerald: var(--ds-emerald);
+  --color-ds-amber: var(--ds-amber);
+  --color-ds-rose: var(--ds-rose);
+  --color-ds-cyan: var(--ds-cyan);
+  --color-ds-teal: var(--ds-teal);
+  --color-ds-sky: var(--ds-sky);
+  --color-ds-violet: var(--ds-violet);
+  --color-ds-indigo: var(--ds-indigo);
+  --color-ds-orange: var(--ds-orange);
 
-  /* Fonts */
+  --spacing-ds-px: var(--ds-space-px);
+  --spacing-ds-0_5: var(--ds-space-0_5);
+  --spacing-ds-1: var(--ds-space-1);
+  --spacing-ds-1_5: var(--ds-space-1_5);
+  --spacing-ds-2: var(--ds-space-2);
+  --spacing-ds-2_5: var(--ds-space-2_5);
+  --spacing-ds-3: var(--ds-space-3);
+  --spacing-ds-4: var(--ds-space-4);
+  --spacing-ds-5: var(--ds-space-5);
+  --spacing-ds-6: var(--ds-space-6);
+  --spacing-ds-8: var(--ds-space-8);
+  --spacing-ds-10: var(--ds-space-10);
+
+  --text-ds-2xs: var(--ds-text-2xs);
+  --text-ds-xs: var(--ds-text-xs);
+  --text-ds-sm: var(--ds-text-sm);
+  --text-ds-md: var(--ds-text-md);
+  --text-ds-base: var(--ds-text-base);
+  --text-ds-lg: var(--ds-text-lg);
+  --text-ds-xl: var(--ds-text-xl);
+  --text-ds-2xl: var(--ds-text-2xl);
+  --text-ds-display: var(--ds-text-display);
+
+  --radius-ds-sm: var(--ds-radius-sm);
+  --radius-ds-md: var(--ds-radius-md);
+  --radius-ds-lg: var(--ds-radius-lg);
+  --radius-ds-xl: var(--ds-radius-xl);
+  --radius-ds-full: var(--ds-radius-full);
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
@@ -143,7 +230,7 @@
   }
 
   html {
-    font-family: var(--font-sans);
+    font-size: var(--font-size);
   }
 
   body {
@@ -159,4 +246,12 @@
   samp {
     font-family: var(--font-mono);
   }
+
+  h1 { font-size: var(--text-2xl); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  h2 { font-size: var(--text-xl); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  h3 { font-size: var(--text-lg); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  h4 { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  label { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  button { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+  input { font-size: var(--text-base); font-weight: var(--font-weight-normal); line-height: 1.5; }
 }

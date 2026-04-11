@@ -1,120 +1,82 @@
 {
   "color": {
-    "palette": {
-      "black": {
-        "$value": "#06070C",
-        "$type": "color",
-        "$description": "Void Glass noir de base (fond)"
+    "ds": {
+      "surface": {
+        "0": { "$value": "#030303", "$type": "color", "$description": "Deepest canvas" },
+        "1": { "$value": "#050505", "$type": "color", "$description": "Sidebar/header base" },
+        "2": { "$value": "#0a0a0a", "$type": "color", "$description": "Card base" },
+        "3": { "$value": "#111111", "$type": "color", "$description": "Elevated surface" }
       },
-      "turquoise": {
-        "$value": "#5EEAD4",
-        "$type": "color",
-        "$description": "Turquoise Void Glass (accent brand)"
+      "fg": { "$value": "#ffffff", "$type": "color", "$description": "Foreground base (use with opacity)" },
+      "border": { "$value": "#ffffff", "$type": "color", "$description": "Border base (use with opacity)" },
+      "blue": { "$value": "#60a5fa", "$type": "color" },
+      "purple": { "$value": "#c084fc", "$type": "color" },
+      "emerald": { "$value": "#34d399", "$type": "color" },
+      "amber": { "$value": "#fbbf24", "$type": "color" },
+      "rose": { "$value": "#fb7185", "$type": "color" },
+      "cyan": { "$value": "#22d3ee", "$type": "color" },
+      "teal": { "$value": "#2dd4bf", "$type": "color" },
+      "sky": { "$value": "#38bdf8", "$type": "color" },
+      "violet": { "$value": "#8b5cf6", "$type": "color" },
+      "indigo": { "$value": "#818cf8", "$type": "color" },
+      "orange": { "$value": "#fb923c", "$type": "color" }
+    },
+    "shadcn": {
+      "background": { "$value": "oklch(0.145 0 0)", "$type": "color", "$description": "Dark canvas shadcn" },
+      "foreground": { "$value": "oklch(0.985 0 0)", "$type": "color" },
+      "card": {
+        "bg": { "$value": "oklch(0.145 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
       },
-      "blue": {
-        "$value": "#3B82F6",
-        "$type": "color",
-        "$description": "Blue 500 (status WIP, info)"
+      "popover": {
+        "bg": { "$value": "oklch(0.145 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
       },
-      "amber": {
-        "$value": "#F59E0B",
-        "$type": "color",
-        "$description": "Amber 500 (status paused, warning)"
+      "primary": {
+        "bg": { "$value": "oklch(0.985 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.205 0 0)", "$type": "color" }
       },
-      "violet": {
-        "$value": "#A78BFA",
-        "$type": "color",
-        "$description": "Violet 400 (status parking)"
+      "secondary": {
+        "bg": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
       },
-      "red": {
-        "$value": "#EF4444",
-        "$type": "color",
-        "$description": "Red 500 (danger, destructive actions)"
+      "muted": {
+        "bg": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.708 0 0)", "$type": "color" }
       },
-      "white025": {
-        "$value": "rgba(255, 255, 255, 0.025)",
-        "$type": "color",
-        "$description": "White alpha 2.5% (surfaces) — canonique Void Glass cf docs/design-system.md"
+      "accent": {
+        "bg": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
       },
-      "white055": {
-        "$value": "rgba(255, 255, 255, 0.055)",
-        "$type": "color",
-        "$description": "White alpha 5.5% (borders) — canonique Void Glass cf docs/design-system.md"
+      "destructive": {
+        "bg": { "$value": "oklch(0.396 0.141 25.723)", "$type": "color" },
+        "fg": { "$value": "oklch(0.637 0.237 25.331)", "$type": "color" }
       },
-      "white12": {
-        "$value": "rgba(255, 255, 255, 0.12)",
-        "$type": "color",
-        "$description": "White alpha 12% (archived)"
+      "border": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+      "input": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+      "inputBackground": { "$value": "#f3f3f5", "$type": "color", "$description": "Figma Make base — not overridden in dark" },
+      "switchBackground": { "$value": "#cbced4", "$type": "color", "$description": "Figma Make base — not overridden in dark" },
+      "ring": { "$value": "oklch(0.439 0 0)", "$type": "color" },
+      "chart": {
+        "1": { "$value": "oklch(0.488 0.243 264.376)", "$type": "color" },
+        "2": { "$value": "oklch(0.696 0.17 162.48)", "$type": "color" },
+        "3": { "$value": "oklch(0.769 0.188 70.08)", "$type": "color" },
+        "4": { "$value": "oklch(0.627 0.265 303.9)", "$type": "color" },
+        "5": { "$value": "oklch(0.645 0.246 16.439)", "$type": "color" }
       },
-      "white42": {
-        "$value": "rgba(255, 255, 255, 0.42)",
-        "$type": "color",
-        "$description": "White alpha 42% (texte secondaire)"
-      },
-      "white88": {
-        "$value": "rgba(255, 255, 255, 0.88)",
-        "$type": "color",
-        "$description": "White alpha 88% (texte principal)"
-      },
-      "turquoiseGlow": {
-        "$value": "rgba(94, 234, 212, 0.09)",
-        "$type": "color",
-        "$description": "Turquoise 9% (orb glow background)"
-      },
-      "violetGlow": {
-        "$value": "rgba(167, 139, 250, 0.09)",
-        "$type": "color",
-        "$description": "Violet 9% (orb glow background)"
-      },
-      "blueGlow": {
-        "$value": "rgba(59, 130, 246, 0.09)",
-        "$type": "color",
-        "$description": "Blue 9% (orb glow background)"
-      },
-      "green": {
-        "$value": "#22C55E",
-        "$type": "color",
-        "$description": "Green 500 (success, done)"
-      },
-      "orange": {
-        "$value": "#F97316",
-        "$type": "color",
-        "$description": "Orange 500 (alert, phase)"
-      },
-      "zinc50": {
-        "$value": "#FAFAFA",
-        "$type": "color",
-        "$description": "Zinc 50 (texte bright/headings)"
-      },
-      "zinc300": {
-        "$value": "#D4D4D8",
-        "$type": "color",
-        "$description": "Zinc 300 (texte body clair)"
-      },
-      "zinc400": {
-        "$value": "#A1A1AA",
-        "$type": "color",
-        "$description": "Zinc 400 (texte secondaire)"
-      },
-      "slate400": {
-        "$value": "#94A3B8",
-        "$type": "color",
-        "$description": "Slate 400 (texte muted info)"
-      },
-      "zinc500": {
-        "$value": "#71717A",
-        "$type": "color",
-        "$description": "Zinc 500 (texte tertiaire)"
-      },
-      "zinc600": {
-        "$value": "#52525B",
-        "$type": "color",
-        "$description": "Zinc 600 (texte faint)"
-      },
-      "zinc700": {
-        "$value": "#3F3F46",
-        "$type": "color",
-        "$description": "Zinc 700 (texte ghost)"
+      "sidebar": {
+        "bg": { "$value": "oklch(0.205 0 0)", "$type": "color" },
+        "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" },
+        "primary": {
+          "bg": { "$value": "oklch(0.488 0.243 264.376)", "$type": "color" },
+          "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
+        },
+        "accent": {
+          "bg": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+          "fg": { "$value": "oklch(0.985 0 0)", "$type": "color" }
+        },
+        "border": { "$value": "oklch(0.269 0 0)", "$type": "color" },
+        "ring": { "$value": "oklch(0.439 0 0)", "$type": "color" }
       }
     }
   }

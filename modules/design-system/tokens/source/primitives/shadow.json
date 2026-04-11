@@ -1,0 +1,22 @@
+{
+  "ds": {
+    "shadow": {
+      "inset": {
+        "$value": "inset 0 2px 4px rgba(0,0,0,0.2)",
+        "$type": "shadow"
+      },
+      "card": {
+        "$value": "0 8px 30px rgba(0,0,0,0.5)",
+        "$type": "shadow"
+      },
+      "modal": {
+        "$value": "0 25px 60px rgba(0,0,0,0.8)",
+        "$type": "shadow"
+      },
+      "dropdown": {
+        "$value": "0 15px 40px rgba(0,0,0,0.6)",
+        "$type": "shadow"
+      }
+    }
+  }
+}
