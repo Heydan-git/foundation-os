@@ -10,6 +10,6 @@ describe('IndexPage', () => {
         <IndexPage />
       </BrowserRouter>
     )
-    expect(screen.getByText('Foundation OS')).toBeInTheDocument()
+    expect(screen.getByText(/Vue d.ensemble/)).toBeInTheDocument()
   })
 })

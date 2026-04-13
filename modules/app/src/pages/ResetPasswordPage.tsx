@@ -1,37 +1,10 @@
-/**
- * ResetPasswordPage — two-mode flow:
- *   1. Anonymous user → request a reset link by email (supabase.auth.resetPasswordForEmail)
- *   2. Authenticated user (after clicking the email link, supabase auto-restores session)
- *      → set a new password (supabase.auth.updateUser)
- */
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/lib/AuthContext'
 import { supabase } from '@/lib/supabase'
-import { Card, PageHeader } from '@/components'
 import { PASSWORD_MIN } from '@/lib/constants'
-const inputStyle: React.CSSProperties = {
-  padding: '10px 12px',
-  borderRadius: 6,
-  border: '1px solid var(--color-border-default)',
-  background: 'var(--color-bg-card)',
-  color: 'var(--color-text-primary)',
-  fontSize: 13,
-  fontFamily: "'Figtree',sans-serif",
-  outline: 'none',
-}
-
-const ctaStyle: React.CSSProperties = {
-  padding: '10px 16px',
-  borderRadius: 8,
-  border: 'none',
-  background: 'rgba(94,234,212,.12)',
-  color: 'var(--color-accent-brand-primary)',
-  fontSize: 13,
-  fontWeight: 600,
-  fontFamily: "'Figtree',sans-serif",
-  cursor: 'pointer',
-}
+import { Command } from 'lucide-react'
+import { motion } from 'motion/react'
 
 export default function ResetPasswordPage() {
   const { user, loading } = useAuth()
@@ -45,12 +18,13 @@ export default function ResetPasswordPage() {
 
   if (loading) return null
 
-  // Mode 2 : authenticated → user came back from the email link, set new password
   const isUpdateMode = !!user
 
   const handleRequest = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError(null); setInfo(null); setSubmitting(true)
+    setError(null)
+    setInfo(null)
+    setSubmitting(true)
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     })
@@ -61,7 +35,8 @@ export default function ResetPasswordPage() {
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError(null); setInfo(null)
+    setError(null)
+    setInfo(null)
     if (password.length < PASSWORD_MIN) {
       setError(`Mot de passe : ${PASSWORD_MIN} caracteres minimum`)
       return
@@ -78,76 +53,97 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <>
-      <PageHeader
-        title="Foundation OS"
-        subtitle={isUpdateMode ? 'Nouveau mot de passe' : 'Reinitialiser le mot de passe'}
-        version="v0.1"
-        meta=""
+    <div className="min-h-screen bg-ds-surface-0 text-ds-fg/80 font-sans flex items-center justify-center relative overflow-hidden">
+      {/* Background effects */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.03]"
+        style={{
+          backgroundImage: 'radial-gradient(circle at center, #ffffff 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
       />
-      <div style={{ maxWidth: 400, margin: '0 auto', padding: '0 16px' }}>
-        <Card>
-          <form
-            onSubmit={isUpdateMode ? handleUpdate : handleRequest}
-            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
-          >
-            {isUpdateMode ? (
-              <input
-                type="password"
-                placeholder={`Nouveau mot de passe (${PASSWORD_MIN}+ caracteres)`}
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-                minLength={PASSWORD_MIN}
-                style={inputStyle}
-              />
-            ) : (
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                style={inputStyle}
-              />
-            )}
+      <div className="fixed top-[-25%] left-[-15%] w-[60%] h-[60%] bg-ds-purple/10 blur-[150px] rounded-ds-full pointer-events-none mix-blend-screen z-0" />
+      <div className="fixed bottom-[-25%] right-[-15%] w-[60%] h-[60%] bg-ds-blue/10 blur-[150px] rounded-ds-full pointer-events-none mix-blend-screen z-0" />
 
-            {error && (
-              <p style={{ fontSize: 11, color: 'var(--color-accent-danger)', padding: '6px 0' }}>{error}</p>
-            )}
-            {info && (
-              <p style={{ fontSize: 11, color: 'var(--color-accent-brand-primary)', padding: '6px 0' }}>{info}</p>
-            )}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-sm mx-4 relative z-10"
+      >
+        {/* Logo */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-8 w-8 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-md border border-white/10 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_0_20px_rgba(59,130,246,0.2)]">
+            <Command size={16} strokeWidth={1.5} className="text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+          </div>
+          <span className="font-medium text-lg tracking-wide text-white/90">Foundation OS</span>
+        </div>
 
-            <button
-              type="submit"
-              disabled={submitting}
-              className="cta"
-              style={{ ...ctaStyle, cursor: submitting ? 'wait' : 'pointer', opacity: submitting ? 0.6 : 1 }}
+        {/* Card */}
+        <div className="rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border border-white/[0.05] p-6 relative overflow-hidden group">
+          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute top-[-30%] right-[-20%] w-[50%] h-[50%] bg-purple-500/5 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
+
+          <div className="relative z-10">
+            <h2 className="text-sm font-medium text-white/90 mb-1">
+              {isUpdateMode ? 'Nouveau mot de passe' : 'Reinitialiser le mot de passe'}
+            </h2>
+            <p className="text-[11px] text-white/40 mb-6">
+              {isUpdateMode
+                ? 'Choisis un nouveau mot de passe pour ton compte.'
+                : 'Entre ton email pour recevoir un lien de reinitialisation.'}
+            </p>
+
+            <form
+              onSubmit={isUpdateMode ? handleUpdate : handleRequest}
+              className="flex flex-col gap-3"
             >
-              {submitting
-                ? '...'
-                : isUpdateMode
-                  ? 'Mettre a jour'
-                  : 'Envoyer le lien'}
-            </button>
+              {isUpdateMode ? (
+                <input
+                  type="password"
+                  placeholder={`Nouveau mot de passe (${PASSWORD_MIN}+ caracteres)`}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={PASSWORD_MIN}
+                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
+                />
+              ) : (
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
+                />
+              )}
 
-            <Link
-              to="/login"
-              style={{
-                textAlign: 'center',
-                padding: '4px 0',
-                color: 'var(--color-text-faint)',
-                fontSize: 11,
-                fontFamily: "'Figtree',sans-serif",
-                textDecoration: 'none',
-              }}
-            >
-              Retour a la connexion
-            </Link>
-          </form>
-        </Card>
-      </div>
-    </>
+              {error && <p className="text-[11px] text-rose-400 py-1">{error}</p>}
+              {info && <p className="text-[11px] text-emerald-400 py-1">{info}</p>}
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full py-2.5 rounded-md bg-white text-black hover:bg-white/90 text-xs font-medium transition-all shadow-[0_0_15px_rgba(255,255,255,0.2),inset_0_-1px_0_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.2)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-wait"
+              >
+                {submitting
+                  ? '...'
+                  : isUpdateMode
+                    ? 'Mettre a jour'
+                    : 'Envoyer le lien'}
+              </button>
+
+              <Link
+                to="/login"
+                className="text-[11px] text-white/40 hover:text-white/70 transition-colors text-center py-1"
+              >
+                Retour a la connexion
+              </Link>
+            </form>
+          </div>
+        </div>
+      </motion.div>
+    </div>
   )
 }

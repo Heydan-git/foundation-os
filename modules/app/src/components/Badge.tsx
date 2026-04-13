@@ -6,13 +6,11 @@ interface BadgeProps {
 export function Badge({ label, color }: BadgeProps) {
   return (
     <span
-      className="text-xs px-2 py-0.5 font-medium"
+      className="text-[8px] font-mono px-1.5 py-0.5 rounded border"
       style={{
-        backgroundColor: color + '25',
         color,
-        borderRadius: 4,
-        fontFamily: "'JetBrains Mono',monospace",
-        letterSpacing: '.04em',
+        backgroundColor: color + '18',
+        borderColor: color + '30',
       }}
     >
       {label}

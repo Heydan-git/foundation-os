@@ -1,68 +1,116 @@
-/**
- * KnowledgePage — Foundation OS Knowledge Base
- *
- * Source de verite : modules/app/data/knowledge.md
- * Donnees statiques (manifeste, journal, frameworks, stack, roadmap) — pas de Supabase.
- */
 import { useState } from 'react'
-import { Badge, Card, Footer, PageContainer, PageHeader, TabBar } from '@/components'
+import { motion } from 'motion/react'
+import { BookOpen, Scroll, NotebookPen, Boxes, Layers, Map } from 'lucide-react'
 import { APP_META } from '@/lib/constants'
 import { MANIFESTE, JOURNAL, FRAMEWORKS, STACK, ROADMAP } from '@/lib/knowledge-data'
 
 const TABS = [
-  { id: 'manifeste',  label: 'Manifeste'  },
-  { id: 'journal',    label: 'Journal'    },
-  { id: 'frameworks', label: 'Frameworks' },
-  { id: 'stack',      label: 'Stack'      },
-  { id: 'roadmap',    label: 'Roadmap'    },
+  { id: 'manifeste', label: 'Manifeste', icon: Scroll },
+  { id: 'journal', label: 'Journal', icon: NotebookPen },
+  { id: 'frameworks', label: 'Frameworks', icon: Boxes },
+  { id: 'stack', label: 'Stack', icon: Layers },
+  { id: 'roadmap', label: 'Roadmap', icon: Map },
 ]
 
-// ── Sections ─────────────────────────────────────────────────────────
+/* ── Glass Card ──────────────────────────────────────────────────── */
+
+function GlassCard({
+  children,
+  onClick,
+  selected,
+}: {
+  children: React.ReactNode
+  onClick?: () => void
+  selected?: boolean
+}) {
+  return (
+    <div
+      onClick={onClick}
+      className={`p-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border relative overflow-hidden group transition-all duration-500 ${
+        selected
+          ? 'border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
+          : 'border-white/[0.05] hover:border-white/[0.1] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
+      } ${onClick ? 'cursor-pointer' : ''}`}
+    >
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="relative z-10">{children}</div>
+    </div>
+  )
+}
+
+function GlassBadge({ label, color }: { label: string; color: string }) {
+  return (
+    <span
+      className="text-[8px] font-mono px-1.5 py-0.5 rounded border"
+      style={{
+        color,
+        backgroundColor: color + '18',
+        borderColor: color + '30',
+      }}
+    >
+      {label}
+    </span>
+  )
+}
+
+/* ── Sections ────────────────────────────────────────────────────── */
 
 function ManifesteSection() {
   return (
-    <div className="flex flex-col" style={{ gap: 16 }}>
-      <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision long terme</h3>
-        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.visionLT}</p>
-      </Card>
-      <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision court terme</h3>
-        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.visionCT}</p>
-      </Card>
-      <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Mode operatoire</h3>
-        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.modeOperatoire}</p>
-      </Card>
-      <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 12, letterSpacing: '.08em', textTransform: 'uppercase' }}>Principes fondateurs</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 12 }}>
+    <div className="flex flex-col gap-4">
+      <GlassCard>
+        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+          Vision long terme
+        </p>
+        <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.visionLT}</p>
+      </GlassCard>
+      <GlassCard>
+        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+          Vision court terme
+        </p>
+        <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.visionCT}</p>
+      </GlassCard>
+      <GlassCard>
+        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+          Mode operatoire
+        </p>
+        <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.modeOperatoire}</p>
+      </GlassCard>
+      <GlassCard>
+        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-3">
+          Principes fondateurs
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {MANIFESTE.principes.map((p) => (
-            <div key={p.id} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)', flexShrink: 0, paddingTop: 1 }}>{p.id}</span>
+            <div key={p.id} className="flex items-start gap-3">
+              <span className="text-[10px] font-mono text-blue-400 shrink-0 pt-0.5">{p.id}</span>
               <div>
-                <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text-primary)' }}>{p.label}</span>
-                <span style={{ fontSize: 13, color: 'var(--color-text-muted)' }}> — {p.desc}</span>
+                <span className="text-xs font-medium text-white/90">{p.label}</span>
+                <span className="text-xs text-white/40"> — {p.desc}</span>
               </div>
             </div>
           ))}
         </div>
-      </Card>
+      </GlassCard>
     </div>
   )
 }
 
 function JournalSection() {
   return (
-    <div className="flex flex-col" style={{ gap: 8 }}>
+    <div className="flex flex-col gap-2">
       {JOURNAL.map((entry) => (
-        <Card key={entry.num}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-text-faint)', width: 22, flexShrink: 0, paddingTop: 1 }}>{entry.num}.</span>
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)', flexShrink: 0, paddingTop: 1 }}>{entry.conv}</span>
-            <p style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{entry.action}</p>
+        <GlassCard key={entry.num}>
+          <div className="flex items-start gap-3">
+            <span className="text-[10px] font-mono text-white/30 w-5 shrink-0 pt-0.5">
+              {entry.num}.
+            </span>
+            <span className="text-[10px] font-mono text-blue-400 shrink-0 pt-0.5">
+              {entry.conv}
+            </span>
+            <p className="text-xs text-white/70">{entry.action}</p>
           </div>
-        </Card>
+        </GlassCard>
       ))}
     </div>
   )
@@ -70,19 +118,21 @@ function JournalSection() {
 
 function FrameworksSection() {
   return (
-    <div className="flex flex-col" style={{ gap: 16 }}>
+    <div className="flex flex-col gap-4">
       {FRAMEWORKS.map((fw) => (
-        <Card key={fw.id}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text-primary)' }}>{fw.label}</h3>
-            <Badge label={fw.tag} color={fw.tagColor} />
+        <GlassCard key={fw.id}>
+          <div className="flex items-center gap-3 mb-3">
+            <h3 className="text-sm font-medium text-white/90">{fw.label}</h3>
+            <GlassBadge label={fw.tag} color={fw.tagColor} />
           </div>
-          <div className="flex flex-col" style={{ gap: 6 }}>
+          <div className="flex flex-col gap-1.5">
             {fw.lines.map((line, j) => (
-              <p key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>— {line}</p>
+              <p key={j} className="text-[11px] font-mono text-white/50 leading-relaxed">
+                — {line}
+              </p>
             ))}
           </div>
-        </Card>
+        </GlassCard>
       ))}
     </div>
   )
@@ -90,36 +140,43 @@ function FrameworksSection() {
 
 function StackSection() {
   return (
-    <div className="flex flex-col" style={{ gap: 16 }}>
+    <div className="flex flex-col gap-4">
       {STACK.map((layer) => (
-        <Card key={layer.id}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text-primary)' }}>{layer.label}</h3>
-            <Badge label={layer.status} color={layer.statusColor} />
+        <GlassCard key={layer.id}>
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-sm font-medium text-white/90">{layer.label}</h3>
+            <GlassBadge label={layer.status} color={layer.statusColor} />
           </div>
           {layer.sublayers.length > 0 && (
-            <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
+            <div className="flex gap-3 mb-3 flex-wrap">
               {layer.sublayers.map((sl) => (
-                <div key={sl.id} style={{ flex: '1 1 160px', padding: 12, borderRadius: 6, background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.07)' }}>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)' }}>{sl.id}</span>
-                  <p style={{ fontSize: 12, fontWeight: 500, color: 'var(--color-text-primary)', marginTop: 2 }}>{sl.label}</p>
-                  <p style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>{sl.desc}</p>
+                <div
+                  key={sl.id}
+                  className="flex-1 min-w-[160px] p-3 rounded-lg bg-[#050505] border border-white/[0.05]"
+                >
+                  <span className="text-[10px] font-mono text-blue-400">{sl.id}</span>
+                  <p className="text-xs font-medium text-white/90 mt-1">{sl.label}</p>
+                  <p className="text-[11px] text-white/40 mt-1">{sl.desc}</p>
                 </div>
               ))}
             </div>
           )}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
+          <div className="flex flex-wrap gap-1.5 mb-2">
             {layer.items.map((item, j) => (
-              <span key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, padding: '2px 8px', borderRadius: 4, background: 'rgba(94,234,212,.08)', color: 'var(--color-text-muted)' }}>{item}</span>
+              <span
+                key={j}
+                className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.05] text-white/50"
+              >
+                {item}
+              </span>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 8 }}>
-            <span style={{ color: 'var(--color-text-faint)' }}>Action · </span>{layer.action}
+          <p className="text-[11px] text-white/40 mt-2">
+            <span className="text-white/30">Action · </span>
+            {layer.action}
           </p>
-          {layer.note && (
-            <p style={{ fontSize: 11, color: 'var(--color-text-faint)', marginTop: 4 }}>{layer.note}</p>
-          )}
-        </Card>
+          {layer.note && <p className="text-[11px] text-white/30 mt-1">{layer.note}</p>}
+        </GlassCard>
       ))}
     </div>
   )
@@ -127,83 +184,144 @@ function StackSection() {
 
 function RoadmapSection() {
   return (
-    <div className="flex flex-col" style={{ gap: 12 }}>
+    <div className="flex flex-col gap-3">
       {ROADMAP.map((item, i) => (
-        <Card key={item.id}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, flexShrink: 0, paddingTop: 2 }}>
-              <div style={{ width: 10, height: 10, borderRadius: '50%', background: item.color, boxShadow: item.status === 'active' ? `0 0 8px ${item.color}80` : 'none' }} />
+        <GlassCard key={item.id}>
+          <div className="flex items-start gap-4">
+            <div className="flex flex-col items-center gap-1 shrink-0 pt-0.5">
+              <div
+                className="w-2.5 h-2.5 rounded-full"
+                style={{
+                  background: item.color,
+                  boxShadow:
+                    item.status === 'active' ? `0 0 8px ${item.color}80` : 'none',
+                }}
+              />
               {i < ROADMAP.length - 1 && (
-                <div style={{ width: 1, flex: 1, minHeight: 16, background: 'rgba(255,255,255,.1)' }} />
+                <div className="w-[1px] flex-1 min-h-[16px] bg-white/[0.08]" />
               )}
             </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 600, color: item.color }}>{item.label}</span>
-                <span style={{ fontSize: 11, color: 'var(--color-text-faint)' }}>{item.date}</span>
-                {item.status === 'active' && <Badge label="en cours" color="var(--color-accent-brand-primary)" />}
-                {item.status === 'done' && <Badge label="livre" color="var(--color-accent-success)" />}
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-mono font-semibold" style={{ color: item.color }}>
+                  {item.label}
+                </span>
+                <span className="text-[10px] text-white/30">{item.date}</span>
+                {item.status === 'active' && (
+                  <GlassBadge label="en cours" color="#60a5fa" />
+                )}
+                {item.status === 'done' && (
+                  <GlassBadge label="livre" color="#34d399" />
+                )}
               </div>
-              <p style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{item.desc}</p>
+              <p className="text-xs text-white/50">{item.desc}</p>
             </div>
           </div>
-        </Card>
+        </GlassCard>
       ))}
     </div>
   )
 }
 
-// ── Main Page ────────────────────────────────────────────────────────
+/* ── Main Page ───────────────────────────────────────────────────── */
 
 export default function KnowledgePage() {
   const [activeTab, setActiveTab] = useState('manifeste')
 
   const renderSection = () => {
     switch (activeTab) {
-      case 'manifeste':  return <ManifesteSection  />
-      case 'journal':    return <JournalSection    />
-      case 'frameworks': return <FrameworksSection />
-      case 'stack':      return <StackSection      />
-      case 'roadmap':    return <RoadmapSection    />
-      default:           return null
+      case 'manifeste':
+        return <ManifesteSection />
+      case 'journal':
+        return <JournalSection />
+      case 'frameworks':
+        return <FrameworksSection />
+      case 'stack':
+        return <StackSection />
+      case 'roadmap':
+        return <RoadmapSection />
+      default:
+        return null
     }
   }
 
   return (
-    <PageContainer>
-      <PageHeader
-        title="FOS Knowledge"
-        subtitle="Manifeste · Journal · Frameworks · Stack · Roadmap"
-        version={APP_META.version}
-        meta="Knowledge Base"
-      >
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(94,234,212,.15)', color: 'var(--color-accent-brand-primary)' }}>
-          {MANIFESTE.principes.length} Principes
+    <div className="space-y-6 max-w-6xl mx-auto pb-10">
+      {/* Header */}
+      <div className="flex flex-col gap-3 mb-6 border-b border-white/[0.05] pb-6 relative z-10">
+        <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] w-fit mb-1">
+          <BookOpen size={12} className="text-blue-400" />
+          <span className="text-[10px] font-mono tracking-wider text-white/70">KNOWLEDGE BASE</span>
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--color-accent-brand-secondary)' }}>
-          {JOURNAL.length} Actions
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/40">
+              FOS Knowledge
+            </h1>
+            <p className="text-white/40 text-xs mt-1 max-w-lg leading-relaxed">
+              Manifeste, Journal, Frameworks, Stack, Roadmap — knowledge base statique.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            {[
+              { label: `${MANIFESTE.principes.length} Principes`, color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+              { label: `${JOURNAL.length} Actions`, color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+              { label: `${FRAMEWORKS.length} Frameworks`, color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+            ].map((b, i) => (
+              <span
+                key={i}
+                className={`text-[9px] font-mono px-2 py-1 rounded ${b.bg} border ${b.border} ${b.color}`}
+              >
+                {b.label}
+              </span>
+            ))}
+          </div>
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--color-accent-info)' }}>
-          {FRAMEWORKS.length} Frameworks
-        </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(249,115,22,.15)', color: 'var(--color-accent-danger)' }}>
-          {STACK.length} Layers
-        </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(255,255,255,.07)', color: 'var(--color-text-muted)' }}>
-          {ROADMAP.length} Milestones
-        </div>
-      </PageHeader>
-
-      <div style={{ padding: '16px 20px 0' }}>
-        <TabBar tabs={TABS} active={activeTab} onChange={setActiveTab} />
-        <div style={{ marginBottom: 32 }}>{renderSection()}</div>
       </div>
 
-      <Footer
-        principles={['MD first · JSX second', 'Cooperation humain-IA', 'Tracabilite totale']}
-        dataVersion={APP_META.dataVersion}
-        lastSync={APP_META.lastSync ?? '2026-04-03'}
-      />
-    </PageContainer>
+      {/* Tabs */}
+      <div className="flex gap-1 flex-wrap border-b border-white/[0.05] pb-3">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
+              activeTab === tab.id
+                ? 'text-white bg-white/[0.06] border border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_20px_rgba(255,255,255,0.03)]'
+                : 'text-white/40 hover:text-white/90 hover:bg-white/[0.03] border border-transparent'
+            }`}
+          >
+            <tab.icon size={12} />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      <motion.div
+        key={activeTab}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {renderSection()}
+      </motion.div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between border-t border-white/[0.05] pt-4">
+        <div className="flex flex-wrap gap-8">
+          {['MD first \u00B7 JSX second', 'Cooperation humain-IA', 'Tracabilite totale'].map(
+            (p) => (
+              <span key={p} className="text-[10px] font-mono text-white/20 tracking-wider">
+                {p}
+              </span>
+            ),
+          )}
+        </div>
+        <span className="text-[9px] font-mono text-white/20">
+          {APP_META.version}
+        </span>
+      </div>
+    </div>
   )
 }

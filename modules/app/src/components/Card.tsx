@@ -11,18 +11,15 @@ export function Card({ children, style, onClick, selected }: CardProps) {
   return (
     <div
       onClick={onClick}
-      className="hov"
-      style={{
-        background: selected ? 'rgba(94,234,212,0.10)' : 'rgba(255,255,255,.02)',
-        border: selected ? '1px solid var(--color-accent-brand-primary)' : '1px solid rgba(255,255,255,.05)',
-        borderRadius: 10,
-        padding: 14,
-        cursor: onClick ? 'pointer' : undefined,
-        transition: 'border-color .2s',
-        ...style,
-      }}
+      className={`p-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border relative overflow-hidden group transition-all duration-500 ${
+        selected
+          ? 'border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
+          : 'border-white/[0.05] hover:border-white/[0.1] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
+      } ${onClick ? 'cursor-pointer' : ''}`}
+      style={style}
     >
-      {children}
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="relative z-10">{children}</div>
     </div>
   )
 }

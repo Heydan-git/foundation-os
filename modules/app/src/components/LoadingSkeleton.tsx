@@ -1,16 +1,10 @@
 export function LoadingSkeleton() {
   return (
-    <div className="flex flex-col" style={{ gap: 8 }}>
-      {[1, 2, 3].map(i => (
+    <div className="flex flex-col gap-3">
+      {[1, 2, 3].map((i) => (
         <div
           key={i}
-          style={{
-            height: 72,
-            borderRadius: 10,
-            background: 'rgba(255,255,255,.02)',
-            border: '1px solid rgba(255,255,255,.04)',
-            animation: 'pulse 2s infinite',
-          }}
+          className="h-[72px] rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border border-white/[0.05] animate-pulse"
         />
       ))}
     </div>
