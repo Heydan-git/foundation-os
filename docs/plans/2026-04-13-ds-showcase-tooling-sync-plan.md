@@ -241,9 +241,9 @@ Storybook montre tous les composants avec tous les etats, Supernova documente le
 
 ## Execution log
 
-- [ ] Bloc 1 — pending
-- [ ] Bloc 2 — pending
-- [ ] Bloc 3 — pending
+- [x] Bloc 1 — done (audit config OK, port 6006, theme Void Glass)
+- [x] Bloc 2 — done (10 stories Form Primitives)
+- [x] Bloc 3 — done (9 stories Feedback)
 - [ ] Bloc 4 — pending
 - [ ] Bloc 5 — pending
 - [ ] Bloc 6 — pending

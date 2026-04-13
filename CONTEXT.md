@@ -19,6 +19,9 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-13 | **[DONE] Storybook S1 — Blocs 1-3 (19 stories)** |
+|            | Bloc 1 : audit config OK. Bloc 2 : 10 stories Form. Bloc 3 : 9 stories Feedback. |
+|            | Commit : `b36cbe0` |
 | 2026-04-13 | **[DONE] DS finition F8-F9** |
 |            | F8 : biome v2.4 (Tailwind, rules shadcn), 9 smoke+a11y tests (23 total DS), CHANGELOG.md |
 |            | F9 : audit 46 composants (7 CVA, loading/error rares), chart.tsx @ts-nocheck conserve (recharts v3), F9.3 site demo → plan 2 Storybook |
@@ -58,7 +61,7 @@
 
 **Pourquoi** : Plan finition DS termine (F1-F9, commits d0217a8 + e671ca8). DS propre : biome, 23 tests, audit composants fait. Prochaine etape = rendre le DS visible et documente.
 
-**Prochaine action** : Executer plan DS Showcase (`docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md`) — Bloc 1 (audit Storybook config). 15 blocs sur 5 sessions.
+**Prochaine action** : Continuer plan DS Showcase (`docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md`) — Blocs 4-7 (stories Layout, Navigation, Data Display, App Dashboard). 12 blocs restants sur 4 sessions.
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
