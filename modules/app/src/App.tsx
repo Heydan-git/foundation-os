@@ -23,11 +23,11 @@ const globalStyles = `
 
 function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ fontFamily: "'Figtree',Helvetica,Arial,sans-serif", background: 'var(--fos-color-bg-canvas)', color: 'var(--fos-color-text-body)', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ fontFamily: "'Figtree',Helvetica,Arial,sans-serif", background: 'var(--color-bg-canvas)', color: 'var(--color-text-secondary)', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
       <style>{globalStyles}</style>
-      <div className="orb" style={{ width: 280, height: 280, background: 'var(--fos-color-status-parking)', top: -80, right: -60, animation: 'drift 18s ease-in-out infinite' }} />
-      <div className="orb" style={{ width: 200, height: 200, background: 'var(--fos-color-accent-brand)', bottom: '30%', left: -50, animation: 'drift 22s ease-in-out infinite' }} />
-      <div className="orb" style={{ width: 240, height: 240, background: 'var(--fos-color-status-wip)', bottom: -60, right: '20%', animation: 'drift 28s ease-in-out infinite' }} />
+      <div className="orb" style={{ width: 280, height: 280, background: 'var(--color-accent-brand-secondary)', top: -80, right: -60, animation: 'drift 18s ease-in-out infinite' }} />
+      <div className="orb" style={{ width: 200, height: 200, background: 'var(--color-accent-brand-primary)', bottom: '30%', left: -50, animation: 'drift 22s ease-in-out infinite' }} />
+      <div className="orb" style={{ width: 240, height: 240, background: 'var(--color-accent-info)', bottom: -60, right: '20%', animation: 'drift 28s ease-in-out infinite' }} />
       <div style={{ position: 'relative', zIndex: 2 }}>
         {children}
       </div>

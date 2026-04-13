@@ -1,31 +1,31 @@
 /**
  * Foundation OS — Design System
- * Storybook 8 manager config — theme dark Void Glass pour la sidebar et la toolbar
+ * Storybook 8 manager config — theme dark pour la sidebar et la toolbar
  */
 import { addons } from 'storybook/internal/manager-api'
 import { create } from 'storybook/internal/theming/create'
 
-const voidGlassTheme = create({
+const darkTheme = create({
   base: 'dark',
   brandTitle: 'Foundation OS — Design System',
   brandUrl: 'https://foundation-os.vercel.app/',
-  appBg: '#06070C',
-  appContentBg: '#06070C',
-  appPreviewBg: '#06070C',
+  appBg: '#030303',
+  appContentBg: '#030303',
+  appPreviewBg: '#030303',
   appBorderColor: 'rgba(255, 255, 255, 0.055)',
   appBorderRadius: 8,
-  barBg: '#06070C',
+  barBg: '#030303',
   barTextColor: 'rgba(255, 255, 255, 0.42)',
-  barSelectedColor: '#5EEAD4',
-  colorPrimary: '#5EEAD4',
-  colorSecondary: '#5EEAD4',
+  barSelectedColor: '#60a5fa',
+  colorPrimary: '#60a5fa',
+  colorSecondary: '#60a5fa',
   textColor: 'rgba(255, 255, 255, 0.88)',
-  textInverseColor: '#06070C',
+  textInverseColor: '#030303',
   textMutedColor: 'rgba(255, 255, 255, 0.42)',
   fontBase: "'Figtree', system-ui, sans-serif",
   fontCode: "'JetBrains Mono', 'Fira Code', monospace"
 })
 
 addons.setConfig({
-  theme: voidGlassTheme
+  theme: darkTheme
 })

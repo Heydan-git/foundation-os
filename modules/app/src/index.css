@@ -7,7 +7,7 @@
 
 html, body, #root {
   min-height: 100vh;
-  background-color: var(--fos-color-bg-canvas);
+  background-color: var(--color-bg-canvas);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 ::-webkit-scrollbar-thumb { background: rgba(94,234,212,.15); border-radius: 4px; }
 
 :focus-visible {
-  outline: 2px solid var(--fos-color-accent-brand);
+  outline: 2px solid var(--color-accent-brand-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }

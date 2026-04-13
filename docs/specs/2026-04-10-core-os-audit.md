@@ -281,7 +281,7 @@
 | monitor.md baselines stale | `monitor.md:79-83` | cf. Axe 8 |
 | cortex.md section 6 (cockpit) est un renvoi | `cortex.md:92-103` renvoie a la spec cockpit sans details | OK si la spec cockpit est a jour, mais cree une dependance |
 | architecture-core.md pas mis a jour apres rename + cockpit + DS | lignes 9, 19, 52 | Schema des couches desynchronise |
-| Pas de spec pour le Design System dans docs/core/ | DS a sa spec dans `docs/design-system.md` hors de `docs/core/` | Inconsistance : le DS est un module actif mais pas un pilier Core OS |
+| Pas de spec pour le Design System dans docs/core/ | DS a sa spec dans `modules/design-system/` (hors docs/core/) | Inconsistance : le DS est un module actif mais pas un pilier Core OS |
 
 **Recommandations :**
 1. Mettre a jour architecture-core.md (rename + cockpit + DS)

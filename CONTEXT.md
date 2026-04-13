@@ -7,8 +7,8 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ⚠ visuel casse | `modules/app/` | 75 refs aux anciens `--fos-*` dans 22 fichiers. Build encore vert, a migrer en F4 du plan finition |
-| Design System | ⚠ reconstruction WIP | `modules/design-system/` | Remplacement complet shadcn/ui + Figma Make (`base DS/src.zip`). 46 composants Radix, tokens DTCG reextraits, preview iso `/preview` port 6007. Plan finition : `docs/plans/2026-04-11-ds-shadcn-finition.md` |
+| App Builder | ✅ migre | `modules/app/` | 0 refs `--fos-*`, tokens semantic, build OK 253ms, 19/19 tests |
+| Design System | ✅ F1-F7 done | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches (primitives + semantic + bridge), prefixe fos retire, preview port 6007. Reste F8-F9 : `docs/plans/2026-04-11-ds-shadcn-finition.md` |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
@@ -19,12 +19,18 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-11 | **[WIP] DS shadcn rebuild depuis Figma Make — savepoint** |
-|            | Scope : supprimer ancien DS (tokens + primitives Button/Text/Icon/Input/Card), reconstruire from scratch a partir du fichier Figma Make (`base DS/src.zip`). Decision Kevin : Option C remplacement total, dark-only, pas de compat layer, prefixe `--fos-*` a retirer en F3 |
-|            | Fait : 46 composants shadcn/ui Radix copies dans `src/components/ui/`, Tailwind 4 + CVA + deps (Radix 26 pkg, motion 12, react-router 7, cmdk, vaul, recharts, sonner...), bridge globals.css, tokens DTCG from scratch (5 primitives, 89 vars), preview verbatim port 6007 |
-|            | **NON-FAIT (plan finition F1-F9)** : couche semantic vide, primitives manquantes (border-width, motion, line-height, control), app casse (75 refs), `.storybook/preview.ts` obsolete, base DS/ folder residuel, CLAUDE.md/docs mentionnent encore turquoise #5EEAD4 |
-|            | Plan : `docs/plans/2026-04-11-ds-shadcn-finition.md` — 9 phases, 3 sessions |
-|            | Commits : a6f37a2 (tokens size/border/control) + 3547b48 (remplacement shadcn/Tailwind) + 311ae9a (tokens from scratch + preview WIP) |
+| 2026-04-13 | **[DONE] DS finition F1-F7 — semantic layer + app migration + cleanup** |
+|            | F1 : +5 primitives (border, motion, lineHeight, letterSpacing, control — 22 vars) |
+|            | F2 : couche semantic complete (color, typography, space, radius, motion — 95 vars) |
+|            | F3 : prefixe `--fos-*` retire, sortie propre (`--ds-*`, `--color-*`, `--shadcn-*`) |
+|            | F4 : app migree (207 refs → 0), build OK, 19/19 tests |
+|            | F5 : Storybook preview.ts + manager.ts migres |
+|            | F6 : cleanup — `base DS/` archive, 0 refs #06070C/#5EEAD4 (hors plans historiques) |
+|            | F7 : health DEGRADED (= entree session, 7 refs dans plan finition pre-existantes) |
+|            | Reste : F8 (nettoyage + tests etendus), F9 (affinage + site demo) |
+| 2026-04-11 | **[DONE] DS shadcn rebuild depuis Figma Make** |
+|            | 46 composants shadcn/ui, tokens DTCG from scratch, preview Figma Make iso |
+|            | Commits : a6f37a2 + 3547b48 + 311ae9a |
 | 2026-04-11 | **[DONE] Planner MVP + Worktrees feature + health SAIN** |
 |            | Scope : 2 nouveaux modules Core OS (Planner, Worktrees) + nettoyage health-check |
 |            | Planner : spec `docs/core/planner.md`, commande `/plan-os`, template `docs/plans/_template-plan.md`, registre, routing auto (haiku/sonnet/opus), sub-agent gate 3 conditions, wrapper `superpowers:writing-plans` |
@@ -40,13 +46,13 @@
 
 ## Cap
 
-**Direction** : Finition DS shadcn v2 — finaliser les 9 phases du plan avant toute autre chose.
+**Direction** : Finition DS shadcn v2 — F8-F9 restantes puis Phase 5 Expansion.
 
-**Pourquoi** : Le DS est en etat WIP depuis 2026-04-11. Remplacement lance, tokens reextraits, composants en place, mais couche semantic absente et app cassee visuellement. Phase 5 Expansion bloquee tant que le DS n'est pas carre.
+**Pourquoi** : F1-F7 done (semantic layer, app migree, cleanup). Le DS est fonctionnel mais manque de tests etendus (2/100) et de doc v2.
 
-**Prochaine action** : lire `docs/plans/2026-04-11-ds-shadcn-finition.md` et executer F1-F7 en session dediee (S+1).
+**Prochaine action** : executer F8 (nettoyage code + tests etendus + doc v2) — `docs/plans/2026-04-11-ds-shadcn-finition.md`.
 
-**Ensuite** : S+2 nettoyage (F8), S+3 affinage + site demo (F9), puis Phase 5 Expansion.
+**Ensuite** : F9 (affinage DS + site demo), puis Phase 5 Expansion.
 
 ## Idees & Parking
 
@@ -64,7 +70,7 @@
 - OMC update disponible v4.11.4 (actuel v4.10.1, `omc update`). Lateral, pas urgent.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
 - Decision strategique Phase 5 : quel module lancer ? Finance / Sante / Trading (reporte apres finition DS)
-- Demarrer S+1 DS : executer F1-F7 du plan finition (contexte : 1% sous la limite weekly au 2026-04-11)
+- Demarrer S+2 DS : executer F8 du plan finition (nettoyage + tests etendus)
 
 ## Decisions
 
@@ -97,8 +103,8 @@
 
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
-| App Builder | OK 200ms | 473 kB | 24 kB | 19/19 | 5 |
-| Design System | OK tokens | — | — | 100/100 | — |
+| App Builder | OK 253ms | 473 kB | 25 kB | 19/19 | 5 |
+| Design System | OK tokens | — | — | 2/2 | — |
 
 Seuils : voir `docs/core/monitor.md` section 4 (source unique).
 Health-check : SAIN (0 critical, 0 warning). Refs nettoyees 2026-04-10.

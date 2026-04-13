@@ -56,7 +56,7 @@
 | docs/core/tools.md | Automation + scripts |
 | docs/core/architecture-core.md | Architecture Core OS |
 | docs/architecture.md | Architecture globale |
-| docs/design-system.md | Void Glass tokens (#06070C, Figtree, JetBrains Mono) |
+| docs/design-system.md | Archive — voir modules/design-system/ pour DS v2 |
 | docs/manifeste.md | Manifeste projet |
 | docs/setup-guide.md | Guide setup dev |
 | docs/directive-v1.md | Directive Claude Code originale (reference) |

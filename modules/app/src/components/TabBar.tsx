@@ -19,8 +19,8 @@ export function TabBar({ tabs, active, onChange }: TabBarProps) {
           className="px-4 py-1.5 rounded-full text-sm font-medium transition-all cursor-pointer hover:bg-opacity-20"
           style={{
             backgroundColor: active === tab.id ? 'rgba(94,234,212,.15)' : 'transparent',
-            color: active === tab.id ? 'var(--fos-color-accent-brand)' : 'var(--fos-color-text-subtle)',
-            borderBottom: active === tab.id ? '2px solid var(--fos-color-accent-brand)' : 'none',
+            color: active === tab.id ? 'var(--color-accent-brand-primary)' : 'var(--color-text-muted)',
+            borderBottom: active === tab.id ? '2px solid var(--color-accent-brand-primary)' : 'none',
           }}
         >
           {tab.label}

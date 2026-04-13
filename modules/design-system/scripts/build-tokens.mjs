@@ -63,7 +63,7 @@ const sd = new StyleDictionary({
     css: {
       transforms: cssTransformsPreserveAlpha,
       buildPath: resolve(rootDir, 'tokens/build/') + '/',
-      prefix: 'fos',
+      /* prefix removed in F3 — clean var names */
       files: [
         {
           destination: 'tokens.css',

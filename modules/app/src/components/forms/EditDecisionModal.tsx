@@ -89,7 +89,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-[var(--fos-color-accent-brand)] bg-emerald-900/20 border-emerald-700'
+      case 'active': return 'text-[var(--color-accent-brand-primary)] bg-emerald-900/20 border-emerald-700'
       case 'superseded': return 'text-blue-400 bg-blue-900/20 border-blue-700'
       case 'deprecated': return 'text-red-400 bg-red-900/20 border-red-700'
       default: return 'text-gray-400 bg-gray-900/20 border-gray-700'
@@ -100,11 +100,11 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-label="Modifier décision">
-      <div className="bg-[var(--fos-color-bg-canvas)] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
+      <div className="bg-[var(--color-bg-canvas)] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-medium text-[var(--fos-color-accent-brand)] font-sans">
+            <h2 className="text-xl font-medium text-[var(--color-accent-brand-primary)] font-sans">
               Modifier Décision
             </h2>
             <p className="text-sm text-gray-400 font-mono">
@@ -142,7 +142,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
               onChange={handleChange}
               required
               placeholder="Ex: Architecture 5-niveaux anti-compactage"
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono"
             />
           </div>
 
@@ -157,11 +157,11 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
                 name="impact"
                 value={formData.impact}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono ${getImpactColor(formData.impact)}`}
+                className={`w-full px-3 py-2 border rounded focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono ${getImpactColor(formData.impact)}`}
               >
-                <option value="low" className="bg-[var(--fos-color-bg-canvas)]">Low</option>
-                <option value="medium" className="bg-[var(--fos-color-bg-canvas)]">Medium</option>
-                <option value="high" className="bg-[var(--fos-color-bg-canvas)]">High</option>
+                <option value="low" className="bg-[var(--color-bg-canvas)]">Low</option>
+                <option value="medium" className="bg-[var(--color-bg-canvas)]">Medium</option>
+                <option value="high" className="bg-[var(--color-bg-canvas)]">High</option>
               </select>
             </div>
 
@@ -174,11 +174,11 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className={`w-full px-3 py-2 border rounded focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono ${getStatusColor(formData.status)}`}
+                className={`w-full px-3 py-2 border rounded focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono ${getStatusColor(formData.status)}`}
               >
-                <option value="active" className="bg-[var(--fos-color-bg-canvas)]">Active</option>
-                <option value="superseded" className="bg-[var(--fos-color-bg-canvas)]">Superseded</option>
-                <option value="deprecated" className="bg-[var(--fos-color-bg-canvas)]">Deprecated</option>
+                <option value="active" className="bg-[var(--color-bg-canvas)]">Active</option>
+                <option value="superseded" className="bg-[var(--color-bg-canvas)]">Superseded</option>
+                <option value="deprecated" className="bg-[var(--color-bg-canvas)]">Deprecated</option>
               </select>
             </div>
           </div>
@@ -194,7 +194,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
               onChange={handleChange}
               rows={4}
               placeholder="Expliquez le contexte, les raisons et l'impact de cette décision..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono resize-none"
             />
           </div>
 
@@ -211,7 +211,7 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
             <button
               type="submit"
               disabled={isLoading || !formData.title.trim()}
-              className="px-6 py-2 bg-[var(--fos-color-accent-brand)] text-[var(--fos-color-bg-canvas)] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+              className="px-6 py-2 bg-[var(--color-accent-brand-primary)] text-[var(--color-bg-canvas)] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
             >
               {isLoading ? 'Mise à jour...' : 'Mettre à jour'}
             </button>

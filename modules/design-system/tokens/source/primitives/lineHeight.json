@@ -1,0 +1,7 @@
+{
+  "lineHeight": {
+    "tight": { "$value": "1.2", "$type": "number", "$description": "Headings" },
+    "normal": { "$value": "1.5", "$type": "number", "$description": "Body, UI" },
+    "relaxed": { "$value": "1.75", "$type": "number", "$description": "Long-form" }
+  }
+}

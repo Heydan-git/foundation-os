@@ -42,12 +42,12 @@ JSX_CTRL     : fos-sync.jsx
 
 | Artifact | Background | Font UI | Font Code | Compliance |
 |----------|------------|---------|-----------|------------|
-| fos-index.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
-| fos-commander.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
-| fos-knowledge.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
-| fos-scale-orchestrator.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
-| fos-graph.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
-| fos-sync.jsx | ✅ #06070C | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-index.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-commander.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-knowledge.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-scale-orchestrator.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-graph.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
+| fos-sync.jsx | ✅ #030303 | ✅ Figtree | ✅ JetBrains Mono | 100% |
 
 **Global Void Glass Score:** 100%
 

@@ -13,9 +13,9 @@ import { PASSWORD_MIN } from '@/lib/constants'
 const inputStyle: React.CSSProperties = {
   padding: '10px 12px',
   borderRadius: 6,
-  border: '1px solid var(--fos-color-border-default)',
-  background: 'var(--fos-color-bg-surface)',
-  color: 'var(--fos-color-text-bright)',
+  border: '1px solid var(--color-border-default)',
+  background: 'var(--color-bg-card)',
+  color: 'var(--color-text-primary)',
   fontSize: 13,
   fontFamily: "'Figtree',sans-serif",
   outline: 'none',
@@ -26,7 +26,7 @@ const ctaStyle: React.CSSProperties = {
   borderRadius: 8,
   border: 'none',
   background: 'rgba(94,234,212,.12)',
-  color: 'var(--fos-color-accent-brand)',
+  color: 'var(--color-accent-brand-primary)',
   fontSize: 13,
   fontWeight: 600,
   fontFamily: "'Figtree',sans-serif",
@@ -113,10 +113,10 @@ export default function ResetPasswordPage() {
             )}
 
             {error && (
-              <p style={{ fontSize: 11, color: 'var(--fos-color-accent-danger)', padding: '6px 0' }}>{error}</p>
+              <p style={{ fontSize: 11, color: 'var(--color-accent-danger)', padding: '6px 0' }}>{error}</p>
             )}
             {info && (
-              <p style={{ fontSize: 11, color: 'var(--fos-color-accent-brand)', padding: '6px 0' }}>{info}</p>
+              <p style={{ fontSize: 11, color: 'var(--color-accent-brand-primary)', padding: '6px 0' }}>{info}</p>
             )}
 
             <button
@@ -137,7 +137,7 @@ export default function ResetPasswordPage() {
               style={{
                 textAlign: 'center',
                 padding: '4px 0',
-                color: 'var(--fos-color-text-faint)',
+                color: 'var(--color-text-faint)',
                 fontSize: 11,
                 fontFamily: "'Figtree',sans-serif",
                 textDecoration: 'none',

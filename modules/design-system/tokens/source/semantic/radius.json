@@ -1,0 +1,8 @@
+{
+  "radius": {
+    "control": { "$value": "{ds.radius.sm}", "$type": "dimension", "$description": "Buttons, inputs (4px)" },
+    "card": { "$value": "{ds.radius.md}", "$type": "dimension", "$description": "Cards (6px)" },
+    "modal": { "$value": "{ds.radius.lg}", "$type": "dimension", "$description": "Modals, dialogs (8px)" },
+    "pill": { "$value": "{ds.radius.full}", "$type": "dimension", "$description": "Pills, badges (9999px)" }
+  }
+}

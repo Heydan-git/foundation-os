@@ -135,7 +135,7 @@ Edge hover :
 | Line count > 700 | wc -l *.jsx | Color node red |
 | Missing MD pair | existence check | Warning badge |
 | Wrong font (not Figtree) | CSS scan | DA violation flag |
-| Wrong bg (not #06070C) | CSS scan | DA violation flag |
+| Wrong bg (not #030303) | CSS scan | DA violation flag |
 | Storage key conflict | uniqueness check | Critical error |
 
 ### Health Score

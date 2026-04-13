@@ -1,6 +1,6 @@
 /**
  * Foundation OS — Design System
- * Barrel export — shadcn/ui components (Void Glass dark, via --fos-* tokens).
+ * Barrel export — shadcn/ui components (dark-only, DTCG semantic tokens).
  */
 export * from './components/ui'
 export { cn } from './lib/utils'

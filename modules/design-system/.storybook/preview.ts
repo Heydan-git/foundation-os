@@ -2,14 +2,14 @@
  * Foundation OS — Design System
  * Storybook 8 preview config
  *
- * - Importe tokens.css globaux (CSS vars Void Glass --fos-*)
- * - Charge la police Figtree depuis Google Fonts (Storybook = dev tool, OK)
- * - Applique le fond Void Glass #06070C par defaut a l'iframe preview
+ * - Importe globals.css (Tailwind + tokens + bridge shadcn vars)
+ * - Charge Figtree + JetBrains Mono depuis Google Fonts
+ * - Fond dark #030303 (ds-surface-0) par defaut
  * - Active addon-a11y avec regle color-contrast obligatoire
  */
 import type { Preview } from '@storybook/react'
 
-// Globals DS : Tailwind + tokens --fos-* + bridge shadcn vars (Void Glass dark)
+// Globals DS : Tailwind + tokens + bridge shadcn vars (dark-only)
 import '../src/styles/globals.css'
 
 // Charge Figtree + JetBrains Mono depuis Google Fonts pour la preview
@@ -19,13 +19,13 @@ fontLink.href =
   'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap'
 document.head.appendChild(fontLink)
 
-// Applique le fond Void Glass et la typo par defaut a l'iframe Storybook
+// Applique le fond et la typo par defaut a l'iframe Storybook
 const baseStyles = document.createElement('style')
 baseStyles.textContent = `
   body {
-    background: var(--fos-color-bg-canvas, #06070C);
-    color: var(--fos-color-text-primary, rgba(255, 255, 255, 0.88));
-    font-family: var(--fos-font-family-sans, 'Figtree', system-ui, sans-serif);
+    background: var(--color-bg-canvas, #030303);
+    color: var(--color-text-primary, rgba(255,255,255,1));
+    font-family: var(--font-family-sans, 'Figtree', system-ui, sans-serif);
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -37,9 +37,9 @@ document.head.appendChild(baseStyles)
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: 'void-glass',
+      default: 'dark',
       values: [
-        { name: 'void-glass', value: '#06070C' },
+        { name: 'dark', value: '#030303' },
         { name: 'white', value: '#FFFFFF' }
       ]
     },

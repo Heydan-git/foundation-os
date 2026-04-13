@@ -1,0 +1,9 @@
+{
+  "control": {
+    "size": {
+      "sm": { "height": { "$value": "28px", "$type": "dimension" } },
+      "md": { "height": { "$value": "36px", "$type": "dimension" } },
+      "lg": { "height": { "$value": "44px", "$type": "dimension" } }
+    }
+  }
+}

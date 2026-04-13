@@ -49,16 +49,16 @@ export default function Commander() {
         version={APP_META.version}
         meta={APP_META.phase}
       >
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--fos-color-status-parking)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--color-accent-brand-secondary)' }}>
           {sessions.length} Sessions
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--fos-color-status-wip)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--color-accent-info)' }}>
           {decisions.length} ADR
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(239,68,68,.15)', color: 'var(--fos-color-accent-danger)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(239,68,68,.15)', color: 'var(--color-accent-danger)' }}>
           {risks.filter(r => r.status === 'open').length} Risques
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(34,197,94,.15)', color: 'var(--fos-color-status-done)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(34,197,94,.15)', color: 'var(--color-accent-success)' }}>
           {nextSteps.filter(n => n.status !== 'done').length} Next Steps
         </div>
       </PageHeader>

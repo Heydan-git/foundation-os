@@ -1,0 +1,23 @@
+{
+  "inset": {
+    "xs": { "$value": "{ds.space.1}", "$type": "dimension", "$description": "4px — tight padding" },
+    "sm": { "$value": "{ds.space.2}", "$type": "dimension", "$description": "8px — small padding" },
+    "md": { "$value": "{ds.space.3}", "$type": "dimension", "$description": "12px — medium padding" },
+    "lg": { "$value": "{ds.space.4}", "$type": "dimension", "$description": "16px — large padding" },
+    "xl": { "$value": "{ds.space.6}", "$type": "dimension", "$description": "24px — extra large padding" }
+  },
+  "stack": {
+    "xs": { "$value": "{ds.space.1}", "$type": "dimension", "$description": "4px — tight vertical gap" },
+    "sm": { "$value": "{ds.space.2}", "$type": "dimension", "$description": "8px — small vertical gap" },
+    "md": { "$value": "{ds.space.4}", "$type": "dimension", "$description": "16px — medium vertical gap" },
+    "lg": { "$value": "{ds.space.6}", "$type": "dimension", "$description": "24px — large vertical gap" },
+    "xl": { "$value": "{ds.space.10}", "$type": "dimension", "$description": "40px — extra large vertical gap" }
+  },
+  "inline": {
+    "xs": { "$value": "{ds.space.1}", "$type": "dimension", "$description": "4px — tight horizontal gap" },
+    "sm": { "$value": "{ds.space.2}", "$type": "dimension", "$description": "8px — small horizontal gap" },
+    "md": { "$value": "{ds.space.3}", "$type": "dimension", "$description": "12px — medium horizontal gap" },
+    "lg": { "$value": "{ds.space.4}", "$type": "dimension", "$description": "16px — large horizontal gap" },
+    "xl": { "$value": "{ds.space.6}", "$type": "dimension", "$description": "24px — extra large horizontal gap" }
+  }
+}

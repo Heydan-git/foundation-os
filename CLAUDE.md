@@ -37,7 +37,7 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 
 ## Regles
 - Conventional commits : type(scope): description
-- Void Glass : fond #06070C, Figtree (UI), JetBrains Mono (code) — voir docs/design-system.md
+- Void Glass : dark-only (#030303 ds-surface-0), Figtree (UI), JetBrains Mono (code), tokens DTCG semantic — voir modules/design-system/
 - Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul (OK en fallback CSS)
 - TSX < 700 lignes — decouper si plus
 - BMAD : dossier _bmad/ (underscore obligatoire)

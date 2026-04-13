@@ -6,10 +6,10 @@ interface RisksPanelProps {
 }
 
 const levelColor = (v: string) =>
-  ({ high: 'var(--fos-color-accent-danger)', medium: 'var(--fos-color-status-alert)', low: 'var(--fos-color-status-done)' }[v] ?? 'var(--fos-color-text-subtle)')
+  ({ high: 'var(--color-accent-danger)', medium: 'var(--color-accent-danger)', low: 'var(--color-accent-success)' }[v] ?? 'var(--color-text-muted)')
 
 const statusColor = (v: string) =>
-  ({ open: 'var(--fos-color-accent-danger)', mitigated: 'var(--fos-color-status-alert)', closed: 'var(--fos-color-status-done)' }[v] ?? 'var(--fos-color-text-subtle)')
+  ({ open: 'var(--color-accent-danger)', mitigated: 'var(--color-accent-danger)', closed: 'var(--color-accent-success)' }[v] ?? 'var(--color-text-muted)')
 
 export function RisksPanel({ risks }: RisksPanelProps) {
   return (
@@ -20,13 +20,13 @@ export function RisksPanel({ risks }: RisksPanelProps) {
             <div className="flex items-start justify-between">
               <div style={{ flex: 1 }}>
                 <div className="flex items-center" style={{ gap: 8, marginBottom: 6 }}>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--fos-color-accent-brand)', letterSpacing: '.08em' }}>{r.id}</span>
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--color-accent-brand-primary)', letterSpacing: '.08em' }}>{r.id}</span>
                   <Badge label={`impact ${r.impact}`} color={levelColor(r.impact)} />
                   <Badge label={`proba ${r.proba}`}   color={levelColor(r.proba)} />
                 </div>
-                <p style={{ fontSize: 12, color: 'var(--fos-color-text-bright)', marginBottom: 4 }}>{r.risk}</p>
+                <p style={{ fontSize: 12, color: 'var(--color-text-primary)', marginBottom: 4 }}>{r.risk}</p>
                 {r.mitigation && (
-                  <p style={{ fontSize: 10, color: 'var(--fos-color-text-faint)' }}>Mitigation · {r.mitigation}</p>
+                  <p style={{ fontSize: 10, color: 'var(--color-text-faint)' }}>Mitigation · {r.mitigation}</p>
                 )}
               </div>
               <Badge label={r.status} color={statusColor(r.status)} />

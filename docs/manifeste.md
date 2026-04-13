@@ -87,7 +87,7 @@ Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% ave
 | Deploy | Vercel auto-deploy sur `main` | https://foundation-os.vercel.app · root dir `modules/app` |
 | Tests | Vitest | 19 tests / 6 fichiers (app, supabase, mutations, useCommander, AuthContext, forms) — tous verts |
 | CI | GitHub Actions | `ci.yml` (Node 24, build + tsc + vitest) + `supabase-ping` (cron hebdo) |
-| Design | Void Glass | fond `#06070C`, accent `#5EEAD4`, Figtree + JetBrains Mono — voir `docs/design-system.md` |
+| Design | Void Glass | dark-only (#030303 ds-surface-0), accent ds-blue #60a5fa, Figtree + JetBrains Mono — voir `modules/design-system/` |
 | Scripts | bash / python | health-check, sync-check, ref-checker, module-scaffold + 2 hooks PreToolUse |
 | AI tooling | Claude Code + OMC + superpowers + gstack + BMAD (dormant) | 4 agents custom + 5 commands + hooks Void Glass / security |
 
@@ -276,7 +276,7 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 
 ### Sources lues pour ce manifeste
 
-`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index.md`, `docs/design-system.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
+`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index.md`, `.archive/docs-old/design-system-v1.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
 
 ### Refs externes
 

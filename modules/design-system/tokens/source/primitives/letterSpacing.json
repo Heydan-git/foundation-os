@@ -1,0 +1,7 @@
+{
+  "letterSpacing": {
+    "tight": { "$value": "-0.02em", "$type": "dimension" },
+    "normal": { "$value": "0", "$type": "dimension" },
+    "wide": { "$value": "0.05em", "$type": "dimension" }
+  }
+}

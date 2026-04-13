@@ -24,15 +24,15 @@ const linkBase: React.CSSProperties = {
   fontSize: 12,
   fontFamily: "'Figtree',sans-serif",
   fontWeight: 500,
-  color: 'var(--fos-color-text-faint)',
+  color: 'var(--color-text-faint)',
   textDecoration: 'none',
   borderBottom: '1px solid transparent',
   transition: 'color .2s, border-color .2s',
 }
 
 const linkActive: React.CSSProperties = {
-  color: 'var(--fos-color-accent-brand)',
-  borderBottomColor: 'var(--fos-color-accent-brand)',
+  color: 'var(--color-accent-brand-primary)',
+  borderBottomColor: 'var(--color-accent-brand-primary)',
 }
 
 export function Navbar() {
@@ -70,7 +70,7 @@ export function Navbar() {
               fontFamily: "'JetBrains Mono',monospace",
               fontSize: 11,
               fontWeight: 600,
-              color: 'var(--fos-color-accent-brand)',
+              color: 'var(--color-accent-brand-primary)',
               letterSpacing: '.05em',
             }}
           >
@@ -97,9 +97,9 @@ export function Navbar() {
           style={{
             padding: '5px 12px',
             borderRadius: 6,
-            border: '1px solid var(--fos-color-border-default)',
-            background: 'var(--fos-color-bg-surface)',
-            color: 'var(--fos-color-text-faint)',
+            border: '1px solid var(--color-border-default)',
+            background: 'var(--color-bg-card)',
+            color: 'var(--color-text-faint)',
             fontSize: 10,
             fontFamily: "'JetBrains Mono',monospace",
             cursor: 'pointer',

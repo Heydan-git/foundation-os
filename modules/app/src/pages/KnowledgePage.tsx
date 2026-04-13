@@ -23,26 +23,26 @@ function ManifesteSection() {
   return (
     <div className="flex flex-col" style={{ gap: 16 }}>
       <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--fos-color-accent-brand)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision long terme</h3>
-        <p style={{ fontSize: 13, color: 'var(--fos-color-text-body)', lineHeight: 1.6 }}>{MANIFESTE.visionLT}</p>
+        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision long terme</h3>
+        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.visionLT}</p>
       </Card>
       <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--fos-color-accent-brand)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision court terme</h3>
-        <p style={{ fontSize: 13, color: 'var(--fos-color-text-body)', lineHeight: 1.6 }}>{MANIFESTE.visionCT}</p>
+        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Vision court terme</h3>
+        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.visionCT}</p>
       </Card>
       <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--fos-color-accent-brand)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Mode operatoire</h3>
-        <p style={{ fontSize: 13, color: 'var(--fos-color-text-body)', lineHeight: 1.6 }}>{MANIFESTE.modeOperatoire}</p>
+        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 8, letterSpacing: '.08em', textTransform: 'uppercase' }}>Mode operatoire</h3>
+        <p style={{ fontSize: 13, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{MANIFESTE.modeOperatoire}</p>
       </Card>
       <Card>
-        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--fos-color-accent-brand)', marginBottom: 12, letterSpacing: '.08em', textTransform: 'uppercase' }}>Principes fondateurs</h3>
+        <h3 style={{ fontSize: 10, fontFamily: "'JetBrains Mono',monospace", color: 'var(--color-accent-brand-primary)', marginBottom: 12, letterSpacing: '.08em', textTransform: 'uppercase' }}>Principes fondateurs</h3>
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 12 }}>
           {MANIFESTE.principes.map((p) => (
             <div key={p.id} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--fos-color-accent-brand)', flexShrink: 0, paddingTop: 1 }}>{p.id}</span>
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)', flexShrink: 0, paddingTop: 1 }}>{p.id}</span>
               <div>
-                <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--fos-color-text-bright)' }}>{p.label}</span>
-                <span style={{ fontSize: 13, color: 'var(--fos-color-text-tertiary)' }}> — {p.desc}</span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text-primary)' }}>{p.label}</span>
+                <span style={{ fontSize: 13, color: 'var(--color-text-muted)' }}> — {p.desc}</span>
               </div>
             </div>
           ))}
@@ -58,9 +58,9 @@ function JournalSection() {
       {JOURNAL.map((entry) => (
         <Card key={entry.num}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--fos-color-text-faint)', width: 22, flexShrink: 0, paddingTop: 1 }}>{entry.num}.</span>
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--fos-color-accent-brand)', flexShrink: 0, paddingTop: 1 }}>{entry.conv}</span>
-            <p style={{ fontSize: 13, color: 'var(--fos-color-text-body)' }}>{entry.action}</p>
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-text-faint)', width: 22, flexShrink: 0, paddingTop: 1 }}>{entry.num}.</span>
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)', flexShrink: 0, paddingTop: 1 }}>{entry.conv}</span>
+            <p style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{entry.action}</p>
           </div>
         </Card>
       ))}
@@ -74,12 +74,12 @@ function FrameworksSection() {
       {FRAMEWORKS.map((fw) => (
         <Card key={fw.id}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--fos-color-text-bright)' }}>{fw.label}</h3>
+            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text-primary)' }}>{fw.label}</h3>
             <Badge label={fw.tag} color={fw.tagColor} />
           </div>
           <div className="flex flex-col" style={{ gap: 6 }}>
             {fw.lines.map((line, j) => (
-              <p key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--fos-color-text-secondary)', lineHeight: 1.6 }}>— {line}</p>
+              <p key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>— {line}</p>
             ))}
           </div>
         </Card>
@@ -94,30 +94,30 @@ function StackSection() {
       {STACK.map((layer) => (
         <Card key={layer.id}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--fos-color-text-bright)' }}>{layer.label}</h3>
+            <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-text-primary)' }}>{layer.label}</h3>
             <Badge label={layer.status} color={layer.statusColor} />
           </div>
           {layer.sublayers.length > 0 && (
             <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
               {layer.sublayers.map((sl) => (
                 <div key={sl.id} style={{ flex: '1 1 160px', padding: 12, borderRadius: 6, background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.07)' }}>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--fos-color-accent-brand)' }}>{sl.id}</span>
-                  <p style={{ fontSize: 12, fontWeight: 500, color: 'var(--fos-color-text-bright)', marginTop: 2 }}>{sl.label}</p>
-                  <p style={{ fontSize: 11, color: 'var(--fos-color-text-tertiary)', marginTop: 2 }}>{sl.desc}</p>
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-accent-brand-primary)' }}>{sl.id}</span>
+                  <p style={{ fontSize: 12, fontWeight: 500, color: 'var(--color-text-primary)', marginTop: 2 }}>{sl.label}</p>
+                  <p style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>{sl.desc}</p>
                 </div>
               ))}
             </div>
           )}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
             {layer.items.map((item, j) => (
-              <span key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, padding: '2px 8px', borderRadius: 4, background: 'rgba(94,234,212,.08)', color: 'var(--fos-color-text-subtle)' }}>{item}</span>
+              <span key={j} style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, padding: '2px 8px', borderRadius: 4, background: 'rgba(94,234,212,.08)', color: 'var(--color-text-muted)' }}>{item}</span>
             ))}
           </div>
-          <p style={{ fontSize: 11, color: 'var(--fos-color-text-tertiary)', marginTop: 8 }}>
-            <span style={{ color: 'var(--fos-color-text-faint)' }}>Action · </span>{layer.action}
+          <p style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 8 }}>
+            <span style={{ color: 'var(--color-text-faint)' }}>Action · </span>{layer.action}
           </p>
           {layer.note && (
-            <p style={{ fontSize: 11, color: 'var(--fos-color-text-faint)', marginTop: 4 }}>{layer.note}</p>
+            <p style={{ fontSize: 11, color: 'var(--color-text-faint)', marginTop: 4 }}>{layer.note}</p>
           )}
         </Card>
       ))}
@@ -140,11 +140,11 @@ function RoadmapSection() {
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                 <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 600, color: item.color }}>{item.label}</span>
-                <span style={{ fontSize: 11, color: 'var(--fos-color-text-faint)' }}>{item.date}</span>
-                {item.status === 'active' && <Badge label="en cours" color="var(--fos-color-accent-brand)" />}
-                {item.status === 'done' && <Badge label="livre" color="var(--fos-color-status-done)" />}
+                <span style={{ fontSize: 11, color: 'var(--color-text-faint)' }}>{item.date}</span>
+                {item.status === 'active' && <Badge label="en cours" color="var(--color-accent-brand-primary)" />}
+                {item.status === 'done' && <Badge label="livre" color="var(--color-accent-success)" />}
               </div>
-              <p style={{ fontSize: 13, color: 'var(--fos-color-text-secondary)' }}>{item.desc}</p>
+              <p style={{ fontSize: 13, color: 'var(--color-text-secondary)' }}>{item.desc}</p>
             </div>
           </div>
         </Card>
@@ -177,19 +177,19 @@ export default function KnowledgePage() {
         version={APP_META.version}
         meta="Knowledge Base"
       >
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(94,234,212,.15)', color: 'var(--fos-color-accent-brand)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(94,234,212,.15)', color: 'var(--color-accent-brand-primary)' }}>
           {MANIFESTE.principes.length} Principes
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--fos-color-status-parking)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(167,139,250,.15)', color: 'var(--color-accent-brand-secondary)' }}>
           {JOURNAL.length} Actions
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--fos-color-status-wip)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(59,130,246,.15)', color: 'var(--color-accent-info)' }}>
           {FRAMEWORKS.length} Frameworks
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(249,115,22,.15)', color: 'var(--fos-color-status-alert)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(249,115,22,.15)', color: 'var(--color-accent-danger)' }}>
           {STACK.length} Layers
         </div>
-        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(255,255,255,.07)', color: 'var(--fos-color-text-subtle)' }}>
+        <div style={{ padding: '4px 10px', borderRadius: 6, fontSize: 10, fontFamily: "'JetBrains Mono',monospace", fontWeight: 600, backgroundColor: 'rgba(255,255,255,.07)', color: 'var(--color-text-muted)' }}>
           {ROADMAP.length} Milestones
         </div>
       </PageHeader>

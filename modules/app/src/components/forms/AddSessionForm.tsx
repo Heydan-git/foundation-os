@@ -72,10 +72,10 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-label="Nouvelle session">
-      <div className="bg-[var(--fos-color-bg-canvas)] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
+      <div className="bg-[var(--color-bg-canvas)] border border-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-medium text-[var(--fos-color-accent-brand)] font-sans">
+          <h2 className="text-xl font-medium text-[var(--color-accent-brand-primary)] font-sans">
             Nouvelle Session
           </h2>
           <button
@@ -109,7 +109,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               required
               placeholder="Ex: Phase 1 Write Capability Implementation"
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono"
             />
           </div>
 
@@ -122,7 +122,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               name="phase"
               value={formData.phase}
               onChange={handleChange}
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono"
             >
               <option value="00">Phase 0 - Foundation</option>
               <option value="01">Phase 1 - Write Capability</option>
@@ -144,7 +144,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               rows={3}
               placeholder="Décrivez les éléments traités dans cette session..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono resize-none"
             />
           </div>
 
@@ -159,7 +159,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
               onChange={handleChange}
               rows={3}
               placeholder="Décrivez les décisions importantes prises..."
-              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--fos-color-accent-brand)] focus:outline-none font-mono resize-none"
+              className="w-full px-3 py-2 bg-black/30 border border-gray-700 rounded text-white placeholder-gray-500 focus:border-[var(--color-accent-brand-primary)] focus:outline-none font-mono resize-none"
             />
           </div>
 
@@ -176,7 +176,7 @@ export const AddSessionForm: React.FC<AddSessionFormProps> = ({
             <button
               type="submit"
               disabled={isLoading || !formData.title.trim()}
-              className="px-6 py-2 bg-[var(--fos-color-accent-brand)] text-[var(--fos-color-bg-canvas)] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+              className="px-6 py-2 bg-[var(--color-accent-brand-primary)] text-[var(--color-bg-canvas)] rounded font-medium hover:bg-[#4FD1C7] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-sans"
             >
               {isLoading ? 'Création...' : 'Créer Session'}
             </button>

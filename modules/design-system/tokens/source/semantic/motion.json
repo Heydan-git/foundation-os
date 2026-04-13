@@ -1,0 +1,24 @@
+{
+  "transition": {
+    "enter": {
+      "duration": { "$value": "{motion.duration.base}", "$type": "duration" },
+      "curve": { "$value": "{motion.curve.easeOut}", "$type": "cubicBezier" }
+    },
+    "exit": {
+      "duration": { "$value": "{motion.duration.fast}", "$type": "duration" },
+      "curve": { "$value": "{motion.curve.easeIn}", "$type": "cubicBezier" }
+    },
+    "hover": {
+      "duration": { "$value": "{motion.duration.fast}", "$type": "duration" },
+      "curve": { "$value": "{motion.curve.ease}", "$type": "cubicBezier" }
+    },
+    "focus": {
+      "duration": { "$value": "{motion.duration.instant}", "$type": "duration" },
+      "curve": { "$value": "{motion.curve.linear}", "$type": "cubicBezier" }
+    },
+    "modal": {
+      "duration": { "$value": "{motion.duration.slow}", "$type": "duration" },
+      "curve": { "$value": "{motion.curve.easeInOut}", "$type": "cubicBezier" }
+    }
+  }
+}

@@ -36,7 +36,7 @@ STACK        : Vite + React + TypeScript + Tailwind + react-router-dom + Supabas
 | Num | Label | Couleur | Statut |
 |-----|-------|---------|--------|
 | 00 | Fondation OS | #A78BFA | active |
-| 01 | Design | #5EEAD4 | pending |
+| 01 | Design | #60a5fa | pending |
 | 02 | Architecture | #F97316 | pending |
 | 03 | Développement | #3B82F6 | pending |
 | 04 | Qualité | #EAB308 | pending |
@@ -140,8 +140,8 @@ Note: M = Memory tier (≠ L = Stack layer)
 
 ### C-02 · DA Void Glass — tokens obligatoires
 ```
-Fond     : #06070C
-Accent   : #5EEAD4
+Fond     : #030303
+Accent   : #60a5fa
 Fonts    : Figtree (UI) + JetBrains Mono (code/labels)
 Cards    : rgba(255,255,255,.025) border rgba(255,255,255,.055)
 Orbes    : blur(80px), opacity 0.09–0.12, animation drift

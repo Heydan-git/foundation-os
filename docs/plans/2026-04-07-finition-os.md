@@ -54,7 +54,7 @@ Total : 3 sessions incrementales. Chaque fin de session = commit + health-check 
 Donc B = 1 check : fonts en primaire dans CSS et TSX.
 
 **Tasks:**
-- B.1 : Lire `docs/design-system.md` pour identifier exactement les fonts autorisees (Figtree pour UI, JetBrains Mono pour code) et interdites en primaire (Outfit, Inter, system-ui seul)
+- B.1 : Lire `modules/design-system/` (anciennement docs/design-system.md) pour identifier exactement les fonts autorisees (Figtree pour UI, JetBrains Mono pour code) et interdites en primaire (Outfit, Inter, system-ui seul)
 - B.2 : Identifier les fichiers source ou les fonts sont declarees (probable : `modules/app/src/index.css` ou similaire, plus inline `font-family` dans tsx)
 - B.3 : Ajouter dans `sync-check.sh` une nouvelle section :
   ```bash

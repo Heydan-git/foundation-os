@@ -1,0 +1,31 @@
+{
+  "color": {
+    "bg": {
+      "canvas": { "$value": "{ds.surface.0}", "$type": "color", "$description": "Deepest background" },
+      "sidebar": { "$value": "{ds.surface.1}", "$type": "color", "$description": "Sidebar/header" },
+      "card": { "$value": "{ds.surface.2}", "$type": "color", "$description": "Card background" },
+      "elevated": { "$value": "{ds.surface.3}", "$type": "color", "$description": "Elevated surface" }
+    },
+    "text": {
+      "primary": { "$value": "rgba(255,255,255,1)", "$type": "color", "$description": "Highest emphasis" },
+      "secondary": { "$value": "rgba(255,255,255,0.8)", "$type": "color", "$description": "Body text" },
+      "muted": { "$value": "rgba(255,255,255,0.6)", "$type": "color", "$description": "Subdued text" },
+      "faint": { "$value": "rgba(255,255,255,0.4)", "$type": "color", "$description": "Placeholder/disabled" },
+      "ghost": { "$value": "rgba(255,255,255,0.2)", "$type": "color", "$description": "Decorative" }
+    },
+    "border": {
+      "default": { "$value": "rgba(255,255,255,0.05)", "$type": "color", "$description": "Subtle border" },
+      "strong": { "$value": "rgba(255,255,255,0.15)", "$type": "color", "$description": "Visible border" }
+    },
+    "accent": {
+      "info": { "$value": "{ds.blue}", "$type": "color" },
+      "success": { "$value": "{ds.emerald}", "$type": "color" },
+      "warning": { "$value": "{ds.amber}", "$type": "color" },
+      "danger": { "$value": "{ds.rose}", "$type": "color" },
+      "brand": {
+        "primary": { "$value": "{ds.blue}", "$type": "color" },
+        "secondary": { "$value": "{ds.purple}", "$type": "color" }
+      }
+    }
+  }
+}

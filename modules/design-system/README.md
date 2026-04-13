@@ -33,7 +33,7 @@ modules/design-system/
 │   │   ├── primitives/     # Palettes brutes (color, typography, spacing, radius, elevation, motion)
 │   │   └── semantic/       # Intentions via aliases DTCG (bg, text, border, accent, status, glow)
 │   └── build/              # Outputs generes — GITIGNORED, recalcules par build:tokens
-│       ├── tokens.css      # CSS vars --fos-* (consommable par n'importe quel CSS)
+│       ├── tokens.css      # CSS vars (consommable par n'importe quel CSS)
 │       ├── tokens.js       # ESM export pour runtime JS/TS
 │       └── tokens.json     # Flat JSON pour outils externes (Figma import, CI)
 ├── scripts/
@@ -77,7 +77,7 @@ import {
 } from '@foundation-os/design-system'
 
 // Tokens
-import '@foundation-os/design-system/tokens.css'                  // CSS vars --fos-*
+import '@foundation-os/design-system/tokens.css'                  // CSS vars (semantic + primitives)
 import tokens from '@foundation-os/design-system/tokens'          // ESM object
 import tokensJson from '@foundation-os/design-system/tokens.json' // Flat JSON
 ```
@@ -87,7 +87,7 @@ import tokensJson from '@foundation-os/design-system/tokens.json' // Flat JSON
 - **Zero SaaS** : pas de Chromatic, pas de Supernova, pas d'externe. Tout en local/CI GitHub Actions.
 - **DTCG W3C format** : tokens/source/*.json suivent la spec Community Group. Compatible Figma Variables import natif + Penpot + tout outil DTCG-compliant.
 - **CSS Modules** pour les primitives — decouple du Tailwind de `modules/app`, portable vers futurs modules Finance / Sante / Trading.
-- **Void Glass inviolable** : fond #06070C, accent #5EEAD4, Figtree + JetBrains Mono. Voir `docs/design-system.md` (source canonique).
+- **Void Glass dark-only** : fond #030303 (ds-surface-0), accent #60a5fa (ds-blue), Figtree + JetBrains Mono. Tokens DTCG semantic.
 - **WCAG AA par defaut** : toutes les paires semantic sont verifiees via `npm run check:contrast`. Tests jest-axe sur chaque primitive.
 - **Alpha precision preservee** : custom Style Dictionary transforms (voir scripts/build-tokens.mjs commentaires F-DS1-01) pour garder les rgba alpha exacts des tokens Void Glass canoniques (0.025, 0.055, 0.42, 0.88).
 
@@ -107,5 +107,5 @@ Les primitives (Button, Text, etc.) sont disponibles pour import nomme des que `
 
 - Spec DS bootstrap : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/01-spec.md`
 - Plan 6 sessions   : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/02-plan.md`
-- Void Glass source : `docs/design-system.md`
+- Void Glass source : `modules/design-system/`
 - Storybook local   : http://localhost:6006/ (apres `npm run storybook`)
