@@ -1,4 +1,4 @@
-// @ts-nocheck — shadcn/chart helpers vs recharts v3 type drift (known issue, runtime OK)
+// @ts-nocheck — recharts v3 type drift vs shadcn (8 errors, runtime OK, revisit when recharts fixes types)
 "use client";
 
 import * as React from "react";
