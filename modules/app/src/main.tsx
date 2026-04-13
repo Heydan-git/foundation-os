@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-// Design System tokens — importe AVANT index.css
-import '@foundation-os/design-system/tokens.css'
+// DS globals: Tailwind + tokens + shadcn bridge (source unique)
+import '@foundation-os/design-system/styles.css'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

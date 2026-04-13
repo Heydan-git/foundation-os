@@ -18,6 +18,8 @@
   "dependencies": {
     "@foundation-os/design-system": "*",
     "@supabase/supabase-js": "^2.39.0",
+    "lucide-react": "^0.469.0",
+    "motion": "^12.38.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.0"

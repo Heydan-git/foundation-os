@@ -19,7 +19,7 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-13 | **[DONE] DS finition F1-F7 — semantic layer + app migration + cleanup** |
+| 2026-04-13 | **[DONE_WITH_CONCERNS] DS finition F1-F7 + debut refactor visuel** |
 |            | F1 : +5 primitives (border, motion, lineHeight, letterSpacing, control — 22 vars) |
 |            | F2 : couche semantic complete (color, typography, space, radius, motion — 95 vars) |
 |            | F3 : prefixe `--fos-*` retire, sortie propre (`--ds-*`, `--color-*`, `--shadcn-*`) |
@@ -46,13 +46,13 @@
 
 ## Cap
 
-**Direction** : Finition DS shadcn v2 — F8-F9 restantes puis Phase 5 Expansion.
+**Direction** : Refactor app pour utiliser les composants DS Figma Make — 100% iso visuel.
 
-**Pourquoi** : F1-F7 done (semantic layer, app migree, cleanup). Le DS est fonctionnel mais manque de tests etendus (2/100) et de doc v2.
+**Pourquoi** : F1-F7 tokens done (commit 45869af), mais l'app utilise encore des inline styles custom. Kevin veut que l'app reproduise exactement le design du dashboard Figma Make (sidebar, glassmorphism, glow cards, etc.). Les composants DS existent mais l'app ne les consomme pas.
 
-**Prochaine action** : executer F8 (nettoyage code + tests etendus + doc v2) — `docs/plans/2026-04-11-ds-shadcn-finition.md`.
+**Prochaine action** : Refactorer modules/app pour adopter le DashboardLayout du Figma Make (sidebar collapsible + header + glow effects) et restyler toutes les pages avec les composants DS shadcn/ui. Plan detaille dans memory `project_ds_refactor_app.md`. Reference visuelle : `modules/design-system/preview/app/components/` + `base DS/src.zip` (racine). Plomberie deja faite (main.tsx importe DS styles.css, lucide-react + motion installes).
 
-**Ensuite** : F9 (affinage DS + site demo), puis Phase 5 Expansion.
+**Ensuite** : F8 tests + F9 polish, puis Phase 5 Expansion.
 
 ## Idees & Parking
 
