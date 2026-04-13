@@ -7,7 +7,7 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ✅ migre | `modules/app/` | 0 refs `--fos-*`, tokens semantic, build OK 253ms, 19/19 tests |
+| App Builder | ✅ Figma Make | `modules/app/` | UI refactor complet — DashboardLayout (sidebar collapsible + header + glow orbs), toutes pages restyled glassmorphism, 0 inline styles legacy, build OK 266ms, 19/19 tests |
 | Design System | ✅ F1-F7 done | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches (primitives + semantic + bridge), prefixe fos retire, preview port 6007. Reste F8-F9 : `docs/plans/2026-04-11-ds-shadcn-finition.md` |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
@@ -19,15 +19,19 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-13 | **[DONE_WITH_CONCERNS] DS finition F1-F7 + debut refactor visuel** |
-|            | F1 : +5 primitives (border, motion, lineHeight, letterSpacing, control — 22 vars) |
-|            | F2 : couche semantic complete (color, typography, space, radius, motion — 95 vars) |
-|            | F3 : prefixe `--fos-*` retire, sortie propre (`--ds-*`, `--color-*`, `--shadcn-*`) |
-|            | F4 : app migree (207 refs → 0), build OK, 19/19 tests |
-|            | F5 : Storybook preview.ts + manager.ts migres |
-|            | F6 : cleanup — `base DS/` archive, 0 refs #06070C/#5EEAD4 (hors plans historiques) |
-|            | F7 : health DEGRADED (= entree session, 7 refs dans plan finition pre-existantes) |
-|            | Reste : F8 (nettoyage + tests etendus), F9 (affinage + site demo) |
+| 2026-04-13 | **[DONE] App UI refactor — Figma Make design system integration** |
+|            | DashboardLayout : sidebar collapsible + header + orbs glow (copie exacte preview Figma Make) |
+|            | App.tsx : layout routes avec Outlet, auth pages standalone |
+|            | IndexPage : stat cards glow + module cards (donnees Supabase live) |
+|            | Commander : header gradient, glass tabs, stats pills, 6 panels Tailwind (0 inline style legacy) |
+|            | KnowledgePage : glass cards, glass badges, 5 sections |
+|            | Login + ResetPassword : centered glassmorphism card, orbs background |
+|            | Cleanup : TabBar, Layout, Navbar, StatsBar supprimes (remplaces par DashboardLayout) |
+|            | Commits : `436de80` (UI refactor) + `5418f35` (panel cleanup) |
+|            | Health DEGRADED : 51 refs cassees (docs/travaux-cowork prospectifs) + bundle 613kB (motion/lucide) |
+| 2026-04-13 | **[DONE_WITH_CONCERNS] DS finition F1-F7** |
+|            | F1-F7 : tokens primitives + semantic + bridge + app migree + prefixe fos retire |
+|            | Reste : F8 (tests etendus), F9 (affinage + site demo) |
 | 2026-04-11 | **[DONE] DS shadcn rebuild depuis Figma Make** |
 |            | 46 composants shadcn/ui, tokens DTCG from scratch, preview Figma Make iso |
 |            | Commits : a6f37a2 + 3547b48 + 311ae9a |
@@ -46,13 +50,13 @@
 
 ## Cap
 
-**Direction** : Refactor app pour utiliser les composants DS Figma Make — 100% iso visuel.
+**Direction** : DS Figma Make integre — app 100% iso visuel. F8-F9 puis Phase 5.
 
-**Pourquoi** : F1-F7 tokens done (commit 45869af), mais l'app utilise encore des inline styles custom. Kevin veut que l'app reproduise exactement le design du dashboard Figma Make (sidebar, glassmorphism, glow cards, etc.). Les composants DS existent mais l'app ne les consomme pas.
+**Pourquoi** : Refactor UI complet livre (commits 436de80 + 5418f35). App reproduit exactement le design Figma Make : sidebar collapsible, glassmorphism, glow cards, motion animations. 0 inline styles legacy, 0 refs old tokens.
 
-**Prochaine action** : Refactorer modules/app pour adopter le DashboardLayout du Figma Make (sidebar collapsible + header + glow effects) et restyler toutes les pages avec les composants DS shadcn/ui. Plan detaille dans memory `project_ds_refactor_app.md`. Reference visuelle : `modules/design-system/preview/app/components/` + `base DS/src.zip` (racine). Plomberie deja faite (main.tsx importe DS styles.css, lucide-react + motion installes).
+**Prochaine action** : F8 (tests etendus DS — smoke tests composants, a11y) puis F9 (affinage DS + site demo). Plan : `docs/plans/2026-04-11-ds-shadcn-finition.md`.
 
-**Ensuite** : F8 tests + F9 polish, puis Phase 5 Expansion.
+**Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
 ## Idees & Parking
 
