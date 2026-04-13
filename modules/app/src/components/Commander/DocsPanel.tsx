@@ -6,26 +6,36 @@ interface DocsPanelProps {
 }
 
 const typeColor = (t: string) =>
-  ({ artifact: 'var(--color-accent-brand-primary)', plan: 'var(--color-accent-brand-secondary)', doc: 'var(--color-accent-info)', notice: 'var(--color-accent-danger)', skill: '#EAB308', monitoring: 'var(--color-accent-danger)', historique: 'var(--color-text-muted)', design: '#EC4899', guide: 'var(--color-accent-success)' }[t] ?? 'var(--color-text-muted)')
+  ({
+    artifact: '#60a5fa',
+    plan: '#c084fc',
+    doc: '#60a5fa',
+    notice: '#f43f5e',
+    skill: '#eab308',
+    monitoring: '#f43f5e',
+    historique: '#6b7280',
+    design: '#ec4899',
+    guide: '#34d399',
+  }[t] ?? '#6b7280')
 
 export function DocsPanel({ docs }: DocsPanelProps) {
   return (
-    <div className="flex flex-col" style={{ gap: 8 }}>
-      {docs.map((d, i) => (
-        <div key={d.id} style={{ animation: `fadeIn 0.3s ease-out ${i * 40}ms both` }}>
-          <Card>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center" style={{ gap: 8 }}>
-                <Badge label={d.category ?? ''} color={typeColor(d.category ?? '')} />
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: 'var(--color-text-primary)' }}>{d.title}</span>
-              </div>
-              <div className="flex items-center" style={{ gap: 8 }}>
-                <span style={{ fontSize: 10, color: 'var(--color-text-faint)' }}>{d.content}</span>
-                {d.tags && d.tags.length > 0 && <span style={{ fontSize: 10, color: 'var(--color-text-ghost)' }}>{d.tags[0]}</span>}
-              </div>
+    <div className="flex flex-col gap-2">
+      {docs.map((d) => (
+        <Card key={d.id}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Badge label={d.category ?? ''} color={typeColor(d.category ?? '')} />
+              <span className="text-[11px] font-mono text-white/90">{d.title}</span>
             </div>
-          </Card>
-        </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-white/40 truncate max-w-[200px]">{d.content}</span>
+              {d.tags && d.tags.length > 0 && (
+                <span className="text-[10px] text-white/20">{d.tags[0]}</span>
+              )}
+            </div>
+          </div>
+        </Card>
       ))}
     </div>
   )

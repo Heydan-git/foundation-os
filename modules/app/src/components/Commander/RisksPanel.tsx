@@ -6,33 +6,31 @@ interface RisksPanelProps {
 }
 
 const levelColor = (v: string) =>
-  ({ high: 'var(--color-accent-danger)', medium: 'var(--color-accent-danger)', low: 'var(--color-accent-success)' }[v] ?? 'var(--color-text-muted)')
+  ({ high: '#f43f5e', medium: '#f59e0b', low: '#34d399' }[v] ?? '#6b7280')
 
 const statusColor = (v: string) =>
-  ({ open: 'var(--color-accent-danger)', mitigated: 'var(--color-accent-danger)', closed: 'var(--color-accent-success)' }[v] ?? 'var(--color-text-muted)')
+  ({ open: '#f43f5e', mitigated: '#f59e0b', closed: '#34d399' }[v] ?? '#6b7280')
 
 export function RisksPanel({ risks }: RisksPanelProps) {
   return (
-    <div className="flex flex-col" style={{ gap: 8 }}>
-      {risks.map((r, i) => (
-        <div key={r.id} style={{ animation: `fadeIn 0.3s ease-out ${i * 40}ms both` }}>
-          <Card>
-            <div className="flex items-start justify-between">
-              <div style={{ flex: 1 }}>
-                <div className="flex items-center" style={{ gap: 8, marginBottom: 6 }}>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--color-accent-brand-primary)', letterSpacing: '.08em' }}>{r.id}</span>
-                  <Badge label={`impact ${r.impact}`} color={levelColor(r.impact)} />
-                  <Badge label={`proba ${r.proba}`}   color={levelColor(r.proba)} />
-                </div>
-                <p style={{ fontSize: 12, color: 'var(--color-text-primary)', marginBottom: 4 }}>{r.risk}</p>
-                {r.mitigation && (
-                  <p style={{ fontSize: 10, color: 'var(--color-text-faint)' }}>Mitigation · {r.mitigation}</p>
-                )}
+    <div className="flex flex-col gap-2">
+      {risks.map((r) => (
+        <Card key={r.id}>
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[10px] font-mono text-blue-400 tracking-wider">{r.id}</span>
+                <Badge label={`impact ${r.impact}`} color={levelColor(r.impact)} />
+                <Badge label={`proba ${r.proba}`} color={levelColor(r.proba)} />
               </div>
-              <Badge label={r.status} color={statusColor(r.status)} />
+              <p className="text-xs text-white/90 mb-1">{r.risk}</p>
+              {r.mitigation && (
+                <p className="text-[10px] text-white/40">Mitigation · {r.mitigation}</p>
+              )}
             </div>
-          </Card>
-        </div>
+            <Badge label={r.status} color={statusColor(r.status)} />
+          </div>
+        </Card>
       ))}
     </div>
   )

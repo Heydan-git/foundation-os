@@ -7,19 +7,19 @@ interface ContextPanelProps {
 
 export function ContextPanel({ contextBlocks }: ContextPanelProps) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 8 }}>
-      {contextBlocks.map((c, i) => (
-        <div key={c.id} style={{ animation: `fadeIn 0.3s ease-out ${i * 40}ms both` }}>
-          <Card>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--color-accent-brand-primary)', letterSpacing: '.08em' }}>{c.id}</span>
-            </div>
-            <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: 8 }}>{c.label}</p>
-            {c.content.split('\n').map((line, j) => (
-              <p key={j} style={{ fontSize: 10, color: 'var(--color-text-muted)', marginBottom: 2 }}>{line}</p>
-            ))}
-          </Card>
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      {contextBlocks.map((c) => (
+        <Card key={c.id}>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[10px] font-mono text-blue-400 tracking-wider">{c.id}</span>
+          </div>
+          <p className="text-xs font-semibold text-white/90 mb-2">{c.label}</p>
+          {c.content.split('\n').map((line, j) => (
+            <p key={j} className="text-[10px] text-white/50 mb-0.5">
+              {line}
+            </p>
+          ))}
+        </Card>
       ))}
     </div>
   )

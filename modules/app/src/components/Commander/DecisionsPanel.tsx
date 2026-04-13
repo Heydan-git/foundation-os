@@ -6,26 +6,24 @@ interface DecisionsPanelProps {
 }
 
 const impactColor = (v: string) =>
-  ({ high: 'var(--color-accent-danger)', medium: 'var(--color-accent-danger)', low: 'var(--color-accent-success)' }[v] ?? 'var(--color-text-muted)')
+  ({ high: '#f43f5e', medium: '#f59e0b', low: '#34d399' }[v] ?? '#6b7280')
 
 export function DecisionsPanel({ decisions }: DecisionsPanelProps) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 8 }}>
-      {decisions.map((d, i) => (
-        <div key={d.id} style={{ animation: `fadeIn 0.3s ease-out ${i * 40}ms both` }}>
-          <Card>
-            <div className="flex items-center justify-between" style={{ marginBottom: 8 }}>
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: 'var(--color-accent-brand-primary)', letterSpacing: '.08em' }}>{d.id}</span>
-              <div className="flex" style={{ gap: 4 }}>
-                <Badge label={d.impact}  color={impactColor(d.impact)} />
-                <Badge label={d.status}  color="var(--color-accent-brand-primary)" />
-              </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      {decisions.map((d) => (
+        <Card key={d.id}>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] font-mono text-blue-400 tracking-wider">{d.id}</span>
+            <div className="flex gap-1">
+              <Badge label={d.impact} color={impactColor(d.impact)} />
+              <Badge label={d.status} color="#60a5fa" />
             </div>
-            <p style={{ fontSize: 12, fontWeight: 500, color: 'var(--color-text-primary)', marginBottom: 4 }}>{d.title}</p>
-            {d.context && <p style={{ fontSize: 10, color: 'var(--color-text-faint)' }}>{d.context}</p>}
-            <p style={{ fontSize: 9, color: 'var(--color-text-ghost)', marginTop: 4 }}>{d.date}</p>
-          </Card>
-        </div>
+          </div>
+          <p className="text-xs font-medium text-white/90 mb-1">{d.title}</p>
+          {d.context && <p className="text-[10px] text-white/40">{d.context}</p>}
+          <p className="text-[9px] text-white/20 mt-1 font-mono">{d.date}</p>
+        </Card>
       ))}
     </div>
   )

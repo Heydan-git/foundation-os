@@ -1,4 +1,3 @@
-export { StatsBar }       from './StatsBar'
 export { SessionsPanel }  from './SessionsPanel'
 export { DecisionsPanel } from './DecisionsPanel'
 export { RisksPanel }     from './RisksPanel'
