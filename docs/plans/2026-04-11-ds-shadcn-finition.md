@@ -285,6 +285,8 @@ npm run preview:ds  # verif visuelle sur localhost:6007
    - Procedure de mise a jour des tokens
 8. Ajouter un `CHANGELOG.md` au DS
 
+**Note** : doc DS v2 (`docs/design-system-v2.md`) reportee a Supernova (plan `2026-04-13-ds-showcase-tooling-sync-plan.md`, blocs 10-12). Evite le doublon doc locale + Supernova.
+
 **Commit** : `chore(ds): nettoyage + tests + doc v2`
 
 ---
