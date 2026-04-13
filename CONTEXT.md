@@ -8,7 +8,7 @@
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
 | App Builder | ✅ Figma Make | `modules/app/` | UI refactor complet — DashboardLayout (sidebar collapsible + header + glow orbs), toutes pages restyled glassmorphism, 0 inline styles legacy, build OK 266ms, 19/19 tests |
-| Design System | ✅ F1-F7 done | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches (primitives + semantic + bridge), prefixe fos retire, preview port 6007. Reste F8-F9 : `docs/plans/2026-04-11-ds-shadcn-finition.md` |
+| Design System | ✅ F1-F9 done | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches, biome linter, 23 tests (smoke+a11y), CHANGELOG. Doc DS v2 → Supernova (plan 2). |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
@@ -19,6 +19,10 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-13 | **[DONE] DS finition F8-F9** |
+|            | F8 : biome v2.4 (Tailwind, rules shadcn), 9 smoke+a11y tests (23 total DS), CHANGELOG.md |
+|            | F9 : audit 46 composants (7 CVA, loading/error rares), chart.tsx @ts-nocheck conserve (recharts v3), F9.3 site demo → plan 2 Storybook |
+|            | Commits : `d0217a8` (F8) + `e671ca8` (F9) |
 | 2026-04-13 | **[DONE] App UI refactor — Figma Make design system integration** |
 |            | DashboardLayout : sidebar collapsible + header + orbs glow (copie exacte preview Figma Make) |
 |            | App.tsx : layout routes avec Outlet, auth pages standalone |
@@ -50,11 +54,11 @@
 
 ## Cap
 
-**Direction** : DS Figma Make integre — app 100% iso visuel. F8-F9 puis Phase 5.
+**Direction** : DS Showcase + Tooling Sync — Storybook complet, Supernova doc, Asana/Notion sync.
 
-**Pourquoi** : Refactor UI complet livre (commits 436de80 + 5418f35). App reproduit exactement le design Figma Make : sidebar collapsible, glassmorphism, glow cards, motion animations. 0 inline styles legacy, 0 refs old tokens.
+**Pourquoi** : Plan finition DS termine (F1-F9, commits d0217a8 + e671ca8). DS propre : biome, 23 tests, audit composants fait. Prochaine etape = rendre le DS visible et documente.
 
-**Prochaine action** : Finir plan finition DS (`docs/plans/2026-04-11-ds-shadcn-finition.md`) — F8 (nettoyage + tests etendus) puis F9 (affinage + site demo). Ensuite executer plan DS Showcase (`docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md`) — 15 blocs, 5 sessions.
+**Prochaine action** : Executer plan DS Showcase (`docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md`) — Bloc 1 (audit Storybook config). 15 blocs sur 5 sessions.
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
@@ -108,7 +112,7 @@
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
 | App Builder | OK 253ms | 473 kB | 25 kB | 19/19 | 5 |
-| Design System | OK tokens | — | — | 2/2 | — |
+| Design System | OK tokens | — | — | 23/23 | — |
 
 Seuils : voir `docs/core/monitor.md` section 4 (source unique).
 Health-check : SAIN (0 critical, 0 warning). Refs nettoyees 2026-04-10.
@@ -138,6 +142,12 @@ Branche : `audit-massif-cycle3` (merged). Rapport : `.archive/audit-massif/23-ra
 - **Cowork** : session-lock.sh (verrou 30min TTL)
 - **Plugins** : OMC, Superpowers v5.0.7, gstack, BMAD v6 (dormant)
 - **Design System** : npm workspaces, Style Dictionary, Storybook 8.6, Playwright + axe
+
+## Travaux Cowork
+
+| Titre | Chemin | Status |
+|-------|--------|--------|
+| Plan Dashboard Monitoring | `docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/` | valide Kevin — 14 fichiers (~174Ko), pret pour handoff CLI. Gates G1 (pre-build snapshot JSON) + G2 (fichiers MD dans `modules/app/data/`) **arbitres Kevin 2026-04-13** : Claude decide au mieux, recommandations suivies. Effort estime ~33h (10-12 sessions). Contrainte absolue : 100% DS Void Glass, Supernova + Storybook dans le meme flow que chaque nouveau composant. |
 
 ## Risques
 
