@@ -54,7 +54,7 @@
 
 **Pourquoi** : Refactor UI complet livre (commits 436de80 + 5418f35). App reproduit exactement le design Figma Make : sidebar collapsible, glassmorphism, glow cards, motion animations. 0 inline styles legacy, 0 refs old tokens.
 
-**Prochaine action** : F8 (tests etendus DS — smoke tests composants, a11y) puis F9 (affinage DS + site demo). Plan : `docs/plans/2026-04-11-ds-shadcn-finition.md`.
+**Prochaine action** : Executer plan `docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md` — Bloc 1 (audit Storybook config). 15 blocs sur 5 sessions. Storybook complet (46 composants + app) → Supernova (doc DS) → Asana/Notion sync.
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
