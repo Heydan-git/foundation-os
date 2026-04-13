@@ -1,0 +1,40 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { CalendarDays } from 'lucide-react'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card'
+import { Avatar, AvatarFallback, AvatarImage } from './avatar'
+import { Button } from './button'
+
+const meta = {
+  title: 'Feedback/HoverCard',
+  component: HoverCard,
+  tags: ['autodocs'],
+} satisfies Meta<typeof HoverCard>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  render: () => (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">@foundation-os</Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80">
+        <div className="flex justify-between space-x-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>FO</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">Foundation OS</h4>
+            <p className="text-sm">AI-driven personal operating system.</p>
+            <div className="flex items-center pt-2">
+              <CalendarDays className="mr-2 size-4 opacity-70" />
+              <span className="text-muted-foreground text-xs">Joined April 2026</span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  ),
+}
