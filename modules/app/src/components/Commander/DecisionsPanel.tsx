@@ -14,7 +14,7 @@ export function DecisionsPanel({ decisions }: DecisionsPanelProps) {
       {decisions.map((d) => (
         <Card key={d.id}>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-mono text-blue-400 tracking-wider">{d.id}</span>
+            <span className="text-[10px] font-mono text-ds-blue tracking-wider">{d.id}</span>
             <div className="flex gap-1">
               <Badge label={d.impact} color={impactColor(d.impact)} />
               <Badge label={d.status} color="#60a5fa" />

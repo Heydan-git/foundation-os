@@ -71,8 +71,8 @@ export function DashboardLayout() {
         <div
           className={`flex items-center gap-3 mb-8 group cursor-pointer ${isSidebarCollapsed ? 'justify-center' : ''}`}
         >
-          <div className="h-7 w-7 shrink-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-md border border-white/10 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_0_20px_rgba(59,130,246,0.2)] relative overflow-hidden group-hover:border-white/30 transition-colors">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="h-7 w-7 shrink-0 bg-gradient-to-br from-ds-blue/20 to-ds-purple/20 rounded-md border border-white/10 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_0_20px_rgba(59,130,246,0.2)] relative overflow-hidden group-hover:border-white/30 transition-colors">
+            <div className="absolute inset-0 bg-gradient-to-r from-ds-blue/10 to-ds-purple/10 blur opacity-0 group-hover:opacity-100 transition-opacity" />
             <Command
               size={14}
               strokeWidth={1.5}
@@ -183,7 +183,7 @@ export function DashboardLayout() {
                   <h4 className="text-xs font-medium text-white/90 whitespace-nowrap truncate max-w-[130px]">
                     {userEmail}
                   </h4>
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-ds-emerald animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
                 </div>
                 <p className="text-[10px] text-white/40 mb-3 leading-relaxed">Connecte</p>
                 <button
@@ -210,16 +210,16 @@ export function DashboardLayout() {
               <Menu size={16} strokeWidth={1.5} />
             </button>
             <div className="hidden md:flex relative group/search">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md blur opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-ds-blue/10 to-ds-purple/10 rounded-md blur opacity-0 group-focus-within/search:opacity-100 transition-opacity duration-500" />
               <div className="relative flex items-center">
                 <Search
-                  className="absolute left-2.5 text-white/30 group-focus-within/search:text-blue-400 transition-colors"
+                  className="absolute left-2.5 text-white/30 group-focus-within/search:text-ds-blue transition-colors"
                   size={12}
                 />
                 <input
                   type="text"
                   placeholder="Rechercher..."
-                  className="w-56 bg-[#0a0a0a] border border-white/[0.08] hover:border-white/[0.15] rounded-md pl-7 pr-3 py-1 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
+                  className="w-56 bg-[#0a0a0a] border border-white/[0.08] hover:border-white/[0.15] rounded-md pl-7 pr-3 py-1 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-ds-blue/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
                 />
                 <div className="absolute right-1.5 px-1 py-0.5 rounded border border-white/10 bg-white/5 text-[9px] text-white/40 font-mono">
                   \u2318K
@@ -231,7 +231,7 @@ export function DashboardLayout() {
           <div className="flex items-center gap-3">
             <button className="p-1.5 rounded-md hover:bg-white/[0.06] hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] text-white/40 hover:text-white/90 transition-all relative border border-transparent hover:border-white/[0.05]">
               <Bell size={14} strokeWidth={1.5} />
-              <span className="absolute top-1.5 right-1.5 w-1 h-1 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,1)]" />
+              <span className="absolute top-1.5 right-1.5 w-1 h-1 rounded-full bg-ds-blue shadow-[0_0_8px_rgba(96,165,250,1)]" />
             </button>
           </div>
         </header>
@@ -262,7 +262,7 @@ export function DashboardLayout() {
             >
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="h-7 w-7 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-md border border-white/10 flex items-center justify-center relative">
+                  <div className="h-7 w-7 bg-gradient-to-br from-ds-blue/20 to-ds-purple/20 rounded-md border border-white/10 flex items-center justify-center relative">
                     <Command size={14} strokeWidth={1.5} className="text-white/90" />
                   </div>
                   <span className="font-medium text-md text-white/90">Foundation OS</span>

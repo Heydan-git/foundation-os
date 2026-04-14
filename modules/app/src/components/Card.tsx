@@ -13,7 +13,7 @@ export function Card({ children, style, onClick, selected }: CardProps) {
       onClick={onClick}
       className={`p-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border relative overflow-hidden group transition-all duration-500 ${
         selected
-          ? 'border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
+          ? 'border-ds-blue/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
           : 'border-white/[0.05] hover:border-white/[0.1] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
       } ${onClick ? 'cursor-pointer' : ''}`}
       style={style}

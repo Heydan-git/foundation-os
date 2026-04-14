@@ -73,7 +73,7 @@ export default function ResetPasswordPage() {
       >
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="h-8 w-8 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-md border border-white/10 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_0_20px_rgba(59,130,246,0.2)]">
+          <div className="h-8 w-8 bg-gradient-to-br from-ds-blue/20 to-ds-purple/20 rounded-md border border-white/10 flex items-center justify-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_0_20px_rgba(59,130,246,0.2)]">
             <Command size={16} strokeWidth={1.5} className="text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
           </div>
           <span className="font-medium text-lg tracking-wide text-white/90">Foundation OS</span>
@@ -82,7 +82,7 @@ export default function ResetPasswordPage() {
         {/* Card */}
         <div className="rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border border-white/[0.05] p-6 relative overflow-hidden group">
           <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          <div className="absolute top-[-30%] right-[-20%] w-[50%] h-[50%] bg-purple-500/5 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
+          <div className="absolute top-[-30%] right-[-20%] w-[50%] h-[50%] bg-ds-purple/5 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
 
           <div className="relative z-10">
             <h2 className="text-sm font-medium text-white/90 mb-1">
@@ -106,7 +106,7 @@ export default function ResetPasswordPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={PASSWORD_MIN}
-                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
+                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-ds-blue/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
                 />
               ) : (
                 <input
@@ -115,12 +115,12 @@ export default function ResetPasswordPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
+                  className="w-full bg-[#050505] border border-white/[0.08] hover:border-white/[0.15] rounded-md px-3 py-2.5 text-xs text-white/90 placeholder:text-white/30 focus:outline-none focus:border-ds-blue/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all"
                 />
               )}
 
-              {error && <p className="text-[11px] text-rose-400 py-1">{error}</p>}
-              {info && <p className="text-[11px] text-emerald-400 py-1">{info}</p>}
+              {error && <p className="text-[11px] text-ds-rose py-1">{error}</p>}
+              {info && <p className="text-[11px] text-ds-emerald py-1">{info}</p>}
 
               <button
                 type="submit"

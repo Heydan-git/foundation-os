@@ -54,7 +54,7 @@ export default function Commander() {
       {/* Header */}
       <div className="flex flex-col gap-3 mb-6 border-b border-white/[0.05] pb-6 relative z-10">
         <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] w-fit mb-1">
-          <Sword size={12} className="text-purple-400" />
+          <Sword size={12} className="text-ds-purple" />
           <span className="text-[10px] font-mono tracking-wider text-white/70">COMMANDER</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -69,7 +69,7 @@ export default function Commander() {
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.05]">
               <div
-                className={`w-1.5 h-1.5 rounded-full ${source === 'supabase' ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse' : 'bg-rose-400'}`}
+                className={`w-1.5 h-1.5 rounded-full ${source === 'supabase' ? 'bg-ds-emerald shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse' : 'bg-ds-rose'}`}
               />
               <span className="text-[9px] font-mono tracking-wider text-white/50">
                 {source === 'supabase' ? 'SUPABASE LIVE' : 'SEED DATA'}
@@ -82,10 +82,10 @@ export default function Commander() {
       {/* Stats Row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
-          { label: 'Sessions', value: sessions.length, color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-          { label: 'ADR', value: decisions.length, color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-          { label: 'Risques', value: openRisks, color: 'text-rose-400', bg: 'bg-rose-500/10', border: 'border-rose-500/20' },
-          { label: 'Next Steps', value: pendingSteps, color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+          { label: 'Sessions', value: sessions.length, color: 'text-ds-purple', bg: 'bg-ds-purple/10', border: 'border-ds-purple/20' },
+          { label: 'ADR', value: decisions.length, color: 'text-ds-blue', bg: 'bg-ds-blue/10', border: 'border-ds-blue/20' },
+          { label: 'Risques', value: openRisks, color: 'text-ds-rose', bg: 'bg-ds-rose/10', border: 'border-ds-rose/20' },
+          { label: 'Next Steps', value: pendingSteps, color: 'text-ds-emerald', bg: 'bg-ds-emerald/10', border: 'border-ds-emerald/20' },
         ].map((stat, i) => (
           <div
             key={i}

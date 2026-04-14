@@ -28,7 +28,7 @@ function GlassCard({
       onClick={onClick}
       className={`p-4 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-2xl border relative overflow-hidden group transition-all duration-500 ${
         selected
-          ? 'border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
+          ? 'border-ds-blue/30 shadow-[0_0_20px_rgba(59,130,246,0.1)]'
           : 'border-white/[0.05] hover:border-white/[0.1] hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
       } ${onClick ? 'cursor-pointer' : ''}`}
     >
@@ -59,31 +59,31 @@ function ManifesteSection() {
   return (
     <div className="flex flex-col gap-4">
       <GlassCard>
-        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+        <p className="text-[9px] uppercase tracking-wider text-ds-blue font-mono mb-2">
           Vision long terme
         </p>
         <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.visionLT}</p>
       </GlassCard>
       <GlassCard>
-        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+        <p className="text-[9px] uppercase tracking-wider text-ds-blue font-mono mb-2">
           Vision court terme
         </p>
         <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.visionCT}</p>
       </GlassCard>
       <GlassCard>
-        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-2">
+        <p className="text-[9px] uppercase tracking-wider text-ds-blue font-mono mb-2">
           Mode operatoire
         </p>
         <p className="text-xs text-white/70 leading-relaxed">{MANIFESTE.modeOperatoire}</p>
       </GlassCard>
       <GlassCard>
-        <p className="text-[9px] uppercase tracking-wider text-blue-400 font-mono mb-3">
+        <p className="text-[9px] uppercase tracking-wider text-ds-blue font-mono mb-3">
           Principes fondateurs
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {MANIFESTE.principes.map((p) => (
             <div key={p.id} className="flex items-start gap-3">
-              <span className="text-[10px] font-mono text-blue-400 shrink-0 pt-0.5">{p.id}</span>
+              <span className="text-[10px] font-mono text-ds-blue shrink-0 pt-0.5">{p.id}</span>
               <div>
                 <span className="text-xs font-medium text-white/90">{p.label}</span>
                 <span className="text-xs text-white/40"> — {p.desc}</span>
@@ -105,7 +105,7 @@ function JournalSection() {
             <span className="text-[10px] font-mono text-white/30 w-5 shrink-0 pt-0.5">
               {entry.num}.
             </span>
-            <span className="text-[10px] font-mono text-blue-400 shrink-0 pt-0.5">
+            <span className="text-[10px] font-mono text-ds-blue shrink-0 pt-0.5">
               {entry.conv}
             </span>
             <p className="text-xs text-white/70">{entry.action}</p>
@@ -154,7 +154,7 @@ function StackSection() {
                   key={sl.id}
                   className="flex-1 min-w-[160px] p-3 rounded-lg bg-[#050505] border border-white/[0.05]"
                 >
-                  <span className="text-[10px] font-mono text-blue-400">{sl.id}</span>
+                  <span className="text-[10px] font-mono text-ds-blue">{sl.id}</span>
                   <p className="text-xs font-medium text-white/90 mt-1">{sl.label}</p>
                   <p className="text-[11px] text-white/40 mt-1">{sl.desc}</p>
                 </div>
@@ -250,7 +250,7 @@ export default function KnowledgePage() {
       {/* Header */}
       <div className="flex flex-col gap-3 mb-6 border-b border-white/[0.05] pb-6 relative z-10">
         <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] w-fit mb-1">
-          <BookOpen size={12} className="text-blue-400" />
+          <BookOpen size={12} className="text-ds-blue" />
           <span className="text-[10px] font-mono tracking-wider text-white/70">KNOWLEDGE BASE</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -264,9 +264,9 @@ export default function KnowledgePage() {
           </div>
           <div className="flex items-center gap-2 flex-wrap">
             {[
-              { label: `${MANIFESTE.principes.length} Principes`, color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-              { label: `${JOURNAL.length} Actions`, color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-              { label: `${FRAMEWORKS.length} Frameworks`, color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+              { label: `${MANIFESTE.principes.length} Principes`, color: 'text-ds-blue', bg: 'bg-ds-blue/10', border: 'border-ds-blue/20' },
+              { label: `${JOURNAL.length} Actions`, color: 'text-ds-purple', bg: 'bg-ds-purple/10', border: 'border-ds-purple/20' },
+              { label: `${FRAMEWORKS.length} Frameworks`, color: 'text-ds-emerald', bg: 'bg-ds-emerald/10', border: 'border-ds-emerald/20' },
             ].map((b, i) => (
               <span
                 key={i}

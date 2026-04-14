@@ -19,7 +19,7 @@ export function RisksPanel({ risks }: RisksPanelProps) {
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-[10px] font-mono text-blue-400 tracking-wider">{r.id}</span>
+                <span className="text-[10px] font-mono text-ds-blue tracking-wider">{r.id}</span>
                 <Badge label={`impact ${r.impact}`} color={levelColor(r.impact)} />
                 <Badge label={`proba ${r.proba}`} color={levelColor(r.proba)} />
               </div>

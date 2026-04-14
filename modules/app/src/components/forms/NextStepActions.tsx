@@ -127,7 +127,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
   const getPriorityColor = (priority: NextStep['priority']) => {
     switch (priority) {
       case 'critical': return 'border-l-red-500'
-      case 'high': return 'border-l-orange-500'
+      case 'high': return 'border-l-ds-orange'
       case 'medium': return 'border-l-yellow-500'
       case 'low': return 'border-l-green-500'
       default: return 'border-l-gray-500'
@@ -184,7 +184,7 @@ export const NextStepActions: React.FC<NextStepActionsProps> = ({
               <span className={`
                 px-2 py-1 rounded font-mono
                 ${step.priority === 'critical' ? 'bg-red-900/50 text-red-400' : ''}
-                ${step.priority === 'high' ? 'bg-orange-900/50 text-orange-400' : ''}
+                ${step.priority === 'high' ? 'bg-ds-orange/50 text-ds-orange' : ''}
                 ${step.priority === 'medium' ? 'bg-yellow-900/50 text-yellow-400' : ''}
                 ${step.priority === 'low' ? 'bg-green-900/50 text-green-400' : ''}
               `}>

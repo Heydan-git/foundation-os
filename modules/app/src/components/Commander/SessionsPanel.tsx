@@ -12,7 +12,7 @@ export function SessionsPanel({ sessions }: SessionsPanelProps) {
         <Card key={s.id}>
           <div className="flex items-start justify-between mb-2">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-blue-400 tracking-wider">{s.id}</span>
+              <span className="text-[10px] font-mono text-ds-blue tracking-wider">{s.id}</span>
               <span className="text-[10px] text-white/30">{s.date}</span>
             </div>
             <Badge label="session" color="#60a5fa" />

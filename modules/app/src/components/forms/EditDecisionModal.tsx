@@ -89,8 +89,8 @@ export const EditDecisionModal: React.FC<EditDecisionModalProps> = ({
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-[var(--color-accent-brand-primary)] bg-emerald-900/20 border-emerald-700'
-      case 'superseded': return 'text-blue-400 bg-blue-900/20 border-blue-700'
+      case 'active': return 'text-[var(--color-accent-brand-primary)] bg-ds-emerald/20 border-ds-emerald'
+      case 'superseded': return 'text-ds-blue bg-ds-blue/20 border-ds-blue'
       case 'deprecated': return 'text-red-400 bg-red-900/20 border-red-700'
       default: return 'text-gray-400 bg-gray-900/20 border-gray-700'
     }
