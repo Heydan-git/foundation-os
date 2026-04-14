@@ -19,6 +19,12 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-14 | **[DONE] Tooling sync + narratif DS ready** |
+|            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections (En cours, En attente Kevin, Idees & Parking, Phase 5 gelee) + 18 taches. |
+|            | Notion : wiki 🪐 Foundation OS mis a jour — Sessions (+ 9 sessions 2026-04-07→14), Decisions actives (+ 14 decisions Build), Roadmap (Phase Build + modules reels + Phase 5 gelee). |
+|            | Supernova narratif : 52 fichiers Markdown prets dans `modules/design-system/docs-supernova/` (6 Foundations handcrafted + 46 Components generes via `scripts/gen-component-docs.mjs`). Push via UI Supernova (Option A) — push SDK non verifie sans token. |
+|            | Composants invisibles Supernova : root cause documentee dans README docs-supernova. `storybook-import` embed iframe mais ne cree pas d'entites Component navigables — fix = pages Documentation dediees (markdown prets). |
+|            | Health : SAIN (0 critical, 0 ref cassee, 42/42 tests, 1 warning bundle 613kB). |
 | 2026-04-14 | **[DONE] Supernova live + Storybook fix + refs 81→0** |
 |            | Supernova blocs 9-10 : workspace 735528 / DS 790241. 197 tokens DTCG sync, 22 groupes, 154 stories importees, doc publiee. |
 |            | **Storybook upgrade** : 8.6 → 9.1.20 + Vite 7 (DS uniquement). Fix runtime `__STORYBOOK_MODULE_PREVIEW_API__` cause par Vite 8/Rolldown incompat SB 8.6. Preview iframe fonctionne (verifie local + Supernova hosted). App tsconfig exclude `*.stories.tsx`. |
@@ -92,8 +98,7 @@
 
 ## En attente Kevin
 
-- **OK ecriture externe Asana/Notion** — blocs 13-14 DS Showcase sync (creer taches / mettre a jour pages). Action non-reversible.
-- **Enrichissement narratif Supernova** — Foundations intros + Components do/don't : via UI Supernova (manuel) ou SDK docs writer (session dediee). Infra deja en place.
+- **Push narratif Supernova** — 52 md prets dans `modules/design-system/docs-supernova/`. Import via UI Supernova (Option A, session dediee) OU verifier un chemin SDK programmatique. Requiert `SUPERNOVA_TOKEN`.
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
 - OMC update v4.11.6 (actuel v4.10.1, `omc update`). Lateral.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
