@@ -1,1 +1,188 @@
-/* Placeholder — sera reconstruit Phase 1 depuis base DS/styles/theme.css */
+/**
+ * Foundation OS Design System — Globals
+ *
+ * Source of truth : `base DS/src/styles/theme.css` (Figma Make export)
+ * Architecture    : voir `./tokens.css` (primitives + semantic + shadcn bridge)
+ *
+ * Ce fichier :
+ *   1. Importe Tailwind v4 + animation utilities
+ *   2. Importe les tokens (primitives + semantic)
+ *   3. Mappe les tokens vers les utilities Tailwind via `@theme inline`
+ *   4. Definit les styles de base via `@layer base`
+ *
+ * Import dans l'app : `@foundation-os/design-system/styles.css`
+ */
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import './tokens.css';
+
+/* ============================================================================
+ * Tailwind v4 theme inline — genere les classes utility (bg-ds-blue, text-ds-fg, ...)
+ * ============================================================================ */
+
+@theme inline {
+  /* --- Shadcn bridge (bg-background, text-foreground, border-border, ...) --- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* --- DS surfaces --- */
+  --color-ds-surface-0: var(--ds-surface-0);
+  --color-ds-surface-1: var(--ds-surface-1);
+  --color-ds-surface-2: var(--ds-surface-2);
+  --color-ds-surface-3: var(--ds-surface-3);
+
+  /* --- DS fg / border (use with opacity: text-ds-fg/90, border-ds-border/5) --- */
+  --color-ds-fg: var(--ds-fg);
+  --color-ds-border: var(--ds-border);
+
+  /* --- DS accents --- */
+  --color-ds-blue: var(--ds-blue);
+  --color-ds-purple: var(--ds-purple);
+  --color-ds-emerald: var(--ds-emerald);
+  --color-ds-amber: var(--ds-amber);
+  --color-ds-rose: var(--ds-rose);
+  --color-ds-cyan: var(--ds-cyan);
+  --color-ds-teal: var(--ds-teal);
+  --color-ds-sky: var(--ds-sky);
+  --color-ds-violet: var(--ds-violet);
+  --color-ds-indigo: var(--ds-indigo);
+  --color-ds-orange: var(--ds-orange);
+
+  /* --- DS spacing (spacing-ds-2 → var(--ds-space-2)) --- */
+  --spacing-ds-px: var(--ds-space-px);
+  --spacing-ds-0_5: var(--ds-space-0_5);
+  --spacing-ds-1: var(--ds-space-1);
+  --spacing-ds-1_5: var(--ds-space-1_5);
+  --spacing-ds-2: var(--ds-space-2);
+  --spacing-ds-2_5: var(--ds-space-2_5);
+  --spacing-ds-3: var(--ds-space-3);
+  --spacing-ds-4: var(--ds-space-4);
+  --spacing-ds-5: var(--ds-space-5);
+  --spacing-ds-6: var(--ds-space-6);
+  --spacing-ds-8: var(--ds-space-8);
+  --spacing-ds-10: var(--ds-space-10);
+
+  /* --- DS font sizes --- */
+  --text-ds-2xs: var(--ds-text-2xs);
+  --text-ds-xs: var(--ds-text-xs);
+  --text-ds-sm: var(--ds-text-sm);
+  --text-ds-md: var(--ds-text-md);
+  --text-ds-base: var(--ds-text-base);
+  --text-ds-lg: var(--ds-text-lg);
+  --text-ds-xl: var(--ds-text-xl);
+  --text-ds-2xl: var(--ds-text-2xl);
+  --text-ds-display: var(--ds-text-display);
+
+  /* --- DS radius --- */
+  --radius-ds-sm: var(--ds-radius-sm);
+  --radius-ds-md: var(--ds-radius-md);
+  --radius-ds-lg: var(--ds-radius-lg);
+  --radius-ds-xl: var(--ds-radius-xl);
+  --radius-ds-full: var(--ds-radius-full);
+}
+
+/* ============================================================================
+ * Base — reset + typographic defaults (iso base DS)
+ * Les classes Tailwind utility overrident automatiquement (priorite plus haute).
+ * ============================================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+  }
+}

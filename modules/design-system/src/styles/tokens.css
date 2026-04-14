@@ -1,0 +1,213 @@
+/**
+ * Foundation OS Design System — Tokens
+ *
+ * Source de verite originale : modules/design-system/base DS/src/styles/theme.css
+ * Architecture 2 couches (scalable, DS best practices) :
+ *
+ *   1. PRIMITIVES     (raw values, no semantic meaning)
+ *      --p-color-*, --p-space-*, --p-text-*, --p-radius-*, --p-shadow-*, --p-weight-*
+ *      Ces tokens ne doivent JAMAIS etre utilises directement dans les composants.
+ *
+ *   2. SEMANTIC       (aliases by role, pointent vers primitives)
+ *      --ds-surface-*, --ds-fg, --ds-border, --ds-blue/purple/..., --ds-space-*,
+ *      --ds-text-*, --ds-radius-*, --ds-shadow-*
+ *      + shadcn bridge (--background, --foreground, --card, etc.) pour compat composants shadcn.
+ *      Ces tokens SONT utilises par les composants.
+ *
+ * DARK-ONLY : pas de basculement light/dark. Toutes les valeurs semantic = palette Figma Make dark.
+ * Pour rebrand : changer les alias semantic, pas les primitives.
+ */
+
+:root {
+  /* ==========================================================================
+   * LAYER 1 — PRIMITIVES (raw, ne pas utiliser directement)
+   * ========================================================================== */
+
+  /* --- Couleurs neutres (grayscale dark) --- */
+  --p-color-neutral-950: #030303;
+  --p-color-neutral-925: #050505;
+  --p-color-neutral-900: #0a0a0a;
+  --p-color-neutral-850: #111111;
+  --p-color-white: #ffffff;
+
+  /* --- Couleurs accent (Tailwind 400-level pour vivacite dark) --- */
+  --p-color-blue-400: #60a5fa;
+  --p-color-purple-400: #c084fc;
+  --p-color-emerald-400: #34d399;
+  --p-color-amber-400: #fbbf24;
+  --p-color-rose-400: #fb7185;
+  --p-color-cyan-400: #22d3ee;
+  --p-color-teal-400: #2dd4bf;
+  --p-color-sky-400: #38bdf8;
+  --p-color-violet-500: #8b5cf6;
+  --p-color-indigo-400: #818cf8;
+  --p-color-orange-400: #fb923c;
+  --p-color-red-500: #d4183d;
+
+  /* --- Espacements (8-base) --- */
+  --p-space-px: 1px;
+  --p-space-0_5: 2px;
+  --p-space-1: 4px;
+  --p-space-1_5: 6px;
+  --p-space-2: 8px;
+  --p-space-2_5: 10px;
+  --p-space-3: 12px;
+  --p-space-4: 16px;
+  --p-space-5: 20px;
+  --p-space-6: 24px;
+  --p-space-8: 32px;
+  --p-space-10: 40px;
+
+  /* --- Tailles typographiques (compact dark UI Figma Make) --- */
+  --p-text-2xs: 0.5rem;     /* 8px */
+  --p-text-xs: 0.5625rem;   /* 9px */
+  --p-text-sm: 0.625rem;    /* 10px */
+  --p-text-md: 0.6875rem;   /* 11px */
+  --p-text-base: 0.75rem;   /* 12px */
+  --p-text-lg: 0.875rem;    /* 14px */
+  --p-text-xl: 1.125rem;    /* 18px */
+  --p-text-2xl: 1.5rem;     /* 24px */
+  --p-text-display: 1.875rem; /* 30px */
+
+  /* --- Rayons --- */
+  --p-radius-sm: 4px;
+  --p-radius-md: 6px;
+  --p-radius-lg: 8px;
+  --p-radius-xl: 12px;
+  --p-radius-full: 9999px;
+
+  /* --- Ombres --- */
+  --p-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  --p-shadow-card: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --p-shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.8);
+  --p-shadow-dropdown: 0 15px 40px rgba(0, 0, 0, 0.6);
+
+  /* --- Poids typographiques --- */
+  --p-weight-normal: 400;
+  --p-weight-medium: 500;
+
+  /* --- Base --- */
+  --p-font-size-root: 16px;
+
+  /* ==========================================================================
+   * LAYER 2 — SEMANTIC (aliases by role, consomment les primitives)
+   * C'est ce que les composants utilisent via Tailwind : bg-ds-surface-0, etc.
+   * ========================================================================== */
+
+  /* --- Surfaces (dark only) --- */
+  --ds-surface-0: var(--p-color-neutral-950);  /* body/app background */
+  --ds-surface-1: var(--p-color-neutral-925);  /* icon box, inset shadow bg */
+  --ds-surface-2: var(--p-color-neutral-900);  /* glass card bg */
+  --ds-surface-3: var(--p-color-neutral-850);  /* popover, elevated */
+
+  /* --- Foreground / Border (use with opacity: text-ds-fg/90, border-ds-border/5) --- */
+  --ds-fg: var(--p-color-white);
+  --ds-border: var(--p-color-white);
+
+  /* --- Accents status/brand --- */
+  --ds-blue: var(--p-color-blue-400);
+  --ds-purple: var(--p-color-purple-400);
+  --ds-emerald: var(--p-color-emerald-400);
+  --ds-amber: var(--p-color-amber-400);
+  --ds-rose: var(--p-color-rose-400);
+  --ds-cyan: var(--p-color-cyan-400);
+  --ds-teal: var(--p-color-teal-400);
+  --ds-sky: var(--p-color-sky-400);
+  --ds-violet: var(--p-color-violet-500);
+  --ds-indigo: var(--p-color-indigo-400);
+  --ds-orange: var(--p-color-orange-400);
+
+  /* --- Espacements semantic --- */
+  --ds-space-px: var(--p-space-px);
+  --ds-space-0_5: var(--p-space-0_5);
+  --ds-space-1: var(--p-space-1);
+  --ds-space-1_5: var(--p-space-1_5);
+  --ds-space-2: var(--p-space-2);
+  --ds-space-2_5: var(--p-space-2_5);
+  --ds-space-3: var(--p-space-3);
+  --ds-space-4: var(--p-space-4);
+  --ds-space-5: var(--p-space-5);
+  --ds-space-6: var(--p-space-6);
+  --ds-space-8: var(--p-space-8);
+  --ds-space-10: var(--p-space-10);
+
+  /* --- Typographie semantic --- */
+  --ds-text-2xs: var(--p-text-2xs);
+  --ds-text-xs: var(--p-text-xs);
+  --ds-text-sm: var(--p-text-sm);
+  --ds-text-md: var(--p-text-md);
+  --ds-text-base: var(--p-text-base);
+  --ds-text-lg: var(--p-text-lg);
+  --ds-text-xl: var(--p-text-xl);
+  --ds-text-2xl: var(--p-text-2xl);
+  --ds-text-display: var(--p-text-display);
+
+  /* --- Rayons semantic --- */
+  --ds-radius-sm: var(--p-radius-sm);
+  --ds-radius-md: var(--p-radius-md);
+  --ds-radius-lg: var(--p-radius-lg);
+  --ds-radius-xl: var(--p-radius-xl);
+  --ds-radius-full: var(--p-radius-full);
+
+  /* --- Ombres semantic --- */
+  --ds-shadow-inset: var(--p-shadow-inset);
+  --ds-shadow-card: var(--p-shadow-card);
+  --ds-shadow-modal: var(--p-shadow-modal);
+  --ds-shadow-dropdown: var(--p-shadow-dropdown);
+
+  /* ==========================================================================
+   * LAYER 3 — SHADCN BRIDGE (composants shadcn/ui utilisent ces noms)
+   * Mappes vers semantic tokens, en mode DARK (dark-only OS)
+   * ========================================================================== */
+
+  --font-size: var(--p-font-size-root);
+  --font-weight-medium: var(--p-weight-medium);
+  --font-weight-normal: var(--p-weight-normal);
+
+  --background: var(--ds-surface-0);
+  --foreground: var(--ds-fg);
+
+  --card: var(--ds-surface-2);
+  --card-foreground: var(--ds-fg);
+
+  --popover: var(--ds-surface-3);
+  --popover-foreground: var(--ds-fg);
+
+  --primary: var(--ds-fg);
+  --primary-foreground: var(--ds-surface-0);
+
+  --secondary: var(--ds-surface-2);
+  --secondary-foreground: var(--ds-fg);
+
+  --muted: var(--ds-surface-2);
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+
+  --accent: var(--ds-surface-2);
+  --accent-foreground: var(--ds-fg);
+
+  --destructive: var(--p-color-red-500);
+  --destructive-foreground: var(--ds-fg);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --input-background: var(--ds-surface-2);
+  --switch-background: var(--ds-surface-3);
+  --ring: rgba(255, 255, 255, 0.2);
+
+  --chart-1: var(--ds-blue);
+  --chart-2: var(--ds-emerald);
+  --chart-3: var(--ds-purple);
+  --chart-4: var(--ds-amber);
+  --chart-5: var(--ds-rose);
+
+  --sidebar: var(--ds-surface-1);
+  --sidebar-foreground: var(--ds-fg);
+  --sidebar-primary: var(--ds-blue);
+  --sidebar-primary-foreground: var(--ds-fg);
+  --sidebar-accent: var(--ds-surface-2);
+  --sidebar-accent-foreground: var(--ds-fg);
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: rgba(255, 255, 255, 0.2);
+
+  --radius: 0.625rem;
+}
