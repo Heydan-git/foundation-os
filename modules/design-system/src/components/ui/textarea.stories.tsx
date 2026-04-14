@@ -31,3 +31,21 @@ export const Disabled: Story = {
 export const WithValue: Story = {
   args: { defaultValue: 'Foundation OS is an AI-driven personal operating system.' },
 }
+
+export const Error: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Textarea aria-invalid className="border-destructive focus-visible:ring-destructive" placeholder="Type your message..." />
+      <p className="text-sm text-destructive mt-1">Ce champ est requis</p>
+    </div>
+  ),
+}
+
+export const WithCounter: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Textarea defaultValue="Foundation OS" placeholder="Type your message..." />
+      <div className="text-xs text-muted-foreground text-right">42/200 caracteres</div>
+    </div>
+  ),
+}

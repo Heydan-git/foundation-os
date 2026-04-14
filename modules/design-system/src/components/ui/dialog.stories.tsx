@@ -11,6 +11,7 @@ import {
 import { Button } from './button'
 import { Input } from './input'
 import { Label } from './label'
+import { Skeleton } from './skeleton'
 
 const meta = {
   title: 'Feedback/Dialog',
@@ -45,6 +46,26 @@ export const Default: Story = {
         <DialogFooter>
           <Button type="submit">Save changes</Button>
         </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+}
+
+export const Loading: Story = {
+  render: () => (
+    <Dialog defaultOpen>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Chargement...</DialogTitle>
+        </DialogHeader>
+        <div className="space-y-3 py-4">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-20 w-full" />
+        </div>
       </DialogContent>
     </Dialog>
   ),

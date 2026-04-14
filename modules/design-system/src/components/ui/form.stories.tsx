@@ -10,8 +10,10 @@ import {
   FormControl,
   FormMessage,
 } from './form'
+import { Loader2 } from 'lucide-react'
 import { Input } from './input'
 import { Button } from './button'
+import { Skeleton } from './skeleton'
 
 const meta = {
   title: 'Form/Form',
@@ -60,4 +62,51 @@ function FormDemo() {
 
 export const Default: Story = {
   render: () => <FormDemo />,
+}
+
+export const Loading: Story = {
+  render: () => (
+    <div className="space-y-4 w-64">
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-20" />
+        <Skeleton className="h-10 w-full" />
+      </div>
+      <Button type="submit" disabled className="w-full">
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        Enregistrement...
+      </Button>
+    </div>
+  ),
+}
+
+function FormWithErrorDemo() {
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: { username: 'a' },
+  })
+
+  return (
+    <Form {...form}>
+      <form className="space-y-4 w-64">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter username" {...field} />
+              </FormControl>
+              <FormMessage>Username must be at least 2 characters.</FormMessage>
+            </FormItem>
+          )}
+        />
+        <Button type="button" variant="outline">Soumettre</Button>
+      </form>
+    </Form>
+  )
+}
+
+export const WithError: Story = {
+  render: () => <FormWithErrorDemo />,
 }

@@ -44,3 +44,21 @@ export const Disabled: Story = {
     </RadioGroup>
   ),
 }
+
+export const Error: Story = {
+  render: () => (
+    <div className="flex flex-col gap-2">
+      <RadioGroup>
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="option-1" id="re1" />
+          <Label htmlFor="re1">Option 1</Label>
+        </div>
+        <div className="flex items-center gap-2">
+          <RadioGroupItem value="option-2" id="re2" />
+          <Label htmlFor="re2">Option 2</Label>
+        </div>
+      </RadioGroup>
+      <p className="text-sm text-destructive">Selection requise</p>
+    </div>
+  ),
+}

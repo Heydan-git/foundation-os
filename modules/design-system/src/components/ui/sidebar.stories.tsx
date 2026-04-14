@@ -53,3 +53,19 @@ export const Default: Story = {
     </div>
   ),
 }
+
+export const Empty: Story = {
+  render: () => (
+    <div className="h-screen w-64">
+      <SidebarProvider>
+        <Sidebar collapsible="none">
+          <SidebarContent>
+            <div className="flex h-full items-center justify-center text-muted-foreground">
+              <span>Aucun projet</span>
+            </div>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
+  ),
+}

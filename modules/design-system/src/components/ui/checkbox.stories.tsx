@@ -33,3 +33,15 @@ export const Disabled: Story = {
 export const DisabledChecked: Story = {
   args: { disabled: true, defaultChecked: true },
 }
+
+export const Error: Story = {
+  render: () => (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-2">
+        <Checkbox id="cgu" />
+        <Label htmlFor="cgu" className="text-destructive">J&apos;accepte les CGU</Label>
+      </div>
+      <p className="text-sm text-destructive">Obligatoire</p>
+    </div>
+  ),
+}

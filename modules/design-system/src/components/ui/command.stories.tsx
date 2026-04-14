@@ -6,6 +6,7 @@ import {
   CommandList,
   CommandGroup,
   CommandItem,
+  CommandEmpty,
 } from './command'
 
 const meta = {
@@ -36,6 +37,17 @@ export const Default: Story = {
             <span>Calculator</span>
           </CommandItem>
         </CommandGroup>
+      </CommandList>
+    </Command>
+  ),
+}
+
+export const Empty: Story = {
+  render: () => (
+    <Command className="rounded-lg border shadow-md w-64">
+      <CommandInput placeholder="Rechercher..." />
+      <CommandList>
+        <CommandEmpty>Aucun resultat trouve.</CommandEmpty>
       </CommandList>
     </Command>
   ),

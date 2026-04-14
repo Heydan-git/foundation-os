@@ -44,3 +44,18 @@ export const Default: Story = {
     </Pagination>
   ),
 }
+
+export const SinglePage: Story = {
+  render: () => (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious aria-disabled="true" className="pointer-events-none opacity-50" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext aria-disabled="true" className="pointer-events-none opacity-50" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  ),
+}

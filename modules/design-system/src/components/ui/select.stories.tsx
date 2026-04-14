@@ -79,3 +79,35 @@ export const Disabled: Story = {
     </Select>
   ),
 }
+
+export const Empty: Story = {
+  render: () => (
+    <Select>
+      <SelectTrigger className="w-[200px]">
+        <SelectValue placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Aucun resultat</SelectLabel>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  ),
+}
+
+export const Error: Story = {
+  render: () => (
+    <div className="grid w-full max-w-sm gap-1.5">
+      <Select>
+        <SelectTrigger className="w-full border-destructive">
+          <SelectValue placeholder="Selectionnez une option" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="a">Option A</SelectItem>
+          <SelectItem value="b">Option B</SelectItem>
+        </SelectContent>
+      </Select>
+      <p className="text-sm text-destructive mt-1">Veuillez selectionner une option</p>
+    </div>
+  ),
+}

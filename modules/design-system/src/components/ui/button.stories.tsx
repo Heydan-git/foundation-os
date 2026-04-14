@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Loader2, Plus } from 'lucide-react'
 import { Button } from './button'
 
 const meta = {
@@ -54,6 +55,24 @@ export const Large: Story = {
 
 export const Disabled: Story = {
   args: { children: 'Disabled', disabled: true },
+}
+
+export const Loading: Story = {
+  render: () => (
+    <Button disabled>
+      <Loader2 className="animate-spin mr-2 h-4 w-4" />
+      Chargement...
+    </Button>
+  ),
+}
+
+export const WithIcon: Story = {
+  render: () => (
+    <Button>
+      <Plus className="mr-2 h-4 w-4" />
+      Nouveau
+    </Button>
+  ),
 }
 
 export const AllVariants: Story = {

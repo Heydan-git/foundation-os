@@ -34,3 +34,16 @@ export const Default: Story = {
     </DropdownMenu>
   ),
 }
+
+export const Empty: Story = {
+  render: () => (
+    <DropdownMenu defaultOpen>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Aucune action disponible</DropdownMenuLabel>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+}

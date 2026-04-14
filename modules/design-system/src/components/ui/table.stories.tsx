@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { FileQuestion } from 'lucide-react'
 import {
   Table,
   TableHeader,
@@ -7,6 +8,7 @@ import {
   TableHead,
   TableCell,
 } from './table'
+import { Skeleton } from './skeleton'
 
 const meta = {
   title: 'DataDisplay/Table',
@@ -52,6 +54,66 @@ export const Default: Story = {
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell>$450.00</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const Loading: Story = {
+  render: () => (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead>Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+          <TableCell><Skeleton className="h-4 w-full" /></TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const Empty: Story = {
+  render: () => (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead>Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell colSpan={4}>
+            <div className="flex flex-col items-center justify-center gap-2 py-8 text-muted-foreground">
+              <FileQuestion className="h-8 w-8" />
+              <span>Aucune donnee</span>
+            </div>
+          </TableCell>
         </TableRow>
       </TableBody>
     </Table>
