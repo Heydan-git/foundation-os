@@ -19,9 +19,12 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-14 | **[DONE] Supernova Components live + Tooling sync + Narratif DS** |
-|            | **Fix racine composants Supernova** : `supernova analyze` scan le code source et pousse 238 entites Component vers Supernova DS 790241 (snapshot 1783, processing run termine). Documentation publiee. Visible UI Supernova. |
-|            | Script `npm run supernova:analyze` ajoute. Pipeline `supernova:all` enchaine sync-tokens → analyze → import-storybook → publish. |
+| 2026-04-14 | **[DONE] Supernova Components UI visibles (46) + sync auto GitHub Actions** |
+|            | **Correction** : session precedente j'avais claim "Components live via analyze" — c'etait faux (`analyze` alimente le backend AI, pas la section Components UI). 46 Components maintenant crees via `sn.components.createComponent()` SDK, visibles dans UI. Verif visuelle : accessibility snapshot confirme 46 rows (Button, Input, ... , Carousel) avec Documented=Yes, Status=Healthy, Repository=github URL. |
+|            | Script production `modules/design-system/scripts/supernova-sync.mjs` : idempotent, cree/update composants par nom. Props auto-remplies : isDocumented, status (Healthy), repository (lien GitHub .tsx). |
+|            | GitHub Action `.github/workflows/supernova-sync.yml` : push sur main dans DS → sync auto (tokens + analyze + storybook + components + publish). **Requis** : ajouter secret `SUPERNOVA_TOKEN` dans repo GitHub Settings → Secrets. |
+|            | Pipeline `supernova:all` enchaine sync-tokens → analyze → components → import-storybook → publish. |
+|            | Limite : Plan Supernova Free = 20 doc pages max. Impossible de creer 1 page doc par composant. Les 52 md narratifs restent dans `docs-supernova/` pour import manuel UI si upgrade plan. |
 |            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections + 18 taches. |
 |            | Notion : wiki 🪐 Foundation OS enrichi — Sessions (+9), Decisions actives (+14 Build), Roadmap (Update 2026-04-14 etat reel). |
 |            | Narratif DS : 52 md handcrafted/generes dans `modules/design-system/docs-supernova/` (6 Foundations + 46 Components via `modules/design-system/scripts/gen-component-docs.mjs`). A copier-coller dans pages Documentation Supernova pour enrichissement editorial. |

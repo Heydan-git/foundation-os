@@ -1,30 +1,10 @@
 {
-  "mode": "multi-file",
-  "settings": {
-    "dryRun": false,
-    "verbose": true,
-    "preciseCopy": true
-  },
-  "mapping": [
-    {
-      "tokenSets": [
-        "primitives/color",
-        "primitives/typography",
-        "primitives/spacing",
-        "primitives/radius",
-        "primitives/shadow",
-        "primitives/border",
-        "primitives/motion",
-        "primitives/lineHeight",
-        "primitives/letterSpacing",
-        "primitives/control",
-        "semantic/color",
-        "semantic/typography",
-        "semantic/space",
-        "semantic/radius",
-        "semantic/motion"
-      ],
-      "supernovaBrand": "Default"
-    }
-  ]
+  "designSystemId": "790241",
+  "analyze": {
+    "repoId": "9ffc113a-3593-47fd-93c3-3e99c6abc334",
+    "packages": [
+      "@foundation-os/design-system"
+    ],
+    "excludedPackages": []
+  }
 }

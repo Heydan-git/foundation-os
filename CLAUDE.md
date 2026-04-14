@@ -68,6 +68,7 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - Mots interdits : revolution, historique, reference mondiale, premier au monde, $XB, accomplish
 - Commits factuels : pas de "achieve", "world-first", "revolutionary"
 - Red flag : si plus de MD que de code dans une session, c'est suspect
+- **Verification visuelle obligatoire** : pour toute tache a impact UI/visuel (Supernova, Storybook, app deployee, dashboard externe), avant de dire "fait" je DOIS prendre un screenshot via chrome-devtools MCP (ou equivalent) et verifier de mes yeux que le changement est visible. Pas de confiance aveugle dans la sortie d'une CLI ou d'une API — une reponse "200 OK" ne veut pas dire que c'est visible. Regle ajoutee 2026-04-14 apres 2 faux "c'est fait" sur Supernova (analyze push != visibilite UI).
 
 ## Core OS — Routing
 

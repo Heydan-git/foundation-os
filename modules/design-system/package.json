@@ -37,9 +37,10 @@
     "lint:fix": "biome lint src/ --fix",
     "supernova:sync-tokens": "npx -y @supernovaio/cli@latest sync-tokens --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --configFilePath supernova.config.json --tokenDirPath tokens/source",
     "supernova:analyze": "npx -y @supernovaio/cli@latest analyze --designSystemId 790241 --package @foundation-os/design-system",
+    "supernova:components": "node scripts/supernova-sync.mjs",
     "supernova:import-storybook": "npm run build-storybook && npx -y @supernovaio/cli@latest storybook-import -d 790241 -f storybook-static -n \"Foundation OS DS\" --publicAccess",
     "supernova:publish": "npx -y @supernovaio/cli@latest publish-documentation --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --awaitPublishJob",
-    "supernova:all": "npm run supernova:sync-tokens && npm run supernova:analyze && npm run supernova:import-storybook && npm run supernova:publish"
+    "supernova:all": "npm run supernova:sync-tokens && npm run supernova:analyze && npm run supernova:components && npm run supernova:import-storybook && npm run supernova:publish"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",
@@ -101,6 +102,7 @@
     "@storybook/addon-a11y": "9.1.20",
     "@storybook/addon-docs": "9.1.20",
     "@storybook/react-vite": "9.1.20",
+    "@supernovaio/sdk": "^2.3.3",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.5.2",
@@ -109,6 +111,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "dotenv": "^17.4.2",
     "http-server": "^14.1.1",
     "jest-axe": "^10.0.0",
     "jsdom": "^29.0.1",

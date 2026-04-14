@@ -1,0 +1,66 @@
+name: Supernova Sync
+
+# Securite : ce workflow n'utilise aucun input non-fiable (issue/PR titles, etc).
+# Toutes les valeurs sont hardcodees ou proviennent de secrets controles.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'modules/design-system/src/components/ui/**'
+      - 'modules/design-system/tokens/source/**'
+      - 'modules/design-system/supernova.config.json'
+      - 'modules/design-system/scripts/supernova-sync.mjs'
+      - '.github/workflows/supernova-sync.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: supernova-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - run: npm ci
+
+      - name: Build tokens
+        run: npm run build:tokens -w modules/design-system
+
+      - name: Sync tokens to Supernova
+        working-directory: modules/design-system
+        env:
+          SUPERNOVA_TOKEN: ${{ secrets.SUPERNOVA_TOKEN }}
+        run: npm run supernova:sync-tokens
+
+      - name: Build Storybook
+        working-directory: modules/design-system
+        run: npm run build-storybook
+
+      - name: Import Storybook to Supernova
+        working-directory: modules/design-system
+        env:
+          SUPERNOVA_TOKEN: ${{ secrets.SUPERNOVA_TOKEN }}
+        run: npx -y @supernovaio/cli@latest storybook-import -d 790241 -f storybook-static -n "Foundation OS DS" --publicAccess
+
+      - name: Sync Components
+        working-directory: modules/design-system
+        env:
+          SUPERNOVA_TOKEN: ${{ secrets.SUPERNOVA_TOKEN }}
+        run: node scripts/supernova-sync.mjs
+
+      - name: Publish documentation
+        working-directory: modules/design-system
+        env:
+          SUPERNOVA_TOKEN: ${{ secrets.SUPERNOVA_TOKEN }}
+        run: npm run supernova:publish
