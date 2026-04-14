@@ -12,7 +12,8 @@ if [[ "${1:-}" == "--help" ]] || [[ "${1:-}" == "-h" ]]; then
 ref-checker.sh — Detect broken file refs full-repo
 
 Scans all .md files (excluding .archive, node_modules, dist, .git,
-.omc, _bmad, .claude/worktrees, modules/app/dist) for two ref patterns:
+.omc, _bmad, .claude/worktrees, modules/app/dist, docs/travaux-cowork)
+for two ref patterns:
 
   1. Markdown links: [text](path/to/file.ext)
      Resolved relative to the source file directory
@@ -156,6 +157,7 @@ done < <(find . -type f -name "*.md" \
   -not -path './.omc/*' \
   -not -path './_bmad/*' \
   -not -path './.claude/worktrees/*' \
+  -not -path './docs/travaux-cowork/*' \
   -not -path './modules/app/dist/*' \
   -not -path './modules/*/node_modules/*')
 

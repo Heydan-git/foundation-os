@@ -7,12 +7,12 @@ All notable changes to the Foundation OS Design System.
 ### Added
 - 46 shadcn/ui components (from Figma Make `base DS/src.zip`)
 - DTCG tokens: 3 layers (primitives, semantic, bridge)
-- Style Dictionary build pipeline (`scripts/build-tokens.mjs`)
+- Style Dictionary build pipeline (`modules/design-system/scripts/build-tokens.mjs`)
 - Storybook 8.6 preview (port 6006)
 - Figma Make iso preview (port 6007)
 - Biome linter with Tailwind CSS support
 - Smoke + a11y tests for 10 core components (vitest + jest-axe)
-- Contrast checker (`scripts/check-contrast.mjs`)
+- Contrast checker (`modules/design-system/scripts/check-contrast.mjs`)
 
 ### Changed
 - Prefix `--fos-*` removed — output uses `--ds-*`, `--shadcn-*`, `--space-*`

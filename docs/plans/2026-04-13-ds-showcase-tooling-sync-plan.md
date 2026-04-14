@@ -249,10 +249,10 @@ Storybook montre tous les composants avec tous les etats, Supernova documente le
 - [x] Bloc 6 — done 2026-04-14 (9 stories Data Display + Form avance, chart en placeholder)
 - [x] Bloc 7 — done 2026-04-14 (9 stories App Dashboard — Card/Badge/Skeleton + 6 Commander panels; DashboardLayout skip — providers)
 - [x] Bloc 8 — done 2026-04-14 (audit 46 composants, rapport docs/plans/2026-04-14-ds-audit-etats.md, 21% moyen)
-- [ ] Bloc 9 — pending
-- [ ] Bloc 10 — pending
-- [ ] Bloc 11 — pending
-- [ ] Bloc 12 — pending
+- [x] Bloc 9 — done 2026-04-14 (workspace 735528 / DS 790241 confirmes via CLI Supernova)
+- [x] Bloc 10 — done 2026-04-14 (197 tokens DTCG sync, 22 groupes, `supernova sync-tokens` + config `modules/design-system/supernova.config.json`)
+- [~] Bloc 11 — infra done 2026-04-14 (Foundations auto-generees depuis tokens). Contenu narratif (intros, do/don't) a ecrire via UI Supernova — session dediee.
+- [~] Bloc 12 — infra done 2026-04-14 (154 stories importees via `storybook-import`, doc publiee, URL publique). Narratif composant par composant a enrichir via UI.
 - [ ] Bloc 13 — pending (Asana sync — bloque, requiert OK ecriture externe Kevin)
 - [ ] Bloc 14 — pending (Notion sync — bloque, requiert OK ecriture externe Kevin)
 - [x] Bloc 15 — done 2026-04-14 (integration opt-in `OMC_SYNC_EXTERNAL=1` dans session-start phase 1.6 + session-end phase 6bis. Lecture MCP Asana/Notion activee, ecriture bloquee sans OK)

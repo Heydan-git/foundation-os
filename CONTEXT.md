@@ -8,7 +8,7 @@
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
 | App Builder | ✅ Figma Make | `modules/app/` | UI refactor complet — DashboardLayout (sidebar collapsible + header + glow orbs), toutes pages restyled glassmorphism, 0 inline styles legacy, build OK 266ms, 19/19 tests |
-| Design System | ✅ F1-F9 done | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches, biome linter, 23 tests (smoke+a11y), CHANGELOG. Doc DS v2 → Supernova (plan 2). |
+| Design System | ✅ F1-F9 + Supernova | `modules/design-system/` | 46 composants shadcn/ui, tokens DTCG 3 couches, biome linter, 23 tests, CHANGELOG. **Supernova live** : 197 tokens + 154 stories + doc publiée (DS 790241). Scripts `npm run supernova:*` + `supernova.config.json`. |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
@@ -19,6 +19,12 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-14 | **[DONE] Supernova sync live + refs cassees 81→0** |
+|            | Supernova bloc 9-10 : workspace 735528 / DS 790241 confirmes. 197 tokens DTCG sync via `supernova sync-tokens` (22 groupes). |
+|            | Bloc 11-12 infra : 154 stories importees via `storybook-import` (public), doc publiee. Contenu narratif (intros, do/don't) a ecrire via UI Supernova — session dediee. |
+|            | Scripts repo : `modules/design-system/supernova.config.json` + 4 npm scripts (`supernova:sync-tokens`, `:import-storybook`, `:publish`, `:all`). Env var `SUPERNOVA_TOKEN` requise. |
+|            | Refs cassees : exclure `docs/travaux-cowork/` dans ref-checker.sh (73 refs prospectives), CHANGELOG DS paths corriges, plan DS shadcn DONE archive `.archive/plans/`. Health : 81 refs → 0. |
+|            | Storybook public Supernova : https://storybook.supernova.io/design-systems/790241/alias/foundation-os-ds/index.html |
 | 2026-04-14 | **[DONE] Storybook S2 + S3.bloc8 — 27 stories + audit etats** |
 |            | S2 Blocs 4-6 (27 stories DS : Layout 10 + Nav 8 + Data 9). S2 Bloc 7 (9 stories app : Card/Badge/Skeleton + 6 Commander panels). |
 |            | S3 Bloc 8 : audit etats 46 composants (couverture 21%, rapport docs/plans/2026-04-14-ds-audit-etats.md). |
@@ -64,11 +70,11 @@
 
 ## Cap
 
-**Direction** : DS Showcase + Tooling Sync — Storybook complet, Supernova doc, Asana/Notion sync.
+**Direction** : DS Showcase + Tooling Sync — Supernova live, Asana/Notion sync restants.
 
-**Pourquoi** : Plan finition DS termine (F1-F9, commits d0217a8 + e671ca8). DS propre : biome, 23 tests, audit composants fait. Prochaine etape = rendre le DS visible et documente.
+**Pourquoi** : Supernova setup fait (blocs 9-12 infra). DS visible publiquement. Reste enrichissement narratif + sync Asana/Notion.
 
-**Prochaine action** : Plan DS Showcase — S3 blocs 9-10 (Supernova setup) **bloque** tant que Kevin n'a pas cree compte Supernova. Alternative : S5 blocs 13-15 (Asana/Notion sync) **bloque** tant que Kevin n'a pas OK ecriture externe. 7 blocs restants : 9, 10, 11, 12, 13, 14, 15.
+**Prochaine action** : 2 pistes au choix — (a) Enrichir narratif Supernova (Foundations intros, Components do/don't) via UI ou SDK docs writer, session dediee. (b) Plan DS Showcase blocs 13-14 (Asana/Notion sync) **bloque** tant que Kevin n'a pas OK ecriture externe.
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
@@ -85,9 +91,8 @@
 
 ## En attente Kevin
 
-- **Creer compte Supernova** (supernova.io) — prerequis blocs 9-10 DS Showcase. Workspace "Foundation OS" a creer.
 - **OK ecriture externe Asana/Notion** — blocs 13-14 DS Showcase sync (creer taches / mettre a jour pages). Action non-reversible.
-- **Decision bloc 8 audit** : Option A combler etats critiques (2h), B passer Supernova 21%, C skip audit. Reco : B.
+- **Enrichissement narratif Supernova** — Foundations intros + Components do/don't : via UI Supernova (manuel) ou SDK docs writer (session dediee). Infra deja en place.
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
 - OMC update v4.11.6 (actuel v4.10.1, `omc update`). Lateral.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
@@ -99,7 +104,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
-| D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS (tokens turquoise #5EEAD4 + 5 primitives hand-crafted), reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, pas de compat layer, prefixe `--fos-*` a retirer (→ `--ds-*`, `--shadcn-*`). App a migrer direct (pas de shim). Nouveau palette Figma Make : ds-surface-{0..3}, ds-blue #60a5fa, ds-purple #c084fc, etc. Polices : Figtree + JetBrains Mono. Plan detaille `docs/plans/2026-04-11-ds-shadcn-finition.md`. |
+| D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS (tokens turquoise #5EEAD4 + 5 primitives hand-crafted), reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, pas de compat layer, prefixe `--fos-*` a retirer (→ `--ds-*`, `--shadcn-*`). App a migrer direct (pas de shim). Nouveau palette Figma Make : ds-surface-{0..3}, ds-blue #60a5fa, ds-purple #c084fc, etc. Polices : Figtree + JetBrains Mono. Plan detaille `.archive/plans/2026-04-11-ds-shadcn-finition.md`. |
 | D-WT-01 Worktrees integres Core OS | 2026-04-11 | Feature native Claude Code documentee `docs/core/worktrees.md`. `.claude/worktrees/` dans `.gitignore` + exclu `ref-checker.sh`. Orphelin `admiring-sutherland` archive dans `.archive/worktrees-orphelins/`. Health SAIN. |
 | D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | `/plan-os` wrapper par-dessus `superpowers:writing-plans` + routing modele auto + sub-agent gate 3 conditions + versionnement `docs/plans/`. Spec `docs/core/planner.md`. Phase 2 (log reel) en backlog. |
 | D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 97 outils documentes (9 categories), routing etendu (26 regles), tool-register.sh CLI, patterns.json. Spec `docs/specs/2026-04-10-tools-module-v2-design.md` |

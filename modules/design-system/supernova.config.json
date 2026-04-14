@@ -1,0 +1,30 @@
+{
+  "mode": "multi-file",
+  "settings": {
+    "dryRun": false,
+    "verbose": true,
+    "preciseCopy": true
+  },
+  "mapping": [
+    {
+      "tokenSets": [
+        "primitives/color",
+        "primitives/typography",
+        "primitives/spacing",
+        "primitives/radius",
+        "primitives/shadow",
+        "primitives/border",
+        "primitives/motion",
+        "primitives/lineHeight",
+        "primitives/letterSpacing",
+        "primitives/control",
+        "semantic/color",
+        "semantic/typography",
+        "semantic/space",
+        "semantic/radius",
+        "semantic/motion"
+      ],
+      "supernovaBrand": "Default"
+    }
+  ]
+}
