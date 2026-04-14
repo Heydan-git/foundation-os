@@ -19,6 +19,15 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-14 | **[IN PROGRESS] DS Void Glass iso Figma Make — 11 composants atomiques** |
+|            | Plan P0 complet : `docs/plans/2026-04-14-ds-voidglass-iso-figma-make.md` (lire en premier prochaine session). |
+|            | **Correction majeure** : session precedente le DS etait base sur `ui/` shadcn vanilla (boutons blancs, cards plates), pas sur les vrais composants glass du zip Figma Make. Les Dashboard*.tsx du zip contenaient 3183 lignes de code glass hand-coded ignorees par la rebuild DS. Mismatch : dashboard app = glass hand-coded, DS = shadcn, Storybook = shadcn. |
+|            | **11 composants atomiques extraits** dans `modules/design-system/src/components/void-glass/` : GlassCard · IconBox · StatusDot · NeonBadge · SubLabel · SectionHeader · StatCard · HashPill · ProgressBar · LiveIndicator · GlowButton. Un fichier par composant + barrel index.ts. Export depuis DS `src/index.ts`. |
+|            | Stories Storybook pour chaque composant (`VoidGlass.stories.tsx`) + composition dashboard stat grid. Verifie visuellement via screenshot : composition iso dashboard Foundation OS (SEED DATA pulsant, titre gradient, boutons Exporter/Deployer, 4 StatCards avec icons neon + badges). |
+|            | Pages entieres `patterns/Dashboard*.tsx` copiees avant puis rejetees (Kevin : "je veux des composants pas des pages"). Patterns/Dashboard.stories.tsx supprime. Dashboard*.tsx restent dans patterns/ comme reference. |
+|            | Reste a faire (prochaine session) : (a) refactor `modules/app/src/pages/IndexPage.tsx` pour importer depuis `@foundation-os/design-system` au lieu du hand-coded, (b) verifier visuellement Supernova apres GitHub Action auto-sync, (c) refactor autres pages app si besoin. |
+|            | **Regle ajoutee CLAUDE.md** : verification visuelle obligatoire (screenshot chrome-devtools MCP) avant de claim "fait" pour toute tache UI. Memoires `feedback_visual_verification.md` + `project_ds_voidglass_plan.md`. |
+|            | Commits : `d620c4f` (void-glass) + `8d561ec` (workflow paths) + `5f6ae13` (patterns) + `2c9403d` (46 Components SDK). |
 | 2026-04-14 | **[DONE] Supernova Components UI visibles (46) + sync auto GitHub Actions** |
 |            | **Correction** : session precedente j'avais claim "Components live via analyze" — c'etait faux (`analyze` alimente le backend AI, pas la section Components UI). 46 Components maintenant crees via `sn.components.createComponent()` SDK, visibles dans UI. Verif visuelle : accessibility snapshot confirme 46 rows (Button, Input, ... , Carousel) avec Documented=Yes, Status=Healthy, Repository=github URL. |
 |            | Script production `modules/design-system/scripts/supernova-sync.mjs` : idempotent, cree/update composants par nom. Props auto-remplies : isDocumented, status (Healthy), repository (lien GitHub .tsx). |
