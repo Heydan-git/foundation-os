@@ -19,11 +19,13 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-14 | **[DONE] Tooling sync + narratif DS ready** |
-|            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections (En cours, En attente Kevin, Idees & Parking, Phase 5 gelee) + 18 taches. |
-|            | Notion : wiki 🪐 Foundation OS mis a jour — Sessions (+ 9 sessions 2026-04-07→14), Decisions actives (+ 14 decisions Build), Roadmap (Phase Build + modules reels + Phase 5 gelee). |
-|            | Supernova narratif : 52 fichiers Markdown prets dans `modules/design-system/docs-supernova/` (6 Foundations handcrafted + 46 Components generes via `modules/design-system/scripts/gen-component-docs.mjs`). Push via UI Supernova (Option A) — push SDK non verifie sans token. |
-|            | Composants invisibles Supernova : root cause documentee dans README docs-supernova. `storybook-import` embed iframe mais ne cree pas d'entites Component navigables — fix = pages Documentation dediees (markdown prets). |
+| 2026-04-14 | **[DONE] Supernova Components live + Tooling sync + Narratif DS** |
+|            | **Fix racine composants Supernova** : `supernova analyze` scan le code source et pousse 238 entites Component vers Supernova DS 790241 (snapshot 1783, processing run termine). Documentation publiee. Visible UI Supernova. |
+|            | Script `npm run supernova:analyze` ajoute. Pipeline `supernova:all` enchaine sync-tokens → analyze → import-storybook → publish. |
+|            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections + 18 taches. |
+|            | Notion : wiki 🪐 Foundation OS enrichi — Sessions (+9), Decisions actives (+14 Build), Roadmap (Update 2026-04-14 etat reel). |
+|            | Narratif DS : 52 md handcrafted/generes dans `modules/design-system/docs-supernova/` (6 Foundations + 46 Components via `modules/design-system/scripts/gen-component-docs.mjs`). A copier-coller dans pages Documentation Supernova pour enrichissement editorial. |
+|            | `.env.local` ajoute (gitignore) pour `SUPERNOVA_TOKEN`. **Action Kevin** : rotater le token, il a transite par chat. |
 |            | Health : SAIN (0 critical, 0 ref cassee, 42/42 tests, 1 warning bundle 613kB). |
 | 2026-04-14 | **[DONE] Supernova live + Storybook fix + refs 81→0** |
 |            | Supernova blocs 9-10 : workspace 735528 / DS 790241. 197 tokens DTCG sync, 22 groupes, 154 stories importees, doc publiee. |

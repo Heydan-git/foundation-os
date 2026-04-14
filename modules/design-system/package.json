@@ -36,9 +36,10 @@
     "lint": "biome lint src/",
     "lint:fix": "biome lint src/ --fix",
     "supernova:sync-tokens": "npx -y @supernovaio/cli@latest sync-tokens --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --configFilePath supernova.config.json --tokenDirPath tokens/source",
+    "supernova:analyze": "npx -y @supernovaio/cli@latest analyze --designSystemId 790241 --package @foundation-os/design-system",
     "supernova:import-storybook": "npm run build-storybook && npx -y @supernovaio/cli@latest storybook-import -d 790241 -f storybook-static -n \"Foundation OS DS\" --publicAccess",
     "supernova:publish": "npx -y @supernovaio/cli@latest publish-documentation --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --awaitPublishJob",
-    "supernova:all": "npm run supernova:sync-tokens && npm run supernova:import-storybook && npm run supernova:publish"
+    "supernova:all": "npm run supernova:sync-tokens && npm run supernova:analyze && npm run supernova:import-storybook && npm run supernova:publish"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",

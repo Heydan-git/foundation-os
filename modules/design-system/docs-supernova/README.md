@@ -35,7 +35,11 @@ Le push programmatique via `@supernovaio/sdk` n'est pas verifie dans ce repo. Te
 
 ## Pourquoi les composants n'apparaissent pas apres `supernova:import-storybook`
 
-`storybook-import` embarque le Storybook comme iframe dans Supernova mais ne cree pas d'entites Component navigables dans le sidebar DS. Pour avoir une vraie navigation composant par composant, il faut creer des pages Documentation dediees (c'est ce que font les fichiers de `components/`).
+`storybook-import` embarque le Storybook comme iframe dans Supernova mais ne cree pas d'entites Component navigables dans le sidebar DS.
+
+**Fix racine** : `supernova analyze` scanne le code source et pousse les vraies entites Component vers Supernova. C'est le script `npm run supernova:analyze` (ajoute 2026-04-14). Le pipeline complet `supernova:all` enchaine sync-tokens → analyze → import-storybook → publish.
+
+Les fichiers Markdown de `foundations/` et `components/` restent utiles comme contenu narratif a copier-coller dans les pages Documentation Supernova (Foundations + do/don't editorial).
 
 ## Env
 
