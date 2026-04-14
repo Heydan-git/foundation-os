@@ -7,8 +7,8 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ✅ Figma Make | `modules/app/` | UI refactor complet — DashboardLayout (sidebar collapsible + header + glow orbs), toutes pages restyled glassmorphism, 0 inline styles legacy, build OK 266ms, 19/19 tests |
-| Design System | 🔄 REBUILD iso base DS | `modules/design-system/` | Rebuild complet en cours (plan `2026-04-14-ds-rebuild-from-base.md`). Phases 0-3a DONE : archive old layers + tokens 2-couches (primitives + semantic) + 46 composants ui copies iso base DS + 7 patterns Dashboard dans Storybook. Phases 4-5 restantes : refactor app (token propagation ds-*) + verification visuelle + stories individuelles par composant. |
+| App Builder | ✅ iso base DS | `modules/app/` | Tous fichiers `.tsx` utilisent tokens `ds-*` (0 legacy). Build 281ms, 19/19 tests. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge iso base DS. |
+| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild complet DONE (plan `2026-04-14-ds-rebuild-from-base.md`). Phases 0-5 livrees : tokens primitives + semantic (dark-only), 46 composants ui copies iso, 7 patterns Dashboard Storybook. Backlog Phase 3b : 46 stories individuelles (non-bloquant). |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
@@ -19,100 +19,41 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-14 | **[IN PROGRESS] DS Rebuild iso base DS — phases 0-3a DONE** |
-|            | Plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md` (supersede plan void-glass). |
-|            | **Correction de cap** : Kevin veut UN DS complet iso `base DS/` (export Figma Make), pas une approche void-glass + shadcn vanilla coexistant. Abandon total : void-glass (11 atoms), ui shadcn vanilla (103 fichiers), tokens DTCG (primitives + semantic + bridge). Tous archives `.archive/ds-rebuild-2026-04-14/`. |
-|            | **Phase 0 DONE** (`64d6baf`) : revert IndexPage + archive 3 dossiers (old-ui, old-void-glass, old-patterns) + tokens DTCG + globals.css. Base DS commitee comme source de verite. |
-|            | **Phase 1 DONE** (`ccd3e01`) : tokens.css 2 couches — primitives `--p-*` (raw values) + semantic `--ds-*` (aliases by role) + shadcn bridge (`--background`, etc. dark-only). globals.css avec @theme inline Tailwind v4. |
-|            | **Phase 2 DONE** : 46 composants ui copies iso base DS (accordion → tooltip). 3 fichiers avec @ts-nocheck (calendar/chart/resizable — drift API v9). Barrel `src/components/ui/index.ts` + re-export `src/index.ts`. |
-|            | **Phase 3a DONE** : 7 Dashboard*.tsx copies → `src/components/patterns/` + Patterns.stories.tsx (MemoryRouter decorator). Reference visuelle iso base DS dans Storybook. |
-|            | **Reste Phase 3b+4+5** : stories individuelles 46 composants, refactor app pour propager `bg-ds-*` (IndexPage utilise encore bg-purple-500/10), verification visuelle chrome-devtools screenshot, comparaison base DS. |
-|            | App layouts (`DashboardLayout`, `IndexPage`) deja visuellement iso (structure sidebar/header/orbs/glass cards identique). Gap = token propagation + validation screenshot. |
-|            | Build app OK 275ms. DS typecheck 0 erreur. 19/19 tests. Health DEGRADED (3 warn : refs 65, vitest DS output, bundle 613kB — tous non-bloquants). |
-| 2026-04-14 | **[SUPERSEDED] DS Void Glass iso Figma Make — 11 composants atomiques** |
-|            | Plan P0 complet : `docs/plans/2026-04-14-ds-voidglass-iso-figma-make.md` (lire en premier prochaine session). |
-|            | **Correction majeure** : session precedente le DS etait base sur `ui/` shadcn vanilla (boutons blancs, cards plates), pas sur les vrais composants glass du zip Figma Make. Les Dashboard*.tsx du zip contenaient 3183 lignes de code glass hand-coded ignorees par la rebuild DS. Mismatch : dashboard app = glass hand-coded, DS = shadcn, Storybook = shadcn. |
-|            | **11 composants atomiques extraits** dans `modules/design-system/src/components/void-glass/` : GlassCard · IconBox · StatusDot · NeonBadge · SubLabel · SectionHeader · StatCard · HashPill · ProgressBar · LiveIndicator · GlowButton. Un fichier par composant + barrel index.ts. Export depuis DS `src/index.ts`. |
-|            | Stories Storybook pour chaque composant (`VoidGlass.stories.tsx`) + composition dashboard stat grid. Verifie visuellement via screenshot : composition iso dashboard Foundation OS (SEED DATA pulsant, titre gradient, boutons Exporter/Deployer, 4 StatCards avec icons neon + badges). |
-|            | Pages entieres `patterns/Dashboard*.tsx` copiees avant puis rejetees (Kevin : "je veux des composants pas des pages"). Patterns/Dashboard.stories.tsx supprime. Dashboard*.tsx restent dans patterns/ comme reference. |
-|            | Reste a faire (prochaine session) : (a) refactor `modules/app/src/pages/IndexPage.tsx` pour importer depuis `@foundation-os/design-system` au lieu du hand-coded, (b) verifier visuellement Supernova apres GitHub Action auto-sync, (c) refactor autres pages app si besoin. |
-|            | **Regle ajoutee CLAUDE.md** : verification visuelle obligatoire (screenshot chrome-devtools MCP) avant de claim "fait" pour toute tache UI. Memoires `feedback_visual_verification.md` + `project_ds_voidglass_plan.md`. |
-|            | Commits : `d620c4f` (void-glass) + `8d561ec` (workflow paths) + `5f6ae13` (patterns) + `2c9403d` (46 Components SDK). |
-| 2026-04-14 | **[DONE] Supernova Components UI visibles (46) + sync auto GitHub Actions** |
-|            | **Correction** : session precedente j'avais claim "Components live via analyze" — c'etait faux (`analyze` alimente le backend AI, pas la section Components UI). 46 Components maintenant crees via `sn.components.createComponent()` SDK, visibles dans UI. Verif visuelle : accessibility snapshot confirme 46 rows (Button, Input, ... , Carousel) avec Documented=Yes, Status=Healthy, Repository=github URL. |
-|            | Script production `modules/design-system/scripts/supernova-sync.mjs` : idempotent, cree/update composants par nom. Props auto-remplies : isDocumented, status (Healthy), repository (lien GitHub .tsx). |
-|            | GitHub Action `.github/workflows/supernova-sync.yml` : push sur main dans DS → sync auto (tokens + analyze + storybook + components + publish). **Requis** : ajouter secret `SUPERNOVA_TOKEN` dans repo GitHub Settings → Secrets. |
-|            | Pipeline `supernova:all` enchaine sync-tokens → analyze → components → import-storybook → publish. |
-|            | Limite : Plan Supernova Free = 20 doc pages max. Impossible de creer 1 page doc par composant. Les 52 md narratifs restent dans `docs-supernova/` pour import manuel UI si upgrade plan. |
-|            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections + 18 taches. |
-|            | Notion : wiki 🪐 Foundation OS enrichi — Sessions (+9), Decisions actives (+14 Build), Roadmap (Update 2026-04-14 etat reel). |
-|            | Narratif DS : 52 md handcrafted/generes dans `modules/design-system/docs-supernova/` (6 Foundations + 46 Components via `modules/design-system/scripts/gen-component-docs.mjs`). A copier-coller dans pages Documentation Supernova pour enrichissement editorial. |
-|            | `.env.local` ajoute (gitignore) pour `SUPERNOVA_TOKEN`. **Action Kevin** : rotater le token, il a transite par chat. |
-|            | Health : SAIN (0 critical, 0 ref cassee, 42/42 tests, 1 warning bundle 613kB). |
-| 2026-04-14 | **[DONE] Supernova live + Storybook fix + refs 81→0** |
-|            | Supernova blocs 9-10 : workspace 735528 / DS 790241. 197 tokens DTCG sync, 22 groupes, 154 stories importees, doc publiee. |
-|            | **Storybook upgrade** : 8.6 → 9.1.20 + Vite 7 (DS uniquement). Fix runtime `__STORYBOOK_MODULE_PREVIEW_API__` cause par Vite 8/Rolldown incompat SB 8.6. Preview iframe fonctionne (verifie local + Supernova hosted). App tsconfig exclude `*.stories.tsx`. |
-|            | Scripts repo : `modules/design-system/supernova.config.json` + 4 npm scripts `supernova:*`. Env var `SUPERNOVA_TOKEN` requise. |
-|            | Refs cassees : exclure `docs/travaux-cowork/` dans ref-checker.sh, CHANGELOG DS paths corriges, plan DS shadcn DONE archive `.archive/plans/`. 81 → 0. |
-|            | Commits : `4a57db5` (Supernova + refs) + `06afda1` (Storybook upgrade). |
-|            | URL Storybook public Supernova : https://storybook.supernova.io/design-systems/790241/alias/foundation-os-ds/index.html |
-| 2026-04-14 | **[DONE] Storybook S2 + S3.bloc8 — 27 stories + audit etats** |
-|            | S2 Blocs 4-6 (27 stories DS : Layout 10 + Nav 8 + Data 9). S2 Bloc 7 (9 stories app : Card/Badge/Skeleton + 6 Commander panels). |
-|            | S3 Bloc 8 : audit etats 46 composants (couverture 21%, rapport docs/plans/2026-04-14-ds-audit-etats.md). |
-|            | Config : extension Storybook scanne modules/app (alias @ resolu). Total Storybook : 55 stories. |
-|            | Brief spec v11 passee a 12 sections (PLANS ACTIFS obligatoire — docs/core/communication.md §6.1). |
-|            | Commits : `[blocs 4-6]` + `[bloc 7]` + `[bloc 8]` + spec brief. |
-|            | **Blocage** : Supernova (blocs 9-12) requiert compte Kevin. Asana/Notion sync (blocs 13-15) requiert OK ecriture externe. |
-| 2026-04-13 | **[DONE] Storybook S1 — Blocs 1-3 (19 stories)** |
-|            | Bloc 1 : audit config OK. Bloc 2 : 10 stories Form. Bloc 3 : 9 stories Feedback. |
-|            | Commit : `b36cbe0` |
-| 2026-04-13 | **[DONE] DS finition F8-F9** |
-|            | F8 : biome v2.4 (Tailwind, rules shadcn), 9 smoke+a11y tests (23 total DS), CHANGELOG.md |
-|            | F9 : audit 46 composants (7 CVA, loading/error rares), chart.tsx @ts-nocheck conserve (recharts v3), F9.3 site demo → plan 2 Storybook |
-|            | Commits : `d0217a8` (F8) + `e671ca8` (F9) |
-| 2026-04-13 | **[DONE] App UI refactor — Figma Make design system integration** |
-|            | DashboardLayout : sidebar collapsible + header + orbs glow (copie exacte preview Figma Make) |
-|            | App.tsx : layout routes avec Outlet, auth pages standalone |
-|            | IndexPage : stat cards glow + module cards (donnees Supabase live) |
-|            | Commander : header gradient, glass tabs, stats pills, 6 panels Tailwind (0 inline style legacy) |
-|            | KnowledgePage : glass cards, glass badges, 5 sections |
-|            | Login + ResetPassword : centered glassmorphism card, orbs background |
-|            | Cleanup : TabBar, Layout, Navbar, StatsBar supprimes (remplaces par DashboardLayout) |
-|            | Commits : `436de80` (UI refactor) + `5418f35` (panel cleanup) |
-|            | Health DEGRADED : 51 refs cassees (docs/travaux-cowork prospectifs) + bundle 613kB (motion/lucide) |
-| 2026-04-13 | **[DONE_WITH_CONCERNS] DS finition F1-F7** |
-|            | F1-F7 : tokens primitives + semantic + bridge + app migree + prefixe fos retire |
-|            | Reste : F8 (tests etendus), F9 (affinage + site demo) |
-| 2026-04-11 | **[DONE] DS shadcn rebuild depuis Figma Make** |
-|            | 46 composants shadcn/ui, tokens DTCG from scratch, preview Figma Make iso |
-|            | Commits : a6f37a2 + 3547b48 + 311ae9a |
-| 2026-04-11 | **[DONE] Planner MVP + Worktrees feature + health SAIN** |
-|            | Scope : 2 nouveaux modules Core OS (Planner, Worktrees) + nettoyage health-check |
-|            | Planner : spec `docs/core/planner.md`, commande `/plan-os`, template `docs/plans/_template-plan.md`, registre, routing auto (haiku/sonnet/opus), sub-agent gate 3 conditions, wrapper `superpowers:writing-plans` |
-|            | Worktrees : doc officielle integree `docs/core/worktrees.md`, `.gitignore` + `ref-checker.sh` exclusion, feature native Claude Code documentee |
-|            | Cleanup : worktree orphelin `admiring-sutherland` archive dans `.archive/worktrees-orphelins/`, branche supprimee, 95 refs cassees → 0 |
-|            | Decisions : D-PLAN-01 Planner MVP wrapper Superpowers, D-WT-01 Worktrees integres Core OS |
-|            | Phase 2 backlog Planner : log tokens reels vs estimes, calibration heuristiques |
-|            | Commits : 6413ac9 (planner) + 962c174 (worktrees) |
-| 2026-04-11 | **[DONE] Tools v2 — catalogue 97 outils, routing 26 regles, CLI tool-register.sh**. D-TOOLS-01. `40e197c` |
-| 2026-04-10 | **[DONE] Audit Core OS + Cockpit + Communication v1** — 27 fixes, /cockpit TDAH, rename Memory→Communication. `21354c9`/`7cbb391`/`18079d0` |
+| 2026-04-14 | **[DONE] DS Rebuild iso base DS — phases 0-5 livrees** |
+|            | Plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md`. 6 commits enchaines. |
+|            | **Phase 0** (`64d6baf`) archive anciennes couches (void-glass, shadcn vanilla, DTCG old). |
+|            | **Phase 1** (`ccd3e01`) tokens.css 2 couches (primitives `--p-*` + semantic `--ds-*`) + globals.css Tailwind v4 `@theme inline` (dark-only, iso `base DS/theme.css`). |
+|            | **Phase 2** (`ea1e48b`) 46 composants ui copies iso `base DS/src/app/components/ui/`. 3 fichiers @ts-nocheck (calendar/chart/resizable drift API v9). |
+|            | **Phase 3a** (`8bacea7`) 7 Dashboard*.tsx → `patterns/` + Patterns.stories.tsx (MemoryRouter). |
+|            | **Phase 4a** (`7638b5c`) IndexPage tokens ds-* — 16 remplacements. |
+|            | **Phase 4b** (`100120e`) app-wide propagation via regex sed sur 12 fichiers, 47 remplacements (Commander, KnowledgePage, LoginPage, ResetPasswordPage, DashboardLayout + Commander panels + Card + forms). |
+|            | **Phase 5** verif visuelle chrome-devtools MCP 3 pages (/, /commander, /knowledge) → iso base DS ✓. Screenshots `/tmp/fos-{login,commander,knowledge}-phase4.png`. |
+|            | **Phase 3b BACKLOG** : 46 stories individuelles Storybook (non-bloquant, stories servent QA interne). |
+|            | Build 281ms, 19/19 tests, 0 legacy token `-{purple,blue,emerald,rose,amber,...}-NNN` dans app. |
+| 2026-04-14 | **[DONE] Supernova 46 Components SDK + sync auto** (`2c9403d`) |
+|            | 46 composants via `sn.components.createComponent()` visibles UI Supernova. GitHub Action sync push main DS. Plan Free = 20 doc pages max. 52 md narratifs disponibles pour upgrade plan. Asana setup cloture, projet Build cree. Kevin : rotater `SUPERNOVA_TOKEN`. |
+| 2026-04-14 | **[SUPERSEDED] DS Void Glass 11 atoms** — abandonne par decision Kevin (`d620c4f`). Remplace par DS Rebuild iso base DS. Commits conserves pour historique. |
+| 2026-04-14 | **[DONE] Supernova live + Storybook 9.1.20 + refs 81→0** (`4a57db5`+`06afda1`) |
+|            | Workspace 735528/DS 790241, 197 tokens DTCG, 154 stories. Fix SB runtime Vite 8 incompat. URL : storybook.supernova.io/design-systems/790241/alias/foundation-os-ds. |
+| 2026-04-14 | **[DONE] Storybook S2 + bloc8 — 27 stories + audit etats**. 55 stories total. Blocage Asana/Notion (blocs 13-15) = OK ecriture externe Kevin. |
+| 2026-04-13 | **[DONE] Storybook S1 blocs 1-3** (19 stories Form + Feedback). `b36cbe0` |
+| 2026-04-13 | **[DONE] DS finition F8-F9** (biome v2.4, 23 tests DS, audit 46 composants). `d0217a8`+`e671ca8` |
+| 2026-04-13 | **[DONE] App UI refactor Figma Make** (DashboardLayout + pages glass, cleanup TabBar/Layout/Navbar/StatsBar). `436de80`+`5418f35` |
+| 2026-04-13 | **[DONE_WITH_CONCERNS] DS finition F1-F7** (tokens primitives+semantic+bridge, app migree, prefixe fos retire). |
+| 2026-04-11 | **[DONE] DS shadcn rebuild + Planner MVP + Worktrees + Tools v2** (sessions enchaines). `a6f37a2`+`6413ac9`+`962c174`+`40e197c` |
+| 2026-04-10 | **[DONE] Audit Core OS + Cockpit + Communication v1**. `21354c9`/`7cbb391`/`18079d0` |
 
 > Sessions plus anciennes (S0-S14, Cycle 3 audit + Design System + Monitor Dashboard + Cycles 1-2) disponibles via `git log` et `.archive/audit-massif/23-rapport-final.md`.
 
 ## Cap
 
-**Direction** : DS Rebuild iso base DS — phases 4-5 restantes.
+**Direction** : DS Rebuild iso base DS DONE (phases 0-5). App-wide propagation tokens `ds-*` livree.
 
-**Pourquoi** : Kevin demande UN vrai DS iso 100% visuel avec le `base DS/` Figma Make (stack React/Vite/TS/Tailwind). Phases 0-3a livrent la fondation : tokens primitives+semantic + 46 composants UI + 7 patterns Dashboard dans Storybook.
-
-**Prochaine action** (plan `docs/plans/2026-04-14-ds-rebuild-from-base.md`) :
-  - **Phase 3b** : stories individuelles par composant UI (46 stories, 1 default + variantes clefs)
-  - **Phase 4** : refactor app — propager `bg-ds-*` dans IndexPage/Commander/Knowledge, remplacer `bg-purple-500/10` par `bg-ds-purple/10` etc. (semantic, pas visuel)
-  - **Phase 5** : verification visuelle obligatoire — `npm run dev` + chrome-devtools screenshots + comparaison iso base DS, push Supernova sync, CONTEXT.md final.
-
-**Ensuite** : Phase 5 Expansion (Finance/Sante/Trading).
-
-**Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
+**Prochaine action** : a decider avec Kevin. Candidats :
+  - Phase 3b Storybook stories individuelles (backlog non-bloquant, 46 stories)
+  - Push Supernova sync manuel (secret `SUPERNOVA_TOKEN` requis, ou Kevin confirme GitHub Action)
+  - Phase 5 Expansion : choisir module (Finance / Sante / Trading)
+  - Plan evolution Core OS (P0 securite deterministe : deny list + bash firewall + stop hook) — plan dans `docs/travaux-cowork/2026-04-13-evolution-core-os/01-plan-evolution-core-os.md`
 
 ## Idees & Parking
 

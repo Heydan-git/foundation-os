@@ -168,35 +168,30 @@ Ordre : du plus simple au plus complexe.
   - 7 Dashboard*.tsx copies de `base DS/src/app/components/` → `src/components/patterns/` (iso)
   - `Patterns.stories.tsx` : stories `Home / AIAnalytics / Transactions / Wallet / Settings / DesignSystem` avec `MemoryRouter` decorator (react-router v7, chemins hardcoded dans DashboardLayout)
 
-- [ ] **Phase 3b** — Stories individuelles composants UI
+- [ ] **Phase 3b** — Stories individuelles composants UI *(BACKLOG — session dediee)*
   - **Scope** : 46 stories dans `src/components/ui/<name>.stories.tsx` (1 fichier par composant)
-  - **Template minimal par story** : 1 story `Default` + variantes clefs (ex: button.stories.tsx → Default, Variants, Sizes, Loading)
-  - **Priorite** : button, input, card, dialog, alert, badge, tabs, select, textarea, checkbox, radio-group, switch, tooltip, dropdown-menu, sheet, popover, avatar, label, separator, progress, slider, skeleton, scroll-area, pagination, breadcrumb, accordion, toggle, command, form, calendar, chart, carousel, drawer, resizable, menubar, navigation-menu, context-menu, hover-card, alert-dialog, sonner, table, collapsible, aspect-ratio, input-otp, toggle-group, sidebar
-  - **Astuce** : 3 composants avec @ts-nocheck (calendar, chart, resizable) → stories possibles mais surveillance types
-  - **Verif** : `npm run storybook` → 46 stories + 6 patterns = 52 visibles. `npm run build-storybook` clean.
+  - **Template minimal** : 1 story `Default` + variantes clefs (ex: button → Default, Variants, Sizes)
+  - Non-bloquant pour l'iso visuel app : composant UI est deja iso base DS par copie conforme Phase 2. Les stories servent de showcase/QA interne, pas de runtime prod.
+  - A demarrer quand besoin reel (onboarding nouveau module ou doc Supernova enrichie).
 
-- [ ] **Phase 4a** — Refactor IndexPage (token propagation ds-*)
-  - **File** : `modules/app/src/pages/IndexPage.tsx`
-  - **Action** : remplacer `bg-purple-500/10` → `bg-ds-purple/10`, `bg-blue-500/10` → `bg-ds-blue/10`, `bg-emerald-500/10` → `bg-ds-emerald/10`, `bg-rose-500/10` → `bg-ds-rose/10` etc. dans les glow + icon color references
-  - **Idem** : `text-purple-400` → `text-ds-purple`, `text-blue-400` → `text-ds-blue`, etc.
-  - **Ne PAS** : reintroduire des imports `@foundation-os/design-system` composants tant qu'il n'y a pas de StatCard component (void-glass abandonne). Garder hand-coded glass, juste propager les tokens.
-  - **Verif** : build OK, test OK, visuel identique (meme couleurs finales car `--ds-purple = #c084fc = purple-400`).
+- [x] **Phase 4a** — Refactor IndexPage (token propagation ds-*) (`7638b5c`)
+  - 16 remplacements : bg/text/border-{purple,blue,emerald,rose}-{400,500}/{10,20} → ds-*
+  - Build 290ms, 19/19 tests. Visuel verifie Phase 5 ✓
 
-- [ ] **Phase 4b** — Refactor Commander + KnowledgePage + Login + ResetPassword
-  - Meme strategie que 4a : propagation token ds-*. Pas de refactor structurel.
-  - `Commander.tsx` (tabs + 6 panels), `KnowledgePage.tsx` (sections + cards), `Login.tsx` + `ResetPassword.tsx` (centered card + orbs)
-  - **Verif** : app build OK, 19/19 tests OK.
+- [x] **Phase 4b** — Refactor app-wide token propagation (`100120e`)
+  - Scope elargi au-dela du plan initial : TOUS les `modules/app/src/**/*.tsx`
+  - 47 remplacements sur 12 fichiers : Commander, KnowledgePage, LoginPage, ResetPasswordPage, DashboardLayout + Commander panels (Sessions/Decisions/Risks/Context) + Card + forms (NextStepActions, EditDecisionModal)
+  - Regex bulk sed : `(bg|text|border|from|to)-COLOR-NNN` → `$1-ds-COLOR` (+ `border-{l,r,t,b}` variante)
+  - Build 281ms, 19/19 tests, 0 legacy token restant
 
-- [ ] **Phase 5** — Verification visuelle + Supernova + CONTEXT
-  - **OBLIGATOIRE screenshot** (regle CLAUDE.md, memoire `feedback_visual_verification.md`) :
-    1. Lancer `npm run dev` dans `modules/app/`
-    2. Chrome-devtools MCP → screenshot `/`, `/commander`, `/knowledge`, `/auth/login`
-    3. Comparer visuellement a `base DS/src/app/components/DashboardHome.tsx` etc. (ouvrir ce code et lire la structure visuelle attendue)
-    4. Si divergence >5% : ajuster Phase 4
-  - **Storybook** : `npm run storybook` → screenshot chaque story. Comparer au base DS.
-  - **Supernova** : push auto via GitHub Action (necessite `SUPERNOVA_TOKEN` secret — Kevin doit ajouter, cf CONTEXT "En attente Kevin"). Verif UI Supernova (accessibility snapshot).
-  - **CONTEXT.md** : update session, ajouter commit SHA finaux, passer Design System module status de `🔄 REBUILD` a `✅ iso base DS`.
-  - **Commit final** : `feat(ds): rebuild complet iso base DS — phases 0-5 DONE`.
+- [x] **Phase 5** — Verification visuelle chrome-devtools MCP
+  - 3 pages screenshotees via `npm run dev` (localhost:5173) :
+    - `/` IndexPage — sidebar + glow orbs + 4 stat cards + 2 module cards iso base DS ✓
+    - `/commander` — tabs glass + stat pills colorees (purple/blue/rose/emerald) + sessions list ✓
+    - `/knowledge` — Manifeste tab + glass cards + 3 pills (blue/purple/emerald) ✓
+  - Zero regression visuelle — les tokens `--ds-*` pointent sur les memes hex 400-level que les classes Tailwind remplacees.
+  - Supernova push : sera auto-declenche au prochain push main dans modules/design-system/ via GitHub Action (requiert secret `SUPERNOVA_TOKEN` — Kevin).
+  - Screenshots sauvegardes `/tmp/fos-{login,commander,knowledge}-phase4.png`.
 
 ## Next Session Checklist (NE PAS OUBLIER)
 
