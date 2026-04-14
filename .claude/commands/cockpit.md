@@ -13,6 +13,7 @@ Lancer en parallele :
 2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
 3. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
 4. **Health-check** : `bash scripts/health-check.sh`
+5. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
 
 Si CONTEXT.md absent → abort avec erreur explicite.
 Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne pas produire le brief (fixer d'abord).

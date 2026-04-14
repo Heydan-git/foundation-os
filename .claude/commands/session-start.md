@@ -11,6 +11,11 @@ Lancer en parallele :
 2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
 3. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
 4. **Health-check** : `bash scripts/health-check.sh`
+5. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Extraire pour chaque plan :
+   - titre + frontmatter (status, blocks_total)
+   - section `## Execution log` : compter `[x]` vs `[ ]`, identifier le dernier `[x]` (= hier), le(s) prochain(s) `[ ]`
+   - decoupage en sessions (S1/S2/...) pour afficher reste
+   Un plan avec toutes ses cases `[x]` OU status `done`/`closed` est considere CLOS et exclu du brief.
 
 Si CONTEXT.md absent → abort avec erreur explicite.
 Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne pas produire le brief (fixer d'abord).
@@ -52,6 +57,32 @@ Rendre les sections ci-dessous avec le format TDAH-friendly : cadres box-drawing
 │   🎯 Focus      [sujet du moment]       │
 │   📈 Tendance   ▲/▶/▼ [5 mots]         │
 │   ⏱  Derniere   [il y a X] · [decide]   │
+│                                          │
+└──────────────────────────────────────────┘
+
+
+┌─ PLANS ACTIFS ───────────────────────────┐
+│                                          │
+│   🟢 PLAN 1 — [titre court]              │
+│      📄 docs/plans/[fichier].md          │
+│      📊 [N/M blocs] · [status]           │
+│                                          │
+│      HIER : [bloc/phase] ✅              │
+│             commit [hash] · [resume]     │
+│                                          │
+│      PROCHAIN : [bloc/phase]             │
+│                 [detail + duree]         │
+│                                          │
+│      RESTE : [liste sessions/blocs]      │
+│                                          │
+├─ ────────────────────────────────────────┤
+│                                          │
+│   🟡 PLAN 2 — [titre court]              │
+│      📄 docs/plans/[fichier].md          │
+│      📊 [N/M blocs]                      │
+│      HIER : [rien, ou bloc X ✅]         │
+│      PROCHAIN : [bloc X]                 │
+│      RESTE : [liste]                     │
 │                                          │
 └──────────────────────────────────────────┘
 

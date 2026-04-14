@@ -211,23 +211,34 @@ Ces lectures sont a la demande, pas systematiques.
 
 ### 6.1 Brief de debut de session (v11 — TDAH-friendly)
 
-**11 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
+**12 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
 
 Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, respiration entre blocs.
 
-#### Sections (contenu identique v10, rendu ameliore)
+#### Sections
 
 1. **SANTE** : 4 lignes (projet/build/tests/health), barres 12 blocs, % aligne a droite
 2. **TRAJECTOIRE** : mission/focus/tendance(▲▶▼)/derniere session
-3. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
-4. **ATTENTION** : alertes/rappels/en attente Kevin
-5. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
-6. **STATUT PROJET** : barres progression par chantier
-7. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
-8. **REFLEXION** : questions en suspens + liens idees↔travail
-9. **HISTORIQUE** : 3 decisions recentes + echeance
-10. **CAP** : direction + pistes A/B/C
-11. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
+3. **PLANS ACTIFS** (obligatoire) : pour chaque plan `docs/plans/*.md` non cloture :
+   - nom + chemin
+   - progression globale (N/M blocs ou phases DONE)
+   - **hier** : plan + phase/bloc executes + commit
+   - **prochain** : bloc(s) suivant(s) de la prochaine session du plan
+   - **reste apres** : liste condensee des sessions/blocs restants
+   Si 2+ plans en parallele → un sous-cadre par plan. Lister les DEUX meme si un seul a ete touche hier.
+4. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
+5. **ATTENTION** : alertes/rappels/en attente Kevin
+6. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
+7. **STATUT PROJET** : barres progression par chantier
+8. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
+9. **REFLEXION** : questions en suspens + liens idees↔travail
+10. **HISTORIQUE** : 3 decisions recentes + echeance
+11. **CAP** : direction + pistes A/B/C
+12. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
+
+#### Regle plans
+
+Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`. Un plan cloture (F1-F9 done, commit final passe) est retire du brief mais reste trace dans HISTORIQUE sur la session de cloture.
 
 Entete et Input en double trait `╔═══╗` pour ancrer debut/fin visuellement.
 
@@ -276,6 +287,7 @@ Section "Persistance" supprimee (redondante — CONTEXT.md est toujours mis a jo
 |---------------|----------------------|------------|
 | Sante | — | health-check + build |
 | Trajectoire | Cap + Sessions recentes | git log -1 |
+| Plans actifs | Sessions recentes (pointeur) | `docs/plans/*.md` Execution log + frontmatter |
 | Modules + Acces | Modules | git status + branch |
 | Attention | En attente Kevin | health-check |
 | Dernier travail | Sessions recentes + Decisions | git log -1 |
