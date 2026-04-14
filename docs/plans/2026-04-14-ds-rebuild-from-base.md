@@ -168,11 +168,12 @@ Ordre : du plus simple au plus complexe.
   - 7 Dashboard*.tsx copies de `base DS/src/app/components/` → `src/components/patterns/` (iso)
   - `Patterns.stories.tsx` : stories `Home / AIAnalytics / Transactions / Wallet / Settings / DesignSystem` avec `MemoryRouter` decorator (react-router v7, chemins hardcoded dans DashboardLayout)
 
-- [ ] **Phase 3b** — Stories individuelles composants UI *(BACKLOG — session dediee)*
-  - **Scope** : 46 stories dans `src/components/ui/<name>.stories.tsx` (1 fichier par composant)
-  - **Template minimal** : 1 story `Default` + variantes clefs (ex: button → Default, Variants, Sizes)
-  - Non-bloquant pour l'iso visuel app : composant UI est deja iso base DS par copie conforme Phase 2. Les stories servent de showcase/QA interne, pas de runtime prod.
-  - A demarrer quand besoin reel (onboarding nouveau module ou doc Supernova enrichie).
+- [x] **Phase 3b** — Stories individuelles 46 composants UI
+  - 46 fichiers `src/components/ui/<name>.stories.tsx` generes via script `/tmp/gen-stories.py` (templates par categorie : simple render / compound trigger-content / complex composition).
+  - Pattern iso Patterns.stories.tsx : `import type { Meta, StoryObj } from '@storybook/react-vite'`, title `UI/<Component>`, 1 story Default par composant.
+  - Compound components (Dialog/Sheet/Drawer/Dropdown/Menubar/NavMenu/Select/Form/Popover/Tooltip/etc.) : composition trigger + content realiste.
+  - Complex (Chart `@ts-nocheck` pour drift recharts v3, Sidebar avec SidebarProvider, Form avec `useForm()`).
+  - Verification : `npx tsc --noEmit` 0 erreur, `npm run build-storybook` clean 5.87s, 47 stories chunks visibles (46 ui + Patterns).
 
 - [x] **Phase 4a** — Refactor IndexPage (token propagation ds-*) (`7638b5c`)
   - 16 remplacements : bg/text/border-{purple,blue,emerald,rose}-{400,500}/{10,20} → ds-*

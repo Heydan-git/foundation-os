@@ -8,7 +8,7 @@
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
 | App Builder | ✅ iso base DS | `modules/app/` | Tous fichiers `.tsx` utilisent tokens `ds-*` (0 legacy). Build 281ms, 19/19 tests. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge iso base DS. |
-| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild complet DONE (plan `2026-04-14-ds-rebuild-from-base.md`). Phases 0-5 livrees : tokens primitives + semantic (dark-only), 46 composants ui copies iso, 7 patterns Dashboard Storybook. Backlog Phase 3b : 46 stories individuelles (non-bloquant). |
+| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild complet DONE (plan `2026-04-14-ds-rebuild-from-base.md`). Phases 0-3b + 4-5 livrees : tokens primitives + semantic (dark-only), 46 composants ui copies iso, 7 patterns Dashboard + 46 stories individuelles Storybook (53 stories DS + 9 app = 62 total). Build-storybook OK 5.87s. |
 | Core OS | 6/6 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2 (98 outils), Planner (/plan-os), Worktrees (feature Claude Code — isolation parallele, doc officielle integree) |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Plan-Router | PROPOSITION | `docs/travaux-cowork/` | 5 profils, 6 questions ouvertes bloquent execution |
@@ -19,17 +19,10 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-14 | **[DONE] DS Rebuild iso base DS — phases 0-5 livrees** |
-|            | Plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md`. 6 commits enchaines. |
-|            | **Phase 0** (`64d6baf`) archive anciennes couches (void-glass, shadcn vanilla, DTCG old). |
-|            | **Phase 1** (`ccd3e01`) tokens.css 2 couches (primitives `--p-*` + semantic `--ds-*`) + globals.css Tailwind v4 `@theme inline` (dark-only, iso `base DS/theme.css`). |
-|            | **Phase 2** (`ea1e48b`) 46 composants ui copies iso `base DS/src/app/components/ui/`. 3 fichiers @ts-nocheck (calendar/chart/resizable drift API v9). |
-|            | **Phase 3a** (`8bacea7`) 7 Dashboard*.tsx → `patterns/` + Patterns.stories.tsx (MemoryRouter). |
-|            | **Phase 4a** (`7638b5c`) IndexPage tokens ds-* — 16 remplacements. |
-|            | **Phase 4b** (`100120e`) app-wide propagation via regex sed sur 12 fichiers, 47 remplacements (Commander, KnowledgePage, LoginPage, ResetPasswordPage, DashboardLayout + Commander panels + Card + forms). |
-|            | **Phase 5** verif visuelle chrome-devtools MCP 3 pages (/, /commander, /knowledge) → iso base DS ✓. Screenshots `/tmp/fos-{login,commander,knowledge}-phase4.png`. |
-|            | **Phase 3b BACKLOG** : 46 stories individuelles Storybook (non-bloquant, stories servent QA interne). |
-|            | Build 281ms, 19/19 tests, 0 legacy token `-{purple,blue,emerald,rose,amber,...}-NNN` dans app. |
+| 2026-04-14 | **[DONE] DS Rebuild iso base DS — phases 0-5 + 3b complet** |
+|            | Plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md`. 8 commits enchaines. |
+|            | Phase 0 (`64d6baf`) archive · Phase 1 (`ccd3e01`) tokens 2-couches · Phase 2 (`ea1e48b`) 46 ui · Phase 3a (`8bacea7`) 7 patterns · Phase 4a (`7638b5c`) IndexPage ds-* · Phase 4b (`100120e`) app-wide sed 47 rempl. sur 12 fichiers · Phase 5 (`b518083`) verif chrome-devtools 3 pages iso · Phase 3b (ce commit) 46 stories UI individuelles via script `/tmp/gen-stories.py`. |
+|            | Build app 281ms / 19/19 tests. DS typecheck 0 erreur / build-storybook 5.87s. 0 legacy token `-{color}-NNN` dans app. 62 stories total (53 DS + 9 app). |
 | 2026-04-14 | **[DONE] Supernova 46 Components SDK + sync auto** (`2c9403d`) |
 |            | 46 composants via `sn.components.createComponent()` visibles UI Supernova. GitHub Action sync push main DS. Plan Free = 20 doc pages max. 52 md narratifs disponibles pour upgrade plan. Asana setup cloture, projet Build cree. Kevin : rotater `SUPERNOVA_TOKEN`. |
 | 2026-04-14 | **[SUPERSEDED] DS Void Glass 11 atoms** — abandonne par decision Kevin (`d620c4f`). Remplace par DS Rebuild iso base DS. Commits conserves pour historique. |
@@ -47,13 +40,11 @@
 
 ## Cap
 
-**Direction** : DS Rebuild iso base DS DONE (phases 0-5). App-wide propagation tokens `ds-*` livree.
+**Direction** : DS Rebuild iso base DS DONE (phases 0-5 + 3b). App-wide tokens `ds-*` propages. 62 stories Storybook operationnelles.
 
-**Prochaine action** : a decider avec Kevin. Candidats :
-  - Phase 3b Storybook stories individuelles (backlog non-bloquant, 46 stories)
-  - Push Supernova sync manuel (secret `SUPERNOVA_TOKEN` requis, ou Kevin confirme GitHub Action)
-  - Phase 5 Expansion : choisir module (Finance / Sante / Trading)
-  - Plan evolution Core OS (P0 securite deterministe : deny list + bash firewall + stop hook) — plan dans `docs/travaux-cowork/2026-04-13-evolution-core-os/01-plan-evolution-core-os.md`
+**Prochaine action** : a decider avec Kevin.
+  - Expansion Phase 5 : choisir module (Finance / Sante / Trading)
+  - Autre chantier a definir
 
 ## Idees & Parking
 
@@ -68,7 +59,6 @@
 
 ## En attente Kevin
 
-- **Push narratif Supernova** — 52 md prets dans `modules/design-system/docs-supernova/`. Import via UI Supernova (Option A, session dediee) OU verifier un chemin SDK programmatique. Requiert `SUPERNOVA_TOKEN`.
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
 - OMC update v4.11.6 (actuel v4.10.1, `omc update`). Lateral.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
