@@ -1,6 +1,7 @@
 /**
  * Foundation OS — Design System
- * Rebuild en cours : voir docs/plans/2026-04-14-ds-rebuild-from-base.md
- * Source de verite : modules/design-system/base DS/src/
+ * Stack : React + Vite + TS + Tailwind v4
+ * Source de verite visuelle : `base DS/src/` (Figma Make export)
+ * Architecture : voir `docs/plans/2026-04-14-ds-rebuild-from-base.md`
  */
-export { cn } from './lib/utils'
+export * from './components/ui'
