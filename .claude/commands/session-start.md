@@ -16,6 +16,11 @@ Lancer en parallele :
    - section `## Execution log` : compter `[x]` vs `[ ]`, identifier le dernier `[x]` (= hier), le(s) prochain(s) `[ ]`
    - decoupage en sessions (S1/S2/...) pour afficher reste
    Un plan avec toutes ses cases `[x]` OU status `done`/`closed` est considere CLOS et exclu du brief.
+6. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
+   - Asana : `mcp__claude_ai_Asana__get_my_tasks` workspace `1213280972575193` → 3 taches ouvertes top priorite + derniere modif
+   - Notion : `mcp__claude_ai_Notion__notion-search` workspace user `4f1b99db` → 3 pages modifiees < 48h
+   - Affichage : cadre `┌─ ETAT EXTERNE ─┐` apres PLANS ACTIFS. Jamais d'ecriture en session-start.
+   - Si MCP indisponible ou variable absente → skip silencieusement, ne pas bloquer.
 
 Si CONTEXT.md absent → abort avec erreur explicite.
 Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne pas produire le brief (fixer d'abord).

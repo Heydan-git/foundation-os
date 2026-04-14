@@ -253,9 +253,9 @@ Storybook montre tous les composants avec tous les etats, Supernova documente le
 - [ ] Bloc 10 — pending
 - [ ] Bloc 11 — pending
 - [ ] Bloc 12 — pending
-- [ ] Bloc 13 — pending
-- [ ] Bloc 14 — pending
-- [ ] Bloc 15 — pending
+- [ ] Bloc 13 — pending (Asana sync — bloque, requiert OK ecriture externe Kevin)
+- [ ] Bloc 14 — pending (Notion sync — bloque, requiert OK ecriture externe Kevin)
+- [x] Bloc 15 — done 2026-04-14 (integration opt-in `OMC_SYNC_EXTERNAL=1` dans session-start phase 1.6 + session-end phase 6bis. Lecture MCP Asana/Notion activee, ecriture bloquee sans OK)
 
 ## Notes post-execution
 

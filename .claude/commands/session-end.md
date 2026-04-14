@@ -97,6 +97,21 @@ Mettre a jour chaque section dans cet ordre. Pour chaque section, verifier si un
 
 Si des changements sont en attente → proposer un commit (conventional commits, pas d'auto-congratulation).
 
+## Phase 6bis — Proposer sync externe (opt-in)
+
+Si `OMC_SYNC_EXTERNAL=1` ET cette session contient decisions OU statut module change OU nouveau plan :
+
+1. **Asana** : lire taches ouvertes workspace `1213280972575193`. Proposer a Kevin :
+   - taches a cloturer (plans/blocs DONE cette session)
+   - taches a creer (nouveaux items Cap + prochaine action)
+   - Attendre OK explicite avant tout `update_tasks` ou `create_tasks`.
+2. **Notion** : `mcp__claude_ai_Notion__notion-search` workspace user `4f1b99db`.
+   - Page "Foundation OS - Etat" a mettre a jour (contenu = section Modules + Metriques + Cap)
+   - Attendre OK explicite avant tout `notion-update-page`.
+
+Aucune ecriture externe sans OK Kevin (regle CLAUDE.md imperatifs).
+Si variable absente → skip la phase entierement.
+
 ## Phase 7 — Produire le brief de cloture v11
 
 Rendre avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, espacement genereux.

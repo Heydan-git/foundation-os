@@ -80,6 +80,7 @@
 - 🔮 **modules/shared** : extraction auth+DB. Premature tant qu'1 seul module actif — a faire quand 2e module. (S19)
 - 🔮 **DS-6 complet** : exporter tokens DTCG vers Figma/Penpot. Nice-to-have. (D-DS-21)
 - 💡 **Storybook 9 + React 19** : upgrader quand Storybook 9 sort pour retirer les overrides react-dom. (audit 2026-04-10)
+- 🔧 **Refs cassees recurrentes — investigation** : a chaque session health-check revient DEGRADED avec 78-82 refs cassees. Hypothese 1 : cowork/ genere refs vers docs non existants (a exclure du ref-checker). Hypothese 2 : trou session-end — les docs ajoutes ne declenchent pas de MAJ index auto. Tache : a) modifier `scripts/ref-checker.sh` pour exclure `docs/travaux-cowork/`, b) identifier le trou dans session-end qui laisse passer les refs cassees, c) fixer le protocole pour zero dette structurelle. Kevin : prio apres finition DS Showcase. (2026-04-14)
 - ❓ **Cowork : methodo ou produit ?** : Foundation OS = apprentissage methodologique ou produit Phase 5+ ? A trancher avant Sprint 1 Cowork. (S7)
 
 ## En attente Kevin
