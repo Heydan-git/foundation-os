@@ -1,9 +1,6 @@
 /**
  * Foundation OS — Design System
- * Barrel export
- *   - shadcn/ui components (dark-only, DTCG semantic tokens)
- *   - void-glass components (iso Figma Make : GlassCard, StatCard, NeonBadge, etc.)
+ * Rebuild en cours : voir docs/plans/2026-04-14-ds-rebuild-from-base.md
+ * Source de verite : modules/design-system/base DS/src/
  */
-export * from './components/ui'
-export * from './components/void-glass'
 export { cn } from './lib/utils'
