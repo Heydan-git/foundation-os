@@ -1,62 +1,80 @@
 "use client";
 
+/**
+ * Slider — iso `base DS/src/app/components/DashboardDesignSystem.tsx`
+ * (section "Toggles & Sliders", lines 718-732).
+ *
+ * Custom HTML (not Radix) pour matcher EXACTEMENT le rendu template :
+ *   - track gradient : linear-gradient blue 0% -> value% -> ds-surface-1
+ *   - thumb : w-3 h-3 bg-ds-fg border-2 ds-blue shadow glow white
+ *   - single-value range input (shadcn Slider etait multi-value, ici on simplifie iso).
+ * API : value | defaultValue | min | max | step | onValueChange | disabled | id | className.
+ */
 import * as React from "react";
-import * as SliderPrimitive from "@radix-ui/react-slider";
 
 import { cn } from "./utils";
 
+export interface SliderProps {
+  value?: number;
+  defaultValue?: number;
+  min?: number;
+  max?: number;
+  step?: number;
+  onValueChange?: (value: number) => void;
+  disabled?: boolean;
+  id?: string;
+  className?: string;
+  "aria-label"?: string;
+}
+
 function Slider({
-  className,
-  defaultValue,
-  value,
+  value: controlled,
+  defaultValue = 50,
   min = 0,
   max = 100,
+  step = 1,
+  onValueChange,
+  disabled = false,
+  id,
+  className,
   ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
-  const _values = React.useMemo(
-    () =>
-      Array.isArray(value)
-        ? value
-        : Array.isArray(defaultValue)
-          ? defaultValue
-          : [min, max],
-    [value, defaultValue, min, max],
-  );
+}: SliderProps) {
+  const [internal, setInternal] = React.useState(defaultValue);
+  const isControlled = controlled !== undefined;
+  const val = isControlled ? controlled : internal;
+  const pct = ((val - min) / (max - min)) * 100;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const next = Number(e.target.value);
+    if (!isControlled) setInternal(next);
+    onValueChange?.(next);
+  };
 
   return (
-    <SliderPrimitive.Root
-      data-slot="slider"
-      defaultValue={defaultValue}
-      value={value}
+    <input
+      type="range"
       min={min}
       max={max}
+      step={step}
+      value={val}
+      onChange={handleChange}
+      disabled={disabled}
+      id={id}
+      data-slot="slider"
       className={cn(
-        "relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
+        "w-full h-1.5 bg-ds-surface-1 rounded-ds-full appearance-none cursor-pointer",
+        "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3",
+        "[&::-webkit-slider-thumb]:bg-ds-fg [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-ds-blue",
+        "[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(255,255,255,0.5)]",
+        "[&::-webkit-slider-thumb]:cursor-pointer",
+        disabled && "cursor-not-allowed opacity-40",
         className,
       )}
+      style={{
+        background: `linear-gradient(to right, rgba(59,130,246,0.5) 0%, rgba(59,130,246,1) ${pct}%, #050505 ${pct}%)`,
+      }}
       {...props}
-    >
-      <SliderPrimitive.Track
-        data-slot="slider-track"
-        className={cn(
-          "bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5",
-        )}
-      >
-        <SliderPrimitive.Range
-          data-slot="slider-range"
-          className={cn(
-            "bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
-          )}
-        />
-      </SliderPrimitive.Track>
-      {Array.from({ length: _values.length }, (_, index) => (
-        <SliderPrimitive.Thumb
-          data-slot="slider-thumb"
-          key={index}
-          className="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
-        />
-      ))}
-    </SliderPrimitive.Root>
+    />
   );
 }
 
