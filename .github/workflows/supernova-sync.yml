@@ -7,10 +7,10 @@ on:
   push:
     branches: [main]
     paths:
-      - 'modules/design-system/src/components/ui/**'
+      - 'modules/design-system/src/**'
       - 'modules/design-system/tokens/source/**'
       - 'modules/design-system/supernova.config.json'
-      - 'modules/design-system/scripts/supernova-sync.mjs'
+      - 'modules/design-system/scripts/**'
       - '.github/workflows/supernova-sync.yml'
   workflow_dispatch:
 
