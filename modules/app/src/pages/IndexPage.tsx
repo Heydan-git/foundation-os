@@ -26,33 +26,33 @@ export default function IndexPage() {
       title: 'Sessions',
       value: loading ? '...' : String(sessions.length),
       change: source === 'supabase' ? 'LIVE' : 'SEED',
-      glow: 'bg-purple-500/10',
+      glow: 'bg-ds-purple/10',
       icon: Activity,
-      iconColor: 'text-purple-400',
+      iconColor: 'text-ds-purple',
     },
     {
       title: 'Decisions ADR',
       value: loading ? '...' : String(decisions.length),
       change: `${decisions.length} actives`,
-      glow: 'bg-blue-500/10',
+      glow: 'bg-ds-blue/10',
       icon: Database,
-      iconColor: 'text-blue-400',
+      iconColor: 'text-ds-blue',
     },
     {
       title: 'Risques ouverts',
       value: loading ? '...' : String(openRisks),
       change: `${risks.length} total`,
-      glow: 'bg-rose-500/10',
+      glow: 'bg-ds-rose/10',
       icon: Shield,
-      iconColor: 'text-rose-400',
+      iconColor: 'text-ds-rose',
     },
     {
       title: 'Next Steps',
       value: loading ? '...' : `${todoPct}%`,
       change: `${doneSteps}/${nextSteps.length} done`,
-      glow: 'bg-emerald-500/10',
+      glow: 'bg-ds-emerald/10',
       icon: Zap,
-      iconColor: 'text-emerald-400',
+      iconColor: 'text-ds-emerald',
     },
   ]
 
@@ -64,8 +64,8 @@ export default function IndexPage() {
       subtitle:
         'Sessions, Decisions, Risques, Next Steps (Supabase CRUD)',
       icon: Sword,
-      iconColor: 'text-purple-400',
-      glow: 'bg-purple-500/10',
+      iconColor: 'text-ds-purple',
+      glow: 'bg-ds-purple/10',
       status: 'functional' as const,
     },
     {
@@ -75,8 +75,8 @@ export default function IndexPage() {
       subtitle:
         'Manifeste, Journal, Frameworks, Stack, Roadmap (knowledge base)',
       icon: BookOpen,
-      iconColor: 'text-blue-400',
-      glow: 'bg-blue-500/10',
+      iconColor: 'text-ds-blue',
+      glow: 'bg-ds-blue/10',
       status: 'static' as const,
     },
   ]
@@ -86,7 +86,7 @@ export default function IndexPage() {
       {/* Header */}
       <div className="flex flex-col gap-3 mb-6 border-b border-white/[0.05] pb-6 relative z-10">
         <div className="inline-flex items-center gap-2 px-2 py-1 rounded-md bg-white/[0.03] border border-white/[0.05] w-fit mb-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+          <div className="w-1.5 h-1.5 rounded-full bg-ds-emerald shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
           <span className="text-[10px] font-mono tracking-wider text-white/70">
             {source === 'supabase' ? 'SUPABASE LIVE' : 'SEED DATA'}
           </span>
@@ -130,7 +130,7 @@ export default function IndexPage() {
                 <div className="w-8 h-8 rounded-md bg-[#050505] border border-white/[0.08] flex items-center justify-center shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]">
                   <stat.icon size={14} className={stat.iconColor} />
                 </div>
-                <span className="flex items-center gap-0.5 text-[10px] font-mono text-emerald-400 px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+                <span className="flex items-center gap-0.5 text-[10px] font-mono text-ds-emerald px-1.5 py-0.5 rounded bg-ds-emerald/10 border border-ds-emerald/20">
                   {stat.change}
                 </span>
               </div>
@@ -176,8 +176,8 @@ export default function IndexPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   {mod.status === 'functional' ? (
-                    <span className="flex items-center gap-1 text-[8px] font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-1.5 py-0.5 rounded">
-                      <div className="w-1 h-1 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+                    <span className="flex items-center gap-1 text-[8px] font-mono text-ds-emerald bg-ds-emerald/10 border border-ds-emerald/20 px-1.5 py-0.5 rounded">
+                      <div className="w-1 h-1 rounded-full bg-ds-emerald shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
                       FUNCTIONAL
                     </span>
                   ) : (
