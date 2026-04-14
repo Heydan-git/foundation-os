@@ -19,12 +19,13 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-14 | **[DONE] Supernova sync live + refs cassees 81→0** |
-|            | Supernova bloc 9-10 : workspace 735528 / DS 790241 confirmes. 197 tokens DTCG sync via `supernova sync-tokens` (22 groupes). |
-|            | Bloc 11-12 infra : 154 stories importees via `storybook-import` (public), doc publiee. Contenu narratif (intros, do/don't) a ecrire via UI Supernova — session dediee. |
-|            | Scripts repo : `modules/design-system/supernova.config.json` + 4 npm scripts (`supernova:sync-tokens`, `:import-storybook`, `:publish`, `:all`). Env var `SUPERNOVA_TOKEN` requise. |
-|            | Refs cassees : exclure `docs/travaux-cowork/` dans ref-checker.sh (73 refs prospectives), CHANGELOG DS paths corriges, plan DS shadcn DONE archive `.archive/plans/`. Health : 81 refs → 0. |
-|            | Storybook public Supernova : https://storybook.supernova.io/design-systems/790241/alias/foundation-os-ds/index.html |
+| 2026-04-14 | **[DONE] Supernova live + Storybook fix + refs 81→0** |
+|            | Supernova blocs 9-10 : workspace 735528 / DS 790241. 197 tokens DTCG sync, 22 groupes, 154 stories importees, doc publiee. |
+|            | **Storybook upgrade** : 8.6 → 9.1.20 + Vite 7 (DS uniquement). Fix runtime `__STORYBOOK_MODULE_PREVIEW_API__` cause par Vite 8/Rolldown incompat SB 8.6. Preview iframe fonctionne (verifie local + Supernova hosted). App tsconfig exclude `*.stories.tsx`. |
+|            | Scripts repo : `modules/design-system/supernova.config.json` + 4 npm scripts `supernova:*`. Env var `SUPERNOVA_TOKEN` requise. |
+|            | Refs cassees : exclure `docs/travaux-cowork/` dans ref-checker.sh, CHANGELOG DS paths corriges, plan DS shadcn DONE archive `.archive/plans/`. 81 → 0. |
+|            | Commits : `4a57db5` (Supernova + refs) + `06afda1` (Storybook upgrade). |
+|            | URL Storybook public Supernova : https://storybook.supernova.io/design-systems/790241/alias/foundation-os-ds/index.html |
 | 2026-04-14 | **[DONE] Storybook S2 + S3.bloc8 — 27 stories + audit etats** |
 |            | S2 Blocs 4-6 (27 stories DS : Layout 10 + Nav 8 + Data 9). S2 Bloc 7 (9 stories app : Card/Badge/Skeleton + 6 Commander panels). |
 |            | S3 Bloc 8 : audit etats 46 composants (couverture 21%, rapport docs/plans/2026-04-14-ds-audit-etats.md). |
@@ -74,7 +75,7 @@
 
 **Pourquoi** : Supernova setup fait (blocs 9-12 infra). DS visible publiquement. Reste enrichissement narratif + sync Asana/Notion.
 
-**Prochaine action** : 2 pistes au choix — (a) Enrichir narratif Supernova (Foundations intros, Components do/don't) via UI ou SDK docs writer, session dediee. (b) Plan DS Showcase blocs 13-14 (Asana/Notion sync) **bloque** tant que Kevin n'a pas OK ecriture externe.
+**Prochaine action** : verifier Supernova dans UI (preview Storybook + composants/tokens visibles). Puis au choix — (a) Enrichir narratif Supernova (Foundations intros, Components entites distinctes via SDK docs writer). (b) Plan DS Showcase blocs 13-14 (Asana/Notion sync) **bloque** tant que Kevin n'a pas OK ecriture externe. (c) Investiguer bundle app 613kB (seul warning health).
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
