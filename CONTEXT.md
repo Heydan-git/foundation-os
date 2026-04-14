@@ -19,6 +19,13 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-14 | **[DONE] Storybook S2 + S3.bloc8 — 27 stories + audit etats** |
+|            | S2 Blocs 4-6 (27 stories DS : Layout 10 + Nav 8 + Data 9). S2 Bloc 7 (9 stories app : Card/Badge/Skeleton + 6 Commander panels). |
+|            | S3 Bloc 8 : audit etats 46 composants (couverture 21%, rapport docs/plans/2026-04-14-ds-audit-etats.md). |
+|            | Config : extension Storybook scanne modules/app (alias @ resolu). Total Storybook : 55 stories. |
+|            | Brief spec v11 passee a 12 sections (PLANS ACTIFS obligatoire — docs/core/communication.md §6.1). |
+|            | Commits : `[blocs 4-6]` + `[bloc 7]` + `[bloc 8]` + spec brief. |
+|            | **Blocage** : Supernova (blocs 9-12) requiert compte Kevin. Asana/Notion sync (blocs 13-15) requiert OK ecriture externe. |
 | 2026-04-13 | **[DONE] Storybook S1 — Blocs 1-3 (19 stories)** |
 |            | Bloc 1 : audit config OK. Bloc 2 : 10 stories Form. Bloc 3 : 9 stories Feedback. |
 |            | Commit : `b36cbe0` |
@@ -61,7 +68,7 @@
 
 **Pourquoi** : Plan finition DS termine (F1-F9, commits d0217a8 + e671ca8). DS propre : biome, 23 tests, audit composants fait. Prochaine etape = rendre le DS visible et documente.
 
-**Prochaine action** : Continuer plan DS Showcase (`docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md`) — Blocs 4-7 (stories Layout, Navigation, Data Display, App Dashboard). 12 blocs restants sur 4 sessions.
+**Prochaine action** : Plan DS Showcase — S3 blocs 9-10 (Supernova setup) **bloque** tant que Kevin n'a pas cree compte Supernova. Alternative : S5 blocs 13-15 (Asana/Notion sync) **bloque** tant que Kevin n'a pas OK ecriture externe. 7 blocs restants : 9, 10, 11, 12, 13, 14, 15.
 
 **Ensuite** : Phase 5 Expansion (Finance/Sante/Trading — a decider).
 
@@ -77,11 +84,13 @@
 
 ## En attente Kevin
 
+- **Creer compte Supernova** (supernova.io) — prerequis blocs 9-10 DS Showcase. Workspace "Foundation OS" a creer.
+- **OK ecriture externe Asana/Notion** — blocs 13-14 DS Showcase sync (creer taches / mettre a jour pages). Action non-reversible.
+- **Decision bloc 8 audit** : Option A combler etats critiques (2h), B passer Supernova 21%, C skip audit. Reco : B.
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
-- OMC update disponible v4.11.4 (actuel v4.10.1, `omc update`). Lateral, pas urgent.
+- OMC update v4.11.6 (actuel v4.10.1, `omc update`). Lateral.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
-- Decision strategique Phase 5 : quel module lancer ? Finance / Sante / Trading (reporte apres finition DS)
-- Demarrer S+2 DS : executer F8 du plan finition (nettoyage + tests etendus)
+- Decision strategique Phase 5 : quel module lancer ? Finance / Sante / Trading
 
 ## Decisions
 
@@ -114,8 +123,9 @@
 
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
-| App Builder | OK 253ms | 473 kB | 25 kB | 19/19 | 5 |
-| Design System | OK tokens | — | — | 23/23 | — |
+| App Builder | OK | 473 kB | 25 kB | 19/19 | 5 |
+| Design System | OK | — | — | 23/23 | — |
+| Storybook | OK (2.68s) | — | — | — | 46 stories DS + 9 app = 55 |
 
 Seuils : voir `docs/core/monitor.md` section 4 (source unique).
 Health-check : SAIN (0 critical, 0 warning). Refs nettoyees 2026-04-10.

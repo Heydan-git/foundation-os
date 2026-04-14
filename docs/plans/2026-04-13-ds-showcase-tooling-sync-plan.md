@@ -244,11 +244,11 @@ Storybook montre tous les composants avec tous les etats, Supernova documente le
 - [x] Bloc 1 — done (audit config OK, port 6006, theme Void Glass)
 - [x] Bloc 2 — done (10 stories Form Primitives)
 - [x] Bloc 3 — done (9 stories Feedback)
-- [ ] Bloc 4 — pending
-- [ ] Bloc 5 — pending
-- [ ] Bloc 6 — pending
-- [ ] Bloc 7 — pending
-- [ ] Bloc 8 — pending
+- [x] Bloc 4 — done 2026-04-14 (10 stories Layout)
+- [x] Bloc 5 — done 2026-04-14 (8 stories Navigation)
+- [x] Bloc 6 — done 2026-04-14 (9 stories Data Display + Form avance, chart en placeholder)
+- [x] Bloc 7 — done 2026-04-14 (9 stories App Dashboard — Card/Badge/Skeleton + 6 Commander panels; DashboardLayout skip — providers)
+- [x] Bloc 8 — done 2026-04-14 (audit 46 composants, rapport docs/plans/2026-04-14-ds-audit-etats.md, 21% moyen)
 - [ ] Bloc 9 — pending
 - [ ] Bloc 10 — pending
 - [ ] Bloc 11 — pending
