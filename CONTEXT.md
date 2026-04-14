@@ -22,7 +22,7 @@
 | 2026-04-14 | **[DONE] Tooling sync + narratif DS ready** |
 |            | Asana : projet "Foundation OS — Setup" cloture (status "complete", 22/22 taches). Nouveau projet "Foundation OS — Build" (gid 1214059589666268) avec 4 sections (En cours, En attente Kevin, Idees & Parking, Phase 5 gelee) + 18 taches. |
 |            | Notion : wiki 🪐 Foundation OS mis a jour — Sessions (+ 9 sessions 2026-04-07→14), Decisions actives (+ 14 decisions Build), Roadmap (Phase Build + modules reels + Phase 5 gelee). |
-|            | Supernova narratif : 52 fichiers Markdown prets dans `modules/design-system/docs-supernova/` (6 Foundations handcrafted + 46 Components generes via `scripts/gen-component-docs.mjs`). Push via UI Supernova (Option A) — push SDK non verifie sans token. |
+|            | Supernova narratif : 52 fichiers Markdown prets dans `modules/design-system/docs-supernova/` (6 Foundations handcrafted + 46 Components generes via `modules/design-system/scripts/gen-component-docs.mjs`). Push via UI Supernova (Option A) — push SDK non verifie sans token. |
 |            | Composants invisibles Supernova : root cause documentee dans README docs-supernova. `storybook-import` embed iframe mais ne cree pas d'entites Component navigables — fix = pages Documentation dediees (markdown prets). |
 |            | Health : SAIN (0 critical, 0 ref cassee, 42/42 tests, 1 warning bundle 613kB). |
 | 2026-04-14 | **[DONE] Supernova live + Storybook fix + refs 81→0** |
