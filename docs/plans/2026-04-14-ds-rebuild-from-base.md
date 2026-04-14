@@ -144,13 +144,93 @@ Ordre : du plus simple au plus complexe.
 
 ## Execution log
 
-- [ ] Phase 0 — Revert + archive
-- [ ] Phase 1 — Tokens
-- [ ] Phase 2a — UI batch Form & inputs
-- [ ] Phase 2b — UI batch Layout & nav
-- [ ] Phase 2c — UI batch Data & feedback
-- [ ] Phase 3 — Stories Storybook
-- [ ] Phase 4a — DashboardLayout + IndexPage
-- [ ] Phase 4b — Commander + Knowledge
-- [ ] Phase 4c — Login + ResetPassword + cleanup
-- [ ] Phase 5 — Verification visuelle + Supernova + CONTEXT
+- [x] **Phase 0** — Revert + archive (`64d6baf`)
+  - IndexPage.tsx reverte au hand-coded (commit 753891b)
+  - Archives dans `.archive/ds-rebuild-2026-04-14/` : old-ui (103), old-void-glass (11), old-patterns (7), old-tokens-primitives, old-tokens-semantic, old-globals.css
+  - src/components/ vide sauf `ds/` (puis rempli Phase 2)
+  - tokens/source/ vide
+  - src/index.ts gut a `export { cn } from './lib/utils'`
+  - globals.css reduit a placeholder
+
+- [x] **Phase 1** — Tokens (`ccd3e01`)
+  - `src/styles/tokens.css` (175L) : PRIMITIVES `--p-*` (raw colors, spacing, text, radius, shadow) + SEMANTIC `--ds-*` (aliases by role, dark-only) + SHADCN bridge (`--background` etc. → semantic)
+  - `src/styles/globals.css` (170L) : @import tailwindcss + tw-animate-css + tokens.css + @theme inline Tailwind v4 (genere `bg-ds-*`, `text-ds-*`, `p-ds-*`, `rounded-ds-*`) + @layer base (typo, fonts Figtree/JetBrains)
+  - Decision : DARK-ONLY (pas de `:root light` + `.dark override`)
+  - Valeurs iso `base DS/src/styles/theme.css` : ds-surface-0..3 (#030303..#111111), ds-blue #60a5fa, ds-purple #c084fc, ds-emerald #34d399, etc.
+
+- [x] **Phase 2** — UI composants (`ea1e48b`)
+  - 46 composants + utils.ts + use-mobile.ts copies de `base DS/src/app/components/ui/` → `src/components/ui/` (iso, 0 modif de code)
+  - 3 fichiers avec `@ts-nocheck` (ligne 1) pour drift API v9 : `calendar.tsx` (react-day-picker IconLeft), `chart.tsx` (recharts v3 types), `resizable.tsx` (react-resizable-panels v4 default→named exports)
+  - Barrel `src/components/ui/index.ts` : `export * from './<file>'` pour chacun + `export { cn } from './utils'` + `export { useIsMobile } from './use-mobile'`
+  - `src/index.ts` : `export * from './components/ui'`
+
+- [x] **Phase 3a** — Patterns Storybook (`18e4a00`)
+  - 7 Dashboard*.tsx copies de `base DS/src/app/components/` → `src/components/patterns/` (iso)
+  - `Patterns.stories.tsx` : stories `Home / AIAnalytics / Transactions / Wallet / Settings / DesignSystem` avec `MemoryRouter` decorator (react-router v7, chemins hardcoded dans DashboardLayout)
+
+- [ ] **Phase 3b** — Stories individuelles composants UI
+  - **Scope** : 46 stories dans `src/components/ui/<name>.stories.tsx` (1 fichier par composant)
+  - **Template minimal par story** : 1 story `Default` + variantes clefs (ex: button.stories.tsx → Default, Variants, Sizes, Loading)
+  - **Priorite** : button, input, card, dialog, alert, badge, tabs, select, textarea, checkbox, radio-group, switch, tooltip, dropdown-menu, sheet, popover, avatar, label, separator, progress, slider, skeleton, scroll-area, pagination, breadcrumb, accordion, toggle, command, form, calendar, chart, carousel, drawer, resizable, menubar, navigation-menu, context-menu, hover-card, alert-dialog, sonner, table, collapsible, aspect-ratio, input-otp, toggle-group, sidebar
+  - **Astuce** : 3 composants avec @ts-nocheck (calendar, chart, resizable) → stories possibles mais surveillance types
+  - **Verif** : `npm run storybook` → 46 stories + 6 patterns = 52 visibles. `npm run build-storybook` clean.
+
+- [ ] **Phase 4a** — Refactor IndexPage (token propagation ds-*)
+  - **File** : `modules/app/src/pages/IndexPage.tsx`
+  - **Action** : remplacer `bg-purple-500/10` → `bg-ds-purple/10`, `bg-blue-500/10` → `bg-ds-blue/10`, `bg-emerald-500/10` → `bg-ds-emerald/10`, `bg-rose-500/10` → `bg-ds-rose/10` etc. dans les glow + icon color references
+  - **Idem** : `text-purple-400` → `text-ds-purple`, `text-blue-400` → `text-ds-blue`, etc.
+  - **Ne PAS** : reintroduire des imports `@foundation-os/design-system` composants tant qu'il n'y a pas de StatCard component (void-glass abandonne). Garder hand-coded glass, juste propager les tokens.
+  - **Verif** : build OK, test OK, visuel identique (meme couleurs finales car `--ds-purple = #c084fc = purple-400`).
+
+- [ ] **Phase 4b** — Refactor Commander + KnowledgePage + Login + ResetPassword
+  - Meme strategie que 4a : propagation token ds-*. Pas de refactor structurel.
+  - `Commander.tsx` (tabs + 6 panels), `KnowledgePage.tsx` (sections + cards), `Login.tsx` + `ResetPassword.tsx` (centered card + orbs)
+  - **Verif** : app build OK, 19/19 tests OK.
+
+- [ ] **Phase 5** — Verification visuelle + Supernova + CONTEXT
+  - **OBLIGATOIRE screenshot** (regle CLAUDE.md, memoire `feedback_visual_verification.md`) :
+    1. Lancer `npm run dev` dans `modules/app/`
+    2. Chrome-devtools MCP → screenshot `/`, `/commander`, `/knowledge`, `/auth/login`
+    3. Comparer visuellement a `base DS/src/app/components/DashboardHome.tsx` etc. (ouvrir ce code et lire la structure visuelle attendue)
+    4. Si divergence >5% : ajuster Phase 4
+  - **Storybook** : `npm run storybook` → screenshot chaque story. Comparer au base DS.
+  - **Supernova** : push auto via GitHub Action (necessite `SUPERNOVA_TOKEN` secret — Kevin doit ajouter, cf CONTEXT "En attente Kevin"). Verif UI Supernova (accessibility snapshot).
+  - **CONTEXT.md** : update session, ajouter commit SHA finaux, passer Design System module status de `🔄 REBUILD` a `✅ iso base DS`.
+  - **Commit final** : `feat(ds): rebuild complet iso base DS — phases 0-5 DONE`.
+
+## Next Session Checklist (NE PAS OUBLIER)
+
+**En ouvrant la prochaine session** :
+
+1. ✅ Lire CE FICHIER en premier (`docs/plans/2026-04-14-ds-rebuild-from-base.md`)
+2. ✅ Verifier le git log : dernier commit = `18e4a00 docs(context): session DS rebuild phases 0-3a + handoff`
+3. ✅ Verifier la structure DS : `ls modules/design-system/src/components/ui/ | wc -l` → doit donner **48** (46 composants + utils.ts + use-mobile.ts)
+4. ✅ Verifier les patterns : `ls modules/design-system/src/components/patterns/` → 7 Dashboard*.tsx + Patterns.stories.tsx
+5. ✅ Build check : `npm run build -w modules/app` → OK 275ms attendu
+6. ✅ Test check : `cd modules/app && npm test -- --run` → 19/19 attendu
+
+**Rappels critiques** :
+
+- **Ne PAS** recreer `void-glass/` (Kevin a dit explicitement de l'abandonner)
+- **Ne PAS** remplacer `ui/` actuels par autre chose (ils sont iso base DS voulu)
+- **Base DS** = sacree, JAMAIS modifier `modules/design-system/base DS/src/`
+- **Phase 4** : propagation tokens UNIQUEMENT (semantic), pas de refactor structurel des pages
+- **Phase 5** : screenshot OBLIGATOIRE avant "fait" (CLAUDE.md)
+- **Kevin veut 100% iso visuel** : si en doute, privilegier le rendu sur l'elegance technique
+- **Commits sessions courtes** : 1 phase = 1 commit. Ne pas batcher plusieurs phases.
+- **Sub-agents** : seulement pour travail isole (pas pour jugement visuel qui requiert contexte global)
+
+**Points d'attention runtime** :
+
+- `calendar.tsx`, `chart.tsx`, `resizable.tsx` ont `@ts-nocheck` → si utilises dans stories Phase 3b, faire au moins un smoke render pour verifier runtime OK
+- Bundle app 613kB (motion + lucide) : warning non-bloquant, investigation post-Phase 5
+- Refs cassees : 65 (hausse de 1→65 vraisemblablement refs dans plan ou CONTEXT vers files archives) — a investiguer en Phase 5
+
+**Fichiers cles pour re-onboarding** :
+- Ce plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md`
+- Source verite visuelle : `modules/design-system/base DS/src/`
+- Tokens actifs : `modules/design-system/src/styles/tokens.css` + `globals.css`
+- Composants : `modules/design-system/src/components/ui/` (46) + `patterns/` (7)
+- Storybook : `modules/design-system/.storybook/` + `src/**/*.stories.tsx`
+- App layouts deja iso : `modules/app/src/components/DashboardLayout.tsx` (OK)
+- App pages a token-propager : `modules/app/src/pages/*.tsx`
