@@ -173,7 +173,7 @@
   --popover: var(--ds-surface-3);
   --popover-foreground: var(--ds-fg);
 
-  --primary: var(--ds-fg);
+  --primary: var(--ds-blue);
   --primary-foreground: var(--ds-surface-0);
 
   --secondary: var(--ds-surface-2);
