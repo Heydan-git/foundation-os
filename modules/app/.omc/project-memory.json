@@ -1,0 +1,292 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775570272505,
+  "projectRoot": "/Users/kevinnoel/foundation-os/modules/app",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "18.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "18.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "5.0.0",
+        "category": "build"
+      },
+      {
+        "name": "vitest",
+        "version": "4.1.2",
+        "category": "testing"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": "npm test",
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview",
+      "test": "vitest run",
+      "test:watch": "vitest",
+      "db:migrate": "supabase migration up",
+      "db:reset": "supabase db reset"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "data": {
+      "path": "data",
+      "purpose": "Data files",
+      "fileCount": 7,
+      "lastAccessed": 1775570272485,
+      "keyFiles": [
+        "commander.md",
+        "graph.md",
+        "index.md",
+        "knowledge.md",
+        "scale-orchestrator.md"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 1,
+      "lastAccessed": 1775570272485,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1775570272485,
+      "keyFiles": [
+        "App.tsx",
+        "index.css",
+        "main.tsx",
+        "vite-env.d.ts"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1775570272485,
+      "keyFiles": [
+        "index-B2doiD2x.js",
+        "index-CU1JwjmM.css"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 8,
+      "lastAccessed": 1775570272486,
+      "keyFiles": [
+        "Badge.tsx",
+        "Card.tsx",
+        "Layout.tsx"
+      ]
+    },
+    "src/lib": {
+      "path": "src/lib",
+      "purpose": "Library code",
+      "fileCount": 5,
+      "lastAccessed": 1775570272486,
+      "keyFiles": [
+        "AuthContext.tsx",
+        "database.types.ts",
+        "mutations.ts"
+      ]
+    },
+    "src/pages": {
+      "path": "src/pages",
+      "purpose": "Page components",
+      "fileCount": 7,
+      "lastAccessed": 1775570272486,
+      "keyFiles": [
+        "Commander.tsx",
+        "Dashboard.tsx",
+        "IndexPage.tsx"
+      ]
+    },
+    "src/test": {
+      "path": "src/test",
+      "purpose": "Test files",
+      "fileCount": 7,
+      "lastAccessed": 1775570272486,
+      "keyFiles": [
+        "AuthContext.test.tsx",
+        "app.test.tsx",
+        "forms.test.tsx"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/pages/KnowledgePage.tsx",
+      "accessCount": 10,
+      "lastAccessed": 1775829833417,
+      "type": "directory"
+    },
+    {
+      "path": "src/lib/mutations.ts",
+      "accessCount": 7,
+      "lastAccessed": 1775826782067,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Dashboard.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1775829595761,
+      "type": "file"
+    },
+    {
+      "path": "src/components/SupabaseCRUDTest.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775829494842,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/Commander.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1775829557293,
+      "type": "directory"
+    },
+    {
+      "path": "src",
+      "accessCount": 4,
+      "lastAccessed": 1775839558289,
+      "type": "directory"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 4,
+      "lastAccessed": 1775839596084,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/EditDecisionModal.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775826737259,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms/AddSessionForm.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775826740041,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 2,
+      "lastAccessed": 1775829539253,
+      "type": "file"
+    },
+    {
+      "path": "postcss.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1775839605206,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 1,
+      "lastAccessed": 1775811187336,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/database.types.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775815236111,
+      "type": "file"
+    },
+    {
+      "path": "src/components/forms",
+      "accessCount": 1,
+      "lastAccessed": 1775826717522,
+      "type": "directory"
+    },
+    {
+      "path": "src/components/forms/NextStepActions.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775826730483,
+      "type": "file"
+    },
+    {
+      "path": "src/components/LoadingSkeleton.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775829534226,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/constants.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775829537503,
+      "type": "file"
+    },
+    {
+      "path": "src/App.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775829571015,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/knowledge-data.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775829732243,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775839816055,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

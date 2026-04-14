@@ -7,7 +7,7 @@
  * - Fond dark #030303 (ds-surface-0) par defaut
  * - Active addon-a11y avec regle color-contrast obligatoire
  */
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/react-vite'
 
 // Globals DS : Tailwind + tokens + bridge shadcn vars (dark-only)
 import '../src/styles/globals.css'
@@ -37,11 +37,10 @@ document.head.appendChild(baseStyles)
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: 'dark',
-      values: [
-        { name: 'dark', value: '#030303' },
-        { name: 'white', value: '#FFFFFF' }
-      ]
+      options: {
+        dark: { name: 'dark', value: '#030303' },
+        white: { name: 'white', value: '#FFFFFF' }
+      }
     },
     controls: {
       matchers: {
@@ -55,6 +54,12 @@ const preview: Preview = {
       }
     },
     layout: 'padded'
+  },
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'dark'
+    }
   }
 }
 

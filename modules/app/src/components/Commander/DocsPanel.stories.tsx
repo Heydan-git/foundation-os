@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { DocsPanel } from './DocsPanel'
 import type { Doc } from '@/lib/database.types'
 

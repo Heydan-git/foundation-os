@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { NextStepsPanel } from './NextStepsPanel'
 import type { NextStep } from '@/lib/database.types'
 

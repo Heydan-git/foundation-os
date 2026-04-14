@@ -1,3 +1,4 @@
+import { createRequire } from "node:module";
 /**
  * Foundation OS — Design System
  * Storybook 8 main config
@@ -8,24 +9,27 @@
  */
 import type { StorybookConfig } from '@storybook/react-vite'
 import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import path, { dirname, join } from 'path';
+
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   stories: [
     '../src/**/*.stories.@(tsx|ts|jsx|js|mdx)',
     '../../app/src/components/**/*.stories.@(tsx|ts|jsx|js|mdx)'
   ],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
+
+  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
+
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath("@storybook/react-vite"),
     options: {}
   },
-  docs: {
-    autodocs: 'tag'
-  },
+
   typescript: {
     reactDocgen: 'react-docgen-typescript'
   },
+
   async viteFinal(config) {
     config.plugins = [...(config.plugins ?? []), tailwindcss()]
     config.resolve = config.resolve ?? {}
@@ -38,3 +42,7 @@ const config: StorybookConfig = {
 }
 
 export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { RisksPanel } from './RisksPanel'
 import type { Risk } from '@/lib/database.types'
 

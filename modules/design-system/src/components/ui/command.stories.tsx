@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Calendar, Smile, Calculator } from 'lucide-react'
 import {
   Command,

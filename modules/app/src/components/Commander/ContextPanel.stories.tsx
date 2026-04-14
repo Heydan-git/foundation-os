@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ContextPanel } from './ContextPanel'
 import type { ContextBlock } from '@/lib/database.types'
 
