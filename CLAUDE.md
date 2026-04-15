@@ -81,6 +81,35 @@ Spec complete : `docs/core/naming-conventions.md`. Source de verite unique, appl
 
 Red flag si je cree une branche ou un worktree hors format : arreter, renommer, reprendre.
 
+## Decisions autonomes (agis SANS demander)
+
+Ces decisions sont de la **logique pure**. Tu dois les prendre automatiquement, sans demander validation Kevin. La seule exception : si l'action est destructive ET irreversible (ex : `git push --force`, delete hors archive).
+
+**Archivage automatique** :
+- Plan dans `docs/plans/` avec toutes cases `[x]` OU status `done`/`closed` → `mv` vers `.archive/plans-done-$(date +%y%m%d)/` (execute par `scripts/auto-archive-plans.sh` via hook SessionEnd)
+- Spec dans `docs/specs/` qui documente un plan execute + aucune reference active → `mv` vers `.archive/specs-done-$(date +%y%m%d)/`
+- Fichier documente explicitement SUPERSEDED par autre + zero ref active → `mv` vers `.archive/<contexte>-<yymmdd>/`
+- Worktree orphelin (branche mergee + dossier vide > 30j) → `git worktree remove` + mention dans cloture session
+
+**Nettoyage automatique** :
+- Fichiers tmp `.tmp.*`, `.bak`, `.log` > 7j dans `.omc/` → `rm`
+- Branches locales 100% mergees dans main → `git branch -d <branche>` (pas remote sans OK Kevin)
+- Tokens/secrets hardcoded detectes dans fichiers commitables → retirer + backup dans `.archive/`
+
+**Mise a jour automatique** :
+- `CONTEXT.md` section Sessions recentes apres commit majeur → append entree datee
+- `CONTEXT.md` section Decisions apres `/plan-os` avec titre `D-*` → append avec date
+- Baselines `docs/core/monitor.md` si metriques reelles divergent > 30% de la baseline (ex: bundle JS change de 200KB) → update
+
+**Interdit sans Kevin** :
+- Tout `git push` sur main ou `--force`
+- Tout `rm -rf` hors `.archive/` ou node_modules regenerable
+- Tout `git commit` automatique (toujours attendre OK Kevin pour commit) — SAUF dans `/session-end` apres diff review
+- Tout push sur remote (origin/*)
+- Toute action qui affecte Asana/Notion/MCP externes
+
+**En cas de doute (ambiguite)** : poser UNE question groupee a Kevin avant d'agir. Ne pas eparpiller les questions au fil de l'eau.
+
 ## Garde-fous (non-negociable)
 - Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json y vivent — package.json racine = workspace root UNIQUEMENT, pas un projet ; ajoute 2026-04-09 pour npm workspaces + Design System)
 - Ne JAMAIS creer de fichier sans demande explicite de Kevin
