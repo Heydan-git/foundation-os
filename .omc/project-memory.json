@@ -118,6 +118,12 @@
   },
   "hotPaths": [
     {
+      "path": "CONTEXT.md",
+      "accessCount": 5,
+      "lastAccessed": 1776253217995,
+      "type": "file"
+    },
+    {
       "path": "scripts/ref-checker.sh",
       "accessCount": 4,
       "lastAccessed": 1776252729141,
@@ -139,12 +145,6 @@
       "path": "docs/core/naming-conventions.md",
       "accessCount": 3,
       "lastAccessed": 1776252920209,
-      "type": "file"
-    },
-    {
-      "path": "CONTEXT.md",
-      "accessCount": 3,
-      "lastAccessed": 1776252940752,
       "type": "file"
     },
     {
@@ -223,6 +223,12 @@
       "path": "docs/core/monitor.md",
       "accessCount": 2,
       "lastAccessed": 1776252927298,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 2,
+      "lastAccessed": 1776253305242,
       "type": "file"
     },
     {

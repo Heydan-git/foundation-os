@@ -6,10 +6,19 @@
     "path": ".claude/commands/cockpit.md",
     "description": "Point d'entree unique TDAH-friendly : scan parallele (CONTEXT + git + build + health) → brief v11 → routing automatique vers le bon agent → execution → cloture avec commit + CONTEXT.md update",
     "usage": "/cockpit",
-    "triggers": ["cockpit", "on fait quoi", "demarre", "session complete", "pilote"],
+    "triggers": [
+      "cockpit",
+      "on fait quoi",
+      "demarre",
+      "session complete",
+      "pilote"
+    ],
     "when_to_use": "Quand Kevin veut tout en un : brief + travail + cloture dans un seul flow. Ideal pour les sessions ou le scope n'est pas encore defini",
     "when_not_to_use": "Quand le scope est deja clair et qu'on veut juste coder (utiliser directement). Quand on veut uniquement le brief (/session-start)",
-    "depends_on": ["health-check.sh", "CONTEXT.md"],
+    "depends_on": [
+      "health-check.sh",
+      "CONTEXT.md"
+    ],
     "outputs": "Brief v11 + question 'On fait quoi ?' + routing agent + execution + commit + CONTEXT.md update",
     "examples": [
       {
@@ -30,10 +39,19 @@
     "path": ".claude/commands/session-start.md",
     "description": "Brief de debut de session au format v11 TDAH-friendly : collecte parallele (CONTEXT + git + build + health) → verification structure → brief 11 sections avec cadres box-drawing → questions pour Kevin",
     "usage": "/session-start",
-    "triggers": ["session start", "debut session", "brief", "start", "commence"],
+    "triggers": [
+      "session start",
+      "debut session",
+      "brief",
+      "start",
+      "commence"
+    ],
     "when_to_use": "En debut de session pour obtenir le contexte complet du projet avec brief visuel. Quand on veut les questions projet avant de commencer",
     "when_not_to_use": "Si on veut le flow complet scan→work→cloture (utiliser /cockpit). Si on reprend un travail en cours sans besoin de brief",
-    "depends_on": ["health-check.sh", "CONTEXT.md"],
+    "depends_on": [
+      "health-check.sh",
+      "CONTEXT.md"
+    ],
     "outputs": "Brief v11 avec 11 sections (Sante, Trajectoire, Modules, Attention, Dernier travail, Statut, Idees, Reflexion, Historique, Cap, Input) + questions",
     "examples": [
       {
@@ -54,10 +72,20 @@
     "path": ".claude/commands/session-end.md",
     "description": "Cloture de session : inventaire git diff → verification coherence + build + tests + health → classification (DONE/CONCERNS/BLOCKED) → capture idees → mise a jour CONTEXT.md (7 sections) → commit → brief cloture v11",
     "usage": "/session-end",
-    "triggers": ["session end", "fin session", "cloture", "on arrete", "termine"],
+    "triggers": [
+      "session end",
+      "fin session",
+      "cloture",
+      "on arrete",
+      "termine"
+    ],
     "when_to_use": "En fin de session pour journaliser le travail, mettre a jour CONTEXT.md, et obtenir le brief de cloture",
     "when_not_to_use": "En milieu de session (attendre la fin). Si aucun changement n'a ete fait (brief minimal automatique)",
-    "depends_on": ["health-check.sh", "ref-checker.sh", "CONTEXT.md"],
+    "depends_on": [
+      "health-check.sh",
+      "ref-checker.sh",
+      "CONTEXT.md"
+    ],
     "outputs": "Brief de cloture v11 (Etat technique, Ce qui a ete fait, Idees capturees, Cap mis a jour, Concerns) + CONTEXT.md mis a jour + commit propose",
     "examples": [
       {
@@ -78,10 +106,18 @@
     "path": ".claude/commands/sync.md",
     "description": "Audit complet de coherence : lance sync-check.sh qui execute health-check + 7 checks etendus (modules vs CONTEXT, refs, Core OS, specs, routes, fonts)",
     "usage": "/sync",
-    "triggers": ["sync", "coherence", "audit complet", "tout est aligne", "verification"],
+    "triggers": [
+      "sync",
+      "coherence",
+      "audit complet",
+      "tout est aligne",
+      "verification"
+    ],
     "when_to_use": "Quand on veut verifier que tout est coherent : CONTEXT.md, filesystem, code, refs, specs. Apres un gros changement ou avant un deploy",
     "when_not_to_use": "Pour un simple health-check (utiliser health-check.sh directement). En debut/fin de session (session-start/end le font deja)",
-    "depends_on": ["sync-check.sh"],
+    "depends_on": [
+      "sync-check.sh"
+    ],
     "outputs": "Rapport SAIN/DEGRADED/BROKEN avec detail de chaque check. Exit 0=SAIN, 1=BROKEN, 2=DEGRADED",
     "examples": [
       {
@@ -102,10 +138,21 @@
     "path": ".claude/commands/plan-os.md",
     "description": "Generateur de plan Foundation OS : wrapper par-dessus superpowers:writing-plans avec routing modele automatique (haiku/sonnet/opus), regle sub-agent stricte (3 conditions), versionnement dans docs/plans/, validation bloc par bloc",
     "usage": "/plan-os <demande>",
-    "triggers": ["plan-os", "genere un plan", "planifier", "decoupe", "routing modele", "plan token"],
+    "triggers": [
+      "plan-os",
+      "genere un plan",
+      "planifier",
+      "decoupe",
+      "routing modele",
+      "plan token"
+    ],
     "when_to_use": "Tache non-triviale (> 3 fichiers, > 1 domaine, > 30min). Besoin d'economie de tokens et de tracabilite versionnee",
     "when_not_to_use": "Tache triviale, exploration pure (utiliser Agent Explore), bug fix avec cause racine claire",
-    "depends_on": ["superpowers:writing-plans", "docs/core/planner.md", "docs/plans/_template-plan.md"],
+    "depends_on": [
+      "superpowers:writing-plans",
+      "docs/core/planner.md",
+      "docs/plans/_template-plan.md"
+    ],
     "outputs": "Plan versionne dans docs/plans/YYYY-MM-DD-nom-plan.md avec frontmatter YAML, routing modele, decoupage sub-agent, validation bloc par bloc",
     "examples": [
       {
@@ -126,10 +173,17 @@
     "path": ".claude/commands/new-project.md",
     "description": "Scaffold un nouveau module : lance module-scaffold.sh qui cree modules/<nom>/{README.md, package.json, src/} et met a jour CONTEXT.md. Kebab-case, idempotent, rollback si erreur",
     "usage": "/new-project <nom-module>",
-    "triggers": ["nouveau module", "new project", "creer module", "scaffold"],
+    "triggers": [
+      "nouveau module",
+      "new project",
+      "creer module",
+      "scaffold"
+    ],
     "when_to_use": "Creer un nouveau module dans l'OS. Valide le nom, refuse si le module existe deja",
     "when_not_to_use": "Pour modifier un module existant (editer directement). Pour creer des fichiers hors modules/ (interdit)",
-    "depends_on": ["module-scaffold.sh"],
+    "depends_on": [
+      "module-scaffold.sh"
+    ],
     "outputs": "Dossier modules/<nom>/ avec structure de base + CONTEXT.md mis a jour + checklist post-scaffold",
     "examples": [
       {
@@ -142,5 +196,36 @@
     "priority": 4,
     "added": "2026-04-05",
     "updated": "2026-04-10"
+  },
+  {
+    "id": "wt",
+    "name": "wt",
+    "category": "commands",
+    "path": ".claude/commands/wt.md",
+    "description": "Gestion worktrees Foundation OS. Wrapper autour scripts/worktree-{new,clean,list}.sh. Applique convention wt/<desc>-<yymmdd>.",
+    "usage": "/wt new <desc> | /wt list | /wt clean <desc>",
+    "triggers": [
+      "worktree",
+      "wt",
+      "isolation",
+      "parallele"
+    ],
+    "when_to_use": "Feature parallele, migration massive, experimentation destructible, session Desktop dediee",
+    "when_not_to_use": "Fix rapide <1h, doc simple, review PR locale",
+    "depends_on": [
+      "scripts/worktree-new.sh",
+      "scripts/worktree-clean.sh",
+      "scripts/worktree-list.sh"
+    ],
+    "outputs": "branche wt/<desc>-<yymmdd> + dossier .claude/worktrees/<desc>-<yymmdd>/",
+    "examples": [
+      "/wt new migration-desktop",
+      "/wt list",
+      "/wt clean migration-desktop"
+    ],
+    "auto_routing": true,
+    "priority": 1,
+    "added": "2026-04-15",
+    "updated": "2026-04-15"
   }
 ]
