@@ -33,6 +33,16 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/scripts/drift-detector.sh\" 2>&1 | tail -15"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
