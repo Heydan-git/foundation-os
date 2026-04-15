@@ -26,7 +26,7 @@
 |            | Memoire creee : `feedback_plans_ultra_detailles.md`. |
 | 2026-04-15 | **[DONE] Migration Foundation OS → Claude Code Desktop natif (9 phases)** |
 |            | Plan archive `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`. 9 commits. |
-|            | Features natives Desktop exploitees : plan window UI (/plan-os orchestrateur), tasks pane (TodoWrite systematique), worktrees actifs (/wt), sessions auto-nommees 🪐, conventions nommage unifiees. |
+|            | Features natives Desktop exploitees : plan window UI (/plan-os orchestrateur), tasks pane (TodoWrite systematique), worktrees actifs (/wt), sessions 🪐 (rename manuel via bloc /plan-os), conventions nommage unifiees. |
 |            | 8 memoires permanentes creees + MEMORY.md index update. |
 |            | Decisions : D-DESKTOP-01, D-NAMING-01, D-PLAN-02 (supersede D-PLAN-01). |
 | 2026-04-15 | **[DONE_COTE_CLAUDE / EN_COURS_KEVIN] DS iso visuel + typography critique** |
@@ -42,11 +42,12 @@
 **Direction** : Foundation OS level-up DONE (audit + 7 phases). L'OS se maintient maintenant automatiquement : drift detection au SessionStart, auto-archive plans fonctionnel, refs cassees 0, mémoires obsoletes dans `_deprecated/`. Attente validation Kevin sur le nouveau workflow Desktop + test DS composants.
 
 **Prochaine action** :
-  - **Merge main + cleanup worktree** : `cd /Users/kevinnoel/foundation-os` puis `git merge --no-ff claude/jolly-wescoff`, push, `git worktree remove`, delete branche + tag archive.
-  - **Test `/cockpit` depuis main** : brief v11 avec cadre SYNC clean (0 drift).
-  - **Test `/plan-os "test trivial"`** : verifier auto-rename 🪐 + frontmatter genere + auto-archive fin.
-  - **Test manuel DS composants** (en parallele) : 46 ui Storybook, bugs residuels.
-  - **Ensuite** : Phase 5 Expansion (Finance / Sante / Trading).
+  - **Test `/cockpit` depuis main** : brief v11 avec cadre SYNC clean (0 drift) — DONE 2026-04-15 (SYNC vert).
+  - **Test `/plan-os "test trivial"`** : verifier bloc SESSION RENAME affiche + frontmatter genere + auto-archive fin.
+  - **Test `/wt new` + `/wt clean`** : verifier format `wt/<desc>-<yymmdd>`.
+  - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
+
+> Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
 
 ## Idees & Parking
 
@@ -62,7 +63,7 @@
 ## En attente Kevin
 
 - **Test manuel DS composants** : 46 ui Storybook (http://localhost:6006).
-- **Validation workflow Desktop** : tester /cockpit + /plan-os sur vraie tache, confirmer auto-rename 🪐.
+- **Validation workflow Desktop** : tester /cockpit + /plan-os sur vraie tache, confirmer bloc SESSION RENAME affiche.
 - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
 - Activer "Email confirmations" dans Supabase Auth.
 - OMC update v4.11.6 (actuel v4.10.1).
@@ -76,7 +77,7 @@
 | D-LEVELUP-01 Organicite detection-only | 2026-04-15 | Scripts `drift-detector.sh` + `docs-sync-check.sh` **detectent** les drifts (MEMORY count, CONTEXT sessions, branches, docs syncrones). Corrections cosmetiques uniquement via `--fix-cosmetic`. Fix structurel exige validation Kevin. Raison : feedback_no_auto_archive (ne jamais auto-deplacer fichiers Kevin). |
 | D-LEVELUP-02 Plans ultra detailles | 2026-04-15 | Tout plan multi-session : 6 elements par phase (pre-conditions, etat repo, actions atomiques avec snippets, verification, rollback, commit message preformate). Memoire `feedback_plans_ultra_detailles.md`. Spec `docs/core/planner.md`. Anti-perte-de-contexte post-compactage. |
 | D-LEVELUP-03 Worktree legacy merge-then-delete | 2026-04-15 | claude/jolly-wescoff (session level-up) non-migre en cours. Workflow : finir → merge main → worktree remove → delete branche. Nouvelle convention s'applique a la prochaine branche via `/wt new`. |
-| D-DESKTOP-01 Foundation OS calibre Claude Code Desktop | 2026-04-15 | Migration workflow OS pour exploiter features natives Desktop : plan window UI, tasks pane, worktrees actifs, sessions auto-nommees 🪐. Plan archive `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`. 9 phases, 9 commits. |
+| D-DESKTOP-01 Foundation OS calibre Claude Code Desktop | 2026-04-15 | Migration workflow OS pour exploiter features natives Desktop : plan window UI, tasks pane, worktrees actifs, sessions 🪐 (rename manuel via bloc /plan-os — feature auto-rename Desktop verifiee inexistante 2026-04-15). Plan archive `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`. 9 phases, 9 commits. |
 | D-NAMING-01 Conventions nommage unifiees | 2026-04-15 | Spec `docs/core/naming-conventions.md`. Branches `<type>/<scope>-<desc>[-yymmdd]`. Worktrees `wt/<desc>-<yymmdd>` via `/wt new`. Sessions `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan. Hook `branch-name-check.sh` dans pre-commit. |
 | D-PLAN-02 /plan-os orchestrateur skills | 2026-04-15 | Orchestrateur intelligent qui route vers le meilleur skill (brainstorming / writing-plans / ralplan) + finalise EnterPlanMode natif + dual-path versionnement. Skills tiers gardes intacts. Supersede D-PLAN-01. |
 | D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS + reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, tokens `--ds-*` (retire `--fos-*`). Plan `.archive/plans/2026-04-11-ds-shadcn-finition.md`. |

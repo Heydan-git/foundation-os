@@ -11,7 +11,7 @@ Produire des plans d'execution Foundation OS qui :
 - **Combinent** les skills efficaces (`superpowers:writing-plans`, `superpowers:brainstorming`, `oh-my-claudecode:ralplan`) sans en eliminer aucun.
 - **Affichent** le plan dans la **plan window UI** native du Desktop app via `EnterPlanMode` / `ExitPlanMode`.
 - **Versionnent** dans `docs/plans/YYYY-MM-DD-<slug>.md` (parallele au path natif `~/.claude/plans/<slug>.md`).
-- **Auto-renomment** la session Desktop au format `🪐 <mini-detail> (DD-MM-YYYY)` (convention `docs/core/naming-conventions.md` section 3).
+- **Affichent un bloc SESSION RENAME** avec le titre `🪐 <mini-detail> (DD-MM-YYYY)` (convention `docs/core/naming-conventions.md` section 3) a copier-coller manuellement dans la sidebar Desktop.
 - **Decoupent** en sessions courtes (regle "jamais monolithe" CLAUDE.md).
 - **Maintiennent** la regle frontload des questions (`feedback_frontload_questions.md`).
 
@@ -47,7 +47,8 @@ Produire des plans d'execution Foundation OS qui :
                  │  Phase 4 : EnterPlanMode natif      │
                  │  → Write plan dans path natif       │
                  │  → ExitPlanMode (validation Kevin)  │
-                 │  → Desktop app rename session 🪐    │
+                 │  → Affiche bloc SESSION RENAME 🪐   │
+                 │    (Kevin colle dans sidebar)       │
                  └────────────┬────────────────────────┘
                               ▼
                  ┌─────────────────────────────────────┐
@@ -138,9 +139,9 @@ Comment tester que tout marche apres.
 
 **Synchronisation** : apres chaque ExitPlanMode validee, copier le plan natif vers `docs/plans/`. La copie peut se faire automatiquement par `/plan-os` ou manuellement par Kevin si besoin de renommer.
 
-## 6. Auto-naming session Desktop
+## 6. Session rename (manuel)
 
-Feature native Claude Code Desktop (release ~2026-04) : la session est **auto-renommee** depuis le titre du plan a `ExitPlanMode` valide.
+Apres chaque `ExitPlanMode` valide, `/plan-os` affiche un bloc **SESSION RENAME** en chat avec le titre exact du plan. Kevin copie-colle ce nom manuellement dans la sidebar Desktop (clic droit sur la session > Rename).
 
 **Convention obligatoire** (`docs/core/naming-conventions.md` section 3) :
 
@@ -148,9 +149,9 @@ Feature native Claude Code Desktop (release ~2026-04) : la session est **auto-re
 🪐 <Mini-detail de ce qu'on fait> (DD-MM-YYYY)
 ```
 
-Donc le titre `# 🪐 <...> (DD-MM-YYYY)` au top du plan **conditionne** le nom de la session dans la sidebar Desktop.
+**Limite honnete** : pas d'API exposee pour renommer automatiquement une session Claude Code Desktop depuis un tool. Le rename reste manuel. `/plan-os` facilite le travail en affichant le nom pret a copier-coller.
 
-**Limite honnete** : impossible de renommer une session deja en cours sans plan (pas d'API exposee). Le format prend effet a chaque nouveau plan valide.
+Verifie 2026-04-15 : la feature "auto-rename depuis plan title" supposee native Desktop n'existe pas en pratique. Remplacee par le bloc SESSION RENAME affiche.
 
 ## 7. Execution apres approbation
 
@@ -170,7 +171,7 @@ Reference TodoWrite : `feedback_todowrite_systematique.md` (memoire auto-chargee
 - ❌ Eparpiller les questions au fil de l'eau (regle frontload Kevin).
 - ❌ Supprimer un skill efficace au pretexte qu'il fait doublon (Kevin a refuse explicitement 2026-04-15).
 - ❌ Plan monolithique sans phases (regle CLAUDE.md "jamais monolithe").
-- ❌ Titre sans format 🪐 (Desktop ne peut pas auto-renommer).
+- ❌ Titre sans format 🪐 (bloc SESSION RENAME ne pourrait pas generer le nom).
 - ❌ Skip de la copie versionnee (perte historique).
 
 ## 9. Decisions structurantes

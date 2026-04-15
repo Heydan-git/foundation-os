@@ -29,7 +29,7 @@ Puis ouvrir Claude Code Desktop :
 | **Plan window UI** | `/plan-os` ouvre le plan dans la fenetre dediee, validation visuelle |
 | **Tasks pane** | TodoWrite peuple la pane (tasks par phase de plan, plans actifs en debut de session) |
 | **Worktrees natifs** | `/wt new` cree un worktree, ouvrir nouvelle fenetre Desktop dessus |
-| **Auto-rename sessions** | Format `🪐 <mini-detail> (DD-MM-YYYY)` impose par le titre du plan a ExitPlanMode |
+| **Rename session (manuel)** | Titre plan `🪐 <mini-detail> (DD-MM-YYYY)` affiche par `/plan-os` en fin de flow, a coller dans sidebar |
 
 ## Premiere session
 
@@ -68,7 +68,7 @@ L'orchestrateur (`docs/core/planner.md`) :
 - Analyse les signaux (ambiguite, ampleur, type, scope).
 - Route vers le meilleur skill : `superpowers:brainstorming`, `superpowers:writing-plans`, `oh-my-claudecode:ralplan`, etc.
 - Finalise via `EnterPlanMode` natif → plan visible dans la **plan window UI**.
-- Titre force au format `🪐 <mini-detail> (DD-MM-YYYY)` → session auto-renommee.
+- Titre force au format `🪐 <mini-detail> (DD-MM-YYYY)` → `/plan-os` affiche le nom en fin de flow, Kevin colle dans sidebar Desktop.
 - Plan file dual-path : `~/.claude/plans/<slug>.md` (natif) + `docs/plans/YYYY-MM-DD-<slug>.md` (versionne).
 
 Kevin valide via `ExitPlanMode`.
@@ -143,7 +143,7 @@ Si tu utilisais auparavant `claude .` dans le terminal, voici les changements :
 | Briefs en texte plein | Briefs v11 + tasks pane native peuplee en parallele |
 | `git worktree add` manuel | `/wt new <desc>` (convention nommage forcee) |
 | Plans dans `docs/plans/` seul | Plans dual-path natif + versionne |
-| Session sans nom (claude/agitated-wilson auto) | Auto-rename `🪐 ...` via plan titre |
+| Session sans nom (claude/agitated-wilson auto) | Nom `🪐 ...` genere par `/plan-os`, rename manuel sidebar |
 | Multi-tache via tmux ou tabs | Multi-fenetre Desktop, une par worktree |
 
 Le code applicatif (`modules/app`, `modules/design-system`) tourne identiquement : tous les `npm run *` sont CLI-agnostic.

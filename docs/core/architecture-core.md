@@ -68,7 +68,7 @@ Spec : [docs/core/planner.md](planner.md)
 - Route vers le meilleur skill selon contexte (`superpowers:brainstorming`, `writing-plans`, `oh-my-claudecode:ralplan`, etc.).
 - Sortie finale toujours `EnterPlanMode` natif Claude Code Desktop → plan visible dans plan window UI.
 - Dual-path : `~/.claude/plans/<slug>.md` (natif) + `docs/plans/YYYY-MM-DD-<slug>.md` (versionne projet).
-- Titre format `🪐 <mini-detail> (DD-MM-YYYY)` → session Desktop auto-renommee.
+- Titre format `🪐 <mini-detail> (DD-MM-YYYY)` → nom affiche par `/plan-os` en fin de flow, rename manuel Desktop.
 
 ## Worktrees (Phase 6 — actif depuis 2026-04-15)
 

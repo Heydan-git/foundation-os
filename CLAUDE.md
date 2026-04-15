@@ -62,7 +62,7 @@ Source unique : `docs/core/naming-conventions.md`. Appliquees auto par `/plan-os
 
 - **Branches** : `<type>/<scope>-<desc>[-yymmdd]` (lowercase, max 40 chars, types : feat/fix/docs/refactor/chore/audit/wt)
 - **Worktrees** : `/wt new <desc>` → `wt/<desc>-<yymmdd>`, jamais `git worktree add` manuel
-- **Sessions Desktop** : `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan (auto-rename natif)
+- **Sessions Desktop** : `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan (rename manuel — `/plan-os` affiche le nom en fin de flow, Kevin colle dans sidebar)
 - **Plans** : `docs/plans/YYYY-MM-DD-<slug>.md` versionne + `~/.claude/plans/<slug>.md` natif (dual-path)
 - **Memoires** : 6 elements stricts par phase si plan multi-session (memoire `feedback_plans_ultra_detailles.md`)
 

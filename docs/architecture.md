@@ -8,7 +8,7 @@ OS de travail personnel IA-driven. **3 couches** depuis la migration Claude Code
 ┌─────────────────────────────────────────────────────────┐
 │  COUCHE 1 — CLAUDE CODE DESKTOP (shell natif)           │
 │  Sidebar sessions multi · Plan window UI · Tasks pane   │
-│  Worktrees natifs · Sessions auto-nommees 🪐            │
+│  Worktrees natifs · Sessions 🪐 (rename manuel)         │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -40,7 +40,7 @@ Features natives utilisees activement par Foundation OS :
 | **Plan window** | `/plan-os` → `EnterPlanMode` → plan affiche dans la pane |
 | **Tasks pane** | `TodoWrite` peuple en debut session (plans actifs) + en execution (phases) |
 | **Worktrees natifs** | `/wt` command + scripts `worktree-{new,clean,list}.sh` |
-| **Auto-rename sessions** | Titre plan format `🪐 <mini-detail> (DD-MM-YYYY)` |
+| **Rename session (manuel)** | Titre plan `🪐 <mini-detail> (DD-MM-YYYY)` affiche par `/plan-os` en fin de flow, a copier-coller dans sidebar |
 
 Memoire auto : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` (29 fichiers `feedback_*` / `project_*` + index `MEMORY.md`). Charge automatiquement a chaque session.
 
@@ -149,7 +149,7 @@ foundation-os/
 Toutes dans CONTEXT.md section "Decisions". Decisions stables (>30j ou supersedees) archivees dans `docs/decisions-log.md`.
 
 Decisions structurantes recentes :
-- **D-DESKTOP-01** (2026-04-15) — Foundation OS calibre Claude Code Desktop natif (plan mode, tasks pane, worktrees actifs, sessions auto-nommees)
+- **D-DESKTOP-01** (2026-04-15) — Foundation OS calibre Claude Code Desktop natif (plan mode, tasks pane, worktrees actifs, sessions 🪐 rename manuel)
 - **D-NAMING-01** (2026-04-15) — Conventions branches/worktrees/sessions/plans unifiees
 - **D-PLAN-02** (2026-04-15) — `/plan-os` orchestrateur EnterPlanMode (supersede D-PLAN-01)
 

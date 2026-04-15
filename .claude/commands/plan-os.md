@@ -17,11 +17,12 @@
 >
 > **Apres approbation (Kevin clique Accept)** :
 > 6. `Bash cp ~/.claude/plans/<slug>.md docs/plans/$(date +%Y-%m-%d)-<slug>.md` — copie versionnee
-> 7. `TodoWrite` avec une todo par phase du plan
-> 8. Executer phase par phase, commit conventionnel `<type>(scope): phase N/<total> ...`
+> 7. **Afficher en chat un bloc SESSION RENAME** avec le titre exact `🪐 <Mini-detail> (DD-MM-YYYY)` a copier-coller dans la sidebar Desktop (clic droit > Rename)
+> 8. `TodoWrite` avec une todo par phase du plan
+> 9. Executer phase par phase, commit conventionnel `<type>(scope): phase N/<total> ...`
 >
 > PAS DE QUESTIONS TEXTE EN CHAT AVANT `EnterPlanMode`. La plan window doit s'ouvrir au tour 1.
-> Le format titre 🪐 est NON-NEGOCIABLE pour que Desktop auto-renomme la session.
+> Le format titre 🪐 est obligatoire (sert de source pour le rename manuel de la session Desktop).
 
 **Point d'entree UNIQUE** pour generer un plan Foundation OS. Route intelligemment vers le meilleur skill de planification selon le contexte, puis finalise toujours via `EnterPlanMode` natif (Desktop app plan window) + dual-path versionnement.
 
@@ -35,8 +36,8 @@ Sortie finale **toujours** :
 1. `EnterPlanMode` (natif Claude Code) — affiche le plan dans la plan window Desktop.
 2. Plan file ecrit dans `~/.claude/plans/<slug>.md` (path natif, visible UI).
 3. Copie versionnee dans `docs/plans/YYYY-MM-DD-<slug>.md` (projet Foundation OS).
-4. `ExitPlanMode` — Desktop app auto-renomme la session selon titre du plan.
-5. Titre format `🪐 <mini-detail> (DD-MM-YYYY)` (convention `docs/core/naming-conventions.md` section 3).
+4. `ExitPlanMode` — plan valide par Kevin.
+5. Affichage bloc **SESSION RENAME** en chat : titre exact `🪐 <mini-detail> (DD-MM-YYYY)` a copier-coller manuellement dans la sidebar Desktop (clic droit session > Rename).
 
 ## Phase 1 — Analyse de la demande
 
@@ -91,7 +92,7 @@ EnterPlanMode()
 → appeller ExitPlanMode pour validation Kevin
 ```
 
-Le titre du plan **doit** suivre le format `🪐 <mini-detail> (DD-MM-YYYY)` pour que le Desktop app auto-renomme la session.
+Le titre du plan **doit** suivre le format `🪐 <mini-detail> (DD-MM-YYYY)`. Ce titre sert de source pour le **rename manuel** de la session Desktop (affiche par `/plan-os` en fin de flow, Kevin copie-colle dans la sidebar).
 
 Format obligatoire du plan :
 
@@ -115,6 +116,23 @@ git add docs/plans/<date>-<slug>.md
 ```
 
 Garantit que le plan survit dans l'historique projet (les plans natifs `~/.claude/plans/` sont locaux).
+
+## Phase 5b — Bloc SESSION RENAME (affichage chat)
+
+Apres la copie versionnee, afficher IMMEDIATEMENT en chat le bloc suivant avec le titre exact extrait du plan :
+
+```
+╔═ SESSION RENAME ═════════════════════════════════════╗
+║                                                      ║
+║   🪐 <Mini-detail> (DD-MM-YYYY)                     ║
+║                                                      ║
+║   → Sidebar Desktop : clic droit session > Rename    ║
+║     coller le nom ci-dessus                          ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+```
+
+Ce bloc est **non-negociable** : pas d'auto-rename natif Desktop (feature inexistante verifiee 2026-04-15). Kevin copie-colle manuellement dans la sidebar. Le titre affiche doit etre identique au `# 🪐 <...>` du plan file.
 
 ## Phase 6 — Execution avec TodoWrite
 

@@ -79,12 +79,14 @@ Format oblige (affiche dans sidebar Desktop) :
 
 ### Mecanisme
 
-**Feature native Claude Code Desktop** (release ~2026-04) : la session est **auto-renommee** depuis le titre du plan quand l'utilisateur valide `ExitPlanMode`.
+Apres `ExitPlanMode`, `/plan-os` affiche un bloc **SESSION RENAME** en chat avec le titre exact du plan. Kevin copie-colle manuellement dans la sidebar Desktop (clic droit session > Rename).
 
 Donc :
-- `/plan-os` force ce format dans le titre du plan genere.
-- Desktop app renomme la session automatiquement au moment du ExitPlanMode.
-- Zero hack custom.
+- `/plan-os` force le format `🪐 <mini-detail> (DD-MM-YYYY)` dans le titre du plan genere.
+- `/plan-os` affiche le nom pret a coller en fin de flow.
+- Kevin renomme manuellement via l'UI Desktop.
+
+Verifie 2026-04-15 : pas d'auto-rename natif Desktop (feature supposee qui n'existe pas).
 
 ### Mini-detail
 
@@ -100,7 +102,7 @@ Donc :
 
 ### Sessions deja en cours
 
-Si une session est en cours sans plan, le renommage ne se fait pas automatiquement. Kevin peut renommer manuellement via l'UI Desktop. Pas d'API pour le faire depuis un tool (limite technique connue).
+Tout rename de session Desktop est manuel (pas d'API exposee pour le faire depuis un tool, limite technique). `/plan-os` facilite le rename en affichant le nom suggere apres `ExitPlanMode`. Pour une session en cours sans plan, Kevin renomme directement dans l'UI Desktop.
 
 ## 4. Fichiers de plans
 
