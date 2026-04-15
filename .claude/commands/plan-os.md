@@ -1,5 +1,28 @@
 # /plan-os — Orchestrateur de generation de plans Foundation OS
 
+> **IMPERATIF** — Quand cette command est invoquee avec une demande (ex: `/plan-os "build auth"`) :
+>
+> **Tour 1 (OBLIGATOIRE, tool call en premier)** :
+> 1. `EnterPlanMode()` — active la plan window Desktop IMMEDIATEMENT
+>
+> **Dans PlanMode (phase exploration/questions)** :
+> 2. Si ambiguite >=2 questions : `AskUserQuestion` avec les questions groupees (pas texte chat)
+> 3. Si exploration necessaire : `Agent subagent_type="Explore"` en parallele (max 3)
+>
+> **Dans PlanMode (phase redaction)** :
+> 4. `Write ~/.claude/plans/<slug>.md` avec le plan au format obligatoire :
+>    - Titre : `# 🪐 <Mini-detail> (DD-MM-YYYY)` (convention nommage sessions native)
+>    - Sections : Context / Findings / Phases / Fichiers critiques / Hors scope / Verification / Risques
+> 5. `ExitPlanMode()` — presenter le plan a Kevin pour validation
+>
+> **Apres approbation (Kevin clique Accept)** :
+> 6. `Bash cp ~/.claude/plans/<slug>.md docs/plans/$(date +%Y-%m-%d)-<slug>.md` — copie versionnee
+> 7. `TodoWrite` avec une todo par phase du plan
+> 8. Executer phase par phase, commit conventionnel `<type>(scope): phase N/<total> ...`
+>
+> PAS DE QUESTIONS TEXTE EN CHAT AVANT `EnterPlanMode`. La plan window doit s'ouvrir au tour 1.
+> Le format titre 🪐 est NON-NEGOCIABLE pour que Desktop auto-renomme la session.
+
 **Point d'entree UNIQUE** pour generer un plan Foundation OS. Route intelligemment vers le meilleur skill de planification selon le contexte, puis finalise toujours via `EnterPlanMode` natif (Desktop app plan window) + dual-path versionnement.
 
 Spec complete : `docs/core/planner.md`. Memoire permanente : `feedback_plans_orchestrateur.md`.

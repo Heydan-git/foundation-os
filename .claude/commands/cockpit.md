@@ -1,5 +1,22 @@
 # /cockpit — Point d'entree unique Foundation OS
 
+> **IMPERATIF** — Quand cette command est invoquee, tu DOIS executer les tool calls suivants dans CET ORDRE avant toute reponse texte :
+>
+> **Tour 1 (parallele, OBLIGATOIRE)** :
+> 1. `Read CONTEXT.md` — etat projet
+> 2. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
+> 3. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante
+> 4. `Glob docs/plans/*.md` — lister plans existants
+>
+> **Tour 2 (OBLIGATOIRE apres Tour 1)** :
+> 5. `Read` chaque plan actif identifie (non-DONE, non-SUPERSEDED)
+> 6. `TodoWrite` avec UNE todo par plan actif (ex: "Plan DS Showcase — blocs 13-14 pending", "Plan migration Desktop — 9 phases DONE") + todo "Attendre input Kevin"
+>
+> **Tour 3** :
+> 7. Produire le brief v11 au format `docs/core/communication.md` section 6.1
+>
+> PAS DE QUESTION CLARIFICATION AVANT TOUR 3. PAS DE "laisse-moi d'abord..." AVANT TOUR 3. Les tool calls tours 1-2 sont NON-NEGOCIABLES.
+
 Super-pilote TDAH-friendly. Un seul appel, zero friction.
 Coexiste avec /session-start, /session-end, /sync, /new-project (qui restent intactes).
 

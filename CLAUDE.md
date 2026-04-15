@@ -16,6 +16,32 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 - Sub-agents uniquement quand le contexte global n'est PAS necessaire (zones isolees, faits observables). Tout jugement qui exige ma memoire des sessions/decisions → MOI directement. Les findings type "orphelin/doublon/redondance" d'un sub-agent sont toujours a re-verifier avec contexte global avant validation.
 
 ## A chaque session
+
+### Tool calls OBLIGATOIRES selon la command invoquee (non-negociable)
+
+**Si conversation demarre par `/cockpit` ou `/session-start`** :
+- Tour 1 (parallele) : `Read CONTEXT.md` + `Bash git status && git worktree list && git log -1` + `Bash bash scripts/health-check.sh`
+- Tour 2 : `TodoWrite` avec 1 todo par plan actif dans docs/plans/ (hors DONE/SUPERSEDED)
+- Tour 3 : brief v11 (format `docs/core/communication.md` section 6)
+- JAMAIS produire le brief sans avoir fait les 2 premiers tours.
+
+**Si conversation demarre par `/plan-os "<demande>"`** :
+- Tour 1 : `EnterPlanMode()` — ouvrir la plan window Desktop IMMEDIATEMENT
+- JAMAIS poser des questions texte chat avant d'avoir ouvert PlanMode
+- Dans PlanMode : AskUserQuestion pour clarifications (pas texte), Write plan file, ExitPlanMode
+
+**Si conversation demarre par `/session-end`** :
+- Tour 1 : `Bash git diff --name-status HEAD` + `Bash git worktree list` + `Bash bash scripts/health-check.sh`
+- Tour 2 : verifier zero todo TodoWrite `in_progress` orpheline
+- Tour 3 : brief cloture v11 (format section 6.2)
+
+**Si conversation demarre par `/wt new <desc>` ou `/wt clean <desc>`** :
+- Tour 1 : `Bash bash scripts/worktree-{new,clean}.sh <desc>` EXACTEMENT (pas de pre-traitement)
+
+Ces tool calls NE sont PAS optionnels. Une interpretation alternative (ex : "laisse-moi d'abord comprendre...") est une violation.
+
+### Regles generales (apres les tool calls obligatoires)
+
 1. Lire CONTEXT.md pour etat actuel + prochaine action
 2. Ne jamais inventer de metriques — verifier les fichiers
 3. Evaluations realistes uniquement — zero bullshit, zero auto-congratulation

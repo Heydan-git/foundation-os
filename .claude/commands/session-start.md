@@ -1,5 +1,21 @@
 # /session-start — Demarrer une session Foundation OS
 
+> **IMPERATIF** — tool calls en premier, avant toute reponse texte :
+>
+> **Tour 1 (parallele, OBLIGATOIRE)** :
+> 1. `Read CONTEXT.md`
+> 2. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list`
+> 3. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
+> 4. `Glob docs/plans/*.md`
+>
+> **Tour 2 (OBLIGATOIRE)** :
+> 5. `Read` chaque plan actif non-archive
+> 6. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
+>
+> **Tour 3** : produire le brief v11 (format `docs/core/communication.md` section 6.1)
+>
+> PAS DE BRIEF AVANT TOURS 1-2 EXECUTES. PAS D'INTERPRETATION ALTERNATIVE.
+
 Produit le brief de debut de session au format v11 (TDAH-friendly).
 
 **Format brief** : voir `docs/core/communication.md` section 6.1 (template), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.

@@ -1,5 +1,25 @@
 # /session-end — Cloturer une session Foundation OS
 
+> **IMPERATIF** — tool calls en premier :
+>
+> **Tour 1 (parallele, OBLIGATOIRE)** :
+> 1. `Bash git diff --name-status HEAD` — inventaire changements session
+> 2. `Bash git worktree list` — detecter worktree actif
+> 3. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
+> 4. `Bash bash scripts/ref-checker.sh 2>&1 | head -5` — refs cassees
+>
+> **Tour 2 (OBLIGATOIRE)** :
+> 5. Verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, clarifier avant de continuer.
+> 6. Pour chaque changement Tour 1 : classer (feature/fix/docs/refactor/chore), rassembler par commit logique
+>
+> **Tour 3 (OBLIGATOIRE si changements)** :
+> 7. `Edit CONTEXT.md` — ajouter entree Sessions recentes, update Cap + Decisions si applicable
+> 8. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
+>
+> **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
+>
+> Si worktree != main : rappeler workflow merge + `/wt clean`.
+
 Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v11 (TDAH-friendly).
 
 **Format brief** : voir `docs/core/communication.md` section 6.2 (template cloture), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.
