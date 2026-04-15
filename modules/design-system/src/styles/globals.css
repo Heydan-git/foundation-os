@@ -22,6 +22,10 @@
  * ============================================================================ */
 
 @theme inline {
+  /* --- Fonts : Figtree (sans) + JetBrains Mono (mono) charges via Google Fonts --- */
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
   /* --- Shadcn bridge (bg-background, text-foreground, border-border, ...) --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -145,44 +149,10 @@
     font-size: var(--font-size);
   }
 
-  h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  input {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-  }
+  /*
+   * Pas de regles font-size/font-weight sur h1-h4/label/button/input ici :
+   * les composants UI definissent leur propre typography via classes Tailwind
+   * explicites (text-ds-sm/base/lg/xl, font-normal/medium, font-mono/sans).
+   * Heritage @layer base casserait les rendus iso template.
+   */
 }

@@ -1,5 +1,18 @@
 "use client";
 
+/**
+ * Dialog — iso `DashboardDesignSystem.tsx` lines 1141-1188 section "Modal / Dialog".
+ *
+ * Visual :
+ *   - Overlay : fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm + fade animation
+ *   - Content : bg-ds-surface-2 border ds-border/10 rounded-ds-xl shadow modal
+ *               + top gradient line (via ::before) + max-w-lg w-full p-ds-6
+ *   - Header  : flex col gap-ds-2 mb-ds-4
+ *   - Title   : text-ds-lg text-ds-fg/90
+ *   - Desc    : text-ds-sm text-ds-fg/60
+ *   - Footer  : flex justify-end gap-ds-2 mt-ds-4
+ *   - Close   : p-ds-1_5 text-ds-fg/40 hover:text-ds-fg/80 absolute top-ds-3 right-ds-3
+ */
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
@@ -38,7 +51,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        "fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         className,
       )}
       {...props}
@@ -57,13 +70,17 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
+          "fixed top-[50%] left-[50%] z-[100] translate-x-[-50%] translate-y-[-50%] w-full max-w-lg bg-ds-surface-2 border border-ds-border/10 rounded-ds-xl shadow-[var(--ds-shadow-modal)] p-ds-6 outline-none",
+          "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200",
           className,
         )}
         {...props}
       >
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ds-blue/40 to-transparent" />
         {children}
-        <DialogPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
+        <DialogPrimitive.Close
+          className="absolute top-ds-3 right-ds-3 p-ds-1_5 rounded-ds-sm text-ds-fg/40 hover:text-ds-fg/80 hover:bg-ds-fg/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ds-blue/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5"
+        >
           <XIcon />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
@@ -76,7 +93,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
+      className={cn("flex flex-col gap-ds-2 mb-ds-4", className)}
       {...props}
     />
   );
@@ -86,10 +103,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-footer"
-      className={cn(
-        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
-        className,
-      )}
+      className={cn("flex justify-end gap-ds-2 mt-ds-4", className)}
       {...props}
     />
   );
@@ -102,7 +116,7 @@ function DialogTitle({
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn("text-lg leading-none font-semibold", className)}
+      className={cn("text-ds-lg text-ds-fg/90 leading-tight", className)}
       {...props}
     />
   );
@@ -115,7 +129,7 @@ function DialogDescription({
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-ds-sm text-ds-fg/60 leading-relaxed", className)}
       {...props}
     />
   );
