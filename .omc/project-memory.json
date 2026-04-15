@@ -148,6 +148,30 @@
       "type": "file"
     },
     {
+      "path": "docs/manifeste.md",
+      "accessCount": 3,
+      "lastAccessed": 1776253464905,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.json",
+      "accessCount": 3,
+      "lastAccessed": 1776254292159,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/communication.md",
+      "accessCount": 3,
+      "lastAccessed": 1776254360784,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/monitor.md",
+      "accessCount": 3,
+      "lastAccessed": 1776254363423,
+      "type": "file"
+    },
+    {
       "path": "scripts/auto-archive-plans.sh",
       "accessCount": 2,
       "lastAccessed": 1776251188531,
@@ -184,12 +208,6 @@
       "type": "file"
     },
     {
-      "path": "docs/manifeste.md",
-      "accessCount": 2,
-      "lastAccessed": 1776252740169,
-      "type": "file"
-    },
-    {
       "path": "README.md",
       "accessCount": 2,
       "lastAccessed": 1776252755085,
@@ -214,21 +232,21 @@
       "type": "file"
     },
     {
-      "path": "docs/core/communication.md",
-      "accessCount": 2,
-      "lastAccessed": 1776252925979,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/monitor.md",
-      "accessCount": 2,
-      "lastAccessed": 1776252927298,
-      "type": "file"
-    },
-    {
       "path": "CLAUDE.md",
       "accessCount": 2,
       "lastAccessed": 1776253305242,
+      "type": "file"
+    },
+    {
+      "path": "scripts/health-check.sh",
+      "accessCount": 2,
+      "lastAccessed": 1776254345903,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/planner.md",
+      "accessCount": 2,
+      "lastAccessed": 1776254477236,
       "type": "file"
     },
     {
@@ -244,12 +262,6 @@
       "type": "file"
     },
     {
-      "path": "docs/core/planner.md",
-      "accessCount": 1,
-      "lastAccessed": 1776250072047,
-      "type": "file"
-    },
-    {
       "path": "docs/core/worktrees.md",
       "accessCount": 1,
       "lastAccessed": 1776250072830,
@@ -259,12 +271,6 @@
       "path": "docs/core/architecture-core.md",
       "accessCount": 1,
       "lastAccessed": 1776250073909,
-      "type": "file"
-    },
-    {
-      "path": ".claude/settings.json",
-      "accessCount": 1,
-      "lastAccessed": 1776250084567,
       "type": "file"
     },
     {
@@ -313,12 +319,6 @@
       "path": ".claude/agents/review-agent.md",
       "accessCount": 1,
       "lastAccessed": 1776250091692,
-      "type": "file"
-    },
-    {
-      "path": "scripts/health-check.sh",
-      "accessCount": 1,
-      "lastAccessed": 1776250113086,
       "type": "file"
     },
     {
@@ -403,6 +403,18 @@
       "path": "docs/specs/2026-04-10-cockpit-design.md",
       "accessCount": 1,
       "lastAccessed": 1776250371303,
+      "type": "file"
+    },
+    {
+      "path": "scripts/docs-sync-check.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776253404692,
+      "type": "file"
+    },
+    {
+      "path": "scripts/drift-detector.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776253431650,
       "type": "file"
     }
   ],
