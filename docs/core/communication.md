@@ -236,6 +236,23 @@ Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, resp
 11. **CAP** : direction + pistes A/B/C
 12. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
 
+#### Cadre SYNC (optionnel, post-level-up phase 5-6)
+
+Quand `bash scripts/drift-detector.sh` retourne exit 1 (drift detecte) OU `bash scripts/docs-sync-check.sh` retourne exit 1, ajouter un cadre `┌─ SYNC ─┐` entre ATTENTION et DERNIER TRAVAIL :
+
+```
+┌─ SYNC ─────────────────────────────────────┐
+│ 🟡 Drifts detectes :                       │
+│   <liste courte, 1 ligne par drift>        │
+│                                             │
+│ Fix : bash scripts/drift-detector.sh        │
+│       --fix-cosmetic (non-destructif)       │
+└─────────────────────────────────────────────┘
+```
+
+Si SYNC clean (exit 0), le cadre n'est PAS affiche.
+Source : drift-detector chain dans health-check (section INFO).
+
 #### Regle plans
 
 Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`.
