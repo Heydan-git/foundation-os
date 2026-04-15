@@ -9,14 +9,16 @@ Lancer en parallele :
 
 1. **CONTEXT.md** : lire ENTIER (< 150 lignes garanti). Sections : Modules, Sessions recentes, Cap, Idees & Parking, En attente Kevin, Decisions, Metriques, Chantier en cours (si actif)
 2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
-3. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
-4. **Health-check** : `bash scripts/health-check.sh`
-5. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Extraire pour chaque plan :
-   - titre + frontmatter (status, blocks_total)
+3. **Worktree actif** : `bash scripts/worktree-list.sh` ou `git worktree list`. Detecter si on est dans un worktree (basename cwd dans `.claude/worktrees/`) ou sur main. Inclure dans le brief v11 cadre Sante.
+4. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
+5. **Health-check** : `bash scripts/health-check.sh`
+6. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Extraire pour chaque plan :
+   - titre + frontmatter (status, phases_total)
    - section `## Execution log` : compter `[x]` vs `[ ]`, identifier le dernier `[x]` (= hier), le(s) prochain(s) `[ ]`
-   - decoupage en sessions (S1/S2/...) pour afficher reste
+   - decoupage en sessions/phases pour afficher reste
    Un plan avec toutes ses cases `[x]` OU status `done`/`closed` est considere CLOS et exclu du brief.
-6. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
+7. **TodoWrite initial** (apres Phase 6) : creer un TodoWrite avec une todo par plan actif (1 plan = 1 todo). Kevin voit immediatement l'avancement dans la tasks pane Desktop. Memoire : `feedback_todowrite_systematique.md`.
+8. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
    - Asana : `mcp__claude_ai_Asana__get_my_tasks` workspace `1213280972575193` → 3 taches ouvertes top priorite + derniere modif
    - Notion : `mcp__claude_ai_Notion__notion-search` workspace user `4f1b99db` → 3 pages modifiees < 48h
    - Affichage : cadre `┌─ ETAT EXTERNE ─┐` apres PLANS ACTIFS. Jamais d'ecriture en session-start.

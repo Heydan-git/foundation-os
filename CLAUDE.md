@@ -20,7 +20,8 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu
 2. Ne jamais inventer de metriques — verifier les fichiers
 3. Evaluations realistes uniquement — zero bullshit, zero auto-congratulation
 4. Ne jamais ajouter de fonctionnalites non demandees
-5. En fin de session, mettre a jour CONTEXT.md (resume + prochaine action)
+5. **TodoWrite systematique** pour toute tache >= 3 etapes (visibilite tasks pane Desktop). Une seule todo `in_progress` a la fois, update immediat (memoire `feedback_todowrite_systematique.md`)
+6. En fin de session, mettre a jour CONTEXT.md (resume + prochaine action) ET verifier zero todo `in_progress` orpheline
 
 ## Briefs session (format obligatoire)
 
