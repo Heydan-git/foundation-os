@@ -85,6 +85,29 @@ Red flag si je cree une branche ou un worktree hors format : arreter, renommer, 
 
 Ces decisions sont de la **logique pure**. Tu dois les prendre automatiquement, sans demander validation Kevin. La seule exception : si l'action est destructive ET irreversible (ex : `git push --force`, delete hors archive).
 
+### Due diligence OBLIGATOIRE avant toute action autonome
+
+AVANT tout `mv`, `rm`, archive, modification de fichier Core OS :
+
+1. **Grep refs** : verifier que le fichier n'est pas reference depuis un fichier actif (hors `.archive/`). Si ref active → NE PAS toucher, poser question.
+2. **Check workflow actif** : est-ce que ce fichier est invoque par un script, hook, CI, command ? Si oui → NE PAS toucher.
+3. **Check CONTEXT.md** : le fichier/module est-il mentionne comme ACTIF dans Modules ou Cap ou Chantier ? Si oui → NE PAS toucher.
+4. **Si DOUTE** : poser UNE question groupee a Kevin avant d'agir. Jamais "je pensais que...".
+
+Cette due diligence s'applique meme aux actions "evidentes" type "plan DONE → archive". Un plan DONE peut etre reference dans un autre plan actif ou dans CONTEXT.md pour le contexte historique.
+
+### Honnetete stricte sur ce qui marche / ne marche pas
+
+Quand tu modifies le Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/core/) :
+
+1. **Tester** ce qui est testable (scripts bash → exec manuel, builds → npm run build, tests → npm test)
+2. **Declarer explicitement** dans la reponse a Kevin :
+   - ✅ "Ca marche, verifie : <output commande>"
+   - ⚠️ "Ca devrait marcher mais je n'ai pas pu tester car <raison>"
+   - ❌ "Je ne peux pas garantir, c'est theorique/plateforme/probabiliste"
+3. **Jamais pretendre** qu'une automation fonctionne sans preuve. Mieux vaut dire "pas teste" que mentir par omission.
+4. **Ne JAMAIS mettre en place** une automation dont tu sais qu'elle risque de ne pas marcher fiablement. Si un mecanisme est 50/50, le documenter comme "best-effort" et proposer un fallback manuel.
+
 **Archivage automatique** :
 - Plan dans `docs/plans/` avec toutes cases `[x]` OU status `done`/`closed` → `mv` vers `.archive/plans-done-$(date +%y%m%d)/` (execute par `scripts/auto-archive-plans.sh` via hook SessionEnd)
 - Spec dans `docs/specs/` qui documente un plan execute + aucune reference active → `mv` vers `.archive/specs-done-$(date +%y%m%d)/`
