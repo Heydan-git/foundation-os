@@ -1,5 +1,17 @@
 "use client";
 
+/**
+ * Form — wrapper shadcn/react-hook-form.
+ * Absent du template `DashboardDesignSystem.tsx` → style Void Glass custom,
+ * aligne sur la convention des champs (label mono ds-fg/60, help mono ds-fg/40,
+ * error mono ds-rose/70).
+ *
+ * Tokens :
+ *   - FormLabel       : text-ds-sm text-ds-fg/60 font-mono (inherit Label)
+ *                       data-[error=true]:text-ds-rose/80
+ *   - FormDescription : text-ds-xs text-ds-fg/40 font-mono
+ *   - FormMessage     : text-ds-xs text-ds-rose/70 font-mono
+ */
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
@@ -80,7 +92,7 @@ function FormItem({ className, ...props }: React.ComponentProps<"div">) {
     <FormItemContext.Provider value={{ id }}>
       <div
         data-slot="form-item"
-        className={cn("grid gap-2", className)}
+        className={cn("grid gap-ds-2", className)}
         {...props}
       />
     </FormItemContext.Provider>
@@ -97,7 +109,7 @@ function FormLabel({
     <Label
       data-slot="form-label"
       data-error={!!error}
-      className={cn("data-[error=true]:text-destructive", className)}
+      className={cn("data-[error=true]:text-ds-rose/80", className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -130,7 +142,10 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-description"
       id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn(
+        "text-ds-xs text-ds-fg/40 font-mono leading-relaxed",
+        className,
+      )}
       {...props}
     />
   );
@@ -148,7 +163,10 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot="form-message"
       id={formMessageId}
-      className={cn("text-destructive text-sm", className)}
+      className={cn(
+        "text-ds-xs text-ds-rose/70 font-mono leading-relaxed",
+        className,
+      )}
       {...props}
     >
       {body}

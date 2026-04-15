@@ -90,7 +90,7 @@ function RadioGroupItem({ value, id, disabled, className }: RadioGroupItemProps)
         "w-ds-4 h-ds-4 rounded-ds-full flex items-center justify-center transition-all shrink-0",
         isSelected
           ? "bg-ds-surface-1 border border-ds-purple/50 shadow-[0_0_10px_rgba(168,85,247,0.2)]"
-          : "bg-ds-surface-1 border border-ds-border/10 hover:border-ds-border/20 shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]",
+          : "bg-ds-surface-1 border border-ds-border/10 hover:border-ds-border/20 group-hover/rad:border-ds-border/20 shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]",
         isDisabled && "cursor-not-allowed opacity-40",
         !isDisabled && "cursor-pointer",
         className,

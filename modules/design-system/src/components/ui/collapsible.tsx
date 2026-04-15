@@ -1,5 +1,11 @@
 "use client";
 
+/**
+ * Collapsible — passthrough Radix (`@radix-ui/react-collapsible`).
+ * Absent du template `DashboardDesignSystem.tsx` → aucun style par defaut.
+ * Les consommateurs stylent via className (pattern : voir Accordion).
+ */
+import * as React from "react";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 
 function Collapsible({

@@ -1,6 +1,12 @@
-// @ts-nocheck -- deps v9 API drift (react-day-picker, recharts, react-resizable-panels) — visual iso prioritaire, types non-bloquants runtime
+// @ts-nocheck -- deps v9 API drift (recharts) — visual iso prioritaire, types non-bloquants runtime
 "use client";
 
+/**
+ * Chart — recharts wrapper iso base DS.
+ * Tooltip : bg-ds-surface-2 + border ds-border/10 + shadow dropdown.
+ * Legend : font-mono text ds-fg/60.
+ * Config keys accept CSS var colors (e.g. color: "var(--ds-blue)").
+ */
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 
@@ -56,7 +62,7 @@ function ChartContainer({
         data-slot="chart"
         data-chart={chartId}
         className={cn(
-          "[&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border flex aspect-video justify-center text-xs [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
+          "[&_.recharts-cartesian-axis-tick_text]:fill-ds-fg/40 [&_.recharts-cartesian-grid_line]:stroke-ds-border/10 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-ds-border/20 [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-ds-border/10 [&_.recharts-radial-bar-background-sector]:fill-ds-fg/[0.04] [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-ds-fg/[0.04] [&_.recharts-reference-line_[stroke='#ccc']]:stroke-ds-border/20 flex aspect-video justify-center text-ds-xs font-mono text-ds-fg/60 [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
           className,
         )}
         {...props}
@@ -144,7 +150,7 @@ function ChartTooltipContent({
 
     if (labelFormatter) {
       return (
-        <div className={cn("font-medium", labelClassName)}>
+        <div className={cn("text-ds-xs font-mono uppercase tracking-wider text-ds-fg/40", labelClassName)}>
           {labelFormatter(value, payload)}
         </div>
       );
@@ -154,7 +160,7 @@ function ChartTooltipContent({
       return null;
     }
 
-    return <div className={cn("font-medium", labelClassName)}>{value}</div>;
+    return <div className={cn("text-ds-xs font-mono uppercase tracking-wider text-ds-fg/40", labelClassName)}>{value}</div>;
   }, [
     label,
     labelFormatter,
@@ -174,12 +180,12 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        "border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl",
+        "grid min-w-[8rem] items-start gap-ds-1_5 rounded-ds-md bg-ds-surface-2 border border-ds-border/10 px-ds-3 py-ds-1_5 text-ds-xs shadow-[var(--ds-shadow-dropdown)]",
         className,
       )}
     >
       {!nestLabel ? tooltipLabel : null}
-      <div className="grid gap-1.5">
+      <div className="grid gap-ds-1_5">
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`;
           const itemConfig = getPayloadConfigFromPayload(config, item, key);
@@ -189,7 +195,7 @@ function ChartTooltipContent({
             <div
               key={item.dataKey}
               className={cn(
-                "[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
+                "[&>svg]:text-ds-fg/60 flex w-full flex-wrap items-stretch gap-ds-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
                 indicator === "dot" && "items-center",
               )}
             >
@@ -227,14 +233,14 @@ function ChartTooltipContent({
                       nestLabel ? "items-end" : "items-center",
                     )}
                   >
-                    <div className="grid gap-1.5">
+                    <div className="grid gap-ds-1_5">
                       {nestLabel ? tooltipLabel : null}
-                      <span className="text-muted-foreground">
+                      <span className="text-ds-fg/60">
                         {itemConfig?.label || item.name}
                       </span>
                     </div>
                     {item.value && (
-                      <span className="text-foreground font-mono font-medium tabular-nums">
+                      <span className="text-ds-fg/90 font-mono tabular-nums">
                         {item.value.toLocaleString()}
                       </span>
                     )}
@@ -271,8 +277,8 @@ function ChartLegendContent({
   return (
     <div
       className={cn(
-        "flex items-center justify-center gap-4",
-        verticalAlign === "top" ? "pb-3" : "pt-3",
+        "flex items-center justify-center gap-ds-4 font-mono text-ds-xs text-ds-fg/60",
+        verticalAlign === "top" ? "pb-ds-3" : "pt-ds-3",
         className,
       )}
     >
@@ -284,14 +290,14 @@ function ChartLegendContent({
           <div
             key={item.value}
             className={cn(
-              "[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3",
+              "[&>svg]:text-ds-fg/60 flex items-center gap-ds-1_5 [&>svg]:h-3 [&>svg]:w-3",
             )}
           >
             {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
             ) : (
               <div
-                className="h-2 w-2 shrink-0 rounded-[2px]"
+                className="h-ds-2 w-ds-2 shrink-0 rounded-[2px]"
                 style={{
                   backgroundColor: item.color,
                 }}

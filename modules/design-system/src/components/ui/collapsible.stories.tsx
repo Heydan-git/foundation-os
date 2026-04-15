@@ -13,7 +13,7 @@ export const Default: Story = {
         <CollapsibleTrigger asChild>
           <Button variant="outline" size="sm" className="w-full">Toggle details</Button>
         </CollapsibleTrigger>
-        <CollapsibleContent className="mt-ds-2 p-ds-4 rounded-ds-md bg-ds-surface-2 border border-ds-border/5 text-ds-sm text-ds-fg/80">
+        <CollapsibleContent className="mt-ds-2 p-ds-3 rounded-ds-md bg-ds-surface-2 border border-ds-border/5 text-ds-sm text-ds-fg/80">
           Revealed content — use for progressive disclosure, filters, accordions single.
         </CollapsibleContent>
       </Collapsible>

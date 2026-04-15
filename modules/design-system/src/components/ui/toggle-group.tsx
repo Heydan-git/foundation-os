@@ -1,5 +1,14 @@
 "use client";
 
+/**
+ * ToggleGroup — Radix primitive construit sur le meme `toggleVariants` que Toggle.
+ * Absent du template → style Void Glass pour le container + items
+ * heritent le style state=on blue/15 du Toggle.
+ *
+ * Container : rounded-ds-md overflow-hidden border-ds-border/8 bg-ds-fg/[0.02].
+ * Item : rounded-none (first/last arrondis), border-none (cohesion group),
+ *        state=on iso Toggle (bleu translucide + glow).
+ */
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { type VariantProps } from "class-variance-authority";
@@ -28,7 +37,7 @@ function ToggleGroup({
       data-variant={variant}
       data-size={size}
       className={cn(
-        "group/toggle-group flex w-fit items-center rounded-md data-[variant=outline]:shadow-xs",
+        "group/toggle-group inline-flex w-fit items-center rounded-ds-md overflow-hidden border border-ds-border/8 bg-ds-fg/[0.02]",
         className,
       )}
       {...props}
@@ -60,7 +69,7 @@ function ToggleGroupItem({
           variant: context.variant || variant,
           size: context.size || size,
         }),
-        "min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l",
+        "min-w-0 flex-1 shrink-0 rounded-none border-0 focus:z-10 focus-visible:z-10",
         className,
       )}
       {...props}

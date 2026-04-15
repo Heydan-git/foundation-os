@@ -19,7 +19,7 @@ export const Default: Story = {
           <CardDescription>Unlimited access to all features</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-mono text-ds-fg">$49<span className="text-ds-fg/40 text-ds-sm">/mo</span></div>
+          <div className="text-ds-2xl font-mono text-ds-fg">$49<span className="text-ds-fg/40 text-ds-sm">/mo</span></div>
         </CardContent>
         <CardFooter>
           <Button className="w-full">Manage subscription</Button>
@@ -31,7 +31,7 @@ export const Default: Story = {
           <CardDescription>Last 7 days</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-mono text-ds-emerald">+24%</div>
+          <div className="text-ds-2xl font-mono text-ds-emerald">+24%</div>
           <p className="text-ds-xs text-ds-fg/40 font-mono mt-ds-1">vs previous period</p>
         </CardContent>
       </Card>

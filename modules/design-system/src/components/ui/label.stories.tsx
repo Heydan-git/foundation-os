@@ -14,9 +14,15 @@ export const Default: Story = {
         <Label htmlFor="field">Field label</Label>
         <Input id="field" placeholder="Input..." />
       </div>
+
       <div className="flex items-center gap-ds-2">
         <Checkbox id="agree" defaultChecked />
         <Label htmlFor="agree">Accept terms and conditions</Label>
+      </div>
+
+      <div className="flex items-center gap-ds-2 opacity-50">
+        <Checkbox id="disabled-cb" disabled />
+        <Label htmlFor="disabled-cb" className="text-ds-fg/40">Disabled label (peer)</Label>
       </div>
     </div>
   ),

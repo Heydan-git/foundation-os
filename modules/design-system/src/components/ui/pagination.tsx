@@ -1,12 +1,25 @@
+"use client";
+
+/**
+ * Pagination — inspire des lignes 1448-1466 de `DashboardDesignSystem.tsx`
+ * (pagination de table).
+ *
+ * Iso template :
+ *   - Chevrons : size 10 text-ds-fg/40
+ *   - Link     : text-ds-fg/70 hover:text-ds-fg/90 rounded-ds-md px-ds-3 py-ds-1_5
+ *                hover:bg-ds-fg/[0.03]
+ *   - Active   : bg-ds-blue/10 text-ds-blue border border-ds-blue/20
+ *                shadow [0_0_10px_rgba(59,130,246,0.1)]
+ *   - Ellipsis : text-ds-fg/30 font-mono
+ */
 import * as React from "react";
 import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MoreHorizontalIcon,
+  ChevronLeft,
+  ChevronRight,
+  MoreHorizontal,
 } from "lucide-react";
 
 import { cn } from "./utils";
-import { Button, buttonVariants } from "./button";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -27,7 +40,7 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex flex-row items-center gap-1", className)}
+      className={cn("flex flex-row items-center gap-ds-1", className)}
       {...props}
     />
   );
@@ -39,13 +52,11 @@ function PaginationItem({ ...props }: React.ComponentProps<"li">) {
 
 type PaginationLinkProps = {
   isActive?: boolean;
-} & Pick<React.ComponentProps<typeof Button>, "size"> &
-  React.ComponentProps<"a">;
+} & React.ComponentProps<"a">;
 
 function PaginationLink({
   className,
   isActive,
-  size = "icon",
   ...props
 }: PaginationLinkProps) {
   return (
@@ -54,10 +65,10 @@ function PaginationLink({
       data-slot="pagination-link"
       data-active={isActive}
       className={cn(
-        buttonVariants({
-          variant: isActive ? "outline" : "ghost",
-          size,
-        }),
+        "inline-flex items-center justify-center rounded-ds-md px-ds-3 py-ds-1_5 text-ds-sm font-mono transition-all",
+        isActive
+          ? "bg-ds-blue/10 text-ds-blue border border-ds-blue/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]"
+          : "text-ds-fg/70 hover:text-ds-fg/90 hover:bg-ds-fg/[0.03] border border-transparent",
         className,
       )}
       {...props}
@@ -72,11 +83,10 @@ function PaginationPrevious({
   return (
     <PaginationLink
       aria-label="Go to previous page"
-      size="default"
-      className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
+      className={cn("gap-ds-1 px-ds-2_5", className)}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeft size={10} className="text-ds-fg/40" />
       <span className="hidden sm:block">Previous</span>
     </PaginationLink>
   );
@@ -89,12 +99,11 @@ function PaginationNext({
   return (
     <PaginationLink
       aria-label="Go to next page"
-      size="default"
-      className={cn("gap-1 px-2.5 sm:pr-2.5", className)}
+      className={cn("gap-ds-1 px-ds-2_5", className)}
       {...props}
     >
       <span className="hidden sm:block">Next</span>
-      <ChevronRightIcon />
+      <ChevronRight size={10} className="text-ds-fg/40" />
     </PaginationLink>
   );
 }
@@ -107,10 +116,13 @@ function PaginationEllipsis({
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
-      className={cn("flex size-9 items-center justify-center", className)}
+      className={cn(
+        "flex items-center justify-center px-ds-2 text-ds-fg/30 font-mono text-ds-sm",
+        className,
+      )}
       {...props}
     >
-      <MoreHorizontalIcon className="size-4" />
+      <MoreHorizontal size={10} />
       <span className="sr-only">More pages</span>
     </span>
   );

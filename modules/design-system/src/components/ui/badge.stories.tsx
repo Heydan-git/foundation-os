@@ -5,27 +5,35 @@ const meta: Meta = { title: 'UI/Badge' }
 export default meta
 type Story = StoryObj
 
+const SubLabel = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-ds-sm uppercase tracking-wider text-ds-fg/40 font-mono mb-ds-3 block">{children}</span>
+)
+
 export const Default: Story = {
   render: () => (
-    <div className="p-ds-5 rounded-ds-xl bg-ds-surface-2/80 border border-ds-border/5 w-[480px] space-y-ds-4">
+    <div className="p-ds-5 rounded-ds-xl bg-ds-surface-2/80 border border-ds-border/5 w-[560px] space-y-ds-4">
       <div>
-        <span className="text-ds-sm uppercase tracking-wider text-ds-fg/40 font-mono mb-ds-3 block">Variants</span>
+        <SubLabel>Variants</SubLabel>
         <div className="flex flex-wrap items-center gap-ds-2">
-          <Badge>Default</Badge>
-          <Badge variant="secondary">Secondary</Badge>
+          <Badge>Info</Badge>
+          <Badge variant="success">Success</Badge>
+          <Badge variant="warning">Warning</Badge>
+          <Badge variant="destructive">Error</Badge>
+          <Badge variant="purple">Purple</Badge>
+          <Badge variant="neutral">Neutral</Badge>
           <Badge variant="outline">Outline</Badge>
-          <Badge variant="destructive">Destructive</Badge>
+          <Badge variant="secondary">Secondary</Badge>
         </div>
       </div>
+
       <div>
-        <span className="text-ds-sm uppercase tracking-wider text-ds-fg/40 font-mono mb-ds-3 block">Status pills</span>
+        <SubLabel>Live (pulse dot)</SubLabel>
         <div className="flex flex-wrap items-center gap-ds-2">
-          <span className="inline-flex items-center gap-ds-1_5 text-ds-2xs font-mono text-ds-emerald bg-ds-emerald/10 border border-ds-emerald/20 px-ds-2 py-0.5 rounded-ds-sm">
-            <span className="w-1 h-1 rounded-ds-full bg-ds-emerald animate-pulse" /> LIVE
-          </span>
-          <span className="inline-flex items-center gap-ds-1_5 text-ds-2xs font-mono text-ds-blue bg-ds-blue/10 border border-ds-blue/20 px-ds-2 py-0.5 rounded-ds-sm">INFO</span>
-          <span className="inline-flex items-center gap-ds-1_5 text-ds-2xs font-mono text-ds-amber bg-ds-amber/10 border border-ds-amber/20 px-ds-2 py-0.5 rounded-ds-sm">WARN</span>
-          <span className="inline-flex items-center gap-ds-1_5 text-ds-2xs font-mono text-ds-rose bg-ds-rose/10 border border-ds-rose/20 px-ds-2 py-0.5 rounded-ds-sm">ERROR</span>
+          <Badge live variant="success">Live</Badge>
+          <Badge live variant="warning">Pending</Badge>
+          <Badge live variant="destructive">Error</Badge>
+          <Badge live>Sync</Badge>
+          <Badge live variant="purple">Processing</Badge>
         </div>
       </div>
     </div>

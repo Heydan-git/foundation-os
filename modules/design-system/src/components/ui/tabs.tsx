@@ -1,5 +1,20 @@
 "use client";
 
+/**
+ * Tabs — iso `base DS/src/app/components/DashboardDesignSystem.tsx`
+ * (section "Tabs", lines 897-923).
+ *
+ * Visual :
+ *   - List    : border-b border-ds-border/5 + flex gap-0
+ *   - Trigger : px-ds-3 py-ds-2 text-ds-md
+ *               inactive : text-ds-fg/40 hover:text-ds-fg/70
+ *               active   : text-ds-fg/90 + underline bar 2px bg-ds-blue
+ *   - Content : pt-ds-3 outline-none
+ *
+ * Radix logic preserved for keyboard a11y + state. Active underline via
+ * data-[state=active] CSS absolute pseudo-element (no motion layoutId
+ * cross-component, since shadcn TabsTrigger is independent).
+ */
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
@@ -12,7 +27,7 @@ function Tabs({
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn("flex flex-col", className)}
       {...props}
     />
   );
@@ -26,7 +41,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-xl p-[3px] flex",
+        "flex gap-0 border-b border-ds-border/5",
         className,
       )}
       {...props}
@@ -42,7 +57,9 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "data-[state=active]:bg-card dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-xl border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative px-ds-3 py-ds-2 text-ds-md outline-none text-ds-fg/40 hover:text-ds-fg/70 data-[state=active]:text-ds-fg/90 transition-all",
+        "after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-[1px] after:h-[2px] after:bg-ds-blue after:scale-x-0 data-[state=active]:after:scale-x-100 after:origin-center after:transition-transform after:duration-300",
+        "focus-visible:ring-2 focus-visible:ring-ds-blue/40 focus-visible:ring-offset-0 rounded-ds-sm",
         className,
       )}
       {...props}
@@ -57,7 +74,7 @@ function TabsContent({
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"
-      className={cn("flex-1 outline-none", className)}
+      className={cn("pt-ds-3 outline-none", className)}
       {...props}
     />
   );
