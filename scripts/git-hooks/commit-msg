@@ -4,16 +4,21 @@
 # Install : cp scripts/git-hooks/commit-msg .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
 # Spec : docs/core/tools.md
 # Types supportes : standard conventional commits (feat, fix, docs, refactor,
-#                   chore, test, style, build, ci, perf, revert)
+#                   chore, test, style, build, ci, perf, revert, merge)
 
 MSG=$(cat "$1")
-TYPES='feat|fix|docs|refactor|chore|test|style|build|ci|perf|revert'
+TYPES='feat|fix|docs|refactor|chore|test|style|build|ci|perf|revert|merge'
+
+# Autoriser aussi les merge commits auto-generes par git (Merge branch ...)
+if [[ "$MSG" =~ ^Merge\ (branch|remote-tracking\ branch|tag|commit)\  ]]; then
+    exit 0
+fi
 
 if [[ "$MSG" =~ ^($TYPES)(\(.+\))?:\ .+ ]]; then
     exit 0
 else
     echo "ERREUR: Format conventional commit invalide"
     echo "Format: type(scope): description"
-    echo "Types: feat, fix, docs, refactor, chore, test, style, build, ci, perf, revert"
+    echo "Types: feat, fix, docs, refactor, chore, test, style, build, ci, perf, revert, merge"
     exit 1
 fi
