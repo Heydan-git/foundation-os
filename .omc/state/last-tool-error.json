@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"git add .claude/settings.local.json .archive/settings-local-before-migration-260415.json .archive/worktrees-orphelins/ && git status --short | head -10 && echo \\\"--- committing ---\\\" && gi...",
-  "error": "Exit code 1\nThe following paths are ignored by one of your .gitignore files:\n.claude/settings.local.json\nhint: Use -f if you really want to add them.\nhint: Disable this message with \"git config set advice.addIgnoredFile false\"\n[rerun: b14]",
-  "timestamp": "2026-04-15T09:01:22.540Z",
+  "tool_input_preview": "{\"command\":\"ls -la /Users/kevinnoel/foundation-os/.claude/worktrees/ 2>&1\",\"description\":\"Check if worktree dir exists\"}",
+  "error": "Path \"/Users/kevinnoel/foundation-os/.claude/worktrees/agitated-wilson\" does not exist\n[rerun: b4]",
+  "timestamp": "2026-04-15T10:35:37.882Z",
   "retry_count": 1
 }
