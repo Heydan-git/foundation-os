@@ -1,7 +1,8 @@
 # /session-start — Demarrer une session Foundation OS
 
-Produit le brief de debut de session au format v11 (TDAH-friendly : cadres box-drawing, colonnes alignees, zones visuelles).
-Ref spec : `docs/core/communication.md` section 6.1 + CLAUDE.md section "Briefs session".
+Produit le brief de debut de session au format v11 (TDAH-friendly).
+
+**Format brief** : voir `docs/core/communication.md` section 6.1 (template), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.
 
 ## Phase 1 — Collecte automatique (parallele)
 
@@ -36,219 +37,41 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 
 ## Phase 3 — Produire le brief v11
 
-Rendre les sections ci-dessous avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, espacement genereux.
+Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.1 (debut de session), 6.3 (regles rendu), 6.4 (sources donnees → quelle section vient d'ou).
 
-**Principe : chaque zone = un cadre `┌─ TITRE ─┐ ... └─┘`**. Blanc entre chaque cadre. Contenu indente 3 espaces apres le `│`.
+**Sections du brief debut de session** (ordre, voir spec) :
+1. Sante (health-check + build + worktree actif)
+2. Trajectoire (mission + focus + tendance + derniere decision)
+3. Plans actifs (1 sous-cadre par plan actif avec progression + hier + prochain + reste)
+4. Modules (Code + Meta + Prevu) + Acces
+5. Attention (alertes + rappels + en attente Kevin)
+6. Dernier travail (commits + bullets vulgarises)
+7. Statut projet (modules + chantier en cours)
+8. Idees (3-5 max recentes)
+9. Reflexion (1-3 lignes optionnelles)
+10. Historique (3 decisions recentes)
+11. Cap (direction + prochaine action)
+12. Input (question ouverte ou choix structure)
 
-### Template complet (copier la structure exacte)
+Les regles de cadres (`┌─ TITRE ─┐ ... └─┘` 42 chars), entete double trait, espacement, alignement, emojis couleur, barres 12 blocs, etc. sont **dans communication.md section 6.3**. Ne pas reinventer.
 
-```
-╔══════════════════════════════════════════╗
-║   FOUNDATION OS · Brief · YYYY-MM-DD    ║
-╚══════════════════════════════════════════╝
+## Phase 4 — Annoncer + ouvrir l'input
 
+Apres affichage du brief, **proposer un input clair** :
 
-┌─ SANTE ──────────────────────────────────┐
-│                                          │
-│   🟢 Projet   ████████████       100%    │
-│   🟢 Build    ████████████        OK     │
-│   🟢 Tests    ████████████     19/19     │
-│   🟢 Health   SAIN                       │
-│                                          │
-└──────────────────────────────────────────┘
+- Si Cap a une prochaine action evidente → proposer "On continue X ?"
+- Sinon → demander "On fait quoi ?" (langage libre)
+- Toujours offrir l'option "/cockpit" si Kevin veut le routing automatique
 
+## Phase 5 — Persistence (uniquement si Kevin valide une direction)
 
-┌─ TRAJECTOIRE ────────────────────────────┐
-│                                          │
-│   🎬 Mission    [objectif long terme]    │
-│   🎯 Focus      [sujet du moment]       │
-│   📈 Tendance   ▲/▶/▼ [5 mots]         │
-│   ⏱  Derniere   [il y a X] · [decide]   │
-│                                          │
-└──────────────────────────────────────────┘
+Si Kevin lance une tache : `/cockpit` route vers le bon agent OU le travail demarre direct.
+Si Kevin n'est pas pret : laisser le brief afficher, attendre.
 
+## References
 
-┌─ PLANS ACTIFS ───────────────────────────┐
-│                                          │
-│   🟢 PLAN 1 — [titre court]              │
-│      📄 docs/plans/[fichier].md          │
-│      📊 [N/M blocs] · [status]           │
-│                                          │
-│      HIER : [bloc/phase] ✅              │
-│             commit [hash] · [resume]     │
-│                                          │
-│      PROCHAIN : [bloc/phase]             │
-│                 [detail + duree]         │
-│                                          │
-│      RESTE : [liste sessions/blocs]      │
-│                                          │
-├─ ────────────────────────────────────────┤
-│                                          │
-│   🟡 PLAN 2 — [titre court]              │
-│      📄 docs/plans/[fichier].md          │
-│      📊 [N/M blocs]                      │
-│      HIER : [rien, ou bloc X ✅]         │
-│      PROCHAIN : [bloc X]                 │
-│      RESTE : [liste]                     │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ MODULES ────────────────────────────────┐
-│                                          │
-│   Code                                   │
-│     🟢 App Builder      modules/app/     │
-│     🟢 Design System    modules/ds/      │
-│   Meta                                   │
-│     🟢 Core OS (4/4)    docs/core/       │
-│     🔵 Cowork           docs/travaux/    │
-│   Prevu                                  │
-│     ⚫ Finance   ⚫ Sante   ⚫ Trading   │
-│                                          │
-├─ ACCES ──────────────────────────────────┤
-│   🔗 Prod   [URL]                        │
-│   🔗 Dev    cd modules/app && npm dev    │
-│   🌿 Git    [branche] · [N] modifies    │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ ⚠ ATTENTION ────────────────────────────┐
-│                                          │
-│   🚨 Alertes                             │
-│     [health-check warnings/criticals]    │
-│                                          │
-│   📌 Rappels                             │
-│     [dette, concerns precedentes]        │
-│                                          │
-│   ❓ En attente Kevin                    │
-│     · [action 1]                         │
-│     · [action 2]                         │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ DERNIER TRAVAIL ────────────────────────┐
-│                                          │
-│   📅 Commit  [hash] [titre]              │
-│     · [bullet vulgarise 1]              │
-│     · [bullet vulgarise 2]              │
-│     · [bullet vulgarise 3]              │
-│                                          │
-│   🧠 Decisions                           │
-│     · [D-XX-01] [titre]                 │
-│     · [D-XX-02] [titre]                 │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ STATUT PROJET ──────────────────────────┐
-│                                          │
-│   ✅ [Nom]         ████████████   100%   │
-│   ✅ [Nom]         ████████████   100%   │
-│   🔄 [Nom]         ██████░░░░░░    50%   │
-│   ⏸  [Nom]         en pause             │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ IDEES & PARKING ────────────────────────┐
-│                                          │
-│   💡 [idee concrete 1]                   │
-│   💡 [idee concrete 2]                   │
-│   🔮 [option future]                     │
-│   ❓ [question ouverte]                  │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ REFLEXION ──────────────────────────────┐
-│                                          │
-│   💭 [decision en suspens]               │
-│   💭 [question strategique]              │
-│   🔗 [lien idee ↔ travail en cours]     │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ HISTORIQUE ─────────────────────────────┐
-│                                          │
-│   🧠 [date] [D-XX] [titre decision]     │
-│   🧠 [date] [D-XX] [titre decision]     │
-│   🧠 [date] [D-XX] [titre decision]     │
-│                                          │
-│   📆 Echeance  [date ou "pas fixee"]    │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ CAP ────────────────────────────────────┐
-│                                          │
-│   🎯 Direction                           │
-│     [ou on va et pourquoi]              │
-│                                          │
-│   🛤  Pistes                             │
-│     A. [option A]                       │
-│     B. [option B]                       │
-│     C. [option C]                       │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-╔═ INPUT ══════════════════════════════════╗
-║                                          ║
-║   📥 Questions pour Kevin                ║
-║     1. [question 1]                      ║
-║     2. [question 2]                      ║
-║     3. [question 3]                      ║
-║                                          ║
-║   On y va ?                              ║
-║                                          ║
-╚══════════════════════════════════════════╝
-```
-
-## Phase 4 — Attendre confirmation
-
-Terminer par `On y va ?` et attendre l'input de Kevin avant de commencer.
-
-## Regles de rendu v11 (TDAH-friendly)
-
-### Structure visuelle
-- **Cadres** : chaque section dans un cadre `┌─ TITRE ─┐ ... └─┘` (42 chars largeur)
-- **Entete et Input** : double trait `╔═══╗ ... ╚═══╝` (zones d'ancrage debut/fin)
-- **Sous-sections** : separateur interne `├─ SOUS-TITRE ─┤`
-- **Blanc** : 2 lignes vides entre chaque cadre (respiration visuelle)
-- **Indentation** : 3 espaces apres `│` pour le contenu
-
-### Alignement
-- Labels : emoji + mot, padde a 12 chars (ex: `🎬 Mission  `)
-- Valeurs : alignees a droite pour les chiffres (%, N/N)
-- Barres : 12 blocs `████████████` toujours a la meme colonne
-- Colonnes consistantes dans chaque cadre
-
-### Couleurs et symboles
-- Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
-- Tendance : ▲ mieux / ▶ pareil / ▼ pire
-- Barres : `█` plein, `░` vide
-
-### Texte
-- Lignes courtes : ~55 chars max (interieur cadre)
-- Vulgariser : glose 3-4 mots pour tout jargon
-- Mise en garde : si simplification cache un risque → `⚠ [risque]` en rouge
-- Mots interdits : revolution, historique, accomplish, reference mondiale
-
-## Sources de donnees
-
-| Section brief | Source CONTEXT.md | Source live |
-|---------------|-------------------|------------|
-| Sante | — | health-check + build |
-| Trajectoire | Cap + Sessions recentes | git log -1 |
-| Modules | Modules | — |
-| Acces/Git | — | git status + branch |
-| Attention | En attente Kevin | health-check |
-| Dernier travail | Sessions recentes + Decisions | git log -1 |
-| Statut projet | Modules + Chantier en cours | — |
-| Idees | Idees & Parking | — |
-| Reflexion | Idees & Parking | — |
-| Historique | Decisions (3 recentes) | — |
-| Cap | Cap | — |
+- Spec brief v11 : `docs/core/communication.md` section 6 (template + regles + sources)
+- Conventions nommage : `docs/core/naming-conventions.md`
+- Format session naming : memoire `feedback_sessions_nommage_planete.md` (titre `🪐 ...`)
+- TodoWrite : memoire `feedback_todowrite_systematique.md`
+- Worktrees actif : memoire `feedback_worktrees_actifs.md` + `docs/core/worktrees.md`

@@ -1,13 +1,14 @@
 # /session-end — Cloturer une session Foundation OS
 
 Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v11 (TDAH-friendly).
-Ref spec : `docs/core/communication.md` + CLAUDE.md section "Briefs session".
+
+**Format brief** : voir `docs/core/communication.md` section 6.2 (template cloture), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.
 
 ## Phase 1 — Inventaire des changements
 
 1. `git diff --name-status HEAD` : fichiers crees (A), modifies (M), supprimes (D) cette session
 2. **Worktree check** : `git worktree list` + branche courante. Si on est dans un worktree (pas main), afficher un rappel dans le brief : "Session dans worktree `<nom>`. Apres merge/push depuis main, fermer via `/wt clean <nom>`."
-3. **Tasks pane check** : verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, lister et clarifier (blocage, attente, oubli).
+3. **Tasks pane check** : verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, lister et clarifier (blocage, attente, oubli). Memoire : `feedback_todowrite_systematique.md`.
 4. Si aucun changement → brief minimal "Session sans modification" + skip phases 3-5
 
 ## Phase 2 — Verification coherence + technique (parallele)
@@ -116,91 +117,30 @@ Si variable absente → skip la phase entierement.
 
 ## Phase 7 — Produire le brief de cloture v11
 
-Rendre avec le format TDAH-friendly : cadres box-drawing, colonnes alignees, espacement genereux.
+Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.2 (cloture), 6.3 (rendu), 6.4 (sources).
 
-### Template complet
+**Sections du brief de cloture** (ordre, voir spec) :
+1. ETAT TECHNIQUE (build + tests + health + refs)
+2. CE QUI A ETE FAIT (commits + fichiers + decisions)
+3. IDEES CAPTUREES (3-5 max)
+4. CAP MIS A JOUR (direction + prochaine action)
+5. ⚠ CONCERNS (uniquement si statut != DONE)
 
-```
-╔══════════════════════════════════════════╗
-║   SESSION CLOTUREE · YYYY-MM-DD         ║
-║   Statut : [DONE / CONCERNS / ...]      ║
-╚══════════════════════════════════════════╝
+Les regles de cadres, entete double trait, espacement, alignement, emojis couleur sont **dans communication.md section 6.3**. Ne pas reinventer.
 
+## Phase 8 — Worktree cleanup (si applicable)
 
-┌─ ETAT TECHNIQUE ─────────────────────────┐
-│                                          │
-│   🟢 Build    [OK/KO par module]         │
-│   🟢 Tests    [N/N verts]               │
-│   🟢 Health   [SAIN/DEGRADED/BROKEN]     │
-│   🟢 Refs     [N .md scannes, 0 cassee] │
-│                                          │
-└──────────────────────────────────────────┘
+Si on est dans un worktree (`git worktree list` != main path) ET la branche est mergee dans main :
 
+- Proposer `/wt clean <nom>` apres confirmation Kevin.
+- Ne **pas** auto-cleaner (action destructive, regle CLAUDE.md).
 
-┌─ CE QUI A ETE FAIT ─────────────────────┐
-│                                          │
-│   📅 Commits                             │
-│     · [hash] [titre]                    │
-│       [bullet vulgarise 1]             │
-│       [bullet vulgarise 2]             │
-│                                          │
-│   📁 Fichiers                            │
-│     [N] crees · [N] modifies · [N] sup  │
-│                                          │
-│   🧠 Decisions                           │
-│     · [D-XX-01] [titre]                │
-│                                          │
-└──────────────────────────────────────────┘
+Sinon, rappeler simplement : "Worktree `<nom>` actif. Apres merge dans main + push, fermer avec `/wt clean <nom>`."
 
+## References
 
-┌─ IDEES CAPTUREES ────────────────────────┐
-│                                          │
-│   💡 [idee 1]                            │
-│   💡 [idee 2]                            │
-│   (ou "Pas de nouvelle idee")           │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-
-┌─ CAP MIS A JOUR ────────────────────────┐
-│                                          │
-│   🎯 Direction                           │
-│     [ou on va apres cette session]      │
-│                                          │
-│   🛤  Prochaine action                   │
-│     [action concrete]                   │
-│                                          │
-└──────────────────────────────────────────┘
-
-
-┌─ ⚠ CONCERNS ────────────────────────────┐
-│   (seulement si statut != DONE)         │
-│                                          │
-│   [description du concern/blocage]      │
-│                                          │
-└──────────────────────────────────────────┘
-```
-
-## Regles de rendu v11 (TDAH-friendly)
-
-### Structure visuelle
-- **Cadres** : chaque section dans un cadre `┌─ TITRE ─┐ ... └─┘` (42 chars largeur)
-- **Entete** : double trait `╔═══╗ ... ╚═══╝` (zone d'ancrage)
-- **Blanc** : 2 lignes vides entre chaque cadre (respiration visuelle)
-- **Indentation** : 3 espaces apres `│` pour le contenu
-
-### Alignement
-- Labels : emoji + mot, padde a 12 chars
-- Valeurs : alignees a droite pour les chiffres
-- Colonnes consistantes dans chaque cadre
-
-### Couleurs et symboles
-- Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
-- Barres : `█` plein, `░` vide (12 blocs max)
-
-### Texte
-- Lignes courtes : ~55 chars max (interieur cadre)
-- Vulgariser : glose 3-4 mots pour tout jargon
-- Mise en garde : si simplification cache un risque → `⚠ [risque]`
-- Mots interdits : revolution, historique, accomplish, reference mondiale
+- Spec brief v11 : `docs/core/communication.md` section 6 (template + regles + sources)
+- Conventions nommage : `docs/core/naming-conventions.md`
+- Format session naming : memoire `feedback_sessions_nommage_planete.md`
+- TodoWrite : memoire `feedback_todowrite_systematique.md`
+- Worktrees actif : memoire `feedback_worktrees_actifs.md` + `docs/core/worktrees.md`

@@ -22,8 +22,11 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 
 ## Phase 2 — BRIEF v11
 
-Generer le brief TDAH-friendly au format v11 (cadres box-drawing, colonnes alignees, espacement genereux).
-Template et regles de rendu : voir `/session-start` (source de verite du format v11).
+Generer le brief TDAH-friendly au format v11.
+
+**Format brief** : voir `docs/core/communication.md` section 6.1 (template debut), 6.3 (regles rendu), 6.4 (sources). **SOURCE UNIQUE.** Ne pas dupliquer ici.
+
+Le cockpit utilise le meme template que `/session-start` (debut de session) avec adaptation Phase INPUT (question ouverte au lieu de menu).
 
 **Difference avec /session-start** : la section INPUT ne pose pas de questions projet. Elle affiche uniquement :
 
