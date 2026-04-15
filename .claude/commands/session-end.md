@@ -6,7 +6,9 @@ Ref spec : `docs/core/communication.md` + CLAUDE.md section "Briefs session".
 ## Phase 1 — Inventaire des changements
 
 1. `git diff --name-status HEAD` : fichiers crees (A), modifies (M), supprimes (D) cette session
-2. Si aucun changement → brief minimal "Session sans modification" + skip phases 3-5
+2. **Worktree check** : `git worktree list` + branche courante. Si on est dans un worktree (pas main), afficher un rappel dans le brief : "Session dans worktree `<nom>`. Apres merge/push depuis main, fermer via `/wt clean <nom>`."
+3. **Tasks pane check** : verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, lister et clarifier (blocage, attente, oubli).
+4. Si aucun changement → brief minimal "Session sans modification" + skip phases 3-5
 
 ## Phase 2 — Verification coherence + technique (parallele)
 

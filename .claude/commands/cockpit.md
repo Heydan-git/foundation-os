@@ -11,9 +11,11 @@ Lancer en parallele :
 
 1. **CONTEXT.md** : lire ENTIER (< 150 lignes garanti)
 2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
-3. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
-4. **Health-check** : `bash scripts/health-check.sh`
-5. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
+3. **Worktree actif** : `git worktree list` (detecter si on est dans main ou dans un worktree). Extraire le nom du worktree courant (basename du cwd si dans `.claude/worktrees/*/`). Inclure dans le brief v11 cadre Sante : ligne `Worktree` avec le nom (ou `main (base)` sinon).
+4. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
+5. **Health-check** : `bash scripts/health-check.sh`
+6. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
+7. **Tasks pane** : creer un TodoWrite initial avec les plans actifs en tâches (1 todo = 1 plan en cours). Kevin voit l'avancement dans la tasks pane Desktop.
 
 Si CONTEXT.md absent → abort avec erreur explicite.
 Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne pas produire le brief (fixer d'abord).
