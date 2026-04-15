@@ -1,8 +1,8 @@
-// @ts-nocheck -- deps v9 API drift (react-resizable-panels) — visual iso prioritaire
+// @ts-nocheck -- deps API drift (react-resizable-panels v9+) — visual iso prioritaire
 "use client";
 
 /**
- * Resizable — react-resizable-panels iso base DS.
+ * Resizable — react-resizable-panels (v9+ exports : Group, Panel, Separator).
  * Handle : bg-ds-border/10 hover:bg-ds-blue/40 transition-colors.
  *   - Horizontal : w-px h-full
  *   - Vertical   : h-px w-full (via data-panel-group-direction=vertical)
@@ -10,16 +10,13 @@
  */
 import * as React from "react";
 import { GripVerticalIcon } from "lucide-react";
-import * as ResizablePrimitive from "react-resizable-panels";
+import { Group, Panel, Separator } from "react-resizable-panels";
 
 import { cn } from "./utils";
 
-function ResizablePanelGroup({
-  className,
-  ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
+function ResizablePanelGroup({ className, ...props }: React.ComponentProps<typeof Group>) {
   return (
-    <ResizablePrimitive.PanelGroup
+    <Group
       data-slot="resizable-panel-group"
       className={cn(
         "flex h-full w-full data-[panel-group-direction=vertical]:flex-col",
@@ -30,21 +27,17 @@ function ResizablePanelGroup({
   );
 }
 
-function ResizablePanel({
-  ...props
-}: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
-  return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />;
+function ResizablePanel({ ...props }: React.ComponentProps<typeof Panel>) {
+  return <Panel data-slot="resizable-panel" {...props} />;
 }
 
 function ResizableHandle({
   withHandle,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean;
-}) {
+}: React.ComponentProps<typeof Separator> & { withHandle?: boolean }) {
   return (
-    <ResizablePrimitive.PanelResizeHandle
+    <Separator
       data-slot="resizable-handle"
       className={cn(
         "relative flex w-px h-full items-center justify-center bg-ds-border/10 hover:bg-ds-blue/40 transition-colors",
@@ -65,7 +58,7 @@ function ResizableHandle({
           <GripVerticalIcon className="sr-only" />
         </div>
       )}
-    </ResizablePrimitive.PanelResizeHandle>
+    </Separator>
   );
 }
 
