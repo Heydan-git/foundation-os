@@ -42,6 +42,18 @@ Vite + React + TypeScript + Tailwind + Supabase + Vercel
 - TSX < 700 lignes — decouper si plus
 - BMAD : dossier _bmad/ (underscore obligatoire)
 
+## Conventions nommage (Claude Code Desktop, automatique)
+
+Spec complete : `docs/core/naming-conventions.md`. Source de verite unique, appliquee auto par `/plan-os`, `/wt`, `/cockpit`, `/session-end`.
+
+- **Branches** : `<type>/<scope>-<desc>[-yymmdd]` — ex. `feat/ds-void-glass`, `wt/migration-desktop-260415`. Lowercase, max 40 chars.
+- **Worktrees** : via `/wt new <desc>` uniquement, jamais `git worktree add` manuel. Genere `.claude/worktrees/<desc>-<yymmdd>/` + branche `wt/<desc>-<yymmdd>`.
+- **Sessions Desktop** : format `🪐 <mini-detail> (DD-MM-YYYY)` via titre de plan (auto-rename natif Desktop app a ExitPlanMode).
+- **Plans** : `docs/plans/YYYY-MM-DD-<slug>.md` versionne + `~/.claude/plans/<slug>.md` natif (dual-path).
+- **Thinking** : toute reflexion en francais (memoire `feedback_thinking_francais.md`).
+
+Red flag si je cree une branche ou un worktree hors format : arreter, renommer, reprendre.
+
 ## Garde-fous (non-negociable)
 - Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json y vivent — package.json racine = workspace root UNIQUEMENT, pas un projet ; ajoute 2026-04-09 pour npm workspaces + Design System)
 - Ne JAMAIS creer de fichier sans demande explicite de Kevin
