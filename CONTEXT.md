@@ -19,6 +19,13 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-15 | **[DONE_COTE_CLAUDE / EN_COURS_KEVIN] DS iso visuel + typography critique** |
+|            | 3 causes racines identifiees via audit chrome-devtools MCP : (1) `--font-sans/--font-mono` non definis dans `@theme inline` → Figtree/JetBrains Mono pas charges, fallback ui-* serifs, (2) `cn()` tailwind-merge dedupliquait `text-ds-sm` (font-size) avec `text-ds-fg/60` (color) a tort, (3) `@layer base` forçait `font-size:var(--text-base)` undefined + `font-weight:medium` sur `h1-h4/label/button/input` cassant l'heritage. |
+|            | Fixes : `globals.css` `@theme inline` + font tokens ; `utils.ts` `extendTailwindMerge` classGroups ds-* ; `@layer base` supprime les regles bruyantes ; `size-3_5` invalide -> `size-3.5` dans sheet/dialog/toggle ; calendar nav reposition ; resizable imports v9+ (Group/Panel/Separator) ; alert variant propagation ; RadioGroup label ds-fg/90|70. |
+|            | Rewrite 46 composants ui iso template via 8 sub-agents paralleles : custom HTML (checkbox/switch/slider/radio-group) + tokens ds-* partout (plus de bg-primary/accent). Audit visuel chrome-devtools 27/46 composants ✓. |
+|            | Commits : `7e7c41f` 4 form · `723fd5f` 46 ui · `f2f5790` typography · `3e1d9cf` calendar · `d266f37` resizable. |
+|            | **En attente Kevin** : test manuel composant par composant (il verifiera 46 ui visuellement, iterations possibles sur bugs residuels). |
+|            | Memoires ajoutees : `feedback_ds_true_iso.md`, `feedback_ds_reconstruction_protocole.md`, `feedback_subagents_context.md` (SUPERSEDE : sous-agents autorises AVEC contexte precis injecte). |
 | 2026-04-14 | **[DONE] DS Rebuild iso base DS — phases 0-5 + 3b complet** |
 |            | Plan : `docs/plans/2026-04-14-ds-rebuild-from-base.md`. 8 commits enchaines. |
 |            | Phase 0 (`64d6baf`) archive · Phase 1 (`ccd3e01`) tokens 2-couches · Phase 2 (`ea1e48b`) 46 ui · Phase 3a (`8bacea7`) 7 patterns · Phase 4a (`7638b5c`) IndexPage ds-* · Phase 4b (`100120e`) app-wide sed 47 rempl. sur 12 fichiers · Phase 5 (`b518083`) verif chrome-devtools 3 pages iso · Phase 3b (ce commit) 46 stories UI individuelles via script `/tmp/gen-stories.py`. |
@@ -40,11 +47,12 @@
 
 ## Cap
 
-**Direction** : DS Rebuild iso base DS DONE (phases 0-5 + 3b). App-wide tokens `ds-*` propages. 62 stories Storybook operationnelles.
+**Direction** : DS iso visuel cote Claude DONE, test manuel Kevin en cours (composant par composant). Prochain chantier : level up memoire.
 
-**Prochaine action** : a decider avec Kevin.
-  - Expansion Phase 5 : choisir module (Finance / Sante / Trading)
-  - Autre chantier a definir
+**Prochaine action** :
+  - **Level up memoire** : discussion ouverte avec Kevin. Options envisagees : hot cache (pattern Karpathy), tiering (hot/warm/cold + retention), external store MCP (Pinecone/SQLite on-demand), tags + versioning, ou autre. A brainstormer en debut prochaine session.
+  - En parallele : Kevin itere sur bugs residuels DS si trouve via test manuel.
+  - Ensuite : Expansion Phase 5 (Finance / Sante / Trading).
 
 ## Idees & Parking
 
@@ -59,6 +67,8 @@
 
 ## En attente Kevin
 
+- **Test manuel DS composants** : 46 ui Storybook, parcourir composant par composant pour bugs residuels (http://localhost:6006). Claude attend feedback pour iterations ciblees.
+- **Design level up memoire** : choisir direction (hot cache / tiering / external MCP / tags-versioning / autre) pour prochaine session.
 - Activer "Email confirmations" dans Supabase Auth (Dashboard → Authentication → Providers → Email). Pending depuis Phase 2.3.
 - OMC update v4.11.6 (actuel v4.10.1, `omc update`). Lateral.
 - Decision strategique Cowork : methodo ou produit ? (ref Idees & Parking)
