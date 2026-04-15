@@ -70,7 +70,7 @@ Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% ave
 ### 4.2 — Agents et commands
 
 - **4 agents** (`.claude/agents/`, 193 lignes au total) : `os-architect` (50L), `dev-agent` (52L), `doc-agent` (51L), `review-agent` (40L)
-- **4 commands** (`.claude/commands/`, 211 lignes) : `/session-start`, `/session-end`, `/new-project`, `/sync`
+- **7 commands** (`.claude/commands/`) : `/cockpit`, `/plan-os`, `/session-start`, `/session-end`, `/new-project`, `/sync`, `/wt`
 - Protocole uniforme : entree = `CONTEXT.md` + scope → execution dans son perimetre → sortie = rapport court + fichiers modifies
 - Matrice de delegation 4×3 complete (architecture / dev / docs / review) — validee a la session S2 de l'audit
 
