@@ -236,6 +236,23 @@ Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, resp
 11. **CAP** : direction + pistes A/B/C
 12. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
 
+#### Cadre SYNC (optionnel, post-level-up phase 5-6)
+
+Quand `bash scripts/drift-detector.sh` retourne exit 1 (drift detecte) OU `bash scripts/docs-sync-check.sh` retourne exit 1, ajouter un cadre `┌─ SYNC ─┐` entre ATTENTION et DERNIER TRAVAIL :
+
+```
+┌─ SYNC ─────────────────────────────────────┐
+│ 🟡 Drifts detectes :                       │
+│   <liste courte, 1 ligne par drift>        │
+│                                             │
+│ Fix : bash scripts/drift-detector.sh        │
+│       --fix-cosmetic (non-destructif)       │
+└─────────────────────────────────────────────┘
+```
+
+Si SYNC clean (exit 0), le cadre n'est PAS affiche.
+Source : drift-detector chain dans health-check (section INFO).
+
 #### Regle plans
 
 Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`.
@@ -338,7 +355,7 @@ Max 10 idees en parking. Au-dela, forcer une priorisation : garder les 10 plus p
 
 ## 9. Migration depuis Memory
 
-Cette spec remplace l'ancien module Memory (l'ancien fichier `docs/core/memory.md` a ete renomme en `docs/core/communication.md` le 2026-04-10, pas archive). Les changements :
+Cette spec remplace l'ancien module Memory (l'ancien fichier memory.md dans `docs/core/` a ete renomme en `docs/core/communication.md` le 2026-04-10, pas archive). Les changements :
 
 | Aspect | Memory (ancien) | Communication (nouveau) |
 |--------|----------------|------------------------|

@@ -1,6 +1,6 @@
 # Foundation OS — Toolbox
 
-> Auto-genere le 2026-04-11 depuis registry/*.json. Ne pas editer manuellement.
+> Auto-genere le 2026-04-15 depuis registry/*.json. Ne pas editer manuellement.
 
 ## Resume
 
@@ -8,14 +8,14 @@
 |-----------|--------|
 | agents | 4 |
 | ci | 2 |
-| commands | 6 |
+| commands | 7 |
 | hooks | 4 |
 | mcp | 13 |
 | scripts | 7 |
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| **Total** | **98** |
+| **Total** | **99** |
 
 ## Agents
 
@@ -43,6 +43,7 @@
 | /sync | Audit complet de coherence : lance sync-check.sh qui execute health-ch | `/sync` |
 | /plan-os | Generateur de plan Foundation OS : wrapper par-dessus superpowers:writ | `/plan-os <demande>` |
 | /new-project | Scaffold un nouveau module : lance module-scaffold.sh qui cree modules | `/new-project <nom-module>` |
+| wt | Gestion worktrees Foundation OS. Wrapper autour scripts/worktree-{new, | `/wt new <desc> / /wt list / /wt clean <desc>` |
 
 ## Hooks
 

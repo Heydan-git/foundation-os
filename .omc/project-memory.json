@@ -1,12 +1,7 @@
 {
   "version": "1.0.0",
-<<<<<<< Updated upstream
-  "lastScanned": 1776239549091,
-  "projectRoot": "/Users/kevinnoel/foundation-os/.claude/worktrees/agitated-wilson",
-=======
-  "lastScanned": 1776161823332,
-  "projectRoot": "/Users/kevinnoel/foundation-os",
->>>>>>> Stashed changes
+  "lastScanned": 1776249725101,
+  "projectRoot": "/Users/kevinnoel/foundation-os/.claude/worktrees/jolly-wescoff",
   "techStack": {
     "languages": [
       {
@@ -49,34 +44,20 @@
       "branchingStrategy": null
     }
   },
-  "customNotes": [
-    "CONTEXT.md = source de verite unique",
-    "Design system = Void Glass (docs/design-system.md)",
-    "Supabase DB avec 5 tables",
-    "Deploy Vercel root dir = modules/app"
-  ],
+  "customNotes": [],
   "directoryMap": {
     "_bmad": {
       "path": "_bmad",
       "purpose": null,
       "fileCount": 0,
-<<<<<<< Updated upstream
-      "lastAccessed": 1776239549071,
-=======
-      "lastAccessed": 1776161823310,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725086,
       "keyFiles": []
     },
     "docs": {
       "path": "docs",
       "purpose": "Documentation",
-<<<<<<< Updated upstream
       "fileCount": 5,
-      "lastAccessed": 1776239549075,
-=======
-      "fileCount": 6,
-      "lastAccessed": 1776161823310,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725086,
       "keyFiles": [
         "architecture.md",
         "decisions-log.md",
@@ -88,53 +69,35 @@
     "modules": {
       "path": "modules",
       "purpose": null,
-<<<<<<< Updated upstream
       "fileCount": 0,
-      "lastAccessed": 1776239549075,
-=======
-      "fileCount": 1,
-      "lastAccessed": 1776161823313,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725088,
       "keyFiles": []
     },
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 6,
-<<<<<<< Updated upstream
-      "lastAccessed": 1776239549077,
-=======
-      "lastAccessed": 1776161823313,
->>>>>>> Stashed changes
+      "fileCount": 10,
+      "lastAccessed": 1776249725088,
       "keyFiles": [
+        "auto-archive-plans.sh",
         "health-check.sh",
         "module-scaffold.sh",
         "ref-checker.sh",
-        "session-lock.sh",
-        "sync-check.sh"
+        "session-lock.sh"
       ]
     },
     "supabase": {
       "path": "supabase",
       "purpose": null,
       "fileCount": 0,
-<<<<<<< Updated upstream
-      "lastAccessed": 1776239549078,
-=======
-      "lastAccessed": 1776161823313,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725089,
       "keyFiles": []
     },
     "modules/app": {
       "path": "modules/app",
       "purpose": "Application code",
-<<<<<<< Updated upstream
       "fileCount": 11,
-      "lastAccessed": 1776239549079,
-=======
-      "fileCount": 13,
-      "lastAccessed": 1776161823314,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725090,
       "keyFiles": [
         "README.md",
         "index.html",
@@ -145,11 +108,7 @@
       "path": "supabase/migrations",
       "purpose": "Database migrations",
       "fileCount": 3,
-<<<<<<< Updated upstream
-      "lastAccessed": 1776239549079,
-=======
-      "lastAccessed": 1776161823314,
->>>>>>> Stashed changes
+      "lastAccessed": 1776249725091,
       "keyFiles": [
         "001_create_tables.sql",
         "002_add_delete_policies.sql",
@@ -159,601 +118,303 @@
   },
   "hotPaths": [
     {
-<<<<<<< Updated upstream
-      "path": "CLAUDE.md",
-      "accessCount": 12,
-      "lastAccessed": 1776248915996,
-      "type": "file"
-    },
-    {
       "path": "CONTEXT.md",
-      "accessCount": 8,
-      "lastAccessed": 1776247953303,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/session-end.md",
-      "accessCount": 8,
-      "lastAccessed": 1776248561704,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/session-start.md",
-      "accessCount": 8,
-      "lastAccessed": 1776248615561,
+      "accessCount": 5,
+      "lastAccessed": 1776253217995,
       "type": "file"
     },
     {
       "path": "scripts/ref-checker.sh",
-      "accessCount": 6,
-      "lastAccessed": 1776246736906,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/communication.md",
-      "accessCount": 6,
-      "lastAccessed": 1776248634610,
-      "type": "file"
-    },
-    {
-      "path": "scripts/sync-check.sh",
-      "accessCount": 5,
-      "lastAccessed": 1776245251116,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/cockpit.md",
-      "accessCount": 5,
-      "lastAccessed": 1776247615393,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/architecture-core.md",
       "accessCount": 4,
-      "lastAccessed": 1776245317415,
+      "lastAccessed": 1776252729141,
       "type": "file"
     },
     {
-      "path": "scripts/health-check.sh",
+      "path": "docs/plans/2026-04-15-migration-foundation-desktop.md",
       "accessCount": 4,
-      "lastAccessed": 1776246738201,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/monitor.md",
-      "accessCount": 4,
-      "lastAccessed": 1776246811187,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/plan-os.md",
-      "accessCount": 4,
-      "lastAccessed": 1776247618800,
-      "type": "file"
-    },
-    {
-      "path": "docs/index.md",
-      "accessCount": 4,
-      "lastAccessed": 1776247953673,
-      "type": "file"
-    },
-    {
-      "path": ".claude/settings.json",
-      "accessCount": 4,
-      "lastAccessed": 1776248791820,
+      "lastAccessed": 1776252841017,
       "type": "file"
     },
     {
       "path": ".claude/settings.local.json",
       "accessCount": 3,
-      "lastAccessed": 1776243644360,
+      "lastAccessed": 1776252679731,
       "type": "file"
     },
     {
-      "path": "docs/core/worktrees.md",
+      "path": "docs/core/naming-conventions.md",
       "accessCount": 3,
-      "lastAccessed": 1776244460933,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/planner.md",
-      "accessCount": 3,
-      "lastAccessed": 1776244694473,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/_template-plan.md",
-      "accessCount": 3,
-      "lastAccessed": 1776244724047,
-      "type": "file"
-    },
-    {
-      "path": "docs/setup-guide.md",
-      "accessCount": 3,
-      "lastAccessed": 1776245090665,
-      "type": "file"
-    },
-    {
-      "path": "docs/architecture.md",
-      "accessCount": 3,
-      "lastAccessed": 1776245140184,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-14-ds-audit-etats.md",
-      "accessCount": 2,
-      "lastAccessed": 1776241163984,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md",
-      "accessCount": 2,
-      "lastAccessed": 1776241164186,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-14-ds-voidglass-iso-figma-make.md",
-      "accessCount": 2,
-      "lastAccessed": 1776241164501,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-05-phase1-fondations.md",
-      "accessCount": 2,
-      "lastAccessed": 1776247968442,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-audit-massif-final.md",
-      "accessCount": 2,
-      "lastAccessed": 1776247968926,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/os-architect.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241064686,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/review-agent.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241064893,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/doc-agent.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241065226,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/dev-agent.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241065307,
+      "lastAccessed": 1776252920209,
       "type": "file"
     },
     {
       "path": "docs/manifeste.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241066095,
-      "type": "file"
-    },
-    {
-      "path": "docs/decisions-log.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241066467,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/new-project.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241069282,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/sync.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241069511,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/cortex.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241069638,
-=======
-      "path": "CONTEXT.md",
-      "accessCount": 473,
-      "type": "file",
-      "lastAccessed": 1776239287667
-    },
-    {
-      "path": "CLAUDE.md",
-      "accessCount": 52,
-      "type": "file",
-      "lastAccessed": 1776169300362
-    },
-    {
-      "path": "scripts/health-check.sh",
-      "accessCount": 45,
-      "lastAccessed": 1776103110041,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/lib/mutations.ts",
-      "accessCount": 42,
-      "lastAccessed": 1775829456956,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/session-end.md",
-      "accessCount": 34,
-      "lastAccessed": 1776152043743,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/App.tsx",
-      "accessCount": 30,
-      "type": "file",
-      "lastAccessed": 1776101574268
-    },
-    {
-      "path": "modules/app/src/pages/IndexPage.tsx",
-      "accessCount": 30,
-      "lastAccessed": 1776185531466,
->>>>>>> Stashed changes
-      "type": "file"
-    },
-    {
-      "path": "docs/core/tools.md",
-<<<<<<< Updated upstream
-      "accessCount": 1,
-      "lastAccessed": 1776241070436,
-      "type": "file"
-    },
-    {
-      "path": "README.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241079834,
-      "type": "file"
-    },
-    {
-      "path": "package.json",
-      "accessCount": 1,
-      "lastAccessed": 1776241080039,
-=======
-      "accessCount": 27,
-      "lastAccessed": 1775888841595,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/session-start.md",
-      "accessCount": 27,
-      "lastAccessed": 1776152025408,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/cortex.md",
-      "accessCount": 26,
-      "lastAccessed": 1775855972280,
+      "accessCount": 3,
+      "lastAccessed": 1776253464905,
       "type": "file"
     },
     {
       "path": ".claude/settings.json",
-      "accessCount": 22,
-      "lastAccessed": 1776184550756,
+      "accessCount": 3,
+      "lastAccessed": 1776254292159,
       "type": "file"
     },
     {
-      "path": ".claude/commands/sync.md",
-      "accessCount": 20,
-      "lastAccessed": 1775855144100,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/doc-agent.md",
-      "accessCount": 20,
-      "lastAccessed": 1775855145518,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/dev-agent.md",
-      "accessCount": 17,
-      "lastAccessed": 1775855144522,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/review-agent.md",
-      "accessCount": 17,
-      "lastAccessed": 1775855145468,
-      "type": "file"
-    },
-    {
-      "path": ".claude/agents/os-architect.md",
-      "accessCount": 16,
-      "lastAccessed": 1775855144949,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/forms/NextStepActions.tsx",
-      "accessCount": 15,
-      "lastAccessed": 1775844019272,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/forms/AddSessionForm.tsx",
-      "accessCount": 14,
-      "lastAccessed": 1775835497265,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/forms/EditDecisionModal.tsx",
-      "accessCount": 14,
-      "lastAccessed": 1775835498182,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/pages/LoginPage.tsx",
-      "accessCount": 14,
-      "lastAccessed": 1776184368480,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/new-project.md",
-      "accessCount": 12,
-      "lastAccessed": 1775855144237,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/main.tsx",
-      "accessCount": 12,
-      "lastAccessed": 1776100637928,
-      "type": "file"
-    },
-    {
-      "path": "supabase/migrations/001_create_tables.sql",
-      "accessCount": 11,
-      "lastAccessed": 1775842260598,
+      "path": "docs/core/communication.md",
+      "accessCount": 3,
+      "lastAccessed": 1776254360784,
       "type": "file"
     },
     {
       "path": "docs/core/monitor.md",
-      "accessCount": 11,
-      "lastAccessed": 1775850896320,
+      "accessCount": 3,
+      "lastAccessed": 1776254363423,
       "type": "file"
     },
     {
-      "path": "docs/core/memory.md",
-      "accessCount": 10,
-      "lastAccessed": 1775765571558,
+      "path": "scripts/auto-archive-plans.sh",
+      "accessCount": 2,
+      "lastAccessed": 1776251188531,
       "type": "file"
     },
     {
-      "path": "modules/app/src/pages/Phase1Demo.tsx",
-      "accessCount": 10,
-      "lastAccessed": 1775835496289,
->>>>>>> Stashed changes
+      "path": "scripts/sync-check.sh",
+      "accessCount": 2,
+      "lastAccessed": 1776251190136,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/plan-os.md",
+      "accessCount": 2,
+      "lastAccessed": 1776251198531,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/session-end.md",
+      "accessCount": 2,
+      "lastAccessed": 1776251198930,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/cockpit.md",
+      "accessCount": 2,
+      "lastAccessed": 1776251199557,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/_template-plan.md",
+      "accessCount": 2,
+      "lastAccessed": 1776251317552,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 2,
+      "lastAccessed": 1776252755085,
+      "type": "file"
+    },
+    {
+      "path": "scripts/git-hooks/pre-commit",
+      "accessCount": 2,
+      "lastAccessed": 1776252862220,
+      "type": "file"
+    },
+    {
+      "path": "docs/architecture.md",
+      "accessCount": 2,
+      "lastAccessed": 1776252921759,
+      "type": "file"
+    },
+    {
+      "path": "docs/index.md",
+      "accessCount": 2,
+      "lastAccessed": 1776252923115,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 2,
+      "lastAccessed": 1776253305242,
+      "type": "file"
+    },
+    {
+      "path": "scripts/health-check.sh",
+      "accessCount": 2,
+      "lastAccessed": 1776254345903,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/planner.md",
+      "accessCount": 2,
+      "lastAccessed": 1776254477236,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/cortex.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250069816,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/tools.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250071674,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/worktrees.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250072830,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/architecture-core.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250073909,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/session-start.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250086746,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/wt.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250088371,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/new-project.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250088756,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/sync.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250089780,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/os-architect.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250090305,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/dev-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250090659,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/doc-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250091416,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/review-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250091692,
+      "type": "file"
+    },
+    {
+      "path": "scripts/worktree-new.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250115914,
+      "type": "file"
+    },
+    {
+      "path": "scripts/worktree-clean.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250115960,
+      "type": "file"
+    },
+    {
+      "path": "scripts/worktree-list.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250116539,
+      "type": "file"
+    },
+    {
+      "path": "scripts/tool-register.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250117115,
+      "type": "file"
+    },
+    {
+      "path": "scripts/module-scaffold.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250117437,
+      "type": "file"
+    },
+    {
+      "path": "scripts/session-lock.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776250118283,
       "type": "file"
     },
     {
       "path": "scripts/hooks/validate-void-glass.sh",
-<<<<<<< Updated upstream
       "accessCount": 1,
-      "lastAccessed": 1776241084474,
+      "lastAccessed": 1776250118390,
       "type": "file"
     },
     {
       "path": "scripts/hooks/security-reminder.py",
       "accessCount": 1,
-      "lastAccessed": 1776241085338,
+      "lastAccessed": 1776250119828,
       "type": "file"
     },
     {
-      "path": "docs/specs/2026-04-10-cockpit-design.md",
+      "path": "scripts/hooks/branch-name-check.sh",
       "accessCount": 1,
-      "lastAccessed": 1776241110417,
+      "lastAccessed": 1776250119954,
+      "type": "file"
+    },
+    {
+      "path": "scripts/git-hooks/commit-msg",
+      "accessCount": 1,
+      "lastAccessed": 1776250120918,
+      "type": "file"
+    },
+    {
+      "path": "docs/setup-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250143220,
+      "type": "file"
+    },
+    {
+      "path": "docs/decisions-log.md",
+      "accessCount": 1,
+      "lastAccessed": 1776250144465,
       "type": "file"
     },
     {
       "path": "docs/core/tools/README.md",
       "accessCount": 1,
-      "lastAccessed": 1776241110507,
+      "lastAccessed": 1776250145395,
       "type": "file"
     },
     {
-      "path": "docs/specs/2026-04-05-foundation-os-v2-design.md",
+      "path": "docs/specs/2026-04-10-cockpit-design.md",
       "accessCount": 1,
-      "lastAccessed": 1776241110529,
+      "lastAccessed": 1776250371303,
       "type": "file"
     },
     {
-      "path": "docs/specs/2026-04-10-tools-module-v2-design.md",
+      "path": "scripts/docs-sync-check.sh",
       "accessCount": 1,
-      "lastAccessed": 1776241110955,
+      "lastAccessed": 1776253404692,
       "type": "file"
     },
     {
-      "path": "docs/specs/2026-04-10-cockpit-plan.md",
+      "path": "scripts/drift-detector.sh",
       "accessCount": 1,
-      "lastAccessed": 1776241111164,
-      "type": "file"
-    },
-    {
-      "path": "docs/specs/2026-04-10-core-os-audit.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241161520,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-phase2-app-hardening.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241162757,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-finition-os.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241162888,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-phase4-monitoring.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241163928,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-phase3-os-intelligence.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241164168,
-      "type": "file"
-    },
-    {
-      "path": "docs/travaux-cowork/README.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241164774,
-=======
-      "accessCount": 10,
-      "lastAccessed": 1775855135873,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/package.json",
-      "accessCount": 10,
-      "lastAccessed": 1776100687534,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/index.ts",
-      "accessCount": 10,
-      "lastAccessed": 1776101841831,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/pages/Commander.tsx",
-      "accessCount": 10,
-      "lastAccessed": 1776184367755,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/Card.tsx",
-      "accessCount": 9,
-      "lastAccessed": 1776147168309,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/lib/database.types.ts",
-      "accessCount": 9,
-      "lastAccessed": 1776147180019,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/Badge.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1776147168452,
-      "type": "file"
-    },
-    {
-      "path": ".claude/settings.local.json",
-      "accessCount": 7,
-      "lastAccessed": 1775588116536,
-      "type": "file"
-    },
-    {
-      "path": "docs/design-system.md",
-      "accessCount": 7,
-      "lastAccessed": 1775727497802,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/pages/Dashboard.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1775825380115,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/vite.config.ts",
-      "accessCount": 7,
-      "lastAccessed": 1776099935907,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/Layout.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1776100636844,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/index.css",
-      "accessCount": 7,
-      "lastAccessed": 1776100637876,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/lib/AuthContext.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1775825417445,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/SupabaseCRUDTest.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1775829208404,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/lib/useCommander.ts",
-      "accessCount": 6,
-      "lastAccessed": 1775829374420,
-      "type": "file"
-    },
-    {
-      "path": "docs/architecture.md",
-      "accessCount": 5,
-      "lastAccessed": 1775819072290,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/lib/supabase.ts",
-      "accessCount": 5,
-      "lastAccessed": 1775825371008,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/TabBar.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1776100652762,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/Commander/StatsBar.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1776100688997,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/tsconfig.json",
-      "accessCount": 5,
-      "lastAccessed": 1776160978795,
-      "type": "file"
-    },
-    {
-      "path": "README.md",
-      "accessCount": 4,
-      "lastAccessed": 1775578844661,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/Commander/index.ts",
-      "accessCount": 4,
-      "lastAccessed": 1776103038537,
-      "type": "file"
-    },
-    {
-      "path": "modules/app/src/components/StatPill.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1775578791781,
->>>>>>> Stashed changes
+      "lastAccessed": 1776253431650,
       "type": "file"
     }
   ],

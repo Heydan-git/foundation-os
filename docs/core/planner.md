@@ -85,6 +85,8 @@ Reproduite a l'identique dans `feedback_plans_orchestrateur.md` (memoire auto-ch
 
 ## 4. Format plan obligatoire
 
+> **Plans multi-session anti-perte-de-contexte** (D-LEVELUP-02, 2026-04-15) : chaque phase DOIT contenir les 6 elements stricts (pre-conditions verifiables, etat repo attendu, actions atomiques numerotees avec snippets exacts, verification post-phase, rollback explicite, commit message preformate). Memoire : `feedback_plans_ultra_detailles.md`. Exemple reference : plan level-up Foundation OS 2026-04-15 (`.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md`).
+
 Rendu dans `~/.claude/plans/<slug>.md` (natif) puis copie `docs/plans/YYYY-MM-DD-<slug>.md`.
 
 ```markdown

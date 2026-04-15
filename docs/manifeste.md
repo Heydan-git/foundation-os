@@ -70,7 +70,7 @@ Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% ave
 ### 4.2 — Agents et commands
 
 - **4 agents** (`.claude/agents/`, 193 lignes au total) : `os-architect` (50L), `dev-agent` (52L), `doc-agent` (51L), `review-agent` (40L)
-- **4 commands** (`.claude/commands/`, 211 lignes) : `/session-start`, `/session-end`, `/new-project`, `/sync`
+- **7 commands** (`.claude/commands/`) : `/cockpit`, `/plan-os`, `/session-start`, `/session-end`, `/new-project`, `/sync`, `/wt`
 - Protocole uniforme : entree = `CONTEXT.md` + scope → execution dans son perimetre → sortie = rapport court + fichiers modifies
 - Matrice de delegation 4×3 complete (architecture / dev / docs / review) — validee a la session S2 de l'audit
 
@@ -221,7 +221,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 | Specs | 1 design spec v2 | `docs/specs/2026-04-05-foundation-os-v2-design.md` |
 | Audit massif Cycle 3 | 4 livrables rediges + 20 placeholders | `.archive/audit-massif/` (00-INDEX + 00-preflight + 01-carto + 02-inventaire + 03-fondations-core) |
 | Agents Claude | 4 agents / 193L | `.claude/agents/` |
-| Commands Claude | 4 commands / 211L | `.claude/commands/` |
+| Commands Claude | 7 commands | `.claude/commands/` (cockpit, plan-os, session-start, session-end, new-project, sync, wt) |
 | Scripts bash + python | 8 scripts / ~1088L | `scripts/` + `scripts/hooks/` + `scripts/git-hooks/` |
 | Hooks PreToolUse | 2 hooks actifs | `validate-void-glass.sh`, `security-reminder.py` |
 | Pages React | 7 pages TSX | `modules/app/src/pages/` |

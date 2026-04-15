@@ -32,6 +32,8 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | Decisions datees | Lire section Decisions | Toutes ont une date |
 | Build time | Lire output build | < 2000ms (baseline: ~800ms) |
 | Bundle size | Lire output build | JS < 600KB, CSS < 40KB |
+| Drift detector | `bash scripts/drift-detector.sh` | exit 0 = SYNC, exit 1 = drift detecte |
+| Docs sync | `bash scripts/docs-sync-check.sh` | exit 0 = DOCS SYNC, exit 1 = drift |
 
 ## 2. Quand verifier
 
@@ -88,7 +90,7 @@ Seuils actuels bases sur l'etat du 2026-04-15 (post-migration Desktop + lazy-loa
 **Optimisation appliquee 2026-04-15** : lazy-load des 5 pages routes via React.lazy + Suspense dans App.tsx. Bundle initial divise par 3.3 (613 -> 184 KB), chunks vendors splittes automatiquement par Vite.
 
 **Faux positifs ref-checker connus** (~10-15 refs persistantes, non-bloquants) :
-- Refs textuelles vers `docs/core/memory.md` dans docs qui documentent le rename (Memory -> Communication)
+- Refs textuelles vers l'ancien memory.md (renomme `docs/core/communication.md` 2026-04-10) dans docs qui documentent le rename
 - Exemples de format scope dans naming-conventions (`docs/cockpit-desktop` = exemple, pas fichier)
 - `modules/design-system/base DS/` (espace dans path = faux positif bash regex `=~`)
 - `.env.local` gitignored

@@ -144,6 +144,6 @@
 
 ## References croisees
 
-- Migration Desktop en cours : `docs/plans/2026-04-15-migration-foundation-desktop.md`
+- Migration Desktop en cours : `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
 - Memoires permanentes : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/MEMORY.md` (29 entrees)
 - Health-check actuel : `bash scripts/health-check.sh`

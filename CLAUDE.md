@@ -1,149 +1,117 @@
 # Foundation OS
 
-OS de travail personnel IA-driven. Modules : App Builder (actif), Finance (prevu), Sante (prevu).
+OS de travail personnel IA-driven. Modules : App Builder (actif), Design System (actif), Finance/Sante/Trading (prevu Phase 5).
 
 ## Imperatifs (non-negociable)
-- Ne jamais mentir, inventer, ou fabriquer (donnees, URLs, citations)
-- Si je ne sais pas ou ne suis pas sur → le dire
-- Ne jamais pretendre avoir fini sans verification reelle (build + test)
-- Ne pas completer une tache Asana sans OK explicite de Kevin
-- 100% ou rien — verifier le repertoire courant avant toute operation fichier
-- Plan avant execution, validation Kevin avant changement non-trivial
-- Avant compactage : sauvegarder l'etat courant. Apres compactage : reverifier
-- Decouper systematiquement chaque tache en phases/sessions courtes pour eviter le compactage (jamais de monolithe, meme pour du "simple")
-- Identifier la cause racine de chaque erreur ou incoherence avant de fixer (pas de patch symptomatique)
-- Actions pragmatiques, conscience des limites — ne jamais tenter ce qui ne peut pas fonctionner (dire "je ne peux pas X" plutot que faire semblant)
-- Sub-agents uniquement quand le contexte global n'est PAS necessaire (zones isolees, faits observables). Tout jugement qui exige ma memoire des sessions/decisions → MOI directement. Les findings type "orphelin/doublon/redondance" d'un sub-agent sont toujours a re-verifier avec contexte global avant validation.
+- Ne jamais mentir, inventer, ou fabriquer (donnees, URLs, citations). Si pas sur → le dire.
+- Ne jamais pretendre avoir fini sans verification reelle (build + test executes).
+- Plan avant execution. Validation Kevin avant changement non-trivial.
+- Decouper systematiquement en phases/sessions courtes (jamais de monolithe).
+- Cause racine de chaque erreur avant de fixer (pas de patch symptomatique).
+- Actions pragmatiques, conscience des limites — dire "je ne peux pas X" plutot que faire semblant.
+- Sub-agents : OK pour taches complexes **si contexte precis injecte dans le prompt** (memoire `feedback_subagents_context.md`). Jugements type "orphelin/doublon/redondance" → moi avec contexte global.
 
 ## A chaque session
 
-### Tool calls OBLIGATOIRES selon la command invoquee (non-negociable)
+### Tool calls OBLIGATOIRES selon command invoquee
 
-**Si conversation demarre par `/cockpit` ou `/session-start`** :
-- Tour 1 (parallele) : `Read CONTEXT.md` + `Bash git status && git worktree list && git log -1` + `Bash bash scripts/health-check.sh`
-- Tour 2 : `TodoWrite` avec 1 todo par plan actif dans docs/plans/ (hors DONE/SUPERSEDED)
-- Tour 3 : brief v11 (format `docs/core/communication.md` section 6)
-- JAMAIS produire le brief sans avoir fait les 2 premiers tours.
+**`/cockpit` ou `/session-start`** :
+- Tour 1 (parallele) : `Read CONTEXT.md` + `Bash git status && git worktree list && git log -1` + `Bash bash scripts/health-check.sh` + `Glob docs/plans/*.md`
+- Tour 2 : lire chaque plan actif + `TodoWrite` avec 1 todo par plan
+- Tour 3 : brief v11 (format `docs/core/communication.md` section 6.1)
 
-**Si conversation demarre par `/plan-os "<demande>"`** :
-- Tour 1 : `EnterPlanMode()` — ouvrir la plan window Desktop IMMEDIATEMENT
-- JAMAIS poser des questions texte chat avant d'avoir ouvert PlanMode
-- Dans PlanMode : AskUserQuestion pour clarifications (pas texte), Write plan file, ExitPlanMode
+**`/plan-os "<demande>"`** :
+- Tour 1 : `EnterPlanMode()` IMMEDIATEMENT (pas de texte chat avant)
+- Dans PlanMode : `AskUserQuestion` pour clarifications, `Write` plan file au format `🪐 <titre> (DD-MM-YYYY)`, `ExitPlanMode`
 
-**Si conversation demarre par `/session-end`** :
-- Tour 1 : `Bash git diff --name-status HEAD` + `Bash git worktree list` + `Bash bash scripts/health-check.sh`
-- Tour 2 : verifier zero todo TodoWrite `in_progress` orpheline
-- Tour 3 : brief cloture v11 (format section 6.2)
+**`/session-end`** :
+- Tour 1 : `Bash git diff --name-status HEAD` + worktree list + health-check + ref-checker
+- Tour 2 : verifier 0 todo TodoWrite `in_progress` orpheline + classer changes par commit logique
+- Tour 3 : brief cloture v11 + propose commit (pas auto)
 
-**Si conversation demarre par `/wt new <desc>` ou `/wt clean <desc>`** :
-- Tour 1 : `Bash bash scripts/worktree-{new,clean}.sh <desc>` EXACTEMENT (pas de pre-traitement)
+**`/wt new|clean <desc>`** : Tour 1 direct `bash scripts/worktree-{new,clean}.sh <desc>`.
 
-Ces tool calls NE sont PAS optionnels. Une interpretation alternative (ex : "laisse-moi d'abord comprendre...") est une violation.
+Tool calls NON optionnels. Interpretation alternative = violation.
 
-### Regles generales (apres les tool calls obligatoires)
+### Regles generales
 
-1. Lire CONTEXT.md pour etat actuel + prochaine action
-2. Ne jamais inventer de metriques — verifier les fichiers
-3. Evaluations realistes uniquement — zero bullshit, zero auto-congratulation
-4. Ne jamais ajouter de fonctionnalites non demandees
-5. **TodoWrite systematique** pour toute tache >= 3 etapes (visibilite tasks pane Desktop). Une seule todo `in_progress` a la fois, update immediat (memoire `feedback_todowrite_systematique.md`)
-6. En fin de session, mettre a jour CONTEXT.md (resume + prochaine action) ET verifier zero todo `in_progress` orpheline
+1. Lire CONTEXT.md pour etat + prochaine action
+2. Jamais de metriques inventees — verifier les fichiers
+3. **TodoWrite systematique** pour >= 3 etapes. Une seule `in_progress`, update immediat (memoire `feedback_todowrite_systematique.md`)
+4. Fin session : zero todo `in_progress` orpheline + update CONTEXT.md
+5. **Thinking en francais** (memoire `feedback_thinking_francais.md`)
 
-## Briefs session (format obligatoire)
+## Briefs session (format v11)
 
-Format v11 (TDAH-friendly, valide 2026-04-10). Spec complete : `docs/core/communication.md` section 6.
+Spec complete : `docs/core/communication.md` section 6.
+11 sections cadres box-drawing, entete/input double trait, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres 12 blocs, tendance ▲▶▼.
 
-**11 sections dans cadres box-drawing** : Sante → Trajectoire → Modules+Acces → Attention → Dernier travail → Statut projet → Idees → Reflexion → Historique → Cap → Input.
+Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md`).
 
-**Regles de rendu v11** : cadres `┌─ TITRE ─┐ ... └─┘` (42 chars), entete/input en double trait `╔═══╗`, 2 lignes vides entre cadres, labels paddes 12 chars, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `████░░░░` (12 blocs), tendance ▲▶▼, lignes ~55 chars max, vulgariser le jargon.
+## Stack & Regles code
 
-**Questions groupees (plans)** : lors de l'execution d'un plan, poser TOUTES les questions en debut de session, pas au fil de l'eau. Execution ensuite sans interruption sauf imprevu (bug, regression, trade-off inattendu). Memoire : `feedback_frontload_questions.md`.
-
-## Stack
-Vite + React + TypeScript + Tailwind + Supabase + Vercel
-
-## Regles
-- Conventional commits : type(scope): description
-- Void Glass : dark-only (#030303 ds-surface-0), Figtree (UI), JetBrains Mono (code), tokens DTCG semantic — voir modules/design-system/
-- Interdit : #0A0A0B, #08080A, Outfit, Inter, system-ui seul (OK en fallback CSS)
+- Vite + React 19 + TypeScript + Tailwind 4 + Supabase + Vercel
+- Conventional commits : `type(scope): description`
+- Void Glass : dark-only `#030303` (ds-surface-0), Figtree UI, JetBrains Mono code, tokens DTCG
+- Interdit : `#0A0A0B`, `#08080A`, Outfit, Inter, system-ui seul (OK fallback CSS)
 - TSX < 700 lignes — decouper si plus
-- BMAD : dossier _bmad/ (underscore obligatoire)
 
-## Conventions nommage (Claude Code Desktop, automatique)
+## Conventions nommage (Claude Code Desktop)
 
-Spec complete : `docs/core/naming-conventions.md`. Source de verite unique, appliquee auto par `/plan-os`, `/wt`, `/cockpit`, `/session-end`.
+Source unique : `docs/core/naming-conventions.md`. Appliquees auto par `/plan-os`, `/wt`, `/cockpit`, `/session-end`.
 
-- **Branches** : `<type>/<scope>-<desc>[-yymmdd]` — ex. `feat/ds-void-glass`, `wt/migration-desktop-260415`. Lowercase, max 40 chars.
-- **Worktrees** : via `/wt new <desc>` uniquement, jamais `git worktree add` manuel. Genere `.claude/worktrees/<desc>-<yymmdd>/` + branche `wt/<desc>-<yymmdd>`.
-- **Sessions Desktop** : format `🪐 <mini-detail> (DD-MM-YYYY)` via titre de plan (auto-rename natif Desktop app a ExitPlanMode).
-- **Plans** : `docs/plans/YYYY-MM-DD-<slug>.md` versionne + `~/.claude/plans/<slug>.md` natif (dual-path).
-- **Thinking** : toute reflexion en francais (memoire `feedback_thinking_francais.md`).
+- **Branches** : `<type>/<scope>-<desc>[-yymmdd]` (lowercase, max 40 chars, types : feat/fix/docs/refactor/chore/audit/wt)
+- **Worktrees** : `/wt new <desc>` → `wt/<desc>-<yymmdd>`, jamais `git worktree add` manuel
+- **Sessions Desktop** : `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan (auto-rename natif)
+- **Plans** : `docs/plans/YYYY-MM-DD-<slug>.md` versionne + `~/.claude/plans/<slug>.md` natif (dual-path)
+- **Memoires** : 6 elements stricts par phase si plan multi-session (memoire `feedback_plans_ultra_detailles.md`)
 
-Red flag si je cree une branche ou un worktree hors format : arreter, renommer, reprendre.
+Red flag si branche/worktree hors format : arreter, renommer, reprendre.
 
 ## Decisions autonomes (agis SANS demander)
 
-Ces decisions sont de la **logique pure**. Tu dois les prendre automatiquement, sans demander validation Kevin. La seule exception : si l'action est destructive ET irreversible (ex : `git push --force`, delete hors archive).
+Logique pure — prendre automatiquement, sauf si destructif ET irreversible (ex : `git push --force`, delete hors archive).
 
-### Due diligence OBLIGATOIRE avant toute action autonome
+### Due diligence OBLIGATOIRE avant action autonome
 
-AVANT tout `mv`, `rm`, archive, modification de fichier Core OS :
+Avant tout `mv`, `rm`, archive, modification Core OS :
+1. Grep refs actives (hors `.archive/`). Si ref active → NE PAS toucher, poser question.
+2. Check workflow actif (script/hook/CI/command). Si oui → NE PAS toucher.
+3. Check CONTEXT.md : fichier mentionne ACTIF dans Modules/Cap/Chantier ? Si oui → NE PAS toucher.
+4. DOUTE → poser UNE question groupee a Kevin.
 
-1. **Grep refs** : verifier que le fichier n'est pas reference depuis un fichier actif (hors `.archive/`). Si ref active → NE PAS toucher, poser question.
-2. **Check workflow actif** : est-ce que ce fichier est invoque par un script, hook, CI, command ? Si oui → NE PAS toucher.
-3. **Check CONTEXT.md** : le fichier/module est-il mentionne comme ACTIF dans Modules ou Cap ou Chantier ? Si oui → NE PAS toucher.
-4. **Si DOUTE** : poser UNE question groupee a Kevin avant d'agir. Jamais "je pensais que...".
+### Honnetete stricte
 
-Cette due diligence s'applique meme aux actions "evidentes" type "plan DONE → archive". Un plan DONE peut etre reference dans un autre plan actif ou dans CONTEXT.md pour le contexte historique.
+Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/core/) :
+- **Tester** ce qui est testable (bash exec, builds, tests)
+- **Declarer** : ✅ "marche, verifie : output" / ⚠️ "devrait marcher mais pas teste car X" / ❌ "theorique/plateforme"
+- **Jamais pretendre** qu'une automation fonctionne sans preuve.
+- **Jamais mettre en place** une automation 50/50 sans la documenter "best-effort" + fallback manuel.
 
-### Honnetete stricte sur ce qui marche / ne marche pas
+### Automations actives
 
-Quand tu modifies le Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/core/) :
+- **Archivage plans** : frontmatter `status:done` OU cases `[x] >= 3` → `.archive/plans-done-$(date +%y%m%d)/` via `scripts/auto-archive-plans.sh` (hook SessionEnd)
+- **Drift detection** : `scripts/drift-detector.sh` au SessionStart (detection only, pas de fix auto destructif)
+- **Docs sync** : `scripts/docs-sync-check.sh` (manuel, chain dans health-check)
+- **Ref integrity** : `scripts/ref-checker.sh` (chain dans health-check + sync-check)
 
-1. **Tester** ce qui est testable (scripts bash → exec manuel, builds → npm run build, tests → npm test)
-2. **Declarer explicitement** dans la reponse a Kevin :
-   - ✅ "Ca marche, verifie : <output commande>"
-   - ⚠️ "Ca devrait marcher mais je n'ai pas pu tester car <raison>"
-   - ❌ "Je ne peux pas garantir, c'est theorique/plateforme/probabiliste"
-3. **Jamais pretendre** qu'une automation fonctionne sans preuve. Mieux vaut dire "pas teste" que mentir par omission.
-4. **Ne JAMAIS mettre en place** une automation dont tu sais qu'elle risque de ne pas marcher fiablement. Si un mecanisme est 50/50, le documenter comme "best-effort" et proposer un fallback manuel.
-
-**Archivage automatique** :
-- Plan dans `docs/plans/` avec toutes cases `[x]` OU status `done`/`closed` → `mv` vers `.archive/plans-done-$(date +%y%m%d)/` (execute par `scripts/auto-archive-plans.sh` via hook SessionEnd)
-- Spec dans `docs/specs/` qui documente un plan execute + aucune reference active → `mv` vers `.archive/specs-done-$(date +%y%m%d)/`
-- Fichier documente explicitement SUPERSEDED par autre + zero ref active → `mv` vers `.archive/<contexte>-<yymmdd>/`
-- Worktree orphelin (branche mergee + dossier vide > 30j) → `git worktree remove` + mention dans cloture session
-
-**Nettoyage automatique** :
-- Fichiers tmp `.tmp.*`, `.bak`, `.log` > 7j dans `.omc/` → `rm`
-- Branches locales 100% mergees dans main → `git branch -d <branche>` (pas remote sans OK Kevin)
-- Tokens/secrets hardcoded detectes dans fichiers commitables → retirer + backup dans `.archive/`
-
-**Mise a jour automatique** :
-- `CONTEXT.md` section Sessions recentes apres commit majeur → append entree datee
-- `CONTEXT.md` section Decisions apres `/plan-os` avec titre `D-*` → append avec date
-- Baselines `docs/core/monitor.md` si metriques reelles divergent > 30% de la baseline (ex: bundle JS change de 200KB) → update
-
-**Interdit sans Kevin** :
-- Tout `git push` sur main ou `--force`
-- Tout `rm -rf` hors `.archive/` ou node_modules regenerable
-- Tout `git commit` automatique (toujours attendre OK Kevin pour commit) — SAUF dans `/session-end` apres diff review
-- Tout push sur remote (origin/*)
-- Toute action qui affecte Asana/Notion/MCP externes
-
-**En cas de doute (ambiguite)** : poser UNE question groupee a Kevin avant d'agir. Ne pas eparpiller les questions au fil de l'eau.
+### Interdit sans Kevin
+- `git push` sur main ou `--force`
+- `rm -rf` hors `.archive/` ou `node_modules` regenerable
+- `git commit` automatique (attendre OK sauf `/session-end` apres diff review)
+- Push sur remote (`origin/*`)
+- Actions Asana/Notion/MCP externes
 
 ## Garde-fous (non-negociable)
-- Ne JAMAIS creer de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json y vivent — package.json racine = workspace root UNIQUEMENT, pas un projet ; ajoute 2026-04-09 pour npm workspaces + Design System)
-- Ne JAMAIS creer de fichier sans demande explicite de Kevin
-- Ne JAMAIS dupliquer une info qui est deja dans CONTEXT.md
-- Quand un fichier est deplace ou renomme → mettre a jour TOUTES les references (grep + fix)
-- Quand une decision est prise → l'ajouter dans CONTEXT.md section Decisions
-- Quand un module change de status → mettre a jour CONTEXT.md section Modules
-- Un fichier qui documente un autre fichier = du bloat, ne pas creer
-- **`.archive/` = POUBELLE** : pour supprimer un fichier, TOUJOURS `mv` vers `.archive/<contexte>-<yymmdd>/`, JAMAIS `rm` direct. Permet rollback + historique.
-- **JAMAIS LIRE `.archive/`** sauf demande explicite Kevin. Dossier exclus du fonctionnement OS — perte de tokens sans valeur. Les scripts (ref-checker, health-check, sync-check) excluent deja `.archive/` du scan. Les Explore agents et Read tool doivent ignorer ce dossier par defaut.
-- **Plans termines = auto-archive** : des qu'un plan dans `docs/plans/` est termine (toutes cases `[x]` OU status `done`), `/session-end` le deplace AUTOMATIQUEMENT vers `.archive/plans-done-$(date +%y%m%d)/`. Le brief de cloture liste les plans archives. Le brief suivant (`/cockpit`, `/session-start`) affiche `🟢 N plans termines recemment` dans le cadre PLANS ACTIFS.
+
+- Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json)
+- Jamais creer de fichier sans demande explicite Kevin
+- Jamais dupliquer une info deja dans CONTEXT.md (regle d'or 4 tiers)
+- Fichier deplace/renomme → mettre a jour TOUTES les refs (grep + fix)
+- Decision prise → CONTEXT.md section Decisions
+- Module change status → CONTEXT.md section Modules
+- **`.archive/` = POUBELLE** : `mv` vers `.archive/<contexte>-<yymmdd>/`, JAMAIS `rm` direct
+- **JAMAIS LIRE `.archive/`** sauf demande explicite Kevin (perte de tokens). Scripts excluent deja.
 
 ## Token-awareness
 
@@ -153,69 +121,53 @@ Quand tu modifies le Core OS (scripts, hooks, commands, settings, CLAUDE.md, doc
 | 3+ fichiers ou 2+ domaines | Agent(s) |
 | Recherche exploratoire | Agent Explore |
 | Max agents paralleles | 3 (projet solo) |
-| Build/tests | run_in_background |
+| Build/tests longs | run_in_background |
 
 ## Anti-bullshit gates
-- Jamais de "TERMINE" ou "100%" sans preuve (build + test execute)
-- Avant d'affirmer "X fonctionne" → executer la commande, montrer l'output
-- Chaque metrique doit avoir une commande de verification
+- Jamais de "TERMINE" ou "100%" sans preuve (build + test executes)
+- Chaque metrique a une commande de verification
 - Mots interdits : revolution, historique, reference mondiale, premier au monde, $XB, accomplish
-- Commits factuels : pas de "achieve", "world-first", "revolutionary"
-- Red flag : si plus de MD que de code dans une session, c'est suspect
-- **Verification visuelle obligatoire** : pour toute tache a impact UI/visuel (Supernova, Storybook, app deployee, dashboard externe), avant de dire "fait" je DOIS prendre un screenshot via chrome-devtools MCP (ou equivalent) et verifier de mes yeux que le changement est visible. Pas de confiance aveugle dans la sortie d'une CLI ou d'une API — une reponse "200 OK" ne veut pas dire que c'est visible. Regle ajoutee 2026-04-14 apres 2 faux "c'est fait" sur Supernova (analyze push != visibilite UI).
+- **Verification visuelle obligatoire** pour UI : screenshot chrome-devtools MCP avant de claim "fait" (memoire `feedback_visual_verification.md`)
+- Red flag : plus de MD que de code dans une session → suspect
 
-## Core OS — Routing
+## Core OS
 
-Spec complete : `docs/core/cortex.md`. Table signaux → agents section 1. Point d'entree simplifie : `/cockpit`.
-
-## Core OS — Communication
-
-Spec complete : `docs/core/communication.md`. 4 tiers (Session/Contexte/Reference/Auto-memory). Regle d'or : une info ne vit que dans UN tier.
-
-## Core OS — Monitor
-
-Spec complete + seuils : `docs/core/monitor.md`. Execution : `bash scripts/health-check.sh`.
-
-## Core OS — Tools
-
-Spec base : `docs/core/tools.md`. Catalogue complet : `docs/core/tools/index.json` (97 outils).
-Routing etendu : `docs/core/tools/routing.json`. CLI : `bash scripts/tool-register.sh`.
-En session-start, lire l'index pour le routing intelligent des outils.
-Quand un outil evolue, mettre a jour sa doc via `tool-register.sh rebuild`.
-
-## Structure
-modules/app/       Module App Builder (React, actif)
-docs/              Architecture, design system, manifeste, guide setup, specs, plans
-docs/core/         Specs Core OS (cortex, communication, monitor, tools)
-scripts/hooks/     Hooks (Void Glass, security)
-supabase/          Migrations DB
-_bmad/             BMAD v6 (12 modules)
-.claude/           Agents, commands, settings
-.archive/          Historique (ne pas toucher sauf demande)
-
-## Build
-cd modules/app && npm run dev    # Dev local
-cd modules/app && npm run build  # Production
-
-## Agents (.claude/agents/)
-- os-architect  : architecture, decisions, stack, schema, structure
-- dev-agent     : code React/TS, composants, Supabase, Void Glass
-- doc-agent     : documentation, CONTEXT.md, traces
-- review-agent  : coherence, audit, zero regression, pre-deploy
-
-Protocole uniforme : entree (CONTEXT.md + scope) → execution → sortie (rapport court).
-Spec agents : docs/core/cortex.md section 4.
+Specs completes : `docs/core/`.
+- **Cortex** (routing) : `cortex.md`
+- **Communication** (persistance + brief v11) : `communication.md`
+- **Monitor** (health, seuils) : `monitor.md`
+- **Tools** (catalogue 98 outils) : `tools.md` + `tools/index.json` + `tools/routing.json`
+- **Planner** (`/plan-os` orchestrateur) : `planner.md`
+- **Worktrees** (feature native + workflow `/wt`) : `worktrees.md`
+- **Architecture globale** : `architecture-core.md`
 
 ## Commands (.claude/commands/)
-- /cockpit       : point d'entree unique — scan + brief + routing + cloture (TDAH-friendly)
-- /session-start : contexte + structure check + build tous modules actifs + announce
-- /session-end   : list changes + coherence + build + update CONTEXT.md + propose commit
-- /plan-os       : generateur de plan — routing modele auto (haiku/sonnet/opus) + regle sub-agent + versionnement docs/plans/
-- /new-project   : scaffold modules/[nom]/ + update CONTEXT.md
-- /sync          : coherence projet entiere (structure, refs, CONTEXT.md vs filesystem, Void Glass)
+- `/cockpit` : point d'entree unique (scan + brief + routing + cloture)
+- `/session-start` + `/session-end` : protocoles session complets
+- `/plan-os` : orchestrateur plans (EnterPlanMode natif)
+- `/wt` : worktrees (new/list/clean)
+- `/new-project` : scaffold module
+- `/sync` : audit coherence
+
+## Agents (.claude/agents/)
+- `os-architect` (opus) : architecture, decisions, stack, schema
+- `dev-agent` (sonnet) : code React/TS, composants, Supabase, Void Glass
+- `doc-agent` (sonnet) : documentation, CONTEXT.md, traces
+- `review-agent` (sonnet) : coherence, audit, zero regression, pre-deploy
+
+Protocole : entree (CONTEXT.md + scope) → execution dans scope → sortie (rapport court).
+
+## Build
+```bash
+cd modules/app && npm run dev    # localhost:5173
+cd modules/app && npm run build  # production
+cd modules/design-system && npm run storybook  # localhost:6006
+```
 
 ## Reference
-- Design spec v2 : docs/specs/2026-04-05-foundation-os-v2-design.md
-- Plan Phase 1 : docs/plans/2026-04-05-phase1-fondations.md
-- Cockpit spec : docs/specs/2026-04-10-cockpit-design.md
-- Archives : `.archive/` (directive-v1.md, tools-audit.md)
+- Architecture : `docs/architecture.md`
+- Setup : `docs/setup-guide.md`
+- Manifeste : `docs/manifeste.md`
+- Navigation : `docs/index.md`
+- Conventions : `docs/core/naming-conventions.md`
+- Decisions archivees : `docs/decisions-log.md`

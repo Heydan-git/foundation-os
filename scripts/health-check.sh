@@ -187,6 +187,18 @@ else
   echo -e "  ${DIM}[OK]${RST} CONTEXT.md ${CTX_LINES}L"
 fi
 
+# Drift detector (level-up phase 6 chain)
+if [ -x scripts/drift-detector.sh ]; then
+  DRIFT_OUT=$(bash scripts/drift-detector.sh 2>&1); DRIFT_RC=$?
+  if [ $DRIFT_RC -eq 0 ]; then
+    echo -e "  ${DIM}[OK]${RST} Drift detector : SYNC"
+  elif [ $DRIFT_RC -eq 1 ]; then
+    DRIFT_N=$(echo "$DRIFT_OUT" | grep -oE "\([0-9]+ drifts" | head -1 | grep -oE "[0-9]+")
+    echo -e "  ${YEL}[WARN]${RST} Drift detector : ${DRIFT_N:-?} drifts (voir bash scripts/drift-detector.sh)"
+    WARNING=$((WARNING + 1))
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────

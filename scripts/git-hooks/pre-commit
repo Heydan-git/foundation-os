@@ -1,8 +1,14 @@
 #!/bin/bash
-# Foundation OS pre-commit hook : run health-check, block on BROKEN
+# Foundation OS pre-commit hook : branch-name-check + health-check
 # Source : scripts/git-hooks/pre-commit (version-controlled)
 # Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
+# Branch name check (warning non-bloquant, convention D-NAMING-01)
+if [ -x scripts/hooks/branch-name-check.sh ]; then
+  bash scripts/hooks/branch-name-check.sh
+fi
+
+# Health check (bloque si BROKEN, warn si DEGRADED)
 bash scripts/health-check.sh
 RC=$?
 

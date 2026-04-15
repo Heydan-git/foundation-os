@@ -89,10 +89,19 @@
       "status": "completed",
       "completed_at": "2026-04-15T10:14:12.856Z",
       "duration_ms": 107705
+    },
+    {
+      "agent_id": "a6c46335d7bbaf608",
+      "agent_type": "Plan",
+      "started_at": "2026-04-15T11:06:03.805Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-04-15T11:08:15.909Z",
+      "duration_ms": 132104
     }
   ],
-  "total_spawned": 10,
-  "total_completed": 10,
+  "total_spawned": 11,
+  "total_completed": 11,
   "total_failed": 0,
-  "last_updated": "2026-04-15T10:14:12.959Z"
+  "last_updated": "2026-04-15T11:08:16.012Z"
 }

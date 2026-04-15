@@ -1,3 +1,13 @@
+---
+id: 2026-04-15-migration-foundation-desktop
+title: Migration Foundation OS → Claude Code Desktop (natif)
+created: 2026-04-15
+completed: 2026-04-15
+status: done
+phases_total: 9
+estimated_duration: 360min
+---
+
 # Migration Foundation OS → Claude Code Desktop (natif)
 
 ## Contexte
