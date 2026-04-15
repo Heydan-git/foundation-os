@@ -38,16 +38,16 @@ function Calendar({
       className={cn("p-ds-3 text-ds-fg/80 font-sans", className)}
       classNames={{
         months: "flex flex-col sm:flex-row gap-ds-4",
-        month: "flex flex-col gap-ds-4",
+        month: "flex flex-col gap-ds-4 relative",
         month_caption:
-          "flex justify-center items-center relative h-ds-8 text-ds-sm uppercase tracking-wider text-ds-fg/60 font-mono",
+          "flex justify-center items-center h-ds-8 text-ds-sm uppercase tracking-wider text-ds-fg/60 font-mono",
         caption_label:
           "text-ds-sm uppercase tracking-wider text-ds-fg/60 font-mono",
-        nav: "absolute inset-x-0 top-0 flex justify-between items-center px-ds-1 h-ds-8",
+        nav: "absolute inset-x-0 top-0 flex justify-between items-center px-ds-1 h-ds-8 pointer-events-none",
         button_previous:
-          "size-ds-6 text-ds-fg/60 hover:text-ds-fg/90 hover:bg-ds-fg/[0.04] rounded-ds-md inline-flex items-center justify-center transition-colors",
+          "size-ds-6 text-ds-fg/60 hover:text-ds-fg/90 hover:bg-ds-fg/[0.04] rounded-ds-md inline-flex items-center justify-center transition-colors pointer-events-auto",
         button_next:
-          "size-ds-6 text-ds-fg/60 hover:text-ds-fg/90 hover:bg-ds-fg/[0.04] rounded-ds-md inline-flex items-center justify-center transition-colors",
+          "size-ds-6 text-ds-fg/60 hover:text-ds-fg/90 hover:bg-ds-fg/[0.04] rounded-ds-md inline-flex items-center justify-center transition-colors pointer-events-auto",
         month_grid: "w-full border-collapse",
         weekdays: "flex",
         weekday:
