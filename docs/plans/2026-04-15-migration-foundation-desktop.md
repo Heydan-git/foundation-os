@@ -125,7 +125,7 @@ Objectif : corriger les bugs + purger ce qui ne sert plus, y compris branches or
 **Actions code/scripts** :
 - Fix `scripts/sync-check.sh:130` — `memory.md` → `communication.md`.
 - Fix `scripts/health-check.sh:104-106` — extraction bundle (parser correct).
-- Purger `.claude/settings.local.json` → garder uniquement MCP actifs (~40 l.). Backup dans `.archive/settings-local-before-migration.json`.
+- Purger `.claude/settings.local.json` → garder uniquement MCP actifs (~40 l.). Backup dans `.archive/settings-local-before-migration-260415.json`.
 - `rm -rf .archive/worktrees-orphelins/admiring-sutherland-20260411/` (2 Mo).
 
 **Actions branches orphelines** (Kevin confirme : vraiment cleaner) :

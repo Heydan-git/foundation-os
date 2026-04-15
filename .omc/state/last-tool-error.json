@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"git add -u -- FOS-*.md CORE-*.md MEMORY-*.md PHASE*.md PLAN-*.md SKILL.md fos-*.jsx top100-claude-prompts.jsx activate_perfect_communication.py test_semantic_search.py test-phase2-sync.js ...",
-  "error": "Exit code 1\n(eval):1: no matches found: FOS-*.md",
-  "timestamp": "2026-04-05T11:25:26.275Z",
+  "tool_input_preview": "{\"command\":\"git add .claude/settings.local.json .archive/settings-local-before-migration-260415.json .archive/worktrees-orphelins/ && git status --short | head -10 && echo \\\"--- committing ---\\\" && gi...",
+  "error": "Exit code 1\nThe following paths are ignored by one of your .gitignore files:\n.claude/settings.local.json\nhint: Use -f if you really want to add them.\nhint: Disable this message with \"git config set advice.addIgnoredFile false\"\n[rerun: b14]",
+  "timestamp": "2026-04-15T09:01:22.540Z",
   "retry_count": 1
 }

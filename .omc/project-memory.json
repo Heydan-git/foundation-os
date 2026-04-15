@@ -1,45 +1,48 @@
 {
-  "version": "2.0.0",
-  "lastScanned": 1775400000000,
-  "projectRoot": "/Users/kevinnoel/foundation-os",
+  "version": "1.0.0",
+  "lastScanned": 1776239549091,
+  "projectRoot": "/Users/kevinnoel/foundation-os/.claude/worktrees/agitated-wilson",
   "techStack": {
     "languages": [
-      "TypeScript",
-      "JavaScript",
-      "CSS"
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
     ],
-    "frameworks": [
-      "React",
-      "Vite",
-      "Tailwind"
-    ],
+    "frameworks": [],
     "packageManager": "npm",
-    "runtime": "node"
+    "runtime": null
   },
   "build": {
-    "buildCommand": "cd modules/app && npm run build",
+    "buildCommand": null,
     "testCommand": null,
     "lintCommand": null,
-    "devCommand": "cd modules/app && npm run dev",
+    "devCommand": null,
     "scripts": {}
   },
   "conventions": {
-    "namingStyle": "kebab-case",
-    "importStyle": "es-modules",
+    "namingStyle": null,
+    "importStyle": null,
     "testPattern": null,
-    "fileOrganization": "monorepo-modules"
+    "fileOrganization": null
   },
   "structure": {
     "isMonorepo": true,
     "workspaces": [
-      "modules/app"
+      "modules/*"
     ],
     "mainDirectories": [
-      "modules/app",
       "docs",
       "scripts"
     ],
-    "gitBranches": null
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
   },
   "customNotes": [
     "CONTEXT.md = source de verite unique",
@@ -48,42 +51,375 @@
     "Deploy Vercel root dir = modules/app"
   ],
   "directoryMap": {
-    "modules/app": {
-      "path": "modules/app",
-      "purpose": "Module App Builder (React)",
-      "fileCount": 30,
-      "keyFiles": [
-        "package.json",
-        "src/App.tsx",
-        "src/lib/supabase.ts"
-      ]
+    "_bmad": {
+      "path": "_bmad",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776239549071,
+      "keyFiles": []
     },
     "docs": {
       "path": "docs",
-      "purpose": "Documentation de reference",
-      "fileCount": 4,
+      "purpose": "Documentation",
+      "fileCount": 5,
+      "lastAccessed": 1776239549075,
       "keyFiles": [
         "architecture.md",
-        "design-system.md",
+        "decisions-log.md",
+        "index.md",
         "manifeste.md",
         "setup-guide.md"
+      ]
+    },
+    "modules": {
+      "path": "modules",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776239549075,
+      "keyFiles": []
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 6,
+      "lastAccessed": 1776239549077,
+      "keyFiles": [
+        "health-check.sh",
+        "module-scaffold.sh",
+        "ref-checker.sh",
+        "session-lock.sh",
+        "sync-check.sh"
+      ]
+    },
+    "supabase": {
+      "path": "supabase",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776239549078,
+      "keyFiles": []
+    },
+    "modules/app": {
+      "path": "modules/app",
+      "purpose": "Application code",
+      "fileCount": 11,
+      "lastAccessed": 1776239549079,
+      "keyFiles": [
+        "README.md",
+        "index.html",
+        "package.json"
+      ]
+    },
+    "supabase/migrations": {
+      "path": "supabase/migrations",
+      "purpose": "Database migrations",
+      "fileCount": 3,
+      "lastAccessed": 1776239549079,
+      "keyFiles": [
+        "001_create_tables.sql",
+        "002_add_delete_policies.sql",
+        "003_add_updated_at.sql"
       ]
     }
   },
   "hotPaths": [
     {
-      "path": "CONTEXT.md",
-      "accessCount": 1,
-      "type": "file"
-    },
-    {
       "path": "CLAUDE.md",
-      "accessCount": 1,
+      "accessCount": 7,
+      "lastAccessed": 1776244787471,
       "type": "file"
     },
     {
-      "path": "modules/app/src/App.tsx",
+      "path": "CONTEXT.md",
+      "accessCount": 7,
+      "lastAccessed": 1776245803929,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/session-start.md",
+      "accessCount": 6,
+      "lastAccessed": 1776245540760,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/session-end.md",
+      "accessCount": 6,
+      "lastAccessed": 1776245612400,
+      "type": "file"
+    },
+    {
+      "path": "scripts/ref-checker.sh",
+      "accessCount": 6,
+      "lastAccessed": 1776246736906,
+      "type": "file"
+    },
+    {
+      "path": "scripts/sync-check.sh",
+      "accessCount": 5,
+      "lastAccessed": 1776245251116,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/architecture-core.md",
+      "accessCount": 4,
+      "lastAccessed": 1776245317415,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/cockpit.md",
+      "accessCount": 4,
+      "lastAccessed": 1776245672461,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/communication.md",
+      "accessCount": 4,
+      "lastAccessed": 1776246660688,
+      "type": "file"
+    },
+    {
+      "path": "scripts/health-check.sh",
+      "accessCount": 4,
+      "lastAccessed": 1776246738201,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/monitor.md",
+      "accessCount": 4,
+      "lastAccessed": 1776246811187,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.local.json",
+      "accessCount": 3,
+      "lastAccessed": 1776243644360,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/worktrees.md",
+      "accessCount": 3,
+      "lastAccessed": 1776244460933,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/plan-os.md",
+      "accessCount": 3,
+      "lastAccessed": 1776244616352,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/planner.md",
+      "accessCount": 3,
+      "lastAccessed": 1776244694473,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/_template-plan.md",
+      "accessCount": 3,
+      "lastAccessed": 1776244724047,
+      "type": "file"
+    },
+    {
+      "path": "docs/setup-guide.md",
+      "accessCount": 3,
+      "lastAccessed": 1776245090665,
+      "type": "file"
+    },
+    {
+      "path": "docs/architecture.md",
+      "accessCount": 3,
+      "lastAccessed": 1776245140184,
+      "type": "file"
+    },
+    {
+      "path": "docs/index.md",
+      "accessCount": 3,
+      "lastAccessed": 1776245188893,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.json",
+      "accessCount": 2,
+      "lastAccessed": 1776241080757,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-14-ds-audit-etats.md",
+      "accessCount": 2,
+      "lastAccessed": 1776241163984,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-13-ds-showcase-tooling-sync-plan.md",
+      "accessCount": 2,
+      "lastAccessed": 1776241164186,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-14-ds-voidglass-iso-figma-make.md",
+      "accessCount": 2,
+      "lastAccessed": 1776241164501,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/os-architect.md",
       "accessCount": 1,
+      "lastAccessed": 1776241064686,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/review-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241064893,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/doc-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241065226,
+      "type": "file"
+    },
+    {
+      "path": ".claude/agents/dev-agent.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241065307,
+      "type": "file"
+    },
+    {
+      "path": "docs/manifeste.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241066095,
+      "type": "file"
+    },
+    {
+      "path": "docs/decisions-log.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241066467,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/new-project.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241069282,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/sync.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241069511,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/cortex.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241069638,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/tools.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241070436,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241079834,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1776241080039,
+      "type": "file"
+    },
+    {
+      "path": "scripts/hooks/validate-void-glass.sh",
+      "accessCount": 1,
+      "lastAccessed": 1776241084474,
+      "type": "file"
+    },
+    {
+      "path": "scripts/hooks/security-reminder.py",
+      "accessCount": 1,
+      "lastAccessed": 1776241085338,
+      "type": "file"
+    },
+    {
+      "path": "docs/specs/2026-04-10-cockpit-design.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241110417,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/tools/README.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241110507,
+      "type": "file"
+    },
+    {
+      "path": "docs/specs/2026-04-05-foundation-os-v2-design.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241110529,
+      "type": "file"
+    },
+    {
+      "path": "docs/specs/2026-04-10-tools-module-v2-design.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241110955,
+      "type": "file"
+    },
+    {
+      "path": "docs/specs/2026-04-10-cockpit-plan.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241111164,
+      "type": "file"
+    },
+    {
+      "path": "docs/specs/2026-04-10-core-os-audit.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241161520,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-05-phase1-fondations.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241162202,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-audit-massif-final.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241162385,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-phase2-app-hardening.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241162757,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-finition-os.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241162888,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-phase4-monitoring.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241163928,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-phase3-os-intelligence.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241164168,
+      "type": "file"
+    },
+    {
+      "path": "docs/travaux-cowork/README.md",
+      "accessCount": 1,
+      "lastAccessed": 1776241164774,
       "type": "file"
     }
   ],

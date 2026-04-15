@@ -334,7 +334,7 @@ Max 10 idees en parking. Au-dela, forcer une priorisation : garder les 10 plus p
 
 ## 9. Migration depuis Memory
 
-Cette spec remplace l'ancien module Memory (archive : `.archive/memory.md`). Les changements :
+Cette spec remplace l'ancien module Memory (l'ancien fichier `docs/core/memory.md` a ete renomme en `docs/core/communication.md` le 2026-04-10, pas archive). Les changements :
 
 | Aspect | Memory (ancien) | Communication (nouveau) |
 |--------|----------------|------------------------|

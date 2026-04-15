@@ -71,7 +71,7 @@ if [ "$UNCOMMITTED" -gt 0 ]; then
   fi
 fi
 
-git worktree remove "$WT_PATH" "${2:-}" || git worktree remove --force "$WT_PATH"
+git worktree remove "$WT_PATH" || git worktree remove --force "$WT_PATH"
 
 # Delete branche si mergee dans main
 if git branch --merged main | grep -q "$BRANCH"; then

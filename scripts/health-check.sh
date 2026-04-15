@@ -158,7 +158,7 @@ echo ""
 echo "[INFO]"
 
 # Bundle size
-JS_SIZE=$(echo "$APP_BUILD_OUT" | grep "^dist/.*\.js " | awk '{print $2}' | head -1)
+JS_SIZE=$(echo "$APP_BUILD_OUT" | grep -E "^dist/assets/index-.*\.js " | awk '{print $2}' | head -1)
 CSS_SIZE=$(echo "$APP_BUILD_OUT" | grep "^dist/.*\.css " | awk '{print $2}' | head -1)
 JS_INT=${JS_SIZE%.*}
 CSS_INT=${CSS_SIZE%.*}
