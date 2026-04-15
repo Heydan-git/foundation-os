@@ -118,7 +118,7 @@ docs/plans/YYYY-MM-DD-<slug>.md
 
 - `docs/plans/2026-04-15-migration-foundation-desktop.md`
 - `docs/plans/2026-04-14-ds-rebuild-from-base.md`
-- `docs/plans/2026-04-10-cockpit-plan.md`
+- `docs/plans/2026-04-15-migration-foundation-desktop.md`
 
 ### Duplication plan mode natif
 
@@ -161,7 +161,7 @@ docs/specs/YYYY-MM-DD-<slug>-(design|plan|audit).md
 ### Exemples
 
 - `docs/specs/2026-04-10-cockpit-design.md`
-- `docs/specs/2026-04-10-cockpit-plan.md`
+- `docs/specs/2026-04-10-tools-module-v2-design.md`
 - `docs/specs/2026-04-10-tools-module-v2-design.md`
 
 ## 7. Memoires auto-memory

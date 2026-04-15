@@ -89,6 +89,8 @@ Red flag si je cree une branche ou un worktree hors format : arreter, renommer, 
 - Quand une decision est prise → l'ajouter dans CONTEXT.md section Decisions
 - Quand un module change de status → mettre a jour CONTEXT.md section Modules
 - Un fichier qui documente un autre fichier = du bloat, ne pas creer
+- **`.archive/` = POUBELLE** : pour supprimer un fichier, TOUJOURS `mv` vers `.archive/<contexte>-<yymmdd>/`, JAMAIS `rm` direct. Permet rollback + historique.
+- **JAMAIS LIRE `.archive/`** sauf demande explicite Kevin. Dossier exclus du fonctionnement OS — perte de tokens sans valeur. Les scripts (ref-checker, health-check, sync-check) excluent deja `.archive/` du scan. Les Explore agents et Read tool doivent ignorer ce dossier par defaut.
 
 ## Token-awareness
 
