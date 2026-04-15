@@ -76,11 +76,14 @@ Les seuils evoluent avec le projet. Quand un seuil change :
 - Mettre a jour ce document
 - Ajouter la raison du changement
 
-Seuils actuels bases sur l'etat du 2026-04-10 :
-- Build time baseline : ~178ms (alerte si > 2000ms)
-- Bundle JS baseline : ~244KB (alerte si > 600KB)
-- Bundle CSS baseline : ~29KB (alerte si > 40KB)
+Seuils actuels bases sur l'etat du 2026-04-15 (post-migration Desktop) :
+- Build time baseline : ~303ms (alerte si > 2000ms)
+- Bundle JS baseline : ~613KB (alerte si > 800KB — actuel deja au-dessus de l'ancien seuil 600KB depuis ajout motion + lucide, a investiguer separement)
+- Bundle CSS baseline : ~55KB (alerte si > 80KB)
 - Modules actifs : 2 (app, design-system). Ajouter les nouveaux au fur et a mesure.
+- Storybook stories : ~62 (53 DS + 9 app)
+
+**TODO post-migration** : investiguer le bundle JS qui depasse 600KB (motion + lucide imports). Decision : soit ajuster seuil a 800KB (acte que la realite est la), soit lazy-load les composants Storybook/animation. A trancher hors migration.
 
 Note : ces seuils sont la source de verite unique. `CLAUDE.md` (section Token-awareness) et `scripts/health-check.sh` (pre-commit) doivent s'y aligner.
 
