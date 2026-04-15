@@ -116,6 +116,22 @@ Mettre a jour chaque section dans cet ordre. Pour chaque section, verifier si un
 - Verifier < 200 lignes (sinon warning + compresser)
 - Verifier coherence : ce qui est dans les sessions recentes correspond aux commits reels
 
+## Phase 5bis — Auto-archive des plans termines (OBLIGATOIRE)
+
+**Regle** : un plan est "termine" si son `## Execution log` contient UNIQUEMENT des cases `[x]` (zero `[ ]`) OU son frontmatter `status` = `done`/`closed`.
+
+**Action automatique pour chaque plan termine dans `docs/plans/`** :
+
+```bash
+mkdir -p .archive/plans-done-$(date +%y%m%d)
+mv docs/plans/<slug>.md .archive/plans-done-$(date +%y%m%d)/
+```
+
+- Inclure dans le brief de cloture Phase 7 : cadre `PLANS TERMINES CETTE SESSION` avec la liste des plans archives (titre + commit final + date).
+- Au prochain `/cockpit` ou `/session-start` : dans le brief v11 cadre `PLANS ACTIFS`, afficher une ligne `🟢 <N> plans termines recemment` qui pointe vers le dossier archive.
+
+Exclure `_template-plan.md` et le plan actif session courante.
+
 ## Phase 6 — Proposer commit
 
 Si des changements sont en attente → proposer un commit (conventional commits, pas d'auto-congratulation).

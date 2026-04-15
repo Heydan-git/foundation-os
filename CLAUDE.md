@@ -91,6 +91,7 @@ Red flag si je cree une branche ou un worktree hors format : arreter, renommer, 
 - Un fichier qui documente un autre fichier = du bloat, ne pas creer
 - **`.archive/` = POUBELLE** : pour supprimer un fichier, TOUJOURS `mv` vers `.archive/<contexte>-<yymmdd>/`, JAMAIS `rm` direct. Permet rollback + historique.
 - **JAMAIS LIRE `.archive/`** sauf demande explicite Kevin. Dossier exclus du fonctionnement OS — perte de tokens sans valeur. Les scripts (ref-checker, health-check, sync-check) excluent deja `.archive/` du scan. Les Explore agents et Read tool doivent ignorer ce dossier par defaut.
+- **Plans termines = auto-archive** : des qu'un plan dans `docs/plans/` est termine (toutes cases `[x]` OU status `done`), `/session-end` le deplace AUTOMATIQUEMENT vers `.archive/plans-done-$(date +%y%m%d)/`. Le brief de cloture liste les plans archives. Le brief suivant (`/cockpit`, `/session-start`) affiche `🟢 N plans termines recemment` dans le cadre PLANS ACTIFS.
 
 ## Token-awareness
 

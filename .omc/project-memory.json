@@ -124,8 +124,8 @@
   "hotPaths": [
     {
       "path": "CLAUDE.md",
-      "accessCount": 9,
-      "lastAccessed": 1776248268094,
+      "accessCount": 10,
+      "lastAccessed": 1776248615790,
       "type": "file"
     },
     {
@@ -135,21 +135,27 @@
       "type": "file"
     },
     {
-      "path": ".claude/commands/session-start.md",
-      "accessCount": 7,
-      "lastAccessed": 1776247664432,
+      "path": ".claude/commands/session-end.md",
+      "accessCount": 8,
+      "lastAccessed": 1776248561704,
       "type": "file"
     },
     {
-      "path": ".claude/commands/session-end.md",
-      "accessCount": 7,
-      "lastAccessed": 1776247831148,
+      "path": ".claude/commands/session-start.md",
+      "accessCount": 8,
+      "lastAccessed": 1776248615561,
       "type": "file"
     },
     {
       "path": "scripts/ref-checker.sh",
       "accessCount": 6,
       "lastAccessed": 1776246736906,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/communication.md",
+      "accessCount": 6,
+      "lastAccessed": 1776248634610,
       "type": "file"
     },
     {
@@ -162,12 +168,6 @@
       "path": ".claude/commands/cockpit.md",
       "accessCount": 5,
       "lastAccessed": 1776247615393,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/communication.md",
-      "accessCount": 5,
-      "lastAccessed": 1776248124156,
       "type": "file"
     },
     {
