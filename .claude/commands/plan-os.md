@@ -1,140 +1,167 @@
-# /plan-os — Generateur de plan Foundation OS
+# /plan-os — Orchestrateur de generation de plans Foundation OS
 
-Wrapper par-dessus `superpowers:writing-plans` avec routing modele automatique, regle sub-agent stricte, et versionnement dans `docs/plans/`.
+**Point d'entree UNIQUE** pour generer un plan Foundation OS. Route intelligemment vers le meilleur skill de planification selon le contexte, puis finalise toujours via `EnterPlanMode` natif (Desktop app plan window) + dual-path versionnement.
 
-Spec complete : `docs/core/planner.md`.
-Template : `docs/plans/_template-plan.md`.
+Spec complete : `docs/core/planner.md`. Memoire permanente : `feedback_plans_orchestrateur.md`.
 
-## Quand utiliser
+## Principe
 
-- Tache non-triviale (> 3 fichiers OU > 1 domaine OU > 30 min de travail)
-- Besoin d'economie de tokens (session longue, plusieurs blocs heterogenes)
-- Besoin de tracabilite (plan versionne dans git)
+Garder les skills efficaces (`superpowers:writing-plans`, `superpowers:brainstorming`, `oh-my-claudecode:ralplan`, etc.) ET les orchestrer. Ne JAMAIS les dupliquer, ne JAMAIS en eliminer.
 
-## Quand ne PAS utiliser
+Sortie finale **toujours** :
+1. `EnterPlanMode` (natif Claude Code) — affiche le plan dans la plan window Desktop.
+2. Plan file ecrit dans `~/.claude/plans/<slug>.md` (path natif, visible UI).
+3. Copie versionnee dans `docs/plans/YYYY-MM-DD-<slug>.md` (projet Foundation OS).
+4. `ExitPlanMode` — Desktop app auto-renomme la session selon titre du plan.
+5. Titre format `🪐 <mini-detail> (DD-MM-YYYY)` (convention `docs/core/naming-conventions.md` section 3).
 
-- Tache triviale (< 3 fichiers, 1 domaine) → coder directement
-- Exploration pure → utiliser Agent Explore
-- Bug fix simple avec cause racine claire → executer direct
+## Phase 1 — Analyse de la demande
 
-## Phase 1 — CAPTURE
+Avant tout routing, identifier les signaux de la demande Kevin :
 
-Comprendre la demande. Si ambigu → poser **toutes les questions en une fois** (regle Foundation OS `feedback_frontload_questions.md`).
+| Signal | Questionnement |
+|---|---|
+| Ambiguite | Y a-t-il au moins 2 questions a poser pour clarifier l'objectif ? |
+| Ampleur | Combien de phases probables ? Combien de domaines touches (code, docs, infra) ? |
+| Type | Est-ce un debat d'options (consensus) ou une tache deterministe ? |
+| Scope | Tache simple 1-3 phases OU complexe multi-session ? |
+| Intention | Foundation OS interne (routing decision OS) OU dev applicatif ? |
 
-Sortie : formulation claire de l'objectif observable.
+Cette analyse determine le routing Phase 2.
 
-## Phase 2 — DECOUPE
+## Phase 2 — Routing skill
 
-Identifier les blocs de travail atomiques.
+Table de routing canonique (aussi dans memoire `feedback_plans_orchestrateur.md`) :
 
-Regles :
-- **Un bloc = 15-30 min** de travail utile (anti-compactage)
-- **Grouper par domaine** (tout le front ensemble, tout la DB ensemble)
-- **Identifier les dependances** (Bloc B depend de Bloc A)
-- **Atomique** : un bloc doit avoir un critere de fin observable
+| Signal dominant | Skill d'entree | Skill suivant | Finalisation |
+|---|---|---|---|
+| Ambiguite >=2 questions, "je sais pas comment" | `superpowers:brainstorming` | `superpowers:writing-plans` | EnterPlanMode |
+| Plan multi-phase complexe (>=5 phases, multi-domaines) | `superpowers:writing-plans` | — | EnterPlanMode |
+| Plan multi-session avec checkpoints | `superpowers:writing-plans` puis `superpowers:executing-plans` | — | EnterPlanMode |
+| Consensus ou debat d'options | `oh-my-claudecode:ralplan` | `superpowers:writing-plans` | EnterPlanMode |
+| Demande directe, scope clair, 1-3 phases | Skip skills tiers | — | EnterPlanMode direct |
+| Intention Foundation OS (decision OS) | `oh-my-claudecode:plan` | — | EnterPlanMode |
 
-## Phase 3 — ROUTING
+**Regles imperatives** :
+1. Si ambiguite >=2 questions mentales → **toujours** `brainstorming` d'abord.
+2. Si plan >=5 phases OU >=3 domaines → **toujours** `writing-plans`.
+3. Sortie finale **toujours** via `EnterPlanMode`.
+4. AskUserQuestion pour grouper les questions en debut (regle feedback Kevin `feedback_frontload_questions.md`).
 
-Pour chaque bloc, assigner un modele selon `docs/core/planner.md` section 3 :
+## Phase 3 — Execution routing
 
-| Modele | Critere |
-|--------|---------|
-| haiku  | Lookups, lecture, grep, listing, status |
-| sonnet | Exec code standard, tests, docs techniques, review |
-| opus   | Architecture, decisions, schema DB, refactor multi-module, debug causal |
+Selon la table Phase 2, invoquer le skill choisi.
 
-**Default conservateur** : en cas de doute, monter d'un cran.
+- `superpowers:brainstorming` : pose les questions groupees, explore les options. Kevin tranche.
+- `superpowers:writing-plans` : structure le plan (Context / Findings / Phases / Verification / Risques).
+- `oh-my-claudecode:ralplan` : consensus planning avec gating.
+- `oh-my-claudecode:plan` : skill interne OMC (interview optionnel).
 
-Chaque assignation doit avoir une **justification en 1 ligne**.
+Apres le skill : recueillir la structure du plan, adapter au format Foundation OS, transitionner vers Phase 4.
 
-## Phase 4 — SUB-AGENT GATE
-
-Pour chaque bloc, evaluer les 3 conditions (`docs/core/planner.md` section 4) :
-
-1. Zone isolee (1 module, 1 domaine)
-2. Sans memoire session (pas de decisions/historique/contexte conversationnel)
-3. Sortie observable (code, fichier, commande — pas un jugement)
-
-**Si les 3 sont TRUE → sub-agent OK (proposer agent + modele).**
-**Si une seule tombe → main session obligatoire.**
-
-Memoire a respecter : `feedback_subagents_context.md` — les sous-agents cassent souvent les findings qui necessitent contexte global.
-
-## Phase 5 — ECRITURE
-
-Invoquer `superpowers:writing-plans` pour generer le squelette.
-
-Puis injecter :
-- Frontmatter YAML (template `docs/plans/_template-plan.md`)
-- Section "Routing resume" avec tableau
-- Colonnes Modele + Sub-agent + Duree + Dep pour chaque bloc
-- Justifications explicites
-
-Ecrire le fichier dans le dossier `docs/plans/` avec pour nom la date + slug + suffixe `-plan.md`.
-
-## Phase 6 — VALIDATION
-
-Afficher a Kevin :
-- **Routing resume** (tableau compact)
-- **Blocs avec sub-agent propose** (si aucun, le dire)
-- **Estimation duree totale**
-- **Fichier cree** (chemin)
-
-Demander : **"Je valide bloc par bloc ?"**
-
-Kevin doit :
-- Valider chaque routing modele (ou forcer override)
-- Valider chaque delegation sub-agent (ou refuser)
-- Donner le "go" global
-
-Tant que Kevin n'a pas dit "go", **rien ne s'execute**.
-
-## Phase 7 — EXECUTION (optionnelle, si Kevin dit "go")
-
-Executer bloc par bloc dans l'ordre des dependances.
-
-- Pour chaque bloc avec `sub-agent: oui` valide → dispatch via Task tool avec le bon `model:` et `subagent_type:`
-- Pour chaque bloc `main session` → executer dans la session courante
-
-**Avertissement modele session principale** : si un bloc `main session` reclame un modele different du modele courant (ex: plan dit opus, Kevin est en sonnet), afficher :
-```
-⚠ Bloc X requiert opus en session principale.
-  Kevin doit taper /model opus avant d'executer ce bloc, ou forcer sonnet.
-```
-
-Apres chaque bloc : cocher dans le plan markdown, afficher le statut, demander confirmation avant le suivant si Kevin avait demande "validation par bloc".
-
-## Phase 8 — CLOTURE
-
-Apres execution :
-- Marquer `status: done` dans le frontmatter du plan
-- Ajouter section "Notes post-execution" avec ecarts estimation vs reel (si observable)
-- Proposer commit `docs(plans): <nom-plan>` si fichier modifie
-
-## Limites
-
-- **Pas d'execution automatique** — Kevin valide toujours
-- **Pas de rollback** — si un bloc echoue, re-lancer `/plan-os` pour un nouveau plan
-- **Dependance Superpowers** — si `superpowers:writing-plans` est desinstalle, cette commande casse. Accepte comme trade-off.
-
-## Exemple d'usage
+## Phase 4 — EnterPlanMode + ecriture plan file
 
 ```
-Kevin: "/plan-os ajouter authentification Supabase au module Finance"
-
-Claude:
-  Phase 1 — CAPTURE : "Scope = login/logout + session persistence + guards routes, sans reset password"
-  Phase 2 — DECOUPE : 4 blocs (setup client, pages, guards, tests)
-  Phase 3 — ROUTING : sonnet x3, opus x1 (decision schema session)
-  Phase 4 — SUB-AGENT : 0 sub-agent (contexte global requis)
-  Phase 5 — ECRITURE : docs/plans/2026-04-11-finance-auth-plan.md
-  Phase 6 — VALIDATION : affiche routing + attend "go"
+EnterPlanMode()
+→ prompt natif affecte un path ~/.claude/plans/<slug>.md
+→ ecrire le plan avec Write tool dans ce path
+→ appeller ExitPlanMode pour validation Kevin
 ```
+
+Le titre du plan **doit** suivre le format `🪐 <mini-detail> (DD-MM-YYYY)` pour que le Desktop app auto-renomme la session.
+
+Format obligatoire du plan :
+
+1. **Titre** : `# 🪐 <mini-detail> (DD-MM-YYYY)`
+2. **Context** : 3-6 paragraphes, verite du pourquoi, verite du probleme, intention Kevin consolidee.
+3. **Findings** (optionnel) : decouvertes d'exploration si applicable.
+4. **Phases** : decoupees en sessions courtes (regle "jamais monolithe" CLAUDE.md).
+5. **Fichiers critiques** : recap tableau fichier / phase / action.
+6. **Hors scope** : ce qu'on ne fait PAS, explicite.
+7. **Verification end-to-end** : comment tester que tout marche.
+8. **Risques** : table risque / probabilite / mitigation.
+
+## Phase 5 — Copie versionnee
+
+Apres `ExitPlanMode` valide :
+
+```bash
+cp ~/.claude/plans/<slug>.md docs/plans/$(date +%Y-%m-%d)-<slug>.md
+git add docs/plans/<date>-<slug>.md
+# Commit propose en fin de session via /session-end
+```
+
+Garantit que le plan survit dans l'historique projet (les plans natifs `~/.claude/plans/` sont locaux).
+
+## Phase 6 — Execution avec TodoWrite
+
+Une fois le plan approuve (ExitPlanMode return "User has approved your plan") :
+
+1. Creer un TodoWrite avec une todo par phase du plan.
+2. Executer phase par phase en marquant les todos.
+3. Commit conventionnel par phase (format `<type>(scope): phase N/<total> ...`).
+4. Fin de toutes phases → `/session-end` cloture.
+
+Regle tasks pane (memoire `feedback_todowrite_systematique.md`) : une seule todo `in_progress` a la fois, update immediat.
+
+## Exemples
+
+### Simple fix de typo
+```
+/plan-os "fix typo doc architecture.md"
+```
+→ Phase 1 : scope clair, 1 phase.
+→ Phase 2 : skip skills, direct EnterPlanMode.
+→ Phase 4 : plan minimal (1 phase, 1 fichier).
+→ Titre : `🪐 Fix typo architecture.md (15-04-2026)`.
+
+### Migration complexe (ce plan actuel)
+```
+/plan-os "migrer Foundation OS vers Claude Code Desktop"
+```
+→ Phase 1 : ambiguite forte (quelles features natives ? quels workflows ?), 9 phases, multi-domaines (code + docs + scripts + commands).
+→ Phase 2 : `brainstorming` d'abord (AskUserQuestion groupes) puis `writing-plans`.
+→ Phase 4 : plan riche (Context + Findings + 9 Phases + Risks).
+→ Titre : `🪐 Migration Foundation OS Desktop (15-04-2026)`.
+
+### Debat architecture
+```
+/plan-os "auth : JWT vs session cookie"
+```
+→ Phase 1 : consensus/debat.
+→ Phase 2 : `oh-my-claudecode:ralplan` (consensus planning).
+→ Phase 4 : plan avec options + recommandation + trade-offs.
+→ Titre : `🪐 Debat architecture auth (15-04-2026)`.
+
+## Hors scope
+
+- Execution du plan (→ phases du plan en sessions distinctes, via `/session-start` + commits conventionnels).
+- Skills custom Kevin-specific (→ laisser skills existants gerer, pas de reinvention).
+- Memoire long-terme (→ auto-memory existant via `feedback_*.md`, pas de MCP memory tier).
+
+## Ce qui remplace les anciens workflows
+
+Avant (6 chemins concurrents) :
+- `.claude/commands/plan-os.md` wrapper superpowers obligatoire
+- `superpowers:writing-plans` appelable seul
+- `superpowers:brainstorming` appelable seul
+- `oh-my-claudecode:plan` appelable seul
+- `oh-my-claudecode:ralplan` appelable seul
+- `plan-os:plan-os` skill redondant
+
+Maintenant (1 entry point, skills preserves) :
+- **`/plan-os` = orchestrateur** (ce fichier)
+- Skills efficaces restent installes et appelables manuellement si Kevin veut un A/B.
+- Sortie toujours EnterPlanMode natif.
+
+Supersede D-PLAN-01 (2026-04-11 MVP plan-os wrapper superpowers). Nouvelle decision : D-PLAN-02 orchestrateur (2026-04-15).
 
 ## References
 
 - Spec : `docs/core/planner.md`
-- Template : `docs/plans/_template-plan.md`
-- Superpower : `superpowers:writing-plans`
-- Memoire sub-agents : `feedback_subagents_context.md`
-- Memoire questions groupees : `feedback_frontload_questions.md`
+- Conventions : `docs/core/naming-conventions.md` sections 3-4
+- Memoires :
+  - `feedback_plans_orchestrateur.md` (table routing)
+  - `feedback_sessions_nommage_planete.md` (titre 🪐)
+  - `feedback_todowrite_systematique.md` (tasks pane)
+  - `feedback_frontload_questions.md` (AskUserQuestion groupees)
