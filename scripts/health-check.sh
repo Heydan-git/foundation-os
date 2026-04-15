@@ -57,7 +57,7 @@ for PKG in modules/*/package.json; do
 done
 
 # Structure
-ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase|base DS)$' || true)
+ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase|base DS|wiki)$' || true)
 if [ -z "$ORPHANS" ]; then
   echo -e "  ${GRN}[OK]${RST} Structure racine (0 orphelin)"
 else

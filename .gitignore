@@ -26,3 +26,16 @@ secrets.json
 # Logs
 *.log
 modules/design-system/.env*
+
+# ── WIKI / KNOWLEDGE LAYER (D-WIKI-01, 2026-04-15) ──
+# Obsidian config locale (per user, non partagee)
+.obsidian/
+.obsidian.vimrc
+
+# Modules Phase 5 : data brute + secrets + backtests raw
+modules/*/data/
+modules/*/secrets/
+modules/*/backtests/raw/
+
+# Manifest delta tracking claude-obsidian (regenerable)
+.raw/.manifest.json
