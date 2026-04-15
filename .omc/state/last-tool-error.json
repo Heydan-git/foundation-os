@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"ls -la /Users/kevinnoel/foundation-os/.claude/worktrees/ 2>&1\",\"description\":\"Check if worktree dir exists\"}",
-  "error": "Path \"/Users/kevinnoel/foundation-os/.claude/worktrees/agitated-wilson\" does not exist\n[rerun: b4]",
-  "timestamp": "2026-04-15T10:35:37.882Z",
+  "tool_input_preview": "{\"command\":\"set +e; cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit && echo \\\"Hook installed. Content:\\\" && head -15 .git/hooks/pre-commit\",\"description\":\"Insta...",
+  "error": "Exit code 1\ncp: .git/hooks/pre-commit: Not a directory\n[rerun: b9]",
+  "timestamp": "2026-04-15T11:34:26.527Z",
   "retry_count": 1
 }

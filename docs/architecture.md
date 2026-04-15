@@ -172,4 +172,4 @@ Decisions structurantes recentes :
 - Index navigation : `docs/index.md`
 - Conventions : `docs/core/naming-conventions.md`
 - Cockpit spec : `docs/specs/2026-04-10-cockpit-design.md`
-- Plan migration Desktop : `docs/plans/2026-04-15-migration-foundation-desktop.md`
+- Plan migration Desktop : `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`

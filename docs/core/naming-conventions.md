@@ -116,9 +116,9 @@ docs/plans/YYYY-MM-DD-<slug>.md
 
 ### Exemples
 
-- `docs/plans/2026-04-15-migration-foundation-desktop.md`
-- `docs/plans/2026-04-14-ds-rebuild-from-base.md`
-- `docs/plans/2026-04-15-migration-foundation-desktop.md`
+- `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
+- `.archive/plans-done-260415/2026-04-14-ds-rebuild-from-base.md`
+- `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
 
 ### Duplication plan mode natif
 
@@ -208,4 +208,4 @@ Les memoires auto-memory garantissent la persistance entre sessions :
 
 ## Historique
 
-- 2026-04-15 — Creation spec initiale pendant migration Foundation OS vers Claude Code Desktop. Phase 2/9 du plan `docs/plans/2026-04-15-migration-foundation-desktop.md`.
+- 2026-04-15 — Creation spec initiale pendant migration Foundation OS vers Claude Code Desktop. Phase 2/9 du plan `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`.
