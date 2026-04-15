@@ -4,17 +4,60 @@ Module Core OS responsable de la journalisation, l'indexation, la lecture du pro
 
 > Ce module definit COMMENT l'information circule entre les sessions. Les 4 fonctions : Journaliser (ecrire), Indexer (organiser), Lire (comprendre), Briefer (presenter).
 
-## 1. Tiers de memoire
+## 1. Tiers de memoire (5 tiers post-D-WIKI-01)
 
 | Tier | Support | Duree de vie | Mis a jour par |
 |------|---------|-------------|----------------|
 | Session | Conversation Claude | 1 session | automatique |
 | Contexte | CONTEXT.md | Permanent (chaque session) | session-end |
+| Auto-memory | ~/.claude/projects/.../memory/ | Permanent | Claude Code natif + /session-end |
 | Reference | docs/ | Permanent (fondamentaux) | quand architecture change |
-| Auto-memory | ~/.claude/projects/.../memory/ | Permanent | Claude Code natif |
+| **Knowledge** | **wiki/ (NOUVEAU D-WIKI-01)** | **Permanent** | **/save, wiki-ingest, /autoresearch** |
 
-### Regle d'or
-**Une information ne vit que dans UN tier.** Pas de duplication. Si c'est dans docs/, CONTEXT.md pointe vers le doc.
+### Regle d'or (update 2026-04-15)
+**Une information ne vit que dans UN tier.** Pas de duplication. Si c'est dans docs/, CONTEXT.md pointe vers le doc. Si c'est knowledge externe atemporel, ca va dans wiki/ (pas dans auto-memory).
+
+## 1.5 Test arbitral — quoi va dans quel tier
+
+Poser 5 questions dans l'ordre pour arbitrer tout nouvel element :
+
+1. **Executable / brut / volumineux / sensible (cles API, secrets)** → `modules/<X>/{src,data,secrets,backtests}/`
+2. **Change a chaque session** (etat projet courant) → `CONTEXT.md`
+3. **Decrit COMMENT travailler avec Kevin / comportement Claude** → `auto-memory` (~/.claude/projects/.../memory/)
+4. **Spec OS stable du systeme** (architecture, module Core) → `docs/core/` ou `docs/`
+5. Sinon (knowledge atemporel externe) → **`wiki/`** (tier 5, D-WIKI-01)
+
+### Exemples concrets
+
+| Element | Tier | Justification |
+|---------|------|--------------|
+| Ferritine baseline Kevin 2026-04 | `wiki/domains/sante/bilans/2026-04-bilan.md` | knowledge externe synthese (pas raw scan) |
+| Strategy momentum code TS | `modules/trading/strategies/momentum.ts` | executable |
+| Strategy momentum doc + papers refs | `wiki/domains/trading/strategies/momentum.md` | knowledge atemporel |
+| Sharpe ratio explained | `wiki/concepts/Sharpe Ratio.md` | concept theorique cross-domain |
+| Decision D-WIKI-01 adoption claude-obsidian | `CONTEXT.md` Decisions + `docs/decisions-log.md` | decision technique projet |
+| Kevin est TDAH, thinking en francais | `auto-memory/user_*.md` | profile Kevin |
+| Cle API broker trading | `modules/trading/secrets/.env` (gitignored) | secret sensible |
+| Article UX sur lois Gestalt | `wiki/domains/design/sources/gestalt-laws-YYYY-MM-DD.md` | source externe ingeree |
+| Spec module Cortex | `docs/core/cortex.md` | spec OS stable |
+| Metrique build app 265ms | `CONTEXT.md` > Metriques | etat projet courant |
+
+### Couplage modules <-> wiki
+
+Code executable dans `modules/`, doc+hypotheses+refs dans `wiki/domains/`. Cross-reference via frontmatter :
+
+```yaml
+# wiki/domains/trading/strategies/momentum.md
+---
+type: strategy
+implementation: ../../../../modules/trading/strategies/momentum.ts
+backtest_runs: ../../../../modules/trading/backtests/
+sharpe_ratio: 1.2
+max_drawdown: 0.15
+---
+```
+
+Spec complete module Knowledge : `docs/core/knowledge.md`.
 
 ### Auto-memory — ce qui y va (et ce qui n'y va pas)
 
@@ -209,32 +252,49 @@ Ces lectures sont a la demande, pas systematiques.
 
 ## 6. Briefing — Comment on presente
 
-### 6.1 Brief de debut de session (v11 — TDAH-friendly)
+### 6.1 Brief de debut de session (v11 — TDAH-friendly, 14 sections post-D-WIKI-01)
 
-**12 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
+**14 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
 
 Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, respiration entre blocs.
 
 #### Sections
 
 1. **SANTE** : 4 lignes (projet/build/tests/health), barres 12 blocs, % aligne a droite
-2. **TRAJECTOIRE** : mission/focus/tendance(▲▶▼)/derniere session
-3. **PLANS ACTIFS** (obligatoire) : pour chaque plan `docs/plans/*.md` non cloture :
+2. **HOT** (NOUVEAU D-WIKI-01) : 3-5 lignes condensees extraites de `wiki/hot.md`. Format :
+   ```
+   ┌─ HOT (derniere session) ────────────────┐
+   │ <Last Updated 1 ligne>                  │
+   │ <Key Recent Facts 1-2 lignes>           │
+   │ <Next Action 1 ligne>                   │
+   └─────────────────────────────────────────┘
+   ```
+   Si `wiki/hot.md` absent → cadre HOT pas affiche (fallback).
+3. **TRAJECTOIRE** : mission/focus/tendance(▲▶▼)/derniere session
+4. **PLANS ACTIFS** (obligatoire) : pour chaque plan `docs/plans/*.md` non cloture :
    - nom + chemin
    - progression globale (N/M blocs ou phases DONE)
    - **hier** : plan + phase/bloc executes + commit
    - **prochain** : bloc(s) suivant(s) de la prochaine session du plan
    - **reste apres** : liste condensee des sessions/blocs restants
    Si 2+ plans en parallele → un sous-cadre par plan. Lister les DEUX meme si un seul a ete touche hier.
-4. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
-5. **ATTENTION** : alertes/rappels/en attente Kevin
-6. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
-7. **STATUT PROJET** : barres progression par chantier
-8. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
-9. **REFLEXION** : questions en suspens + liens idees↔travail
-10. **HISTORIQUE** : 3 decisions recentes + echeance
-11. **CAP** : direction + pistes A/B/C
-12. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
+5. **WIKI** (NOUVEAU D-WIKI-01) : compteur pages/sources/domaines + derniere ingest. Format :
+   ```
+   ┌─ WIKI ──────────────────────────────────┐
+   │ 🟢 N pages · M sources · K domaines     │
+   │ Derniere ingest : <date> <slug>         │
+   └─────────────────────────────────────────┘
+   ```
+   Source : `bash scripts/wiki-health.sh` + `wiki/log.md` derniere section. Si wiki/ absent → cadre WIKI pas affiche.
+6. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
+7. **ATTENTION** : alertes/rappels/en attente Kevin
+8. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
+9. **STATUT PROJET** : barres progression par chantier
+10. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
+11. **REFLEXION** : questions en suspens + liens idees↔travail
+12. **HISTORIQUE** : 3 decisions recentes + echeance
+13. **CAP** : direction + pistes A/B/C
+14. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
 
 #### Cadre SYNC (optionnel, post-level-up phase 5-6)
 

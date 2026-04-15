@@ -26,6 +26,7 @@ Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → rou
 | Tools | Validators, scripts, CI/CD | 4 | actif | scripts/, .github/, hooks |
 | Planner | Orchestrateur skills plan + EnterPlanMode natif | 5 | actif | /plan-os + skills tiers reutilises |
 | Worktrees | Plomberie + workflow `/wt new|list|clean` | 6 | actif | scripts/worktree-*.sh + .claude/worktrees/ |
+| Knowledge | Wiki layer persistant (claude-obsidian) | 7 | actif | wiki/ + .raw/ + 10 skills + hooks integres |
 
 Conventions de nommage transversales : `docs/core/naming-conventions.md` (branches, worktrees, sessions, plans, specs, memoires).
 
@@ -78,6 +79,16 @@ Spec : [docs/core/worktrees.md](worktrees.md)
 - Convention nommage `wt/<desc>-<yymmdd>` (jamais de noms aleatoires `claude/agitated-wilson`).
 - Detection auto par `/cockpit` Phase SCAN (affiche dans brief v11 cadre Sante).
 - `/session-end` rappelle workflow merge/clean.
+
+## Knowledge (Phase 7 — actif depuis 2026-04-15)
+
+Spec : [docs/core/knowledge.md](knowledge.md)
+- Wiki layer persistant via plugin `claude-obsidian` v1.4.3 (pattern Karpathy LLM Wiki).
+- 5 domaines pre-scaffoldes (trading, finance, sante, design, dev) + 7 cross-domain.
+- Couplage modules/ <-> wiki/domains/ via frontmatter `implementation:`.
+- Integration brief v11 (cadres HOT + WIKI).
+- Auto-commit hook DESACTIVE (respect regle Kevin-valide).
+- 10 skills + 4 commands + 2 agents + 5 templates.
 
 ## Conventions transversales
 
