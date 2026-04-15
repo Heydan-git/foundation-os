@@ -1,65 +1,89 @@
 ---
-id: YYYY-MM-DD-nom
-title: [Titre court]
+id: YYYY-MM-DD-slug
+title: 🪐 [Mini-detail] (DD-MM-YYYY)
 created: YYYY-MM-DD
 status: draft
-models_used: []
-blocks_total: 0
-blocks_subagent: 0
-blocks_main: 0
+phases_total: 0
 estimated_duration: 0min
 ---
 
-# [Titre du plan]
+# 🪐 [Mini-detail] (DD-MM-YYYY)
 
-> Genere par `/plan-os`. Spec : `docs/core/planner.md`.
+> Genere par `/plan-os` orchestrateur. Spec : `docs/core/planner.md`. Convention nommage titre : `docs/core/naming-conventions.md` section 3.
 
-## Contexte
+## Context
 
-[Pourquoi ce plan existe. Lien vers la demande Kevin ou le ticket. 2-4 lignes max.]
+[3-6 paragraphes : pourquoi ce changement, probleme constate, intention Kevin consolidee, outcome vise. Verite du pourquoi avant le quoi.]
 
-## Objectif
+## Findings (optionnel)
 
-[Une phrase. Resultat observable attendu.]
+[Decouvertes d'exploration si applicable. Tableaux concis, chiffres factuels. Bugs detectes, dette identifiee, etc.]
 
-## Blocs
+## Phases (sessions courtes, regle "jamais monolithe" CLAUDE.md)
 
-### Bloc 1 — [nom court]
+### Phase 1 — [Titre court] (~Xmin)
 
-- **Modele** : haiku | sonnet | opus
-- **Justification** : [1 ligne — pourquoi ce modele]
-- **Sub-agent** : non (context required) | oui (agent=X)
-- **Justification sub-agent** : [si oui : 3 conditions validees. Si non : laquelle tombe]
-- **Fichiers** : `path/to/file1.ts`, `path/to/file2.md`
-- **Duree estimee** : ~Xmin
-- **Critere de fin** : [observable : test passe, build OK, fichier existe, etc.]
-- **Dependances** : [aucune | Bloc N]
+Objectif : [phrase courte].
 
-### Bloc 2 — [nom court]
+**Actions** :
+- [Action 1]
+- [Action 2]
+- ...
+
+**Verification** : `[commande exacte]` doit retourner [resultat attendu].
+
+**Commit** : `<type>(scope): description courte`
+
+### Phase 2 — [Titre court] (~Xmin)
 
 [meme structure]
 
-## Routing resume
+### Phase N — [Titre court] (~Xmin)
 
-| # | Bloc | Modele | Sub-agent | Duree | Dep |
-|---|------|--------|-----------|-------|-----|
-| 1 | ... | sonnet | non | 10min | — |
-| 2 | ... | opus   | non | 15min | 1 |
+[meme structure]
 
-**Total** : X blocs, Y min, modeles : [liste]
+## Fichiers critiques (recap)
 
-## Validation
+| Fichier | Phase | Action |
+|---|---|---|
+| `path/to/file.ext` | 1 | Modifier — [pourquoi] |
+| `path/to/new.ext` | 2 | Creer — [pourquoi] |
+| ... | ... | ... |
 
-- [ ] Kevin a lu le routing
-- [ ] Kevin a valide les choix de modele
-- [ ] Kevin a valide la regle sub-agent par bloc
-- [ ] Kevin a dit "go"
+## Hors scope explicite
+
+- [Ce qu'on ne fait PAS, et pourquoi]
+- [Ce qui est laisse pour plus tard]
+- [Ce qui est gere par autre chose]
+
+## Verification end-to-end
+
+[Comment tester apres execution complete des phases]
+
+1. `bash scripts/health-check.sh` doit retourner SAIN
+2. `bash scripts/sync-check.sh` doit passer
+3. [Test specifique au plan]
+4. [Etc.]
+
+## Risques
+
+| Risque | Probabilite | Mitigation |
+|---|---|---|
+| [Description du risque] | faible/moyen/eleve | [Comment l'eviter ou le detecter] |
+
+## Memoires permanentes a creer (optionnel, post-execution)
+
+[Si le plan introduit des regles ou conventions durables, lister les memoires `feedback_*.md` ou `project_*.md` a ajouter dans `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` une fois le plan execute. Mettre a jour MEMORY.md index.]
+
+- `feedback_<slug>.md` — [Regle a memoriser]
+- `project_<slug>.md` — [Etat projet a tracer]
 
 ## Execution log
 
-- [ ] Bloc 1 — pending
-- [ ] Bloc 2 — pending
+- [ ] Phase 1 — pending
+- [ ] Phase 2 — pending
+- [ ] Phase N — pending
 
 ## Notes post-execution
 
-[A remplir apres. Ecarts estimation vs reel, surprises, leçons.]
+[A remplir apres. Ecarts estimation vs reel, surprises, lecons retenues.]

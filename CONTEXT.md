@@ -19,6 +19,13 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-15 | **[DONE] Migration Foundation OS → Claude Code Desktop natif (9 phases)** |
+|            | Plan : `docs/plans/2026-04-15-migration-foundation-desktop.md`. 9 commits enchaines. |
+|            | Phase 1 (`9598328`) clean debris : settings.local 159→71L + 4 branches mergees deletes + orphelin worktree 2Mo supprime. Phase 2 (`2c78655`) conventions nommage : nouveau spec `docs/core/naming-conventions.md` + hook branch-name-check.sh. Phase 3 (`14cc9f4`) worktrees actifs : scripts worktree-{new,clean,list}.sh + `/wt` command + integration cockpit. Phase 4 (`b6b2dd9`) `/plan-os` orchestrateur : route vers brainstorming/writing-plans/ralplan selon contexte + EnterPlanMode natif. Phase 5 (`10212ca`) TodoWrite systematique : regle CLAUDE.md + tasks pane peuplee. Phase 6 (`0660deb`) docs CLI→Desktop : setup-guide + architecture + index reecrits. Phase 7 (`4f81122`) baselines monitor + Planner+Worktrees ajoutes architecture-core. Phase 8 (`006aac0`) brief v11 source unique : 533→299L commands (gain 234L deduplication). |
+|            | 8 memoires permanentes creees (`feedback_thinking_francais`, `feedback_plans_orchestrateur`, `feedback_sessions_nommage_planete`, `feedback_branches_convention`, `feedback_todowrite_systematique`, `feedback_worktrees_actifs`, `feedback_tout_automatique`, `project_migration_desktop`) + MEMORY.md index update. Auto-chargees chaque session. |
+|            | Decisions : D-DESKTOP-01 (Foundation OS calibre Desktop natif), D-NAMING-01 (conventions unifiees), D-PLAN-02 (orchestrateur supersede D-PLAN-01). |
+|            | Build app 338ms / 19/19 tests / typecheck 0 erreur. Refs cassees 30→43 (refs vers nouveaux fichiers post-creation, `ref-checker` resoudra apres /sync, hors blocant). |
+|            | **Plus de noms aleatoires** : `claude/agitated-wilson` est la derniere branche claude/* (legacy). Toute nouvelle branche/worktree suit `<type>/<scope>-<desc>[-yymmdd]`. |
 | 2026-04-15 | **[DONE_COTE_CLAUDE / EN_COURS_KEVIN] DS iso visuel + typography critique** |
 |            | 3 causes racines identifiees via audit chrome-devtools MCP : (1) `--font-sans/--font-mono` non definis dans `@theme inline` → Figtree/JetBrains Mono pas charges, fallback ui-* serifs, (2) `cn()` tailwind-merge dedupliquait `text-ds-sm` (font-size) avec `text-ds-fg/60` (color) a tort, (3) `@layer base` forçait `font-size:var(--text-base)` undefined + `font-weight:medium` sur `h1-h4/label/button/input` cassant l'heritage. |
 |            | Fixes : `globals.css` `@theme inline` + font tokens ; `utils.ts` `extendTailwindMerge` classGroups ds-* ; `@layer base` supprime les regles bruyantes ; `size-3_5` invalide -> `size-3.5` dans sheet/dialog/toggle ; calendar nav reposition ; resizable imports v9+ (Group/Panel/Separator) ; alert variant propagation ; RadioGroup label ds-fg/90|70. |
@@ -47,12 +54,13 @@
 
 ## Cap
 
-**Direction** : DS iso visuel cote Claude DONE, test manuel Kevin en cours (composant par composant). Prochain chantier : level up memoire.
+**Direction** : Migration Foundation OS → Claude Code Desktop natif DONE (9 phases). Foundation OS exploite maintenant pleinement les features natives Desktop (plan window UI, tasks pane, worktrees, sessions auto-nommees 🪐). DS iso visuel cote Claude toujours DONE, test manuel Kevin en cours.
 
 **Prochaine action** :
-  - **Level up memoire** : discussion ouverte avec Kevin. Options envisagees : hot cache (pattern Karpathy), tiering (hot/warm/cold + retention), external store MCP (Pinecone/SQLite on-demand), tags + versioning, ou autre. A brainstormer en debut prochaine session.
-  - En parallele : Kevin itere sur bugs residuels DS si trouve via test manuel.
-  - Ensuite : Expansion Phase 5 (Finance / Sante / Trading).
+  - **Validation Kevin migration Desktop** : tester le nouveau workflow sur une vraie tache (`/cockpit` puis `/plan-os "<demande>"` puis verifier que session se renomme automatiquement au format 🪐 dans la sidebar Desktop).
+  - **Test manuel DS composants** (en parallele) : 46 ui Storybook, parcourir composant par composant pour bugs residuels.
+  - **Level up memoire** (si Kevin veut continuer cette piste) : discussion ouverte. Options : hot cache, tiering, external MCP, tags+versioning. A brainstormer.
+  - **Ensuite** : Expansion Phase 5 (Finance / Sante / Trading).
 
 ## Idees & Parking
 
@@ -80,6 +88,9 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-DESKTOP-01 Foundation OS calibre Claude Code Desktop | 2026-04-15 | Migration de tout le workflow OS pour exploiter les features natives Desktop : plan window UI (`/plan-os` orchestrateur via EnterPlanMode), tasks pane (TodoWrite systematique, regle CLAUDE.md), worktrees actifs (`/wt new|list|clean` + integration `/cockpit`), sessions auto-nommees format `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan. Plan : `docs/plans/2026-04-15-migration-foundation-desktop.md`. 9 phases, 9 commits. |
+| D-NAMING-01 Conventions nommage unifiees | 2026-04-15 | Spec `docs/core/naming-conventions.md` (source unique). Branches `<type>/<scope>-<desc>[-yymmdd]`. Worktrees `wt/<desc>-<yymmdd>` via `/wt new`. Sessions `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan + auto-rename Desktop. Plans `docs/plans/YYYY-MM-DD-<slug>.md`. Hook `branch-name-check.sh` warning si hors format. |
+| D-PLAN-02 /plan-os orchestrateur skills | 2026-04-15 | `/plan-os` n'est plus un wrapper unique. Devient orchestrateur intelligent qui route vers le meilleur skill selon contexte (`superpowers:brainstorming` ambiguite, `writing-plans` multi-phase, `oh-my-claudecode:ralplan` consensus, etc.) puis finalise toujours via `EnterPlanMode` natif + dual-path versionnement. Skills tiers gardes intacts (Kevin a explicitement refuse leur suppression). Spec : `docs/core/planner.md`. Supersede D-PLAN-01. |
 | D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS (tokens turquoise #5EEAD4 + 5 primitives hand-crafted), reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, pas de compat layer, prefixe `--fos-*` a retirer (→ `--ds-*`, `--shadcn-*`). App a migrer direct (pas de shim). Nouveau palette Figma Make : ds-surface-{0..3}, ds-blue #60a5fa, ds-purple #c084fc, etc. Polices : Figtree + JetBrains Mono. Plan detaille `.archive/plans/2026-04-11-ds-shadcn-finition.md`. |
 | D-WT-01 Worktrees integres Core OS | 2026-04-11 | Feature native Claude Code documentee `docs/core/worktrees.md`. `.claude/worktrees/` dans `.gitignore` + exclu `ref-checker.sh`. Orphelin `admiring-sutherland` archive dans `.archive/worktrees-orphelins/`. Health SAIN. |
 | D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | `/plan-os` wrapper par-dessus `superpowers:writing-plans` + routing modele auto + sub-agent gate 3 conditions + versionnement `docs/plans/`. Spec `docs/core/planner.md`. Phase 2 (log reel) en backlog. |

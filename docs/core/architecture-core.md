@@ -1,27 +1,33 @@
 # Core OS — Architecture
 
-4 modules + 1 orchestrateur qui forment le cerveau de Foundation OS.
+6 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15).
 
 ## Couches
 
 ```
-COCKPIT  (/cockpit)                     Super-pilote (optionnel)
-MODULES  (app, design-system, ...)      Projets concrets
-CORE OS  (cortex, communication,        Intelligence
-          monitor, tools)
-TOOLKIT  (OMC, BMAD, MCP)              Outils externes
+DESKTOP SHELL  (Claude Code Desktop)    Sidebar sessions · Plan window · Tasks pane · Worktrees natifs
+COCKPIT        (/cockpit)               Super-pilote (point d'entree unique)
+MODULES        (app, design-system,...) Projets concrets
+CORE OS        (cortex, communication,  Intelligence methodologique
+                monitor, tools, planner,
+                worktrees)
+TOOLKIT        (OMC, BMAD, MCP)         Outils externes
 ```
 
-Cockpit est un wrapper optionnel au-dessus de Cortex. Il automatise scan → brief → routing → execution → cloture. Les commands /session-start, /session-end, /sync, /new-project restent utilisables independamment. Spec : `docs/specs/2026-04-10-cockpit-design.md`.
+Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → routing → execution → cloture. Les commands /plan-os, /session-start, /session-end, /sync, /new-project, /wt restent utilisables independamment. Spec : `docs/specs/2026-04-10-cockpit-design.md`.
 
 ## Modules
 
 | Module | Role | Phase | Status | Runtime |
 |--------|------|-------|--------|---------|
 | Cortex | Routing, contexte, orchestration | 1 | actif | CLAUDE.md, .claude/agents/, .claude/commands/ |
-| Communication | Journalisation, indexation, lecture, briefing | 2 | actif | CONTEXT.md, docs/, auto-memory |
+| Communication | Journalisation, indexation, lecture, briefing v11 | 2 | actif | CONTEXT.md, docs/, auto-memory |
 | Monitor | Health indicators, severite, seuils | 3 | actif | Integre dans /sync et review-agent |
 | Tools | Validators, scripts, CI/CD | 4 | actif | scripts/, .github/, hooks |
+| Planner | Orchestrateur skills plan + EnterPlanMode natif | 5 | actif | /plan-os + skills tiers reutilises |
+| Worktrees | Plomberie + workflow `/wt new|list|clean` | 6 | actif | scripts/worktree-*.sh + .claude/worktrees/ |
+
+Conventions de nommage transversales : `docs/core/naming-conventions.md` (branches, worktrees, sessions, plans, specs, memoires).
 
 ## Cortex (Phase 1)
 
@@ -51,9 +57,34 @@ Spec : [docs/core/monitor.md](monitor.md)
 
 Spec : [docs/core/tools.md](tools.md)
 - Validators existants (Void Glass, conventional commits, security-reminder)
-- Scripts actifs : health-check, sync-check, ref-checker, module-scaffold
-- CI/CD : ci.yml (build/tsc/vitest), supabase-ping (cron lundi)
+- Scripts actifs : health-check, sync-check, ref-checker, module-scaffold, worktree-*
+- CI/CD : ci.yml (build/tsc/vitest), supabase-ping (cron lundi), supernova-sync (push DS)
 - Conventions : scripts/, idempotent, exit codes standards
+
+## Planner (Phase 5 — actif depuis 2026-04-15)
+
+Spec : [docs/core/planner.md](planner.md)
+- Orchestrateur de generation de plans via `/plan-os` command.
+- Route vers le meilleur skill selon contexte (`superpowers:brainstorming`, `writing-plans`, `oh-my-claudecode:ralplan`, etc.).
+- Sortie finale toujours `EnterPlanMode` natif Claude Code Desktop → plan visible dans plan window UI.
+- Dual-path : `~/.claude/plans/<slug>.md` (natif) + `docs/plans/YYYY-MM-DD-<slug>.md` (versionne projet).
+- Titre format `🪐 <mini-detail> (DD-MM-YYYY)` → session Desktop auto-renommee.
+
+## Worktrees (Phase 6 — actif depuis 2026-04-15)
+
+Spec : [docs/core/worktrees.md](worktrees.md)
+- Plomberie native Claude Code Desktop + workflow Foundation OS.
+- Command `/wt new|list|clean` (wrapper scripts).
+- Convention nommage `wt/<desc>-<yymmdd>` (jamais de noms aleatoires `claude/agitated-wilson`).
+- Detection auto par `/cockpit` Phase SCAN (affiche dans brief v11 cadre Sante).
+- `/session-end` rappelle workflow merge/clean.
+
+## Conventions transversales
+
+Spec : [docs/core/naming-conventions.md](naming-conventions.md)
+- Branches, worktrees, sessions Desktop, plans, specs, memoires.
+- Source unique. CLAUDE.md pointe ici.
+- Hook `branch-name-check.sh` warning si branche hors format.
 
 ## Principes Core OS
 

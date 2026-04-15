@@ -76,11 +76,23 @@ Les seuils evoluent avec le projet. Quand un seuil change :
 - Mettre a jour ce document
 - Ajouter la raison du changement
 
-Seuils actuels bases sur l'etat du 2026-04-10 :
-- Build time baseline : ~178ms (alerte si > 2000ms)
-- Bundle JS baseline : ~244KB (alerte si > 600KB)
-- Bundle CSS baseline : ~29KB (alerte si > 40KB)
+Seuils actuels bases sur l'etat du 2026-04-15 (post-migration Desktop + lazy-load pages) :
+- Build time baseline : ~280ms (alerte si > 2000ms)
+- Bundle JS baseline : **~184KB** (chunk principal `index-*.js` apres lazy-load des 5 pages, alerte si > 600KB)
+  - Detail : 184KB index + 130KB proxy vendor + 228KB supabase vendor (chunks separes, charges seulement quand utilises)
+  - Pages lazy : 4-17KB chacune (Commander, IndexPage, KnowledgePage, LoginPage, ResetPasswordPage)
+- Bundle CSS baseline : ~55KB (alerte si > 80KB — TODO investigation Tailwind purge)
 - Modules actifs : 2 (app, design-system). Ajouter les nouveaux au fur et a mesure.
+- Storybook stories : ~62 (53 DS + 9 app)
+
+**Optimisation appliquee 2026-04-15** : lazy-load des 5 pages routes via React.lazy + Suspense dans App.tsx. Bundle initial divise par 3.3 (613 -> 184 KB), chunks vendors splittes automatiquement par Vite.
+
+**Faux positifs ref-checker connus** (~10-15 refs persistantes, non-bloquants) :
+- Refs textuelles vers `docs/core/memory.md` dans docs qui documentent le rename (Memory -> Communication)
+- Exemples de format scope dans naming-conventions (`docs/cockpit-desktop` = exemple, pas fichier)
+- `modules/design-system/base DS/` (espace dans path = faux positif bash regex `=~`)
+- `.env.local` gitignored
+- Refs vers paths archives dans plans historiques (DS rebuild + voidglass SUPERSEDED)
 
 Note : ces seuils sont la source de verite unique. `CLAUDE.md` (section Token-awareness) et `scripts/health-check.sh` (pre-commit) doivent s'y aligner.
 

@@ -51,6 +51,11 @@ RST='\033[0m'
 
 KNOWN_DIRS_RE='^(scripts|docs|modules|\.claude|_bmad|supabase|\.github|\.archive)/'
 
+# Paths a ignorer (faux positifs : existent dans main repo mais pas dans un worktree,
+# OU sont gitignored mais legitimement referenced).
+# Pattern : prefixe de chemin qui sera "ignored" dans le check d'existence.
+IGNORE_REFS_RE='^(\.claude/worktrees/|docs/travaux-cowork/|\.archive/settings-local-before-migration\.json|\.archive/memory\.md|\.archive/worktrees-orphelins/admiring-sutherland-20260411/|modules/design-system/base DS/|modules/design-system/src/components/void-glass/|modules/design-system/tokens/(primitives|semantic|bridge|source/primitives|source/semantic)/|modules/app/src/layouts/|\.archive/(ds-void-glass|ds-shadcn-vanilla|ds-patterns-old|ds-tokens-dtcg-old|travaux-cowork)|docs/plans/2026-04-XX-)'
+
 # Returns 0 if ref contains glob/template chars (* < > { } [ ])
 has_glob_chars() {
   case "$1" in
@@ -138,6 +143,7 @@ process_file() {
       ref_clean="${ref_clean%%\?*}"
       ref_clean="${ref_clean%% *}"
       [ -z "$ref_clean" ] && continue
+      [[ "$ref_clean" =~ $IGNORE_REFS_RE ]] && continue
       if [ ! -e "$ref_clean" ]; then
         echo "$f:$lineno → [bt] $ref" >> "$BROKEN_FILE"
       fi

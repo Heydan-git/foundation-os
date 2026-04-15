@@ -23,6 +23,16 @@
           }
         ]
       }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/scripts/auto-archive-plans.sh\""
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

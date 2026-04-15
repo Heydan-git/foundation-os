@@ -114,10 +114,75 @@ git worktree list
 |------|-----|---------|---------|--------|
 | 2026-04-10 | admiring-sutherland | claude/admiring-sutherland | Session Tools v2 scaffold (c979262) | Archive 2026-04-11 (`.archive/worktrees-orphelins/admiring-sutherland-20260411/`) — contenu duplique avec main, 0 travail unique |
 
-## 7. References
+## 7. Workflow Foundation OS (actif depuis 2026-04-15)
+
+Plomberie technique OK de longue date. Workflow actif introduit en Phase 3 de la migration Claude Code Desktop : commands et scripts qui orchestrent la creation/fermeture selon convention `wt/<desc>-<yymmdd>`.
+
+### Quand creer un worktree
+
+| Situation | Worktree ? | Pourquoi |
+|---|---|---|
+| Tache isolee qui risque casser le workspace principal | **Oui** | Isolation, rollback safe |
+| Feature parallele avec session Desktop dediee | **Oui** | Fenetres Desktop separees, multi-session |
+| Experimentation destructible | **Oui** | Rollback = `git worktree remove` |
+| Migration massive ou refactor invasif | **Oui** | Cette session de migration elle-meme |
+| Fix rapide < 1h sur main | Non | Pas besoin, overhead |
+| Doc simple | Non | Direct main |
+| Review PR locale | Non | `git checkout <pr-branch>` suffit |
+
+### Lifecycle type
+
+```bash
+# 1. Creation (depuis main)
+./scripts/worktree-new.sh migration-desktop
+# -> .claude/worktrees/migration-desktop-260415/ sur wt/migration-desktop-260415
+
+# 2. Ouverture (Desktop app)
+# Option A : sidebar sessions Desktop -> nouveau dossier -> pointer sur le worktree
+# Option B : nouvelle fenetre Desktop directement sur le path
+
+# 3. Travail dans le worktree (sessions courtes, commits conventionnels)
+cd .claude/worktrees/migration-desktop-260415
+# ... travail ...
+git add . && git commit -m "feat(os): ..."
+
+# 4. Merge dans main (depuis main)
+cd /Users/kevinnoel/foundation-os
+git merge --no-ff wt/migration-desktop-260415
+git push
+
+# 5. Fermeture (depuis main)
+./scripts/worktree-clean.sh migration-desktop
+# -> git worktree remove + delete branche si mergee
+```
+
+### Integration commands Foundation OS
+
+- **`/wt`** (command dediee) : `new`, `list`, `clean`. Spec : `.claude/commands/wt.md`.
+- **`/cockpit`** : Phase 1 SCAN detecte le worktree actif et l'affiche dans le brief v11 (cadre Sante).
+- **`/session-end`** : Phase 1 rappelle le worktree actif, propose `/wt clean` apres merge dans main.
+- **Scripts bash** : `scripts/worktree-new.sh`, `scripts/worktree-clean.sh`, `scripts/worktree-list.sh`.
+
+### Regles imperatives
+
+- **Jamais** `git worktree add` manuel : utiliser `/wt new`.
+- **Jamais** de nom random auto-genere (plus de `claude/agitated-wilson`).
+- Nom worktree = nom branche = `<desc>-<yymmdd>` (convention `docs/core/naming-conventions.md` section 2).
+- Worktree cree depuis `main` toujours.
+- Apres merge dans main et push, fermer le worktree avec `/wt clean`.
+
+### Limites
+
+- Impossible de **renommer** un worktree cree. Si nom errone : `/wt clean` + `/wt new` avec bon nom.
+- Le switch entre worktrees dans une meme fenetre Desktop se fait via la sidebar sessions native.
+- Un worktree par branche (git worktree n'autorise pas deux worktrees sur la meme branche).
+
+## 8. References
 
 - Doc officielle : https://code.claude.com/docs/en/common-workflows.md#run-parallel-claude-code-sessions-with-git-worktrees
 - Spec Sessions : https://code.claude.com/docs/en/how-claude-code-works.md#work-with-sessions
-- Archive orphelins : `.archive/worktrees-orphelins/`
+- Archive orphelins : `.archive/worktrees-orphelins/` (vide depuis Phase 1 migration 2026-04-15)
 - Exclusion ref-checker : `scripts/ref-checker.sh` ligne find filter
 - .gitignore : `.claude/worktrees/`
+- Conventions nommage : `docs/core/naming-conventions.md` section 2
+- Spec /wt : `.claude/commands/wt.md`

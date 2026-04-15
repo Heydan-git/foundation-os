@@ -238,7 +238,11 @@ Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, resp
 
 #### Regle plans
 
-Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`. Un plan cloture (F1-F9 done, commit final passe) est retire du brief mais reste trace dans HISTORIQUE sur la session de cloture.
+Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`.
+
+**Auto-archive des plans termines** : `/session-end` deplace AUTOMATIQUEMENT vers `.archive/plans-done-$(date +%y%m%d)/` tout plan dont toutes les cases sont `[x]` OU status `done`/`closed` (hors `_template-plan.md`). Le brief de cloture (section 6.2) liste les plans archives dans un cadre dedie `PLANS TERMINES CETTE SESSION`.
+
+**Affichage des plans termines recents dans brief debut (6.1)** : dans le cadre `PLANS ACTIFS`, ajouter une ligne recapitulative `🟢 <N> plans termines recemment` (7 derniers jours, base sur `.archive/plans-done-*/`). Pas de detail — juste le compteur pour voir la progression.
 
 Entete et Input en double trait `╔═══╗` pour ancrer debut/fin visuellement.
 
@@ -334,7 +338,7 @@ Max 10 idees en parking. Au-dela, forcer une priorisation : garder les 10 plus p
 
 ## 9. Migration depuis Memory
 
-Cette spec remplace l'ancien module Memory (archive : `.archive/memory.md`). Les changements :
+Cette spec remplace l'ancien module Memory (l'ancien fichier `docs/core/memory.md` a ete renomme en `docs/core/communication.md` le 2026-04-10, pas archive). Les changements :
 
 | Aspect | Memory (ancien) | Communication (nouveau) |
 |--------|----------------|------------------------|
