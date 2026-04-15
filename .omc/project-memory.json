@@ -124,26 +124,26 @@
   "hotPaths": [
     {
       "path": "CLAUDE.md",
-      "accessCount": 7,
-      "lastAccessed": 1776244787471,
+      "accessCount": 8,
+      "lastAccessed": 1776247618950,
       "type": "file"
     },
     {
       "path": "CONTEXT.md",
-      "accessCount": 7,
-      "lastAccessed": 1776245803929,
+      "accessCount": 8,
+      "lastAccessed": 1776247953303,
       "type": "file"
     },
     {
       "path": ".claude/commands/session-start.md",
-      "accessCount": 6,
-      "lastAccessed": 1776245540760,
+      "accessCount": 7,
+      "lastAccessed": 1776247664432,
       "type": "file"
     },
     {
       "path": ".claude/commands/session-end.md",
-      "accessCount": 6,
-      "lastAccessed": 1776245612400,
+      "accessCount": 7,
+      "lastAccessed": 1776247831148,
       "type": "file"
     },
     {
@@ -159,21 +159,21 @@
       "type": "file"
     },
     {
-      "path": "docs/core/architecture-core.md",
-      "accessCount": 4,
-      "lastAccessed": 1776245317415,
-      "type": "file"
-    },
-    {
       "path": ".claude/commands/cockpit.md",
-      "accessCount": 4,
-      "lastAccessed": 1776245672461,
+      "accessCount": 5,
+      "lastAccessed": 1776247615393,
       "type": "file"
     },
     {
       "path": "docs/core/communication.md",
+      "accessCount": 5,
+      "lastAccessed": 1776248124156,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/architecture-core.md",
       "accessCount": 4,
-      "lastAccessed": 1776246660688,
+      "lastAccessed": 1776245317415,
       "type": "file"
     },
     {
@@ -189,6 +189,18 @@
       "type": "file"
     },
     {
+      "path": ".claude/commands/plan-os.md",
+      "accessCount": 4,
+      "lastAccessed": 1776247618800,
+      "type": "file"
+    },
+    {
+      "path": "docs/index.md",
+      "accessCount": 4,
+      "lastAccessed": 1776247953673,
+      "type": "file"
+    },
+    {
       "path": ".claude/settings.local.json",
       "accessCount": 3,
       "lastAccessed": 1776243644360,
@@ -198,12 +210,6 @@
       "path": "docs/core/worktrees.md",
       "accessCount": 3,
       "lastAccessed": 1776244460933,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/plan-os.md",
-      "accessCount": 3,
-      "lastAccessed": 1776244616352,
       "type": "file"
     },
     {
@@ -231,12 +237,6 @@
       "type": "file"
     },
     {
-      "path": "docs/index.md",
-      "accessCount": 3,
-      "lastAccessed": 1776245188893,
-      "type": "file"
-    },
-    {
       "path": ".claude/settings.json",
       "accessCount": 2,
       "lastAccessed": 1776241080757,
@@ -258,6 +258,18 @@
       "path": "docs/plans/2026-04-14-ds-voidglass-iso-figma-make.md",
       "accessCount": 2,
       "lastAccessed": 1776241164501,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-05-phase1-fondations.md",
+      "accessCount": 2,
+      "lastAccessed": 1776247968442,
+      "type": "file"
+    },
+    {
+      "path": "docs/plans/2026-04-07-audit-massif-final.md",
+      "accessCount": 2,
+      "lastAccessed": 1776247968926,
       "type": "file"
     },
     {
@@ -378,18 +390,6 @@
       "path": "docs/specs/2026-04-10-core-os-audit.md",
       "accessCount": 1,
       "lastAccessed": 1776241161520,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-05-phase1-fondations.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241162202,
-      "type": "file"
-    },
-    {
-      "path": "docs/plans/2026-04-07-audit-massif-final.md",
-      "accessCount": 1,
-      "lastAccessed": 1776241162385,
       "type": "file"
     },
     {
