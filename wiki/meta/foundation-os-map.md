@@ -1,0 +1,182 @@
+---
+type: meta
+title: "Foundation OS — Carte Complete"
+updated: 2026-04-16
+tags:
+  - meta
+  - map
+  - index
+status: evergreen
+related:
+  - "[[index]]"
+  - "[[hot]]"
+  - "[[overview]]"
+---
+
+# Foundation OS — Carte Neuronale Complete
+
+> Hub central qui connecte CHAQUE fichier du projet au graph Obsidian.
+> Mis a jour automatiquement par Claude en fin de session.
+
+Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
+
+---
+
+## Fichiers racine
+
+- [[CLAUDE]] — Instructions Claude Code (charge auto chaque session, regles, imperatifs, automations)
+- [[CONTEXT]] — Etat operationnel projet (source de verite : modules, sessions, cap, decisions, metriques)
+- [[README]] — Description projet + structure + setup
+
+## Core OS — Specs (docs/core/)
+
+- [[architecture-core]] — Architecture 7 modules Core OS (Cortex, Communication, Monitor, Tools, Planner, Worktrees, Knowledge)
+- [[cortex]] — Module Phase 1 : routing tache → agent, contexte CONTEXT.md lifecycle, orchestration commands
+- [[communication]] — Module Phase 2 : 5 tiers memoire, nomenclature, journalisation, indexation, lecture, briefing v11
+- [[monitor]] — Module Phase 3 : health indicators par severite (critical/warning/info), verdicts SAIN/DEGRADED/BROKEN
+- [[tools]] — Module Phase 4 : validators, scripts, CI/CD, catalogue 109 outils, routing 35 regles
+- [[planner]] — Module Phase 5 : orchestrateur /plan-os, EnterPlanMode natif, dual-path plans
+- [[worktrees]] — Module Phase 6 : plomberie native Desktop, /wt new|list|clean, convention wt/<desc>-<yymmdd>
+- [[knowledge]] — Module Phase 7 : wiki layer persistant claude-obsidian, 10 skills, couplage modules <-> wiki
+- [[naming-conventions]] — Conventions nommage transversales (branches, worktrees, sessions, plans, specs, memoires)
+
+## Core OS — Agents (.claude/agents/)
+
+- [[os-architect]] — Agent Opus : architecture, decisions, stack, schema DB
+- [[dev-agent]] — Agent Sonnet : code React/TS, composants, Supabase, Void Glass
+- [[doc-agent]] — Agent Sonnet : documentation, CONTEXT.md, traces
+- [[review-agent]] — Agent Sonnet : coherence, audit, zero regression, pre-deploy
+
+## Core OS — Commands (.claude/commands/)
+
+- [[cockpit]] — /cockpit : point d'entree unique (scan + brief + routing + cloture)
+- [[session-start]] — /session-start : protocole debut session (collecte + brief v11 14 sections)
+- [[session-end]] — /session-end : protocole fin session (inventaire + CONTEXT + hot.md + brief cloture)
+- [[plan-os]] — /plan-os : orchestrateur plans (brainstorming → writing-plans → EnterPlanMode)
+- [[wt]] — /wt : worktrees Foundation OS (new/list/clean)
+- [[new-project]] — /new-project : scaffold nouveau module
+- [[sync]] — /sync : audit coherence full-repo
+
+## Documentation (docs/)
+
+- [[architecture]] — Architecture globale projet (docs/architecture.md)
+- [[manifeste]] — Manifeste vivant Foundation OS (identite, vision, realite)
+- [[setup-guide]] — Guide setup developpeur
+- [[decisions-log]] — Archive decisions techniques stables (> 30 jours)
+
+### Specs historiques (docs/specs/)
+
+- [[2026-04-05-foundation-os-v2-design]] — Design V2 Foundation OS
+- [[2026-04-10-cockpit-design]] — Design cockpit super-pilote
+- [[2026-04-10-tools-module-v2-design]] — Design module Tools V2
+
+### Plans (docs/plans/)
+
+- [[2026-04-15-wiki-obsidian-adoption]] — Plan adoption wiki Obsidian (D-WIKI-01, 12 phases, 4050 lignes)
+- [[_template-plan]] — Template plan Foundation OS (frontmatter + structure 12 sections)
+
+## Travaux Cowork (docs/travaux-cowork/)
+
+- [[COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
+
+### Plan Dashboard Monitoring
+
+- [[00-INDEX]] — Index plan dashboard monitoring
+- [[01-vision-et-cartographie]]
+- [[02-architecture-navigation]]
+- [[03-pages-detail]]
+- [[04-donnees-et-liaisons]]
+- [[05-ux-et-design-system]]
+- [[06-plan-execution]]
+- [[07-features-avancees]]
+- [[08-ux-ergonomie-a11y]]
+- [[09-dynamisme-auto-sync]]
+- [[10-motion-microcopy-details]]
+- [[11-tech-data-qa-security]]
+- [[12-roadmap-metrics-futur]]
+- [[13-gouvernance-design-system]]
+- [[14-plan-execution-consolide]]
+
+### Autres travaux Cowork
+
+- [[02-analyse-sources-externes]] — Evolution Core OS
+- [[01-project-instructions-v3]] — Reorg project instructions
+- [[01-specs-morning-brief]] — Briefs Foundation OS morning
+- [[02-specs-hebdo-synthesis]] — Briefs hebdo synthesis
+- [[03-sources-et-regles]] — Sources et regles briefs
+
+## Modules Code
+
+### App Builder (modules/app/)
+
+- [[commander]] — Page app Commander (pilotage OS)
+- [[graph]] — Page app Graph (visualisation)
+- [[knowledge]] — Page app Knowledge (base de connaissances UI)
+- [[scale-orchestrator]] — Page app Scale Orchestrator
+- [[sync]] — Page app Sync (synchronisation)
+- [[toolbox]] — Page app Toolbox (outils)
+
+### Design System (modules/design-system/)
+
+- [[CHANGELOG]] — Changelog Design System
+
+## Wiki — Knowledge Layer
+
+### Concepts
+
+- [[LLM Wiki Pattern]] — Pattern Karpathy : pre-compiler sources en wiki Markdown pour LLMs
+- [[Hot Cache]] — Cache 500 mots session-to-session via wiki/hot.md
+- [[Compounding Knowledge]] — Knowledge compose via cross-refs wiki
+- [[foundation-os-desktop-migration]] — Migration Foundation OS → Desktop natif (2026-04-15)
+
+### Entities
+
+- [[Andrej Karpathy]] — AI researcher, createur LLM Wiki Pattern
+- [[AgriciDaniel]] — Developer plugin claude-obsidian
+- [[Obsidian]] — Editeur Markdown local gratuit (vault knowledge)
+- [[Pinecone]] — Vector DB managee (extension archivage > 1000 pages)
+- [[tools-foundation-os]] — Foundation OS toolchain complete
+
+### Sources
+
+- [[karpathy-llm-wiki-pattern]] — Article Karpathy LLM Wiki Pattern (2026-04)
+- [[agricidaniel-claude-obsidian]] — Repo claude-obsidian (GitHub, 1279 stars)
+- [[session-2026-04-16-wiki-adoption]] — Session adoption wiki Obsidian (2026-04-15/16)
+
+### Domaines
+
+- [[domains/trading/_index|Trading]] — Strategies, backtests, whitepapers, instruments
+- [[domains/finance/_index|Finance]] — Patrimoine, fiscalite, decisions
+- [[domains/sante/_index|Sante]] — Bilans bio, protocoles, papers medicaux
+- [[domains/design/_index|Design]] — UX research, patterns, heuristiques
+- [[domains/dev/_index|Dev]] — Frameworks, patterns code, architecture
+
+### Meta
+
+- [[overview]] — Executive summary wiki
+- [[log]] — Chronological operations log
+- [[hot]] — Hot cache derniere session (500 mots)
+- [[index]] — Master catalog wiki
+
+---
+
+## Statistiques
+
+| Type | Count |
+|------|-------|
+| Fichiers racine | 3 |
+| Core OS specs | 9 |
+| Core OS agents | 4 |
+| Core OS commands | 7 |
+| Documentation | 4 |
+| Specs historiques | 3 |
+| Plans | 2 |
+| Travaux Cowork | 19 |
+| App Builder data | 6 |
+| Design System | 1 |
+| Wiki concepts | 4 |
+| Wiki entities | 5 |
+| Wiki sources | 3 |
+| Wiki domaines | 5 |
+| Wiki meta | 4 |
+| **Total connecte** | **79** |
