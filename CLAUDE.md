@@ -94,6 +94,7 @@ Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/co
 - **Drift detection** : `scripts/drift-detector.sh` au SessionStart (detection only, pas de fix auto destructif)
 - **Docs sync** : `scripts/docs-sync-check.sh` (manuel, chain dans health-check)
 - **Ref integrity** : `scripts/ref-checker.sh` (chain dans health-check + sync-check)
+- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` quand Kevin partage document. Consultation wiki avant reponses techniques. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
 
 ### Interdit sans Kevin
 - `git push` sur main ou `--force`
