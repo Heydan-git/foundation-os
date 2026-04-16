@@ -26,7 +26,7 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 - [[CLAUDE]] — Instructions Claude Code (charge auto chaque session, regles, imperatifs, automations)
 - [[CONTEXT]] — Etat operationnel projet (source de verite : modules, sessions, cap, decisions, metriques)
-- [[README]] — Description projet + structure + setup
+- [[README|README (racine)]] — Description projet + structure + setup
 
 ## Core OS — Specs (docs/core/)
 
@@ -59,10 +59,12 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ## Documentation (docs/)
 
-- [[architecture]] — Architecture globale projet (docs/architecture.md)
-- [[manifeste]] — Manifeste vivant Foundation OS (identite, vision, realite)
-- [[setup-guide]] — Guide setup developpeur
-- [[decisions-log]] — Archive decisions techniques stables (> 30 jours)
+- [[docs/architecture|architecture (globale)]] — Architecture globale projet
+- [[docs/manifeste|manifeste]] — Manifeste vivant Foundation OS (identite, vision, realite)
+- [[docs/setup-guide|setup-guide]] — Guide setup developpeur
+- [[docs/decisions-log|decisions-log]] — Archive decisions techniques stables (> 30 jours)
+- [[docs/index|index (docs)]] — Navigation documentation
+- [[docs/core/tools/README|README Tools]] — Vue lisible catalogue outils
 
 ### Specs historiques (docs/specs/)
 
@@ -77,11 +79,14 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ## Travaux Cowork (docs/travaux-cowork/)
 
-- [[COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
+- [[docs/travaux-cowork/COWORK-CONTEXT|COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
+- [[docs/travaux-cowork/README|README Cowork]] — Description travaux cowork
+- [[docs/travaux-cowork/2026-04-13-evolution-core-os/00-INDEX|00-INDEX evolution Core OS]] — Index evolution Core OS
+- [[docs/travaux-cowork/2026-04-14-briefs-foundation-os/00-INDEX|00-INDEX briefs FOS]] — Index briefs Foundation OS
 
 ### Plan Dashboard Monitoring
 
-- [[00-INDEX]] — Index plan dashboard monitoring
+- [[docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/00-INDEX|00-INDEX dashboard monitoring]] — Index plan dashboard monitoring
 - [[01-vision-et-cartographie]]
 - [[02-architecture-navigation]]
 - [[03-pages-detail]]
@@ -109,16 +114,19 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ### App Builder (modules/app/)
 
-- [[commander]] — Page app Commander (pilotage OS)
-- [[graph]] — Page app Graph (visualisation)
-- [[knowledge]] — Page app Knowledge (base de connaissances UI)
-- [[scale-orchestrator]] — Page app Scale Orchestrator
-- [[sync]] — Page app Sync (synchronisation)
-- [[toolbox]] — Page app Toolbox (outils)
+- [[modules/app/README|README App Builder]] — Description module App
+- [[modules/app/data/commander|commander (app page)]] — Page app Commander (pilotage OS)
+- [[modules/app/data/graph|graph (app page)]] — Page app Graph (visualisation)
+- [[modules/app/data/index|index (app pages)]] — Index pages app
+- [[modules/app/data/knowledge|knowledge (app page)]] — Page app Knowledge (base de connaissances UI)
+- [[modules/app/data/scale-orchestrator|scale-orchestrator (app page)]] — Page app Scale Orchestrator
+- [[modules/app/data/sync|sync (app page)]] — Page app Sync (synchronisation)
+- [[modules/app/data/toolbox|toolbox (app page)]] — Page app Toolbox (outils)
 
 ### Design System (modules/design-system/)
 
-- [[CHANGELOG]] — Changelog Design System
+- [[modules/design-system/README|README Design System]] — Description module DS
+- [[modules/design-system/CHANGELOG|CHANGELOG DS]] — Changelog Design System
 
 ## Wiki — Knowledge Layer
 
@@ -145,11 +153,11 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ### Domaines
 
-- [[domains/trading/_index|Trading]] — Strategies, backtests, whitepapers, instruments
-- [[domains/finance/_index|Finance]] — Patrimoine, fiscalite, decisions
-- [[domains/sante/_index|Sante]] — Bilans bio, protocoles, papers medicaux
-- [[domains/design/_index|Design]] — UX research, patterns, heuristiques
-- [[domains/dev/_index|Dev]] — Frameworks, patterns code, architecture
+- [[wiki/domains/trading/_index|Trading]] — Strategies, backtests, whitepapers, instruments
+- [[wiki/domains/finance/_index|Finance]] — Patrimoine, fiscalite, decisions
+- [[wiki/domains/sante/_index|Sante]] — Bilans bio, protocoles, papers medicaux
+- [[wiki/domains/design/_index|Design]] — UX research, patterns, heuristiques
+- [[wiki/domains/dev/_index|Dev]] — Frameworks, patterns code, architecture
 
 ### Meta
 
