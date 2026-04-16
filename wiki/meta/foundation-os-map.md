@@ -17,6 +17,7 @@ related:
   - "[[index-entities]]"
   - "[[index-sources]]"
   - "[[index-meta]]"
+  - "[[index-cowork]]"
 ---
 
 # Foundation OS — Carte Neuronale Complete
@@ -73,6 +74,8 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 - [[_template-plan]] — Template plan Foundation OS
 
 ## Travaux Cowork (docs/travaux-cowork/)
+
+> Sous-index : [[index-cowork]]
 
 - [[docs/travaux-cowork/COWORK-CONTEXT|COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
 - [[docs/travaux-cowork/README-cowork|README Cowork]] — Description travaux cowork
@@ -204,5 +207,5 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 | Wiki sources | 4 |
 | Wiki domaines | 5 |
 | Wiki meta | 11 |
-| Sous-index | 6 |
+| Sous-index | 7 |
 | **Total connecte** | **~93** |
