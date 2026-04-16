@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "updated": "2026-04-15",
-  "total_tools": 99,
+  "total_tools": 109,
   "categories": {
     "agents": {
       "file": "registry/agents.json",
@@ -38,6 +38,53 @@
     "skills-superpowers": {
       "file": "registry/skills-superpowers.json",
       "count": 14
+    },
+    "knowledge-skills": {
+      "name": "Skills Knowledge (claude-obsidian v1.4.3)",
+      "description": "Plugin claude-obsidian D-WIKI-01 — wiki layer persistant, 10 skills + 4 commands + 2 agents",
+      "count": 10,
+      "tools": [
+        {
+          "name": "wiki",
+          "role": "Scaffold vault + router"
+        },
+        {
+          "name": "wiki-ingest",
+          "role": "Ingest source → wiki pages"
+        },
+        {
+          "name": "wiki-query",
+          "role": "Search multi-depth"
+        },
+        {
+          "name": "wiki-lint",
+          "role": "Qualite vault"
+        },
+        {
+          "name": "save",
+          "role": "Conversation → wiki page"
+        },
+        {
+          "name": "autoresearch",
+          "role": "Web research 3-5 rounds"
+        },
+        {
+          "name": "canvas",
+          "role": "Obsidian canvas visual"
+        },
+        {
+          "name": "defuddle",
+          "role": "Clean article web"
+        },
+        {
+          "name": "obsidian-bases",
+          "role": "Dataview replacement natif"
+        },
+        {
+          "name": "obsidian-markdown",
+          "role": "Syntax kepano"
+        }
+      ]
     }
   }
 }

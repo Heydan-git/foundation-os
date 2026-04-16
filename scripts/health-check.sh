@@ -57,7 +57,7 @@ for PKG in modules/*/package.json; do
 done
 
 # Structure
-ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase|base DS)$' || true)
+ORPHANS=$(ls -1 | grep -v '^\.' | grep -v -E '^(CLAUDE\.md|CONTEXT\.md|README\.md|package\.json|package-lock\.json|node_modules|_bmad|docs|modules|scripts|supabase|base DS|wiki)$' || true)
 if [ -z "$ORPHANS" ]; then
   echo -e "  ${GRN}[OK]${RST} Structure racine (0 orphelin)"
 else
@@ -185,6 +185,21 @@ elif [ "${CTX_LINES:-0}" -gt 150 ]; then
   echo -e "  ${DIM}[OK]${RST} CONTEXT.md ${CTX_LINES}L (> 150L budget, surveiller)"
 else
   echo -e "  ${DIM}[OK]${RST} CONTEXT.md ${CTX_LINES}L"
+fi
+
+# Wiki health (D-WIKI-01 chain)
+if [ -x scripts/wiki-health.sh ]; then
+  WIKI_OUT=$(bash scripts/wiki-health.sh 2>&1); WIKI_RC=$?
+  WIKI_LAST=$(echo "$WIKI_OUT" | tail -1)
+  if [ $WIKI_RC -eq 0 ]; then
+    echo -e "  ${DIM}[OK]${RST} Wiki : $WIKI_LAST"
+  else
+    echo -e "  ${YEL}[WARN]${RST} Wiki : $WIKI_LAST"
+    WARNING=$((WARNING + 1))
+  fi
+elif [ -d wiki/ ]; then
+  WIKI_PAGES=$(find wiki/ -name '*.md' -not -path '*/\.*' | wc -l | tr -d ' ')
+  echo -e "  ${DIM}[OK]${RST} Wiki : ${WIKI_PAGES} pages (wiki-health.sh pas encore installe)"
 fi
 
 # Drift detector (level-up phase 6 chain)

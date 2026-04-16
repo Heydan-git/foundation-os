@@ -15,7 +15,8 @@
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| **Total** | **99** |
+| knowledge-skills | 10 |
+| **Total** | **109** |
 
 ## Agents
 

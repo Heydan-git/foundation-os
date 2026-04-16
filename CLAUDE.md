@@ -141,13 +141,17 @@ Specs completes : `docs/core/`.
 - **Worktrees** (feature native + workflow `/wt`) : `worktrees.md`
 - **Architecture globale** : `architecture-core.md`
 
-## Commands (.claude/commands/)
+## Commands (.claude/commands/ + plugin claude-obsidian)
 - `/cockpit` : point d'entree unique (scan + brief + routing + cloture)
 - `/session-start` + `/session-end` : protocoles session complets
 - `/plan-os` : orchestrateur plans (EnterPlanMode natif)
 - `/wt` : worktrees (new/list/clean)
 - `/new-project` : scaffold module
 - `/sync` : audit coherence
+- `/wiki` : bootstrap/check vault Obsidian (plugin claude-obsidian)
+- `/save [name]` : sauver conversation courante en wiki page
+- `/autoresearch [topic]` : web research loop 3-5 rounds + synthese
+- `/canvas [desc]` : Obsidian canvas visual
 
 ## Agents (.claude/agents/)
 - `os-architect` (opus) : architecture, decisions, stack, schema

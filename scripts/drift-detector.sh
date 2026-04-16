@@ -102,6 +102,31 @@ echo -e "  ${GRN}[OK]${RST} plans actifs : $ACTIVE_PLANS"
 WT_COUNT=$(git worktree list | wc -l | tr -d ' ')
 echo -e "  ${GRN}[OK]${RST} worktrees : $WT_COUNT (main + $((WT_COUNT - 1)) actifs)"
 
+# 9. Wiki hot.md age (D-WIKI-01)
+if [ -f wiki/hot.md ]; then
+  HOT_MOD=$(stat -f %m wiki/hot.md 2>/dev/null || stat -c %Y wiki/hot.md 2>/dev/null || echo 0)
+  NOW=$(date +%s)
+  HOT_AGE_DAYS=$(( (NOW - HOT_MOD) / 86400 ))
+  if [ "$HOT_AGE_DAYS" -gt 7 ]; then
+    echo -e "  ${YEL}[DRIFT]${RST} wiki/hot.md age : ${HOT_AGE_DAYS}j (> 7j, update recommande)"
+    DRIFT=$((DRIFT + 1))
+  else
+    echo -e "  ${GRN}[OK]${RST} wiki/hot.md age : ${HOT_AGE_DAYS}j"
+  fi
+fi
+
+# 10. Wiki index.md sync avec filesystem (page count)
+if [ -f wiki/index.md ]; then
+  WIKI_PAGES_FS=$(find wiki/ -name "*.md" -not -path "*/\.*" | wc -l | tr -d ' ')
+  WIKI_PAGES_IDX=$(grep -oE "Total pages: [0-9]+" wiki/index.md | grep -oE "[0-9]+" | head -1)
+  if [ -n "$WIKI_PAGES_IDX" ] && [ "$WIKI_PAGES_IDX" -ne "$WIKI_PAGES_FS" ] 2>/dev/null; then
+    echo -e "  ${YEL}[DRIFT]${RST} wiki/index.md : $WIKI_PAGES_IDX listees vs $WIKI_PAGES_FS filesystem"
+    DRIFT=$((DRIFT + 1))
+  elif [ -n "$WIKI_PAGES_IDX" ]; then
+    echo -e "  ${GRN}[OK]${RST} wiki pages : $WIKI_PAGES_FS (index sync)"
+  fi
+fi
+
 echo ""
 if [ "$DRIFT" -eq 0 ]; then
   echo -e "${GRN}Verdict : SYNC${RST}"

@@ -185,3 +185,10 @@ else
   done
   exit 1
 fi
+
+# ── WIKILINKS SCAN (D-WIKI-01, 2026-04-16) ──
+if [ -d wiki/ ] && [ -x scripts/wiki-health.sh ]; then
+  echo ""
+  echo "Wikilinks scan (via wiki-health.sh) :"
+  bash scripts/wiki-health.sh 2>&1 | grep -E "(Wikilinks|Verdict)" | head -3
+fi
