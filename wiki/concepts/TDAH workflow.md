@@ -16,7 +16,7 @@ tags:
 status: seed
 confidence: high
 related:
-  - "[[Brief v11]]"
+  - "[[Brief v12]]"
   - "[[Foundation OS]]"
   - "[[communication]]"
   - "[[Neuroplasticite]]"
@@ -33,7 +33,7 @@ Ensemble d'adaptations du workflow [[Foundation OS]] pour le profil TDAH de Kevi
 
 ### Briefs visuels
 
-Le [[Brief v11]] est le composant central : 14 sections avec cadres box-drawing, emojis couleur semantiques (🟢🟡🔴), barres progression 12 blocs, tendances (▲▶▼). Scanning rapide sans lecture de prose.
+Le [[Brief v12]] est le composant central : 14 sections avec cadres box-drawing, emojis couleur semantiques (🟢🟡🔴), barres progression 12 blocs, tendances (▲▶▼). Scanning rapide sans lecture de prose.
 
 ### TodoWrite tracking
 
@@ -62,7 +62,7 @@ Le TDAH affecte la memoire de travail, la regulation de l'attention, et la plani
 
 ## Connections
 
-- [[Brief v11]] — format de brief TDAH-friendly
+- [[Brief v12]] — format de brief TDAH-friendly
 - [[Foundation OS]] — systeme parent
 - [[communication]] — spec briefs dans docs/core/communication.md
 - [[Neuroplasticite]] — self-check session-end previent les oublis

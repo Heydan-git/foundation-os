@@ -44,7 +44,7 @@ Ferme un worktree proprement.
 
 Ces commandes sont detectees automatiquement par :
 
-- **`/cockpit`** Phase SCAN — affiche le worktree actif dans le brief v11 (cadre Sante, ligne Worktree).
+- **`/cockpit`** Phase SCAN — affiche le worktree actif dans le brief v12 (cadre Sante, ligne Worktree).
 - **`/session-end`** — si worktree != main, rappelle de merge/push depuis main apres review avant de proposer `/wt clean`.
 
 ## Limites

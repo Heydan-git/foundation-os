@@ -16,7 +16,7 @@
 > 6. `TodoWrite` avec UNE todo par plan actif (ex: "Plan DS Showcase — blocs 13-14 pending", "Plan migration Desktop — 9 phases DONE") + todo "Attendre input Kevin"
 >
 > **Tour 3** :
-> 7. Produire le brief v11 au format `docs/core/communication.md` section 6.1
+> 7. Produire le brief v12 au format `docs/core/communication.md` section 6.1
 >
 > PAS DE QUESTION CLARIFICATION AVANT TOUR 3. PAS DE "laisse-moi d'abord..." AVANT TOUR 3. Les tool calls tours 1-2 sont NON-NEGOCIABLES.
 
@@ -32,7 +32,7 @@ Lancer en parallele :
 1. **CONTEXT.md** : lire ENTIER (< 150 lignes garanti)
 2. **Wiki meta** : `Read wiki/meta/sessions-recent.md` + `Read wiki/meta/lessons-learned.md` — memoire court terme + erreurs a ne pas repeter
 3. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
-4. **Worktree actif** : `git worktree list` (detecter si on est dans main ou dans un worktree). Extraire le nom du worktree courant (basename du cwd si dans `.claude/worktrees/*/`). Inclure dans le brief v11 cadre Sante : ligne `Worktree` avec le nom (ou `main (base)` sinon).
+4. **Worktree actif** : `git worktree list` (detecter si on est dans main ou dans un worktree). Extraire le nom du worktree courant (basename du cwd si dans `.claude/worktrees/*/`). Inclure dans le brief v12 cadre Sante : ligne `Worktree` avec le nom (ou `main (base)` sinon).
 5. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
 6. **Health-check** : `bash scripts/health-check.sh`
 7. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
@@ -41,9 +41,9 @@ Lancer en parallele :
 Si CONTEXT.md absent → abort avec erreur explicite.
 Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne pas produire le brief (fixer d'abord).
 
-## Phase 2 — BRIEF v11
+## Phase 2 — BRIEF v12
 
-Generer le brief TDAH-friendly au format v11.
+Generer le brief TDAH-friendly au format v12.
 
 **Format brief** : voir `docs/core/communication.md` section 6.1 (template debut), 6.3 (regles rendu), 6.4 (sources). **SOURCE UNIQUE.** Ne pas dupliquer ici.
 
@@ -51,13 +51,9 @@ Le cockpit utilise le meme template que `/session-start` (debut de session) avec
 
 **Difference avec /session-start** : la section INPUT ne pose pas de questions projet. Elle affiche uniquement :
 
-```
-╔═ INPUT ══════════════════════════════════╗
-║                                          ║
-║   On fait quoi ?                         ║
-║                                          ║
-╚══════════════════════════════════════════╝
-```
+> #### 📥 INPUT
+>
+> **On fait quoi ?**
 
 Attendre la reponse de Kevin en langage libre. Pas de menu, pas de choix multiples.
 

@@ -124,13 +124,13 @@ fi
 
 # ── 5. Specs docs/core/ coherence ──────────────────────────────────
 
-EXPECTED_SPECS="cortex communication monitor tools architecture-core"
+EXPECTED_SPECS="cortex communication monitor tools architecture-core planner worktrees knowledge naming-conventions"
 MISS_SPECS=""
 for s in $EXPECTED_SPECS; do
   [ -f "docs/core/${s}.md" ] || MISS_SPECS="$MISS_SPECS $s"
 done
 if [ -z "$MISS_SPECS" ]; then
-  echo -e "  ${GRN}[OK]${RST} Specs Core OS (5/5 presentes)"
+  echo -e "  ${GRN}[OK]${RST} Specs Core OS (9/9 presentes)"
 else
   echo -e "  ${RED}[KO]${RST} Specs Core OS manquantes:$MISS_SPECS"
   CRITICAL=$((CRITICAL + 1))

@@ -14,7 +14,7 @@ OS de travail personnel IA-driven. **3 couches** depuis la migration Claude Code
                           ▼
 ┌─────────────────────────────────────────────────────────┐
 │  COUCHE 2 — FOUNDATION OS CORE (cerveau methodologique) │
-│  Cortex (routing) · Communication (briefs v11 + memory) │
+│  Cortex (routing) · Communication (briefs v12 + memory) │
 │  Monitor (health) · Tools (catalogue) · Planner (orch)  │
 │  Worktrees workflow · Cockpit orchestrator              │
 │  4 agents · 7 commands (cockpit, plan-os, session-*,    │
@@ -51,7 +51,7 @@ Memoire auto : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` (29 f
 | Module | Spec | Role |
 |---|---|---|
 | **Cortex** | `docs/core/cortex.md` | Routing demande Kevin → agent ou direct |
-| **Communication** | `docs/core/communication.md` | 5 tiers persistance (D-WIKI-01) + briefs v11 (source unique) |
+| **Communication** | `docs/core/communication.md` | 5 tiers persistance (D-WIKI-01) + briefs v12 (source unique) |
 | **Monitor** | `docs/core/monitor.md` | Health indicators (SAIN/DEGRADED/BROKEN), seuils |
 | **Tools** | `docs/core/tools.md` | Catalogue 109 outils, routing |
 | **Planner** | `docs/core/planner.md` | Orchestrateur skills plan + EnterPlanMode |
@@ -72,9 +72,9 @@ Memoire auto : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` (29 f
 
 | Command | Role |
 |---|---|
-| `/cockpit` | Super-pilote scan + brief v11 + routing + cloture |
+| `/cockpit` | Super-pilote scan + brief v12 + routing + cloture |
 | `/plan-os` | Orchestrateur skills plan + EnterPlanMode natif |
-| `/session-start` | Brief v11 debut session (parallele scan) |
+| `/session-start` | Brief v12 debut session (parallele scan) |
 | `/session-end` | Cloture session + check tasks pane + commit |
 | `/sync` | Audit coherence (ref-checker + sync-check) |
 | `/new-project` | Scaffold nouveau module dans `modules/` |

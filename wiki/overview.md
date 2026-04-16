@@ -71,10 +71,10 @@ Regle d'or : code executable dans `modules/`, doc+hypotheses+refs dans `wiki/dom
 - `/autoresearch [topic]` — web research 3-5 rounds + synthese
 - `/canvas [desc]` — Obsidian canvas visual
 
-## Stats (init Phase 2)
+## Stats (2026-04-16)
 
-- Pages : 4 (hot, index, log, overview)
-- Sources : 0
+- Pages : 36 (hot, index, log, overview)
+- Sources : 4
 - Domaines : 5 (pre-scaffolde vides)
 - Templates : 5
 - .raw/ : 6 dossiers

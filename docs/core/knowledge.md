@@ -110,7 +110,7 @@ Catalogue complet avec allowed-tools : `docs/core/tools.md` section 1c (Phase 6)
 
 ## 5. Integration Foundation OS
 
-### Brief v11 enrichi (cadres HOT + WIKI)
+### Brief v12 enrichi (tuiles HOT + WIKI)
 
 Voir `docs/core/communication.md` section 6.1. Le brief de debut de session affiche :
 - **Cadre HOT** (entre SANTE et TRAJECTOIRE) : 3-5 lignes condensees de `wiki/hot.md`
@@ -147,7 +147,7 @@ Voir `docs/core/communication.md` section 6.1. Le brief de debut de session affi
 | Module | Relation avec Knowledge |
 |--------|-------------------------|
 | Cortex | Route queries knowledge vers wiki-query skill |
-| Communication | Section 1.5 test arbitral defini ici, brief v11 integre cadres HOT + WIKI |
+| Communication | Section 1.5 test arbitral defini ici, brief v12 integre cadres HOT + WIKI |
 | Monitor | `scripts/wiki-health.sh` chain dans `health-check.sh` |
 | Tools | Catalogue 10 skills claude-obsidian + scripts custom |
 | Planner | Plans peuvent referencer wiki/domains/<X>/concepts pour contexte |

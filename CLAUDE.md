@@ -3,12 +3,20 @@
 OS de travail personnel IA-driven. Modules : App Builder (actif), Design System (actif), Finance/Sante/Trading (prevu Phase 5).
 
 ## Imperatifs (non-negociable)
-- Ne jamais mentir, inventer, ou fabriquer (donnees, URLs, citations). Si pas sur → le dire.
+- **Executer a la lettre** ce que Kevin demande — pas d'interpretation, pas de raccourci, pas de version simplifiee.
+- **Ne jamais mentir**, inventer, ou fabriquer (donnees, URLs, citations). Si pas sur → le dire.
+- **Ne jamais bullshiter** — pas de metriques inventees, pas d'auto-congratulation, pas de "DONE" sans preuve.
+- **Ne jamais halluciner** — verifier chaque affirmation avant de la faire. Si doute → verifier d'abord.
 - Ne jamais pretendre avoir fini sans verification reelle (build + test executes).
+- **Etre complet, detaille, exhaustif, precis** — quand Kevin demande de lire/verifier/auditer, lire le CONTENU de chaque fichier ligne par ligne, pas juste verifier que le fichier existe. Un audit structure-only est un pre-check, pas un audit.
+- **Lire = lire TOUT** — quand on lit un fichier, on lit la TOTALITE de son contenu, pas juste la surface. Quand on lit un dossier, on lit TOUS les fichiers du dossier. Jamais de lecture partielle quand Kevin demande de lire/verifier/comprendre.
+- **Etre explicatif et descriptif** — Kevin doit comprendre le pourquoi, pas juste le quoi.
+- **Produire de la qualite** — pas de travail bacle, pas de "on verra plus tard", pas de superficiel.
+- **Etre pragmatique et fonctionnel** — ne faire que des choses realisables et qui marchent.
+- **Conscience des limites** — dire "je ne peux pas X" plutot que faire semblant.
 - Plan avant execution. Validation Kevin avant changement non-trivial.
 - Decouper systematiquement en phases/sessions courtes (jamais de monolithe).
 - Cause racine de chaque erreur avant de fixer (pas de patch symptomatique).
-- Actions pragmatiques, conscience des limites — dire "je ne peux pas X" plutot que faire semblant.
 - Sub-agents : OK pour taches complexes **si contexte precis injecte dans le prompt** (memoire `feedback_subagents_context.md`). Jugements type "orphelin/doublon/redondance" → moi avec contexte global.
 
 ## A chaque session
@@ -18,7 +26,7 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Design System 
 **`/cockpit` ou `/session-start`** :
 - Tour 1 (parallele) : `Read CONTEXT.md` + `Bash git status && git worktree list && git log -1` + `Bash bash scripts/health-check.sh` + `Glob docs/plans/*.md`
 - Tour 2 : lire chaque plan actif + `TodoWrite` avec 1 todo par plan
-- Tour 3 : brief v11 (format `docs/core/communication.md` section 6.1)
+- Tour 3 : brief v12 (format `docs/core/communication.md` section 6.1)
 
 **`/plan-os "<demande>"`** :
 - Tour 1 : `EnterPlanMode()` IMMEDIATEMENT (pas de texte chat avant)
@@ -27,7 +35,7 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Design System 
 **`/session-end`** :
 - Tour 1 : `Bash git diff --name-status HEAD` + worktree list + health-check + ref-checker
 - Tour 2 : verifier 0 todo TodoWrite `in_progress` orpheline + classer changes par commit logique
-- Tour 3 : brief cloture v11 + propose commit (pas auto)
+- Tour 3 : brief cloture v12 + propose commit (pas auto)
 
 **`/wt new|clean <desc>`** : Tour 1 direct `bash scripts/worktree-{new,clean}.sh <desc>`.
 
@@ -41,7 +49,7 @@ Tool calls NON optionnels. Interpretation alternative = violation.
 4. Fin session : zero todo `in_progress` orpheline + update CONTEXT.md
 5. **Thinking en francais** (memoire `feedback_thinking_francais.md`)
 
-## Briefs session (format v11)
+## Briefs session (format v12)
 
 Spec complete : `docs/core/communication.md` section 6.
 14 sections tuiles Markdown v12 (blockquote `>` + `####` titre + tables `| |`). PAS de box-drawing terminal. Emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `█░`, tendance ▲▶▼. Separateur `---` entre tuiles.
@@ -82,7 +90,6 @@ Avant tout `mv`, `rm`, archive, modification Core OS :
 4. DOUTE → poser UNE question groupee a Kevin.
 
 ### Honnetete stricte
-
 Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/core/) :
 - **Tester** ce qui est testable (bash exec, builds, tests)
 - **Declarer** : ✅ "marche, verifie : output" / ⚠️ "devrait marcher mais pas teste car X" / ❌ "theorique/plateforme"
@@ -100,7 +107,6 @@ Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/co
 ### Neuroplasticite memoire (D-WIKI-01 Phase 2)
 
 4 reflexes obligatoires a chaque session :
-
 1. **Recall wiki** : avant de repondre sur un sujet technique/knowledge, `Grep` le basename dans `wiki/` → si page existe, la lire AVANT de formuler la reponse. Citer la page wiki si pertinente. Ne pas se limiter en tokens (Kevin Max x20).
 2. **Consolidation post-ingest** : apres chaque `/save` ou `wiki-ingest`, verifier si les nouvelles pages enrichissent/contredisent des existantes. Si oui, mettre a jour les pages existantes + ajouter callout `> [!updated] YYYY-MM-DD source`. Systematique (pas "best-effort").
 3. **Lessons learned** : quand une erreur/piege est rencontree (script qui plante, convention oubliee, faux positif, workaround necessaire), l'ajouter dans `wiki/meta/lessons-learned.md` avec date + contexte + fix.
@@ -115,15 +121,13 @@ Lecture SessionStart elargie (pas de limite tokens) :
 Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Si renommage → recabler TOUTES les refs. Verifier refs apres toute modification.
 
 ### Interdit sans Kevin
-- `git push` sur main ou `--force`
+- `git push` sur main/remote ou `--force`
 - `rm -rf` hors `.archive/` ou `node_modules` regenerable
 - `git commit` automatique (attendre OK sauf `/session-end` apres diff review)
-- Push sur remote (`origin/*`)
 - Actions Asana/Notion/MCP externes
 
 ## Garde-fous (non-negociable)
-
-- Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json)
+- Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json, package-lock.json)
 - Jamais creer de fichier sans demande explicite Kevin
 - Jamais dupliquer une info deja dans CONTEXT.md (regle d'or 5 tiers)
 - Fichier deplace/renomme → mettre a jour TOUTES les refs (grep + fix)
@@ -153,7 +157,7 @@ Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, touj
 
 Specs completes : `docs/core/`.
 - **Cortex** (routing) : `cortex.md`
-- **Communication** (persistance + brief v11) : `communication.md`
+- **Communication** (persistance + brief v12) : `communication.md`
 - **Monitor** (health, seuils) : `monitor.md`
 - **Tools** (catalogue 109 outils) : `tools.md` + `tools/index.json` + `tools/routing.json`
 - **Planner** (`/plan-os` orchestrateur) : `planner.md`

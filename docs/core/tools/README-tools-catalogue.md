@@ -39,7 +39,7 @@
 | Outil | Description | Usage |
 |-------|-------------|-------|
 | /cockpit | Point d'entree unique TDAH-friendly : scan parallele (CONTEXT + git +  | `/cockpit` |
-| /session-start | Brief de debut de session au format v11 TDAH-friendly : collecte paral | `/session-start` |
+| /session-start | Brief de debut de session au format v12 TDAH-friendly : collecte paral | `/session-start` |
 | /session-end | Cloture de session : inventaire git diff → verification coherence + bu | `/session-end` |
 | /sync | Audit complet de coherence : lance sync-check.sh qui execute health-ch | `/sync` |
 | /plan-os | Generateur de plan Foundation OS : wrapper par-dessus superpowers:writ | `/plan-os <demande>` |

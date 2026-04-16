@@ -76,7 +76,7 @@
 | docs/index.md | Carte navigation (ce fichier) |
 | docs/decisions-log.md | Decisions stables archivees |
 | docs/core/cortex.md | Routing + agents protocol |
-| docs/core/communication.md | 5 tiers persistance + briefs v11 source unique |
+| docs/core/communication.md | 5 tiers persistance + briefs v12 source unique |
 | docs/core/monitor.md | Health indicators + verdicts |
 | docs/core/tools.md | Catalogue 109 outils + routing |
 | docs/core/planner.md | Spec /plan-os orchestrateur skills + EnterPlanMode |

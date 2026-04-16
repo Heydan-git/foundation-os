@@ -38,11 +38,11 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 
 ### Mise a jour (session-end)
 
-1. "Dernieres sessions" : ajouter en tete, garder max 5, supprimer la plus ancienne
-2. "Prochaine action" : remplacer par la suite logique
+1. "Sessions recentes" : ajouter en tete, garder max 5, supprimer la plus ancienne
+2. "Cap" : remplacer par la suite logique
 3. "Modules" : mettre a jour si changement de status
-4. "Decisions actives" : ajouter si nouvelle decision prise
-5. "Etat technique" : mettre a jour si builds/routes/artifacts changent
+4. "Decisions" : ajouter si nouvelle decision prise
+5. "Metriques" : mettre a jour si builds/routes/artifacts changent
 
 ### Invariants
 
@@ -92,11 +92,11 @@ Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
 - Metriques et health checks automatiques → Monitor (docs/core/monitor.md)
 - Scripts et automation CLI → Tools (docs/core/tools.md)
 
-Status : les 4 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE).
+Status : les 7 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE, Phase 5 Planner, Phase 6 Worktrees, Phase 7 Knowledge).
 
 ## Voir aussi
 
-- [[communication]] — module Communication (tiers memoire, brief v11)
+- [[communication]] — module Communication (tiers memoire, brief v12)
 - [[monitor]] — module Monitor (health indicators, seuils)
 - [[tools]] — module Tools (scripts, CI/CD, catalogue)
 - [[knowledge]] — module Knowledge (wiki, neuroplasticite)
@@ -105,7 +105,7 @@ Status : les 4 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring
 
 Le skill `/cockpit` est un super-pilote optionnel au-dessus de Cortex.
 
-Il automatise le workflow complet : scan → brief v11 → routing → execution → cloture.
+Il automatise le workflow complet : scan → brief v12 → routing → execution → cloture.
 Kevin n'a plus a choisir entre /session-start, agents, ou /session-end.
 
 **Coexistence** : les commandes /session-start, /session-end, /sync, /new-project restent intactes et utilisables independamment.

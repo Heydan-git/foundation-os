@@ -30,7 +30,7 @@ Modules consultent wiki :
 
 ## Pages recentes
 
-Aucune pour l'instant.
+Voir sous-dossiers concepts/.
 
 ## Cross-references cles
 

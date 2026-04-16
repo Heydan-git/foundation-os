@@ -407,6 +407,6 @@ Cette spec remplace l'ancien module Memory (l'ancien fichier memory.md dans `doc
 | Format sessions | Libre (blobs) | Structure a champs fixes |
 | Decisions | Format table simple | Format compact + archivage auto |
 | Idees | Non couvert | Section dediee + lifecycle |
-| Brief | Non couvert (dans commands/) | Spec complete v10 |
+| Brief | Non couvert (dans commands/) | Spec complete v12 |
 | Nomenclature | Non definie | Table de nommage unifiee |
 | Budget taille | Non defini | < 150L CONTEXT.md, garde-fou 200L |

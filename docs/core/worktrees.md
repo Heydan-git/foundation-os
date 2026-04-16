@@ -159,7 +159,7 @@ git push
 ### Integration commands Foundation OS
 
 - **`/wt`** (command dediee) : `new`, `list`, `clean`. Spec : `.claude/commands/wt.md`.
-- **`/cockpit`** : Phase 1 SCAN detecte le worktree actif et l'affiche dans le brief v11 (cadre Sante).
+- **`/cockpit`** : Phase 1 SCAN detecte le worktree actif et l'affiche dans le brief v12 (cadre Sante).
 - **`/session-end`** : Phase 1 rappelle le worktree actif, propose `/wt clean` apres merge dans main.
 - **Scripts bash** : `scripts/worktree-new.sh`, `scripts/worktree-clean.sh`, `scripts/worktree-list.sh`.
 

@@ -23,7 +23,7 @@ related:
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
   - "[[Foundation OS]]"
-  - "[[Brief v11]]"
+  - "[[Brief v12]]"
   - "[[Neuroplasticite]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"

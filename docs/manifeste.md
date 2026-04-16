@@ -62,7 +62,7 @@ Foundation OS se lit comme 3 couches empilees, documentees dans `docs/architectu
 | Module | Role | Support | Statut |
 |--------|------|---------|--------|
 | Cortex | Routing tache → agent, lifecycle CONTEXT.md, commands | `CLAUDE.md`, `.claude/agents/`, `.claude/commands/` | actif |
-| Communication | 5 tiers (session / contexte / auto-memory / reference / wiki), regle d'or 1 info = 1 tier, briefs v11 | `CONTEXT.md`, `docs/`, auto-memory Claude | actif |
+| Communication | 5 tiers (session / contexte / auto-memory / reference / wiki), regle d'or 1 info = 1 tier, briefs v12 | `CONTEXT.md`, `docs/`, auto-memory Claude | actif |
 | Monitor | Health indicators par severite, verdicts SAIN / DEGRADED / BROKEN | `scripts/health-check.sh`, integre a `review-agent` et `/sync` | actif |
 | Tools | Validators, scripts, CI/CD, hooks — automation locale | `scripts/`, `.github/workflows/`, hooks git + Claude | actif |
 | Planner | Orchestrateur skills plan + EnterPlanMode natif | `/plan-os` + skills tiers | actif |

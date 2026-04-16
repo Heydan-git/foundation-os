@@ -11,7 +11,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | Indicateur | Commande | Seuil |
 |------------|----------|-------|
 | Build passe | `cd modules/[mod] && npm run build` | Exit 0 par module actif |
-| Zero fichier a la racine | `ls -1 racine` | Seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore |
+| Zero fichier a la racine | `ls -1 racine` | Seulement CLAUDE.md, CONTEXT.md, README.md, package.json, package-lock.json, .gitignore, package.json, package-lock.json |
 | TypeScript compile | `cd modules/[mod] && npx tsc --noEmit` | Zero erreur |
 
 ### Warning (a corriger avant deploy)
@@ -83,7 +83,7 @@ Seuils actuels bases sur l'etat du 2026-04-15 (post-migration Desktop + lazy-loa
 - Bundle JS baseline : **~184KB** (chunk principal `index-*.js` apres lazy-load des 5 pages, alerte si > 600KB)
   - Detail : 184KB index + 130KB proxy vendor + 228KB supabase vendor (chunks separes, charges seulement quand utilises)
   - Pages lazy : 4-17KB chacune (Commander, IndexPage, KnowledgePage, LoginPage, ResetPasswordPage)
-- Bundle CSS baseline : ~55KB (alerte si > 80KB — TODO investigation Tailwind purge)
+- Bundle CSS baseline : ~55KB (alerte si > 65KB — TODO investigation Tailwind purge)
 - Modules actifs : 2 (app, design-system). Ajouter les nouveaux au fur et a mesure.
 - Storybook stories : ~62 (53 DS + 9 app)
 

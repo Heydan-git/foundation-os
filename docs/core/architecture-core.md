@@ -21,7 +21,7 @@ Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → rou
 | Module | Role | Phase | Status | Runtime |
 |--------|------|-------|--------|---------|
 | Cortex | Routing, contexte, orchestration | 1 | actif | CLAUDE.md, .claude/agents/, .claude/commands/ |
-| Communication | Journalisation, indexation, lecture, briefing v11 | 2 | actif | CONTEXT.md, docs/, auto-memory |
+| Communication | Journalisation, indexation, lecture, briefing v12 | 2 | actif | CONTEXT.md, docs/, auto-memory |
 | Monitor | Health indicators, severite, seuils | 3 | actif | Integre dans /sync et review-agent |
 | Tools | Validators, scripts, CI/CD | 4 | actif | scripts/, .github/, hooks |
 | Planner | Orchestrateur skills plan + EnterPlanMode natif | 5 | actif | /plan-os + skills tiers reutilises |
@@ -77,7 +77,7 @@ Spec : [docs/core/worktrees.md](worktrees.md)
 - Plomberie native Claude Code Desktop + workflow Foundation OS.
 - Command `/wt new|list|clean` (wrapper scripts).
 - Convention nommage `wt/<desc>-<yymmdd>` (jamais de noms aleatoires `claude/agitated-wilson`).
-- Detection auto par `/cockpit` Phase SCAN (affiche dans brief v11 cadre Sante).
+- Detection auto par `/cockpit` Phase SCAN (affiche dans brief v12 cadre Sante).
 - `/session-end` rappelle workflow merge/clean.
 
 ## Knowledge (Phase 7 — actif depuis 2026-04-15)
@@ -87,7 +87,7 @@ Spec : [docs/core/knowledge.md](knowledge.md)
 - 5 domaines pre-scaffoldes (trading, finance, sante, design, dev) + 7 cross-domain.
 - **Neuroplasticite** (section 8 knowledge.md) : 4 reflexes auto (recall wiki, consolidation, [[lessons-learned|lessons learned]], self-check), 3 pages meta ([[thinking]], [[sessions-recent]], [[lessons-learned]]), routines cloud autonomes, loop.md.
 - Couplage modules/ <-> wiki/domains/ via frontmatter `implementation:`.
-- Integration brief v11 (cadres HOT + WIKI).
+- Integration brief v12 (cadres HOT + WIKI).
 - Auto-commit hook DESACTIVE (respect regle Kevin-valide).
 - 10 skills + 4 commands + 2 agents + 5 templates.
 

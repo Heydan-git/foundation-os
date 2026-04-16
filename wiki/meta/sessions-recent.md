@@ -54,7 +54,7 @@ related:
 - D-VAULT-01 : vault Obsidian = racine projet, 9 groupes couleurs
 
 **Pages wiki créées** :
-- Concepts : [[Foundation OS]], [[Core OS]], [[Brief v11]], [[Neuroplasticite]], [[TDAH workflow]]
+- Concepts : [[Foundation OS]], [[Core OS]], [[Brief v12]], [[Neuroplasticite]], [[TDAH workflow]]
 
 **Commits** : 7 (39cff18, 6cb443a, bc02d7a, 4ea4b0c, 9144c83, b94e428, + plan commit)
 
@@ -102,8 +102,4 @@ related:
 **Scope** : Migration CLI → Desktop app (tasks pane, plan window, worktrees, sessions 🪐)
 **Decisions** : D-DESKTOP-01, D-NAMING-01, D-PLAN-02
 **Résultat** : 8 mémoires permanentes, conventions nommage unifiées
-
-## 2026-04-15 · DS iso visuel + typography critique
-
-**Scope** : 3 causes racines (font tokens, tailwind-merge, @layer) + rewrite 46 composants. DONE côté Claude, test Kevin en attente.
 

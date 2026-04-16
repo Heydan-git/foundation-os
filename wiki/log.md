@@ -27,7 +27,7 @@ Chronological record of all wiki operations (scaffold, ingest, save, migrate, ar
 - **Phase 2** : 26 wikilinks dans 12 fichiers (CLAUDE/CONTEXT/README + 8 "Voir aussi" docs/core/)
 - **Phase 3** : frontmatter related: aligné sur 8 pages
 - **Phase 4** : overview enrichi, 5 domaines cross-linkés, Void Glass connecté, map stats à jour
-- **Phase 5** : 5 concepts créés (Foundation OS, Core OS, Brief v11, Neuroplasticité, TDAH workflow) + tags harmonisés
+- **Phase 5** : 5 concepts créés (Foundation OS, Core OS, Brief v12, Neuroplasticité, TDAH workflow) + tags harmonisés
 - **Finding 1** : 6 phantômes retirés (A, B, X, page, file)
 - **Finding 6** : tools-fo complété (Void Glass + design-system-components)
 - **Stats sync** : index-wiki 27→35 pages, CONTEXT 6→5 sessions

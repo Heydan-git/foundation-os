@@ -27,11 +27,11 @@
 > 16. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
 > 17. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
 >
-> **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
+> **Tour 4** : produire brief cloture v12 (format `docs/core/communication.md` section 6.2)
 >
 > Si worktree != main : rappeler workflow merge + `/wt clean`.
 
-Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v11 (TDAH-friendly).
+Journalise la session, met a jour CONTEXT.md, et produit le brief de cloture v12 (TDAH-friendly).
 
 **Format brief** : voir `docs/core/communication.md` section 6.2 (template cloture), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.
 
@@ -139,7 +139,7 @@ mv docs/plans/<slug>.md .archive/plans-done-$(date +%y%m%d)/
 ```
 
 - Inclure dans le brief de cloture Phase 7 : cadre `PLANS TERMINES CETTE SESSION` avec la liste des plans archives (titre + commit final + date).
-- Au prochain `/cockpit` ou `/session-start` : dans le brief v11 cadre `PLANS ACTIFS`, afficher une ligne `🟢 <N> plans termines recemment` qui pointe vers le dossier archive.
+- Au prochain `/cockpit` ou `/session-start` : dans le brief v12 cadre `PLANS ACTIFS`, afficher une ligne `🟢 <N> plans termines recemment` qui pointe vers le dossier archive.
 
 Exclure `_template-plan.md` et le plan actif session courante.
 
@@ -202,7 +202,7 @@ Si on est dans un worktree (`git worktree list` != main path) :
 
 ## References
 
-- Spec brief v11 : `docs/core/communication.md` section 6 (template + regles + sources)
+- Spec brief v12 : `docs/core/communication.md` section 6 (template + regles + sources)
 - Conventions nommage : `docs/core/naming-conventions.md`
 - Format session naming : memoire `feedback_sessions_nommage_planete.md`
 - TodoWrite : memoire `feedback_todowrite_systematique.md`

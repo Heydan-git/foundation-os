@@ -32,7 +32,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 - [[architecture-core]] — Architecture 7 modules Core OS (Cortex, Communication, Monitor, Tools, Planner, Worktrees, Knowledge)
 - [[cortex]] — Module Phase 1 : routing tache → agent, contexte CONTEXT.md lifecycle, orchestration commands
-- [[communication]] — Module Phase 2 : 5 tiers memoire, nomenclature, journalisation, indexation, lecture, briefing v11
+- [[communication]] — Module Phase 2 : 5 tiers memoire, nomenclature, journalisation, indexation, lecture, briefing v12
 - [[monitor]] — Module Phase 3 : health indicators par severite (critical/warning/info), verdicts SAIN/DEGRADED/BROKEN
 - [[tools]] — Module Phase 4 : validators, scripts, CI/CD, catalogue 109 outils, routing 35 regles
 - [[planner]] — Module Phase 5 : orchestrateur /plan-os, EnterPlanMode natif, dual-path plans
@@ -50,7 +50,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 ## Core OS — Commands (.claude/commands/)
 
 - [[cockpit]] — /cockpit : point d'entree unique (scan + brief + routing + cloture)
-- [[session-start]] — /session-start : protocole debut session (collecte + brief v11 14 sections)
+- [[session-start]] — /session-start : protocole debut session (collecte + brief v12 14 sections)
 - [[session-end]] — /session-end : protocole fin session (inventaire + CONTEXT + hot.md + brief cloture)
 - [[plan-os]] — /plan-os : orchestrateur plans (brainstorming → writing-plans → EnterPlanMode)
 - [[wt]] — /wt : worktrees Foundation OS (new/list/clean)
@@ -74,7 +74,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 ### Plans (docs/plans/)
 
-- [[2026-04-16-mega-audit-final]] — Méga audit final Foundation OS (63 findings + 9 innovations, 8 phases)
+- 2026-04-16-mega-audit-final (archivé) — Méga audit final Foundation OS (63 findings + 9 innovations, 8 phases)
 - [[_template-plan]] — Template plan Foundation OS (frontmatter + structure 12 sections)
 
 ## Travaux Cowork (docs/travaux-cowork/)
@@ -151,7 +151,7 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 - [[Void Glass]] — Design system dark-only #030303 Foundation OS
 - [[Foundation OS]] — OS de travail personnel IA-driven de Kevin
 - [[Core OS]] — Architecture 7 modules operationnels
-- [[Brief v11]] — Format brief session TDAH-friendly 14 sections
+- [[Brief v12]] — Format brief session TDAH-friendly 14 tuiles Markdown
 - [[Neuroplasticite]] — Systeme auto-amelioration memoire 4 reflexes
 - [[TDAH workflow]] — Adaptations workflow pour profil TDAH Kevin
 - [[foundation-os-desktop-migration]] — Migration Foundation OS → Desktop natif (2026-04-15)
@@ -202,7 +202,7 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 | Travaux Cowork | 19 |
 | App Builder data | 6 |
 | Design System | 1 |
-| Wiki concepts | 9 |
+| Wiki concepts | 11 |
 | Wiki entities | 5 |
 | Wiki sources | 4 |
 | Wiki domaines | 5 |

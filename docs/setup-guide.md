@@ -37,7 +37,7 @@ Puis ouvrir Claude Code Desktop :
 /cockpit
 ```
 
-Le brief v11 (TDAH-friendly, cadres box-drawing) s'affiche avec :
+Le brief v12 (TDAH-friendly, cadres box-drawing) s'affiche avec :
 - Sante (build, tests, refs, worktree actif)
 - Trajectoire (avancement plans actifs)
 - Modules (App Builder, Design System, Core OS)
@@ -140,7 +140,7 @@ Si tu utilisais auparavant `claude .` dans le terminal, voici les changements :
 | Avant (CLI terminal) | Maintenant (Desktop app) |
 |---|---|
 | `claude .` dans terminal | Sidebar sessions Desktop → ouvrir dossier |
-| Briefs en texte plein | Briefs v11 + tasks pane native peuplee en parallele |
+| Briefs en texte plein | Briefs v12 + tasks pane native peuplee en parallele |
 | `git worktree add` manuel | `/wt new <desc>` (convention nommage forcee) |
 | Plans dans `docs/plans/` seul | Plans dual-path natif + versionne |
 | Session sans nom (claude/agitated-wilson auto) | Nom `🪐 ...` genere par `/plan-os`, rename manuel sidebar |
@@ -155,4 +155,4 @@ Le code applicatif (`modules/app`, `modules/design-system`) tourne identiquement
 - Cortex routing : `docs/core/cortex.md`
 - Worktrees : `docs/core/worktrees.md`
 - Planner : `docs/core/planner.md`
-- Communication briefs v11 : `docs/core/communication.md`
+- Communication briefs v12 : `docs/core/communication.md`

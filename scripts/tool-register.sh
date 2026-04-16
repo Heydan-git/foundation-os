@@ -4,7 +4,7 @@ set -euo pipefail
 # tool-register.sh — CLI pour gerer le catalogue Tools v2
 # Usage:
 #   bash scripts/tool-register.sh scan       # Detecter outils non-enregistres
-#   bash scripts/tool-register.sh rebuild     # Regenerer index.json + README.md
+#   bash scripts/tool-register.sh rebuild     # Regenerer index.json + README-tools-catalogue.md
 #   bash scripts/tool-register.sh add --category <cat> --path <path>  # Ajouter un outil
 #   bash scripts/tool-register.sh --help
 
@@ -152,8 +152,8 @@ cmd_rebuild() {
       }
       md += '\n';
     }
-    fs.writeFileSync('$TOOLS_DIR/README.md', md);
-    console.log('✅ README.md genere');
+    fs.writeFileSync('$TOOLS_DIR/README-tools-catalogue.md', md);
+    console.log('✅ README-tools-catalogue.md genere');
   "
 }
 

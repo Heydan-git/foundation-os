@@ -45,7 +45,7 @@ Le wiki est l'artefact persistant. Les cross-references sont deja la. Les contra
 1. **Source ingestion** : drop PDF/URL/transcript dans `.raw/`
 2. **Pre-compilation** : LLM extrait concepts, entities, cross-refs → pages wiki structurees
 3. **Hot cache** : `wiki/hot.md` (~500 mots) resume la derniere session, lu en priorite
-4. **Index** : `wiki/index.md` (1 ligne par page) pour navigation rapide
+4. **Index** : `wiki/index-wiki.md` (1 ligne par page) pour navigation rapide
 5. **On-demand loading** : seules les pages pertinentes a la question sont chargees
 6. **Session update** : fin de session, hot.md + index + log mis a jour
 

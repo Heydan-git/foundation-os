@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Foundation OS — Master Index"
-updated: 2026-04-15
+updated: 2026-04-16
 tags:
   - meta
   - index
@@ -43,7 +43,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[concepts/Compounding Knowledge]] — knowledge compose via cross-refs wiki (status: mature)
 - [[concepts/Foundation OS]] — OS de travail personnel IA-driven de Kevin (status: seed)
 - [[concepts/Core OS]] — architecture 7 modules operationnels Foundation OS (status: seed)
-- [[concepts/Brief v11]] — format brief session TDAH-friendly 14 sections (status: seed)
+- [[concepts/Brief v12]] — format brief session TDAH-friendly 14 tuiles Markdown (status: seed)
 - [[concepts/Neuroplasticite]] — systeme auto-amelioration memoire 4 reflexes (status: seed)
 - [[concepts/TDAH workflow]] — adaptations workflow pour profil TDAH Kevin (status: seed)
 - [[concepts/Void Glass]] — design system dark-only #030303 Foundation OS (status: seed)

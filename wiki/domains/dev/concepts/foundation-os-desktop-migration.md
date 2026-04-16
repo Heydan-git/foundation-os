@@ -45,7 +45,7 @@ Migration Foundation OS (poste de travail IA-driven Kevin) du CLI terminal Claud
 5. TodoWrite systematique + tasks pane
 6. Docs CLI-centric -> Desktop (setup-guide, architecture, index)
 7. Refs stales + Cockpit registered + baselines actualises
-8. Brief v11 source unique (docs/core/communication.md)
+8. Brief v12 source unique (docs/core/communication.md)
 9. CONTEXT.md + commit final
 
 ## Hors scope

@@ -35,7 +35,7 @@ Kevin tape: /cockpit
 └────────────┬───────────────────┘
              │
              ▼
-┌─ PHASE 2 : BRIEF v11 ─────────┐
+┌─ PHASE 2 : BRIEF v12 ─────────┐
 │  Genere le brief TDAH complet  │
 │  (meme template v11 que        │
 │  session-start)                │
@@ -84,7 +84,7 @@ Lancer en parallele (memes commandes que `/session-start`) :
 
 Si health-check BROKEN ou build fail → afficher les erreurs, ne pas produire le brief. Fixer d'abord.
 
-## Phase 2 — BRIEF v11
+## Phase 2 — BRIEF v12
 
 Generer le brief TDAH-friendly au format v11 :
 - 11 sections dans cadres box-drawing (`┌─ TITRE ─┐ ... └─┘`)

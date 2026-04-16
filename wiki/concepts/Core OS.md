@@ -37,7 +37,7 @@ Architecture de 7 modules qui forment le cerveau operationnel de [[Foundation OS
 ### Les 7 modules
 
 1. **[[cortex|Cortex]]** (Phase 1) — routing tache vers agent, contexte CONTEXT.md lifecycle, orchestration commands
-2. **[[communication|Communication]]** (Phase 2) — 5 tiers memoire, nomenclature, journalisation, indexation, lecture, briefing v11
+2. **[[communication|Communication]]** (Phase 2) — 5 tiers memoire, nomenclature, journalisation, indexation, lecture, briefing v12
 3. **[[monitor|Monitor]]** (Phase 3) — health indicators par severite (critical/warning/info), verdicts SAIN/DEGRADED/BROKEN
 4. **[[tools|Tools]]** (Phase 4) — validators, scripts, CI/CD, catalogue 109 outils, routing 35 regles
 5. **[[planner|Planner]]** (Phase 5) — orchestrateur /plan-os, EnterPlanMode natif, dual-path plans
@@ -46,7 +46,7 @@ Architecture de 7 modules qui forment le cerveau operationnel de [[Foundation OS
 
 ### Flux typique session
 
-Cortex route la commande initiale (/cockpit, /session-start) → Communication charge les 5 tiers memoire + brief v11 → Monitor verifie la sante → Tools execute les scripts → Planner orchestre les plans → Worktrees isole le travail → Knowledge persiste le savoir.
+Cortex route la commande initiale (/cockpit, /session-start) → Communication charge les 5 tiers memoire + brief v12 → Monitor verifie la sante → Tools execute les scripts → Planner orchestre les plans → Worktrees isole le travail → Knowledge persiste le savoir.
 
 ## Why It Matters
 

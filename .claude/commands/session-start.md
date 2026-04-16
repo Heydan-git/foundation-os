@@ -17,11 +17,11 @@
 > 10. `Read` chaque plan actif non-archive
 > 11. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
 >
-> **Tour 3** : produire le brief v11 (format `docs/core/communication.md` section 6.1)
+> **Tour 3** : produire le brief v12 (format `docs/core/communication.md` section 6.1)
 >
 > PAS DE BRIEF AVANT TOURS 1-2 EXECUTES. PAS D'INTERPRETATION ALTERNATIVE.
 
-Produit le brief de debut de session au format v11 (TDAH-friendly).
+Produit le brief de debut de session au format v12 (TDAH-friendly).
 
 **Format brief** : voir `docs/core/communication.md` section 6.1 (template), 6.3 (regles de rendu), 6.4 (sources de donnees). **SOURCE UNIQUE.** Ne pas dupliquer ici.
 
@@ -33,14 +33,14 @@ Lancer en parallele :
 
 1. **CONTEXT.md** : lire ENTIER (< 150 lignes garanti). Sections : Modules, Sessions recentes, Cap, Idees & Parking, En attente Kevin, Decisions, Metriques, Chantier en cours (si actif)
 2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
-3. **Worktree actif** : `bash scripts/worktree-list.sh` ou `git worktree list`. Detecter si on est dans un worktree (basename cwd dans `.claude/worktrees/`) ou sur main. Inclure dans le brief v11 cadre Sante.
+3. **Worktree actif** : `bash scripts/worktree-list.sh` ou `git worktree list`. Detecter si on est dans un worktree (basename cwd dans `.claude/worktrees/`) ou sur main. Inclure dans le brief v12 cadre Sante.
 4. **Health-check** : `bash scripts/health-check.sh` (inclut le build des modules — ne pas relancer le build separement)
 5. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive (exclut `_template-plan.md`). Extraire pour chaque plan :
    - titre + frontmatter (status, phases_total)
    - section `## Execution log` : compter `[x]` vs `[ ]`, identifier le dernier `[x]` (= hier), le(s) prochain(s) `[ ]`
    - decoupage en sessions/phases pour afficher reste
    - Un plan avec toutes ses cases `[x]` OU status `done`/`closed` → **considerer TERMINE**, proposer l'archivage `mv .archive/plans-done-$(date +%y%m%d)/` (normalement fait par `/session-end` precedent mais fallback si oublie)
-6. **Plans recemment termines** : `ls .archive/plans-done-*/` pour les 7 derniers jours. Afficher dans brief v11 cadre PLANS ACTIFS : ligne `🟢 <N> plans termines recemment` (ex : `🟢 11 plans termines (2026-04-15)`) sans detail. Permet a Kevin de voir la progression.
+6. **Plans recemment termines** : `ls .archive/plans-done-*/` pour les 7 derniers jours. Afficher dans brief v12 cadre PLANS ACTIFS : ligne `🟢 <N> plans termines recemment` (ex : `🟢 11 plans termines (2026-04-15)`) sans detail. Permet a Kevin de voir la progression.
 7. **TodoWrite initial** (apres Phase 5) : creer un TodoWrite avec une todo par plan actif (1 plan = 1 todo). Kevin voit immediatement l'avancement dans la tasks pane Desktop. Memoire : `feedback_todowrite_systematique.md`.
 8. **Routines health** : `git log --grep="routine" --since="7 days ago" --oneline | wc -l` → nombre de commits routine cette semaine. Afficher dans brief cadre SANTE : "Routines: N commits/7j".
 9. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
@@ -111,7 +111,7 @@ Si Kevin n'est pas pret : laisser le brief afficher, attendre.
 
 ## References
 
-- Spec brief v11 : `docs/core/communication.md` section 6 (template + regles + sources)
+- Spec brief v12 : `docs/core/communication.md` section 6 (template + regles + sources)
 - Conventions nommage : `docs/core/naming-conventions.md`
 - Format session naming : memoire `feedback_sessions_nommage_planete.md` (titre `🪐 ...`)
 - TodoWrite : memoire `feedback_todowrite_systematique.md`
