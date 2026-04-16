@@ -8,9 +8,9 @@
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
 | App Builder | ✅ iso base DS | `modules/app/` | Tokens `ds-*` partout (0 legacy). Build ~300ms, 19/19 tests. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge iso base DS. |
-| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui iso + 7 patterns Dashboard + 53 stories SB (62 total avec app). Build-storybook 5.87s. |
+| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui iso + 7 patterns Dashboard + 53 stories SB (62 total avec app). Build-storybook 5.87s. [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
-| Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v11 HOT+WIKI. D-WIKI-01. |
+| Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v11 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Finance | prevu | — | Phase 5 |
 | Sante | prevu | — | Phase 5 |

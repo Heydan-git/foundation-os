@@ -12,6 +12,7 @@ tags:
   - concept
   - knowledge-management
   - network-effects
+  - dev
 status: mature
 confidence: high
 related:
@@ -19,6 +20,7 @@ related:
   - "[[Hot Cache]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
+  - "[[Pinecone]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
 ---

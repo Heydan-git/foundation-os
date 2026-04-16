@@ -94,6 +94,13 @@ Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
 
 Status : les 4 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE).
 
+## Voir aussi
+
+- [[communication]] — module Communication (tiers memoire, brief v11)
+- [[monitor]] — module Monitor (health indicators, seuils)
+- [[tools]] — module Tools (scripts, CI/CD, catalogue)
+- [[knowledge]] — module Knowledge (wiki, neuroplasticite)
+
 ## 6. Cockpit — Point d'entree simplifie
 
 Le skill `/cockpit` est un super-pilote optionnel au-dessus de Cortex.

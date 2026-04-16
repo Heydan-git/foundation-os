@@ -25,6 +25,13 @@ status: mature
 related:
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Hot Cache]]"
+  - "[[Compounding Knowledge]]"
+  - "[[Andrej Karpathy]]"
+  - "[[AgriciDaniel]]"
+  - "[[Obsidian]]"
+  - "[[tools-foundation-os]]"
 sources: []
 ---
 

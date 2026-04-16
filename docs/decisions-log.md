@@ -1,5 +1,7 @@
 # Foundation OS — Decisions archivees
 
+Navigation: [[CONTEXT]] (decisions actives) | [[index-wiki]] (wiki) | [[foundation-os-map]] (carte)
+
 > Log des decisions stabilisees archivees depuis CONTEXT.md quand le seuil de 15 est franchi (protocole Communication — `docs/core/communication.md` section 3).
 >
 > Les decisions ici sont encore **actives** — elles continuent de guider le travail — mais elles sont sorties de la vue chaude de CONTEXT.md parce qu'elles ne bougent plus.

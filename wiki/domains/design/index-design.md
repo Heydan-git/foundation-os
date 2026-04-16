@@ -33,6 +33,8 @@ Aucune pour l'instant.
 
 - [[Void Glass]] — design system dark-only Void Glass #030303
 - [[index-dev|Dev]] (crossover composants UI)
+- [[design-system-components]] — 46 composants + 6 foundations DS
+- [[Obsidian]] — visualisation graph design system
 
 ## Workflows specifiques
 

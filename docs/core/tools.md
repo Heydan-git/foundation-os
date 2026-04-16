@@ -165,3 +165,10 @@ Ce que Tools ne fait PAS :
 - Runtime intelligence (→ Cortex)
 - Persistance de donnees (→ Communication)
 - Definition des indicateurs (→ Monitor)
+
+## Voir aussi
+
+- [[monitor]] — module Monitor (health indicators)
+- [[planner]] — module Planner (orchestrateur plans)
+- [[worktrees]] — module Worktrees (scripts worktree-*)
+- [[knowledge]] — module Knowledge (skills claude-obsidian)

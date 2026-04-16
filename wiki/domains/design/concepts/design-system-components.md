@@ -25,7 +25,7 @@ sources: []
 
 # Design System Foundation OS — Composants + Foundations
 
-> 46 composants UI iso base DS + 6 foundations. Dark-only Void Glass (#030303).
+> 46 composants UI iso base DS + 6 foundations. Dark-only [[Void Glass]] (#030303).
 > Storybook : 62 stories (53 DS + 9 app). Build-storybook 5.87s.
 > Docs auto-generees : `modules/design-system/docs-supernova/`
 

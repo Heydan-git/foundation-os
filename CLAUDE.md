@@ -53,6 +53,7 @@ Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md
 - Vite + React 19 + TypeScript + Tailwind 4 + Supabase + Vercel
 - Conventional commits : `type(scope): description`
 - Void Glass : dark-only `#030303` (ds-surface-0), Figtree UI, JetBrains Mono code, tokens DTCG
+- Design wiki : [[index-wiki]]. Carte projet : [[foundation-os-map]].
 - Interdit : `#0A0A0B`, `#08080A`, Outfit, Inter, system-ui seul (OK fallback CSS)
 - TSX < 700 lignes — decouper si plus
 

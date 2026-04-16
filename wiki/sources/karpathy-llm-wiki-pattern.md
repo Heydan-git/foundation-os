@@ -23,6 +23,12 @@ tags:
 status: mature
 related:
   - "[[agricidaniel-claude-obsidian]]"
+  - "[[Andrej Karpathy]]"
+  - "[[Obsidian]]"
+  - "[[Pinecone]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Hot Cache]]"
+  - "[[Compounding Knowledge]]"
 sources: []
 ---
 

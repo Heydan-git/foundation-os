@@ -104,3 +104,8 @@ Ce que Monitor ne fait PAS :
 - Execution automatique des checks (pas de cron/CI — c'est pour Tools Phase 4)
 - Monitoring en production (uptime, errors — c'est Vercel/Supabase dashboard)
 - Alertes push (notifications — pas encore implemente)
+
+## Voir aussi
+
+- [[tools]] — module Tools (scripts health-check, drift-detector)
+- [[cortex]] — module Cortex (routing, orchestration)

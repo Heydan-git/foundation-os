@@ -20,7 +20,7 @@ modules/app/           Module App Builder (React + Vite + TS + Tailwind)
 modules/design-system/ Module Design System (Storybook + tokens)
 docs/                  Documentation (core, plans, specs, manifeste)
 docs/core/             Specs Core OS (cortex, communication, monitor, tools, planner, worktrees, knowledge, naming-conventions)
-wiki/                  Knowledge layer Obsidian (pattern Karpathy LLM Wiki, D-WIKI-01)
+wiki/                  Knowledge layer Obsidian (pattern Karpathy LLM Wiki, D-WIKI-01) — [[index-wiki]]
 .raw/                  Archive sources brutes pour ingestion wiki
 scripts/               Scripts bash + hooks (health-check, sync-check, ref-checker, wiki-commit, wiki-health, worktree-*, module-scaffold)
 supabase/              Migrations DB

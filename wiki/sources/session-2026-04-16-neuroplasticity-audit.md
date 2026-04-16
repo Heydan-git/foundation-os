@@ -26,6 +26,11 @@ status: mature
 related:
   - "[[session-2026-04-16-wiki-adoption]]"
   - "[[karpathy-llm-wiki-pattern]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Hot Cache]]"
+  - "[[Compounding Knowledge]]"
+  - "[[foundation-os-map]]"
+  - "[[tools-foundation-os]]"
 sources: []
 ---
 

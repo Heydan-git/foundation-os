@@ -75,6 +75,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 ### Plans (docs/plans/)
 
 - [[2026-04-15-wiki-obsidian-adoption]] — Plan adoption wiki Obsidian (D-WIKI-01, 12 phases, 4050 lignes)
+- [[2026-04-16-audit-mapping-obsidian]] — Plan audit mapping Obsidian (29 findings, 5 phases)
 - [[_template-plan]] — Template plan Foundation OS (frontmatter + structure 12 sections)
 
 ## Travaux Cowork (docs/travaux-cowork/)
@@ -138,6 +139,8 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 - [[hot]] — Cache flash derniere session (overwrite)
 - [[log]] — Chronological operations log
 - [[foundation-os-map]] — Cette carte (hub central graph)
+- [[routines-guardrails]] — Garde-fous communs des 14 routines (lu avant chaque routine)
+- [[routines-setup]] — Prompts des 14 routines Desktop autopilote
 
 Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + consolidation + lessons + self-check.
 
@@ -146,6 +149,12 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 - [[LLM Wiki Pattern]] — Pattern Karpathy : pre-compiler sources en wiki Markdown pour LLMs
 - [[Hot Cache]] — Cache 500 mots session-to-session via wiki/hot.md
 - [[Compounding Knowledge]] — Knowledge compose via cross-refs wiki
+- [[Void Glass]] — Design system dark-only #030303 Foundation OS
+- [[Foundation OS]] — OS de travail personnel IA-driven de Kevin
+- [[Core OS]] — Architecture 7 modules operationnels
+- [[Brief v11]] — Format brief session TDAH-friendly 14 sections
+- [[Neuroplasticite]] — Systeme auto-amelioration memoire 4 reflexes
+- [[TDAH workflow]] — Adaptations workflow pour profil TDAH Kevin
 - [[foundation-os-desktop-migration]] — Migration Foundation OS → Desktop natif (2026-04-15)
 
 ### Entities
@@ -161,6 +170,7 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 - [[karpathy-llm-wiki-pattern]] — Article Karpathy LLM Wiki Pattern (2026-04)
 - [[agricidaniel-claude-obsidian]] — Repo claude-obsidian (GitHub, 1279 stars)
 - [[session-2026-04-16-wiki-adoption]] — Session adoption wiki Obsidian (2026-04-15/16)
+- [[session-2026-04-16-neuroplasticity-audit]] — Session audit neuroplasticite (7 failles + 4 reflexes)
 
 ### Domaines
 
@@ -189,13 +199,13 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 | Core OS commands | 7 |
 | Documentation | 4 |
 | Specs historiques | 3 |
-| Plans | 2 |
+| Plans | 3 |
 | Travaux Cowork | 19 |
 | App Builder data | 6 |
 | Design System | 1 |
-| Wiki concepts | 4 |
+| Wiki concepts | 9 |
 | Wiki entities | 5 |
-| Wiki sources | 3 |
+| Wiki sources | 4 |
 | Wiki domaines | 5 |
 | Wiki meta | 4 |
-| **Total connecte** | **79** |
+| **Total connecte** | **84** |

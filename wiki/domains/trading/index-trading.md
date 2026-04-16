@@ -42,6 +42,7 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 - [[index-wiki|Concepts cross-domain]] (Sharpe, Kelly, etc. partages)
 - [[index-wiki|Entities cross-domain]] (outils, brokers, researchers)
+- [[Compounding Knowledge]] — le compounding s'applique aux backtests et strategies
 
 ## Workflows specifiques
 

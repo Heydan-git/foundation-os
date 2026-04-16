@@ -36,6 +36,7 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 - [[index-wiki|Entities cross-domain]] (banques, courtiers, conseillers)
 - [[index-trading|Trading]] (crossover investissement actif/passif)
+- [[Compounding Knowledge]] — le compounding s'applique aux decisions patrimoine
 
 ## Workflows specifiques
 

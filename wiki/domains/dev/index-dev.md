@@ -34,6 +34,9 @@ Aucune pour l'instant.
 
 - [[index-wiki|Entities cross-domain]] (libraries, frameworks, outils)
 - [[index-design|Design]] (crossover UI/UX)
+- [[foundation-os-desktop-migration]] — histoire migration Desktop 2026-04-15
+- [[LLM Wiki Pattern]] — pattern architectural wiki
+- [[tools-foundation-os]] — toolchain Foundation OS
 
 ## Workflows specifiques
 

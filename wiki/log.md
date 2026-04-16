@@ -10,6 +10,8 @@ status: evergreen
 
 # Wiki Operations Log
 
+Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[foundation-os-map]]
+
 Chronological record of all wiki operations (scaffold, ingest, save, migrate, archive).
 
 ## 2026-04-15

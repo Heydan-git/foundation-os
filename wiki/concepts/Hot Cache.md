@@ -14,12 +14,14 @@ tags:
   - memory
   - cache
   - performance
+  - dev
 status: mature
 confidence: high
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
   - "[[Andrej Karpathy]]"
+  - "[[Obsidian]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"

@@ -24,6 +24,11 @@ tags:
 status: mature
 related:
   - "[[karpathy-llm-wiki-pattern]]"
+  - "[[AgriciDaniel]]"
+  - "[[Obsidian]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Hot Cache]]"
+  - "[[Compounding Knowledge]]"
 sources: []
 ---
 

@@ -186,3 +186,9 @@ git push
 - .gitignore : `.claude/worktrees/`
 - Conventions nommage : `docs/core/naming-conventions.md` section 2
 - Spec /wt : `.claude/commands/wt.md`
+
+## Voir aussi
+
+- [[planner]] — module Planner (plans dans worktrees)
+- [[naming-conventions]] — conventions nommage worktrees wt/<desc>-<yymmdd>
+- [[tools]] — module Tools (scripts worktree-*)

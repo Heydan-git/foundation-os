@@ -211,3 +211,9 @@ Les memoires auto-memory garantissent la persistance entre sessions :
 ## Historique
 
 - 2026-04-15 — Creation spec initiale pendant migration Foundation OS vers Claude Code Desktop. Phase 2/9 du plan `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`.
+
+## Voir aussi
+
+- [[planner]] — conventions plans
+- [[worktrees]] — conventions worktrees
+- [[index-wiki]] — conventions wiki pages

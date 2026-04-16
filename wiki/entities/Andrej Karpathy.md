@@ -21,6 +21,7 @@ related:
   - "[[Obsidian]]"
   - "[[Pinecone]]"
   - "[[AgriciDaniel]]"
+  - "[[agricidaniel-claude-obsidian]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
 ---

@@ -15,6 +15,7 @@ tags:
   - desktop
   - migration
   - architecture
+  - dev
 status: mature
 confidence: high
 related:
@@ -62,3 +63,8 @@ health-check SAIN, sync-check passe, /cockpit detecte worktree, /plan-os ouvre p
 ## Etat
 
 DONE 2026-04-15. Les 9 phases livrees + validation Kevin level-up OS (audit + plan level-up 7 phases execute). Plan archive : `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`.
+
+## Connections
+
+- [[index-dev]] — domaine dev
+- [[Obsidian]] — visualisation graph

@@ -286,3 +286,8 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 - Live state : `CONTEXT.md` section "App Builder — Etat technique"
 - Inventaire vivant : `docs/index-documentation.md`
 - Audit en cours : `.archive/audit-massif/` (4 livrables + 20 placeholders)
+
+## Voir aussi
+
+- [[index-wiki]] — wiki knowledge Foundation OS
+- [[foundation-os-map]] — carte projet

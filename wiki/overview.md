@@ -26,9 +26,9 @@ Accumuler, structurer, rendre navigable le knowledge cross-modules pour :
 4. **Sante** (Phase 5) — bilans biologiques synthetises, protocoles, papers medicaux, conseil sante multi-agents
 5. **Dev** (transversal) — frameworks, patterns code, architecture
 
-## Pattern : Karpathy LLM Wiki
+## Pattern : [[LLM Wiki Pattern|Karpathy LLM Wiki]]
 
-Pre-compiler sources brutes en wiki Markdown structure puis operer Claude sur ce wiki (pas du RAG embeddings).
+Pre-compiler sources brutes en wiki Markdown structure ([[Obsidian]]) puis operer Claude sur ce wiki (pas du RAG embeddings).
 
 Workflow de lecture Claude : `hot.md` (500 mots) + `index.md` (1 ligne/page) + pages pertinentes only → contexte minimal meme avec 1000+ pages.
 
@@ -75,3 +75,7 @@ Regle d'or : code executable dans `modules/`, doc+hypotheses+refs dans `wiki/dom
 - Domaines : 5 (pre-scaffolde vides)
 - Templates : 5
 - .raw/ : 6 dossiers
+
+## Navigation
+
+- [[foundation-os-map]] — Carte neuronale complete du projet

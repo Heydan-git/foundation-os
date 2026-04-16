@@ -195,3 +195,8 @@ Reference TodoWrite : `feedback_todowrite_systematique.md` (memoire auto-chargee
   - `oh-my-claudecode:ralplan`
   - `oh-my-claudecode:plan`
 - Tools natifs : `EnterPlanMode`, `ExitPlanMode`, `TodoWrite`, `AskUserQuestion`
+
+## Voir aussi
+
+- [[naming-conventions]] — conventions nommage plans
+- [[tools]] — module Tools (scripts, catalogue)

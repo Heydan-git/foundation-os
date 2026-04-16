@@ -2,7 +2,7 @@
 id: 2026-04-16-audit-mapping-obsidian
 title: 🪐 Audit Mapping Obsidian (16-04-2026)
 created: 2026-04-16
-status: planning
+status: done
 phases_total: 5
 estimated_duration: 2h
 decision_ref: D-WIKI-01
@@ -536,10 +536,10 @@ Kevin doit configurer dans Obsidian :
 
 ## Execution log
 
-- [ ] Phase 0 — Baseline
-- [ ] Phase 1 — P0 fantômes + orphelins (15 min)
-- [ ] Phase 2 — P1 hubs + cross-refs Core OS (30 min)
-- [ ] Phase 3 — P2 frontmatter related: (15 min)
-- [ ] Phase 4 — P3 enrichissement graph (20 min)
-- [ ] Phase 5 — P4 nouvelles pages + tags (45 min)
-- [ ] Phase finale — vérification + push
+- [x] Phase 0 — Baseline (589 wikilinks, wiki SAIN, 35 pages)
+- [x] Phase 1 — P0 orphelins connectes, log.md header, tools-fo enrichi, index-wiki source ajoutee
+- [x] Phase 2 — P1 hubs + cross-refs Core OS (26 wikilinks, 12 fichiers, "Voir aussi" 8 specs)
+- [x] Phase 3 — P2 frontmatter related: aligne sur 8 pages wiki
+- [x] Phase 4 — P3 enrichissement graph (overview, domaines, Void Glass, map stats)
+- [x] Phase 5 — P4 5 concepts crees (Foundation OS, Core OS, Brief v11, Neuroplasticite, TDAH workflow) + tags harmonises
+- [x] Phase finale — verification SAIN + 762 wikilinks (+173) + 40 pages (+5)

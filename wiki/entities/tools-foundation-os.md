@@ -17,7 +17,11 @@ status: mature
 confidence: high
 related:
   - "[[foundation-os-desktop-migration]]"
-sources: []
+  - "[[Obsidian]]"
+  - "[[AgriciDaniel]]"
+  - "[[LLM Wiki Pattern]]"
+sources:
+  - "[[agricidaniel-claude-obsidian]]"
 migrated_from: "auto-memory/tools_inventory.md (2026-04-16, D-WIKI-01 Phase 5)"
 ---
 
@@ -57,6 +61,13 @@ Gmail/Slack/Google Calendar : auth requise
 ## Scripts Foundation OS
 
 health-check, drift-detector, docs-sync-check, ref-checker, wiki-commit, wiki-health, auto-archive-plans, module-scaffold, sync-check, tool-register, session-lock, worktree-new/clean/list + hooks/session-start-wiki
+
+## Connections
+
+- [[Obsidian]] — editeur vault wiki
+- [[AgriciDaniel]] — plugin claude-obsidian
+- [[LLM Wiki Pattern]] — pattern architectural du wiki
+- [[foundation-os-desktop-migration]] — migration CLI → Desktop natif
 
 ## Total
 
