@@ -213,7 +213,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 
 ## 12. Inventaire verifiable — ce qui existe sur disque
 
-> Snapshot 2026-04-07. Pour l'etat vivant, voir `docs/index.md`.
+> Snapshot 2026-04-07. Pour l'etat vivant, voir `docs/index-documentation.md`.
 
 | Categorie | Nombre / Taille | Emplacement |
 |-----------|-----------------|-------------|
@@ -277,12 +277,12 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 
 ### Sources lues pour ce manifeste
 
-`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index.md`, `.archive/docs-old/design-system-v1.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
+`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index-documentation.md`, `.archive/docs-old/design-system-v1.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
 
 ### Refs externes
 
 - Squelette original (preserve sections 2, 7, 11.1) : `docs/manifeste.md` 2026-04-04
 - Manifeste-realiste source (PDF Cowork, 12 sections) : `.archive/manifestes/foundation-os-manifeste-realiste-2026-04-07.pdf`
 - Live state : `CONTEXT.md` section "App Builder — Etat technique"
-- Inventaire vivant : `docs/index.md`
+- Inventaire vivant : `docs/index-documentation.md`
 - Audit en cours : `.archive/audit-massif/` (4 livrables + 20 placeholders)

@@ -190,6 +190,6 @@ cd modules/design-system && npm run storybook  # localhost:6006
 - Architecture : `docs/architecture.md`
 - Setup : `docs/setup-guide.md`
 - Manifeste : `docs/manifeste.md`
-- Navigation : `docs/index.md`
+- Navigation : `docs/index-documentation.md`
 - Conventions : `docs/core/naming-conventions.md`
 - Decisions archivees : `docs/decisions-log.md`
