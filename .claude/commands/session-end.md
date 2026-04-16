@@ -14,7 +14,10 @@
 >
 > **Tour 3 (OBLIGATOIRE si changements)** :
 > 7. `Edit CONTEXT.md` — ajouter entree Sessions recentes, update Cap + Decisions si applicable
-> 8. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
+> 8. `Edit wiki/hot.md` — update cache narratif 500 mots (Last Updated / Key Recent Facts / Recent Changes / Active Threads / Next Action). Si wiki/ absent → skip.
+> 9. `Edit wiki/log.md` — ajouter operations wiki de cette session (ingest, save, migrate, etc.) si applicable. Si wiki/ absent → skip.
+> 10. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
+> 11. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
 >
 > **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
 >
