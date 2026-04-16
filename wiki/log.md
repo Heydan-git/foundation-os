@@ -24,3 +24,10 @@ Chronological record of all wiki operations (scaffold, ingest, save, migrate, ar
 - **Phase 5** : Migration selective auto-memory → wiki/ (2 pages migrees, 27 restent auto-memory). Backup tar `/tmp/memory-backup-260415.tar.gz`
   - `project_migration_desktop.md` → `wiki/domains/dev/concepts/foundation-os-desktop-migration.md`
   - `tools_inventory.md` → `wiki/entities/tools-foundation-os.md`
+- **Phase 6** : Documentation 10 skills claude-obsidian dans Core Tools (docs/core/tools.md section 1c + index.json 109 tools + routing.json 35 rules)
+- **Phase 7** : Premier ingest test (2 sources, 9 pages crees, 11 total)
+  - Sources : `.raw/articles/karpathy-llm-wiki-pattern-2026-04-15.md` + `.raw/articles/agricidaniel-claude-obsidian-2026-04-15.md`
+  - Concepts (3) : LLM Wiki Pattern, Hot Cache, Compounding Knowledge
+  - Entities (4) : Andrej Karpathy, AgriciDaniel, Obsidian, Pinecone
+  - Sources wiki (2) : karpathy-llm-wiki-pattern, agricidaniel-claude-obsidian
+  - Cross-refs : ~50 wikilinks entre les 11 pages

@@ -46,14 +46,17 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - 2026-04-15 Phase 3 : documentation 5 tiers + module Knowledge Core OS (docs/core/knowledge.md)
 - 2026-04-15 Phase 4 : hooks integres (SessionStart wrapper + PostCompact + Stop ; PostToolUse DESACTIVE)
 - 2026-04-16 Phase 5 : migration selective auto-memory (2 pages migrees → wiki/, 27 restent auto-memory)
+- 2026-04-16 Phase 6 : 10 skills documentes Core Tools (109 tools, 35 routing rules)
+- 2026-04-16 Phase 7 : premier ingest test (2 sources → 9 pages crees, 11 total, ~50 wikilinks)
 
 ## Active Threads
 
-- Plan adoption wiki : `docs/plans/2026-04-15-wiki-obsidian-adoption.md` (12 phases, 5/12 done)
-- Prochaine phase : 6 (adoption 10 skills + documentation Core Tools)
+- Plan adoption wiki : `docs/plans/2026-04-15-wiki-obsidian-adoption.md` (12 phases, 7/12 done)
+- Prochaine phase : 8 (brief v11 enrichi cadres HOT + WIKI)
+- Wiki operationnel : 11 pages, 2 sources, 5 domaines. Graph view Obsidian maintenant riche.
 - Premier ingest test (Phase 7) : Karpathy LLM Wiki + AgriciDaniel claude-obsidian
 - Brief v11 enrichi (Phase 8) : cadres HOT + WIKI
 
 ## Next Action
 
-Phase 3 : update `docs/core/communication.md` section 1 (4 tiers → 5 tiers) + ajout section 1.5 (test arbitral) + creation `docs/core/knowledge.md` (spec module Knowledge Phase 7 Core OS).
+Phase 8 : update `.claude/commands/session-start.md` + `session-end.md` pour integration cadres HOT + WIKI dans brief v11. Puis Phase 9 (scripts custom), Phase 10 (anti-regression), Phase 11 (merge main).
