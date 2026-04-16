@@ -62,6 +62,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 ## Meta
 
+- [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]
