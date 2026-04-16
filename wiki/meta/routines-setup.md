@@ -22,20 +22,51 @@ related:
 > **Garde-fous** : chaque prompt inclut des regles strictes anti-regression
 > Les routines font ce que Claude fait en session, mais automatiquement.
 
-## Les 8 routines (liees aux modules Core OS)
+## Les 14 routines — ordre d'execution logique
 
-| # | Nom | Frequence | Module Core OS | Ce que ca fait |
-|---|-----|-----------|---------------|----------------|
-| 1 | Wiki Maintenance | Quotidien 7h | **Knowledge** (Phase 7, `docs/core/knowledge.md`) | Fix wikilinks, refresh hot.md, sync index, nettoyer orphelins |
-| 2 | Build Canary | Quotidien 12h | **Monitor** (Phase 3, `docs/core/monitor.md`) | Build + tests, si fail → alerte wiki/meta/build-alert.md |
-| 3 | Consolidation Knowledge | Hebdo dim 20h | **Knowledge** (Phase 7, section 8 neuroplasticite) | Enrichir pages seed, bidirectionnaliser wikilinks |
-| 4 | CONTEXT Hygiene | Hebdo lun 8h | **Communication** (Phase 2, `docs/core/communication.md` §4.2) | Compresser CONTEXT si gros, archiver decisions > 30j |
-| 5 | Apprentissage Hebdo | Hebdo sam 9h | **Knowledge** (Phase 7) + **Communication** (Phase 2) | Git log semaine → digest wiki, refresh hot.md |
-| 6 | Tools Inventory | Hebdo mer 8h | **Tools** (Phase 4, `docs/core/tools.md`) | Scanner plugins/scripts, mettre a jour catalogue |
-| 7 | Deps Security | Hebdo ven 8h | **Tools** (Phase 4) + **Monitor** (Phase 3) | npm audit + outdated, fix mineurs, alerte si majeur |
-| 8 | Evolution Auto-apprentissage | Quotidien 20h | **Knowledge** (Phase 7, section 8 neuroplasticite) | Reflexion sur l'OS, propositions amelioration, question Kevin |
+> **Principe d'ordre** :
+> 1. MATIN (7h-9h) : routines qui MODIFIENT (R1, R4/R6/R7/R9/R10/R11 selon jour)
+> 2. MIDI (12h-14h) : routines de CHECK (R2, R12/R13/R14 selon jour)
+> 3. SOIR (20h-21h) : routines de SYNTHESE (R3/R5, puis R8 toujours EN DERNIER)
+> Jamais 2 routines en meme temps. Minimum 1h entre chaque.
 
-Chaque routine est une **extension automatisee** d'un module Core OS. Elle applique les specs du module sans intervention humaine.
+### Planning semaine
+
+| Heure | Lundi | Mardi | Mercredi | Jeudi | Vendredi | Samedi | Dimanche |
+|-------|-------|-------|----------|-------|----------|--------|----------|
+| 7h | R1 Wiki | R1 Wiki | R1 Wiki | R1 Wiki | R1 Wiki | R1 Wiki | R1 Wiki |
+| 8h | R4 CONTEXT | R10 Planner | R6 Tools | R9 Cortex | R7 Deps | — | — |
+| 9h | — | R11 Worktrees | — | — | — | R5 Apprentissage | — |
+| 12h | R2 Build | R2 Build | R2 Build | R2 Build | R2 Build | R2 Build | R2 Build |
+| 14h | — | — | R13 Tech Debt | — | — | R12 DS Regress | R14 Code Review |
+| 18h | — | — | — | — | — | — | R3 Consolid. |
+| **21h** | **R8 Evol.** | **R8 Evol.** | **R8 Evol.** | **R8 Evol.** | **R8 Evol.** | **R8 Evol.** | **R8 Evol.** |
+
+> R8 (Evolution) tourne TOUJOURS en dernier (21h) pour analyser les resultats des autres routines du jour.
+> R3 (Consolidation dimanche 18h) tourne AVANT R8 (21h) pour que R8 analyse aussi ses resultats.
+
+### Budget : 32/semaine = ~4.6/jour sur 15 max
+
+### Mapping routines → modules Core OS
+
+| Routine | Module Core OS | Type |
+|---------|---------------|------|
+| R1 Wiki Maintenance | **Knowledge** Phase 7 | Modifie wiki/ |
+| R2 Build Canary | **Monitor** Phase 3 | Check → rapport |
+| R3 Consolidation | **Knowledge** Phase 7 (neuroplasticite) | Modifie wiki/ |
+| R4 CONTEXT Hygiene | **Communication** Phase 2 | Modifie CONTEXT.md |
+| R5 Apprentissage | **Knowledge** + **Communication** | Cree digest wiki/ |
+| R6 Tools Inventory | **Tools** Phase 4 | Modifie docs/core/tools* |
+| R7 Deps Security | **Tools** + **Monitor** | Modifie package-lock |
+| R8 Evolution | **Knowledge** (neuroplasticite) | Rapport + analyse routines |
+| R9 Cortex Coherence | **Cortex** Phase 1 | Modifie CLAUDE.md agents/commands |
+| R10 Planner Tracker | **Planner** Phase 5 | Archive plans done |
+| R11 Worktrees Cleanup | **Worktrees** Phase 6 | Rapport (pas de suppression) |
+| R12 DS Regression | **Monitor** + **Knowledge** | Rapport |
+| R13 Tech Debt | **Monitor** + **Tools** | Rapport |
+| R14 Code Review | **Monitor** | Rapport |
+
+**Couverture : 7/7 modules Core OS couverts.**
 
 ## Comment creer
 
@@ -512,7 +543,32 @@ une question direction/vision/priorisation]
 [1-2 phrases : est-ce que le systeme de routines lui-meme fonctionne bien ?
 Est-ce que cette routine d'evolution est utile ? Feedback honnete.]
 
-=== ETAPE 3 : ENRICHIR THINKING.MD ===
+=== ETAPE 3 : ANALYSER LES AUTRES ROUTINES (META-ANALYSE) ===
+
+Lis les rapports des autres routines DU JOUR (s'ils existent) :
+- wiki/meta/build-alert.md (R2 Build Canary)
+- wiki/meta/weekly-digest.md (R5 Apprentissage)
+- wiki/meta/worktrees-report.md (R11 Worktrees)
+- wiki/meta/ds-regression-report.md (R12 DS Regression)
+- wiki/meta/tech-debt-report.md (R13 Tech Debt)
+- wiki/meta/code-review-weekly.md (R14 Code Review)
+- wiki/meta/security-alert.md (R7 Deps Security)
+
+Lis les commits des routines : git log --grep="routine" --since="24 hours ago" --oneline
+
+Pour chaque routine qui a tourne aujourd'hui :
+- A-t-elle commit ? (si non, soit rien a faire = OK, soit elle a plante = PROBLEME)
+- Le commit est-il coherent ? (message + fichiers modifies)
+- A-t-elle casse quelque chose ? (health-check BROKEN apres son commit ?)
+- Peut-on ameliorer son prompt ? (faux positifs, actions manquees, scope trop etroit)
+
+Ajoute dans daily-evolution.md une section :
+## Meta : etat des routines
+- R[N] [nom] : [OK / PAS TOURNE / PROBLEME] — [observation]
+- Propositions amelioration prompt : [si applicable]
+- Nouvelle routine utile : [si une idee emerge]
+
+=== ETAPE 4 : ENRICHIR THINKING.MD ===
 Si tu as eu un insight pendant l'analyse :
 - Ajoute-le dans wiki/meta/thinking.md section "Questions ouvertes" ou "Connexions cross-domain"
 - NE SUPPRIME RIEN de l'existant, seulement ajoute
@@ -521,6 +577,7 @@ Si tu as eu un insight pendant l'analyse :
 - Ne modifie QUE wiki/meta/daily-evolution.md et wiki/meta/thinking.md
 - JAMAIS toucher au code, docs, CONTEXT.md, CLAUDE.md, scripts
 - JAMAIS appliquer tes propres propositions (c'est Kevin qui decide)
+- JAMAIS modifier les prompts des autres routines (PROPOSER dans le rapport seulement)
 - Base TOUT sur des observations REELLES (fichiers lus, git log)
 - JAMAIS inventer des metriques ou des faits
 - Si tu n'as rien d'interessant a proposer, dis-le honnetement
@@ -530,24 +587,268 @@ Si tu as eu un insight pendant l'analyse :
 
 ---
 
-## Principes communs (dans chaque routine)
+---
+
+## R9 — Cortex Coherence (hebdo jeudi 8h)
 
 ```
-1. LIS CLAUDE.md AVANT toute action
-2. LIS le fichier AVANT de le modifier
-3. JAMAIS supprimer un fichier (modifier ou archiver uniquement)
-4. JAMAIS renommer un fichier SANS mettre a jour TOUTES les references
-   (grep le nom dans tout le projet, corriger chaque occurrence)
-5. Apres modifications : bash scripts/health-check.sh
-   Si BROKEN → git checkout . (annule tout)
-6. Si DOUTE sur une action → NE PAS FAIRE, noter dans wiki/meta/thinking.md
-7. Commit avec message conventional (feat/fix/docs/chore)
-8. NE PAS push (Claude ou Kevin push en session)
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Cortex Coherence de Foundation OS.
+Tu verifies que le cerveau de l'OS (CLAUDE.md routing → agents/commands) est coherent avec la realite.
+
+=== CONTEXTE ===
+Lis CLAUDE.md EN ENTIER (sections Agents et Commands).
+
+=== SCANNER LA REALITE ===
+1. ls .claude/agents/*.md → liste fichiers agents reels
+2. ls .claude/commands/*.md → liste fichiers commands reels
+3. ls ~/.claude/plugins/cache/claude-obsidian-marketplace/claude-obsidian/*/skills/ → skills installes
+4. ls ~/.claude/plugins/cache/claude-obsidian-marketplace/claude-obsidian/*/commands/ → commands plugin
+
+=== COMPARER ===
+Pour chaque agent dans CLAUDE.md section Agents :
+  - Verifier que le fichier .claude/agents/[nom].md existe
+  - Si fichier ABSENT → c'est un FANTOME, noter dans wiki/meta/thinking.md
+
+Pour chaque fichier .claude/agents/*.md :
+  - Verifier qu'il est reference dans CLAUDE.md section Agents
+  - Si NON-REFERENCE → ajouter la ligne dans CLAUDE.md section Agents
+
+Pour chaque command dans CLAUDE.md section Commands :
+  - Verifier que le fichier .claude/commands/[nom].md existe
+  - Si ABSENT → FANTOME, noter dans thinking.md
+
+Pour chaque fichier .claude/commands/*.md :
+  - Verifier qu'il est dans CLAUDE.md section Commands
+  - Si NON-REFERENCE → ajouter la ligne
+
+=== SCOPE ===
+Modifie UNIQUEMENT : CLAUDE.md (sections Agents et Commands seulement), wiki/meta/thinking.md
+JAMAIS modifier le contenu d'un agent ou d'une command.
+JAMAIS supprimer une ligne de CLAUDE.md (seulement ajouter les manquantes, signaler les fantomes).
+
+=== COMMIT ===
+git add CLAUDE.md wiki/meta/thinking.md
+git commit -m "docs(os): routine cortex coherence — [N agents synces, M commands synces]"
 ```
 
-## Verification apres creation
+---
 
-1. Creer les 7 routines dans Desktop scheduled tasks
-2. Attendre le premier run de chaque
-3. Verifier git log pour les commits de routine
-4. Si un commit de routine semble incorrect → git revert [hash]
+## R10 — Planner Tracker (hebdo mardi 8h)
+
+```
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Planner Tracker de Foundation OS.
+
+=== SCANNER ===
+ls docs/plans/*.md | grep -v _template-plan.md
+
+Pour chaque plan :
+  Lis le fichier. Extrais :
+  - Frontmatter status (draft/planning/in_progress/done/closed)
+  - Cases cochees [x] vs non-cochees [ ] dans "Execution log"
+
+=== ACTIONS ===
+
+PLAN TERMINE (toutes cases [x] OU status done/closed) :
+  1. mkdir -p .archive/plans-done-$(date +%y%m%d)
+  2. git mv docs/plans/[fichier] .archive/plans-done-$(date +%y%m%d)/
+  3. Ajouter dans wiki/log.md : "[date] Routine planner : plan [titre] archive"
+  4. Si le plan est mentionne dans wiki/hot.md → retirer la mention
+
+PLAN STALE (zero [x] ajoute depuis > 14 jours) :
+  - git log --since="14 days ago" -- docs/plans/[fichier] | head -1
+  - Si aucun commit recent → noter dans thinking.md : "Plan [titre] stale > 14j"
+  - NE PAS archiver (Kevin decide)
+
+=== SCOPE ===
+Modifie : docs/plans/ (git mv pour archivage), .archive/, wiki/log.md, wiki/hot.md, wiki/meta/thinking.md
+JAMAIS modifier le contenu d'un plan.
+
+=== COMMIT ===
+git add docs/plans/ .archive/ wiki/
+git commit -m "chore(os): routine planner — [N plans archives, M stale signales]"
+```
+
+---
+
+## R11 — Worktrees Cleanup (hebdo mardi 9h)
+
+```
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Worktrees Cleanup de Foundation OS.
+Tu RAPPORTES seulement. Tu ne supprimes AUCUN worktree (trop risque sans Kevin).
+
+=== SCANNER ===
+git worktree list
+
+Pour chaque worktree (sauf main) :
+  1. BRANCHE=$(git worktree list | grep [path] | awk '{print $3}' | tr -d '[]')
+  2. MERGED=$(git branch --merged main | grep "$BRANCHE" | wc -l)
+  3. AGE=$(git log -1 --format="%cr" "$BRANCHE" 2>/dev/null)
+  4. UNCOMMITED=$(cd [path] && git status --short 2>/dev/null | wc -l)
+
+=== RAPPORT ===
+Cree/remplace wiki/meta/worktrees-report.md :
+
+# Worktrees Report — [date]
+| Worktree | Branche | Merge main | Dernier commit | Non-commites | Action |
+|---|---|---|---|---|---|
+[1 ligne par worktree avec recommandation]
+
+## Recommandations
+- [worktree] : branche mergee + 0 non-commites → PRET (bash scripts/worktree-clean.sh [nom])
+- [worktree] : branche legacy claude/* → signaler
+- [worktree] : fichiers non-commites → verifier avant action
+
+=== SCOPE ===
+Modifie UNIQUEMENT : wiki/meta/worktrees-report.md
+JAMAIS : supprimer, nettoyer, modifier un worktree
+
+=== COMMIT ===
+git add wiki/meta/worktrees-report.md
+git commit -m "docs(wiki): routine worktrees — [N worktrees, M prets cleanup]"
+```
+
+---
+
+## R12 — DS Regression (hebdo samedi 14h)
+
+```
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine DS Regression de Foundation OS.
+
+=== TESTS ===
+1. cd modules/design-system && npm run build-storybook 2>&1 → note exit code
+2. VOID_GLASS=$(grep -rni "#0A0A0B\|#08080A" modules/app/src/ modules/design-system/src/ --include="*.tsx" --include="*.ts" --include="*.css" 2>/dev/null | wc -l)
+3. Lis CONTEXT.md section Metriques → stories count attendu (62 actuel)
+
+=== RAPPORT ===
+Cree/remplace wiki/meta/ds-regression-report.md :
+
+# DS Regression — [date]
+- Build Storybook : [OK temps / FAIL log]
+- Void Glass violations : [N] (attendu 0)
+- Diagnostic : [SAIN / REGRESSION / EVOLUTION]
+- Action recommandee : [si regression]
+
+=== SCOPE ===
+Modifie UNIQUEMENT : wiki/meta/ds-regression-report.md
+JAMAIS : code DS, composants, tokens
+
+=== COMMIT ===
+git add wiki/meta/ds-regression-report.md
+git commit -m "docs(wiki): routine DS regression — [SAIN/REGRESSION]"
+```
+
+---
+
+## R13 — Tech Debt Scanner (hebdo mercredi 14h)
+
+```
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Tech Debt Scanner de Foundation OS.
+
+=== SCANNER ===
+1. grep -rn "TODO\|FIXME\|HACK\|WORKAROUND" modules/*/src/ --include="*.ts" --include="*.tsx" 2>/dev/null
+2. find modules/*/src/ -name "*.tsx" -o -name "*.ts" | xargs wc -l 2>/dev/null | sort -rn | head -10
+3. Pour chaque page modules/app/src/pages/*.tsx : verifier si *.test.tsx existe
+4. Lis CONTEXT.md Metriques → CSS bundle size vs seuil 40KB
+
+=== RAPPORT ===
+Cree/remplace wiki/meta/tech-debt-report.md :
+
+# Tech Debt — [date]
+## TODO/FIXME ([N])
+[fichier:ligne — contenu]
+## Gros fichiers (top 10)
+[fichier : N lignes — seuil 700]
+## Pages sans tests
+[liste]
+## CSS Bundle : [size] (seuil 40KB)
+## Score : [bas/moyen/eleve]
+## Top 3 actions
+
+=== SCOPE ===
+Modifie UNIQUEMENT : wiki/meta/tech-debt-report.md
+JAMAIS : code source
+
+=== COMMIT ===
+git add wiki/meta/tech-debt-report.md
+git commit -m "docs(wiki): routine tech debt — score [X] — [N TODO, M gros fichiers]"
+```
+
+---
+
+## R14 — Code Review Hebdo (hebdo dimanche 14h)
+
+```
+Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Code Review de Foundation OS.
+
+=== COLLECTER ===
+COMMITS=$(git log --oneline --since="7 days ago" -- modules/*/src/)
+Si 0 commits code → ne rien faire. Session silencieuse.
+
+Pour chaque commit touchant src/ :
+  git show [hash] -- modules/*/src/ 2>/dev/null
+
+=== ANALYSER ===
+SECURITE : secrets hardcodes, innerHTML dangereux, eval usage
+PERFORMANCE : missing memo, useEffect sans deps, inline objects JSX
+QUALITE : fonctions > 50L, nesting > 3, console.log, type any
+
+=== RAPPORT ===
+Cree/remplace wiki/meta/code-review-weekly.md :
+
+# Code Review — semaine [dates]
+## Commits : [N]
+## Critical (securite) : [liste ou Aucun]
+## Warning (perf/qualite) : [liste ou Aucun]
+## Suggestions : [liste ou Aucun]
+## Score : [A/B/C/D]
+
+=== SCOPE ===
+Modifie UNIQUEMENT : wiki/meta/code-review-weekly.md
+JAMAIS : code source
+
+=== COMMIT ===
+git add wiki/meta/code-review-weekly.md
+git commit -m "docs(wiki): routine code review — score [X] — [N findings]"
+```
+
+---
+
+## Principes communs — voir wiki/meta/routines-guardrails.md
+
+Chaque routine lit ce fichier AVANT toute action. Il contient les 10 regles anti-regression.
+
+## Ce que Kevin doit faire
+
+### 1. Supprimer les anciennes routines
+Supprimer toutes les routines v1/v2/v3 dans l'UI Desktop.
+
+### 2. Creer les 14 routines v4
+Pour chaque routine :
+1. Claude Code Desktop → `/schedule`
+2. Copier le prompt (tout le bloc entre les ```)
+3. Schedule : voir table planning semaine en haut
+4. Sauvegarder
+
+Ordre de creation recommande : R1 → R2 → R8 (quotidiennes d'abord), puis R3-R14 (hebdos).
+
+### 3. Verifier les premiers runs
+- Lendemain : verifier git log pour R1 (7h), R2 (12h), R8 (21h)
+- Semaine suivante : verifier chaque hebdo a son jour
+- Si un commit semble incorrect → git revert [hash]
+
+### 4. Lire les rapports
+Les rapports apparaissent dans wiki/meta/ — consultables dans Obsidian :
+- daily-evolution.md (R8, quotidien — le plus important, inclut meta-analyse des autres routines)
+- weekly-digest.md (R5, samedi)
+- build-alert.md (R2, si build fail)
+- worktrees-report.md (R11, mardi)
+- ds-regression-report.md (R12, samedi)
+- tech-debt-report.md (R13, mercredi)
+- code-review-weekly.md (R14, dimanche)
+- security-alert.md (R7, vendredi, si vulns)
