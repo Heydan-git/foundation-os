@@ -50,12 +50,11 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Active Threads
 
-- Méga audit final 8 phases : `docs/plans/2026-04-16-mega-audit-final.md` (63 findings + 9 innovations)
-- Wiki opérationnel : 40 pages, 762+ wikilinks, 5 domaines, graph connecté, 9 groupes couleurs
+- Méga audit final DONE (`.archive/plans-done-260416/2026-04-16-mega-audit-final.md`) — 63 findings + 9 innovations livrées
+- Wiki opérationnel : 41 pages, 762+ wikilinks, 5 domaines, graph connecté, 9 groupes couleurs
 - 14 routines Desktop documentées (routines-setup.md + guardrails.md) — Kevin doit créer dans UI Desktop
 - Decision Phase 5 : Finance / Santé / Trading — lequel lancer ?
-- Clean 3 worktrees legacy (sleepy-ellis, suspicious-khayyam, bold-newton post-merge)
 
 ## Next Action
 
-Exécuter `docs/plans/2026-04-16-mega-audit-final.md` Phase 1-8.
+OS stabilisé. Décision Kevin requise : Phase 5 (Finance / Santé / Trading) ou autre chantier.

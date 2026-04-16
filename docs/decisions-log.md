@@ -33,7 +33,7 @@ Decisions stables migres depuis CONTEXT.md "Decisions actives" lors du housekeep
 | Phase 2.1 DONE | 2026-04-07 | Tests : 16 nouveaux, mocks Supabase via vi.hoisted, 19 total. Plan Phase 2 ecrit. |
 | Phase 2.2/2.3 DONE | 2026-04-07 | Navbar (NavLink, sticky top, Void Glass), LoginPage min 8 char, ResetPasswordPage (request+update modes). 7 routes. |
 | Phase 2 DONE | 2026-04-07 | App Hardening complet : 16 tests, Navbar+Auth, KnowledgePage. Artifacts JSX archives. App production-ready. |
-| Phase 3 DONE | 2026-04-07 | OS Intelligence : session-end 4 niveaux, docs/index.md re-aligne, audit BMAD/OMC/Coderabbit (docs/tools-audit.md). |
+| Phase 3 DONE | 2026-04-07 | OS Intelligence : session-end 4 niveaux, docs/index-documentation.md re-aligne, audit BMAD/OMC/Coderabbit (docs/tools-audit.md). |
 | Phase 4 DONE | 2026-04-07 | Monitoring : pre-commit health-check (BROKEN bloque), bundle thresholds JS>600KB/CSS>40KB, token-awareness rules dans CLAUDE.md. |
 | module-scaffold | 2026-04-07 | scripts/module-scaffold.sh (170L) — automatise /new-project, idempotent, --help, gere upgrade ligne CONTEXT.md. Commit 025615c. Sort du backlog Tools moyenne priorite. |
 

@@ -88,4 +88,4 @@ Session marathon (2 jours) ou Kevin et Claude ont concu, planifie et execute l'a
 
 ## Plan reference
 
-`docs/plans/2026-04-15-wiki-obsidian-adoption.md` (4050 lignes, a archiver).
+`.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md` (4050 lignes, a archiver).

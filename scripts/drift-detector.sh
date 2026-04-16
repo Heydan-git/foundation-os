@@ -89,8 +89,14 @@ fi
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 VALID_REGEX="^(main|(feat|fix|docs|refactor|chore|audit|wt)/[a-z0-9]+[-a-z0-9]*(-[0-9]{6})?)$"
 LEGACY_REGEX="^claude/[a-z]+-[a-z]+$"
+# Desktop auto-creates worktrees with claude/* branch names — not controllable.
+# Only flag as drift on the main working tree, not inside .claude/worktrees/.
+IS_WORKTREE=0
+[[ "$(pwd)" == *"/.claude/worktrees/"* ]] && IS_WORKTREE=1
 if echo "$BRANCH" | grep -qE "$VALID_REGEX"; then
   echo -e "  ${GRN}[OK]${RST} branche '$BRANCH' (convention OK)"
+elif echo "$BRANCH" | grep -qE "$LEGACY_REGEX" && [ "$IS_WORKTREE" -eq 1 ]; then
+  echo -e "  ${GRN}[OK]${RST} branche '$BRANCH' (worktree Desktop, convention non-applicable)"
 elif echo "$BRANCH" | grep -qE "$LEGACY_REGEX"; then
   echo -e "  ${YEL}[DRIFT]${RST} branche '$BRANCH' (legacy claude/*)"
   DRIFT=$((DRIFT + 1))

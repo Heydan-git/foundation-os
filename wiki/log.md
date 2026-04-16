@@ -21,7 +21,7 @@ Chronological record of all wiki operations (scaffold, ingest, save, migrate, ar
 
 ## 2026-04-16
 
-### Audit Mapping Obsidian (plan `docs/plans/2026-04-16-audit-mapping-obsidian.md` — DONE, archivé)
+### Audit Mapping Obsidian (plan `.archive/plans-done-260416/2026-04-16-audit-mapping-obsidian.md` — DONE, archivé)
 
 - **Phase 1** : orphelins connectés (routines-guardrails, routines-setup), log.md header, tools-fo enrichi, source wiki-adoption ajoutée
 - **Phase 2** : 26 wikilinks dans 12 fichiers (CLAUDE/CONTEXT/README + 8 "Voir aussi" docs/core/)
@@ -51,11 +51,11 @@ Résultat : 589→762+ wikilinks, 35→40 pages, plan archivé `.archive/plans-d
 - 5 agents opus : scripts/hooks/CI, wiki/graph, docs/commands/agents, routines/sessions, tags/catégorisation
 - 63 findings vérifiés (11 bullshit retirés post-vérification vault=root)
 - 9 innovations proposées
-- Plan créé : `docs/plans/2026-04-16-mega-audit-final.md` (8 phases, 721 lignes)
+- Plan créé : `.archive/plans-done-260416/2026-04-16-mega-audit-final.md` (8 phases, 721 lignes, DONE)
 
 ## 2026-04-15
 
-### Adoption claude-obsidian (plan `docs/plans/2026-04-15-wiki-obsidian-adoption.md`)
+### Adoption claude-obsidian (plan `.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md` — DONE)
 
 - **Phase 0** : Worktree `wt/wiki-adoption-260415` cree + baseline health/drift/refs capture + plan file committe (`be7af11`)
 - **Phase 1** : Plugin claude-obsidian v1.4.3 installe globalement (patch settings.json HTTPS + git insteadOf AgriciDaniel) + backup settings.json + settings.local.json

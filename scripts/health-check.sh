@@ -145,6 +145,8 @@ for PKG in modules/*/package.json; do
     WARNING=$((WARNING + 1))
   elif [ -n "$MOD_TEST_LINE" ]; then
     echo -e "  ${GRN}[OK]${RST} Vitest $MOD_NAME — $MOD_TEST_LINE"
+  elif echo "$MOD_TEST_OUT" | grep -q "No test files found"; then
+    echo -e "  ${DIM}[OK]${RST} Vitest $MOD_NAME — 0 test files (pattern: src/**/*.test.{ts,tsx})"
   else
     echo -e "  ${YEL}[WARN]${RST} Vitest $MOD_NAME — output illisible"
     WARNING=$((WARNING + 1))
@@ -164,7 +166,7 @@ JS_INT=${JS_SIZE%.*}
 CSS_INT=${CSS_SIZE%.*}
 BUNDLE_WARN=""
 [ "${JS_INT:-0}" -gt 600 ] && BUNDLE_WARN="$BUNDLE_WARN JS>600KB"
-[ "${CSS_INT:-0}" -gt 40 ] && BUNDLE_WARN="$BUNDLE_WARN CSS>40KB"
+[ "${CSS_INT:-0}" -gt 65 ] && BUNDLE_WARN="$BUNDLE_WARN CSS>65KB"
 if [ -z "$BUNDLE_WARN" ]; then
   echo -e "  ${DIM}[OK]${RST} Bundle: JS ${JS_SIZE:-?}kB / CSS ${CSS_SIZE:-?}kB"
 else

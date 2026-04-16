@@ -77,7 +77,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 ### 1.4 — Memoire de reference
 
 - Sauvegarder directive complete dans `.archive/directive-v1.md`
-- Creer `docs/index.md` — sommaire de navigation minimal :
+- Creer `docs/index-documentation.md` — sommaire de navigation minimal :
   - Ou trouver quoi (code, config, specs, scripts)
   - Mis a jour a chaque session-end
 
@@ -89,7 +89,7 @@ Reecrire le CLAUDE.md actuel (~2.8K) en version compacte (~1.2K) :
 - [ ] security-guidance hook actif (test : ecrire un dangerouslySetInnerHTML → bloque)
 - [ ] gstack installe (`ls ~/.claude/skills/gstack/SKILL.md`)
 - [ ] `.archive/directive-v1.md` existe
-- [ ] `docs/index.md` existe
+- [ ] `docs/index-documentation.md` existe
 
 ---
 
@@ -160,7 +160,7 @@ Remplacer le statut binaire par 4 niveaux (inspire de PAUL framework) :
 
 ### 3.2 — Index de navigation
 
-`docs/index.md` — carte complete :
+`docs/index-documentation.md` — carte complete :
 
 ```
 ## Code
@@ -198,7 +198,7 @@ Mis a jour a chaque session-end si des fichiers sont crees/deplaces.
 ### Critere de succes Phase 3
 
 - [ ] /session-end genere un statut 4-niveaux
-- [ ] `docs/index.md` existe et reflette la structure reelle
+- [ ] `docs/index-documentation.md` existe et reflette la structure reelle
 - [ ] Audit BMAD + OMC documente dans `.archive/tools-audit.md`
 - [ ] `health-check.sh` = SAIN
 

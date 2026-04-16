@@ -14,7 +14,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 40 | Sources ingested: 4
+Last updated: 2026-04-16 | Total pages: 36 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -77,6 +77,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[lessons-learned]] — Auto-apprentissage erreurs/pieges (neuroplasticite)
 - [[routines-guardrails]] — Garde-fous communs des 14 routines
 - [[routines-setup]] — Prompts des 14 routines Desktop autopilote
+- [[session-dna]] — Empreinte ADN des sessions (patterns, metriques)
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]
@@ -93,8 +94,9 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
-| Meta | 10 |
-| Total pages | 40 |
+| Meta | 8 |
+| Top-level | 4 |
+| Total pages | 36 |
 
 ## Couverture par domaine
 

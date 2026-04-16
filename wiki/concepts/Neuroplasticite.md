@@ -21,7 +21,7 @@ related:
   - "[[thinking]]"
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"
-  - "[[knowledge]]"
+  - "[[Core OS]]"
   - "[[Foundation OS]]"
 sources: []
 ---
@@ -68,7 +68,7 @@ Les 7 failles identifiees lors de l'audit post-adoption wiki (cerveau passif, ti
 
 - [[LLM Wiki Pattern]] — pattern fondateur sur lequel la neuroplasticite se greffe
 - [[Hot Cache]] — composant cle (hot.md = memoire flash)
-- [[knowledge]] — spec complete dans docs/core/knowledge.md section 8
+- [[Core OS]] — spec complete dans `docs/core/knowledge.md` section 8
 - [[Foundation OS]] — systeme parent
 
 ## Sources

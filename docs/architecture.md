@@ -170,7 +170,7 @@ Decisions structurantes recentes :
 
 - Setup : `docs/setup-guide.md`
 - Manifeste : `docs/manifeste.md`
-- Index navigation : `docs/index.md`
+- Index navigation : `docs/index-documentation.md`
 - Conventions : `docs/core/naming-conventions.md`
 - Cockpit spec : `docs/specs/2026-04-10-cockpit-design.md`
 - Plan migration Desktop : `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
