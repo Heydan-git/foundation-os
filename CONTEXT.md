@@ -19,9 +19,9 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-16 | **[DONE] Adoption Wiki Obsidian (D-WIKI-01) — 12 phases, 9 commits** |
-|            | Plugin claude-obsidian v1.4.3 + vault wiki/ multi-domaines (trading/finance/sante/design/dev). 5 tiers memoire formalises. 10 skills documentes Core Tools. Brief v11 enrichi (cadres HOT + WIKI). Hooks integres (auto-commit OFF). Premier ingest 11 pages ~120 wikilinks. 2 memoires migrees wiki/. Anti-regression validee. |
-|            | Plan : `docs/plans/2026-04-15-wiki-obsidian-adoption.md`. Decisions : D-WIKI-01. |
+| 2026-04-16 | **[DONE] Adoption Wiki Obsidian + Neuroplasticité + 14 Routines + Audit Mapping** |
+|            | Session marathon (~10h). Adoption wiki Obsidian D-WIKI-01 (12 phases, 19 commits). Neuroplasticité mémoire (4 réflexes CLAUDE.md, 3 pages meta, loop.md). 14 routines Desktop documentées (routines-setup.md + guardrails.md + dashboard HTML). Graph Obsidian : carte neuronale 87+ wikilinks, hub DS 52 composants, renommage index/README explicites, zéro orphelin. Audit mapping exhaustif : 29 findings identifiés, plan exécution `docs/plans/2026-04-16-audit-mapping-obsidian.md` (5 phases, ~2h, prêt pour session suivante). |
+|            | Decisions : D-WIKI-01. Mémoires : wiki_autonome, no_token_limit, neuroplasticity. |
 | 2026-04-15 | **[DONE] Level Up Foundation OS — audit + 7 phases** |
 |            | Audit exhaustif OS (69 fichiers lus), 21 findings P0/P1/P2, 15 propositions priorisees. |
 |            | 7 phases livrees : hygiene settings.local (159→81L) + ref-checker extended (16→0 refs cassees) + manifeste/README syncrones + auto-archive plans retrofit (plan migration archive) + branch-name-check dans pre-commit + 2 branches legacy cleaned (tags archive/* preserves) + memory/_deprecated/ (2 memoires SUPERSEDED/DONE) + CONTEXT compression + CLAUDE compression + tools catalogue regen + drift-detector.sh + docs-sync-check.sh + hook SessionStart + cadre SYNC brief v11 + chain drift health-check. |
@@ -43,13 +43,13 @@
 
 ## Cap
 
-**Direction** : Foundation OS = OS de travail + second-brain knowledge unifie (D-WIKI-01 DONE 2026-04-16). Vault Obsidian operationnel (11 pages, 5 domaines, graph view riche). 5 tiers memoire formalises. Brief v11 enrichi (14 sections avec cadres HOT + WIKI). Pret pour Phase 5 modules (Finance, Trading auto, Sante conseil multi-agents).
+**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (22+ pages, 725+ wikilinks, graph connecté). Neuroplasticité active (4 réflexes, 3 pages meta). Prochaine étape : exécuter audit mapping (29 findings) puis Phase 5 modules.
 
 **Prochaine action** :
-  - **Ouvrir Obsidian sur racine projet** : `/Users/kevinnoel/foundation-os/` (vault complet post-merge, remplace worktree temporaire).
-  - **Test `/save` sur conversation reelle** : valider pipeline conversation → wiki page.
-  - **Test `/autoresearch` sur topic reel** : valider research loop web → pages wiki.
-  - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ? (wiki/domains/ pret).
+  - **Exécuter plan audit mapping** : `docs/plans/2026-04-16-audit-mapping-obsidian.md` (29 findings, 5 phases, ~2h).
+  - **Créer 14 routines Desktop** : prompts dans `wiki/meta/routines-setup.md` + dashboard HTML.
+  - **Configurer tags couleurs Obsidian** : graph → Groups → concept bleu, entity vert, source orange.
+  - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
 
 > Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
 
