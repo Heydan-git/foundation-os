@@ -60,16 +60,16 @@ Session marathon (2 jours) ou Kevin et Claude ont concu, planifie et execute l'a
 
 ## Concepts cles
 
-- [[../concepts/LLM Wiki Pattern]] — architecture fondamentale
-- [[../concepts/Hot Cache]] — cache 500 mots session-to-session
-- [[../concepts/Compounding Knowledge]] — knowledge compose via cross-refs
+- [[LLM Wiki Pattern]] — architecture fondamentale
+- [[Hot Cache]] — cache 500 mots session-to-session
+- [[Compounding Knowledge]] — knowledge compose via cross-refs
 
 ## Entities impliquees
 
-- [[../entities/Andrej Karpathy]] — createur pattern
-- [[../entities/AgriciDaniel]] — plugin claude-obsidian
-- [[../entities/Obsidian]] — editeur vault
-- [[../entities/tools-foundation-os]] — toolchain mise a jour
+- [[Andrej Karpathy]] — createur pattern
+- [[AgriciDaniel]] — plugin claude-obsidian
+- [[Obsidian]] — editeur vault
+- [[tools-foundation-os]] — toolchain mise a jour
 
 ## Lecons retenues
 

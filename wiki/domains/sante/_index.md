@@ -7,7 +7,7 @@ tags:
   - sante
 status: evergreen
 related:
-  - "[[../../index]]"
+  - "[[index]]"
 ---
 
 # Domaine : sante
@@ -41,8 +41,8 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 ## Cross-references cles
 
-- [[../../concepts/|Concepts cross-domain]] (biochimie, physiologie partages)
-- [[../../entities/|Entities cross-domain]] (medecins, chercheurs, labs)
+- [[concepts/_index|Concepts cross-domain]] (biochimie, physiologie partages)
+- [[entities/_index|Entities cross-domain]] (medecins, chercheurs, labs)
 
 ## Sensibilite
 

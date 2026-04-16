@@ -16,7 +16,7 @@ tags:
 status: mature
 confidence: high
 related:
-  - "[[../domains/dev/concepts/foundation-os-desktop-migration]]"
+  - "[[foundation-os-desktop-migration]]"
 sources: []
 migrated_from: "auto-memory/tools_inventory.md (2026-04-16, D-WIKI-01 Phase 5)"
 ---

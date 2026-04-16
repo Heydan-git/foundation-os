@@ -15,19 +15,19 @@ tags:
 status: mature
 confidence: high
 related:
-  - "[[../concepts/LLM Wiki Pattern]]"
+  - "[[LLM Wiki Pattern]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
   - "[[tools-foundation-os]]"
 sources:
-  - "[[../sources/agricidaniel-claude-obsidian]]"
+  - "[[agricidaniel-claude-obsidian]]"
 ---
 
 # AgriciDaniel
 
 ## What
 
-Developer du plugin [[../sources/agricidaniel-claude-obsidian|claude-obsidian]], implementation de reference du [[../concepts/LLM Wiki Pattern]] pour Claude Code + [[Obsidian]].
+Developer du plugin [[agricidaniel-claude-obsidian|claude-obsidian]], implementation de reference du [[LLM Wiki Pattern]] pour Claude Code + [[Obsidian]].
 
 ## Why It Matters
 
@@ -48,4 +48,4 @@ Son plugin est adopte par Foundation OS (D-WIKI-01, 2026-04-15) comme couche kno
 
 ## Sources
 
-- [[../sources/agricidaniel-claude-obsidian]]
+- [[agricidaniel-claude-obsidian]]

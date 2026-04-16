@@ -18,8 +18,8 @@ tags:
 status: mature
 confidence: high
 related:
-  - "[[../../../concepts/LLM Wiki Pattern]]"
-  - "[[../../../entities/tools-foundation-os]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[tools-foundation-os]]"
 sources: []
 migrated_from: "auto-memory/project_migration_desktop.md (2026-04-16, D-WIKI-01 Phase 5)"
 ---

@@ -7,7 +7,7 @@ tags:
   - design
 status: evergreen
 related:
-  - "[[../../index]]"
+  - "[[index]]"
 ---
 
 # Domaine : design
@@ -31,8 +31,8 @@ Aucune pour l'instant.
 
 ## Cross-references cles
 
-- [[../../concepts/Void Glass|Void Glass]] (si existe) — design system dark-only
-- [[../dev/|Dev]] (crossover composants UI)
+- [[Void Glass|Void Glass]] (si existe) — design system dark-only
+- [[dev/_index|Dev]] (crossover composants UI)
 
 ## Workflows specifiques
 

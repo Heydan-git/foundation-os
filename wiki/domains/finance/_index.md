@@ -7,7 +7,7 @@ tags:
   - finance
 status: evergreen
 related:
-  - "[[../../index]]"
+  - "[[index]]"
 ---
 
 # Domaine : finance
@@ -34,8 +34,8 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 ## Cross-references cles
 
-- [[../../entities/|Entities cross-domain]] (banques, courtiers, conseillers)
-- [[../trading/|Trading]] (crossover investissement actif/passif)
+- [[entities/_index|Entities cross-domain]] (banques, courtiers, conseillers)
+- [[trading/_index|Trading]] (crossover investissement actif/passif)
 
 ## Workflows specifiques
 

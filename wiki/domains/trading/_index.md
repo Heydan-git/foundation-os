@@ -7,7 +7,7 @@ tags:
   - trading
 status: evergreen
 related:
-  - "[[../../index]]"
+  - "[[index]]"
 ---
 
 # Domaine : trading
@@ -40,8 +40,8 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 ## Cross-references cles
 
-- [[../../concepts/|Concepts cross-domain]] (Sharpe, Kelly, etc. partages)
-- [[../../entities/|Entities cross-domain]] (outils, brokers, researchers)
+- [[concepts/_index|Concepts cross-domain]] (Sharpe, Kelly, etc. partages)
+- [[entities/_index|Entities cross-domain]] (outils, brokers, researchers)
 
 ## Workflows specifiques
 

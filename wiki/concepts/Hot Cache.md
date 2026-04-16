@@ -19,10 +19,10 @@ confidence: high
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
-  - "[[../entities/Andrej Karpathy]]"
+  - "[[Andrej Karpathy]]"
 sources:
-  - "[[../sources/karpathy-llm-wiki-pattern]]"
-  - "[[../sources/agricidaniel-claude-obsidian]]"
+  - "[[karpathy-llm-wiki-pattern]]"
+  - "[[agricidaniel-claude-obsidian]]"
 ---
 
 # Hot Cache
@@ -75,7 +75,7 @@ YYYY-MM-DD : [ce qui s'est passe]
 - **500 mots = ~500 tokens** : cout negligeable, gain enorme en coherence
 - **Survit aux compactages** : hook PostCompact re-injecte le cache
 - **Multi-projet** : chaque projet a son propre `wiki/hot.md`
-- **Humain-lisible** : Kevin peut lire hot.md directement dans [[../entities/Obsidian]]
+- **Humain-lisible** : Kevin peut lire hot.md directement dans [[Obsidian]]
 
 ## Connections
 
@@ -84,5 +84,5 @@ YYYY-MM-DD : [ce qui s'est passe]
 
 ## Sources
 
-- [[../sources/karpathy-llm-wiki-pattern]]
-- [[../sources/agricidaniel-claude-obsidian]]
+- [[karpathy-llm-wiki-pattern]]
+- [[agricidaniel-claude-obsidian]]

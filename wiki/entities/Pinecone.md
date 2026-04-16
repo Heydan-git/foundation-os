@@ -17,12 +17,12 @@ tags:
 status: seed
 confidence: medium
 related:
-  - "[[../concepts/LLM Wiki Pattern]]"
-  - "[[../concepts/Compounding Knowledge]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Compounding Knowledge]]"
   - "[[Obsidian]]"
   - "[[Andrej Karpathy]]"
 sources:
-  - "[[../sources/karpathy-llm-wiki-pattern]]"
+  - "[[karpathy-llm-wiki-pattern]]"
 ---
 
 # Pinecone
@@ -33,7 +33,7 @@ Base de donnees vectorielle managee. Stocke textes sous forme d'embeddings (vect
 
 ## Why It Matters
 
-Extension complementaire au [[../concepts/LLM Wiki Pattern]] quand le vault depasse ~500-1000 pages. [[Obsidian]] gere le contexte actif (reflexion, projets en cours), Pinecone gere l'archivage long terme et la recherche semantique.
+Extension complementaire au [[LLM Wiki Pattern]] quand le vault depasse ~500-1000 pages. [[Obsidian]] gere le contexte actif (reflexion, projets en cours), Pinecone gere l'archivage long terme et la recherche semantique.
 
 ## Key Facts
 
@@ -52,10 +52,10 @@ Extension complementaire au [[../concepts/LLM Wiki Pattern]] quand le vault depa
 
 ## Connections
 
-- [[../concepts/LLM Wiki Pattern]] — pattern parent (Pinecone = extension scaling)
-- [[../concepts/Compounding Knowledge]] — Pinecone preserve le knowledge compose sur longue duree
+- [[LLM Wiki Pattern]] — pattern parent (Pinecone = extension scaling)
+- [[Compounding Knowledge]] — Pinecone preserve le knowledge compose sur longue duree
 - [[Obsidian]] — couche active complementaire
 
 ## Sources
 
-- [[../sources/karpathy-llm-wiki-pattern]]
+- [[karpathy-llm-wiki-pattern]]

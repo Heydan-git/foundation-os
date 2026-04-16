@@ -17,10 +17,10 @@ confidence: high
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
-  - "[[../entities/Andrej Karpathy]]"
-  - "[[../entities/Obsidian]]"
+  - "[[Andrej Karpathy]]"
+  - "[[Obsidian]]"
 sources:
-  - "[[../sources/karpathy-llm-wiki-pattern]]"
+  - "[[karpathy-llm-wiki-pattern]]"
 ---
 
 # Compounding Knowledge
@@ -43,7 +43,7 @@ Chaque nouvelle source ne cree pas des pages isolees. Elle **tisse des liens** a
 - **Rendements croissants** : plus le wiki grandit, plus chaque nouvelle source a de valeur (plus de cross-refs possibles)
 - **Contradictions detectees** : si Source B contredit Source A, le LLM peut le flagger avec `[!contradiction]` callout
 - **Synthese automatique** : le LLM met a jour les pages existantes avec les nouvelles infos
-- **Navigation naturelle** : le graph view [[../entities/Obsidian]] montre visuellement les clusters de knowledge
+- **Navigation naturelle** : le graph view [[Obsidian]] montre visuellement les clusters de knowledge
 
 ## Limites
 
@@ -65,8 +65,8 @@ Chaque nouvelle source ne cree pas des pages isolees. Elle **tisse des liens** a
 
 - [[LLM Wiki Pattern]] — pattern parent
 - [[Hot Cache]] — accelere l'acces au knowledge recent (cache chaud)
-- [[../entities/Pinecone]] — extension archivage quand le vault depasse les rendements Markdown
+- [[Pinecone]] — extension archivage quand le vault depasse les rendements Markdown
 
 ## Sources
 
-- [[../sources/karpathy-llm-wiki-pattern]]
+- [[karpathy-llm-wiki-pattern]]

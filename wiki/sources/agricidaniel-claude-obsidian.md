@@ -31,28 +31,28 @@ sources: []
 
 ## Summary
 
-Plugin Claude Code cree par [[../entities/AgriciDaniel]] qui implemente le [[../concepts/LLM Wiki Pattern]] d'[[../entities/Andrej Karpathy]] avec [[../entities/Obsidian]]. 1279 stars GitHub, v1.4.3, MIT license. Adopte par Foundation OS (D-WIKI-01, 2026-04-15).
+Plugin Claude Code cree par [[AgriciDaniel]] qui implemente le [[LLM Wiki Pattern]] d'[[Andrej Karpathy]] avec [[Obsidian]]. 1279 stars GitHub, v1.4.3, MIT license. Adopte par Foundation OS (D-WIKI-01, 2026-04-15).
 
 ## Key Claims
 
 - 10 skills (wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown)
 - 4 commands (/wiki, /save, /autoresearch, /canvas)
-- [[../concepts/Hot Cache]] via `wiki/hot.md` (~500 mots)
+- [[Hot Cache]] via `wiki/hot.md` (~500 mots)
 - Token cost stable via on-demand page loading (index scan + pages pertinentes only)
 - Delta tracking `.raw/.manifest.json` (hash-based, evite re-ingestion)
 - Multi-agent bootstrap (Codex, OpenCode, Gemini, Cursor, Windsurf, Copilot)
 
 ## Entities Mentioned
 
-- [[../entities/AgriciDaniel]] — auteur du plugin
-- [[../entities/Andrej Karpathy]] — createur du pattern implemente
-- [[../entities/Obsidian]] — editeur cible
+- [[AgriciDaniel]] — auteur du plugin
+- [[Andrej Karpathy]] — createur du pattern implemente
+- [[Obsidian]] — editeur cible
 
 ## Concepts Introduced
 
-- [[../concepts/LLM Wiki Pattern]] — pattern central
-- [[../concepts/Hot Cache]] — composant cle
-- [[../concepts/Compounding Knowledge]] — propriete emergente
+- [[LLM Wiki Pattern]] — pattern central
+- [[Hot Cache]] — composant cle
+- [[Compounding Knowledge]] — propriete emergente
 
 ## Ecosysteme concurrent
 

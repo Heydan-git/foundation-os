@@ -17,14 +17,14 @@ tags:
 status: mature
 confidence: high
 related:
-  - "[[../concepts/LLM Wiki Pattern]]"
+  - "[[LLM Wiki Pattern]]"
   - "[[Andrej Karpathy]]"
   - "[[AgriciDaniel]]"
   - "[[Pinecone]]"
   - "[[tools-foundation-os]]"
 sources:
-  - "[[../sources/karpathy-llm-wiki-pattern]]"
-  - "[[../sources/agricidaniel-claude-obsidian]]"
+  - "[[karpathy-llm-wiki-pattern]]"
+  - "[[agricidaniel-claude-obsidian]]"
 ---
 
 # Obsidian
@@ -35,7 +35,7 @@ Editeur Markdown local, gratuit, sans vendor lock-in. Le vault est un dossier de
 
 ## Why It Matters
 
-Choix naturel pour le [[../concepts/LLM Wiki Pattern]] : Claude Code ecrit des fichiers Markdown, Obsidian les rend navigables visuellement (graph view, canvas, search). Foundation OS utilise Obsidian pour visualiser le wiki/ knowledge layer.
+Choix naturel pour le [[LLM Wiki Pattern]] : Claude Code ecrit des fichiers Markdown, Obsidian les rend navigables visuellement (graph view, canvas, search). Foundation OS utilise Obsidian pour visualiser le wiki/ knowledge layer.
 
 ## Key Facts
 
@@ -56,12 +56,12 @@ Obsidian graph view affiche les pages wiki comme noeuds et les wikilinks comme a
 
 ## Connections
 
-- [[../concepts/LLM Wiki Pattern]] — pattern utilise dans le vault
+- [[LLM Wiki Pattern]] — pattern utilise dans le vault
 - [[AgriciDaniel]] — createur plugin claude-obsidian pour Obsidian
 - [[Pinecone]] — extension archivage complementaire quand vault > 1000 pages
 - [[tools-foundation-os]] — integre dans toolchain
 
 ## Sources
 
-- [[../sources/karpathy-llm-wiki-pattern]]
-- [[../sources/agricidaniel-claude-obsidian]]
+- [[karpathy-llm-wiki-pattern]]
+- [[agricidaniel-claude-obsidian]]
