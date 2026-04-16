@@ -44,6 +44,58 @@ Le catalogue est la source de verite pour le routing intelligent.
 | Auto-deploy | Vercel | Deploy sur git push vers main (root dir modules/app) |
 | Supabase ping | GitHub Actions (.github/workflows/) | Cron hebdo — SELECT 1 pour eviter la pause 7j inactif |
 
+## 1c. Skills Knowledge (claude-obsidian v1.4.3 — D-WIKI-01)
+
+Plugin `claude-obsidian` adopte 2026-04-15. 10 skills + 4 commands + 2 agents + 5 templates. Spec complete : `docs/core/knowledge.md`.
+
+### Skills
+
+| Skill | Role | Trigger | Allowed tools |
+|-------|------|---------|---------------|
+| wiki | Scaffold vault + router | `/wiki`, "set up wiki", "obsidian vault" | Read Write Edit Glob Grep Bash |
+| wiki-ingest | Ingest source (URL/PDF/image) → pages wiki | "ingest [file]", "ingest this URL" | Read Write Edit Glob Grep Bash WebFetch |
+| wiki-query | Search multi-depth dans vault | Question sur contenu wiki | Read Glob Grep |
+| wiki-lint | Qualite vault (broken links, orphans) | "lint wiki", "check vault" | Read Write Edit Glob Grep |
+| save | Conversation → wiki page | `/save [name]`, `/save session` | Read Write Edit Glob Grep |
+| autoresearch | Web research loop 3-5 rounds | `/autoresearch [topic]` | Read Write Edit Glob Grep Bash WebFetch |
+| canvas | Obsidian canvas visual | `/canvas [desc]` | Read Write Edit Glob |
+| defuddle | Clean article web (ads/nav removal) | Ingest URL avec defuddle available | Read Bash |
+| obsidian-bases | Dataview replacement natif Obsidian | Utilisation bases dashboards | Read Write Edit Glob Grep |
+| obsidian-markdown | Syntax kepano (Obsidian creator) | Standardisation Obsidian markdown | Read Write Edit |
+
+### Commands associees
+
+| Command | Skill | Objectif |
+|---------|-------|----------|
+| `/wiki` | wiki | Bootstrap ou check vault |
+| `/save [name]` | save | Sauver conversation en wiki page |
+| `/autoresearch [topic]` | autoresearch | Research loop web |
+| `/canvas [desc]` | canvas | Canvas visual Obsidian |
+
+### Agents
+
+| Agent | Role |
+|-------|------|
+| wiki-ingest | Ingestion source complete (compatible Task tool) |
+| wiki-lint | Audit qualite vault (compatible Task tool) |
+
+### Hooks (voir `docs/core/knowledge.md` section 5)
+
+| Hook | Etat | Role |
+|------|------|------|
+| SessionStart | INTEGRE | Wrapper `scripts/hooks/session-start-wiki.sh` (drift-detector + cat wiki/hot.md) |
+| PostCompact | ACTIF | Re-cat wiki/hot.md apres compactage |
+| PostToolUse Write\|Edit | **DESACTIVE** | Auto-commit wiki/ — casse regle Kevin-valide. Remplace par `scripts/wiki-commit.sh` |
+| Stop | ACTIF | Notif WIKI_CHANGED si wiki/ modifie |
+
+### Scripts custom
+
+| Script | Role |
+|--------|------|
+| `scripts/wiki-commit.sh` | Commit manuel wiki/ + .raw/ (respect Kevin-valide) |
+| `scripts/wiki-health.sh` | Health-check wiki (hot.md age, index.md sync, pages count) |
+| `scripts/hooks/session-start-wiki.sh` | Wrapper SessionStart chainage |
+
 ## 2. Outils a construire (backlog)
 
 Priorite par impact. Ne construire que sur demande explicite.
