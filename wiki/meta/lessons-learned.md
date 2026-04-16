@@ -20,6 +20,17 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Obsidian — Audit fantômes
+
+### Chercher les FICHIERS avant les wikilinks
+- **Date** : 2026-04-16
+- **Contexte** : Kevin signale 5 pages fantômes (A, B, X, file, page) visibles dans le graph Obsidian
+- **Symptôme** : nœuds vides dans le graph, reliés à rien
+- **Erreur** : scan de wikilinks au lieu de chercher les fichiers physiques. Fix partiel (source wikilink), puis Kevin voit toujours les fantômes
+- **Cause racine** : Obsidian crée des fichiers .md vides quand on clique sur un wikilink mort. Les fichiers physiques (A.md, X.md, file.md, page.md) existaient à la racine du projet
+- **Fix** : `find . -name "A.md"` aurait trouvé le problème en 2 secondes
+- **Règle** : quand Kevin signale un problème VISIBLE dans Obsidian, TOUJOURS commencer par chercher les fichiers physiques (`find`) AVANT d'analyser les wikilinks. Problème concret = vérification concrète d'abord.
+
 ## Worktrees Desktop
 
 ### Toujours merger dans main avant de clôturer une session worktree
