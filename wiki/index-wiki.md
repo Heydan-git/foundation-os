@@ -22,7 +22,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 42 | Sources ingested: 4
+Last updated: 2026-04-16 | Total pages: 43 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -108,7 +108,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Domaines actifs | 5 |
 | Meta | 8 |
 | Top-level | 4 |
-| Total pages | 42 |
+| Total pages | 43 |
 
 ## Couverture par domaine
 

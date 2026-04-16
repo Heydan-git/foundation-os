@@ -4,7 +4,6 @@ title: "Travaux Cowork — Index initiatives"
 updated: 2026-04-16
 tags:
   - index
-  - meta
   - cowork
 status: evergreen
 related:

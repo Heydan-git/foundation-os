@@ -4,7 +4,6 @@ title: "App Builder — Index pages et composants"
 updated: 2026-04-16
 tags:
   - index
-  - meta
   - app
   - modules
 status: evergreen
