@@ -42,11 +42,11 @@ else
   BROKEN=$((BROKEN + 1))
 fi
 
-# 2. index.md existence
-if [ -f wiki/index.md ]; then
-  echo -e "  ${GRN}[OK]${RST} index.md present"
+# 2. index-wiki.md existence (renomme depuis index.md pour eviter ambiguite Obsidian graph)
+if [ -f wiki/index-wiki.md ]; then
+  echo -e "  ${GRN}[OK]${RST} index-wiki.md present"
 else
-  echo -e "  ${RED}[BROKEN]${RST} wiki/index.md manquant"
+  echo -e "  ${RED}[BROKEN]${RST} wiki/index-wiki.md manquant"
   BROKEN=$((BROKEN + 1))
 fi
 

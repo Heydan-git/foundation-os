@@ -1,6 +1,6 @@
 # Knowledge — Spec Module Core OS (Phase 7)
 
-Module Core OS responsable du knowledge layer persistant Foundation OS via plugin `claude-obsidian` (pattern Karpathy LLM Wiki).
+Module Core OS responsable du knowledge layer persistant Foundation OS via plugin `claude-obsidian` (pattern [[LLM Wiki Pattern|Karpathy LLM Wiki]]).
 
 > Ce module definit COMMENT le knowledge externe atemporel est accumule, structure, navigue et cross-reference avec les modules applicatifs. Adoption 2026-04-15 (D-WIKI-01).
 
@@ -11,7 +11,7 @@ Module Core OS responsable du knowledge layer persistant Foundation OS via plugi
 ```
 wiki/
 ├── hot.md          cache narratif 500 mots derniere session
-├── index.md        master catalog (1 ligne par page)
+├── index-wiki.md   master catalog (1 ligne par page)
 ├── log.md          chronological operations log
 ├── overview.md     executive summary wiki
 ├── domains/        5 domaines pre-scaffoldes
@@ -79,7 +79,7 @@ Un fichier code pointe son wiki :
 | wiki-lint | qualite vault | "lint wiki" |
 | save | conversation → wiki page | "/save [name]" |
 | autoresearch | web research 3-5 rounds | "/autoresearch [topic]" |
-| canvas | Obsidian canvas visual | "/canvas [description]" |
+| canvas | [[Obsidian]] canvas visual | "/canvas [description]" |
 | defuddle | clean article web | ingest URL avec defuddle available |
 | obsidian-bases | Dataview replacement | utilisation bases natives Obsidian |
 | obsidian-markdown | syntax kepano Obsidian | standardisation markdown |

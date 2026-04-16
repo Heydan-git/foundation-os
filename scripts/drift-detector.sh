@@ -115,12 +115,12 @@ if [ -f wiki/hot.md ]; then
   fi
 fi
 
-# 10. Wiki index.md sync avec filesystem (page count)
-if [ -f wiki/index.md ]; then
+# 10. Wiki index-wiki.md sync avec filesystem (page count)
+if [ -f wiki/index-wiki.md ]; then
   WIKI_PAGES_FS=$(find wiki/ -name "*.md" -not -path "*/\.*" -not -path "*/meta/templates/*" -not -name "_index.md" | wc -l | tr -d ' ')
-  WIKI_PAGES_IDX=$(grep -oE "Total pages: [0-9]+" wiki/index.md | grep -oE "[0-9]+" | head -1)
+  WIKI_PAGES_IDX=$(grep -oE "Total pages: [0-9]+" wiki/index-wiki.md | grep -oE "[0-9]+" | head -1)
   if [ -n "$WIKI_PAGES_IDX" ] && [ "$WIKI_PAGES_IDX" -ne "$WIKI_PAGES_FS" ] 2>/dev/null; then
-    echo -e "  ${YEL}[DRIFT]${RST} wiki/index.md : $WIKI_PAGES_IDX listees vs $WIKI_PAGES_FS filesystem"
+    echo -e "  ${YEL}[DRIFT]${RST} wiki/index-wiki.md : $WIKI_PAGES_IDX listees vs $WIKI_PAGES_FS filesystem"
     DRIFT=$((DRIFT + 1))
   elif [ -n "$WIKI_PAGES_IDX" ]; then
     echo -e "  ${GRN}[OK]${RST} wiki pages : $WIKI_PAGES_FS (index sync)"
