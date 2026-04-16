@@ -119,8 +119,44 @@
   "hotPaths": [
     {
       "path": "CONTEXT.md",
+      "accessCount": 11,
+      "lastAccessed": 1776257772968,
+      "type": "file"
+    },
+    {
+      "path": ".claude/commands/plan-os.md",
+      "accessCount": 7,
+      "lastAccessed": 1776257728335,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/planner.md",
+      "accessCount": 7,
+      "lastAccessed": 1776257728801,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/naming-conventions.md",
+      "accessCount": 6,
+      "lastAccessed": 1776257729035,
+      "type": "file"
+    },
+    {
+      "path": "docs/architecture.md",
+      "accessCount": 6,
+      "lastAccessed": 1776257729371,
+      "type": "file"
+    },
+    {
+      "path": ".claude/settings.local.json",
       "accessCount": 5,
-      "lastAccessed": 1776253217995,
+      "lastAccessed": 1776255666932,
+      "type": "file"
+    },
+    {
+      "path": "docs/setup-guide.md",
+      "accessCount": 5,
+      "lastAccessed": 1776257729746,
       "type": "file"
     },
     {
@@ -136,15 +172,9 @@
       "type": "file"
     },
     {
-      "path": ".claude/settings.local.json",
-      "accessCount": 3,
-      "lastAccessed": 1776252679731,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/naming-conventions.md",
-      "accessCount": 3,
-      "lastAccessed": 1776252920209,
+      "path": "CLAUDE.md",
+      "accessCount": 4,
+      "lastAccessed": 1776257730005,
       "type": "file"
     },
     {
@@ -172,6 +202,12 @@
       "type": "file"
     },
     {
+      "path": "docs/core/architecture-core.md",
+      "accessCount": 3,
+      "lastAccessed": 1776257729857,
+      "type": "file"
+    },
+    {
       "path": "scripts/auto-archive-plans.sh",
       "accessCount": 2,
       "lastAccessed": 1776251188531,
@@ -181,12 +217,6 @@
       "path": "scripts/sync-check.sh",
       "accessCount": 2,
       "lastAccessed": 1776251190136,
-      "type": "file"
-    },
-    {
-      "path": ".claude/commands/plan-os.md",
-      "accessCount": 2,
-      "lastAccessed": 1776251198531,
       "type": "file"
     },
     {
@@ -220,21 +250,9 @@
       "type": "file"
     },
     {
-      "path": "docs/architecture.md",
-      "accessCount": 2,
-      "lastAccessed": 1776252921759,
-      "type": "file"
-    },
-    {
       "path": "docs/index.md",
       "accessCount": 2,
       "lastAccessed": 1776252923115,
-      "type": "file"
-    },
-    {
-      "path": "CLAUDE.md",
-      "accessCount": 2,
-      "lastAccessed": 1776253305242,
       "type": "file"
     },
     {
@@ -244,9 +262,9 @@
       "type": "file"
     },
     {
-      "path": "docs/core/planner.md",
+      "path": "docs/core/worktrees.md",
       "accessCount": 2,
-      "lastAccessed": 1776254477236,
+      "lastAccessed": 1776256053239,
       "type": "file"
     },
     {
@@ -259,18 +277,6 @@
       "path": "docs/core/tools.md",
       "accessCount": 1,
       "lastAccessed": 1776250071674,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/worktrees.md",
-      "accessCount": 1,
-      "lastAccessed": 1776250072830,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/architecture-core.md",
-      "accessCount": 1,
-      "lastAccessed": 1776250073909,
       "type": "file"
     },
     {
@@ -379,12 +385,6 @@
       "path": "scripts/git-hooks/commit-msg",
       "accessCount": 1,
       "lastAccessed": 1776250120918,
-      "type": "file"
-    },
-    {
-      "path": "docs/setup-guide.md",
-      "accessCount": 1,
-      "lastAccessed": 1776250143220,
       "type": "file"
     },
     {

@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"set +e; cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit && echo \\\"Hook installed. Content:\\\" && head -15 .git/hooks/pre-commit\",\"description\":\"Insta...",
-  "error": "Exit code 1\ncp: .git/hooks/pre-commit: Not a directory\n[rerun: b9]",
-  "timestamp": "2026-04-15T11:34:26.527Z",
-  "retry_count": 1
-}

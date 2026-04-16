@@ -7,14 +7,14 @@ tags:
   - hot-cache
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
   - "[[log]]"
   - "[[overview]]"
 ---
 
 # Hot Cache
 
-Navigation: [[index]] | [[log]] | [[overview]]
+Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 

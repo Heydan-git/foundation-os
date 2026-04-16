@@ -115,9 +115,9 @@ sources: []
 
 ## Documentation module
 
-- [[modules/design-system/README|README Design System]] — Description module, setup, scripts
+- [[modules/design-system/README-design-system|README Design System]] — Description module, setup, scripts
 - [[modules/design-system/CHANGELOG|CHANGELOG Design System]] — Historique versions + breaking changes
-- [[modules/design-system/docs-supernova/README|README Supernova Docs]] — Documentation auto-generee Supernova SDK
+- [[modules/design-system/docs-supernova/README-supernova-docs|README Supernova Docs]] — Documentation auto-generee Supernova SDK
 
 ## Connexions
 

@@ -7,7 +7,7 @@ tags:
   - sante
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Domaine : sante

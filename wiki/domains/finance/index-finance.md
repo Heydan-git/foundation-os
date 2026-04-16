@@ -7,7 +7,7 @@ tags:
   - finance
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Domaine : finance

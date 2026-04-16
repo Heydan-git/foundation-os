@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundation OS — Tuto comprehension IA</title>
+<style>
+  :root {
+    --bg: #06070C;
+    --bg-card: #0E1019;
+    --bg-card-hover: #141826;
+    --border: #1F2333;
+    --text: #E8EAF0;
+    --text-dim: #8B91A8;
+    --accent: #7C9CFF;
+    --accent-2: #B47CFF;
+    --green: #5EE6A0;
+    --orange: #FFB75E;
+    --red: #FF6B7A;
+    --yellow: #FFD75E;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    --ui: Figtree, -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: var(--ui); line-height: 1.6; min-height: 100vh; }
+  body { padding: 40px 20px; }
+  .container { max-width: 920px; margin: 0 auto; }
+  header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  header h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  header p { color: var(--text-dim); font-size: 15px; }
+  .meta { display: flex; gap: 16px; margin-top: 12px; font-size: 13px; color: var(--text-dim); }
+  .meta span::before { content: "• "; color: var(--accent); }
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+  .nav button {
+    background: var(--bg-card); color: var(--text-dim); border: 1px solid var(--border);
+    padding: 8px 14px; border-radius: 8px; font-family: var(--ui); font-size: 13px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav button:hover, .nav button.active {
+    background: var(--bg-card-hover); color: var(--text); border-color: var(--accent);
+  }
+  section.module {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px 32px; margin-bottom: 24px;
+  }
+  section.module h2 { font-size: 22px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  section.module h2 .num {
+    background: var(--accent); color: var(--bg); width: 32px; height: 32px;
+    border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+  }
+  section.module h3 { font-size: 16px; margin-top: 20px; margin-bottom: 8px; color: var(--accent); }
+  section.module p { color: var(--text); margin-bottom: 12px; font-size: 15px; }
+  section.module ul { padding-left: 0; list-style: none; margin-bottom: 12px; }
+  section.module li { padding: 6px 0; padding-left: 22px; position: relative; font-size: 14px; color: var(--text); }
+  section.module li::before { content: "→"; position: absolute; left: 0; color: var(--accent-2); }
+  .pill {
+    display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px;
+    font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .pill.green { background: rgba(94,230,160,0.15); color: var(--green); }
+  .pill.red { background: rgba(255,107,122,0.15); color: var(--red); }
+  .pill.orange { background: rgba(255,183,94,0.15); color: var(--orange); }
+  .pill.yellow { background: rgba(255,215,94,0.15); color: var(--yellow); }
+  code { font-family: var(--mono); background: #0A0C14; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--accent); }
+  pre {
+    background: #0A0C14; border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px; overflow-x: auto; font-family: var(--mono); font-size: 13px;
+    color: var(--text); margin: 12px 0; line-height: 1.5;
+  }
+  .myth-fact { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .myth, .fact { padding: 16px; border-radius: 10px; border: 1px solid var(--border); }
+  .myth { background: rgba(255,107,122,0.06); }
+  .fact { background: rgba(94,230,160,0.06); }
+  .myth h4, .fact h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .myth h4 { color: var(--red); }
+  .fact h4 { color: var(--green); }
+  .reflex { background: var(--bg-card-hover); padding: 14px 18px; border-radius: 10px; border-left: 3px solid var(--accent); margin: 14px 0; font-size: 14px; }
+  .reflex strong { color: var(--accent); }
+  footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 13px; }
+  .hidden { display: none; }
+  @media (max-width: 720px) {
+    body { padding: 20px 12px; }
+    section.module { padding: 20px; }
+    .myth-fact { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Foundation OS — Tuto comprehension IA</h1>
+    <p>Modele mental factuel pour collaborer avec Claude sans hallucination ni gaspillage.</p>
+    <div class="meta">
+      <span>2026-04-08</span>
+      <span>Mode brutal-factuel</span>
+      <span>Pour Kevin</span>
+    </div>
+  </header>
+
+  <nav class="nav" id="nav">
+    <button data-target="m1" class="active">1. Memoire</button>
+    <button data-target="m2">2. Contexte</button>
+    <button data-target="m3">3. Limites</button>
+    <button data-target="m4">4. Mode reflexif</button>
+    <button data-target="m5">5. Sub-agents</button>
+    <button data-target="m6">6. Skills/MCPs</button>
+    <button data-target="m7">7. Workflows</button>
+    <button data-target="m8">8. Garde-fous</button>
+  </nav>
+
+  <section class="module" id="m1">
+    <h2><span class="num">1</span> Memoire — ce que Claude se rappelle (et ne se rappelle pas)</h2>
+    <div class="myth-fact">
+      <div class="myth"><h4>Mythe</h4><p>"Claude se souvient du projet grace a la knowledge base."</p></div>
+      <div class="fact"><h4>Realite</h4><p>Aucune memoire entre conversations. Chaque session demarre vide. Re-instanciation par <code>CONTEXT.md</code> + auto-memory + skill.</p></div>
+    </div>
+    <h3>Les 4 tiers de memoire reels</h3>
+    <ul>
+      <li><strong>Session</strong> : conversation en cours, volatile, perdue au compactage</li>
+      <li><strong>Contexte</strong> : <code>CONTEXT.md</code>, permanent, source de verite cross-sessions</li>
+      <li><strong>Reference</strong> : <code>docs/</code>, permanent, lu a la demande</li>
+      <li><strong>Auto-memory</strong> : <code>.auto-memory/</code> Cowork, fragmente, par tete</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe :</strong> si une info doit survivre a la session, elle DOIT etre dans CONTEXT.md ou docs/. Sinon elle disparait.</div>
+  </section>
+
+  <section class="module" id="m2">
+    <h2><span class="num">2</span> Contexte — il n'est pas gratuit</h2>
+    <p>Le contexte (input window) a une taille limitee. Plus tu charges de fichiers, plus je perds en precision sur les details.</p>
+    <h3>Seuils observables</h3>
+    <ul>
+      <li><span class="pill green">0-40%</span> precision haute, je cite ligne par ligne</li>
+      <li><span class="pill yellow">40-60%</span> precision correcte, premieres compressions silencieuses</li>
+      <li><span class="pill orange">60-80%</span> hallucinations sur paths/lignes augmentent</li>
+      <li><span class="pill red">80%+</span> compactage automatique imminent, perte de nuances</li>
+    </ul>
+    <h3>Mitigations</h3>
+    <ul>
+      <li>Lire en parallele dans un seul message (meme cout, gain wall-clock)</li>
+      <li>Deleguer les readings exploratoires a un sub-agent (contexte isole)</li>
+      <li>Decouper en phases A-F au lieu d'un monolithe (pattern Cycle 3)</li>
+      <li>Declarer un budget de fichiers en debut de session</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe :</strong> avant de charger un 8e fichier, demande-toi si tu peux fermer 3 anciens.</div>
+  </section>
+
+  <section class="module" id="m3">
+    <h2><span class="num">3</span> Limites — ce que Claude ne sait pas faire</h2>
+    <ul>
+      <li><span class="pill red">!</span> Estimer un cout en temps humain (mes "1h" sont approximatifs)</li>
+      <li><span class="pill red">!</span> Connaitre les versions live de libs npm/python sans verifier</li>
+      <li><span class="pill red">!</span> Executer du code dans ton environnement reel</li>
+      <li><span class="pill red">!</span> Apprendre dans une session (pas de retro-propagation)</li>
+      <li><span class="pill red">!</span> Garantir l'absence d'hallucination — verifier reste obligatoire</li>
+      <li><span class="pill red">!</span> Lire ta machine si elle n'est pas montee dans le sandbox</li>
+      <li><span class="pill red">!</span> Juger si une approche est "mieux" dans l'absolu — je connais des patterns 2024</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe :</strong> je peux mentir par compression. Tout chiffre/path/decision critique = a verifier, jamais a accepter sur parole.</div>
+  </section>
+
+  <section class="module" id="m4">
+    <h2><span class="num">4</span> Mode reflexif — il faut le declencher explicitement</h2>
+    <div class="myth-fact">
+      <div class="myth"><h4>Mythe</h4><p>"Claude va spontanement remettre en cause une mauvaise approche."</p></div>
+      <div class="fact"><h4>Realite</h4><p>Par defaut je suis exécutif. Si tu me dis "fais X", je fais X. La reflexion critique exige une instruction explicite.</p></div>
+    </div>
+    <h3>Phrases qui activent le mode reflexif</h3>
+    <pre>"Avant d'agir, donne-moi 3 angles d'attaque differents."
+"Joue l'avocat du diable sur cette decision."
+"Qu'est-ce qui pourrait casser ?"
+"Liste 2 alternatives meme si elles te semblent moins bonnes."
+"Ou est mon biais ici ?"</pre>
+    <div class="reflex"><strong>Reflexe :</strong> pour toute decision structurelle (architecture, choix de stack, refactor), exiger 2 options minimum AVANT recommandation.</div>
+  </section>
+
+  <section class="module" id="m5">
+    <h2><span class="num">5</span> Sub-agents — quand les utiliser, quand pas</h2>
+    <h3>Bons cas (zone isolee, faits observables)</h3>
+    <ul>
+      <li>Lire 30 fichiers d'un dossier et resumer la structure</li>
+      <li>Compter les occurrences d'un pattern dans le repo</li>
+      <li>Extraire les imports d'un module</li>
+      <li>Audit purement quantitatif (LOC, types any, console.log)</li>
+    </ul>
+    <h3>Mauvais cas (jugement contextuel requis)</h3>
+    <ul>
+      <li>Decider si un fichier est "orphelin" ou "doublon"</li>
+      <li>Prioriser des findings cross-sessions</li>
+      <li>Juger d'une coherence avec une decision passee</li>
+      <li>Toute synthese qui exige memoire de Cycle X session Y</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe :</strong> les findings d'un sub-agent type "orphelin/doublon/redondance" sont TOUJOURS a re-verifier avec contexte global avant validation. Encode dans CLAUDE.md L16.</div>
+  </section>
+
+  <section class="module" id="m6">
+    <h2><span class="num">6</span> Skills et MCPs — outils a comprendre, pas a multiplier</h2>
+    <h3>Skills</h3>
+    <p>Un skill ajoute des instructions specialisees au debut de la session. Cout : tokens en input. Gain : qualite de l'output dans le domaine.</p>
+    <ul>
+      <li><strong>Skills Foundation OS</strong> : <code>foundation-os-orchestrator</code> (a reecrire), <code>fullstack-dev</code>, <code>database-architect</code>, <code>ui-expert</code>, <code>lead-dev</code></li>
+      <li><strong>Skills domaine perso</strong> : <code>health-council</code>, <code>nutritionniste</code>, <code>crypto-trader</code>, etc.</li>
+      <li><strong>Meta-skills</strong> : <code>skill-creator</code>, <code>skill-supervisor</code>. A utiliser avec moderation.</li>
+    </ul>
+    <h3>MCPs</h3>
+    <p>Un MCP donne acces a un service externe (Asana, Notion, Figma, Chrome, computer-use). Cout : appels reseau + tokens schema. Gain : actions reelles hors sandbox.</p>
+    <ul>
+      <li>MCP dedie &gt; Chrome MCP &gt; computer-use (par ordre de fiabilite)</li>
+      <li>computer-use est OK pour apps natives (Notes, Finder, Mail) mais lent et fragile</li>
+      <li>Aucun MCP GitHub ni MCP Supabase actuellement → potentiel d'amelioration</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe :</strong> avant d'activer un nouveau skill, se demander "ce skill va-t-il etre utile dans &gt; 20% de mes sessions ?". Sinon c'est noise.</div>
+  </section>
+
+  <section class="module" id="m7">
+    <h2><span class="num">7</span> Workflows — patterns qui marchent</h2>
+    <h3>Pattern 6 phases A-F (anti-compactage)</h3>
+    <ul>
+      <li><strong>A</strong> — Read parallele (ingestion materiau)</li>
+      <li><strong>B</strong> — Audit ciblé</li>
+      <li><strong>C</strong> — Verification croisee</li>
+      <li><strong>D</strong> — Findings + decisions</li>
+      <li><strong>E</strong> — Livrable</li>
+      <li><strong>F</strong> — Consolidation + commit (peut etre en session 2 si phase A-E deja committee WIP)</li>
+    </ul>
+    <h3>Niveaux PAUL pour /session-end</h3>
+    <ul>
+      <li><span class="pill green">DONE</span> tout est verifie, build OK, tests OK, commit prêt</li>
+      <li><span class="pill yellow">DONE_WITH_CONCERNS</span> termine mais avec dette identifiee</li>
+      <li><span class="pill orange">NEEDS_CONTEXT</span> il manque une info Kevin pour finir</li>
+      <li><span class="pill red">BLOCKED</span> impossible de continuer sans intervention externe</li>
+    </ul>
+    <h3>MD-first / runtime-then-doc</h3>
+    <p>Quand un script et sa doc divergent, le RUNTIME (script) fait foi. Aligner la doc dessus, pas l'inverse.</p>
+    <div class="reflex"><strong>Reflexe :</strong> ne jamais finir une session sans /session-end (meme rapide). Le rituel est ce qui maintient CONTEXT.md vivant.</div>
+  </section>
+
+  <section class="module" id="m8">
+    <h2><span class="num">8</span> Garde-fous anti-bullshit</h2>
+    <h3>Mots interdits (CLAUDE.md)</h3>
+    <ul>
+      <li><span class="pill red">×</span> revolution</li>
+      <li><span class="pill red">×</span> historique</li>
+      <li><span class="pill red">×</span> reference mondiale</li>
+      <li><span class="pill red">×</span> premier au monde</li>
+      <li><span class="pill red">×</span> world-first / revolutionary / accomplish</li>
+    </ul>
+    <h3>Regles de verification</h3>
+    <ul>
+      <li>Jamais "TERMINE" ou "100%" sans build + test executes</li>
+      <li>Chaque metrique doit avoir une commande de verification</li>
+      <li>Plus de MD que de code dans une session = red flag</li>
+      <li>Un fichier qui documente un autre fichier = du bloat</li>
+    </ul>
+    <h3>Hooks actifs</h3>
+    <ul>
+      <li><code>pre-commit</code> → <code>health-check.sh</code> → SAIN/DEGRADED/BROKEN</li>
+      <li><code>commit-msg</code> → conventional commits 11 types</li>
+      <li><code>validate-void-glass.sh</code> → couleurs/fonts interdites (BUG actuel F-S6-B-01)</li>
+      <li><code>security-reminder.py</code> → patterns secrets (parfois trop bavard, F-S6-B-08)</li>
+    </ul>
+    <div class="reflex"><strong>Reflexe final :</strong> les garde-fous existent pour compenser MES faiblesses. Ne pas les desactiver pour aller plus vite. Un build qui passe vite avec hooks &gt; un build qui passe instantanement sans.</div>
+  </section>
+
+  <footer>
+    Foundation OS — Tuto interactif. Lis-le une fois en entier, puis relis le module pertinent en debut de session.
+  </footer>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('#nav button');
+  const sections = document.querySelectorAll('section.module');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.target;
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      sections.forEach(s => s.classList.add('hidden'));
+      document.getElementById(target).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  // Show first by default, hide others
+  sections.forEach((s, i) => { if (i > 0) s.classList.add('hidden'); });
+</script>
+</body>
+</html>

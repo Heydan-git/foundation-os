@@ -11,7 +11,7 @@ related:
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"
   - "[[foundation-os-map]]"
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Thinking — Réflexions autonomes

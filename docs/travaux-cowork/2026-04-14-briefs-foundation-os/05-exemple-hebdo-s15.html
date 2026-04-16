@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Hebdo S15 · FoundationOS · 2026-04-07 → 2026-04-13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #06070C;
+    --bg-1: #0E1016;
+    --bg-2: #141721;
+    --bg-3: #1A1E2B;
+    --border-subtle: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.20);
+    --text: #F1F4FA;
+    --text-dim: #9AA3B5;
+    --text-muted: #5E687C;
+
+    --blue: #60A5FA;
+    --purple: #C084FC;
+    --green: #4ADE80;
+    --yellow: #FACC15;
+    --red: #F87171;
+    --orange: #FB923C;
+
+    --green-bg: rgba(74,222,128,0.10);
+    --yellow-bg: rgba(250,204,21,0.10);
+    --red-bg: rgba(248,113,113,0.10);
+    --blue-bg: rgba(96,165,250,0.10);
+    --purple-bg: rgba(192,132,252,0.10);
+
+    --green-border: rgba(74,222,128,0.30);
+    --yellow-border: rgba(250,204,21,0.30);
+    --red-border: rgba(248,113,113,0.30);
+    --blue-border: rgba(96,165,250,0.30);
+    --purple-border: rgba(192,132,252,0.30);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 40px 20px 80px;
+    background:
+      radial-gradient(ellipse 1000px 700px at 10% -10%, rgba(96,165,250,0.12), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 110% 15%, rgba(192,132,252,0.08), transparent 55%),
+      radial-gradient(ellipse 900px 600px at 50% 110%, rgba(74,222,128,0.06), transparent 55%),
+      var(--bg-0);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  .page { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 34px; }
+
+  /* =========== HEADER =========== */
+  .kicker {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 12px var(--purple); }
+  h1.page-title {
+    font-size: 34px; font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 8px 0 4px 0;
+    line-height: 1.2;
+  }
+  .page-subtitle { color: var(--text-dim); font-size: 15px; margin: 0; }
+
+  /* =========== VERDICT HERO =========== */
+  .verdict {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    background: linear-gradient(135deg, var(--green-bg), transparent 55%), var(--bg-1);
+    position: relative;
+    overflow: hidden;
+  }
+  .verdict::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(74,222,128,0.10), transparent 55%);
+    pointer-events: none;
+  }
+  .verdict-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .verdict-status {
+    font-size: 26px; font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.01em;
+  }
+  .verdict-sub { color: var(--text-dim); font-size: 15px; margin: 0; max-width: 620px; }
+  .verdict-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .vstat .vs-num { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+  .vstat .vs-num.green { color: var(--green); }
+  .vstat .vs-num.yellow { color: var(--yellow); }
+  .vstat .vs-num.blue { color: var(--blue); }
+  .vstat .vs-num.purple { color: var(--purple); }
+  .vstat .vs-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 4px; }
+
+  /* =========== SECTION HEADERS =========== */
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-head { display: flex; align-items: flex-start; gap: 14px; }
+  .section-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--bg-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .section-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.01em; line-height: 1.3; }
+  .section-sub { color: var(--text-dim); font-size: 13.5px; margin: 2px 0 0 0; }
+
+  /* =========== TRENDLINE 7 JOURS =========== */
+  .trend-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    background: var(--bg-1);
+  }
+  .trend-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .trend-day { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .td-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; }
+  .td-bar {
+    width: 100%; height: 56px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .td-bar.green { background: linear-gradient(180deg, rgba(74,222,128,0.18), rgba(74,222,128,0.04)); border-color: var(--green-border); }
+  .td-bar.yellow { background: linear-gradient(180deg, rgba(250,204,21,0.18), rgba(250,204,21,0.04)); border-color: var(--yellow-border); }
+  .td-bar.empty { background: transparent; border-color: var(--border-subtle); color: var(--text-muted); }
+  .td-date { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); }
+  .trend-conclusion {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .trend-arrow {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--yellow); font-weight: 600;
+    padding: 4px 10px;
+    background: var(--yellow-bg);
+    border: 1px solid var(--yellow-border);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .trend-explain { font-size: 13.5px; color: var(--text-dim); margin: 0; flex: 1; }
+
+  /* =========== DONE BLOCKS =========== */
+  .done-grid { display: flex; flex-direction: column; gap: 14px; }
+  .done-theme {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    background: var(--bg-1);
+  }
+  .done-theme.ds { background: linear-gradient(135deg, var(--purple-bg), transparent 75%), var(--bg-1); border-color: var(--purple-border); }
+  .done-theme.app { background: linear-gradient(135deg, var(--blue-bg), transparent 75%), var(--bg-1); border-color: var(--blue-border); }
+  .done-theme.core { background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 75%), var(--bg-1); }
+  .dt-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .dt-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; font-weight: 600; }
+  .dt-tag.ds { color: var(--purple); }
+  .dt-tag.app { color: var(--blue); }
+  .dt-tag.core { color: var(--text-dim); }
+  .dt-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); margin-left: auto; }
+  .dt-headline { font-size: 15.5px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.4; }
+  .dt-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .dt-list li { font-size: 13.5px; color: var(--text-dim); padding-left: 18px; position: relative; line-height: 1.5; }
+  .dt-list li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
+
+  /* =========== ASANA STATS =========== */
+  .asana-stats-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    background: var(--bg-1);
+  }
+  .as-lead { font-size: 15px; margin: 0 0 16px 0; color: var(--text-dim); line-height: 1.6; }
+  .as-lead strong { color: var(--text); font-weight: 600; }
+  .as-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .as-cell {
+    padding: 14px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-2);
+  }
+  .as-num { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .as-num.green { color: var(--green); }
+  .as-num.yellow { color: var(--yellow); }
+  .as-num.red { color: var(--red); }
+  .as-num.blue { color: var(--blue); }
+  .as-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 4px; }
+
+  /* =========== DESYNCS =========== */
+  .desync-list { display: flex; flex-direction: column; gap: 12px; }
+  .desync-item {
+    border: 1px solid var(--yellow-border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, var(--yellow-bg), transparent 70%), var(--bg-1);
+  }
+  .ds-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 10px var(--yellow); }
+  .ds-code { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--yellow); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; }
+  .ds-task { font-size: 16px; font-weight: 600; margin: 0 0 8px 0; }
+  .ds-table { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 8px 0 12px 0; font-size: 13.5px; }
+  .ds-k { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 3px; }
+  .ds-v { color: var(--text-dim); line-height: 1.5; }
+  .ds-v strong { color: var(--text); }
+  .ds-propo {
+    padding: 10px 12px;
+    background: var(--bg-2); border-radius: 8px;
+    font-size: 13px; color: var(--text-dim);
+    border-left: 3px solid var(--yellow);
+  }
+  .ds-propo strong { color: var(--text); }
+
+  /* =========== VELOCITE =========== */
+  .velocity-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    background: var(--bg-1);
+  }
+  .vel-row { display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px solid var(--border-subtle); }
+  .vel-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .vel-row:first-child { padding-top: 0; }
+  .vel-top { display: flex; align-items: baseline; gap: 10px; }
+  .vel-name { font-size: 14px; font-weight: 600; flex: 1; }
+  .vel-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); font-weight: 700; }
+  .vel-avg { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); }
+  .vel-arrow { font-size: 12px; font-weight: 700; }
+  .vel-arrow.up { color: var(--green); }
+  .vel-arrow.down { color: var(--yellow); }
+  .vel-bar {
+    height: 8px; border-radius: 4px;
+    background: var(--bg-3); overflow: hidden; position: relative;
+  }
+  .vel-fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    box-shadow: 0 0 12px rgba(96,165,250,0.30);
+  }
+  .vel-fill.down { background: linear-gradient(90deg, var(--yellow), var(--orange)); box-shadow: 0 0 12px rgba(250,204,21,0.25); }
+
+  /* =========== DECISIONS =========== */
+  .dec-list { display: flex; flex-direction: column; gap: 10px; }
+  .dec-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(96,165,250,0.04), transparent 80%), var(--bg-1);
+  }
+  .dec-code {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    padding: 4px 10px;
+    background: var(--bg-3);
+    color: var(--blue);
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .dec-body { flex: 1; }
+  .dec-title { font-size: 14.5px; font-weight: 600; margin: 0 0 2px 0; }
+  .dec-why { font-size: 13px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+
+  /* =========== BLOCAGES =========== */
+  .blk-list { display: flex; flex-direction: column; gap: 10px; }
+  .blk-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-1);
+  }
+  .blk-item.red    { border-color: var(--red-border); background: linear-gradient(135deg, var(--red-bg), transparent 60%), var(--bg-1); }
+  .blk-item.yellow { border-color: var(--yellow-border); background: linear-gradient(135deg, var(--yellow-bg), transparent 60%), var(--bg-1); }
+  .blk-badge {
+    flex-shrink: 0;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-3); display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .blk-title { font-size: 14.5px; font-weight: 600; margin: 0 0 3px 0; }
+  .blk-desc { font-size: 13.5px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+
+  /* =========== IDEES =========== */
+  .ideas-list { display: flex; flex-direction: column; gap: 10px; }
+  .idea-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(192,132,252,0.04), transparent 80%), var(--bg-1);
+  }
+  .idea-bullet { color: var(--purple); font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .idea-title { font-size: 14.5px; font-weight: 600; margin: 0; }
+  .idea-desc { font-size: 13px; color: var(--text-dim); margin: 2px 0 0 0; line-height: 1.5; }
+
+  /* =========== CAP S16 =========== */
+  .cap-card {
+    border: 1px solid var(--blue-border);
+    border-radius: 16px;
+    padding: 24px 26px;
+    background: linear-gradient(135deg, var(--blue-bg), transparent 70%), var(--bg-1);
+  }
+  .cap-direction {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--blue); font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .cap-big { font-size: 20px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; letter-spacing: -0.01em; }
+  .cap-why { color: var(--text-dim); font-size: 14px; margin: 0 0 18px 0; line-height: 1.55; }
+  .cap-stones {
+    display: flex; flex-direction: column; gap: 12px;
+    padding-top: 16px; border-top: 1px solid var(--border-subtle);
+  }
+  .cap-stone { display: flex; gap: 14px; align-items: flex-start; }
+  .cap-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg-3); border: 1px solid var(--blue-border);
+    color: var(--blue); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cap-text { font-size: 14px; line-height: 1.5; color: var(--text); flex: 1; }
+  .cap-text strong { font-weight: 600; }
+  .cap-text .muted { color: var(--text-dim); font-size: 13px; display: block; margin-top: 2px; }
+
+  /* =========== CTA FINAL =========== */
+  .cta-final {
+    border: 2px solid var(--green-border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    background: linear-gradient(135deg, var(--green-bg), transparent 70%), var(--bg-1);
+    box-shadow: 0 0 40px rgba(74,222,128,0.08);
+  }
+  .cta-kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--green); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .cta-arrow { color: var(--green); font-size: 16px; }
+  .cta-question { font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; letter-spacing: -0.01em; }
+  .cta-alt { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.55; }
+  .cta-alt strong { color: var(--text); font-weight: 600; }
+
+  /* =========== FOOTER =========== */
+  .footer {
+    margin-top: 10px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============== HEADER ============== -->
+  <div>
+    <div class="kicker">
+      <span class="dot"></span>
+      <span>Synthese hebdo · Foundation OS · Semaine 15</span>
+    </div>
+    <h1 class="page-title">La semaine ou le Design System a fait son retour.</h1>
+    <p class="page-subtitle">Du lundi 7 au dimanche 13 avril 2026 · cloture vendredi 18:00</p>
+  </div>
+
+  <!-- ============== VERDICT ============== -->
+  <div class="verdict">
+    <div class="verdict-label">🏁 Verdict de la semaine</div>
+    <h2 class="verdict-status">Grosse semaine DS. Mais une dette visible tire l'OS vers le jaune.</h2>
+    <p class="verdict-sub">Tu as reconstruit 46 composants shadcn, pose des tokens DTCG propres, ecrit 23 tests, refactor l'app Builder avec Figma Make, et stabilise le protocole Cowork/CLI en parallele. En face, le health-check a fini la semaine en DEGRADED : 51 liens casses accumules dans la doc, personne n'a pris le temps de trier. Bilan : volume eleve, qualite solide, mais une addition qui arrive.</p>
+    <div class="verdict-stats">
+      <div class="vstat"><div class="vs-num green">46</div><div class="vs-label">Composants DS</div></div>
+      <div class="vstat"><div class="vs-num green">23</div><div class="vs-label">Tests ecrits</div></div>
+      <div class="vstat"><div class="vs-num blue">12</div><div class="vs-label">Commits</div></div>
+      <div class="vstat"><div class="vs-num yellow">51</div><div class="vs-label">Refs cassees</div></div>
+    </div>
+  </div>
+
+  <!-- ============== TRENDLINE SANTE ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🫀</div>
+      <div>
+        <h2 class="section-title">Ou en est ta sante OS sur 7 jours ?</h2>
+        <p class="section-sub">Un coup d'oeil jour par jour. Vert = tout va bien. Jaune = degrade, pas bloquant. Le week-end n'est pas mesure, tu ne bosses pas.</p>
+      </div>
+    </div>
+
+    <div class="trend-card">
+      <div class="trend-days">
+        <div class="trend-day"><div class="td-label">Lun</div><div class="td-bar green">🟢</div><div class="td-date">07</div></div>
+        <div class="trend-day"><div class="td-label">Mar</div><div class="td-bar green">🟢</div><div class="td-date">08</div></div>
+        <div class="trend-day"><div class="td-label">Mer</div><div class="td-bar green">🟢</div><div class="td-date">09</div></div>
+        <div class="trend-day"><div class="td-label">Jeu</div><div class="td-bar yellow">🟡</div><div class="td-date">10</div></div>
+        <div class="trend-day"><div class="td-label">Ven</div><div class="td-bar yellow">🟡</div><div class="td-date">11</div></div>
+        <div class="trend-day"><div class="td-label">Sam</div><div class="td-bar empty">—</div><div class="td-date">12</div></div>
+        <div class="trend-day"><div class="td-label">Dim</div><div class="td-bar empty">—</div><div class="td-date">13</div></div>
+      </div>
+      <div class="trend-conclusion">
+        <span class="trend-arrow">▼ Degradation</span>
+        <p class="trend-explain">Tout etait vert lundi a mercredi. A partir de jeudi, les refs cassees se sont accumulees (41 → 51) et le health est passe jaune. Rien de critique, mais la courbe va dans le mauvais sens si on ne traite pas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DONE ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">✅</div>
+      <div>
+        <h2 class="section-title">Ce que tu as livre cette semaine.</h2>
+        <p class="section-sub">Regroupe par theme pour que tu voies d'un coup d'oeil ou est partie l'energie. Trois gros blocs : Design System, App Builder, Core OS.</p>
+      </div>
+    </div>
+
+    <div class="done-grid">
+      <div class="done-theme ds">
+        <div class="dt-head">
+          <span class="dt-tag ds">🎨 Design System</span>
+          <span class="dt-count">4 gros chantiers</span>
+        </div>
+        <p class="dt-headline">Reconstruction complete du DS, from scratch, shadcn propre.</p>
+        <ul class="dt-list">
+          <li>Rebuild integral : 46 composants shadcn integres et valides</li>
+          <li>Tokens DTCG 2-tier (primitives + semantic), API stable</li>
+          <li>Feuilles F1 a F9 : migration code, Biome clean, 23 tests verts</li>
+          <li>Storybook S1, blocs 1 a 3 : 19 stories Form + Feedback</li>
+        </ul>
+      </div>
+      <div class="done-theme app">
+        <div class="dt-head">
+          <span class="dt-tag app">📱 App Builder</span>
+          <span class="dt-count">3 chantiers</span>
+        </div>
+        <p class="dt-headline">UI refactor complet sur Figma Make, zero legacy inline.</p>
+        <ul class="dt-list">
+          <li>DashboardLayout reconstruit sur la base Figma Make</li>
+          <li>5 pages restyles en glassmorphism Void Glass</li>
+          <li>0 inline styles legacy : tout passe par tokens DS</li>
+        </ul>
+      </div>
+      <div class="done-theme core">
+        <div class="dt-head">
+          <span class="dt-tag core">⚙️ Core OS &amp; Cowork</span>
+          <span class="dt-count">2 chantiers structurants</span>
+        </div>
+        <p class="dt-headline">L'architecture parallele CLI / Cowork s'est enfin stabilisee.</p>
+        <ul class="dt-list">
+          <li>Ownership strict CONTEXT.md (CLI) / COWORK-CONTEXT.md (Cowork)</li>
+          <li>Protocole anti-compactage a 3 couches, teste sur compactage reel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== ASANA ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">📋</div>
+      <div>
+        <h2 class="section-title">L'etat reel de ton projet Asana.</h2>
+        <p class="section-sub">Vue synthetique sur le projet Foundation OS — Setup. Pour le detail, Asana reste la source. Ici juste l'essentiel.</p>
+      </div>
+    </div>
+
+    <div class="asana-stats-card">
+      <p class="as-lead">Tu as <strong>coche 2 taches</strong> cette semaine. Il en reste <strong>4 sur 22</strong> (soit 18 %). <strong>1 en retard</strong>, <strong>2 dues la semaine prochaine</strong>. Progression lente mais attention : plusieurs taches sont probablement deja faites dans le code sans etre cochees (voir section Desyncs juste apres).</p>
+      <div class="as-grid">
+        <div class="as-cell"><div class="as-num green">+2</div><div class="as-label">Completees S15</div></div>
+        <div class="as-cell"><div class="as-num yellow">4 / 22</div><div class="as-label">Restantes (18 %)</div></div>
+        <div class="as-cell"><div class="as-num red">1</div><div class="as-label">En retard</div></div>
+        <div class="as-cell"><div class="as-num blue">2</div><div class="as-label">Due S16</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DESYNCS ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">⚠️</div>
+      <div>
+        <h2 class="section-title">Deux desyncs Asana attendent ton arbitrage.</h2>
+        <p class="section-sub">Ces taches sont probablement finies dans le repo, mais Asana ne le sait pas. Je ne coche rien tant que tu n'as pas valide — regle non-negociable.</p>
+      </div>
+    </div>
+
+    <div class="desync-list">
+      <div class="desync-item">
+        <div class="ds-head">
+          <span class="ds-dot"></span>
+          <span class="ds-code">e19 · Deploy Vercel</span>
+        </div>
+        <p class="ds-task">Deploy Vercel avec URL permanente.</p>
+        <div class="ds-table">
+          <div class="ds-k">Asana</div><div class="ds-v">Non cochee · due le 2026-04-14</div>
+          <div class="ds-k">Reel</div><div class="ds-v"><strong>foundation-os.vercel.app</strong> repond en live depuis plusieurs jours. CONTEXT confirme le deploy.</div>
+        </div>
+        <div class="ds-propo"><strong>Proposition :</strong> cocher e19. Valide ?</div>
+      </div>
+      <div class="desync-item">
+        <div class="ds-head">
+          <span class="ds-dot"></span>
+          <span class="ds-code">e20 · Build page Commander</span>
+        </div>
+        <p class="ds-task">Build page Commander (base).</p>
+        <div class="ds-table">
+          <div class="ds-k">Asana</div><div class="ds-v">Non cochee · due le 2026-04-16</div>
+          <div class="ds-k">Reel</div><div class="ds-v">La page <strong>Commander</strong> existe, header gradient, 6 panels, tests OK. Commit <strong>5418f35</strong>.</div>
+        </div>
+        <div class="ds-propo"><strong>Proposition :</strong> cocher e20. Valide ?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== VELOCITE ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">📈</div>
+      <div>
+        <h2 class="section-title">Le rythme que tu as tenu cette semaine.</h2>
+        <p class="section-sub">Sessions, commits, blocs de plan executes. Compare a la moyenne des quatre dernieres semaines. Plus la barre est pleine, plus le rythme est haut.</p>
+      </div>
+    </div>
+
+    <div class="velocity-card">
+      <div class="vel-row">
+        <div class="vel-top">
+          <span class="vel-name">Sessions de travail</span>
+          <span class="vel-num">8</span>
+          <span class="vel-avg">(moy 7)</span>
+          <span class="vel-arrow up">▲</span>
+        </div>
+        <div class="vel-bar"><div class="vel-fill" style="width: 67%;"></div></div>
+      </div>
+      <div class="vel-row">
+        <div class="vel-top">
+          <span class="vel-name">Commits</span>
+          <span class="vel-num">12</span>
+          <span class="vel-avg">(moy 9)</span>
+          <span class="vel-arrow up">▲</span>
+        </div>
+        <div class="vel-bar"><div class="vel-fill" style="width: 83%;"></div></div>
+      </div>
+      <div class="vel-row">
+        <div class="vel-top">
+          <span class="vel-name">Blocs de plan executes</span>
+          <span class="vel-num">3</span>
+          <span class="vel-avg">(moy 5)</span>
+          <span class="vel-arrow down">▼</span>
+        </div>
+        <div class="vel-bar"><div class="vel-fill down" style="width: 25%;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DECISIONS ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🧭</div>
+      <div>
+        <h2 class="section-title">Trois decisions actees cette semaine.</h2>
+        <p class="section-sub">Elles sont deja dans CONTEXT.md. Ici juste le rappel court pour que tu te souviennes du raisonnement.</p>
+      </div>
+    </div>
+
+    <div class="dec-list">
+      <div class="dec-item">
+        <div class="dec-code">D-DS-REBUILD</div>
+        <div class="dec-body">
+          <p class="dec-title">Remplacement total du DS par shadcn (Option C, base Figma Make).</p>
+          <p class="dec-why">Tu as choisi de ne pas patcher l'existant mais de repartir sur une base propre. Le cout court terme est paye, le cout long terme est evite.</p>
+        </div>
+      </div>
+      <div class="dec-item">
+        <div class="dec-code">D-WT-01</div>
+        <div class="dec-body">
+          <p class="dec-title">Les worktrees sont integres au Core OS (pas un outil a cote).</p>
+          <p class="dec-why">Decision structurelle : chaque module pourra vivre dans son worktree avec ses propres regles, sans casser la cohesion OS.</p>
+        </div>
+      </div>
+      <div class="dec-item">
+        <div class="dec-code">D-PLAN-01</div>
+        <div class="dec-body">
+          <p class="dec-title">Le Planner MVP sera un wrapper Superplan, pas un build from scratch.</p>
+          <p class="dec-why">Objectif : sortir vite une version fonctionnelle, iterer dessus, eviter de reinventer ce qui marche deja ailleurs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== BLOCAGES ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🚧</div>
+      <div>
+        <h2 class="section-title">Ce qui freine et qui attend une action.</h2>
+        <p class="section-sub">Classe du plus critique au plus lateral. Le rouge tire la sante vers le jaune. Les autres sont des irritants a nettoyer dans un creux.</p>
+      </div>
+    </div>
+
+    <div class="blk-list">
+      <div class="blk-item red">
+        <div class="blk-badge">🔴</div>
+        <div>
+          <p class="blk-title">51 refs cassees dans la doc</p>
+          <p class="blk-desc">Accumulees toute la semaine (41 → 51). Ce sont des travaux-cowork prospectifs qui pointent sur des fichiers inexistants. Cause directe du health jaune. Nettoyable en une session dediee avec le script ref-checker.</p>
+        </div>
+      </div>
+      <div class="blk-item yellow">
+        <div class="blk-badge">📦</div>
+        <div>
+          <p class="blk-title">Bundle a 613 kB (motion + lucide)</p>
+          <p class="blk-desc">Pas critique mais commence a etre lourd pour une page. Candidat au chunking : splitter motion et les icones en lazy. A voir quand on attaquera la perf.</p>
+        </div>
+      </div>
+      <div class="blk-item yellow">
+        <div class="blk-badge">🟡</div>
+        <div>
+          <p class="blk-title">Patchs 2 et 3 en attente cote CLI</p>
+          <p class="blk-desc">Patch 2 sur CLAUDE.md (compteur outils + section parallelisme). Patch 3 sur les commands session-start/session-end (retrait du lock). C'est a ta tete CLI d'appliquer, pas moi.</p>
+        </div>
+      </div>
+      <div class="blk-item">
+        <div class="blk-badge">📧</div>
+        <div>
+          <p class="blk-title">Email confirm Supabase a activer</p>
+          <p class="blk-desc">30 secondes de manip dans le Dashboard Supabase (Auth → Providers → Email). Seul Kevin peut le faire. Traine depuis la phase 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== IDEES ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">💡</div>
+      <div>
+        <h2 class="section-title">Trois idees captees cette semaine.</h2>
+        <p class="section-sub">Elles sont dans le parking, pas dans le cap. Je les remonte juste pour que tu ne les perdes pas.</p>
+      </div>
+    </div>
+
+    <div class="ideas-list">
+      <div class="idea-item">
+        <div class="idea-bullet">▸</div>
+        <div>
+          <p class="idea-title">Agent SDK Anthropic : formalisation du Cortex en natif</p>
+          <p class="idea-desc">Prerequis : SDK mature + phase d'evaluation. En parking jusqu'a ce que les deux conditions soient reunies.</p>
+        </div>
+      </div>
+      <div class="idea-item">
+        <div class="idea-bullet">▸</div>
+        <div>
+          <p class="idea-title">MCP custom pour CONTEXT.md : anti-compactage a la demande</p>
+          <p class="idea-desc">L'idee : un MCP qui sert le CONTEXT en morceaux cibles plutot qu'en bloc entier. Reduirait le risque de compactage en longue session.</p>
+        </div>
+      </div>
+      <div class="idea-item">
+        <div class="idea-bullet">🔮</div>
+        <div>
+          <p class="idea-title">modules/shared : extraction auth + DB en module commun</p>
+          <p class="idea-desc">Quand Finance et Sante demarreront, il faudra mutualiser. Pas encore le moment, mais l'idee est posee.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== CAP S16 ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🎯</div>
+      <div>
+        <h2 class="section-title">Cap de la semaine prochaine.</h2>
+        <p class="section-sub">Direction + trois cailloux concrets. Pas plus. Le reste attendra la semaine d'apres.</p>
+      </div>
+    </div>
+
+    <div class="cap-card">
+      <div class="cap-direction">▶ Direction S16</div>
+      <p class="cap-big">Finir le Storybook du Design System (blocs 4 a 12).</p>
+      <p class="cap-why">Une fois ces blocs valides, le DS devient documentable automatiquement par Supernova. C'est le pivot qui debloque la suite du plan : Data Display, App Dashboard, handoff Supernova.</p>
+      <div class="cap-stones">
+        <div class="cap-stone">
+          <div class="cap-num">1</div>
+          <div class="cap-text"><strong>Storybook blocs 4 a 7 : Layout et Navigation.</strong><span class="muted">Conteneurs, sidebar, breadcrumb, menus, tabs. Priorite principale.</span></div>
+        </div>
+        <div class="cap-stone">
+          <div class="cap-num">2</div>
+          <div class="cap-text"><strong>Fix les 51 refs cassees pour repasser health vert.</strong><span class="muted">Une session dediee suffit. Sensation satisfaisante, courbe repart dans le bon sens.</span></div>
+        </div>
+        <div class="cap-stone">
+          <div class="cap-num">3</div>
+          <div class="cap-text"><strong>Arbitrer les desyncs Asana e19 et e20.</strong><span class="muted">Tu coches (ou pas), je synchronise apres. Trente secondes, jamais sans ton OK.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== CTA FINAL ============== -->
+  <div class="cta-final">
+    <div class="cta-kicker"><span class="cta-arrow">▶</span> Ta validation attendue</div>
+    <p class="cta-question">Je coche e19 et e20 dans Asana ?</p>
+    <p class="cta-alt"><strong>Rappel :</strong> regle non-negociable, je ne coche aucune tache Asana sans ton OK explicite. Reponds oui / non / on en parle, et je declenche (ou pas) la synchro.</p>
+  </div>
+
+  <!-- ============== FOOTER ============== -->
+  <div class="footer">
+    Genere depuis CONTEXT.md · COWORK-CONTEXT.md · git log --since="7 days ago" · health-check.sh · Asana projet 1213918098666338
+  </div>
+
+</div>
+</body>
+</html>

@@ -7,7 +7,7 @@ tags:
   - trading
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Domaine : trading

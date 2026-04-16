@@ -7,7 +7,7 @@ tags:
   - design
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Domaine : design

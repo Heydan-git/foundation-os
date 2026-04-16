@@ -1,0 +1,1754 @@
+{
+  "accordion": [
+    {
+      "lineEnd": 42,
+      "lineStart": 18,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Accordion type=\"single\" collapsible className=\"w-80\">\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger>What is Foundation OS?</AccordionTrigger>\n        <AccordionContent>\n          An AI-driven personal operating system with modular workspaces.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-2\">\n        <AccordionTrigger>What modules are available?</AccordionTrigger>\n        <AccordionContent>\n          App Builder is active. Finance and Health are planned.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-3\">\n        <AccordionTrigger>What is the design system?</AccordionTrigger>\n        <AccordionContent>\n          Void Glass — a dark-only design system built on shadcn/ui.\n        </AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/accordion.stories.tsx"
+    },
+    {
+      "lineEnd": 42,
+      "lineStart": 18,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Accordion type=\"single\" collapsible className=\"w-80\">\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger>What is Foundation OS?</AccordionTrigger>\n        <AccordionContent>\n          An AI-driven personal operating system with modular workspaces.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-2\">\n        <AccordionTrigger>What modules are available?</AccordionTrigger>\n        <AccordionContent>\n          App Builder is active. Finance and Health are planned.\n        </AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-3\">\n        <AccordionTrigger>What is the design system?</AccordionTrigger>\n        <AccordionContent>\n          Void Glass — a dark-only design system built on shadcn/ui.\n        </AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/accordion.stories.tsx"
+    },
+    {
+      "lineEnd": 60,
+      "lineStart": 43,
+      "snippet": "export const Multiple: Story = {\n  render: () => (\n    <Accordion type=\"multiple\" className=\"w-80\">\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger>Section one</AccordionTrigger>\n        <AccordionContent>Content for section one.</AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-2\">\n        <AccordionTrigger>Section two</AccordionTrigger>\n        <AccordionContent>Content for section two.</AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-3\">\n        <AccordionTrigger>Section three</AccordionTrigger>\n        <AccordionContent>Content for section three.</AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  ),\n}",
+      "storyName": "Multiple",
+      "storyPath": "src/components/ui/accordion.stories.tsx"
+    },
+    {
+      "lineEnd": 60,
+      "lineStart": 43,
+      "snippet": "export const Multiple: Story = {\n  render: () => (\n    <Accordion type=\"multiple\" className=\"w-80\">\n      <AccordionItem value=\"item-1\">\n        <AccordionTrigger>Section one</AccordionTrigger>\n        <AccordionContent>Content for section one.</AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-2\">\n        <AccordionTrigger>Section two</AccordionTrigger>\n        <AccordionContent>Content for section two.</AccordionContent>\n      </AccordionItem>\n      <AccordionItem value=\"item-3\">\n        <AccordionTrigger>Section three</AccordionTrigger>\n        <AccordionContent>Content for section three.</AccordionContent>\n      </AccordionItem>\n    </Accordion>\n  ),\n}",
+      "storyName": "Multiple",
+      "storyPath": "src/components/ui/accordion.stories.tsx"
+    }
+  ],
+  "alert-dialog": [
+    {
+      "lineEnd": 44,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <AlertDialog>\n      <AlertDialogTrigger asChild>\n        <Button variant=\"outline\">Delete account</Button>\n      </AlertDialogTrigger>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This action cannot be undone. This will permanently delete your account and remove your data from our servers.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel>Cancel</AlertDialogCancel>\n          <AlertDialogAction>Continue</AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/alert-dialog.stories.tsx"
+    },
+    {
+      "lineEnd": 44,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <AlertDialog>\n      <AlertDialogTrigger asChild>\n        <Button variant=\"outline\">Delete account</Button>\n      </AlertDialogTrigger>\n      <AlertDialogContent>\n        <AlertDialogHeader>\n          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>\n          <AlertDialogDescription>\n            This action cannot be undone. This will permanently delete your account and remove your data from our servers.\n          </AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel>Cancel</AlertDialogCancel>\n          <AlertDialogAction>Continue</AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/alert-dialog.stories.tsx"
+    }
+  ],
+  "alert": [
+    {
+      "lineEnd": 23,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Alert>\n      <Terminal className=\"size-4\" />\n      <AlertTitle>Heads up!</AlertTitle>\n      <AlertDescription>You can add components to your app using the CLI.</AlertDescription>\n    </Alert>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/alert.stories.tsx"
+    },
+    {
+      "lineEnd": 23,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Alert>\n      <Terminal className=\"size-4\" />\n      <AlertTitle>Heads up!</AlertTitle>\n      <AlertDescription>You can add components to your app using the CLI.</AlertDescription>\n    </Alert>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/alert.stories.tsx"
+    },
+    {
+      "lineEnd": 32,
+      "lineStart": 24,
+      "snippet": "export const Destructive: Story = {\n  render: () => (\n    <Alert variant=\"destructive\">\n      <AlertCircle className=\"size-4\" />\n      <AlertTitle>Error</AlertTitle>\n      <AlertDescription>Your session has expired. Please log in again.</AlertDescription>\n    </Alert>\n  ),\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/alert.stories.tsx"
+    },
+    {
+      "lineEnd": 32,
+      "lineStart": 24,
+      "snippet": "export const Destructive: Story = {\n  render: () => (\n    <Alert variant=\"destructive\">\n      <AlertCircle className=\"size-4\" />\n      <AlertTitle>Error</AlertTitle>\n      <AlertDescription>Your session has expired. Please log in again.</AlertDescription>\n    </Alert>\n  ),\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/alert.stories.tsx"
+    }
+  ],
+  "aspect-ratio": [
+    {
+      "lineEnd": 25,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"w-72\">\n      <AspectRatio ratio={16 / 9} className=\"overflow-hidden rounded-md\">\n        <img\n          src=\"https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80\"\n          alt=\"Landscape placeholder\"\n          className=\"h-full w-full object-cover\"\n        />\n      </AspectRatio>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/aspect-ratio.stories.tsx"
+    },
+    {
+      "lineEnd": 25,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"w-72\">\n      <AspectRatio ratio={16 / 9} className=\"overflow-hidden rounded-md\">\n        <img\n          src=\"https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80\"\n          alt=\"Landscape placeholder\"\n          className=\"h-full w-full object-cover\"\n        />\n      </AspectRatio>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/aspect-ratio.stories.tsx"
+    }
+  ],
+  "avatar": [
+    {
+      "lineEnd": 21,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Avatar>\n      <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"shadcn\" />\n      <AvatarFallback>KN</AvatarFallback>\n    </Avatar>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    },
+    {
+      "lineEnd": 21,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Avatar>\n      <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"shadcn\" />\n      <AvatarFallback>KN</AvatarFallback>\n    </Avatar>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 22,
+      "snippet": "export const WithFallback: Story = {\n  render: () => (\n    <Avatar>\n      <AvatarImage src=\"https://404.example.com/avatar.png\" alt=\"broken\" />\n      <AvatarFallback>KN</AvatarFallback>\n    </Avatar>\n  ),\n}",
+      "storyName": "WithFallback",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 22,
+      "snippet": "export const WithFallback: Story = {\n  render: () => (\n    <Avatar>\n      <AvatarImage src=\"https://404.example.com/avatar.png\" alt=\"broken\" />\n      <AvatarFallback>KN</AvatarFallback>\n    </Avatar>\n  ),\n}",
+      "storyName": "WithFallback",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    },
+    {
+      "lineEnd": 48,
+      "lineStart": 31,
+      "snippet": "export const Sizes: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-4\">\n      <Avatar className=\"h-8 w-8\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"small\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"h-12 w-12\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"medium\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"h-16 w-16\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"large\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n    </div>\n  ),\n}",
+      "storyName": "Sizes",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    },
+    {
+      "lineEnd": 48,
+      "lineStart": 31,
+      "snippet": "export const Sizes: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-4\">\n      <Avatar className=\"h-8 w-8\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"small\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"h-12 w-12\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"medium\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"h-16 w-16\">\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"large\" />\n        <AvatarFallback>KN</AvatarFallback>\n      </Avatar>\n    </div>\n  ),\n}",
+      "storyName": "Sizes",
+      "storyPath": "src/components/ui/avatar.stories.tsx"
+    }
+  ],
+  "badge": [
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Badge' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Badge' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Secondary: Story = {\n  args: { children: 'Secondary', variant: 'secondary' },\n}",
+      "storyName": "Secondary",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Secondary: Story = {\n  args: { children: 'Secondary', variant: 'secondary' },\n}",
+      "storyName": "Secondary",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 21,
+      "snippet": "export const Destructive: Story = {\n  args: { children: 'Destructive', variant: 'destructive' },\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 21,
+      "snippet": "export const Destructive: Story = {\n  args: { children: 'Destructive', variant: 'destructive' },\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 38,
+      "lineStart": 29,
+      "snippet": "export const AllVariants: Story = {\n  render: () => (\n    <div className=\"flex flex-wrap gap-4\">\n      <Badge variant=\"default\">Default</Badge>\n      <Badge variant=\"secondary\">Secondary</Badge>\n      <Badge variant=\"destructive\">Destructive</Badge>\n      <Badge variant=\"outline\">Outline</Badge>\n    </div>\n  ),\n}",
+      "storyName": "AllVariants",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    },
+    {
+      "lineEnd": 38,
+      "lineStart": 29,
+      "snippet": "export const AllVariants: Story = {\n  render: () => (\n    <div className=\"flex flex-wrap gap-4\">\n      <Badge variant=\"default\">Default</Badge>\n      <Badge variant=\"secondary\">Secondary</Badge>\n      <Badge variant=\"destructive\">Destructive</Badge>\n      <Badge variant=\"outline\">Outline</Badge>\n    </div>\n  ),\n}",
+      "storyName": "AllVariants",
+      "storyPath": "src/components/ui/badge.stories.tsx"
+    }
+  ],
+  "breadcrumb": [
+    {
+      "lineEnd": 38,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Components</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Button</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/breadcrumb.stories.tsx"
+    },
+    {
+      "lineEnd": 38,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"#\">Components</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Button</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/breadcrumb.stories.tsx"
+    }
+  ],
+  "button": [
+    {
+      "lineEnd": 27,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Button' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Button' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Destructive: Story = {\n  args: { children: 'Delete', variant: 'destructive' },\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Destructive: Story = {\n  args: { children: 'Delete', variant: 'destructive' },\n}",
+      "storyName": "Destructive",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 32,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 32,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 36,
+      "snippet": "export const Secondary: Story = {\n  args: { children: 'Secondary', variant: 'secondary' },\n}",
+      "storyName": "Secondary",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 36,
+      "snippet": "export const Secondary: Story = {\n  args: { children: 'Secondary', variant: 'secondary' },\n}",
+      "storyName": "Secondary",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 40,
+      "snippet": "export const Ghost: Story = {\n  args: { children: 'Ghost', variant: 'ghost' },\n}",
+      "storyName": "Ghost",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 40,
+      "snippet": "export const Ghost: Story = {\n  args: { children: 'Ghost', variant: 'ghost' },\n}",
+      "storyName": "Ghost",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 44,
+      "snippet": "export const Link: Story = {\n  args: { children: 'Link', variant: 'link' },\n}",
+      "storyName": "Link",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 44,
+      "snippet": "export const Link: Story = {\n  args: { children: 'Link', variant: 'link' },\n}",
+      "storyName": "Link",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 48,
+      "snippet": "export const Small: Story = {\n  args: { children: 'Small', size: 'sm' },\n}",
+      "storyName": "Small",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 48,
+      "snippet": "export const Small: Story = {\n  args: { children: 'Small', size: 'sm' },\n}",
+      "storyName": "Small",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 55,
+      "lineStart": 52,
+      "snippet": "export const Large: Story = {\n  args: { children: 'Large', size: 'lg' },\n}",
+      "storyName": "Large",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 55,
+      "lineStart": 52,
+      "snippet": "export const Large: Story = {\n  args: { children: 'Large', size: 'lg' },\n}",
+      "storyName": "Large",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 59,
+      "lineStart": 56,
+      "snippet": "export const Disabled: Story = {\n  args: { children: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 59,
+      "lineStart": 56,
+      "snippet": "export const Disabled: Story = {\n  args: { children: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 68,
+      "lineStart": 60,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Button disabled>\n      <Loader2 className=\"animate-spin mr-2 h-4 w-4\" />\n      Chargement...\n    </Button>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 68,
+      "lineStart": 60,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Button disabled>\n      <Loader2 className=\"animate-spin mr-2 h-4 w-4\" />\n      Chargement...\n    </Button>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 77,
+      "lineStart": 69,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <Button>\n      <Plus className=\"mr-2 h-4 w-4\" />\n      Nouveau\n    </Button>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 77,
+      "lineStart": 69,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <Button>\n      <Plus className=\"mr-2 h-4 w-4\" />\n      Nouveau\n    </Button>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 89,
+      "lineStart": 78,
+      "snippet": "export const AllVariants: Story = {\n  render: () => (\n    <div className=\"flex flex-wrap gap-4\">\n      <Button variant=\"default\">Default</Button>\n      <Button variant=\"destructive\">Destructive</Button>\n      <Button variant=\"outline\">Outline</Button>\n      <Button variant=\"secondary\">Secondary</Button>\n      <Button variant=\"ghost\">Ghost</Button>\n      <Button variant=\"link\">Link</Button>\n    </div>\n  ),\n}",
+      "storyName": "AllVariants",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    },
+    {
+      "lineEnd": 89,
+      "lineStart": 78,
+      "snippet": "export const AllVariants: Story = {\n  render: () => (\n    <div className=\"flex flex-wrap gap-4\">\n      <Button variant=\"default\">Default</Button>\n      <Button variant=\"destructive\">Destructive</Button>\n      <Button variant=\"outline\">Outline</Button>\n      <Button variant=\"secondary\">Secondary</Button>\n      <Button variant=\"ghost\">Ghost</Button>\n      <Button variant=\"link\">Link</Button>\n    </div>\n  ),\n}",
+      "storyName": "AllVariants",
+      "storyPath": "src/components/ui/button.stories.tsx"
+    }
+  ],
+  "calendar": [
+    {
+      "lineEnd": 25,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => {\n    const [selected, setSelected] = useState<Date | undefined>(undefined)\n    return (\n      <Calendar\n        mode=\"single\"\n        selected={selected}\n        onSelect={setSelected}\n      />\n    )\n  },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/calendar.stories.tsx"
+    },
+    {
+      "lineEnd": 25,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => {\n    const [selected, setSelected] = useState<Date | undefined>(undefined)\n    return (\n      <Calendar\n        mode=\"single\"\n        selected={selected}\n        onSelect={setSelected}\n      />\n    )\n  },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/calendar.stories.tsx"
+    }
+  ],
+  "card": [
+    {
+      "lineEnd": 30,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Card className=\"w-80\">\n      <CardContent>\n        <p className=\"text-sm\">Simple card with text content.</p>\n      </CardContent>\n    </Card>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Card className=\"w-80\">\n      <CardContent>\n        <p className=\"text-sm\">Simple card with text content.</p>\n      </CardContent>\n    </Card>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 31,
+      "snippet": "export const WithForm: Story = {\n  render: () => (\n    <Card className=\"w-80\">\n      <CardHeader>\n        <CardTitle>Account settings</CardTitle>\n        <CardDescription>Update your account preferences here.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <p className=\"text-sm text-muted-foreground\">Content goes here.</p>\n      </CardContent>\n      <CardFooter>\n        <Button size=\"sm\">Save changes</Button>\n      </CardFooter>\n    </Card>\n  ),\n}",
+      "storyName": "WithForm",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 31,
+      "snippet": "export const WithForm: Story = {\n  render: () => (\n    <Card className=\"w-80\">\n      <CardHeader>\n        <CardTitle>Account settings</CardTitle>\n        <CardDescription>Update your account preferences here.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <p className=\"text-sm text-muted-foreground\">Content goes here.</p>\n      </CardContent>\n      <CardFooter>\n        <Button size=\"sm\">Save changes</Button>\n      </CardFooter>\n    </Card>\n  ),\n}",
+      "storyName": "WithForm",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    },
+    {
+      "lineEnd": 65,
+      "lineStart": 48,
+      "snippet": "export const Stats: Story = {\n  render: () => (\n    <div className=\"flex gap-4\">\n      {[\n        { label: 'Projects', value: '12' },\n        { label: 'Tasks', value: '48' },\n        { label: 'Done', value: '36' },\n      ].map((item) => (\n        <Card key={item.label} className=\"w-32\">\n          <CardHeader>\n            <CardDescription>{item.label}</CardDescription>\n            <CardTitle className=\"text-2xl\">{item.value}</CardTitle>\n          </CardHeader>\n        </Card>\n      ))}\n    </div>\n  ),\n}",
+      "storyName": "Stats",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    },
+    {
+      "lineEnd": 65,
+      "lineStart": 48,
+      "snippet": "export const Stats: Story = {\n  render: () => (\n    <div className=\"flex gap-4\">\n      {[\n        { label: 'Projects', value: '12' },\n        { label: 'Tasks', value: '48' },\n        { label: 'Done', value: '36' },\n      ].map((item) => (\n        <Card key={item.label} className=\"w-32\">\n          <CardHeader>\n            <CardDescription>{item.label}</CardDescription>\n            <CardTitle className=\"text-2xl\">{item.value}</CardTitle>\n          </CardHeader>\n        </Card>\n      ))}\n    </div>\n  ),\n}",
+      "storyName": "Stats",
+      "storyPath": "src/components/ui/card.stories.tsx"
+    }
+  ],
+  "carousel": [
+    {
+      "lineEnd": 40,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"flex items-center justify-center px-16\">\n      <Carousel className=\"w-full max-w-sm\">\n        <CarouselContent>\n          {[1, 2, 3, 4, 5].map((item) => (\n            <CarouselItem key={item}>\n              <Card>\n                <CardContent className=\"flex aspect-square items-center justify-center p-6\">\n                  <span className=\"text-4xl font-semibold\">{item}</span>\n                </CardContent>\n              </Card>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n        <CarouselPrevious />\n        <CarouselNext />\n      </Carousel>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/carousel.stories.tsx"
+    },
+    {
+      "lineEnd": 40,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"flex items-center justify-center px-16\">\n      <Carousel className=\"w-full max-w-sm\">\n        <CarouselContent>\n          {[1, 2, 3, 4, 5].map((item) => (\n            <CarouselItem key={item}>\n              <Card>\n                <CardContent className=\"flex aspect-square items-center justify-center p-6\">\n                  <span className=\"text-4xl font-semibold\">{item}</span>\n                </CardContent>\n              </Card>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n        <CarouselPrevious />\n        <CarouselNext />\n      </Carousel>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/carousel.stories.tsx"
+    }
+  ],
+  "checkbox": [
+    {
+      "lineEnd": 15,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 15,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 16,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Checkbox id=\"terms\" />\n      <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 16,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Checkbox id=\"terms\" />\n      <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Checked: Story = {\n  args: { defaultChecked: true },\n}",
+      "storyName": "Checked",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Checked: Story = {\n  args: { defaultChecked: true },\n}",
+      "storyName": "Checked",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 32,
+      "lineStart": 29,
+      "snippet": "export const Disabled: Story = {\n  args: { disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 32,
+      "lineStart": 29,
+      "snippet": "export const Disabled: Story = {\n  args: { disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 36,
+      "lineStart": 33,
+      "snippet": "export const DisabledChecked: Story = {\n  args: { disabled: true, defaultChecked: true },\n}",
+      "storyName": "DisabledChecked",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 36,
+      "lineStart": 33,
+      "snippet": "export const DisabledChecked: Story = {\n  args: { disabled: true, defaultChecked: true },\n}",
+      "storyName": "DisabledChecked",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 37,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"flex flex-col gap-1.5\">\n      <div className=\"flex items-center gap-2\">\n        <Checkbox id=\"cgu\" />\n        <Label htmlFor=\"cgu\" className=\"text-destructive\">J&apos;accepte les CGU</Label>\n      </div>\n      <p className=\"text-sm text-destructive\">Obligatoire</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 37,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"flex flex-col gap-1.5\">\n      <div className=\"flex items-center gap-2\">\n        <Checkbox id=\"cgu\" />\n        <Label htmlFor=\"cgu\" className=\"text-destructive\">J&apos;accepte les CGU</Label>\n      </div>\n      <p className=\"text-sm text-destructive\">Obligatoire</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/checkbox.stories.tsx"
+    }
+  ],
+  "collapsible": [
+    {
+      "lineEnd": 36,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Collapsible className=\"w-72 space-y-2\">\n      <div className=\"flex items-center justify-between\">\n        <span className=\"text-sm font-medium\">Starred repositories</span>\n        <CollapsibleTrigger asChild>\n          <Button variant=\"ghost\" size=\"sm\">Toggle</Button>\n        </CollapsibleTrigger>\n      </div>\n      <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n        @radix-ui/react-collapsible\n      </div>\n      <CollapsibleContent className=\"space-y-2\">\n        <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n          @radix-ui/react-accordion\n        </div>\n        <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n          @radix-ui/react-tabs\n        </div>\n      </CollapsibleContent>\n    </Collapsible>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/collapsible.stories.tsx"
+    },
+    {
+      "lineEnd": 36,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Collapsible className=\"w-72 space-y-2\">\n      <div className=\"flex items-center justify-between\">\n        <span className=\"text-sm font-medium\">Starred repositories</span>\n        <CollapsibleTrigger asChild>\n          <Button variant=\"ghost\" size=\"sm\">Toggle</Button>\n        </CollapsibleTrigger>\n      </div>\n      <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n        @radix-ui/react-collapsible\n      </div>\n      <CollapsibleContent className=\"space-y-2\">\n        <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n          @radix-ui/react-accordion\n        </div>\n        <div className=\"rounded-md border px-4 py-3 text-sm font-mono\">\n          @radix-ui/react-tabs\n        </div>\n      </CollapsibleContent>\n    </Collapsible>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/collapsible.stories.tsx"
+    }
+  ],
+  "command": [
+    {
+      "lineEnd": 44,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Command className=\"rounded-lg border shadow-md w-64\">\n      <CommandInput placeholder=\"Type a command...\" />\n      <CommandList>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem>\n            <Calendar />\n            <span>Calendar</span>\n          </CommandItem>\n          <CommandItem>\n            <Smile />\n            <span>Emoji</span>\n          </CommandItem>\n          <CommandItem>\n            <Calculator />\n            <span>Calculator</span>\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </Command>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/command.stories.tsx"
+    },
+    {
+      "lineEnd": 44,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Command className=\"rounded-lg border shadow-md w-64\">\n      <CommandInput placeholder=\"Type a command...\" />\n      <CommandList>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem>\n            <Calendar />\n            <span>Calendar</span>\n          </CommandItem>\n          <CommandItem>\n            <Smile />\n            <span>Emoji</span>\n          </CommandItem>\n          <CommandItem>\n            <Calculator />\n            <span>Calculator</span>\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </Command>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/command.stories.tsx"
+    },
+    {
+      "lineEnd": 54,
+      "lineStart": 45,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Command className=\"rounded-lg border shadow-md w-64\">\n      <CommandInput placeholder=\"Rechercher...\" />\n      <CommandList>\n        <CommandEmpty>Aucun resultat trouve.</CommandEmpty>\n      </CommandList>\n    </Command>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/command.stories.tsx"
+    },
+    {
+      "lineEnd": 54,
+      "lineStart": 45,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Command className=\"rounded-lg border shadow-md w-64\">\n      <CommandInput placeholder=\"Rechercher...\" />\n      <CommandList>\n        <CommandEmpty>Aucun resultat trouve.</CommandEmpty>\n      </CommandList>\n    </Command>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/command.stories.tsx"
+    }
+  ],
+  "context-menu": [
+    {
+      "lineEnd": 33,
+      "lineStart": 18,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <ContextMenu>\n      <ContextMenuTrigger>\n        <div className=\"flex h-[150px] w-[200px] items-center justify-center rounded-md border border-dashed text-sm\">\n          Right click here\n        </div>\n      </ContextMenuTrigger>\n      <ContextMenuContent>\n        <ContextMenuItem>Profile</ContextMenuItem>\n        <ContextMenuItem>Settings</ContextMenuItem>\n        <ContextMenuItem>Log out</ContextMenuItem>\n      </ContextMenuContent>\n    </ContextMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/context-menu.stories.tsx"
+    },
+    {
+      "lineEnd": 33,
+      "lineStart": 18,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <ContextMenu>\n      <ContextMenuTrigger>\n        <div className=\"flex h-[150px] w-[200px] items-center justify-center rounded-md border border-dashed text-sm\">\n          Right click here\n        </div>\n      </ContextMenuTrigger>\n      <ContextMenuContent>\n        <ContextMenuItem>Profile</ContextMenuItem>\n        <ContextMenuItem>Settings</ContextMenuItem>\n        <ContextMenuItem>Log out</ContextMenuItem>\n      </ContextMenuContent>\n    </ContextMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/context-menu.stories.tsx"
+    }
+  ],
+  "dialog": [
+    {
+      "lineEnd": 53,
+      "lineStart": 25,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Edit Profile</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-[425px]\">\n        <DialogHeader>\n          <DialogTitle>Edit profile</DialogTitle>\n          <DialogDescription>Make changes to your profile here.</DialogDescription>\n        </DialogHeader>\n        <div className=\"grid gap-4 py-4\">\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"name\" className=\"text-right\">Name</Label>\n            <Input id=\"name\" defaultValue=\"Kevin Noel\" className=\"col-span-3\" />\n          </div>\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"username\" className=\"text-right\">Username</Label>\n            <Input id=\"username\" defaultValue=\"@kevin\" className=\"col-span-3\" />\n          </div>\n        </div>\n        <DialogFooter>\n          <Button type=\"submit\">Save changes</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/dialog.stories.tsx"
+    },
+    {
+      "lineEnd": 53,
+      "lineStart": 25,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Edit Profile</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-[425px]\">\n        <DialogHeader>\n          <DialogTitle>Edit profile</DialogTitle>\n          <DialogDescription>Make changes to your profile here.</DialogDescription>\n        </DialogHeader>\n        <div className=\"grid gap-4 py-4\">\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"name\" className=\"text-right\">Name</Label>\n            <Input id=\"name\" defaultValue=\"Kevin Noel\" className=\"col-span-3\" />\n          </div>\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"username\" className=\"text-right\">Username</Label>\n            <Input id=\"username\" defaultValue=\"@kevin\" className=\"col-span-3\" />\n          </div>\n        </div>\n        <DialogFooter>\n          <Button type=\"submit\">Save changes</Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/dialog.stories.tsx"
+    },
+    {
+      "lineEnd": 72,
+      "lineStart": 54,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Dialog defaultOpen>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-[425px]\">\n        <DialogHeader>\n          <DialogTitle>Chargement...</DialogTitle>\n        </DialogHeader>\n        <div className=\"space-y-3 py-4\">\n          <Skeleton className=\"h-4 w-full\" />\n          <Skeleton className=\"h-4 w-full\" />\n          <Skeleton className=\"h-20 w-full\" />\n        </div>\n      </DialogContent>\n    </Dialog>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/dialog.stories.tsx"
+    },
+    {
+      "lineEnd": 72,
+      "lineStart": 54,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Dialog defaultOpen>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DialogTrigger>\n      <DialogContent className=\"sm:max-w-[425px]\">\n        <DialogHeader>\n          <DialogTitle>Chargement...</DialogTitle>\n        </DialogHeader>\n        <div className=\"space-y-3 py-4\">\n          <Skeleton className=\"h-4 w-full\" />\n          <Skeleton className=\"h-4 w-full\" />\n          <Skeleton className=\"h-20 w-full\" />\n        </div>\n      </DialogContent>\n    </Dialog>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/dialog.stories.tsx"
+    }
+  ],
+  "drawer": [
+    {
+      "lineEnd": 51,
+      "lineStart": 23,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Drawer>\n      <DrawerTrigger asChild>\n        <Button variant=\"outline\">Open Drawer</Button>\n      </DrawerTrigger>\n      <DrawerContent>\n        <div className=\"mx-auto w-full max-w-sm\">\n          <DrawerHeader>\n            <DrawerTitle>Move Goal</DrawerTitle>\n            <DrawerDescription>Set your daily activity goal.</DrawerDescription>\n          </DrawerHeader>\n          <div className=\"p-4 pb-0\">\n            <div className=\"flex items-center justify-center space-x-2\">\n              <span className=\"text-7xl font-bold tracking-tighter\">350</span>\n              <span className=\"text-muted-foreground text-sm\">cal/day</span>\n            </div>\n          </div>\n          <DrawerFooter>\n            <Button>Submit</Button>\n            <DrawerClose asChild>\n              <Button variant=\"outline\">Cancel</Button>\n            </DrawerClose>\n          </DrawerFooter>\n        </div>\n      </DrawerContent>\n    </Drawer>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/drawer.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 23,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Drawer>\n      <DrawerTrigger asChild>\n        <Button variant=\"outline\">Open Drawer</Button>\n      </DrawerTrigger>\n      <DrawerContent>\n        <div className=\"mx-auto w-full max-w-sm\">\n          <DrawerHeader>\n            <DrawerTitle>Move Goal</DrawerTitle>\n            <DrawerDescription>Set your daily activity goal.</DrawerDescription>\n          </DrawerHeader>\n          <div className=\"p-4 pb-0\">\n            <div className=\"flex items-center justify-center space-x-2\">\n              <span className=\"text-7xl font-bold tracking-tighter\">350</span>\n              <span className=\"text-muted-foreground text-sm\">cal/day</span>\n            </div>\n          </div>\n          <DrawerFooter>\n            <Button>Submit</Button>\n            <DrawerClose asChild>\n              <Button variant=\"outline\">Cancel</Button>\n            </DrawerClose>\n          </DrawerFooter>\n        </div>\n      </DrawerContent>\n    </Drawer>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/drawer.stories.tsx"
+    }
+  ],
+  "dropdown-menu": [
+    {
+      "lineEnd": 37,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent>\n        <DropdownMenuLabel>My Account</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>Profile</DropdownMenuItem>\n        <DropdownMenuItem>Settings</DropdownMenuItem>\n        <DropdownMenuItem>Log out</DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/dropdown-menu.stories.tsx"
+    },
+    {
+      "lineEnd": 37,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent>\n        <DropdownMenuLabel>My Account</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuItem>Profile</DropdownMenuItem>\n        <DropdownMenuItem>Settings</DropdownMenuItem>\n        <DropdownMenuItem>Log out</DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/dropdown-menu.stories.tsx"
+    },
+    {
+      "lineEnd": 49,
+      "lineStart": 38,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <DropdownMenu defaultOpen>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent>\n        <DropdownMenuLabel>Aucune action disponible</DropdownMenuLabel>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/dropdown-menu.stories.tsx"
+    },
+    {
+      "lineEnd": 49,
+      "lineStart": 38,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <DropdownMenu defaultOpen>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent>\n        <DropdownMenuLabel>Aucune action disponible</DropdownMenuLabel>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/dropdown-menu.stories.tsx"
+    }
+  ],
+  "form": [
+    {
+      "lineEnd": 66,
+      "lineStart": 63,
+      "snippet": "export const Default: Story = {\n  render: () => <FormDemo />,\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    },
+    {
+      "lineEnd": 66,
+      "lineStart": 63,
+      "snippet": "export const Default: Story = {\n  render: () => <FormDemo />,\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    },
+    {
+      "lineEnd": 109,
+      "lineStart": 67,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <div className=\"space-y-4 w-64\">\n      <div className=\"space-y-2\">\n        <Skeleton className=\"h-4 w-20\" />\n        <Skeleton className=\"h-10 w-full\" />\n      </div>\n      <Button type=\"submit\" disabled className=\"w-full\">\n        <Loader2 className=\"mr-2 h-4 w-4 animate-spin\" />\n        Enregistrement...\n      </Button>\n    </div>\n  ),\n}\n\nfunction FormWithErrorDemo() {\n  const form = useForm<z.infer<typeof schema>>({\n    resolver: zodResolver(schema),\n    defaultValues: { username: 'a' },\n  })\n\n  return (\n    <Form {...form}>\n      <form className=\"space-y-4 w-64\">\n        <FormField\n          control={form.control}\n          name=\"username\"\n          render={({ field }) => (\n            <FormItem>\n              <FormLabel>Username</FormLabel>\n              <FormControl>\n                <Input placeholder=\"Enter username\" {...field} />\n              </FormControl>\n              <FormMessage>Username must be at least 2 characters.</FormMessage>\n            </FormItem>\n          )}\n        />\n        <Button type=\"button\" variant=\"outline\">Soumettre</Button>\n      </form>\n    </Form>\n  )\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    },
+    {
+      "lineEnd": 109,
+      "lineStart": 67,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <div className=\"space-y-4 w-64\">\n      <div className=\"space-y-2\">\n        <Skeleton className=\"h-4 w-20\" />\n        <Skeleton className=\"h-10 w-full\" />\n      </div>\n      <Button type=\"submit\" disabled className=\"w-full\">\n        <Loader2 className=\"mr-2 h-4 w-4 animate-spin\" />\n        Enregistrement...\n      </Button>\n    </div>\n  ),\n}\n\nfunction FormWithErrorDemo() {\n  const form = useForm<z.infer<typeof schema>>({\n    resolver: zodResolver(schema),\n    defaultValues: { username: 'a' },\n  })\n\n  return (\n    <Form {...form}>\n      <form className=\"space-y-4 w-64\">\n        <FormField\n          control={form.control}\n          name=\"username\"\n          render={({ field }) => (\n            <FormItem>\n              <FormLabel>Username</FormLabel>\n              <FormControl>\n                <Input placeholder=\"Enter username\" {...field} />\n              </FormControl>\n              <FormMessage>Username must be at least 2 characters.</FormMessage>\n            </FormItem>\n          )}\n        />\n        <Button type=\"button\" variant=\"outline\">Soumettre</Button>\n      </form>\n    </Form>\n  )\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    },
+    {
+      "lineEnd": 112,
+      "lineStart": 110,
+      "snippet": "export const WithError: Story = {\n  render: () => <FormWithErrorDemo />,\n}",
+      "storyName": "WithError",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    },
+    {
+      "lineEnd": 112,
+      "lineStart": 110,
+      "snippet": "export const WithError: Story = {\n  render: () => <FormWithErrorDemo />,\n}",
+      "storyName": "WithError",
+      "storyPath": "src/components/ui/form.stories.tsx"
+    }
+  ],
+  "hover-card": [
+    {
+      "lineEnd": 40,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <HoverCard>\n      <HoverCardTrigger asChild>\n        <Button variant=\"link\">@foundation-os</Button>\n      </HoverCardTrigger>\n      <HoverCardContent className=\"w-80\">\n        <div className=\"flex justify-between space-x-4\">\n          <Avatar>\n            <AvatarImage src=\"https://github.com/shadcn.png\" />\n            <AvatarFallback>FO</AvatarFallback>\n          </Avatar>\n          <div className=\"space-y-1\">\n            <h4 className=\"text-sm font-semibold\">Foundation OS</h4>\n            <p className=\"text-sm\">AI-driven personal operating system.</p>\n            <div className=\"flex items-center pt-2\">\n              <CalendarDays className=\"mr-2 size-4 opacity-70\" />\n              <span className=\"text-muted-foreground text-xs\">Joined April 2026</span>\n            </div>\n          </div>\n        </div>\n      </HoverCardContent>\n    </HoverCard>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/hover-card.stories.tsx"
+    },
+    {
+      "lineEnd": 40,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <HoverCard>\n      <HoverCardTrigger asChild>\n        <Button variant=\"link\">@foundation-os</Button>\n      </HoverCardTrigger>\n      <HoverCardContent className=\"w-80\">\n        <div className=\"flex justify-between space-x-4\">\n          <Avatar>\n            <AvatarImage src=\"https://github.com/shadcn.png\" />\n            <AvatarFallback>FO</AvatarFallback>\n          </Avatar>\n          <div className=\"space-y-1\">\n            <h4 className=\"text-sm font-semibold\">Foundation OS</h4>\n            <p className=\"text-sm\">AI-driven personal operating system.</p>\n            <div className=\"flex items-center pt-2\">\n              <CalendarDays className=\"mr-2 size-4 opacity-70\" />\n              <span className=\"text-muted-foreground text-xs\">Joined April 2026</span>\n            </div>\n          </div>\n        </div>\n      </HoverCardContent>\n    </HoverCard>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/hover-card.stories.tsx"
+    }
+  ],
+  "input-otp": [
+    {
+      "lineEnd": 26,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <InputOTP maxLength={6}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/input-otp.stories.tsx"
+    },
+    {
+      "lineEnd": 26,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <InputOTP maxLength={6}>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/input-otp.stories.tsx"
+    }
+  ],
+  "input": [
+    {
+      "lineEnd": 18,
+      "lineStart": 15,
+      "snippet": "export const Default: Story = {\n  args: { placeholder: 'Enter text...' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 18,
+      "lineStart": 15,
+      "snippet": "export const Default: Story = {\n  args: { placeholder: 'Enter text...' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 19,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label htmlFor=\"email\">Email</Label>\n      <Input type=\"email\" id=\"email\" placeholder=\"Email\" />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 19,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label htmlFor=\"email\">Email</Label>\n      <Input type=\"email\" id=\"email\" placeholder=\"Email\" />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Disabled: Story = {\n  args: { placeholder: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Disabled: Story = {\n  args: { placeholder: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 32,
+      "snippet": "export const WithValue: Story = {\n  args: { defaultValue: 'kevin@foundation-os.dev' },\n}",
+      "storyName": "WithValue",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 32,
+      "snippet": "export const WithValue: Story = {\n  args: { defaultValue: 'kevin@foundation-os.dev' },\n}",
+      "storyName": "WithValue",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 36,
+      "snippet": "export const File: Story = {\n  args: { type: 'file' },\n}",
+      "storyName": "File",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 36,
+      "snippet": "export const File: Story = {\n  args: { type: 'file' },\n}",
+      "storyName": "File",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 48,
+      "lineStart": 40,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Input aria-invalid className=\"border-destructive focus-visible:ring-destructive\" defaultValue=\"invalid@\" />\n      <p className=\"text-sm text-destructive mt-1\">Email invalide</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 48,
+      "lineStart": 40,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Input aria-invalid className=\"border-destructive focus-visible:ring-destructive\" defaultValue=\"invalid@\" />\n      <p className=\"text-sm text-destructive mt-1\">Email invalide</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 56,
+      "lineStart": 49,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <div className=\"relative w-full max-w-sm\">\n      <AlertCircle className=\"absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground\" />\n      <Input className=\"pl-10\" placeholder=\"Search...\" />\n    </div>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    },
+    {
+      "lineEnd": 56,
+      "lineStart": 49,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <div className=\"relative w-full max-w-sm\">\n      <AlertCircle className=\"absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground\" />\n      <Input className=\"pl-10\" placeholder=\"Search...\" />\n    </div>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/input.stories.tsx"
+    }
+  ],
+  "label": [
+    {
+      "lineEnd": 18,
+      "lineStart": 15,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Label text' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    },
+    {
+      "lineEnd": 18,
+      "lineStart": 15,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Label text' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 19,
+      "snippet": "export const WithInput: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label htmlFor=\"name\">Name</Label>\n      <Input id=\"name\" placeholder=\"Your name\" />\n    </div>\n  ),\n}",
+      "storyName": "WithInput",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 19,
+      "snippet": "export const WithInput: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label htmlFor=\"name\">Name</Label>\n      <Input id=\"name\" placeholder=\"Your name\" />\n    </div>\n  ),\n}",
+      "storyName": "WithInput",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 28,
+      "snippet": "export const WithCheckbox: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Checkbox id=\"terms\" />\n      <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithCheckbox",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    },
+    {
+      "lineEnd": 35,
+      "lineStart": 28,
+      "snippet": "export const WithCheckbox: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Checkbox id=\"terms\" />\n      <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithCheckbox",
+      "storyPath": "src/components/ui/label.stories.tsx"
+    }
+  ],
+  "menubar": [
+    {
+      "lineEnd": 40,
+      "lineStart": 19,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Menubar>\n      <MenubarMenu>\n        <MenubarTrigger>File</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>New</MenubarItem>\n          <MenubarItem>Open</MenubarItem>\n          <MenubarItem>Save</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n      <MenubarMenu>\n        <MenubarTrigger>Edit</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>Undo</MenubarItem>\n          <MenubarItem>Redo</MenubarItem>\n          <MenubarItem>Cut</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n    </Menubar>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/menubar.stories.tsx"
+    },
+    {
+      "lineEnd": 40,
+      "lineStart": 19,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Menubar>\n      <MenubarMenu>\n        <MenubarTrigger>File</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>New</MenubarItem>\n          <MenubarItem>Open</MenubarItem>\n          <MenubarItem>Save</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n      <MenubarMenu>\n        <MenubarTrigger>Edit</MenubarTrigger>\n        <MenubarContent>\n          <MenubarItem>Undo</MenubarItem>\n          <MenubarItem>Redo</MenubarItem>\n          <MenubarItem>Cut</MenubarItem>\n        </MenubarContent>\n      </MenubarMenu>\n    </Menubar>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/menubar.stories.tsx"
+    }
+  ],
+  "navigation-menu": [
+    {
+      "lineEnd": 45,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <NavigationMenu>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <div className=\"grid gap-2 p-4 w-48\">\n              <NavigationMenuLink href=\"#\">Introduction</NavigationMenuLink>\n              <NavigationMenuLink href=\"#\">Installation</NavigationMenuLink>\n            </div>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Components</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <div className=\"grid gap-2 p-4 w-48\">\n              <NavigationMenuLink href=\"#\">Button</NavigationMenuLink>\n              <NavigationMenuLink href=\"#\">Dialog</NavigationMenuLink>\n            </div>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/navigation-menu.stories.tsx"
+    },
+    {
+      "lineEnd": 45,
+      "lineStart": 20,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <NavigationMenu>\n      <NavigationMenuList>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <div className=\"grid gap-2 p-4 w-48\">\n              <NavigationMenuLink href=\"#\">Introduction</NavigationMenuLink>\n              <NavigationMenuLink href=\"#\">Installation</NavigationMenuLink>\n            </div>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n        <NavigationMenuItem>\n          <NavigationMenuTrigger>Components</NavigationMenuTrigger>\n          <NavigationMenuContent>\n            <div className=\"grid gap-2 p-4 w-48\">\n              <NavigationMenuLink href=\"#\">Button</NavigationMenuLink>\n              <NavigationMenuLink href=\"#\">Dialog</NavigationMenuLink>\n            </div>\n          </NavigationMenuContent>\n        </NavigationMenuItem>\n      </NavigationMenuList>\n    </NavigationMenu>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/navigation-menu.stories.tsx"
+    }
+  ],
+  "pagination": [
+    {
+      "lineEnd": 47,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Pagination>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious href=\"#\" />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\" isActive>1</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">2</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">3</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationEllipsis />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationNext href=\"#\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/pagination.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Pagination>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious href=\"#\" />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\" isActive>1</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">2</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationLink href=\"#\">3</PaginationLink>\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationEllipsis />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationNext href=\"#\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/pagination.stories.tsx"
+    },
+    {
+      "lineEnd": 61,
+      "lineStart": 48,
+      "snippet": "export const SinglePage: Story = {\n  render: () => (\n    <Pagination>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious aria-disabled=\"true\" className=\"pointer-events-none opacity-50\" />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationNext aria-disabled=\"true\" className=\"pointer-events-none opacity-50\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  ),\n}",
+      "storyName": "SinglePage",
+      "storyPath": "src/components/ui/pagination.stories.tsx"
+    },
+    {
+      "lineEnd": 61,
+      "lineStart": 48,
+      "snippet": "export const SinglePage: Story = {\n  render: () => (\n    <Pagination>\n      <PaginationContent>\n        <PaginationItem>\n          <PaginationPrevious aria-disabled=\"true\" className=\"pointer-events-none opacity-50\" />\n        </PaginationItem>\n        <PaginationItem>\n          <PaginationNext aria-disabled=\"true\" className=\"pointer-events-none opacity-50\" />\n        </PaginationItem>\n      </PaginationContent>\n    </Pagination>\n  ),\n}",
+      "storyName": "SinglePage",
+      "storyPath": "src/components/ui/pagination.stories.tsx"
+    }
+  ],
+  "popover": [
+    {
+      "lineEnd": 42,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">Open popover</Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-80\">\n        <div className=\"grid gap-4\">\n          <div className=\"space-y-2\">\n            <h4 className=\"font-medium leading-none\">Dimensions</h4>\n            <p className=\"text-muted-foreground text-sm\">Set the dimensions for the layer.</p>\n          </div>\n          <div className=\"grid gap-2\">\n            <div className=\"grid grid-cols-3 items-center gap-4\">\n              <Label htmlFor=\"width\">Width</Label>\n              <Input id=\"width\" defaultValue=\"100%\" className=\"col-span-2 h-8\" />\n            </div>\n            <div className=\"grid grid-cols-3 items-center gap-4\">\n              <Label htmlFor=\"height\">Height</Label>\n              <Input id=\"height\" defaultValue=\"25px\" className=\"col-span-2 h-8\" />\n            </div>\n          </div>\n        </div>\n      </PopoverContent>\n    </Popover>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/popover.stories.tsx"
+    },
+    {
+      "lineEnd": 42,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button variant=\"outline\">Open popover</Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-80\">\n        <div className=\"grid gap-4\">\n          <div className=\"space-y-2\">\n            <h4 className=\"font-medium leading-none\">Dimensions</h4>\n            <p className=\"text-muted-foreground text-sm\">Set the dimensions for the layer.</p>\n          </div>\n          <div className=\"grid gap-2\">\n            <div className=\"grid grid-cols-3 items-center gap-4\">\n              <Label htmlFor=\"width\">Width</Label>\n              <Input id=\"width\" defaultValue=\"100%\" className=\"col-span-2 h-8\" />\n            </div>\n            <div className=\"grid grid-cols-3 items-center gap-4\">\n              <Label htmlFor=\"height\">Height</Label>\n              <Input id=\"height\" defaultValue=\"25px\" className=\"col-span-2 h-8\" />\n            </div>\n          </div>\n        </div>\n      </PopoverContent>\n    </Popover>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/popover.stories.tsx"
+    }
+  ],
+  "progress": [
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Zero: Story = {\n  render: () => <Progress value={0} className=\"w-64\" />,\n}",
+      "storyName": "Zero",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    },
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Zero: Story = {\n  render: () => <Progress value={0} className=\"w-64\" />,\n}",
+      "storyName": "Zero",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Half: Story = {\n  render: () => <Progress value={50} className=\"w-64\" />,\n}",
+      "storyName": "Half",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Half: Story = {\n  render: () => <Progress value={50} className=\"w-64\" />,\n}",
+      "storyName": "Half",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    },
+    {
+      "lineEnd": 23,
+      "lineStart": 21,
+      "snippet": "export const Full: Story = {\n  render: () => <Progress value={100} className=\"w-64\" />,\n}",
+      "storyName": "Full",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    },
+    {
+      "lineEnd": 23,
+      "lineStart": 21,
+      "snippet": "export const Full: Story = {\n  render: () => <Progress value={100} className=\"w-64\" />,\n}",
+      "storyName": "Full",
+      "storyPath": "src/components/ui/progress.stories.tsx"
+    }
+  ],
+  "radio-group": [
+    {
+      "lineEnd": 32,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <RadioGroup defaultValue=\"option-1\">\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-1\" id=\"r1\" />\n        <Label htmlFor=\"r1\">Option 1</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-2\" id=\"r2\" />\n        <Label htmlFor=\"r2\">Option 2</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-3\" id=\"r3\" />\n        <Label htmlFor=\"r3\">Option 3</Label>\n      </div>\n    </RadioGroup>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    },
+    {
+      "lineEnd": 32,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <RadioGroup defaultValue=\"option-1\">\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-1\" id=\"r1\" />\n        <Label htmlFor=\"r1\">Option 1</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-2\" id=\"r2\" />\n        <Label htmlFor=\"r2\">Option 2</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-3\" id=\"r3\" />\n        <Label htmlFor=\"r3\">Option 3</Label>\n      </div>\n    </RadioGroup>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 33,
+      "snippet": "export const Disabled: Story = {\n  render: () => (\n    <RadioGroup defaultValue=\"option-1\" disabled>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-1\" id=\"rd1\" />\n        <Label htmlFor=\"rd1\">Option 1</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-2\" id=\"rd2\" />\n        <Label htmlFor=\"rd2\">Option 2</Label>\n      </div>\n    </RadioGroup>\n  ),\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 33,
+      "snippet": "export const Disabled: Story = {\n  render: () => (\n    <RadioGroup defaultValue=\"option-1\" disabled>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-1\" id=\"rd1\" />\n        <Label htmlFor=\"rd1\">Option 1</Label>\n      </div>\n      <div className=\"flex items-center gap-2\">\n        <RadioGroupItem value=\"option-2\" id=\"rd2\" />\n        <Label htmlFor=\"rd2\">Option 2</Label>\n      </div>\n    </RadioGroup>\n  ),\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    },
+    {
+      "lineEnd": 64,
+      "lineStart": 48,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"flex flex-col gap-2\">\n      <RadioGroup>\n        <div className=\"flex items-center gap-2\">\n          <RadioGroupItem value=\"option-1\" id=\"re1\" />\n          <Label htmlFor=\"re1\">Option 1</Label>\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <RadioGroupItem value=\"option-2\" id=\"re2\" />\n          <Label htmlFor=\"re2\">Option 2</Label>\n        </div>\n      </RadioGroup>\n      <p className=\"text-sm text-destructive\">Selection requise</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    },
+    {
+      "lineEnd": 64,
+      "lineStart": 48,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"flex flex-col gap-2\">\n      <RadioGroup>\n        <div className=\"flex items-center gap-2\">\n          <RadioGroupItem value=\"option-1\" id=\"re1\" />\n          <Label htmlFor=\"re1\">Option 1</Label>\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <RadioGroupItem value=\"option-2\" id=\"re2\" />\n          <Label htmlFor=\"re2\">Option 2</Label>\n        </div>\n      </RadioGroup>\n      <p className=\"text-sm text-destructive\">Selection requise</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/radio-group.stories.tsx"
+    }
+  ],
+  "scroll-area": [
+    {
+      "lineEnd": 30,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <ScrollArea className=\"h-48 w-48 rounded-md border\">\n      <div className=\"p-4\">\n        <h4 className=\"mb-4 text-sm font-medium leading-none\">Tags</h4>\n        {tags.map((tag) => (\n          <div key={tag}>\n            <div className=\"text-sm\">{tag}</div>\n            <Separator className=\"my-2\" />\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/scroll-area.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 16,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <ScrollArea className=\"h-48 w-48 rounded-md border\">\n      <div className=\"p-4\">\n        <h4 className=\"mb-4 text-sm font-medium leading-none\">Tags</h4>\n        {tags.map((tag) => (\n          <div key={tag}>\n            <div className=\"text-sm\">{tag}</div>\n            <Separator className=\"my-2\" />\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/scroll-area.stories.tsx"
+    }
+  ],
+  "select": [
+    {
+      "lineEnd": 28,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select a fruit\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectItem value=\"apple\">Apple</SelectItem>\n        <SelectItem value=\"banana\">Banana</SelectItem>\n        <SelectItem value=\"orange\">Orange</SelectItem>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select a fruit\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectItem value=\"apple\">Apple</SelectItem>\n        <SelectItem value=\"banana\">Banana</SelectItem>\n        <SelectItem value=\"orange\">Orange</SelectItem>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 46,
+      "lineStart": 29,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label>Framework</Label>\n      <Select>\n        <SelectTrigger>\n          <SelectValue placeholder=\"Select a framework\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"react\">React</SelectItem>\n          <SelectItem value=\"vue\">Vue</SelectItem>\n          <SelectItem value=\"svelte\">Svelte</SelectItem>\n        </SelectContent>\n      </Select>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 46,
+      "lineStart": 29,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Label>Framework</Label>\n      <Select>\n        <SelectTrigger>\n          <SelectValue placeholder=\"Select a framework\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"react\">React</SelectItem>\n          <SelectItem value=\"vue\">Vue</SelectItem>\n          <SelectItem value=\"svelte\">Svelte</SelectItem>\n        </SelectContent>\n      </Select>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 69,
+      "lineStart": 47,
+      "snippet": "export const WithGroups: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select a timezone\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>North America</SelectLabel>\n          <SelectItem value=\"est\">Eastern (UTC-5)</SelectItem>\n          <SelectItem value=\"cst\">Central (UTC-6)</SelectItem>\n          <SelectItem value=\"pst\">Pacific (UTC-8)</SelectItem>\n        </SelectGroup>\n        <SelectGroup>\n          <SelectLabel>Europe</SelectLabel>\n          <SelectItem value=\"cet\">Central (UTC+1)</SelectItem>\n          <SelectItem value=\"eet\">Eastern (UTC+2)</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "WithGroups",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 69,
+      "lineStart": 47,
+      "snippet": "export const WithGroups: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select a timezone\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>North America</SelectLabel>\n          <SelectItem value=\"est\">Eastern (UTC-5)</SelectItem>\n          <SelectItem value=\"cst\">Central (UTC-6)</SelectItem>\n          <SelectItem value=\"pst\">Pacific (UTC-8)</SelectItem>\n        </SelectGroup>\n        <SelectGroup>\n          <SelectLabel>Europe</SelectLabel>\n          <SelectItem value=\"cet\">Central (UTC+1)</SelectItem>\n          <SelectItem value=\"eet\">Eastern (UTC+2)</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "WithGroups",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 82,
+      "lineStart": 70,
+      "snippet": "export const Disabled: Story = {\n  render: () => (\n    <Select disabled>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Disabled\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectItem value=\"a\">Option A</SelectItem>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 82,
+      "lineStart": 70,
+      "snippet": "export const Disabled: Story = {\n  render: () => (\n    <Select disabled>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Disabled\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectItem value=\"a\">Option A</SelectItem>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 97,
+      "lineStart": 83,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select an option\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Aucun resultat</SelectLabel>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 97,
+      "lineStart": 83,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Select>\n      <SelectTrigger className=\"w-[200px]\">\n        <SelectValue placeholder=\"Select an option\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Aucun resultat</SelectLabel>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 113,
+      "lineStart": 98,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Select>\n        <SelectTrigger className=\"w-full border-destructive\">\n          <SelectValue placeholder=\"Selectionnez une option\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"a\">Option A</SelectItem>\n          <SelectItem value=\"b\">Option B</SelectItem>\n        </SelectContent>\n      </Select>\n      <p className=\"text-sm text-destructive mt-1\">Veuillez selectionner une option</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    },
+    {
+      "lineEnd": 113,
+      "lineStart": 98,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-1.5\">\n      <Select>\n        <SelectTrigger className=\"w-full border-destructive\">\n          <SelectValue placeholder=\"Selectionnez une option\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem value=\"a\">Option A</SelectItem>\n          <SelectItem value=\"b\">Option B</SelectItem>\n        </SelectContent>\n      </Select>\n      <p className=\"text-sm text-destructive mt-1\">Veuillez selectionner une option</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/select.stories.tsx"
+    }
+  ],
+  "separator": [
+    {
+      "lineEnd": 22,
+      "lineStart": 13,
+      "snippet": "export const Horizontal: Story = {\n  render: () => (\n    <div className=\"w-80 space-y-4\">\n      <p className=\"text-sm\">Above the separator</p>\n      <Separator />\n      <p className=\"text-sm\">Below the separator</p>\n    </div>\n  ),\n}",
+      "storyName": "Horizontal",
+      "storyPath": "src/components/ui/separator.stories.tsx"
+    },
+    {
+      "lineEnd": 22,
+      "lineStart": 13,
+      "snippet": "export const Horizontal: Story = {\n  render: () => (\n    <div className=\"w-80 space-y-4\">\n      <p className=\"text-sm\">Above the separator</p>\n      <Separator />\n      <p className=\"text-sm\">Below the separator</p>\n    </div>\n  ),\n}",
+      "storyName": "Horizontal",
+      "storyPath": "src/components/ui/separator.stories.tsx"
+    },
+    {
+      "lineEnd": 33,
+      "lineStart": 23,
+      "snippet": "export const Vertical: Story = {\n  render: () => (\n    <div className=\"flex h-8 items-center gap-4\">\n      <span className=\"text-sm\">Left</span>\n      <Separator orientation=\"vertical\" />\n      <span className=\"text-sm\">Middle</span>\n      <Separator orientation=\"vertical\" />\n      <span className=\"text-sm\">Right</span>\n    </div>\n  ),\n}",
+      "storyName": "Vertical",
+      "storyPath": "src/components/ui/separator.stories.tsx"
+    },
+    {
+      "lineEnd": 33,
+      "lineStart": 23,
+      "snippet": "export const Vertical: Story = {\n  render: () => (\n    <div className=\"flex h-8 items-center gap-4\">\n      <span className=\"text-sm\">Left</span>\n      <Separator orientation=\"vertical\" />\n      <span className=\"text-sm\">Middle</span>\n      <Separator orientation=\"vertical\" />\n      <span className=\"text-sm\">Right</span>\n    </div>\n  ),\n}",
+      "storyName": "Vertical",
+      "storyPath": "src/components/ui/separator.stories.tsx"
+    }
+  ],
+  "sheet": [
+    {
+      "lineEnd": 51,
+      "lineStart": 25,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\">Open Sheet</Button>\n      </SheetTrigger>\n      <SheetContent>\n        <SheetHeader>\n          <SheetTitle>Edit profile</SheetTitle>\n          <SheetDescription>Make changes to your profile here.</SheetDescription>\n        </SheetHeader>\n        <div className=\"grid gap-4 py-4\">\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"sheet-name\" className=\"text-right\">Name</Label>\n            <Input id=\"sheet-name\" defaultValue=\"Kevin Noel\" className=\"col-span-3\" />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose asChild>\n            <Button type=\"submit\">Save changes</Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/sheet.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 25,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\">Open Sheet</Button>\n      </SheetTrigger>\n      <SheetContent>\n        <SheetHeader>\n          <SheetTitle>Edit profile</SheetTitle>\n          <SheetDescription>Make changes to your profile here.</SheetDescription>\n        </SheetHeader>\n        <div className=\"grid gap-4 py-4\">\n          <div className=\"grid grid-cols-4 items-center gap-4\">\n            <Label htmlFor=\"sheet-name\" className=\"text-right\">Name</Label>\n            <Input id=\"sheet-name\" defaultValue=\"Kevin Noel\" className=\"col-span-3\" />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose asChild>\n            <Button type=\"submit\">Save changes</Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/sheet.stories.tsx"
+    },
+    {
+      "lineEnd": 66,
+      "lineStart": 52,
+      "snippet": "export const Left: Story = {\n  render: () => (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\">Open Left</Button>\n      </SheetTrigger>\n      <SheetContent side=\"left\">\n        <SheetHeader>\n          <SheetTitle>Navigation</SheetTitle>\n          <SheetDescription>Browse the app.</SheetDescription>\n        </SheetHeader>\n      </SheetContent>\n    </Sheet>\n  ),\n}",
+      "storyName": "Left",
+      "storyPath": "src/components/ui/sheet.stories.tsx"
+    },
+    {
+      "lineEnd": 66,
+      "lineStart": 52,
+      "snippet": "export const Left: Story = {\n  render: () => (\n    <Sheet>\n      <SheetTrigger asChild>\n        <Button variant=\"outline\">Open Left</Button>\n      </SheetTrigger>\n      <SheetContent side=\"left\">\n        <SheetHeader>\n          <SheetTitle>Navigation</SheetTitle>\n          <SheetDescription>Browse the app.</SheetDescription>\n        </SheetHeader>\n      </SheetContent>\n    </Sheet>\n  ),\n}",
+      "storyName": "Left",
+      "storyPath": "src/components/ui/sheet.stories.tsx"
+    }
+  ],
+  "sidebar": [
+    {
+      "lineEnd": 56,
+      "lineStart": 22,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"h-screen w-64\">\n      <SidebarProvider>\n        <Sidebar collapsible=\"none\">\n          <SidebarContent>\n            <SidebarGroup>\n              <SidebarMenu>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <LayoutDashboard />\n                    <span>Dashboard</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <Users />\n                    <span>Team</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <Settings />\n                    <span>Settings</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n              </SidebarMenu>\n            </SidebarGroup>\n          </SidebarContent>\n        </Sidebar>\n      </SidebarProvider>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/sidebar.stories.tsx"
+    },
+    {
+      "lineEnd": 56,
+      "lineStart": 22,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <div className=\"h-screen w-64\">\n      <SidebarProvider>\n        <Sidebar collapsible=\"none\">\n          <SidebarContent>\n            <SidebarGroup>\n              <SidebarMenu>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <LayoutDashboard />\n                    <span>Dashboard</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <Users />\n                    <span>Team</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n                <SidebarMenuItem>\n                  <SidebarMenuButton>\n                    <Settings />\n                    <span>Settings</span>\n                  </SidebarMenuButton>\n                </SidebarMenuItem>\n              </SidebarMenu>\n            </SidebarGroup>\n          </SidebarContent>\n        </Sidebar>\n      </SidebarProvider>\n    </div>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/sidebar.stories.tsx"
+    },
+    {
+      "lineEnd": 71,
+      "lineStart": 57,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <div className=\"h-screen w-64\">\n      <SidebarProvider>\n        <Sidebar collapsible=\"none\">\n          <SidebarContent>\n            <div className=\"flex h-full items-center justify-center text-muted-foreground\">\n              <span>Aucun projet</span>\n            </div>\n          </SidebarContent>\n        </Sidebar>\n      </SidebarProvider>\n    </div>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/sidebar.stories.tsx"
+    },
+    {
+      "lineEnd": 71,
+      "lineStart": 57,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <div className=\"h-screen w-64\">\n      <SidebarProvider>\n        <Sidebar collapsible=\"none\">\n          <SidebarContent>\n            <div className=\"flex h-full items-center justify-center text-muted-foreground\">\n              <span>Aucun projet</span>\n            </div>\n          </SidebarContent>\n        </Sidebar>\n      </SidebarProvider>\n    </div>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/sidebar.stories.tsx"
+    }
+  ],
+  "skeleton": [
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => <Skeleton className=\"h-4 w-48\" />,\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    },
+    {
+      "lineEnd": 16,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => <Skeleton className=\"h-4 w-48\" />,\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Circle: Story = {\n  render: () => <Skeleton className=\"h-12 w-12 rounded-full\" />,\n}",
+      "storyName": "Circle",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    },
+    {
+      "lineEnd": 20,
+      "lineStart": 17,
+      "snippet": "export const Circle: Story = {\n  render: () => <Skeleton className=\"h-12 w-12 rounded-full\" />,\n}",
+      "storyName": "Circle",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 21,
+      "snippet": "export const CardSkeleton: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-4\">\n      <Skeleton className=\"h-12 w-12 rounded-full\" />\n      <div className=\"space-y-2\">\n        <Skeleton className=\"h-4 w-40\" />\n        <Skeleton className=\"h-4 w-32\" />\n      </div>\n    </div>\n  ),\n}",
+      "storyName": "CardSkeleton",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 21,
+      "snippet": "export const CardSkeleton: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-4\">\n      <Skeleton className=\"h-12 w-12 rounded-full\" />\n      <div className=\"space-y-2\">\n        <Skeleton className=\"h-4 w-40\" />\n        <Skeleton className=\"h-4 w-32\" />\n      </div>\n    </div>\n  ),\n}",
+      "storyName": "CardSkeleton",
+      "storyPath": "src/components/ui/skeleton.stories.tsx"
+    }
+  ],
+  "slider": [
+    {
+      "lineEnd": 17,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  args: { defaultValue: [50], max: 100, step: 1 },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 17,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  args: { defaultValue: [50], max: 100, step: 1 },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 26,
+      "lineStart": 18,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-4\">\n      <Label>Volume</Label>\n      <Slider defaultValue={[75]} max={100} step={1} />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 26,
+      "lineStart": 18,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full max-w-sm gap-4\">\n      <Label>Volume</Label>\n      <Slider defaultValue={[75]} max={100} step={1} />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 27,
+      "snippet": "export const Range: Story = {\n  args: { defaultValue: [25, 75], max: 100, step: 1 },\n}",
+      "storyName": "Range",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 27,
+      "snippet": "export const Range: Story = {\n  args: { defaultValue: [25, 75], max: 100, step: 1 },\n}",
+      "storyName": "Range",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 34,
+      "lineStart": 31,
+      "snippet": "export const Disabled: Story = {\n  args: { defaultValue: [50], max: 100, step: 1, disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 34,
+      "lineStart": 31,
+      "snippet": "export const Disabled: Story = {\n  args: { defaultValue: [50], max: 100, step: 1, disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 37,
+      "lineStart": 35,
+      "snippet": "export const Steps: Story = {\n  args: { defaultValue: [50], max: 100, step: 25 },\n}",
+      "storyName": "Steps",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    },
+    {
+      "lineEnd": 37,
+      "lineStart": 35,
+      "snippet": "export const Steps: Story = {\n  args: { defaultValue: [50], max: 100, step: 25 },\n}",
+      "storyName": "Steps",
+      "storyPath": "src/components/ui/slider.stories.tsx"
+    }
+  ],
+  "switch": [
+    {
+      "lineEnd": 15,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 15,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 16,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Switch id=\"airplane\" />\n      <Label htmlFor=\"airplane\">Airplane Mode</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 24,
+      "lineStart": 16,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"flex items-center gap-2\">\n      <Switch id=\"airplane\" />\n      <Label htmlFor=\"airplane\">Airplane Mode</Label>\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Checked: Story = {\n  args: { defaultChecked: true },\n}",
+      "storyName": "Checked",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 28,
+      "lineStart": 25,
+      "snippet": "export const Checked: Story = {\n  args: { defaultChecked: true },\n}",
+      "storyName": "Checked",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 29,
+      "snippet": "export const Disabled: Story = {\n  args: { disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 29,
+      "snippet": "export const Disabled: Story = {\n  args: { disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/switch.stories.tsx"
+    }
+  ],
+  "table": [
+    {
+      "lineEnd": 62,
+      "lineStart": 22,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell>INV-001</TableCell>\n          <TableCell>Paid</TableCell>\n          <TableCell>Credit Card</TableCell>\n          <TableCell>$250.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-002</TableCell>\n          <TableCell>Pending</TableCell>\n          <TableCell>PayPal</TableCell>\n          <TableCell>$150.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-003</TableCell>\n          <TableCell>Unpaid</TableCell>\n          <TableCell>Bank Transfer</TableCell>\n          <TableCell>$350.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-004</TableCell>\n          <TableCell>Paid</TableCell>\n          <TableCell>Credit Card</TableCell>\n          <TableCell>$450.00</TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    },
+    {
+      "lineEnd": 62,
+      "lineStart": 22,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell>INV-001</TableCell>\n          <TableCell>Paid</TableCell>\n          <TableCell>Credit Card</TableCell>\n          <TableCell>$250.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-002</TableCell>\n          <TableCell>Pending</TableCell>\n          <TableCell>PayPal</TableCell>\n          <TableCell>$150.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-003</TableCell>\n          <TableCell>Unpaid</TableCell>\n          <TableCell>Bank Transfer</TableCell>\n          <TableCell>$350.00</TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell>INV-004</TableCell>\n          <TableCell>Paid</TableCell>\n          <TableCell>Credit Card</TableCell>\n          <TableCell>$450.00</TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    },
+    {
+      "lineEnd": 97,
+      "lineStart": 63,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    },
+    {
+      "lineEnd": 97,
+      "lineStart": 63,
+      "snippet": "export const Loading: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n        <TableRow>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n          <TableCell><Skeleton className=\"h-4 w-full\" /></TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Loading",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    },
+    {
+      "lineEnd": 121,
+      "lineStart": 98,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell colSpan={4}>\n            <div className=\"flex flex-col items-center justify-center gap-2 py-8 text-muted-foreground\">\n              <FileQuestion className=\"h-8 w-8\" />\n              <span>Aucune donnee</span>\n            </div>\n          </TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    },
+    {
+      "lineEnd": 121,
+      "lineStart": 98,
+      "snippet": "export const Empty: Story = {\n  render: () => (\n    <Table>\n      <TableHeader>\n        <TableRow>\n          <TableHead>Invoice</TableHead>\n          <TableHead>Status</TableHead>\n          <TableHead>Method</TableHead>\n          <TableHead>Amount</TableHead>\n        </TableRow>\n      </TableHeader>\n      <TableBody>\n        <TableRow>\n          <TableCell colSpan={4}>\n            <div className=\"flex flex-col items-center justify-center gap-2 py-8 text-muted-foreground\">\n              <FileQuestion className=\"h-8 w-8\" />\n              <span>Aucune donnee</span>\n            </div>\n          </TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  ),\n}",
+      "storyName": "Empty",
+      "storyPath": "src/components/ui/table.stories.tsx"
+    }
+  ],
+  "tabs": [
+    {
+      "lineEnd": 38,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Tabs defaultValue=\"overview\" className=\"w-96\">\n      <TabsList>\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\n        <TabsTrigger value=\"settings\">Settings</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Project overview content.\n        </p>\n      </TabsContent>\n      <TabsContent value=\"analytics\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Analytics content.\n        </p>\n      </TabsContent>\n      <TabsContent value=\"settings\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Settings content.\n        </p>\n      </TabsContent>\n    </Tabs>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/tabs.stories.tsx"
+    },
+    {
+      "lineEnd": 38,
+      "lineStart": 13,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Tabs defaultValue=\"overview\" className=\"w-96\">\n      <TabsList>\n        <TabsTrigger value=\"overview\">Overview</TabsTrigger>\n        <TabsTrigger value=\"analytics\">Analytics</TabsTrigger>\n        <TabsTrigger value=\"settings\">Settings</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"overview\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Project overview content.\n        </p>\n      </TabsContent>\n      <TabsContent value=\"analytics\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Analytics content.\n        </p>\n      </TabsContent>\n      <TabsContent value=\"settings\">\n        <p className=\"text-sm text-muted-foreground pt-2\">\n          Settings content.\n        </p>\n      </TabsContent>\n    </Tabs>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/tabs.stories.tsx"
+    }
+  ],
+  "textarea": [
+    {
+      "lineEnd": 17,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  args: { placeholder: 'Type your message...' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 17,
+      "lineStart": 14,
+      "snippet": "export const Default: Story = {\n  args: { placeholder: 'Type your message...' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 26,
+      "lineStart": 18,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Label htmlFor=\"message\">Message</Label>\n      <Textarea id=\"message\" placeholder=\"Type your message...\" />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 26,
+      "lineStart": 18,
+      "snippet": "export const WithLabel: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Label htmlFor=\"message\">Message</Label>\n      <Textarea id=\"message\" placeholder=\"Type your message...\" />\n    </div>\n  ),\n}",
+      "storyName": "WithLabel",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 27,
+      "snippet": "export const Disabled: Story = {\n  args: { placeholder: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 30,
+      "lineStart": 27,
+      "snippet": "export const Disabled: Story = {\n  args: { placeholder: 'Disabled', disabled: true },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 34,
+      "lineStart": 31,
+      "snippet": "export const WithValue: Story = {\n  args: { defaultValue: 'Foundation OS is an AI-driven personal operating system.' },\n}",
+      "storyName": "WithValue",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 34,
+      "lineStart": 31,
+      "snippet": "export const WithValue: Story = {\n  args: { defaultValue: 'Foundation OS is an AI-driven personal operating system.' },\n}",
+      "storyName": "WithValue",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 35,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Textarea aria-invalid className=\"border-destructive focus-visible:ring-destructive\" placeholder=\"Type your message...\" />\n      <p className=\"text-sm text-destructive mt-1\">Ce champ est requis</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 35,
+      "snippet": "export const Error: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Textarea aria-invalid className=\"border-destructive focus-visible:ring-destructive\" placeholder=\"Type your message...\" />\n      <p className=\"text-sm text-destructive mt-1\">Ce champ est requis</p>\n    </div>\n  ),\n}",
+      "storyName": "Error",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 44,
+      "snippet": "export const WithCounter: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Textarea defaultValue=\"Foundation OS\" placeholder=\"Type your message...\" />\n      <div className=\"text-xs text-muted-foreground text-right\">42/200 caracteres</div>\n    </div>\n  ),\n}",
+      "storyName": "WithCounter",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 44,
+      "snippet": "export const WithCounter: Story = {\n  render: () => (\n    <div className=\"grid w-full gap-1.5\">\n      <Textarea defaultValue=\"Foundation OS\" placeholder=\"Type your message...\" />\n      <div className=\"text-xs text-muted-foreground text-right\">42/200 caracteres</div>\n    </div>\n  ),\n}",
+      "storyName": "WithCounter",
+      "storyPath": "src/components/ui/textarea.stories.tsx"
+    }
+  ],
+  "toggle-group": [
+    {
+      "lineEnd": 29,
+      "lineStart": 14,
+      "snippet": "export const Single: Story = {\n  render: () => (\n    <ToggleGroup type=\"single\">\n      <ToggleGroupItem value=\"bold\" aria-label=\"Bold\">\n        <Bold className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"italic\" aria-label=\"Italic\">\n        <Italic className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"underline\" aria-label=\"Underline\">\n        <Underline className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n    </ToggleGroup>\n  ),\n}",
+      "storyName": "Single",
+      "storyPath": "src/components/ui/toggle-group.stories.tsx"
+    },
+    {
+      "lineEnd": 29,
+      "lineStart": 14,
+      "snippet": "export const Single: Story = {\n  render: () => (\n    <ToggleGroup type=\"single\">\n      <ToggleGroupItem value=\"bold\" aria-label=\"Bold\">\n        <Bold className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"italic\" aria-label=\"Italic\">\n        <Italic className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"underline\" aria-label=\"Underline\">\n        <Underline className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n    </ToggleGroup>\n  ),\n}",
+      "storyName": "Single",
+      "storyPath": "src/components/ui/toggle-group.stories.tsx"
+    },
+    {
+      "lineEnd": 44,
+      "lineStart": 30,
+      "snippet": "export const Multiple: Story = {\n  render: () => (\n    <ToggleGroup type=\"multiple\">\n      <ToggleGroupItem value=\"bold\" aria-label=\"Bold\">\n        <Bold className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"italic\" aria-label=\"Italic\">\n        <Italic className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"underline\" aria-label=\"Underline\">\n        <Underline className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n    </ToggleGroup>\n  ),\n}",
+      "storyName": "Multiple",
+      "storyPath": "src/components/ui/toggle-group.stories.tsx"
+    },
+    {
+      "lineEnd": 44,
+      "lineStart": 30,
+      "snippet": "export const Multiple: Story = {\n  render: () => (\n    <ToggleGroup type=\"multiple\">\n      <ToggleGroupItem value=\"bold\" aria-label=\"Bold\">\n        <Bold className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"italic\" aria-label=\"Italic\">\n        <Italic className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"underline\" aria-label=\"Underline\">\n        <Underline className=\"h-4 w-4\" />\n      </ToggleGroupItem>\n    </ToggleGroup>\n  ),\n}",
+      "storyName": "Multiple",
+      "storyPath": "src/components/ui/toggle-group.stories.tsx"
+    }
+  ],
+  "toggle": [
+    {
+      "lineEnd": 27,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Toggle', 'aria-label': 'Toggle' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 27,
+      "lineStart": 24,
+      "snippet": "export const Default: Story = {\n  args: { children: 'Toggle', 'aria-label': 'Toggle' },\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline', 'aria-label': 'Toggle outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 31,
+      "lineStart": 28,
+      "snippet": "export const Outline: Story = {\n  args: { children: 'Outline', variant: 'outline', 'aria-label': 'Toggle outline' },\n}",
+      "storyName": "Outline",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 32,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <Toggle aria-label=\"Toggle bold\">\n      <Bold className=\"size-4\" />\n    </Toggle>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 39,
+      "lineStart": 32,
+      "snippet": "export const WithIcon: Story = {\n  render: () => (\n    <Toggle aria-label=\"Toggle bold\">\n      <Bold className=\"size-4\" />\n    </Toggle>\n  ),\n}",
+      "storyName": "WithIcon",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 40,
+      "snippet": "export const Small: Story = {\n  args: { children: 'Small', size: 'sm', 'aria-label': 'Toggle small' },\n}",
+      "storyName": "Small",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 43,
+      "lineStart": 40,
+      "snippet": "export const Small: Story = {\n  args: { children: 'Small', size: 'sm', 'aria-label': 'Toggle small' },\n}",
+      "storyName": "Small",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 44,
+      "snippet": "export const Large: Story = {\n  args: { children: 'Large', size: 'lg', 'aria-label': 'Toggle large' },\n}",
+      "storyName": "Large",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 47,
+      "lineStart": 44,
+      "snippet": "export const Large: Story = {\n  args: { children: 'Large', size: 'lg', 'aria-label': 'Toggle large' },\n}",
+      "storyName": "Large",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 48,
+      "snippet": "export const Disabled: Story = {\n  args: { children: 'Disabled', disabled: true, 'aria-label': 'Toggle disabled' },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 51,
+      "lineStart": 48,
+      "snippet": "export const Disabled: Story = {\n  args: { children: 'Disabled', disabled: true, 'aria-label': 'Toggle disabled' },\n}",
+      "storyName": "Disabled",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 66,
+      "lineStart": 52,
+      "snippet": "export const TextFormatting: Story = {\n  render: () => (\n    <div className=\"flex gap-1\">\n      <Toggle aria-label=\"Toggle bold\" size=\"sm\">\n        <Bold className=\"size-4\" />\n      </Toggle>\n      <Toggle aria-label=\"Toggle italic\" size=\"sm\">\n        <Italic className=\"size-4\" />\n      </Toggle>\n      <Toggle aria-label=\"Toggle underline\" size=\"sm\">\n        <Underline className=\"size-4\" />\n      </Toggle>\n    </div>\n  ),\n}",
+      "storyName": "TextFormatting",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    },
+    {
+      "lineEnd": 66,
+      "lineStart": 52,
+      "snippet": "export const TextFormatting: Story = {\n  render: () => (\n    <div className=\"flex gap-1\">\n      <Toggle aria-label=\"Toggle bold\" size=\"sm\">\n        <Bold className=\"size-4\" />\n      </Toggle>\n      <Toggle aria-label=\"Toggle italic\" size=\"sm\">\n        <Italic className=\"size-4\" />\n      </Toggle>\n      <Toggle aria-label=\"Toggle underline\" size=\"sm\">\n        <Underline className=\"size-4\" />\n      </Toggle>\n    </div>\n  ),\n}",
+      "storyName": "TextFormatting",
+      "storyPath": "src/components/ui/toggle.stories.tsx"
+    }
+  ],
+  "tooltip": [
+    {
+      "lineEnd": 33,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <p>Add to library</p>\n      </TooltipContent>\n    </Tooltip>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/tooltip.stories.tsx"
+    },
+    {
+      "lineEnd": 33,
+      "lineStart": 21,
+      "snippet": "export const Default: Story = {\n  render: () => (\n    <Tooltip>\n      <TooltipTrigger asChild>\n        <Button variant=\"outline\">Hover me</Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <p>Add to library</p>\n      </TooltipContent>\n    </Tooltip>\n  ),\n}",
+      "storyName": "Default",
+      "storyPath": "src/components/ui/tooltip.stories.tsx"
+    },
+    {
+      "lineEnd": 55,
+      "lineStart": 34,
+      "snippet": "export const Sides: Story = {\n  render: () => (\n    <div className=\"flex gap-8 p-8\">\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Top</Button></TooltipTrigger>\n        <TooltipContent side=\"top\"><p>Top tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Bottom</Button></TooltipTrigger>\n        <TooltipContent side=\"bottom\"><p>Bottom tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Left</Button></TooltipTrigger>\n        <TooltipContent side=\"left\"><p>Left tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Right</Button></TooltipTrigger>\n        <TooltipContent side=\"right\"><p>Right tooltip</p></TooltipContent>\n      </Tooltip>\n    </div>\n  ),\n}",
+      "storyName": "Sides",
+      "storyPath": "src/components/ui/tooltip.stories.tsx"
+    },
+    {
+      "lineEnd": 55,
+      "lineStart": 34,
+      "snippet": "export const Sides: Story = {\n  render: () => (\n    <div className=\"flex gap-8 p-8\">\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Top</Button></TooltipTrigger>\n        <TooltipContent side=\"top\"><p>Top tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Bottom</Button></TooltipTrigger>\n        <TooltipContent side=\"bottom\"><p>Bottom tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Left</Button></TooltipTrigger>\n        <TooltipContent side=\"left\"><p>Left tooltip</p></TooltipContent>\n      </Tooltip>\n      <Tooltip>\n        <TooltipTrigger asChild><Button variant=\"outline\" size=\"sm\">Right</Button></TooltipTrigger>\n        <TooltipContent side=\"right\"><p>Right tooltip</p></TooltipContent>\n      </Tooltip>\n    </div>\n  ),\n}",
+      "storyName": "Sides",
+      "storyPath": "src/components/ui/tooltip.stories.tsx"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Command (CMD-K)
+Il y en a, c'est de la doc Supernova, mais qui sont dans le module de Design Systems. # Command (CMD-K)
 
 > Navigation · `command` · Foundation OS DS
 

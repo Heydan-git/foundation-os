@@ -7,7 +7,7 @@ tags:
   - dev
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Domaine : dev

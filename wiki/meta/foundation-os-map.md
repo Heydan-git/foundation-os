@@ -8,7 +8,7 @@ tags:
   - index
 status: evergreen
 related:
-  - "[[index]]"
+  - "[[index-wiki]]"
   - "[[hot]]"
   - "[[overview]]"
 ---
@@ -18,7 +18,7 @@ related:
 > Hub central qui connecte CHAQUE fichier du projet au graph Obsidian.
 > Mis a jour automatiquement par Claude en fin de session.
 
-Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
+Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 ---
 
@@ -63,8 +63,8 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 - [[docs/manifeste|manifeste]] — Manifeste vivant Foundation OS (identite, vision, realite)
 - [[docs/setup-guide|setup-guide]] — Guide setup developpeur
 - [[docs/decisions-log|decisions-log]] — Archive decisions techniques stables (> 30 jours)
-- [[docs/index|index (docs)]] — Navigation documentation
-- [[docs/core/tools/README|README Tools]] — Vue lisible catalogue outils
+- [[docs/index-documentation|index (docs)]] — Navigation documentation
+- [[docs/core/tools/README-tools-catalogue|README Tools]] — Vue lisible catalogue outils
 
 ### Specs historiques (docs/specs/)
 
@@ -80,7 +80,7 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 ## Travaux Cowork (docs/travaux-cowork/)
 
 - [[docs/travaux-cowork/COWORK-CONTEXT|COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
-- [[docs/travaux-cowork/README|README Cowork]] — Description travaux cowork
+- [[docs/travaux-cowork/README-cowork|README Cowork]] — Description travaux cowork
 - [[docs/travaux-cowork/2026-04-13-evolution-core-os/00-INDEX|00-INDEX evolution Core OS]] — Index evolution Core OS
 - [[docs/travaux-cowork/2026-04-14-briefs-foundation-os/00-INDEX|00-INDEX briefs FOS]] — Index briefs Foundation OS
 
@@ -114,10 +114,10 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ### App Builder (modules/app/)
 
-- [[modules/app/README|README App Builder]] — Description module App
+- [[modules/app/README-app-builder|README App Builder]] — Description module App
 - [[modules/app/data/commander|commander (app page)]] — Page app Commander (pilotage OS)
 - [[modules/app/data/graph|graph (app page)]] — Page app Graph (visualisation)
-- [[modules/app/data/index|index (app pages)]] — Index pages app
+- [[modules/app/data/index-app-pages|index (app pages)]] — Index pages app
 - [[modules/app/data/knowledge|knowledge (app page)]] — Page app Knowledge (base de connaissances UI)
 - [[modules/app/data/scale-orchestrator|scale-orchestrator (app page)]] — Page app Scale Orchestrator
 - [[modules/app/data/sync|sync (app page)]] — Page app Sync (synchronisation)
@@ -164,18 +164,18 @@ Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + co
 
 ### Domaines
 
-- [[wiki/domains/trading/_index|Trading]] — Strategies, backtests, whitepapers, instruments
-- [[wiki/domains/finance/_index|Finance]] — Patrimoine, fiscalite, decisions
-- [[wiki/domains/sante/_index|Sante]] — Bilans bio, protocoles, papers medicaux
-- [[wiki/domains/design/_index|Design]] — UX research, patterns, heuristiques
-- [[wiki/domains/dev/_index|Dev]] — Frameworks, patterns code, architecture
+- [[wiki/domains/trading/index-trading|Trading]] — Strategies, backtests, whitepapers, instruments
+- [[wiki/domains/finance/index-finance|Finance]] — Patrimoine, fiscalite, decisions
+- [[wiki/domains/sante/index-sante|Sante]] — Bilans bio, protocoles, papers medicaux
+- [[wiki/domains/design/index-design|Design]] — UX research, patterns, heuristiques
+- [[wiki/domains/dev/index-dev|Dev]] — Frameworks, patterns code, architecture
 
 ### Meta
 
 - [[overview]] — Executive summary wiki
 - [[log]] — Chronological operations log
 - [[hot]] — Hot cache derniere session (500 mots)
-- [[index]] — Master catalog wiki
+- [[index-wiki]] — Master catalog wiki
 
 ---
 

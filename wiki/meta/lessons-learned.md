@@ -12,7 +12,7 @@ related:
   - "[[thinking]]"
   - "[[sessions-recent]]"
   - "[[foundation-os-map]]"
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Lessons Learned — Auto-apprentissage
@@ -40,7 +40,7 @@ related:
 - **Date** : 2026-04-16
 - **Contexte** : 5x README.md, 3x index.md, 5x _index.md dans le projet
 - **Symptôme** : wikilinks `[[README]]` pointent vers le mauvais fichier
-- **Fix** : utiliser paths complets avec alias `[[modules/design-system/README|README DS]]`
+- **Fix** : utiliser paths complets avec alias `[[modules/design-system/README-design-system|README DS]]`
 
 ## Claude Code Plugins
 

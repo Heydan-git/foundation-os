@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Morning Brief · FoundationOS · 2026-04-15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #06070C;
+    --bg-1: #0E1016;
+    --bg-2: #141721;
+    --bg-3: #1A1E2B;
+    --border-subtle: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.20);
+    --text: #F1F4FA;
+    --text-dim: #9AA3B5;
+    --text-muted: #5E687C;
+
+    --blue: #60A5FA;
+    --purple: #C084FC;
+    --green: #4ADE80;
+    --yellow: #FACC15;
+    --red: #F87171;
+    --orange: #FB923C;
+
+    --green-bg: rgba(74,222,128,0.10);
+    --yellow-bg: rgba(250,204,21,0.10);
+    --red-bg: rgba(248,113,113,0.10);
+    --blue-bg: rgba(96,165,250,0.10);
+
+    --green-border: rgba(74,222,128,0.30);
+    --yellow-border: rgba(250,204,21,0.30);
+    --red-border: rgba(248,113,113,0.30);
+    --blue-border: rgba(96,165,250,0.30);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 40px 20px 80px;
+    background:
+      radial-gradient(ellipse 1000px 700px at 10% -10%, rgba(248,113,113,0.12), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 110% 15%, rgba(192,132,252,0.08), transparent 55%),
+      var(--bg-0);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  .page { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 32px; }
+
+  .kicker { display: flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); box-shadow: 0 0 12px var(--red); }
+
+  h1.page-title { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 4px 0; line-height: 1.2; }
+  .page-subtitle { color: var(--text-dim); font-size: 15px; margin: 0; }
+
+  .hero { border: 1px solid var(--red-border); border-radius: 16px; padding: 24px 28px; background: linear-gradient(135deg, var(--red-bg), transparent 60%), var(--bg-1); position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 100% 0%, rgba(248,113,113,0.10), transparent 50%); pointer-events: none; }
+  .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .hero-status { font-size: 26px; font-weight: 700; line-height: 1.3; margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .hero-sub { color: var(--text-dim); font-size: 15px; margin: 0; max-width: 560px; }
+  .hero-vitals { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+  .vital { text-align: left; }
+  .vital .v-icon { font-size: 18px; line-height: 1; }
+  .vital .v-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 6px; }
+  .vital .v-val { font-size: 13px; color: var(--text); font-weight: 600; margin-top: 2px; }
+  .vital .v-val.dim { color: var(--text-dim); font-weight: 500; }
+
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-head { display: flex; align-items: flex-start; gap: 14px; }
+  .section-icon { width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .section-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.01em; line-height: 1.3; }
+  .section-sub { color: var(--text-dim); font-size: 13.5px; margin: 2px 0 0 0; }
+
+  .today-card { border: 1px solid var(--red-border); background: linear-gradient(135deg, var(--red-bg), transparent 70%), var(--bg-1); border-radius: 16px; padding: 24px 26px; }
+  .today-big { font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .today-why { color: var(--text-dim); font-size: 14px; margin: 0 0 16px 0; }
+  .today-meta { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--border-subtle); }
+  .today-meta .mi { display: flex; flex-direction: column; gap: 2px; }
+  .today-meta .mi-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; }
+  .today-meta .mi-val { font-size: 14px; color: var(--text); font-weight: 600; }
+
+  .progress-wrap { margin-top: 14px; }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .progress-val { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); font-weight: 600; }
+  .progress-bar { height: 8px; border-radius: 4px; background: var(--bg-3); overflow: hidden; position: relative; }
+  .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--blue), var(--purple)); box-shadow: 0 0 16px rgba(96,165,250,0.35); }
+
+  .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .timeline-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; background: var(--bg-1); }
+  .tl-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .tl-title { font-size: 15px; font-weight: 600; line-height: 1.4; margin: 0; }
+  .tl-detail { color: var(--text-dim); font-size: 13px; margin: 4px 0 0 0; line-height: 1.5; }
+
+  .attention-list { display: flex; flex-direction: column; gap: 10px; }
+  .att-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-1); }
+  .att-item.red    { border-color: var(--red-border); background: linear-gradient(135deg, var(--red-bg), transparent 60%), var(--bg-1); }
+  .att-item.yellow { border-color: var(--yellow-border); background: linear-gradient(135deg, var(--yellow-bg), transparent 60%), var(--bg-1); }
+  .att-badge { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .att-body { flex: 1; min-width: 0; }
+  .att-title { font-size: 15px; font-weight: 600; margin: 0 0 3px 0; }
+  .att-desc { font-size: 13.5px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+  .att-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 999px; background: var(--bg-2); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+
+  .asana-card { border: 1px solid var(--yellow-border); border-radius: 16px; padding: 20px 22px; background: linear-gradient(135deg, var(--yellow-bg), transparent 70%), var(--bg-1); }
+  .asana-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .asana-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+  .asana-head-text { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--yellow); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .asana-task { font-size: 16px; font-weight: 600; margin: 0 0 4px 0; }
+  .asana-why { font-size: 14px; color: var(--text-dim); margin: 0 0 12px 0; line-height: 1.5; }
+  .asana-note { padding: 10px 12px; background: var(--bg-2); border-radius: 8px; font-size: 13px; color: var(--text-dim); border-left: 3px solid var(--yellow); }
+  .asana-note strong { color: var(--text); }
+
+  .recap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .recap-card { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; background: var(--bg-1); }
+  .recap-who { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 6px; }
+  .recap-when { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue); font-weight: 600; }
+  .recap-what { font-size: 14px; margin: 4px 0 0 0; font-weight: 500; line-height: 1.45; }
+  .recap-meta { font-size: 12px; color: var(--text-muted); margin: 4px 0 0 0; font-family: 'JetBrains Mono', monospace; }
+
+  .ideas-list { display: flex; flex-direction: column; gap: 10px; }
+  .idea-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background: linear-gradient(135deg, rgba(192,132,252,0.04), transparent 80%), var(--bg-1); }
+  .idea-bullet { color: var(--purple); font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .idea-title { font-size: 14.5px; font-weight: 600; margin: 0; }
+  .idea-desc { font-size: 13px; color: var(--text-dim); margin: 2px 0 0 0; }
+
+  .cta-final { border: 2px solid var(--red-border); border-radius: 16px; padding: 26px 28px; background: linear-gradient(135deg, var(--red-bg), transparent 70%), var(--bg-1); box-shadow: 0 0 40px rgba(248,113,113,0.08); }
+  .cta-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--red); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .cta-arrow { color: var(--red); font-size: 16px; }
+  .cta-question { font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; letter-spacing: -0.01em; }
+  .cta-alt { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+  .cta-alt strong { color: var(--text); font-weight: 600; }
+
+  .footer { margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--border-subtle); text-align: center; color: var(--text-muted); font-size: 11px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============== HEADER ============== -->
+  <div>
+    <div class="kicker">
+      <span class="dot"></span>
+      <span>Morning brief · Foundation OS · Dry-run</span>
+    </div>
+    <h1 class="page-title">Bonjour Kevin. C'est mercredi.</h1>
+    <p class="page-subtitle">15 avril 2026 · semaine 16 · jour 3 sur 5 · 08:00</p>
+  </div>
+
+  <!-- ============== HERO SANTE ============== -->
+  <div class="hero">
+    <div class="hero-label">🫀 Etat de forme de l'OS</div>
+    <h2 class="hero-status">Ton OS est casse ce matin. Build app en rouge.</h2>
+    <p class="hero-sub">Le health-check d'hier soir est passe en <strong>BROKEN</strong> : le build du module app echoue (regression introduite par un des 7 commits de la journee). Le reste tient — design system build OK, TypeScript propre, 0 violation Void Glass. Les 82 liens casses de la doc ont encore monte (etaient 51 avant-hier). Priorite claire : rouvrir le build avant toute nouvelle story.</p>
+    <div class="hero-vitals">
+      <div class="vital"><div class="v-icon">🔴</div><div class="v-name">Build app</div><div class="v-val">FAILED</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Build DS</div><div class="v-val">OK</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">TypeScript</div><div class="v-val">0 err</div></div>
+      <div class="vital"><div class="v-icon">🔴</div><div class="v-name">Refs doc</div><div class="v-val">82 KO</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Vercel</div><div class="v-val dim">Live</div></div>
+    </div>
+  </div>
+
+  <!-- ============== AUJOURD'HUI ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🎯</div>
+      <div>
+        <h2 class="section-title">Aujourd'hui, tu rouvres le build.</h2>
+        <p class="section-sub">Pas de nouvelle story tant que le build de l'app n'est pas vert. Le cap Storybook reste en arriere-plan, mais il attend que le plancher soit propre.</p>
+      </div>
+    </div>
+
+    <div class="today-card">
+      <p class="today-big">Fix build modules/app + nettoyage des 82 refs cassees.</p>
+      <p class="today-why">Le build est casse depuis hier soir apres 7 commits Storybook. Premier geste : <code>cd modules/app &amp;&amp; npm run build</code>, lire l'erreur, identifier la cause racine (probablement un import vers le DS qui s'est re-structure). Ensuite, tant que tu y es, ref-checker : les 82 liens casses sont l'idee #7 de ton parking, tu l'avais notee hier soir comme prio apres DS Showcase. Bonne fenetre pour la traiter pendant que Supernova est bloque.</p>
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span class="progress-label">Plan DS Showcase</span>
+          <span class="progress-val">8 / 15 blocs · 53 %</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 53%;"></div></div>
+      </div>
+      <div class="today-meta">
+        <div class="mi"><div class="mi-label">Plan actif</div><div class="mi-val">DS Showcase + Tooling Sync</div></div>
+        <div class="mi"><div class="mi-label">Bloque</div><div class="mi-val">Supernova + OK Asana/Notion</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== HIER / DEMAIN ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🧭</div>
+      <div>
+        <h2 class="section-title">D'ou tu viens, ou tu vas.</h2>
+        <p class="section-sub">Hier a ete la plus grosse journee de commits de la semaine. Demain depend de ce matin.</p>
+      </div>
+    </div>
+
+    <div class="timeline-grid">
+      <div class="timeline-card">
+        <div class="tl-kicker">🟢 Hier · 14 avril</div>
+        <p class="tl-title">Storybook S2 + S3.bloc8 + bloc 15 sync.</p>
+        <p class="tl-detail">27 stories (Layout 10 + Nav 8 + Data 9), 9 stories Commander, audit etats 46 composants, bloc 15 sync externe opt-in. Brief v11 passe a 12 sections (PLANS ACTIFS obligatoire). 7 commits. Seul bemol : le build app s'est casse en chemin, pas vu avant le health-check de fin de session.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="tl-kicker">🔮 Demain · 16 avril</div>
+        <p class="tl-title">Depend de ton arbitrage Supernova.</p>
+        <p class="tl-detail">Si tu crees le compte Supernova aujourd'hui, demain tu attaques blocs 9-10. Sinon, demain = suite du nettoyage refs + peut-etre bloc 8.2 (combler les etats critiques manquants — option A du parking).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== ATTENTION ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">⚠️</div>
+      <div>
+        <h2 class="section-title">Cinq points qui te concernent avant midi.</h2>
+        <p class="section-sub">Deux rouges qui bloquent vraiment, trois jaunes qui trainent. Classes par urgence decroissante.</p>
+      </div>
+    </div>
+
+    <div class="attention-list">
+      <div class="att-item red">
+        <div class="att-badge">🔴</div>
+        <div class="att-body">
+          <p class="att-title">Build modules/app casse</p>
+          <p class="att-desc">Health-check BROKEN. Ca bloque le deploy Vercel sur les prochains commits, et ca bloque toute nouvelle story tant que ce n'est pas fix. Premier geste du matin, cause racine avant patch.</p>
+          <span class="att-tag">Cause racine · critique</span>
+        </div>
+      </div>
+      <div class="att-item red">
+        <div class="att-badge">🔴</div>
+        <div class="att-body">
+          <p class="att-title">82 refs cassees dans la doc</p>
+          <p class="att-desc">Monte de 51 a 82 en 48 h. L'idee #7 de ton parking identifie trois hypotheses (ref-checker a exclure travaux-cowork, trou dans session-end, protocole a durcir). Tu l'avais notee comme prio apres DS Showcase. Aujourd'hui est la bonne fenetre.</p>
+          <span class="att-tag">Dette structurelle</span>
+        </div>
+      </div>
+      <div class="att-item yellow">
+        <div class="att-badge">🟡</div>
+        <div class="att-body">
+          <p class="att-title">Deux patchs en attente cote CLI</p>
+          <p class="att-desc">Patch 2 sur CLAUDE.md (compteur outils 97→98 + section parallelisme) et Patch 3 sur commands session-start/end (retrait lock). C'est a ta tete CLI de les appliquer, je n'y touche pas.</p>
+          <span class="att-tag">Action · Claude Code CLI</span>
+        </div>
+      </div>
+      <div class="att-item yellow">
+        <div class="att-badge">📧</div>
+        <div class="att-body">
+          <p class="att-title">Email confirmations Supabase a activer</p>
+          <p class="att-desc">Traine depuis la phase 2. Dashboard Supabase → Authentication → Providers → Email. 30 secondes, toi seul peut le faire.</p>
+          <span class="att-tag">Action · Kevin</span>
+        </div>
+      </div>
+      <div class="att-item yellow">
+        <div class="att-badge">⚙️</div>
+        <div class="att-body">
+          <p class="att-title">Decision bloc 8 audit (Option A / B / C)</p>
+          <p class="att-desc">L'audit etats a identifie des manques (couverture 21%). Trois choix : A combler les critiques (2 h), B passer Supernova avec 21% (reco), C skipper l'audit. Decision necessaire avant d'avancer sur 9-10.</p>
+          <span class="att-tag">Reco · Option B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== ASANA ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">📋</div>
+      <div>
+        <h2 class="section-title">Deux taches Asana en desync.</h2>
+        <p class="section-sub">Pas d'echeance aujourd'hui. Les desyncs detectees hier trainent toujours, j'attends le hebdo de vendredi pour arbitrer.</p>
+      </div>
+    </div>
+
+    <div class="asana-card">
+      <div class="asana-head">
+        <span class="asana-dot"></span>
+        <span class="asana-head-text">e19 + e20 · en attente d'arbitrage</span>
+      </div>
+      <p class="asana-task">Deploy Vercel (e19, due 14/04) + Build Commander (e20, due 16/04).</p>
+      <p class="asana-why">Les deux sont probablement faites (foundation-os.vercel.app repond, Commander restyle le 13/04). Non cochees dans Asana. e20 arrive a echeance demain, ce qui va creer du bruit visuel.</p>
+      <div class="asana-note">
+        <strong>Ce que je fais :</strong> je ne coche rien. On remonte au hebdo vendredi 18 h avec un arbitrage groupe. Regle non-negociable.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DERNIER TRAVAIL ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🔁</div>
+      <div>
+        <h2 class="section-title">Dernier pas, des deux cotes.</h2>
+        <p class="section-sub">Les deux tetes ont ete actives hier, chacune sur son couloir.</p>
+      </div>
+    </div>
+
+    <div class="recap-grid">
+      <div class="recap-card">
+        <div class="recap-who">Cote Cowork</div>
+        <div class="recap-when">14 avril 2026 · soir</div>
+        <p class="recap-what">Refonte v2 TDAH des specs + exemples briefs FoundationOS.</p>
+        <p class="recap-meta">docs/travaux-cowork/2026-04-14-briefs-foundation-os/</p>
+      </div>
+      <div class="recap-card">
+        <div class="recap-who">Cote CLI</div>
+        <div class="recap-when">14 avril 2026 · journee</div>
+        <p class="recap-what">Storybook S2 blocs 4-7 + S3.bloc8 audit etats + bloc 15 sync opt-in.</p>
+        <p class="recap-meta">7 commits · d745868 en tete</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== IDEES FRAICHES ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">💡</div>
+      <div>
+        <h2 class="section-title">Une idee captee dans les dernieres 24 h.</h2>
+        <p class="section-sub">En parking, pas dans le cap. Remontee ici pour ne pas la perdre.</p>
+      </div>
+    </div>
+
+    <div class="ideas-list">
+      <div class="idea-item">
+        <div class="idea-bullet">▸</div>
+        <div>
+          <p class="idea-title">Refs cassees recurrentes — investigation structurelle</p>
+          <p class="idea-desc">Trois pistes notees dans le parking : exclure travaux-cowork du ref-checker, identifier le trou dans session-end qui laisse passer les refs cassees, durcir le protocole pour zero dette structurelle. Tu disais "prio apres finition DS Showcase" — on y est.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== CTA FINAL ============== -->
+  <div class="cta-final">
+    <div class="cta-kicker"><span class="cta-arrow">▶</span> On commence par quoi ?</div>
+    <p class="cta-question">Par defaut, on diagnostique le build casse en premier.</p>
+    <p class="cta-alt"><strong>Logique :</strong> <code>cd modules/app &amp;&amp; npm run build</code>, cause racine, fix, re-check. Une fois vert, tu enchaines sur les 82 refs cassees. Alternative minoritaire : skipper le fix ce matin et traiter les refs d'abord — deconseille, le build rouge va te polluer chaque commit.</p>
+  </div>
+
+  <!-- ============== FOOTER ============== -->
+  <div class="footer">
+    Dry-run · Genere depuis CONTEXT.md · COWORK-CONTEXT.md · git log 7j · health-check.sh · Asana projet 1213918098666338
+  </div>
+
+</div>
+</body>
+</html>

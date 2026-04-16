@@ -13,7 +13,7 @@ related:
   - "[[log]]"
   - "[[thinking]]"
   - "[[lessons-learned]]"
-  - "[[index]]"
+  - "[[index-wiki]]"
 ---
 
 # Sessions récentes (5 dernières)

@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Morning Brief · FoundationOS · 2026-04-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #06070C;
+    --bg-1: #0E1016;
+    --bg-2: #141721;
+    --bg-3: #1A1E2B;
+    --border-subtle: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.20);
+    --text: #F1F4FA;
+    --text-dim: #9AA3B5;
+    --text-muted: #5E687C;
+
+    --blue: #60A5FA;
+    --purple: #C084FC;
+    --green: #4ADE80;
+    --yellow: #FACC15;
+    --red: #F87171;
+    --orange: #FB923C;
+
+    --green-bg: rgba(74,222,128,0.10);
+    --yellow-bg: rgba(250,204,21,0.10);
+    --red-bg: rgba(248,113,113,0.10);
+    --blue-bg: rgba(96,165,250,0.10);
+
+    --green-border: rgba(74,222,128,0.30);
+    --yellow-border: rgba(250,204,21,0.30);
+    --red-border: rgba(248,113,113,0.30);
+    --blue-border: rgba(96,165,250,0.30);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 40px 20px 80px;
+    background:
+      radial-gradient(ellipse 1000px 700px at 10% -10%, rgba(96,165,250,0.12), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 110% 15%, rgba(192,132,252,0.08), transparent 55%),
+      var(--bg-0);
+    color: var(--text);
+    font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  .page { width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 32px; }
+
+  /* =========== HEADER =========== */
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 12px var(--blue); }
+
+  h1.page-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 8px 0 4px 0;
+    line-height: 1.2;
+  }
+  .page-subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* =========== HERO SANTE =========== */
+  .hero {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, var(--yellow-bg), transparent 60%), var(--bg-1);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(250,204,21,0.10), transparent 50%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-status {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .hero-sub { color: var(--text-dim); font-size: 15px; margin: 0; max-width: 560px; }
+  .hero-vitals {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .vital { text-align: left; }
+  .vital .v-icon { font-size: 18px; line-height: 1; }
+  .vital .v-name { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 6px; }
+  .vital .v-val { font-size: 13px; color: var(--text); font-weight: 600; margin-top: 2px; }
+  .vital .v-val.dim { color: var(--text-dim); font-weight: 500; }
+
+  /* =========== SECTION HEADERS (prose TDAH) =========== */
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-head { display: flex; align-items: flex-start; gap: 14px; }
+  .section-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--bg-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .section-title {
+    font-size: 20px; font-weight: 700; margin: 0;
+    letter-spacing: -0.01em; line-height: 1.3;
+  }
+  .section-sub { color: var(--text-dim); font-size: 13.5px; margin: 2px 0 0 0; }
+
+  /* =========== TODAY CARD (CTA principal) =========== */
+  .today-card {
+    border: 1px solid var(--blue-border);
+    background: linear-gradient(135deg, var(--blue-bg), transparent 70%), var(--bg-1);
+    border-radius: 16px;
+    padding: 24px 26px;
+  }
+  .today-big {
+    font-size: 22px; font-weight: 700;
+    line-height: 1.35; margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .today-why { color: var(--text-dim); font-size: 14px; margin: 0 0 16px 0; }
+  .today-meta {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    padding-top: 14px; border-top: 1px solid var(--border-subtle);
+  }
+  .today-meta .mi { display: flex; flex-direction: column; gap: 2px; }
+  .today-meta .mi-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; }
+  .today-meta .mi-val { font-size: 14px; color: var(--text); font-weight: 600; }
+
+  /* progress */
+  .progress-wrap { margin-top: 14px; }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .progress-val { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); font-weight: 600; }
+  .progress-bar {
+    height: 8px; border-radius: 4px;
+    background: var(--bg-3); overflow: hidden; position: relative;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    box-shadow: 0 0 16px rgba(96,165,250,0.35);
+  }
+
+  /* =========== TIMELINE (hier / demain) =========== */
+  .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .timeline-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: var(--bg-1);
+  }
+  .tl-kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .tl-title { font-size: 15px; font-weight: 600; line-height: 1.4; margin: 0; }
+  .tl-detail { color: var(--text-dim); font-size: 13px; margin: 4px 0 0 0; line-height: 1.5; }
+
+  /* =========== ATTENTION LIST =========== */
+  .attention-list { display: flex; flex-direction: column; gap: 10px; }
+  .att-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-1);
+  }
+  .att-item.red    { border-color: var(--red-border); background: linear-gradient(135deg, var(--red-bg), transparent 60%), var(--bg-1); }
+  .att-item.yellow { border-color: var(--yellow-border); background: linear-gradient(135deg, var(--yellow-bg), transparent 60%), var(--bg-1); }
+  .att-badge {
+    flex-shrink: 0;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-3); display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .att-body { flex: 1; min-width: 0; }
+  .att-title { font-size: 15px; font-weight: 600; margin: 0 0 3px 0; }
+  .att-desc { font-size: 13.5px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+  .att-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    padding: 2px 8px; border-radius: 999px;
+    background: var(--bg-2); color: var(--text-muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* =========== ASANA CARD =========== */
+  .asana-card {
+    border: 1px solid var(--yellow-border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, var(--yellow-bg), transparent 70%), var(--bg-1);
+  }
+  .asana-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .asana-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+  .asana-head-text { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--yellow); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .asana-task { font-size: 16px; font-weight: 600; margin: 0 0 4px 0; }
+  .asana-why { font-size: 14px; color: var(--text-dim); margin: 0 0 12px 0; line-height: 1.5; }
+  .asana-note {
+    padding: 10px 12px;
+    background: var(--bg-2); border-radius: 8px;
+    font-size: 13px; color: var(--text-dim);
+    border-left: 3px solid var(--yellow);
+  }
+  .asana-note strong { color: var(--text); }
+
+  /* =========== RECAP =========== */
+  .recap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .recap-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: var(--bg-1);
+  }
+  .recap-who { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 6px; }
+  .recap-when { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue); font-weight: 600; }
+  .recap-what { font-size: 14px; margin: 4px 0 0 0; font-weight: 500; line-height: 1.45; }
+  .recap-meta { font-size: 12px; color: var(--text-muted); margin: 4px 0 0 0; font-family: 'JetBrains Mono', monospace; }
+
+  /* =========== IDEAS =========== */
+  .ideas-list { display: flex; flex-direction: column; gap: 10px; }
+  .idea-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(192,132,252,0.04), transparent 80%), var(--bg-1);
+  }
+  .idea-bullet { color: var(--purple); font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .idea-title { font-size: 14.5px; font-weight: 600; margin: 0; }
+  .idea-desc { font-size: 13px; color: var(--text-dim); margin: 2px 0 0 0; }
+
+  /* =========== CTA FINAL =========== */
+  .cta-final {
+    border: 2px solid var(--green-border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    background: linear-gradient(135deg, var(--green-bg), transparent 70%), var(--bg-1);
+    box-shadow: 0 0 40px rgba(74,222,128,0.08);
+  }
+  .cta-kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--green); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .cta-arrow { color: var(--green); font-size: 16px; }
+  .cta-question { font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; letter-spacing: -0.01em; }
+  .cta-alt { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.5; }
+  .cta-alt strong { color: var(--text); font-weight: 600; }
+
+  /* =========== FOOTER =========== */
+  .footer {
+    margin-top: 10px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============== HEADER ============== -->
+  <div>
+    <div class="kicker">
+      <span class="dot"></span>
+      <span>Morning brief · Foundation OS</span>
+    </div>
+    <h1 class="page-title">Bonjour Kevin. C'est mardi.</h1>
+    <p class="page-subtitle">14 avril 2026 · semaine 15 · jour 1 sur 5 · 08:00</p>
+  </div>
+
+  <!-- ============== HERO SANTE ============== -->
+  <div class="hero">
+    <div class="hero-label">🫀 Etat de forme de l'OS</div>
+    <h2 class="hero-status">Ton OS marche. Il traine une dette visible.</h2>
+    <p class="hero-sub">Le build et les tests sont verts (19/19 sur l'app, 23/23 sur le design system). Mais le health-check est jaune : <strong>51 liens casses</strong> dans la doc (des pages qui pointent sur des fichiers qui n'existent plus ou pas encore). Pas critique, mais ca va te generer du bruit tant que tu ne le nettoies pas.</p>
+    <div class="hero-vitals">
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Build</div><div class="v-val">253 ms</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Tests</div><div class="v-val">42 / 42</div></div>
+      <div class="vital"><div class="v-icon">🟡</div><div class="v-name">Health</div><div class="v-val">Degrade</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Vercel</div><div class="v-val dim">Live</div></div>
+      <div class="vital"><div class="v-icon">🟢</div><div class="v-name">Supabase</div><div class="v-val dim">6 tables</div></div>
+    </div>
+  </div>
+
+  <!-- ============== AUJOURD'HUI ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🎯</div>
+      <div>
+        <h2 class="section-title">Aujourd'hui, tu attaques le Storybook.</h2>
+        <p class="section-sub">C'est la suite logique de ton cap en cours. Trois jours de velocite derriere, la piste est chaude.</p>
+      </div>
+    </div>
+
+    <div class="today-card">
+      <p class="today-big">Blocs 4 a 7 du plan DS Showcase : Layout et Navigation.</p>
+      <p class="today-why">Ces blocs mettent en stories les composants structurants du design system (conteneurs, sidebar, breadcrumb, menus, tabs). Une fois valides, le DS devient documentable automatiquement par Supernova. C'est ce qui debloque la suite du plan (Data Display, App Dashboard).</p>
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span class="progress-label">Avancement du plan</span>
+          <span class="progress-val">3 / 15 blocs · 20 %</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 20%;"></div></div>
+      </div>
+      <div class="today-meta">
+        <div class="mi"><div class="mi-label">Plan</div><div class="mi-val">DS Showcase + Tooling Sync</div></div>
+        <div class="mi"><div class="mi-label">Apres ca</div><div class="mi-val">Phase 5 (Finance / Sante / Trading)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== HIER / DEMAIN ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🧭</div>
+      <div>
+        <h2 class="section-title">D'ou tu viens, ou tu vas.</h2>
+        <p class="section-sub">La veille te donne l'elan, le lendemain te donne la cible. Un coup d'oeil et tu reprends le fil.</p>
+      </div>
+    </div>
+
+    <div class="timeline-grid">
+      <div class="timeline-card">
+        <div class="tl-kicker">🟢 Hier · 13 avril</div>
+        <p class="tl-title">Storybook S1, blocs 1 a 3.</p>
+        <p class="tl-detail">19 stories creees sur les composants Form et Feedback. Commit b36cbe0. Bloc 1 audit de config, blocs 2 et 3 les stories proprement dites.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="tl-kicker">🔮 Demain · 15 avril</div>
+        <p class="tl-title">Probablement blocs 8 a 12.</p>
+        <p class="tl-detail">Si la journee d'aujourd'hui file bien (Layout + Nav), demain ce sera Data Display et App Dashboard stories. Sinon, debordement sur mercredi, ce n'est pas grave.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== ATTENTION ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">⚠️</div>
+      <div>
+        <h2 class="section-title">Quatre trucs qui te concernent avant midi.</h2>
+        <p class="section-sub">Rien de bloquant, mais tant que ces points trainent, l'OS tire vers le jaune. Classes du plus urgent au plus lateral.</p>
+      </div>
+    </div>
+
+    <div class="attention-list">
+      <div class="att-item red">
+        <div class="att-badge">🔴</div>
+        <div class="att-body">
+          <p class="att-title">51 liens casses dans la doc</p>
+          <p class="att-desc">Des fichiers referencent des MD qui n'existent plus (nettoyage travaux-cowork prospectifs). C'est la cause du health jaune. Fix possible en une session dediee — script ref-checker listera.</p>
+          <span class="att-tag">Impact health · moyen</span>
+        </div>
+      </div>
+      <div class="att-item yellow">
+        <div class="att-badge">🟡</div>
+        <div class="att-body">
+          <p class="att-title">Deux patchs en attente cote CLI</p>
+          <p class="att-desc">Patch 2 sur CLAUDE.md (compteur outils + section parallelisme) et Patch 3 sur les commands session-start/session-end (retrait du lock). C'est a ta tete CLI de les appliquer, pas moi.</p>
+          <span class="att-tag">Action · Claude Code CLI</span>
+        </div>
+      </div>
+      <div class="att-item yellow">
+        <div class="att-badge">📧</div>
+        <div class="att-body">
+          <p class="att-title">Email confirmations Supabase a activer</p>
+          <p class="att-desc">Traine depuis la phase 2. Supabase Dashboard → Authentication → Providers → Email. 30 secondes a faire, mais c'est toi seul qui peux le faire.</p>
+          <span class="att-tag">Action · Kevin</span>
+        </div>
+      </div>
+      <div class="att-item">
+        <div class="att-badge">🔮</div>
+        <div class="att-body">
+          <p class="att-title">Decision strategique en parking : Cowork methodo ou produit ?</p>
+          <p class="att-desc">A trancher avant Sprint 1 Cowork. Pas d'urgence aujourd'hui mais la question revient. Note mentale.</p>
+          <span class="att-tag">Decision · quand tu veux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== ASANA ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">📋</div>
+      <div>
+        <h2 class="section-title">Asana dit qu'une tache est due aujourd'hui.</h2>
+        <p class="section-sub">Mais elle est probablement deja faite. Classique desync. A arbitrer au hebdo vendredi, pas maintenant.</p>
+      </div>
+    </div>
+
+    <div class="asana-card">
+      <div class="asana-head">
+        <span class="asana-dot"></span>
+        <span class="asana-head-text">e19 · Deploy Vercel (URL permanente)</span>
+      </div>
+      <p class="asana-task">Deploy Vercel avec URL permanente.</p>
+      <p class="asana-why">Due aujourd'hui, non cochee dans Asana. Mais <strong>foundation-os.vercel.app</strong> tourne deja depuis plusieurs jours (CONTEXT le confirme, le site repond). Donc la tache est faite, l'intention Asana n'a juste pas suivi.</p>
+      <div class="asana-note">
+        <strong>Ce que je fais :</strong> je ne coche rien. On remonte ca dans la synthese hebdo vendredi et c'est toi qui valides la cochette. Regle non-negociable.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== DERNIER TRAVAIL ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">🔁</div>
+      <div>
+        <h2 class="section-title">Dernier pas, des deux cotes.</h2>
+        <p class="section-sub">Cowork et Claude Code CLI avancent en parallele. Voici la derniere action de chaque tete.</p>
+      </div>
+    </div>
+
+    <div class="recap-grid">
+      <div class="recap-card">
+        <div class="recap-who">Cote Cowork</div>
+        <div class="recap-when">13 avril 2026</div>
+        <p class="recap-what">Plan Dashboard Monitoring consolide (fichier 14, pret handoff CLI).</p>
+        <p class="recap-meta">docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/</p>
+      </div>
+      <div class="recap-card">
+        <div class="recap-who">Cote CLI</div>
+        <div class="recap-when">13 avril 2026</div>
+        <p class="recap-what">Storybook S1 blocs 1-3 (19 stories Form + Feedback).</p>
+        <p class="recap-meta">commit b36cbe0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== IDEES FRAICHES ============== -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon">💡</div>
+      <div>
+        <h2 class="section-title">Deux idees capturees dans les dernieres 24 h.</h2>
+        <p class="section-sub">Elles sont dans le parking, pas dans le cap. Je les remonte juste pour que tu ne les perdes pas.</p>
+      </div>
+    </div>
+
+    <div class="ideas-list">
+      <div class="idea-item">
+        <div class="idea-bullet">▸</div>
+        <div>
+          <p class="idea-title">Agent SDK Anthropic — explorer la formalisation du Cortex en natif</p>
+          <p class="idea-desc">Prerequis : SDK mature + evaluation. En parking jusqu'a ce que les deux conditions soient reunies.</p>
+        </div>
+      </div>
+      <div class="idea-item">
+        <div class="idea-bullet">▸</div>
+        <div>
+          <p class="idea-title">MCP custom pour CONTEXT.md — anti-compactage via contexte a la demande</p>
+          <p class="idea-desc">L'idee : un MCP qui sert CONTEXT.md en morceaux cibles plutot qu'en bloc. Reduirait le risque de compactage lors des longues sessions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== CTA FINAL ============== -->
+  <div class="cta-final">
+    <div class="cta-kicker"><span class="cta-arrow">▶</span> On commence par quoi ?</div>
+    <p class="cta-question">Par defaut, on attaque le bloc 4 du Storybook (Layout).</p>
+    <p class="cta-alt"><strong>Alternative possible :</strong> on fait d'abord un aller-retour sur les 51 refs cassees pour repasser health au vert. Trente minutes max, sensation satisfaisante, puis on reprend le plan.</p>
+  </div>
+
+  <!-- ============== FOOTER ============== -->
+  <div class="footer">
+    Genere depuis CONTEXT.md · COWORK-CONTEXT.md · git log · health-check.sh · Asana projet 1213918098666338
+  </div>
+
+</div>
+</body>
+</html>

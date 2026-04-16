@@ -21,19 +21,19 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 ## Domaines
 
 ### Trading
-- [[domains/trading/_index]] — strategies, backtests, whitepapers, instruments
+- [[domains/trading/index-trading]] — strategies, backtests, whitepapers, instruments
 
 ### Finance
-- [[domains/finance/_index]] — patrimoine, fiscalite, decisions
+- [[domains/finance/index-finance]] — patrimoine, fiscalite, decisions
 
 ### Sante
-- [[domains/sante/_index]] — bilans bio, protocoles, papers medicaux, conseil multi-agents
+- [[domains/sante/index-sante]] — bilans bio, protocoles, papers medicaux, conseil multi-agents
 
 ### Design
-- [[domains/design/_index]] — UX research, patterns, heuristiques
+- [[domains/design/index-design]] — UX research, patterns, heuristiques
 
 ### Dev
-- [[domains/dev/_index]] — frameworks, patterns code, architecture, foundation OS
+- [[domains/dev/index-dev]] — frameworks, patterns code, architecture, foundation OS
 
 ## Cross-domain
 
