@@ -8,7 +8,8 @@ on:
     branches: [main]
     paths:
       - 'modules/design-system/src/**'
-      - 'modules/design-system/tokens/source/**'
+      # TODO: adapter path quand tokens/source/ sera créé
+      # - 'modules/design-system/tokens/source/**'
       - 'modules/design-system/supernova.config.json'
       - 'modules/design-system/scripts/**'
       - '.github/workflows/supernova-sync.yml'

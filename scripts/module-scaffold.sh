@@ -35,7 +35,7 @@ Cree:
 Effets de bord:
   - Update CONTEXT.md table Modules:
       * si la ligne | <Nom> | ... existe deja → status passe a "initialise"
-      * sinon → ajoute une ligne "| <Nom> | initialise | Cree YYYY-MM-DD |"
+      * sinon → ajoute une ligne "| <Nom> | initialise | `modules/<nom>/` | Cree YYYY-MM-DD |"
 
 Refuse si:
   - Aucun argument fourni
@@ -106,7 +106,7 @@ EOF
 echo -e "  ${GRN}[OK]${RST} package.json cree"
 
 # ── Update CONTEXT.md table Modules ────────────────────────────────
-LINE_TO_ADD="| $NAME_CAP | initialise | Cree $TODAY |"
+LINE_TO_ADD="| $NAME_CAP | initialise | \`modules/$NAME/\` | Cree $TODAY |"
 
 NAME_CAP="$NAME_CAP" LINE_TO_ADD="$LINE_TO_ADD" python3 <<'PYEOF'
 import os, re, sys
@@ -119,7 +119,7 @@ with open("CONTEXT.md", "r", encoding="utf-8") as f:
 
 # Capture la table Modules : header (titre + ligne titres + separateur) puis n lignes "| ... |", puis blank
 section_re = re.compile(
-    r"(## Modules\n\n\| Module \| Status \| Detail \|\n\|[-| ]+\|\n)"  # header
+    r"(## Modules\n\n\| Module \| Status \| Path \| Detail \|\n\|[-| ]+\|\n)"  # header
     r"((?:\|[^\n]*\|\n)+)"                                              # rows
     r"(\n)"                                                             # trailing blank
 )

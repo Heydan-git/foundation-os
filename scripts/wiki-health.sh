@@ -60,13 +60,15 @@ echo -e "  ${GRN}[OK]${RST} Pages : ${TOTAL_MD} total (${CONCEPTS} concepts, ${E
 echo -e "  ${DIM}[OK]${RST} Domaines : ${DOMAINS}"
 
 # 4. Broken wikilinks estimation (sample 20 premiers fichiers)
-BROKEN_LINKS=0
+# Note: uses tempfile for counter to avoid subshell variable loss with pipes
+BROKEN_LINKS_FILE=$(mktemp)
+echo 0 > "$BROKEN_LINKS_FILE"
 CHECKED=0
 for f in $(find wiki/concepts wiki/entities wiki/sources -name "*.md" 2>/dev/null | head -20); do
   [ -f "$f" ] || continue
   CHECKED=$((CHECKED + 1))
   # Extract wikilinks [[Target]] or [[path/Target]]
-  grep -oE '\[\[[^]|]+' "$f" 2>/dev/null | sed 's/\[\[//' | sort -u | while IFS= read -r link; do
+  while IFS= read -r link; do
     [ -z "$link" ] && continue
     # Normalize : get basename (handles spaces in names)
     BASENAME=$(basename "$link")
@@ -78,10 +80,13 @@ for f in $(find wiki/concepts wiki/entities wiki/sources -name "*.md" 2>/dev/nul
       FOUND=$(find wiki/ -name "${BASENAME}" 2>/dev/null | head -1)
     fi
     if [ -z "$FOUND" ]; then
-      BROKEN_LINKS=$((BROKEN_LINKS + 1))
+      CUR=$(cat "$BROKEN_LINKS_FILE")
+      echo $((CUR + 1)) > "$BROKEN_LINKS_FILE"
     fi
-  done
+  done < <(grep -oE '\[\[[^]|]+' "$f" 2>/dev/null | sed 's/\[\[//' | sort -u)
 done
+BROKEN_LINKS=$(cat "$BROKEN_LINKS_FILE")
+rm -f "$BROKEN_LINKS_FILE"
 
 if [ "$BROKEN_LINKS" -gt 0 ]; then
   echo -e "  ${YEL}[WARN]${RST} Wikilinks casses : ~$BROKEN_LINKS (scan $CHECKED pages)"
