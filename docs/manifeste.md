@@ -15,7 +15,8 @@ Un OS de travail personnel IA-driven. Pas un produit commercial. Pas une platefo
 - Un depot monorepo local (`foundation-os/`), versionne git, deploye sur Vercel
 - Un noyau de regles operationnelles (`CLAUDE.md`) et d'etat de verite (`CONTEXT.md`)
 - Une application React (`modules/app`) qui commence a heberger l'OS au lieu de le documenter
-- Un Core OS a 4 piliers (Cortex / Memory / Monitor / Tools) specifie et actif
+- Un Core OS a 7 piliers (Cortex / Communication / Monitor / Tools / Planner / Worktrees / Knowledge) specifie et actif
+- Un knowledge layer persistant (`wiki/`) base sur le pattern Karpathy LLM Wiki (plugin claude-obsidian), visualisable dans Obsidian
 - Une stack d'agents, commands, hooks et scripts qui automatisent les gestes repetitifs
 
 > « Que chaque session de travail avec Claude soit productive : Claude sait toujours ou on en est, ne cree pas de bordel, reste honnete, et le projet reste organise. »

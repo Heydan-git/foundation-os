@@ -19,6 +19,9 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-16 | **[DONE] Adoption Wiki Obsidian (D-WIKI-01) — 12 phases, 9 commits** |
+|            | Plugin claude-obsidian v1.4.3 + vault wiki/ multi-domaines (trading/finance/sante/design/dev). 5 tiers memoire formalises. 10 skills documentes Core Tools. Brief v11 enrichi (cadres HOT + WIKI). Hooks integres (auto-commit OFF). Premier ingest 11 pages ~120 wikilinks. 2 memoires migrees wiki/. Anti-regression validee. |
+|            | Plan : `docs/plans/2026-04-15-wiki-obsidian-adoption.md`. Decisions : D-WIKI-01. |
 | 2026-04-15 | **[DONE] Level Up Foundation OS — audit + 7 phases** |
 |            | Audit exhaustif OS (69 fichiers lus), 21 findings P0/P1/P2, 15 propositions priorisees. |
 |            | 7 phases livrees : hygiene settings.local (159→81L) + ref-checker extended (16→0 refs cassees) + manifeste/README syncrones + auto-archive plans retrofit (plan migration archive) + branch-name-check dans pre-commit + 2 branches legacy cleaned (tags archive/* preserves) + memory/_deprecated/ (2 memoires SUPERSEDED/DONE) + CONTEXT compression + CLAUDE compression + tools catalogue regen + drift-detector.sh + docs-sync-check.sh + hook SessionStart + cadre SYNC brief v11 + chain drift health-check. |
@@ -40,13 +43,13 @@
 
 ## Cap
 
-**Direction** : Foundation OS level-up DONE (audit + 7 phases). L'OS se maintient maintenant automatiquement : drift detection au SessionStart, auto-archive plans fonctionnel, refs cassees 0, mémoires obsoletes dans `_deprecated/`. Attente validation Kevin sur le nouveau workflow Desktop + test DS composants.
+**Direction** : Foundation OS = OS de travail + second-brain knowledge unifie (D-WIKI-01 DONE 2026-04-16). Vault Obsidian operationnel (11 pages, 5 domaines, graph view riche). 5 tiers memoire formalises. Brief v11 enrichi (14 sections avec cadres HOT + WIKI). Pret pour Phase 5 modules (Finance, Trading auto, Sante conseil multi-agents).
 
 **Prochaine action** :
-  - **Test `/cockpit` depuis main** : brief v11 avec cadre SYNC clean (0 drift) — DONE 2026-04-15 (SYNC vert).
-  - **Test `/plan-os "test trivial"`** : verifier bloc SESSION RENAME affiche + frontmatter genere + auto-archive fin.
-  - **Test `/wt new` + `/wt clean`** : verifier format `wt/<desc>-<yymmdd>`.
-  - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
+  - **Ouvrir Obsidian sur racine projet** : `/Users/kevinnoel/foundation-os/` (vault complet post-merge, remplace worktree temporaire).
+  - **Test `/save` sur conversation reelle** : valider pipeline conversation → wiki page.
+  - **Test `/autoresearch` sur topic reel** : valider research loop web → pages wiki.
+  - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ? (wiki/domains/ pret).
 
 > Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
 

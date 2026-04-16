@@ -19,8 +19,10 @@ package.json           npm workspace root
 modules/app/           Module App Builder (React + Vite + TS + Tailwind)
 modules/design-system/ Module Design System (Storybook + tokens)
 docs/                  Documentation (core, plans, specs, manifeste)
-docs/core/             Specs Core OS (cortex, communication, monitor, tools, planner, worktrees, naming-conventions)
-scripts/               Scripts bash + hooks (health-check, sync-check, ref-checker, worktree-*, module-scaffold)
+docs/core/             Specs Core OS (cortex, communication, monitor, tools, planner, worktrees, knowledge, naming-conventions)
+wiki/                  Knowledge layer Obsidian (pattern Karpathy LLM Wiki, D-WIKI-01)
+.raw/                  Archive sources brutes pour ingestion wiki
+scripts/               Scripts bash + hooks (health-check, sync-check, ref-checker, wiki-commit, wiki-health, worktree-*, module-scaffold)
 supabase/              Migrations DB
 .claude/               Agents (4), commands (7), settings
 .archive/              Historique (ne pas toucher sauf demande)
