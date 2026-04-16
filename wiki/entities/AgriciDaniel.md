@@ -15,6 +15,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-entities]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"

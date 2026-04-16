@@ -32,12 +32,7 @@
 |            | Plan : `.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md` (7 phases, 7 commits). |
 |            | Decisions : D-LEVELUP-01 organicite detection-only, D-LEVELUP-02 plans ultra detailles, D-LEVELUP-03 claude/jolly-wescoff merge-then-delete. |
 |            | Memoire creee : `feedback_plans_ultra_detailles.md`. |
-| 2026-04-15 | **[DONE] Migration Foundation OS → Claude Code Desktop natif (9 phases)** |
-|            | Plan archive `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`. 9 commits. |
-|            | Features natives Desktop exploitees : plan window UI (/plan-os orchestrateur), tasks pane (TodoWrite systematique), worktrees actifs (/wt), sessions 🪐 (rename manuel via bloc /plan-os), conventions nommage unifiees. |
-|            | 8 memoires permanentes creees + MEMORY.md index update. |
-|            | Decisions : D-DESKTOP-01, D-NAMING-01, D-PLAN-02 (supersede D-PLAN-01). |
-> Sessions plus anciennes (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
+> Sessions plus anciennes (Migration Desktop 9 phases DONE 2026-04-15, DS iso visuel 46 composants) (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
 
 ## Cap
 

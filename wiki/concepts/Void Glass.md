@@ -17,6 +17,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[design-system-components]]"
   - "[[index-design]]"
   - "[[tools-foundation-os]]"

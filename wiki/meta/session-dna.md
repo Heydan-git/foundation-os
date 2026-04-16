@@ -8,6 +8,7 @@ tags:
   - tracking
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[sessions-recent]]"
   - "[[thinking]]"
   - "[[index-wiki]]"

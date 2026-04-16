@@ -7,6 +7,7 @@ tags:
   - log
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[index-wiki]]"
   - "[[hot]]"
   - "[[overview]]"

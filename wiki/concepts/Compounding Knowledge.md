@@ -16,6 +16,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
   - "[[Andrej Karpathy]]"

@@ -16,6 +16,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-entities]]"
   - "[[foundation-os-desktop-migration]]"
   - "[[Obsidian]]"
   - "[[AgriciDaniel]]"

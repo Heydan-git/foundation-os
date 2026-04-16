@@ -23,6 +23,7 @@ tags:
   - wiki
 status: mature
 related:
+  - "[[index-sources]]"
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"
   - "[[LLM Wiki Pattern]]"

@@ -16,6 +16,7 @@ tags:
 status: seed
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[communication]]"
   - "[[Foundation OS]]"
   - "[[Hot Cache]]"

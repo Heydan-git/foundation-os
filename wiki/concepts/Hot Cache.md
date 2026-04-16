@@ -18,6 +18,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
   - "[[Andrej Karpathy]]"

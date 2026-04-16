@@ -17,6 +17,7 @@ tags:
 status: seed
 confidence: medium
 related:
+  - "[[index-entities]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Compounding Knowledge]]"
   - "[[Obsidian]]"

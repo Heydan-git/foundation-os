@@ -17,6 +17,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[foundation-os-map]]"
   - "[[tools-foundation-os]]"
   - "[[CHANGELOG|CHANGELOG DS]]"

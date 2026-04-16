@@ -18,6 +18,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[Hot Cache]]"
   - "[[Compounding Knowledge]]"
   - "[[Andrej Karpathy]]"

@@ -24,6 +24,7 @@ tags:
   - foundation-os
 status: mature
 related:
+  - "[[index-sources]]"
   - "[[session-2026-04-16-wiki-adoption]]"
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[LLM Wiki Pattern]]"

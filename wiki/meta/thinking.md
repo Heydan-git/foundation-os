@@ -8,6 +8,7 @@ tags:
   - neuroplasticity
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"
   - "[[foundation-os-map]]"

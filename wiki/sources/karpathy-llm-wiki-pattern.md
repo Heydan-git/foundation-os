@@ -22,6 +22,7 @@ tags:
   - karpathy
 status: mature
 related:
+  - "[[index-sources]]"
   - "[[agricidaniel-claude-obsidian]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"

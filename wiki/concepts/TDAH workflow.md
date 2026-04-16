@@ -16,6 +16,7 @@ tags:
 status: seed
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[Brief v12]]"
   - "[[Foundation OS]]"
   - "[[communication]]"

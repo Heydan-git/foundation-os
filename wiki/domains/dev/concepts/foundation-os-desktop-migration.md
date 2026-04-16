@@ -19,6 +19,7 @@ tags:
 status: mature
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[LLM Wiki Pattern]]"
   - "[[tools-foundation-os]]"
   - "[[Obsidian]]"

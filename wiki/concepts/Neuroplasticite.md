@@ -16,6 +16,7 @@ tags:
 status: seed
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
   - "[[thinking]]"

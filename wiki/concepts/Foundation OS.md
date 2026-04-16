@@ -15,6 +15,7 @@ tags:
 status: seed
 confidence: high
 related:
+  - "[[index-concepts]]"
   - "[[Core OS]]"
   - "[[Void Glass]]"
   - "[[LLM Wiki Pattern]]"

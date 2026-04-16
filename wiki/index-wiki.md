@@ -10,11 +10,18 @@ related:
   - "[[overview]]"
   - "[[log]]"
   - "[[hot]]"
+  - "[[foundation-os-map]]"
+  - "[[index-concepts]]"
+  - "[[index-entities]]"
+  - "[[index-sources]]"
+  - "[[index-meta]]"
+  - "[[index-core-os]]"
+  - "[[index-app]]"
 ---
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 36 | Sources ingested: 4
+Last updated: 2026-04-16 | Total pages: 42 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -36,6 +43,8 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[domains/dev/index-dev]] — frameworks, patterns code, architecture, foundation OS
 
 ## Cross-domain
+
+> **Sous-index detailles** : [[index-concepts]] | [[index-entities]] | [[index-sources]]
 
 ### Concepts (knowledge atemporel)
 - [[concepts/LLM Wiki Pattern]] — pattern Karpathy : pre-compiler sources en wiki Markdown pour LLMs (status: mature)
@@ -71,6 +80,8 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 ## Meta
 
+> **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **App** : [[index-app]]
+
 - [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
 - [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain (neuroplasticite)
 - [[sessions-recent]] — 5 dernieres sessions, memoire court terme (neuroplasticite)
@@ -96,7 +107,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Domaines actifs | 5 |
 | Meta | 8 |
 | Top-level | 4 |
-| Total pages | 36 |
+| Total pages | 42 |
 
 ## Couverture par domaine
 

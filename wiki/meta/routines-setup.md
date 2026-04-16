@@ -9,6 +9,7 @@ tags:
   - autopilot
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[thinking]]"
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"
@@ -508,6 +509,7 @@ updated: [date]
 tags: [meta, evolution, auto-apprentissage]
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[thinking]]"
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"

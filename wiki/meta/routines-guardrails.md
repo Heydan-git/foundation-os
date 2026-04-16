@@ -9,6 +9,7 @@ tags:
   - safety
 status: evergreen
 related:
+  - "[[index-meta]]"
   - "[[routines-setup]]"
   - "[[foundation-os-map]]"
   - "[[lessons-learned]]"
