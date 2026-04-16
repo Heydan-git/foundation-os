@@ -95,3 +95,14 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Domaines actifs | 5 |
 | Meta | 10 |
 | Total pages | 40 |
+
+## Couverture par domaine
+
+| Domaine | Concepts | Sources | Pages total | Maturite |
+|---------|----------|---------|-------------|----------|
+| Trading | 0 | 0 | 1 (index) | 🔴 Vide |
+| Finance | 0 | 0 | 1 (index) | 🔴 Vide |
+| Sante | 0 | 0 | 1 (index) | 🔴 Vide |
+| Design | 1 | 0 | 2 | 🟡 Seed |
+| Dev | 1 | 0 | 3 | 🟡 Seed |
+| Cross-domain | 9 | 4 | 24 | 🟢 Actif |

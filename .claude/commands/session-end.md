@@ -22,8 +22,10 @@
 > 12. `Edit wiki/log.md` — ajouter operations wiki de cette session (ingest, save, migrate, etc.)
 > 13. `Edit wiki/index-wiki.md` — mettre a jour stats (Concepts/Entities/Sources/Total pages) si pages wiki creees/modifiees
 > 14. Si plan execute cette session → marquer phases `[x]` dans `docs/plans/<slug>.md` Execution log
-> 15. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
-> 16. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
+> 15. Append session DNA dans `wiki/meta/session-dna.md` (le creer si absent) au format YAML :
+>    - date, type (planning|coding|audit|research|debug), zones, commits, files_touched, decisions, pages_wiki_created, wikilinks_delta
+> 16. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
+> 17. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
 >
 > **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
 >

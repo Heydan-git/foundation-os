@@ -10,7 +10,11 @@ set -uo pipefail
 cd "$(git rev-parse --show-toplevel)"
 
 FIX_MODE=0
-[ "${1:-}" = "--fix-cosmetic" ] && FIX_MODE=1
+SUGGEST_MODE=0
+for arg in "$@"; do
+  [ "$arg" = "--fix-cosmetic" ] && FIX_MODE=1
+  [ "$arg" = "--suggest" ] && SUGGEST_MODE=1
+done
 
 RED='\033[0;31m'
 YEL='\033[0;33m'
@@ -23,6 +27,7 @@ FIXED=0
 echo ""
 echo "DRIFT-DETECTOR — $(date +%Y-%m-%d)"
 [ $FIX_MODE -eq 1 ] && echo "Mode : --fix-cosmetic (actions cosmetiques uniquement)"
+[ $SUGGEST_MODE -eq 1 ] && echo "Mode : --suggest (ecriture suggestions dans .omc/suggestions.md)"
 echo ""
 
 # 1. CONTEXT.md sessions count vs spec (max 5)
@@ -128,6 +133,26 @@ if [ -f wiki/index-wiki.md ]; then
 fi
 
 echo ""
+
+# --suggest : ecrire les suggestions dans .omc/suggestions.md
+if [ $SUGGEST_MODE -eq 1 ] && [ "$DRIFT" -gt 0 ]; then
+  mkdir -p .omc
+  {
+    echo "## Suggestions $(date +%Y-%m-%d)"
+    echo ""
+    [ "$CTX_SESSIONS" -gt 5 ] 2>/dev/null && echo "- CONTEXT.md sessions > 5 : compresser la ${CTX_SESSIONS}eme"
+    [ "$CTX_LINES" -gt 150 ] 2>/dev/null && echo "- CONTEXT.md ${CTX_LINES}L : compresser (garde-fou 200L)"
+    [ "$CLAUDE_LINES" -gt 200 ] 2>/dev/null && echo "- CLAUDE.md ${CLAUDE_LINES}L : reduire (cible < 200)"
+    if [ -n "${WIKI_PAGES_IDX:-}" ] && [ -n "${WIKI_PAGES_FS:-}" ] && [ "$WIKI_PAGES_IDX" -ne "$WIKI_PAGES_FS" ] 2>/dev/null; then
+      echo "- wiki/index-wiki.md : Total pages $WIKI_PAGES_IDX vs $WIKI_PAGES_FS filesystem"
+    fi
+    echo "$BRANCH" | grep -qE "$LEGACY_REGEX" && echo "- branche '$BRANCH' : renommer selon convention D-NAMING-01"
+    [ "${HOT_AGE_DAYS:-0}" -gt 7 ] 2>/dev/null && echo "- wiki/hot.md : ${HOT_AGE_DAYS}j sans update (> 7j)"
+    echo ""
+  } > .omc/suggestions.md
+  echo -e "  ${GRN}[OK]${RST} Suggestions ecrites dans .omc/suggestions.md"
+fi
+
 if [ "$DRIFT" -eq 0 ]; then
   echo -e "${GRN}Verdict : SYNC${RST}"
   exit 0
@@ -137,5 +162,6 @@ elif [ $FIXED -gt 0 ]; then
 else
   echo -e "${YEL}Verdict : DRIFT${RST} ($DRIFT drifts detectes)"
   [ $FIX_MODE -eq 0 ] && echo "  Utiliser --fix-cosmetic pour fix auto (jamais destructif)"
+  [ $SUGGEST_MODE -eq 0 ] && echo "  Utiliser --suggest pour ecrire dans .omc/suggestions.md"
   exit 1
 fi

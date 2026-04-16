@@ -42,7 +42,8 @@ Lancer en parallele :
    - Un plan avec toutes ses cases `[x]` OU status `done`/`closed` → **considerer TERMINE**, proposer l'archivage `mv .archive/plans-done-$(date +%y%m%d)/` (normalement fait par `/session-end` precedent mais fallback si oublie)
 6. **Plans recemment termines** : `ls .archive/plans-done-*/` pour les 7 derniers jours. Afficher dans brief v11 cadre PLANS ACTIFS : ligne `🟢 <N> plans termines recemment` (ex : `🟢 11 plans termines (2026-04-15)`) sans detail. Permet a Kevin de voir la progression.
 7. **TodoWrite initial** (apres Phase 5) : creer un TodoWrite avec une todo par plan actif (1 plan = 1 todo). Kevin voit immediatement l'avancement dans la tasks pane Desktop. Memoire : `feedback_todowrite_systematique.md`.
-8. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
+8. **Routines health** : `git log --grep="routine" --since="7 days ago" --oneline | wc -l` → nombre de commits routine cette semaine. Afficher dans brief cadre SANTE : "Routines: N commits/7j".
+9. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
    - Asana : `mcp__claude_ai_Asana__get_my_tasks` workspace `1213280972575193` → 3 taches ouvertes top priorite + derniere modif
    - Notion : `mcp__claude_ai_Notion__notion-search` workspace user `4f1b99db` → 3 pages modifiees < 48h
    - Affichage : cadre `┌─ ETAT EXTERNE ─┐` apres PLANS ACTIFS. Jamais d'ecriture en session-start.
@@ -58,6 +59,13 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 - Modules dans CONTEXT.md correspondent a `modules/` sur le filesystem
 - CONTEXT.md < 200 lignes (sinon warning "CONTEXT.md trop long, compresser les sessions/decisions anciennes")
 
+## Phase 2bis — Context momentum (opt-in SMART_CONTEXT=1)
+
+> **Momentum (opt-in SMART_CONTEXT=1)** : si les 5 derniers commits sont tous dans la meme zone (wiki/ ou modules/), prioriser les reads de cette zone dans le brief.
+> Source : `git log -5 --name-only --format="" | grep -oE "^[^/]+" | sort | uniq -c | sort -rn | head -1 | awk '{print $2}'`
+> Si zone = "wiki" → Read wiki/meta/thinking.md en priorite
+> Si zone = "modules" → skip wiki meta reads non-essentiels
+
 ## Phase 3 — Produire le brief v11
 
 Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.1 (debut de session), 6.3 (regles rendu), 6.4 (sources donnees → quelle section vient d'ou).
@@ -68,6 +76,8 @@ Appliquer le template + regles de rendu definis dans `docs/core/communication.md
 3. Trajectoire (mission + focus + tendance + derniere decision)
 4. Plans actifs (1 sous-cadre par plan actif avec progression + hier + prochain + reste)
 5. WIKI (compteur pages/sources/domaines + derniere ingest — source wiki-health.sh + wiki/log.md)
+   Si pages wiki (concepts/entities/sources) non modifiees > 30j : afficher "⚠ N stale" (max 3).
+   Source : `git log -1 --format="%cr" -- "<page.md>"` pour chaque page.
 6. Modules (Code + Meta + Prevu) + Acces
 7. Attention (alertes + rappels + en attente Kevin)
    + SYNC optionnel (si drift-detector exit 1 — entre Attention et Dernier travail)
