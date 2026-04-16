@@ -23,7 +23,7 @@ Herite des regles globales CLAUDE.md (garde-fous, pas de duplication).
 | docs/*.md | Decision technique majeure, changement Core OS ou tokens |
 | docs/decisions-log.md | Quand CONTEXT.md depasse 15 decisions actives |
 
-Protocole Communication (4 tiers) : `docs/core/communication.md`.
+Protocole Communication (5 tiers) : `docs/core/communication.md`.
 
 **Note** : la mise a jour de CONTEXT.md en fin de session est geree par `/session-end` directement (pas par doc-agent). doc-agent intervient pour les updates hors-session-end (ex: Kevin demande "met a jour les modules dans CONTEXT.md").
 

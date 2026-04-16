@@ -96,7 +96,7 @@ A coller dans Cowork Settings du projet 🪐 FoundationOS. Remplace les sections
 ```
 🧠 3. Memoire partagee — regle d'or (v2 parallelisable)
 
-Foundation OS a 4 tiers (spec : docs/core/memory.md). Cowork et Claude Code partagent les memes tiers mais avec OWNERSHIP STRICT pour permettre le travail parallele.
+Foundation OS a 5 tiers (spec : docs/core/communication.md). Cowork et Claude Code partagent les memes tiers mais avec OWNERSHIP STRICT pour permettre le travail parallele.
 
 Tier                Support                     Proprietaire (write)   Read croise
 🔥 Session          Conversation en cours        tete active            non applicable

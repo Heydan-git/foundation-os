@@ -16,7 +16,7 @@ Herite des regles globales CLAUDE.md (Void Glass, commits, garde-fous).
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → modules actifs, etat technique
-2. Lire docs/design-system.md → tokens Void Glass
+2. Lire tokens Void Glass dans modules/design-system/
 
 ## Structure App Builder
 

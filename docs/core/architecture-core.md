@@ -1,6 +1,6 @@
 # Core OS — Architecture
 
-6 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15).
+7 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15).
 
 ## Couches
 
@@ -43,7 +43,7 @@ Spec complete : [docs/core/cortex.md](cortex.md)
 ## Communication (Phase 2 — actif)
 
 Spec : [docs/core/communication.md](communication.md)
-- 4 tiers (session/contexte/reference/auto-memory)
+- 5 tiers (session/contexte/auto-memory/reference/wiki)
 - Decisions avec dates et lifecycle
 - Protocole "quoi va ou" — une info = un seul tier
 

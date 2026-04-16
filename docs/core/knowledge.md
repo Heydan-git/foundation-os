@@ -230,7 +230,7 @@ Ce fichier (`docs/core/knowledge.md`) + memoire `feedback_neuroplasticity.md` = 
 - **Obsidian sync cloud** : NON utilise (privacy-first, git versionning suffit)
 - **Sources sensibles (raw scans bio, cles API)** : JAMAIS dans wiki/ ni .raw/. Uniquement dans `modules/<X>/data/` + `modules/<X>/secrets/` (gitignored).
 
-## 9. Maintenance
+## 10. Maintenance
 
 ### Drift detection
 `scripts/drift-detector.sh` verifie :
@@ -247,7 +247,7 @@ Versionne git. Obsidian sync cloud NON utilise (privacy Phase 5).
 ### Lint
 `wiki-lint` skill pour audit qualite (broken links, orphans, inconsistances).
 
-## 10. Migration auto-memory → wiki/ (historique)
+## 11. Migration auto-memory → wiki/ (historique)
 
 Lors adoption 2026-04-15, 2 memoires migrees selectivement :
 - `project_migration_desktop.md` → `wiki/domains/dev/concepts/foundation-os-desktop-migration.md` (concept dev atemporel)

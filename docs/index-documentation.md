@@ -76,9 +76,9 @@
 | docs/index.md | Carte navigation (ce fichier) |
 | docs/decisions-log.md | Decisions stables archivees |
 | docs/core/cortex.md | Routing + agents protocol |
-| docs/core/communication.md | 4 tiers persistance + briefs v11 source unique |
+| docs/core/communication.md | 5 tiers persistance + briefs v11 source unique |
 | docs/core/monitor.md | Health indicators + verdicts |
-| docs/core/tools.md | Catalogue 98 outils + routing |
+| docs/core/tools.md | Catalogue 109 outils + routing |
 | docs/core/planner.md | Spec /plan-os orchestrateur skills + EnterPlanMode |
 | docs/core/worktrees.md | Plomberie + workflow Foundation OS |
 | docs/core/architecture-core.md | Architecture Core OS detaillee |
@@ -86,7 +86,7 @@
 | docs/specs/2026-04-05-foundation-os-v2-design.md | Design spec v2 (5 phases iteratives) |
 | docs/specs/2026-04-10-cockpit-design.md | Spec design Cockpit |
 | docs/specs/2026-04-10-tools-module-v2-design.md | Spec Tools v2 |
-| docs/plans/2026-04-15-migration-foundation-desktop.md | Plan actif migration Claude Code Desktop |
+| .archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md | Plan migration Claude Code Desktop (archive DONE) |
 | docs/plans/_template-plan.md | Template plan format orchestrateur |
 
 ## Scripts

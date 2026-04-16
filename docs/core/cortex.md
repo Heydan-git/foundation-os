@@ -6,7 +6,7 @@ Module d'intelligence de Foundation OS. Routing, contexte, orchestration.
 
 ### Routing etendu (Tools v2)
 
-Avant la table agents ci-dessous, verifier `docs/core/tools/routing.json` pour un match plus granulaire (26 regles couvrant 97 outils). Si un outil/skill matche → l'utiliser directement. Sinon → fallback sur la table agents.
+Avant la table agents ci-dessous, verifier `docs/core/tools/routing.json` pour un match plus granulaire (35 regles couvrant 109 outils). Si un outil/skill matche → l'utiliser directement. Sinon → fallback sur la table agents.
 
 ### Table agents
 

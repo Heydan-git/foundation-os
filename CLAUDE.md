@@ -44,7 +44,7 @@ Tool calls NON optionnels. Interpretation alternative = violation.
 ## Briefs session (format v11)
 
 Spec complete : `docs/core/communication.md` section 6.
-11 sections cadres box-drawing, entete/input double trait, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres 12 blocs, tendance ▲▶▼.
+14 sections cadres box-drawing (post-D-WIKI-01), entete/input double trait, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres 12 blocs, tendance ▲▶▼.
 
 Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md`).
 
@@ -125,7 +125,7 @@ Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, touj
 
 - Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json)
 - Jamais creer de fichier sans demande explicite Kevin
-- Jamais dupliquer une info deja dans CONTEXT.md (regle d'or 4 tiers)
+- Jamais dupliquer une info deja dans CONTEXT.md (regle d'or 5 tiers)
 - Fichier deplace/renomme → mettre a jour TOUTES les refs (grep + fix)
 - Decision prise → CONTEXT.md section Decisions
 - Module change status → CONTEXT.md section Modules
@@ -155,7 +155,7 @@ Specs completes : `docs/core/`.
 - **Cortex** (routing) : `cortex.md`
 - **Communication** (persistance + brief v11) : `communication.md`
 - **Monitor** (health, seuils) : `monitor.md`
-- **Tools** (catalogue 98 outils) : `tools.md` + `tools/index.json` + `tools/routing.json`
+- **Tools** (catalogue 109 outils) : `tools.md` + `tools/index.json` + `tools/routing.json`
 - **Planner** (`/plan-os` orchestrateur) : `planner.md`
 - **Worktrees** (feature native + workflow `/wt`) : `worktrees.md`
 - **Architecture globale** : `architecture-core.md`

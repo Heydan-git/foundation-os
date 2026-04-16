@@ -15,7 +15,7 @@ Un OS de travail personnel IA-driven. Pas un produit commercial. Pas une platefo
 - Un depot monorepo local (`foundation-os/`), versionne git, deploye sur Vercel
 - Un noyau de regles operationnelles (`CLAUDE.md`) et d'etat de verite (`CONTEXT.md`)
 - Une application React (`modules/app`) qui commence a heberger l'OS au lieu de le documenter
-- Un Core OS a 7 piliers (Cortex / Communication / Monitor / Tools / Planner / Worktrees / Knowledge) specifie et actif
+- Un Core OS a 7 modules (Cortex / Communication / Monitor / Tools / Planner / Worktrees / Knowledge) specifie et actif
 - Un knowledge layer persistant (`wiki/`) base sur le pattern Karpathy LLM Wiki (plugin claude-obsidian), visualisable dans Obsidian
 - Une stack d'agents, commands, hooks et scripts qui automatisent les gestes repetitifs
 
@@ -54,19 +54,22 @@ Foundation OS se lit comme 3 couches empilees, documentees dans `docs/architectu
 | Couche | Contenu | Role |
 |--------|---------|------|
 | MODULES | app (actif), finance (prevu), sante (prevu) | Les projets concrets qui utilisent l'OS |
-| CORE OS | Cortex, Memory, Monitor, Tools | Le cerveau — routing, persistance, sante, automation |
+| CORE OS | Cortex, Communication, Monitor, Tools, Planner, Worktrees, Knowledge | Le cerveau — routing, persistance, sante, automation, plans, wiki |
 | TOOLKIT | OMC, BMAD v6, MCP, superpowers, gstack | Les outils externes branches au Core |
 
-### 4.1 — Core OS, les 4 piliers
+### 4.1 — Core OS, les 7 modules
 
-| Pilier | Role | Support | Statut |
+| Module | Role | Support | Statut |
 |--------|------|---------|--------|
 | Cortex | Routing tache → agent, lifecycle CONTEXT.md, commands | `CLAUDE.md`, `.claude/agents/`, `.claude/commands/` | actif |
-| Memory | 4 tiers (session / contexte / reference / auto-memory), regle d'or 1 info = 1 tier | `CONTEXT.md`, `docs/`, auto-memory Claude | actif |
+| Communication | 5 tiers (session / contexte / auto-memory / reference / wiki), regle d'or 1 info = 1 tier, briefs v11 | `CONTEXT.md`, `docs/`, auto-memory Claude | actif |
 | Monitor | Health indicators par severite, verdicts SAIN / DEGRADED / BROKEN | `scripts/health-check.sh`, integre a `review-agent` et `/sync` | actif |
 | Tools | Validators, scripts, CI/CD, hooks — automation locale | `scripts/`, `.github/workflows/`, hooks git + Claude | actif |
+| Planner | Orchestrateur skills plan + EnterPlanMode natif | `/plan-os` + skills tiers | actif |
+| Worktrees | Plomberie + workflow `/wt new\|list\|clean` | `scripts/worktree-*.sh` + `.claude/worktrees/` | actif |
+| Knowledge | Wiki layer persistant (claude-obsidian) | `wiki/` + `.raw/` + 10 skills + hooks | actif |
 
-Verdict S3 audit (2026-04-08) : les **4 piliers sont REELS**, alignes a >95% avec leurs specs. Voir `.archive/audit-massif/03-fondations-core.md`.
+Verdict S3 audit (2026-04-08) : les 4 premiers modules valides a >95%. Planner, Worktrees et Knowledge ajoutes post-migration Desktop 2026-04-15 (D-WIKI-01). Voir `.archive/audit-massif/03-fondations-core.md`.
 
 ### 4.2 — Agents et commands
 
@@ -177,7 +180,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 ## 10. Ce que l'OS ne pretend pas faire
 
 - **Pas un produit**. Pas de vente, pas d'utilisateurs externes, pas de SaaS multi-tenant.
-- **Pas de memoire persistante magique**. 4 tiers explicites : session (volatile), `CONTEXT.md`, `docs/`, auto-memory Claude natif.
+- **Pas de memoire persistante magique**. 5 tiers explicites : session (volatile), `CONTEXT.md`, auto-memory Claude natif, `docs/`, `wiki/` (knowledge atemporel D-WIKI-01).
 - **Pas d'auto-amelioration autonome**. Reconnu comme techniquement impossible dans le spec v2.
 - **Pas de 5 agents dev en parallele**. Max 3 agents paralleles documente — qualite se degrade au-dela.
 - **Pas de run en production pour un tiers**. Le seul « user » est Kevin, les seules metriques sont locales.
@@ -217,7 +220,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 
 | Categorie | Nombre / Taille | Emplacement |
 |-----------|-----------------|-------------|
-| Documents Core OS | 5 specs | `docs/core/` (cortex, memory, monitor, tools, architecture-core) |
+| Documents Core OS | 8 specs | `docs/core/` (cortex, communication, monitor, tools, planner, worktrees, knowledge, architecture-core) |
 | Plans de phases | 7 plans dates | `docs/plans/` (phase1 → phase4, cycle3, finition-os, audit-massif) |
 | Specs | 1 design spec v2 | `docs/specs/2026-04-05-foundation-os-v2-design.md` |
 | Audit massif Cycle 3 | 4 livrables rediges + 20 placeholders | `.archive/audit-massif/` (00-INDEX + 00-preflight + 01-carto + 02-inventaire + 03-fondations-core) |
@@ -263,7 +266,7 @@ Finding F-S2-08 de la session S2 : les hooks dans `.claude/settings.json` refere
 
 ## 14. Lecture synthetique — en une page
 
-Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifacts JSX pilotes par des MD a une vraie application React + Supabase + Vercel, deployee, testee (19 tests verts), et entouree d'un Core OS a 4 piliers (Cortex, Memory, Monitor, Tools) specifie et actif. Quatre phases iteratives ont ete executees et validees SAIN. Un audit massif (Cycle 3, 24 sessions) est en cours pour nettoyer la dette accumulee avant d'ouvrir Phase 5 (expansion Finance / Sante / Trading).
+Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifacts JSX pilotes par des MD a une vraie application React + Supabase + Vercel, deployee, testee (19 tests verts), et entouree d'un Core OS a 7 modules (Cortex, Communication, Monitor, Tools, Planner, Worktrees, Knowledge) specifie et actif. Quatre phases iteratives ont ete executees et validees SAIN. Un audit massif (Cycle 3, 24 sessions) est en cours pour nettoyer la dette accumulee avant d'ouvrir Phase 5 (expansion Finance / Sante / Trading).
 
 **Les forces observables** : discipline operationnelle elevee (`CLAUDE.md` + `CONTEXT.md` + anti-bullshit gates), tracabilite systematique, health check automatise, scripts idempotents, build rapide et leger, stack minimaliste et bien choisie, 0 reference cassee, 0 violation Void Glass.
 

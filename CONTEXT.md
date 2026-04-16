@@ -41,12 +41,11 @@
 
 ## Cap
 
-**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (22+ pages, 725+ wikilinks, graph connecté). Neuroplasticité active (4 réflexes, 3 pages meta). Prochaine étape : exécuter audit mapping (29 findings) puis Phase 5 modules.
+**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (40 pages, 762+ wikilinks, graph connecté, 9 groupes couleurs). Neuroplasticité active (4 réflexes, 3 pages meta). Audit mapping 100% DONE. Méga audit final planifié (63 findings + 9 innovations).
 
 **Prochaine action** :
-  - **Exécuter plan audit mapping** : `docs/plans/2026-04-16-audit-mapping-obsidian.md` (29 findings, 5 phases, ~2h).
-  - **Créer 14 routines Desktop** : prompts dans `wiki/meta/routines-setup.md` + dashboard HTML.
-  - **Configurer tags couleurs Obsidian** : graph → Groups → concept bleu, entity vert, source orange.
+  - **Exécuter méga audit final** : `docs/plans/2026-04-16-mega-audit-final.md` (8 phases, ~3h30).
+  - **Créer 14 routines Desktop** : prompts dans `wiki/meta/routines-setup.md` (Kevin dans UI Desktop).
   - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
 
 > Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
@@ -68,7 +67,7 @@
 - **Validation workflow Desktop** : tester /cockpit + /plan-os sur vraie tache, confirmer bloc SESSION RENAME affiche.
 - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
 - Activer "Email confirmations" dans Supabase Auth.
-- OMC update v4.11.6 (actuel v4.10.1).
+- OMC update v4.12.0 (actuel v4.10.1).
 
 ## Decisions
 
@@ -83,13 +82,15 @@
 | D-DESKTOP-01 Foundation OS calibre Claude Code Desktop | 2026-04-15 | Migration workflow OS pour exploiter features natives Desktop : plan window UI, tasks pane, worktrees actifs, sessions 🪐 (rename manuel via bloc /plan-os — feature auto-rename Desktop verifiee inexistante 2026-04-15). Plan archive `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`. 9 phases, 9 commits. |
 | D-NAMING-01 Conventions nommage unifiees | 2026-04-15 | Spec `docs/core/naming-conventions.md`. Branches `<type>/<scope>-<desc>[-yymmdd]`. Worktrees `wt/<desc>-<yymmdd>` via `/wt new`. Sessions `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan. Hook `branch-name-check.sh` dans pre-commit. |
 | D-PLAN-02 /plan-os orchestrateur skills | 2026-04-15 | Orchestrateur intelligent qui route vers le meilleur skill (brainstorming / writing-plans / ralplan) + finalise EnterPlanMode natif + dual-path versionnement. Skills tiers gardes intacts. Supersede D-PLAN-01. |
+| D-NAMING-02 Convention nommage wiki espaces | 2026-04-16 | Wiki concepts/entities gardent espaces dans noms fichiers (Obsidian natif). Kebab-case pour sources/meta. Pas de renommage massif. |
+| D-VAULT-01 Obsidian vault = racine projet | 2026-04-16 | Vault Obsidian configuré sur `/Users/kevinnoel/foundation-os/` (pas juste wiki/). Tous les .md du repo visibles dans graph. 9 groupes couleurs (5 tags + 4 path:). |
 | D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS + reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, tokens `--ds-*` (retire `--fos-*`). Plan `.archive/plans/2026-04-11-ds-shadcn-finition.md`. |
 | D-WT-01 Worktrees integres Core OS | 2026-04-11 | Feature native Claude Code documentee `docs/core/worktrees.md`. `.claude/worktrees/` dans `.gitignore` + exclu `ref-checker.sh`. |
 | D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | SUPERSEDE par D-PLAN-02. |
-| D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 98 outils documentes, routing etendu (26 regles), `tool-register.sh` CLI. |
+| D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 109 outils documentes, routing etendu (35 regles), `tool-register.sh` CLI. |
 | D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. |
 | D-BRIEF-01 Format v11 TDAH | 2026-04-10 | Cadres box-drawing, zones visuelles, alignement strict. Remplace v10. |
-| D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. 4 tiers persistance + brief v11. |
+| D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. 5 tiers persistance (D-WIKI-01) + brief v11. |
 | D-HK-02 Deps upgrade | 2026-04-10 | React 19, Vite 8, Tailwind 4. Build -74%. |
 | Compactage → re-audit | 2026-04-07 | Si compactage risque → refaire cycle audit complet avant de continuer. |
 

@@ -51,11 +51,12 @@ Memoire auto : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` (29 f
 | Module | Spec | Role |
 |---|---|---|
 | **Cortex** | `docs/core/cortex.md` | Routing demande Kevin → agent ou direct |
-| **Communication** | `docs/core/communication.md` | 4 tiers persistance + briefs v11 (source unique) |
+| **Communication** | `docs/core/communication.md` | 5 tiers persistance (D-WIKI-01) + briefs v11 (source unique) |
 | **Monitor** | `docs/core/monitor.md` | Health indicators (SAIN/DEGRADED/BROKEN), seuils |
-| **Tools** | `docs/core/tools.md` | Catalogue 98 outils, routing |
+| **Tools** | `docs/core/tools.md` | Catalogue 109 outils, routing |
 | **Planner** | `docs/core/planner.md` | Orchestrateur skills plan + EnterPlanMode |
 | **Worktrees** | `docs/core/worktrees.md` | Plomberie + workflow `/wt` |
+| **Knowledge** | `docs/core/knowledge.md` | Wiki layer persistant (claude-obsidian D-WIKI-01) |
 | **Cockpit** | `docs/specs/2026-04-10-cockpit-design.md` | Point d'entree unique super-pilote |
 
 ### Agents (`.claude/agents/`)
