@@ -66,30 +66,35 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 > Si zone = "wiki" → Read wiki/meta/thinking.md en priorite
 > Si zone = "modules" → skip wiki meta reads non-essentiels
 
-## Phase 3 — Produire le brief v11
+## Phase 3 — Produire le brief v12
 
-Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.1 (debut de session), 6.3 (regles rendu), 6.4 (sources donnees → quelle section vient d'ou).
+Appliquer le format **tuiles Markdown** defini dans `docs/core/communication.md` section 6.1 (v12), 6.3 (rendu), 6.4 (sources).
 
-**Sections du brief debut de session** (ordre, voir spec communication.md 6.1 — 14 sections post-D-WIKI-01) :
-1. Sante (health-check + build + worktree actif + wiki-health)
-2. HOT (3-5 lignes condensees de wiki/hot.md — cache derniere session)
-3. Trajectoire (mission + focus + tendance + derniere decision)
-4. Plans actifs (1 sous-cadre par plan actif avec progression + hier + prochain + reste)
-5. WIKI (compteur pages/sources/domaines + derniere ingest — source wiki-health.sh + wiki/log.md)
-   Si pages wiki (concepts/entities/sources) non modifiees > 30j : afficher "⚠ N stale" (max 3).
-   Source : `git log -1 --format="%cr" -- "<page.md>"` pour chaque page.
-6. Modules (Code + Meta + Prevu) + Acces
-7. Attention (alertes + rappels + en attente Kevin)
-   + SYNC optionnel (si drift-detector exit 1 — entre Attention et Dernier travail)
-8. Dernier travail (commits + bullets vulgarises)
-9. Statut projet (modules + chantier en cours)
-10. Idees & Parking (3-5 max recentes)
-11. Reflexion (1-3 lignes optionnelles)
-12. Historique (3 decisions recentes)
-13. Cap (direction + prochaine action)
-14. Input (question ouverte ou choix structure — double trait)
+**IMPORTANT : Format tuiles Markdown (PAS box-drawing terminal)**
+- Chaque section = 1 blockquote `>` contenant `####` titre + contenu + tables
+- Sections separees par `---`
+- NE PAS utiliser `┌─┐│└┘╔═╗╚╝` — utiliser `>`, `####`, `| |`, `**bold**`, `---`
+- Voir spec communication.md 6.3 pour les 4 niveaux de hierarchie
 
-Les regles de cadres (`┌─ TITRE ─┐ ... └─┘` 42 chars), entete double trait, espacement, alignement, emojis couleur, barres 12 blocs, etc. sont **dans communication.md section 6.3**. Ne pas reinventer.
+**14 sections** (ordre fixe, chacune dans une tuile blockquote) :
+1. 🏥 SANTE (table 4×2 build/tests/refs/css/wiki/drift + verdict bold)
+2. 🔥 HOT (3-5 lignes wiki/hot.md + Next)
+3. 🧭 TRAJECTOIRE (table mission/focus/tendance/derniere)
+4. 📋 PLANS (progression plans actifs + compteur termines recents)
+5. 📚 WIKI (table pages/domaines/ingest/stale + couverture domaines)
+   Si pages > 30j non modifiees : afficher "⚠ N stale" (max 3)
+6. 📦 MODULES (sous-groupes Code/Meta/Prevu + liens acces)
+7. ⚠️ ATTENTION (sous-groupes Alertes + En attente Kevin checklist)
+   + 🔄 SYNC optionnel (si drift-detector exit 1)
+8. 🔨 DERNIER TRAVAIL (N commits + table batches + decisions)
+9. 📊 STATUT (barres progression modules)
+10. 💡 IDEES (table emoji + description, 3-5 max)
+11. 🤔 REFLEXION (bullets courtes)
+12. 📜 HISTORIQUE (table 3 decisions recentes)
+13. 🎯 CAP (direction + prochaines actions table)
+14. 📥 INPUT (choix A/B/C dans table + "On fait quoi ?")
+
+Les regles de rendu (tuiles blockquote, hierarchie 4 niveaux, emojis, tables) sont **dans communication.md section 6.3 (v12)**. Ne pas reinventer. NE PAS utiliser de box-drawing terminal.
 
 ## Phase 4 — Annoncer + ouvrir l'input
 

@@ -162,20 +162,26 @@ Si `OMC_SYNC_EXTERNAL=1` ET cette session contient decisions OU statut module ch
 Aucune ecriture externe sans OK Kevin (regle CLAUDE.md imperatifs).
 Si variable absente → skip la phase entierement.
 
-## Phase 7 — Produire le brief de cloture v11
+## Phase 7 — Produire le brief de cloture v12
 
-Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.2 (cloture), 6.3 (rendu), 6.4 (sources).
+Appliquer le format **tuiles Markdown** defini dans `docs/core/communication.md` section 6.2 (v12), 6.3 (rendu), 6.4 (sources).
 
-**Sections du brief de cloture** (ordre, voir spec communication.md 6.2) :
-1. Entete (double trait `╔═══╗` — date + statut DONE/CONCERNS/NEEDS_CONTEXT/BLOCKED)
-2. ETAT TECHNIQUE (build + tests + health + refs + wiki-health)
-3. CE QUI A ETE FAIT (commits + fichiers + decisions)
-4. PLANS TERMINES CETTE SESSION (si plans archives Phase 5bis — cadre dedie)
-5. IDEES CAPTUREES (3-5 max)
-6. CAP MIS A JOUR (direction + prochaine action)
-7. ⚠ CONCERNS (uniquement si statut != DONE)
+**IMPORTANT : Format tuiles Markdown (PAS box-drawing terminal)**
+- Chaque section = 1 blockquote `>` contenant `####` titre + contenu + tables
+- Sections separees par `---`
+- NE PAS utiliser `┌─┐│└┘╔═╗╚╝` — utiliser `>`, `####`, `| |`, `**bold**`, `---`
+- Entete = `# 🪐 SESSION END — YYYY-MM-DD` + blockquote status
 
-Les regles de cadres, entete double trait, espacement, alignement, emojis couleur sont **dans communication.md section 6.3**. Ne pas reinventer.
+**7 sections en tuiles** :
+1. 🏥 ETAT TECHNIQUE (table build/tests/health/refs/wiki)
+2. 📌 CE QUI A ETE FAIT (N commits + table batches + decisions)
+3. 📦 PLANS TERMINES (table plans archives si applicable)
+4. 💡 IDEES CAPTUREES (table emoji + description)
+5. 🎯 CAP MIS A JOUR (direction + prochaines actions table)
+6. ⚠️ CONCERNS (uniquement si statut != DONE)
+7. Rappel worktree si applicable
+
+Les regles de rendu (tuiles blockquote, hierarchie 4 niveaux, emojis, tables) sont **dans communication.md section 6.3 (v12)**. Ne pas reinventer. NE PAS utiliser de box-drawing terminal.
 
 ## Phase 8 — Worktree cleanup (si applicable)
 

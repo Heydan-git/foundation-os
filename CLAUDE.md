@@ -44,7 +44,7 @@ Tool calls NON optionnels. Interpretation alternative = violation.
 ## Briefs session (format v11)
 
 Spec complete : `docs/core/communication.md` section 6.
-14 sections cadres box-drawing (post-D-WIKI-01), entete/input double trait, emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres 12 blocs, tendance ▲▶▼.
+14 sections tuiles Markdown v12 (blockquote `>` + `####` titre + tables `| |`). PAS de box-drawing terminal. Emojis couleur 🟢🟡🔴🔵⚪⚫🔮, barres `█░`, tendance ▲▶▼. Separateur `---` entre tuiles.
 
 Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md`).
 

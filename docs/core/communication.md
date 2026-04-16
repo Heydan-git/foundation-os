@@ -259,132 +259,107 @@ Ces lectures sont a la demande, pas systematiques.
 
 ## 6. Briefing — Comment on presente
 
-### 6.1 Brief de debut de session (v11 — TDAH-friendly, 14 sections post-D-WIKI-01)
+### 6.1 Brief de debut de session (v12 — TDAH tuiles Markdown)
 
-**14 sections**, chacune dans un **cadre box-drawing** `┌─ TITRE ─┐ ... └─┘`. 2 lignes vides entre cadres.
+**14 sections en tuiles.** Chaque section = 1 blockquote `>` contenant titre `####` + contenu + tables.
+Sections separees par `---` (horizontal rule).
 
-Principe TDAH : cadres = zones visuelles, alignement strict, labels paddes, respiration entre blocs.
+Principe TDAH : **tuiles = zones visuelles delimitees**, scanning par emojis titres, hierarchie 4 niveaux.
 
-#### Sections
+#### Format de rendu
 
-1. **SANTE** : 4 lignes (projet/build/tests/health), barres 12 blocs, % aligne a droite
-2. **HOT** (NOUVEAU D-WIKI-01) : 3-5 lignes condensees extraites de `wiki/hot.md`. Format :
-   ```
-   ┌─ HOT (derniere session) ────────────────┐
-   │ <Last Updated 1 ligne>                  │
-   │ <Key Recent Facts 1-2 lignes>           │
-   │ <Next Action 1 ligne>                   │
-   └─────────────────────────────────────────┘
-   ```
-   Si `wiki/hot.md` absent → cadre HOT pas affiche (fallback).
-3. **TRAJECTOIRE** : mission/focus/tendance(▲▶▼)/derniere session
-4. **PLANS ACTIFS** (obligatoire) : pour chaque plan `docs/plans/*.md` non cloture :
-   - nom + chemin
-   - progression globale (N/M blocs ou phases DONE)
-   - **hier** : plan + phase/bloc executes + commit
-   - **prochain** : bloc(s) suivant(s) de la prochaine session du plan
-   - **reste apres** : liste condensee des sessions/blocs restants
-   Si 2+ plans en parallele → un sous-cadre par plan. Lister les DEUX meme si un seul a ete touche hier.
-5. **WIKI** (NOUVEAU D-WIKI-01) : compteur pages/sources/domaines + derniere ingest. Format :
-   ```
-   ┌─ WIKI ──────────────────────────────────┐
-   │ 🟢 N pages · M sources · K domaines     │
-   │ Derniere ingest : <date> <slug>         │
-   └─────────────────────────────────────────┘
-   ```
-   Source : `bash scripts/wiki-health.sh` + `wiki/log.md` derniere section. Si wiki/ absent → cadre WIKI pas affiche.
-6. **MODULES** : groupes Code/Meta/Prevu + sous-section `├─ ACCES ─┤` (URLs + git)
-7. **ATTENTION** : alertes/rappels/en attente Kevin
-8. **DERNIER TRAVAIL** : commit vulgarise + decisions prises
-9. **STATUT PROJET** : barres progression par chantier
-10. **IDEES & PARKING** : 💡 concretes / 🔮 futures / ❓ ouvertes
-11. **REFLEXION** : questions en suspens + liens idees↔travail
-12. **HISTORIQUE** : 3 decisions recentes + echeance
-13. **CAP** : direction + pistes A/B/C
-14. **INPUT** (double trait `╔═══╗`) : questions groupees + `On y va ?`
+Le brief est du **Markdown natif** (PAS du box-drawing terminal). Claude Desktop rend les blockquotes comme des blocs gris, les tables comme des tableaux, le bold comme du gras.
 
-#### Cadre SYNC (optionnel, post-level-up phase 5-6)
+**IMPORTANT** : NE PAS utiliser `┌─┐│└┘╔═╗╚╝` (caracteres box-drawing). Utiliser UNIQUEMENT :
+- `>` blockquote = tuile (fond gris)
+- `####` dans blockquote = titre de tuile
+- `| |` tables Markdown = donnees structurees
+- `**bold**` = labels cles
+- `---` = separateur entre tuiles
+- Emojis couleur 🟢🟡🔴🔵⚪⚫🔮 = status
+- `█░` = barres progression
+- `- [ ]` = checklist (en attente Kevin)
 
-Quand `bash scripts/drift-detector.sh` retourne exit 1 (drift detecte) OU `bash scripts/docs-sync-check.sh` retourne exit 1, ajouter un cadre `┌─ SYNC ─┐` entre ATTENTION et DERNIER TRAVAIL :
+#### 14 sections (ordre fixe)
 
-```
-┌─ SYNC ─────────────────────────────────────┐
-│ 🟡 Drifts detectes :                       │
-│   <liste courte, 1 ligne par drift>        │
-│                                             │
-│ Fix : bash scripts/drift-detector.sh        │
-│       --fix-cosmetic (non-destructif)       │
-└─────────────────────────────────────────────┘
-```
-
-Si SYNC clean (exit 0), le cadre n'est PAS affiche.
-Source : drift-detector chain dans health-check (section INFO).
+1. **SANTE** `🏥` : table 4×2 (build/tests/refs/css/wiki/drift), verdict en bold
+2. **HOT** `🔥` : 3-5 lignes condensees de wiki/hot.md + Next action. Si hot.md absent → skip.
+3. **TRAJECTOIRE** `🧭` : table mission/focus/tendance/derniere
+4. **PLANS** `📋` : pour chaque plan actif = progression + hier + prochain + reste. Plans termines recemment = 🟢 compteur.
+5. **WIKI** `📚` : table pages/domaines/ingest/stale + couverture domaines
+6. **MODULES** `📦` : sous-groupes Code/Meta/Prevu + liens acces
+7. **ATTENTION** `⚠️` : sous-groupes Alertes + En attente Kevin (checklist)
+8. **SYNC** (optionnel) `🔄` : si drift-detector exit 1. Table drifts + fix. Si clean → pas affiche.
+9. **DERNIER TRAVAIL** `🔨` : N commits + table batches + decisions
+10. **STATUT** `📊` : barres progression modules
+11. **IDEES** `💡` : table emoji + description
+12. **REFLEXION** `🤔` : bullets courtes
+13. **HISTORIQUE** `📜` : table 3 decisions recentes
+14. **CAP + INPUT** `🎯📥` : direction + prochaines actions + choix Kevin
 
 #### Regle plans
 
-Un plan est "actif" tant que son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`.
+Un plan est "actif" si son `Execution log` contient au moins une case `[ ]` OU son frontmatter `status` != `done`/`closed`.
 
-**Auto-archive des plans termines** : `/session-end` deplace AUTOMATIQUEMENT vers `.archive/plans-done-$(date +%y%m%d)/` tout plan dont toutes les cases sont `[x]` OU status `done`/`closed` (hors `_template-plan.md`). Le brief de cloture (section 6.2) liste les plans archives dans un cadre dedie `PLANS TERMINES CETTE SESSION`.
+**Auto-archive** : `/session-end` deplace vers `.archive/plans-done-$(date +%y%m%d)/` tout plan termine (hors `_template-plan.md`).
 
-**Affichage des plans termines recents dans brief debut (6.1)** : dans le cadre `PLANS ACTIFS`, ajouter une ligne recapitulative `🟢 <N> plans termines recemment` (7 derniers jours, base sur `.archive/plans-done-*/`). Pas de detail — juste le compteur pour voir la progression.
+**Plans termines recents** : dans la tuile PLANS, ligne `🟢 <N> plans termines recemment` (7 derniers jours).
 
-Entete et Input en double trait `╔═══╗` pour ancrer debut/fin visuellement.
+### 6.2 Brief de fin de session (v12 — TDAH tuiles Markdown)
 
-### 6.2 Brief de fin de session (v11 — TDAH-friendly)
+**7 sections en tuiles** (meme format que 6.1) :
 
-**7 sections** en cadres box-drawing :
+1. **Entete** : `# 🪐 SESSION END — YYYY-MM-DD` + blockquote `Status : DONE/CONCERNS/NEEDS_CONTEXT/BLOCKED`
+2. **ETAT TECHNIQUE** `🏥` : table build/tests/health/refs/wiki
+3. **CE QUI A ETE FAIT** `📌` : N commits + table batches + decisions
+4. **PLANS TERMINES** `📦` : table plans archives cette session (si applicable)
+5. **IDEES CAPTUREES** `💡` : table emoji + description
+6. **CAP MIS A JOUR** `🎯` : direction + prochaines actions
+7. **CONCERNS** `⚠️` : uniquement si status != DONE
 
-1. **Entete** (double trait) : date + statut (DONE / CONCERNS / NEEDS_CONTEXT / BLOCKED)
-2. **ETAT TECHNIQUE** : build/tests/health/refs
-3. **CE QUI A ETE FAIT** : commits vulgarises + fichiers + decisions
-4. **PLANS TERMINES CETTE SESSION** : plans archives (titre + commit final + date)
-5. **IDEES CAPTUREES** : reflexions/pistes sauvees dans CONTEXT.md
-6. **CAP MIS A JOUR** : direction + prochaine action
-7. **CONCERNS** (si != DONE) : description du blocage
-
-Section "Persistance" supprimee (redondante — CONTEXT.md est toujours mis a jour).
-
-### 6.3 Regles de rendu v11
+### 6.3 Regles de rendu v12
 
 #### Structure visuelle
-- **Cadres** : `┌─ TITRE ─┐ ... └─┘` (42 chars largeur fixe)
-- **Entete/Input** : double trait `╔═══╗ ... ╚═══╝` (ancrage visuel debut/fin)
-- **Sous-sections** : `├─ SOUS-TITRE ─┤` (subdivision interne)
-- **Blanc** : 2 lignes vides entre chaque cadre
-- **Indentation** : 3 espaces apres `│`
+- **Tuile** : blockquote `>` contenant `####` titre + contenu + tables
+- **Separateur** : `---` (horizontal rule) entre chaque tuile
+- **Entete session** : `# 🪐 SESSION START/END — YYYY-MM-DD` (h1, le seul)
+- **Sous-groupes** : `**bold label**` dans blockquote (ex: 🟢 Code, 🔵 Meta, ⚫ Prevu)
 
-#### Alignement
-- Labels : emoji + mot, padde a 12 chars
-- Valeurs numeriques : alignees a droite
-- Barres : `████████████` (12 blocs) toujours a la meme colonne
-- Colonnes consistantes dans chaque cadre
+#### Hierarchie (4 niveaux)
+- **Niveau 1** : `#` = titre session (1 seul par brief)
+- **Niveau 2** : `####` dans `>` = titre de tuile (14 sections)
+- **Niveau 3** : `**bold**` dans `>` = sous-groupe dans tuile
+- **Niveau 4** : texte normal / cellules table = detail
 
 #### Couleurs et symboles
 - Emojis couleur : 🟢 OK / 🟡 warning / 🔴 casse / 🔵 pause / ⚪ vide / ⚫ prevu / 🔮 futur
 - Tendance : ▲ mieux / ▶ pareil / ▼ pire
-- Barres : `█` plein, `░` vide
+- Barres : `█` plein, `░` vide (dans tables statut)
+- Checklist : `- [ ]` pour actions Kevin
 
 #### Texte
-- Lignes courtes : ~55 chars max (interieur cadre)
 - Vulgariser : glose 3-4 mots pour tout jargon
-- Mise en garde : `⚠ [risque]` si simplification cache un danger
+- Mise en garde : `⚠` si simplification cache un danger
 - Mots interdits : revolution, historique, accomplish, reference mondiale
 
 ### 6.4 Sources de donnees pour le brief
 
 | Section brief | Source dans CONTEXT.md | Source live |
 |---------------|----------------------|------------|
-| Sante | — | health-check + build |
+| Sante | — | health-check + build + wiki-health |
+| Hot | — | wiki/hot.md |
 | Trajectoire | Cap + Sessions recentes | git log -1 |
-| Plans actifs | Sessions recentes (pointeur) | `docs/plans/*.md` Execution log + frontmatter |
+| Plans | Sessions recentes (pointeur) | `docs/plans/*.md` Execution log + frontmatter |
+| Wiki | — | wiki-health.sh + wiki/log.md |
 | Modules + Acces | Modules | git status + branch |
 | Attention | En attente Kevin | health-check |
-| Dernier travail | Sessions recentes + Decisions | git log -1 |
-| Statut projet | Modules + Chantier en cours | — |
+| Sync | — | drift-detector.sh exit code |
+| Dernier travail | Sessions recentes + Decisions | git log |
+| Statut | Modules + Chantier en cours | — |
 | Idees | Idees & Parking | — |
 | Reflexion | Idees & Parking | — |
 | Historique | Decisions (3 recentes) | — |
-| Cap | Cap | — |
+| Cap + Input | Cap | — |
 
 ## 7. Capture d'idees — Mecanisme
 
