@@ -20,6 +20,8 @@ related:
   - "[[Obsidian]]"
   - "[[AgriciDaniel]]"
   - "[[LLM Wiki Pattern]]"
+  - "[[Void Glass]]"
+  - "[[design-system-components]]"
 sources:
   - "[[agricidaniel-claude-obsidian]]"
 migrated_from: "auto-memory/tools_inventory.md (2026-04-16, D-WIKI-01 Phase 5)"
@@ -67,6 +69,8 @@ health-check, drift-detector, docs-sync-check, ref-checker, wiki-commit, wiki-he
 - [[Obsidian]] — editeur vault wiki
 - [[AgriciDaniel]] — plugin claude-obsidian
 - [[LLM Wiki Pattern]] — pattern architectural du wiki
+- [[Void Glass]] — design system dark-only
+- [[design-system-components]] — 46 composants + 6 foundations DS
 - [[foundation-os-desktop-migration]] — migration CLI → Desktop natif
 
 ## Total
