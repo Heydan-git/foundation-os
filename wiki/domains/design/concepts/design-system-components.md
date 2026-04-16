@@ -113,6 +113,11 @@ sources: []
 - **Storybook** : 62 stories total (53 DS + 9 app)
 - **Build** : build-storybook 5.87s
 
+## Documentation module
+
+- [[modules/design-system/README|README Design System]] — Description module, setup, scripts
+- [[modules/design-system/CHANGELOG|CHANGELOG Design System]] — Historique versions + breaking changes
+
 ## Connexions
 
 - [[tools-foundation-os]] — toolchain DS (Supernova SDK sync)
