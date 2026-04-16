@@ -127,7 +127,7 @@ Voir `docs/core/communication.md` section 6.1. Le brief de debut de session affi
 
 - `scripts/wiki-commit.sh` — commit manuel wiki/ + .raw/ (respect Kevin-valide)
 - `scripts/wiki-health.sh` — health-check wiki (hot.md age, index.md sync)
-- `scripts/ref-checker.sh` — etendu pour scanner wikilinks `[[file]]`
+- `scripts/ref-checker.sh` — etendu pour scanner wikilinks dans wiki/
 - `scripts/drift-detector.sh` — etendu pour check hot.md age + index.md vs filesystem
 - `scripts/hooks/session-start-wiki.sh` — wrapper SessionStart chainage
 

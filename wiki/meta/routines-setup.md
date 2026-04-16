@@ -205,14 +205,14 @@ Pour chaque page seed a enrichir :
    - Change status: seed → status: developing
 4. Si tu n'as PAS assez d'info pour enrichir correctement :
    - NE TOUCHE PAS la page
-   - Note dans wiki/meta/thinking.md : "[date] Page [[X]] est seed depuis Y jours mais pas assez de contexte pour enrichir"
+   - Note dans wiki/meta/thinking.md : "[date] Page X est seed depuis Y jours mais pas assez de contexte pour enrichir"
 
 === ETAPE 3 : BIDIRECTIONNALISER LES WIKILINKS ===
 Pour chaque page wiki modifiee a l'etape 2 :
-- Si page A mentionne [[B]] dans son contenu
+- Si page A mentionne B dans son contenu
 - Lis page B
-- Si page B ne mentionne PAS [[A]] dans son contenu ni dans related:
-  → Ajoute [[A]] dans la section "Connections" ou "Sources" de page B
+- Si page B ne mentionne PAS A dans son contenu ni dans related:
+  → Ajoute A dans la section "Connections" ou "Sources" de page B
 
 === ETAPE 4 : METTRE A JOUR INDEX ===
 - Mettre a jour wiki/index-wiki.md : les nouvelles pages/modifications doivent y etre

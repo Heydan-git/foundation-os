@@ -31,7 +31,7 @@ sources:
 
 ## What
 
-Editeur Markdown local, gratuit, sans vendor lock-in. Le vault est un dossier de fichiers texte sur le filesystem. Support natif wikilinks `[[page]]`, graph view, canvas, plugins community.
+Editeur Markdown local, gratuit, sans vendor lock-in. Le vault est un dossier de fichiers texte sur le filesystem. Support natif wikilinks, graph view, canvas, plugins community.
 
 ## Why It Matters
 
@@ -41,7 +41,7 @@ Choix naturel pour le [[LLM Wiki Pattern]] : Claude Code ecrit des fichiers Mark
 
 - Editeur Markdown local gratuit (obsidian.md)
 - Vault = dossier de fichiers .md (zero lock-in)
-- Wikilinks `[[page]]` natifs → graph view connectee
+- Wikilinks natifs → graph view connectee
 - Plugins : calendar, banners, excalidraw, thino, bases (Dataview replacement)
 - Canvas : fichiers .canvas pour visualisation spatiale
 - Multi-plateforme (macOS, Windows, Linux, mobile)
