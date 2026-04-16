@@ -38,10 +38,10 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 ## Cross-domain
 
 ### Concepts (knowledge atemporel)
-<!-- Populated par ingest Phase 7 + -->
+- [[domains/dev/concepts/foundation-os-desktop-migration]] — Migration Foundation OS → Claude Code Desktop natif (2026-04-15, DONE)
 
 ### Entities (personnes, orgs, produits, outils, repos)
-<!-- Populated par ingest -->
+- [[entities/tools-foundation-os]] — Foundation OS toolchain (OMC, BMAD, MCP, claude-obsidian, hooks, agents, commands)
 
 ### Sources (articles, papers, transcripts, PDFs)
 <!-- Populated par ingest -->
@@ -64,10 +64,10 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 | Type | Count |
 |------|-------|
-| Concepts | 0 |
-| Entities | 0 |
+| Concepts | 1 |
+| Entities | 1 |
 | Sources | 0 |
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
-| Total pages | 0 |
+| Total pages | 2 |
