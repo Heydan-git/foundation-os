@@ -14,7 +14,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 27 | Sources ingested: 4
+Last updated: 2026-04-16 | Total pages: 35 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -46,7 +46,9 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[concepts/Brief v11]] — format brief session TDAH-friendly 14 sections (status: seed)
 - [[concepts/Neuroplasticite]] — systeme auto-amelioration memoire 4 reflexes (status: seed)
 - [[concepts/TDAH workflow]] — adaptations workflow pour profil TDAH Kevin (status: seed)
+- [[concepts/Void Glass]] — design system dark-only #030303 Foundation OS (status: seed)
 - [[domains/dev/concepts/foundation-os-desktop-migration]] — Migration Foundation OS → Claude Code Desktop natif (2026-04-15, DONE)
+- [[domains/design/concepts/design-system-components]] — 46 composants ui + 6 foundations DS (status: mature)
 
 ### Entities (personnes, orgs, produits, outils, repos)
 - [[entities/Andrej Karpathy]] — AI researcher, createur LLM Wiki Pattern, ex-Tesla AI director (status: mature)
@@ -85,10 +87,11 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 | Type | Count |
 |------|-------|
-| Concepts | 9 |
+| Concepts | 11 |
 | Entities | 5 |
 | Sources | 4 |
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
-| Total pages | 27 |
+| Meta | 6 |
+| Total pages | 35 |

@@ -35,9 +35,7 @@
 |            | Decisions : D-DESKTOP-01, D-NAMING-01, D-PLAN-02 (supersede D-PLAN-01). |
 | 2026-04-15 | **[DONE_COTE_CLAUDE / EN_COURS_KEVIN] DS iso visuel + typography critique** |
 |            | 3 causes racines (font tokens @theme, tailwind-merge dedup, @layer base regles bruyantes) + rewrite 46 composants ui iso template via 8 sub-agents paralleles. Test manuel Kevin en attente sur 46 ui Storybook. |
-| 2026-04-14 | **[DONE] DS Rebuild iso base DS — phases 0-5 + 3b complet** (archive) |
-|            | Plan : `.archive/plans-done-260415/2026-04-14-ds-rebuild-from-base.md`. 8 commits. 62 stories total. |
-| 2026-04-14 | **[DONE] Supernova 46 Components SDK + sync auto** (`2c9403d`) — 46 composants visibles UI Supernova. GitHub Action sync push main DS. |
+| 2026-04-14 | **[DONE] DS Rebuild iso base DS + Supernova 46 Components** — 62 stories, 8 commits. Archive `.archive/plans-done-260415/`. |
 
 > Sessions plus anciennes (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
 
