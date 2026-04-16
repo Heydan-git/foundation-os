@@ -20,6 +20,16 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Worktrees Desktop
+
+### Toujours merger dans main avant de clôturer une session worktree
+- **Date** : 2026-04-16
+- **Contexte** : Session dans worktree `sharp-albattani` (auto-créé par Desktop). 2 commits livrés mais invisibles dans les autres conversations.
+- **Symptôme** : Nouvelle session sur main affiche le même brief qu'avant — aucun changement visible.
+- **Cause racine** : Desktop crée des worktrees avec branches `claude/*` isolées. Les commits restent dans la branche locale, main ne bouge pas.
+- **Fix** : `cd /chemin/repo/principal && git merge claude/<worktree> --ff-only` en fin de session.
+- **Règle** : TOUJOURS merger dans main avant de clôturer une session dans un worktree Desktop. Vérifier avec `git log -1 main` que le dernier commit est bien le nôtre.
+
 ## Obsidian + Wikilinks
 
 ### Wikilinks relatifs `../` ne fonctionnent PAS dans Obsidian

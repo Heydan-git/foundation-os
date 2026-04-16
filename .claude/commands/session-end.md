@@ -183,14 +183,22 @@ Appliquer le format **tuiles Markdown** defini dans `docs/core/communication.md`
 
 Les regles de rendu (tuiles blockquote, hierarchie 4 niveaux, emojis, tables) sont **dans communication.md section 6.3 (v12)**. Ne pas reinventer. NE PAS utiliser de box-drawing terminal.
 
-## Phase 8 — Worktree cleanup (si applicable)
+## Phase 8 — Merge main + worktree cleanup (OBLIGATOIRE si worktree)
 
-Si on est dans un worktree (`git worktree list` != main path) ET la branche est mergee dans main :
+Si on est dans un worktree (`git worktree list` != main path) :
 
-- Proposer `/wt clean <nom>` apres confirmation Kevin.
-- Ne **pas** auto-cleaner (action destructive, regle CLAUDE.md).
+1. **Merge dans main (OBLIGATOIRE, automatique)** :
+   ```bash
+   git merge-base --is-ancestor main HEAD && \
+   cd $(git worktree list | head -1 | awk '{print $1}') && \
+   git merge <branche-worktree> --ff-only
+   ```
+   - Si fast-forward possible → merger SANS demander (action safe, non-destructive)
+   - Si PAS fast-forward (divergence) → alerter Kevin, NE PAS forcer
+   - Verifier avec `git log -1 main` que le merge a fonctionne
+2. **Cleanup worktree** : proposer `/wt clean <nom>` apres confirmation Kevin (action destructive → demander)
 
-Sinon, rappeler simplement : "Worktree `<nom>` actif. Apres merge dans main + push, fermer avec `/wt clean <nom>`."
+**REGLE** : fermer une session sans merger = session perdue. Le merge fast-forward est OBLIGATOIRE, pas optionnel.
 
 ## References
 
