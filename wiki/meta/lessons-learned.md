@@ -22,6 +22,14 @@ related:
 
 ## Obsidian — Audit fantômes
 
+### Obsidian n'indexe pas les dossiers cachés (.claude/, .git/, etc.)
+- **Date** : 2026-04-16
+- **Contexte** : wikilinks `[[.claude/commands/cockpit|cockpit]]` dans foundation-os-map.md
+- **Symptôme** : noeuds gris "non résolus" dans le graph, même avec paths explicites
+- **Cause racine** : Obsidian ignore les dossiers commençant par `.` (hidden folders). Les fichiers `.claude/commands/*.md` ne sont pas indexés.
+- **Fix** : utiliser des backticks `` `cockpit` `` au lieu de wikilinks. Les commandes/agents ne sont pas des pages wiki.
+- **Règle** : ne JAMAIS wikilinker des fichiers dans des dossiers cachés (`.claude/`, `.git/`, `.omc/`). Utiliser du texte brut ou backticks.
+
 ### Chercher les FICHIERS avant les wikilinks
 - **Date** : 2026-04-16
 - **Contexte** : Kevin signale 5 pages fantômes (A, B, X, file, page) visibles dans le graph Obsidian
