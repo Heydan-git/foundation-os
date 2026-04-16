@@ -14,7 +14,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 21 | Sources ingested: 3
+Last updated: 2026-04-16 | Total pages: 22 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -53,6 +53,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 ### Sources (articles, papers, transcripts, PDFs)
 - [[sources/karpathy-llm-wiki-pattern]] — 2026-04 | article Karpathy | pattern LLM Wiki (status: mature)
 - [[sources/agricidaniel-claude-obsidian]] — 2026-04-13 | repo GitHub | plugin claude-obsidian v1.4.3 (status: mature)
+- [[sources/session-2026-04-16-neuroplasticity-audit]] — 2026-04-16 | session audit neuroplasticite (7 failles + 4 reflexes + routines)
 
 ### Comparisons (analyses side-by-side)
 <!-- Populated par ingest -->
@@ -78,7 +79,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 |------|-------|
 | Concepts | 4 |
 | Entities | 5 |
-| Sources | 2 |
+| Sources | 4 |
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
