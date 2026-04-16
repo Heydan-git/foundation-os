@@ -81,12 +81,12 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 - [[docs/travaux-cowork/COWORK-CONTEXT|COWORK-CONTEXT]] — Contexte Cowork Desktop + CLI
 - [[docs/travaux-cowork/README-cowork|README Cowork]] — Description travaux cowork
-- [[docs/travaux-cowork/2026-04-13-evolution-core-os/00-INDEX|00-INDEX evolution Core OS]] — Index evolution Core OS
-- [[docs/travaux-cowork/2026-04-14-briefs-foundation-os/00-INDEX|00-INDEX briefs FOS]] — Index briefs Foundation OS
+- [[docs/travaux-cowork/2026-04-13-evolution-core-os/index-evolution-core-os|index evolution Core OS]] — Index evolution Core OS
+- [[docs/travaux-cowork/2026-04-14-briefs-foundation-os/index-briefs-foundation-os|index briefs FOS]] — Index briefs Foundation OS
 
 ### Plan Dashboard Monitoring
 
-- [[docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/00-INDEX|00-INDEX dashboard monitoring]] — Index plan dashboard monitoring
+- [[docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/index-dashboard-monitoring|index dashboard monitoring]] — Index plan dashboard monitoring
 - [[01-vision-et-cartographie]]
 - [[02-architecture-navigation]]
 - [[03-pages-detail]]
@@ -126,7 +126,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 ### Design System (modules/design-system/)
 
 - [[CHANGELOG|CHANGELOG DS]] — Changelog Design System
-- [[design/_index|Design (domaine wiki)]] — Knowledge layer design (UX research, patterns)
+- [[index-design|Design (domaine wiki)]] — Knowledge layer design (UX research, patterns)
 
 ## Wiki — Knowledge Layer
 

@@ -32,8 +32,8 @@ Aucune pour l'instant.
 
 ## Cross-references cles
 
-- [[entities/_index|Entities cross-domain]] (libraries, frameworks, outils)
-- [[design/_index|Design]] (crossover UI/UX)
+- [[index-wiki|Entities cross-domain]] (libraries, frameworks, outils)
+- [[index-design|Design]] (crossover UI/UX)
 
 ## Workflows specifiques
 

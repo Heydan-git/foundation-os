@@ -31,8 +31,8 @@ Aucune pour l'instant.
 
 ## Cross-references cles
 
-- [[Void Glass|Void Glass]] (si existe) — design system dark-only
-- [[dev/_index|Dev]] (crossover composants UI)
+- [[Void Glass]] — design system dark-only Void Glass #030303
+- [[index-dev|Dev]] (crossover composants UI)
 
 ## Workflows specifiques
 

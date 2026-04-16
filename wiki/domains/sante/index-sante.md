@@ -41,8 +41,8 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 ## Cross-references cles
 
-- [[concepts/_index|Concepts cross-domain]] (biochimie, physiologie partages)
-- [[entities/_index|Entities cross-domain]] (medecins, chercheurs, labs)
+- [[index-wiki|Concepts cross-domain]] (biochimie, physiologie partages)
+- [[index-wiki|Entities cross-domain]] (medecins, chercheurs, labs)
 
 ## Sensibilite
 

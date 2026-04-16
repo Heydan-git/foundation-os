@@ -40,8 +40,8 @@ Aucune pour l'instant (Phase 5 non demarree).
 
 ## Cross-references cles
 
-- [[concepts/_index|Concepts cross-domain]] (Sharpe, Kelly, etc. partages)
-- [[entities/_index|Entities cross-domain]] (outils, brokers, researchers)
+- [[index-wiki|Concepts cross-domain]] (Sharpe, Kelly, etc. partages)
+- [[index-wiki|Entities cross-domain]] (outils, brokers, researchers)
 
 ## Workflows specifiques
 
