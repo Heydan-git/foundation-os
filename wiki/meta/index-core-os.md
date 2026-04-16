@@ -4,6 +4,7 @@ title: "Core OS — Index des 7 modules"
 updated: 2026-04-16
 tags:
   - index
+  - meta
   - core-os
 status: evergreen
 related:
