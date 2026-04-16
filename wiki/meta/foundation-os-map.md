@@ -125,8 +125,8 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ### Design System (modules/design-system/)
 
-- [[modules/design-system/README|README Design System]] — Description module DS
-- [[modules/design-system/CHANGELOG|CHANGELOG DS]] — Changelog Design System
+- [[CHANGELOG|CHANGELOG DS]] — Changelog Design System
+- [[design/_index|Design (domaine wiki)]] — Knowledge layer design (UX research, patterns)
 
 ## Wiki — Knowledge Layer
 
