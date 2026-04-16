@@ -2,16 +2,20 @@
 
 > **IMPERATIF** — tool calls en premier, avant toute reponse texte :
 >
-> **Tour 1 (parallele, OBLIGATOIRE)** :
+> **Tour 1 (parallele, OBLIGATOIRE — pas de limite tokens, Kevin Max x20)** :
 > 1. `Read CONTEXT.md`
-> 2. `Read wiki/hot.md` (si existe — cache narratif 500 mots derniere session, D-WIKI-01)
-> 3. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list`
-> 4. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
-> 5. `Glob docs/plans/*.md`
+> 2. `Read wiki/hot.md` (cache flash derniere session, 500 mots)
+> 3. `Read wiki/meta/sessions-recent.md` (memoire court terme, 5 sessions)
+> 4. `Read wiki/meta/lessons-learned.md` (auto-apprentissage erreurs)
+> 5. `Read wiki/meta/thinking.md` (reflexions en cours)
+> 6. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list`
+> 7. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
+> 8. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` (sante wiki : pages, wikilinks, hot.md age)
+> 9. `Glob docs/plans/*.md`
 >
 > **Tour 2 (OBLIGATOIRE)** :
-> 5. `Read` chaque plan actif non-archive
-> 6. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
+> 10. `Read` chaque plan actif non-archive
+> 11. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
 >
 > **Tour 3** : produire le brief v11 (format `docs/core/communication.md` section 6.1)
 >

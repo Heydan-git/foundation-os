@@ -7,6 +7,7 @@
 > 2. `Bash git worktree list` — detecter worktree actif
 > 3. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
 > 4. `Bash bash scripts/ref-checker.sh 2>&1 | head -5` — refs cassees
+> 5. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` — sante wiki (pages, wikilinks, hot.md age)
 >
 > **Tour 2 (OBLIGATOIRE)** :
 > 5. Verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, clarifier avant de continuer.
@@ -14,10 +15,13 @@
 >
 > **Tour 3 (OBLIGATOIRE si changements)** :
 > 7. `Edit CONTEXT.md` — ajouter entree Sessions recentes, update Cap + Decisions si applicable
-> 8. `Edit wiki/hot.md` — update cache narratif 500 mots (Last Updated / Key Recent Facts / Recent Changes / Active Threads / Next Action). Si wiki/ absent → skip.
-> 9. `Edit wiki/log.md` — ajouter operations wiki de cette session (ingest, save, migrate, etc.) si applicable. Si wiki/ absent → skip.
-> 10. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
-> 11. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
+> 8. `Edit wiki/hot.md` — update cache narratif 500 mots (Last Updated / Key Recent Facts / Recent Changes / Active Threads / Next Action)
+> 9. `Edit wiki/meta/sessions-recent.md` — APPEND resume de cette session (decisions, pages wiki, threads ouverts). Garder 5 sessions max.
+> 10. `Edit wiki/meta/thinking.md` — ajouter insights/hypotheses de cette session si pertinent
+> 11. `Edit wiki/meta/lessons-learned.md` — ajouter erreurs/pieges rencontres cette session si applicable
+> 12. `Edit wiki/log.md` — ajouter operations wiki de cette session (ingest, save, migrate, etc.)
+> 13. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
+> 14. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
 >
 > **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
 >
