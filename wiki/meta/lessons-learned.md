@@ -66,6 +66,20 @@ related:
 - **Fix** : utiliser `feat(wiki):` (feat = nouveau contenu, wiki = scope)
 - **Règle** : types valides = feat/fix/docs/refactor/chore/test/style/build/ci/perf/revert. Le scope entre parenthèses est libre.
 
+### Agents audit : vault racine invalide les "fantômes"
+- **Date** : 2026-04-16
+- **Contexte** : 5 agents opus ont audité le wiki en supposant vault = `wiki/` seulement. Ont reporté 52 fantômes DS + 60 refs hors-wiki.
+- **Symptôme** : Findings bullshit — les fichiers existaient tous dans le repo
+- **Cause racine** : Le vault Obsidian = racine projet (pas juste wiki/). `[[01-button]]` résout vers `modules/design-system/docs-supernova/components/01-button.md`.
+- **Fix** : Vérifier avec `find . -name "basename.md"` avant de déclarer un fantôme. 11 findings retirés.
+- **Règle** : TOUJOURS vérifier l'existence du fichier dans TOUT le repo, pas juste wiki/.
+
+### wiki-health.sh : BROKEN_LINKS toujours 0 (bug subshell pipe)
+- **Date** : 2026-04-16
+- **Contexte** : `grep | while read` crée un subshell. Variable incrémentée dans le subshell perdue au retour.
+- **Fix** : Remplacer pipe par process substitution `< <(grep ...)` + tmpfile compteur.
+- **Règle** : En bash, JAMAIS incrémenter une variable dans un `| while`. Utiliser `< <()` ou tmpfile.
+
 ### drift-detector index count : faux positif meta vs contenu
 - **Date** : 2026-04-16
 - **Contexte** : drift check compare "Total pages: 11" dans index.md vs 25 fichiers .md filesystem (inclut meta, templates, _index)
