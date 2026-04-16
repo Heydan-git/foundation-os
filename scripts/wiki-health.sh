@@ -66,11 +66,17 @@ for f in $(find wiki/concepts wiki/entities wiki/sources -name "*.md" 2>/dev/nul
   [ -f "$f" ] || continue
   CHECKED=$((CHECKED + 1))
   # Extract wikilinks [[Target]] or [[path/Target]]
-  LINKS=$(grep -oE '\[\[[^]|]+' "$f" 2>/dev/null | sed 's/\[\[//' | sort -u)
-  for link in $LINKS; do
-    # Normalize : remove relative paths, try find
+  grep -oE '\[\[[^]|]+' "$f" 2>/dev/null | sed 's/\[\[//' | sort -u | while IFS= read -r link; do
+    [ -z "$link" ] && continue
+    # Normalize : get basename (handles spaces in names)
     BASENAME=$(basename "$link")
+    [ -z "$BASENAME" ] && continue
+    # Quote properly for find (handles spaces like "Andrej Karpathy")
     FOUND=$(find wiki/ -name "${BASENAME}.md" 2>/dev/null | head -1)
+    if [ -z "$FOUND" ]; then
+      # Try without .md extension (might already have it)
+      FOUND=$(find wiki/ -name "${BASENAME}" 2>/dev/null | head -1)
+    fi
     if [ -z "$FOUND" ]; then
       BROKEN_LINKS=$((BROKEN_LINKS + 1))
     fi
