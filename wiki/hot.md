@@ -19,7 +19,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-16 : Audit profondeur complet — v11→v12 propagé, 5 fantômes supprimés, 4 worktrees nettoyés, 6 mémoires deprecated, CLAUDE.md +4 impératifs qualité.
+2026-04-16 : Audit profondeur + 7 sous-index graph Obsidian. 14 fantômes supprimés, v11→v12 propagé, 4 worktrees nettoyés, 6 mémoires deprecated, CLAUDE.md +4 impératifs. Graph restructuré : foundation-os-map → 7 sous-index par famille → fichiers.
 
 ## Plugin State
 
