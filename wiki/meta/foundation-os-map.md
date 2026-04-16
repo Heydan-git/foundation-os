@@ -130,6 +130,17 @@ Navigation: [[index]] | [[hot]] | [[overview]] | [[log]]
 
 ## Wiki — Knowledge Layer
 
+### Neuroplasticite (auto-amelioration memoire)
+
+- [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain
+- [[sessions-recent]] — 5 dernieres sessions (memoire court terme, append)
+- [[lessons-learned]] — Auto-apprentissage erreurs/pieges
+- [[hot]] — Cache flash derniere session (overwrite)
+- [[log]] — Chronological operations log
+- [[foundation-os-map]] — Cette carte (hub central graph)
+
+Spec : `docs/core/knowledge.md` section 8. Reflexes CLAUDE.md : recall wiki + consolidation + lessons + self-check.
+
 ### Concepts
 
 - [[LLM Wiki Pattern]] — Pattern Karpathy : pre-compiler sources en wiki Markdown pour LLMs

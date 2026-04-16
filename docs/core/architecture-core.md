@@ -83,8 +83,9 @@ Spec : [docs/core/worktrees.md](worktrees.md)
 ## Knowledge (Phase 7 — actif depuis 2026-04-15)
 
 Spec : [docs/core/knowledge.md](knowledge.md)
-- Wiki layer persistant via plugin `claude-obsidian` v1.4.3 (pattern Karpathy LLM Wiki).
+- Wiki layer persistant via plugin `claude-obsidian` v1.4.3 (pattern [[LLM Wiki Pattern|Karpathy LLM Wiki]]).
 - 5 domaines pre-scaffoldes (trading, finance, sante, design, dev) + 7 cross-domain.
+- **Neuroplasticite** (section 8 knowledge.md) : 4 reflexes auto (recall wiki, consolidation, [[lessons-learned|lessons learned]], self-check), 3 pages meta ([[thinking]], [[sessions-recent]], [[lessons-learned]]), routines cloud autonomes, loop.md.
 - Couplage modules/ <-> wiki/domains/ via frontmatter `implementation:`.
 - Integration brief v11 (cadres HOT + WIKI).
 - Auto-commit hook DESACTIVE (respect regle Kevin-valide).

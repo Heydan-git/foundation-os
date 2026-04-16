@@ -63,6 +63,9 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 ## Meta
 
 - [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
+- [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain (neuroplasticite)
+- [[sessions-recent]] — 5 dernieres sessions, memoire court terme (neuroplasticite)
+- [[lessons-learned]] — Auto-apprentissage erreurs/pieges (neuroplasticite)
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]
@@ -79,4 +82,4 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
-| Total pages | 11 |
+| Total pages | 14 |

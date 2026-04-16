@@ -37,6 +37,13 @@ Poser 5 questions dans l'ordre pour arbitrer tout nouvel element :
 | Sharpe ratio explained | `wiki/concepts/Sharpe Ratio.md` | concept theorique cross-domain |
 | Decision D-WIKI-01 adoption claude-obsidian | `CONTEXT.md` Decisions + `docs/decisions-log.md` | decision technique projet |
 | Kevin est TDAH, thinking en francais | `auto-memory/user_*.md` | profile Kevin |
+| Reflexion "est-ce que X s'applique a Y ?" | `wiki/meta/thinking.md` | reflexion autonome (neuroplasticite) |
+| Erreur "wikilinks ../  marchent pas Obsidian" | `wiki/meta/lessons-learned.md` | auto-apprentissage (neuroplasticite) |
+| Resume 5 dernieres sessions | `wiki/meta/sessions-recent.md` | memoire court terme (neuroplasticite) |
+
+### Neuroplasticite memoire (knowledge.md section 8)
+
+Le wiki est un cerveau ACTIF, pas un stockage passif. 4 reflexes obligatoires chaque session : recall wiki avant reponse technique, consolidation post-ingest, lessons learned, self-check session-end. Memoire court terme via [[sessions-recent]]. Reflexions via [[thinking]]. Auto-apprentissage via [[lessons-learned]]. [[Hot Cache|hot.md]] = cache flash derniere session. Routines cloud autonomes pour maintenance inter-sessions. Spec complete : `docs/core/knowledge.md` section 8.
 | Cle API broker trading | `modules/trading/secrets/.env` (gitignored) | secret sensible |
 | Article UX sur lois Gestalt | `wiki/domains/design/sources/gestalt-laws-YYYY-MM-DD.md` | source externe ingeree |
 | Spec module Cortex | `docs/core/cortex.md` | spec OS stable |

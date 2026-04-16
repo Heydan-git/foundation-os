@@ -153,7 +153,76 @@ Voir `docs/core/communication.md` section 6.1. Le brief de debut de session affi
 | Planner | Plans peuvent referencer wiki/domains/<X>/concepts pour contexte |
 | Worktrees | Vault wiki/ versionne git, accessible cross-worktrees |
 
-## 8. Limites / Hors scope
+## 8. Neuroplasticite (auto-amelioration memoire)
+
+Systeme d'auto-maintenance et auto-amelioration de la memoire. Regle Kevin : "c'est ton cerveau, utilise-le en autonomie". Max x20 = aucune limite tokens.
+
+### Flux session complet
+
+```
+SESSION START
+1. CLAUDE.md + auto-memory/ (AUTO Claude Code)
+2. Hook SessionStart : drift-detector + cat wiki/hot.md (AUTO)
+3. /session-start lit : CONTEXT.md + wiki/meta/sessions-recent.md
+   + wiki/meta/lessons-learned.md + wiki/meta/thinking.md
+
+TRAVAIL
+- Reflexe 1 RECALL : grep wiki/ avant reponse technique → lire page pertinente
+- Reflexe 2 CONSOLIDATION : apres /save ou ingest → enrichir pages existantes liees
+- Reflexe 3 LESSONS : si erreur/piege → ajouter dans lessons-learned.md
+- Kevin partage article/URL → ingest auto (.raw/ + wiki-ingest)
+- Insight cross-domain → noter dans thinking.md
+
+SESSION END
+- Reflexe 4 SELF-CHECK : bash scripts/wiki-health.sh
+  + update sessions-recent.md (append, 5 dernieres)
+  + update thinking.md si insight cette session
+- Update CONTEXT.md + hot.md (standard /session-end)
+- /save si session riche (AUTONOME, pas attendre Kevin)
+
+ENTRE SESSIONS (Routines Cloud, Max 15/jour)
+- Wiki Health Monitor (quotidien) : fix wikilinks, refresh hot.md stale, sync index stats
+- Wiki Consolidation (hebdo) : enrichir pages seed, bidirectionnaliser wikilinks, fusionner similaires
+- Documentation Drift (hebdo) : verifier coherence docs ↔ code, CONTEXT < 200L
+```
+
+### 4 reflexes obligatoires (CLAUDE.md)
+
+| Reflexe | Quand | Action |
+|---------|-------|--------|
+| Recall wiki | Avant reponse technique | `Grep` wiki/ → lire page si existe → citer |
+| Consolidation | Apres /save ou ingest | Enrichir pages existantes + callout `[!updated]` |
+| Lessons learned | Si erreur/piege rencontree | Ajouter dans `wiki/meta/lessons-learned.md` |
+| Self-check | En /session-end | wiki-health + sessions-recent + thinking |
+
+### Pages meta neuroplasticite
+
+| Page | Role | Cycle |
+|------|------|-------|
+| `wiki/meta/thinking.md` | Reflexions, hypotheses, connexions cross-domain | Enrichi en session |
+| `wiki/meta/sessions-recent.md` | 5 dernieres sessions (append, memoire court terme) | Append en /session-end |
+| `wiki/meta/lessons-learned.md` | Auto-apprentissage erreurs/pieges | Enrichi en session |
+| `wiki/hot.md` | Cache flash derniere session (overwrite) | Overwrite en /session-end |
+| `wiki/log.md` | Chronological operations log | Append en /session-end |
+| `.claude/loop.md` | Maintenance memoire si `/loop` bare | 7 checks automatises |
+
+### Routines Cloud autonomes (Max x20 = 15/jour)
+
+Toutes 100% autonomes. Zero intervention Kevin. Commit direct main. Si renommage → recabler TOUTES les refs. Verification refs apres CHAQUE modification.
+
+| Routine | Schedule | Action |
+|---------|----------|--------|
+| Wiki Health Monitor | Quotidien 8h | fix wikilinks casses, refresh hot.md stale > 3j, sync index stats, commit direct main |
+| Wiki Consolidation | Hebdo dimanche 20h | enrichir pages seed > 7j, bidirectionnaliser wikilinks, fusionner similaires, commit direct main |
+| Documentation Drift | Hebdo lundi 9h | CONTEXT < 200L, docs ↔ code sync, CLAUDE ↔ docs coherent. Fix mineur → commit direct. Fix majeur → issue GitHub detaillee. |
+
+Regle routines : **zero regression**. Apres chaque modification → `bash scripts/ref-checker.sh`. Si renommage → grep + update TOUTES references. Ne JAMAIS supprimer de fichier. Ne JAMAIS degrader.
+
+### Documentation inter-sessions (anti-perte contexte)
+
+Ce fichier (`docs/core/knowledge.md`) + memoire `feedback_neuroplasticity.md` = documentation complete du fonctionnement. Lus automatiquement (CLAUDE.md pointe ici, auto-memory charge feedback). Toute session future retrouve le contexte complet.
+
+## 9. Limites / Hors scope
 
 - **Pinecone embeddings** : differe 12+ mois, quand > 500 pages wiki
 - **Canvas export** : non automatise, Kevin cree manuellement via `/canvas`
