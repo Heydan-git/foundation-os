@@ -332,14 +332,15 @@ Entete et Input en double trait `╔═══╗` pour ancrer debut/fin visuelle
 
 ### 6.2 Brief de fin de session (v11 — TDAH-friendly)
 
-**6 sections** en cadres box-drawing :
+**7 sections** en cadres box-drawing :
 
 1. **Entete** (double trait) : date + statut (DONE / CONCERNS / NEEDS_CONTEXT / BLOCKED)
 2. **ETAT TECHNIQUE** : build/tests/health/refs
 3. **CE QUI A ETE FAIT** : commits vulgarises + fichiers + decisions
-4. **IDEES CAPTUREES** : reflexions/pistes sauvees dans CONTEXT.md
-5. **CAP MIS A JOUR** : direction + prochaine action
-6. **CONCERNS** (si != DONE) : description du blocage
+4. **PLANS TERMINES CETTE SESSION** : plans archives (titre + commit final + date)
+5. **IDEES CAPTUREES** : reflexions/pistes sauvees dans CONTEXT.md
+6. **CAP MIS A JOUR** : direction + prochaine action
+7. **CONCERNS** (si != DONE) : description du blocage
 
 Section "Persistance" supprimee (redondante — CONTEXT.md est toujours mis a jour).
 

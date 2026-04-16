@@ -10,8 +10,8 @@
 > 5. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` — sante wiki (pages, wikilinks, hot.md age)
 >
 > **Tour 2 (OBLIGATOIRE)** :
-> 5. Verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, clarifier avant de continuer.
-> 6. Pour chaque changement Tour 1 : classer (feature/fix/docs/refactor/chore), rassembler par commit logique
+> 6. Verifier qu'aucune todo TodoWrite n'est `in_progress` orpheline. Si oui, clarifier avant de continuer.
+> 7. Pour chaque changement Tour 1 : classer (feature/fix/docs/refactor/chore), rassembler par commit logique
 >
 > **Tour 3 (OBLIGATOIRE si changements)** :
 > 7. `Edit CONTEXT.md` — ajouter entree Sessions recentes, update Cap + Decisions si applicable

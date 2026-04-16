@@ -5,9 +5,11 @@
 > **Tour 1 (parallele, OBLIGATOIRE)** :
 > 1. `Read CONTEXT.md` — etat projet
 > 2. `Read wiki/hot.md` — cache flash derniere session (cadre HOT)
-> 3. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
-> 4. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health)
-> 5. `Glob docs/plans/*.md` — lister plans existants
+> 3. `Read wiki/meta/sessions-recent.md` — memoire court terme
+> 4. `Read wiki/meta/lessons-learned.md` — erreurs a ne pas repeter
+> 5. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
+> 6. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health)
+> 7. `Glob docs/plans/*.md` — lister plans existants
 >
 > **Tour 2 (OBLIGATOIRE apres Tour 1)** :
 > 5. `Read` chaque plan actif identifie (non-DONE, non-SUPERSEDED)
@@ -28,11 +30,12 @@ Spec design : `docs/specs/2026-04-10-cockpit-design.md`
 Lancer en parallele :
 
 1. **CONTEXT.md** : lire ENTIER (< 150 lignes garanti)
-2. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
-3. **Worktree actif** : `git worktree list` (detecter si on est dans main ou dans un worktree). Extraire le nom du worktree courant (basename du cwd si dans `.claude/worktrees/*/`). Inclure dans le brief v11 cadre Sante : ligne `Worktree` avec le nom (ou `main (base)` sinon).
-4. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
-5. **Health-check** : `bash scripts/health-check.sh`
-6. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
+2. **Wiki meta** : `Read wiki/meta/sessions-recent.md` + `Read wiki/meta/lessons-learned.md` — memoire court terme + erreurs a ne pas repeter
+3. **Git** : `git status --short` + `git log -1 --format="%cr · %h · %s"` + `git branch --show-current`
+4. **Worktree actif** : `git worktree list` (detecter si on est dans main ou dans un worktree). Extraire le nom du worktree courant (basename du cwd si dans `.claude/worktrees/*/`). Inclure dans le brief v11 cadre Sante : ligne `Worktree` avec le nom (ou `main (base)` sinon).
+5. **Build modules** : pour chaque `modules/*/package.json` → `npm run build -w modules/[nom]`
+6. **Health-check** : `bash scripts/health-check.sh`
+7. **Plans actifs** : lire CHAQUE `docs/plans/*.md` non archive. Exclure les plans dont toutes les cases `Execution log` sont `[x]` OU status `done`/`closed`. Pour chaque plan restant, extraire : titre, progression (N/M), dernier `[x]` coche (= hier), prochains `[ ]`, sessions restantes. Rendre dans le cadre **PLANS ACTIFS** du brief (format spec `docs/core/communication.md` section 6.1). Un sous-cadre par plan. Obligatoire meme si un seul plan actif.
 7. **Tasks pane** : creer un TodoWrite initial avec les plans actifs en tâches (1 todo = 1 plan en cours). Kevin voit l'avancement dans la tasks pane Desktop.
 
 Si CONTEXT.md absent → abort avec erreur explicite.
