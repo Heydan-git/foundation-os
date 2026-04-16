@@ -18,7 +18,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-16 : Hygiene OS — health-check DEGRADED→SAIN (26 refs, 3 drifts, 5 warnings→0).
+2026-04-16 : Audit profondeur complet — v11→v12 propagé, 5 fantômes supprimés, 4 worktrees nettoyés, 6 mémoires deprecated, CLAUDE.md +4 impératifs qualité.
 
 ## Plugin State
 
@@ -40,6 +40,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Recent Changes
 
+- 2026-04-16 `e95c986` fix(os): audit profondeur — v11→v12, counts, fantômes, mémoires, worktrees
 - 2026-04-16 `b1d7501` fix(os): health-check DEGRADED→SAIN — 26 refs, 3 drifts, 5 warnings corrigés
 - 2026-04-16 `079500b` feat(os): brief v12 tuiles Markdown — refonte UI session-start + session-end
 - 2026-04-16 `968ef12` docs(os): session-end — mega audit DONE, 2 plans archives, session DNA
@@ -49,6 +50,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Active Threads
 
+- Audit profondeur DONE — 128 fichiers lus contenu, 48 corrigés, dette v11 éliminée
 - Méga audit final DONE (`.archive/plans-done-260416/2026-04-16-mega-audit-final.md`) — 63 findings + 9 innovations livrées
 - Wiki opérationnel : 41 pages, 762+ wikilinks, 5 domaines, graph connecté, 9 groupes couleurs
 - 14 routines Desktop documentées (routines-setup.md + guardrails.md) — Kevin doit créer dans UI Desktop

@@ -19,7 +19,9 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 12 fichiers, 1 commit `b1d7501`. |
+| 2026-04-16 | **[DONE] Audit profondeur + nettoyage fantômes + worktrees** |
+|            | Audit complet 128 fichiers (7 agents opus, contenu lu ligne par ligne). 5 fantômes Obsidian supprimés (fichiers physiques A/X/file/page). 4 worktrees legacy nettoyés. v11→v12 propagé ~25 fichiers. cortex.md 4→7 modules. 6 mémoires obsolètes → _deprecated. Brief v11.md → Brief v12.md. CLAUDE.md +4 impératifs qualité. 3 commits, 37 fichiers. |
+| 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 1 commit `b1d7501`. |
 | 2026-04-16 | **[DONE] Audit Mapping + Méga Audit Final Foundation OS** |
 |            | Audit mapping 29 findings (5 phases DONE, 5 concepts créés, +173 wikilinks). Méga audit 63 findings + 9 innovations (scripts, docs, wiki, commands, routines, CI). 3 scripts créés (wiki-suggest-links, wiki-metrics, wiki-recall-reminder). Session commands alignées 14 sections. 13 commits, 53 fichiers, +1400 lignes. |
 |            | Decisions : D-NAMING-02 espaces wiki, D-VAULT-01 vault racine. Plans archivés : audit-mapping + mega-audit. |

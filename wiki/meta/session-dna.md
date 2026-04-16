@@ -42,3 +42,20 @@ related:
   warnings_fixed: 5
   health_before: DEGRADED
   health_after: SAIN
+
+## 2026-04-16 · Audit profondeur + nettoyage
+
+```yaml
+date: 2026-04-16
+type: audit
+zones: [CLAUDE.md, docs/core, commands, wiki, scripts, memory]
+commits: [8507586, 233c73e, e95c986]
+files_touched: 37
+decisions: []
+pages_wiki_created: [Brief v12]
+pages_wiki_deleted: [Brief v11]
+memories_deprecated: [feedback_brief_format, feedback_tdah_briefs, feedback_base_ds_no_archive, feedback_ds_true_iso, feedback_ds_iso_figma, feedback_no_bullshit]
+memories_created: [feedback_imperatifs_qualite, feedback_audit_exhaustif, feedback_obsidian_physical_first]
+worktrees_cleaned: [sleepy-ellis, suspicious-khayyam, bold-newton, sharp-albattani]
+ghost_files_deleted: [A.md, X.md, file.md, page.md]
+```

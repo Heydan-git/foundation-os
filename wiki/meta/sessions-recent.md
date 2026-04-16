@@ -22,6 +22,33 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-16 · Audit profondeur + nettoyage fantômes + worktrees
+
+**Durée** : 1 session
+**Scope** : Audit complet 128 fichiers (7 agents opus, contenu lu ligne par ligne) + nettoyage
+
+**Fixes** :
+- 5 fantômes Obsidian supprimés (fichiers physiques A.md, X.md, file.md, page.md + source wikilink log.md)
+- 4 worktrees legacy nettoyés (sleepy-ellis, suspicious-khayyam, bold-newton, sharp-albattani)
+- v11→v12 propagé dans ~25 fichiers (commands, docs/core, docs, wiki)
+- cortex.md : 4→7 modules, nomenclature alignée
+- Brief v11.md renommé Brief v12.md + refs recâblées
+- 6 mémoires obsolètes/doublons → _deprecated
+- CLAUDE.md : +4 impératifs qualité, "lire=lire TOUT"
+- monitor.md : seuil CSS aligné, fichiers racine complétés
+- cockpit.md : box-drawing INPUT → tuile Markdown
+
+**Commits** : 3 (8507586, 233c73e, e95c986)
+
+**Leçons** : audits précédents vérifiaient structure mais pas contenu. Fantômes Obsidian = chercher fichiers physiques d'abord. Impératifs qualité intégrés dans CLAUDE.md.
+
+**Threads ouverts** :
+- Décision Phase 5 : Finance / Santé / Trading
+- _bmad/ : archiver ou garder ?
+- Storybook 9 (pas 8) dans CONTEXT.md
+- docs/index-documentation.md : scripts manquants, routes obsolètes
+- README-cowork.md : dossiers désynchronisés
+
 ## 2026-04-16 · Hygiène OS — DEGRADED→SAIN
 
 **Durée** : 1 session, ~30min
