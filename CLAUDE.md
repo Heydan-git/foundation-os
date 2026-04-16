@@ -94,7 +94,24 @@ Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/co
 - **Drift detection** : `scripts/drift-detector.sh` au SessionStart (detection only, pas de fix auto destructif)
 - **Docs sync** : `scripts/docs-sync-check.sh` (manuel, chain dans health-check)
 - **Ref integrity** : `scripts/ref-checker.sh` (chain dans health-check + sync-check)
-- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` quand Kevin partage document. Consultation wiki avant reponses techniques. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
+- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` quand Kevin partage document. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
+
+### Neuroplasticite memoire (D-WIKI-01 Phase 2)
+
+4 reflexes obligatoires a chaque session :
+
+1. **Recall wiki** : avant de repondre sur un sujet technique/knowledge, `Grep` le basename dans `wiki/` → si page existe, la lire AVANT de formuler la reponse. Citer la page wiki si pertinente. Ne pas se limiter en tokens (Kevin Max x20).
+2. **Consolidation post-ingest** : apres chaque `/save` ou `wiki-ingest`, verifier si les nouvelles pages enrichissent/contredisent des existantes. Si oui, mettre a jour les pages existantes + ajouter callout `> [!updated] YYYY-MM-DD source`. Systematique (pas "best-effort").
+3. **Lessons learned** : quand une erreur/piege est rencontree (script qui plante, convention oubliee, faux positif, workaround necessaire), l'ajouter dans `wiki/meta/lessons-learned.md` avec date + contexte + fix.
+4. **Self-check session-end** : avant cloture, verifier sante memoire (`bash scripts/wiki-health.sh`). Si pages stale, wikilinks casses, hot.md ancien → signaler dans brief cloture. Mettre a jour `wiki/meta/sessions-recent.md` (append, 5 dernieres sessions) + `wiki/meta/thinking.md` si insight cette session.
+
+Lecture SessionStart elargie (pas de limite tokens) :
+- `wiki/hot.md` (hook AUTO)
+- `wiki/meta/sessions-recent.md` (Tour 1 /session-start)
+- `wiki/meta/lessons-learned.md` (Tour 1 /session-start)
+- `wiki/meta/thinking.md` (Tour 1 /session-start, si < 50 lignes)
+
+Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Si renommage → recabler TOUTES les refs. Verifier refs apres toute modification.
 
 ### Interdit sans Kevin
 - `git push` sur main ou `--force`
