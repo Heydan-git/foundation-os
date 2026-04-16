@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Foundation OS — 14 Routines Setup</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #030303; color: #e0e0e0; font-family: 'Figtree', system-ui, sans-serif; padding: 24px; max-width: 1200px; margin: 0 auto; }
+h1 { color: #fff; font-size: 1.6rem; margin-bottom: 8px; }
+.subtitle { color: #888; font-size: 0.9rem; margin-bottom: 32px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+.card { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 20px; position: relative; }
+.card.daily { border-left: 3px solid #f59e0b; }
+.card.weekly { border-left: 3px solid #3b82f6; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.card-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 20px; font-weight: 600; }
+.badge.daily { background: #f59e0b22; color: #f59e0b; }
+.badge.weekly { background: #3b82f622; color: #3b82f6; }
+.schedule { color: #888; font-size: 0.8rem; margin-bottom: 8px; }
+.module { color: #10b981; font-size: 0.8rem; margin-bottom: 12px; }
+.desc { color: #aaa; font-size: 0.85rem; line-height: 1.5; margin-bottom: 16px; }
+.prompt-container { position: relative; }
+.prompt { background: #111; border: 1px solid #333; border-radius: 8px; padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #ccc; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-break: break-word; line-height: 1.4; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #222; border: 1px solid #444; color: #fff; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 0.7rem; }
+.copy-btn:hover { background: #333; }
+.copy-btn.copied { background: #10b981; border-color: #10b981; }
+.section-title { color: #fff; font-size: 1.2rem; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #222; }
+.planning { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 0.8rem; }
+.planning th { background: #111; color: #888; padding: 8px; text-align: left; border-bottom: 1px solid #222; }
+.planning td { padding: 6px 8px; border-bottom: 1px solid #111; }
+.planning .r-daily { color: #f59e0b; font-weight: 600; }
+.planning .r-weekly { color: #3b82f6; }
+.planning .r-synth { color: #a855f7; font-weight: 600; }
+.checklist { list-style: none; margin: 16px 0; }
+.checklist li { padding: 8px 0; border-bottom: 1px solid #111; display: flex; align-items: center; gap: 8px; }
+.checklist input[type="checkbox"] { width: 18px; height: 18px; accent-color: #10b981; }
+.footer { text-align: center; color: #444; font-size: 0.75rem; margin-top: 48px; padding-top: 16px; border-top: 1px solid #111; }
+</style>
+</head>
+<body>
+
+<h1>🧠 Foundation OS — 14 Routines</h1>
+<p class="subtitle">Copie chaque prompt → Desktop <code>/schedule</code> → configure l'horaire. Coche quand c'est fait.</p>
+
+<h2 class="section-title">📅 Planning semaine</h2>
+<table class="planning">
+<tr><th>Heure</th><th>Lun</th><th>Mar</th><th>Mer</th><th>Jeu</th><th>Ven</th><th>Sam</th><th>Dim</th></tr>
+<tr><td>7h</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td><td class="r-daily">R1 Wiki</td></tr>
+<tr><td>8h</td><td class="r-weekly">R4 CONTEXT</td><td class="r-weekly">R10 Planner</td><td class="r-weekly">R6 Tools</td><td class="r-weekly">R9 Cortex</td><td class="r-weekly">R7 Deps</td><td>—</td><td>—</td></tr>
+<tr><td>9h</td><td>—</td><td class="r-weekly">R11 Worktrees</td><td>—</td><td>—</td><td>—</td><td class="r-weekly">R5 Apprentissage</td><td>—</td></tr>
+<tr><td>12h</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td><td class="r-daily">R2 Build</td></tr>
+<tr><td>14h</td><td>—</td><td>—</td><td class="r-weekly">R13 Tech Debt</td><td>—</td><td>—</td><td class="r-weekly">R12 DS Regress</td><td class="r-weekly">R14 Code Review</td></tr>
+<tr><td>18h</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="r-synth">R3 Consolid.</td></tr>
+<tr><td>21h</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td><td class="r-synth">R8 Evol.</td></tr>
+</table>
+
+<h2 class="section-title">✅ Checklist création</h2>
+<p style="color:#888;font-size:0.85rem;margin-bottom:12px;">Crée d'abord les 3 quotidiennes, puis les 11 hebdos jour par jour.</p>
+<ul class="checklist">
+<li><input type="checkbox"> <strong>R1</strong> Wiki Maintenance — quotidien 7h</li>
+<li><input type="checkbox"> <strong>R2</strong> Build Canary — quotidien 12h</li>
+<li><input type="checkbox"> <strong>R8</strong> Evolution — quotidien 21h</li>
+<li><input type="checkbox"> <strong>R4</strong> CONTEXT Hygiene — lundi 8h</li>
+<li><input type="checkbox"> <strong>R10</strong> Planner Tracker — mardi 8h</li>
+<li><input type="checkbox"> <strong>R11</strong> Worktrees Cleanup — mardi 9h</li>
+<li><input type="checkbox"> <strong>R6</strong> Tools Inventory — mercredi 8h</li>
+<li><input type="checkbox"> <strong>R13</strong> Tech Debt — mercredi 14h</li>
+<li><input type="checkbox"> <strong>R9</strong> Cortex Coherence — jeudi 8h</li>
+<li><input type="checkbox"> <strong>R7</strong> Deps Security — vendredi 8h</li>
+<li><input type="checkbox"> <strong>R5</strong> Apprentissage — samedi 9h</li>
+<li><input type="checkbox"> <strong>R12</strong> DS Regression — samedi 14h</li>
+<li><input type="checkbox"> <strong>R14</strong> Code Review — dimanche 14h</li>
+<li><input type="checkbox"> <strong>R3</strong> Consolidation — dimanche 18h</li>
+</ul>
+
+<h2 class="section-title">📋 Prompts (cliquer pour copier)</h2>
+
+<div class="grid">
+
+<div class="card daily">
+<div class="card-header"><span class="card-title">R1 Wiki Maintenance</span><span class="badge daily">Quotidien 7h</span></div>
+<div class="module">→ Knowledge Phase 7</div>
+<div class="desc">Fix wikilinks cassés, refresh hot.md si périmé, sync index stats, nettoyer orphelins carte.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p1">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Wiki Maintenance de Foundation OS.
+
+=== CONTEXTE ===
+Lis aussi :
+- docs/core/knowledge.md (architecture wiki, couplage modules, 5 tiers)
+- wiki/index-wiki.md (catalogue actuel)
+- wiki/meta/foundation-os-map.md (carte neuronale hub)
+
+=== DIAGNOSTIQUER ===
+bash scripts/wiki-health.sh 2>&1
+bash scripts/drift-detector.sh 2>&1
+Note les problemes detectes.
+
+=== ACTIONS (si problemes) ===
+
+1. HOT.MD STALE (&gt; 3 jours) :
+- Lis wiki/log.md + git log --oneline -10
+- Reecris wiki/hot.md au format : Last Updated / Key Recent Facts / Recent Changes / Active Threads / Next Action
+- Max 500 mots
+
+2. WIKILINKS CASSES :
+Pour chaque wikilink casse :
+a) Extrais le basename du lien
+b) Cherche : find wiki/ docs/ -name "BASENAME*"
+c) Si fichier trouve avec nom similaire → corrige le wikilink
+d) Si INTROUVABLE → retire le wikilink du contenu (pas du frontmatter)
+e) Note dans wiki/meta/lessons-learned.md
+
+3. INDEX STATS DESYNC :
+- Count reel : find wiki/ -name "*.md" -not -path "*/meta/templates/*" | wc -l
+- Mettre a jour "Total pages: N" dans wiki/index-wiki.md
+
+4. CARTE ORPHELINS :
+- Verifier chaque [[lien]] dans foundation-os-map.md → fichier existe ?
+- Si absent → retirer. Si nouveau fichier wiki/ pas dans carte → ajouter.
+
+5. FRONTMATTER AUDIT :
+- Verifier YAML parseable sur chaque page wiki/concepts/ entities/ sources/
+- Si invalide → noter dans thinking.md (NE PAS modifier le frontmatter)
+
+=== SCOPE ===
+Modifie UNIQUEMENT wiki/. NE TOUCHE PAS CLAUDE.md, CONTEXT.md, docs/, modules/, scripts/
+
+=== COMMIT ===
+git add wiki/
+git commit -m "fix(wiki): routine maintenance — [description]"</pre>
+</div></div>
+
+<div class="card daily">
+<div class="card-header"><span class="card-title">R2 Build Canary</span><span class="badge daily">Quotidien 12h</span></div>
+<div class="module">→ Monitor Phase 3</div>
+<div class="desc">Build + tests. Si fail → alerte wiki/meta/build-alert.md. Si OK → check drift perf.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p2">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Build Canary de Foundation OS.
+
+=== ACTIONS ===
+1. npm run build -w modules/app 2>&amp;1 → note resultat + temps
+2. npm run build -w modules/design-system 2>&amp;1
+3. npx tsc --noEmit -p modules/app/tsconfig.json 2>&amp;1
+4. npx tsc --noEmit -p modules/design-system/tsconfig.json 2>&amp;1
+5. cd modules/app &amp;&amp; npx vitest run 2>&amp;1
+
+=== SI TOUT PASSE ===
+- Si wiki/meta/build-alert.md existe (alerte precedente) → supprime-le
+- Si metriques different de CONTEXT.md → note dans thinking.md
+- Sinon ne rien faire.
+
+=== SI ECHOUE ===
+Cree wiki/meta/build-alert.md :
+# Build Alert — [date]
+## Commande qui echoue
+## Log erreur (50 dernieres lignes)
+## Derniers commits (git log --oneline -5)
+## Hypothese cause
+## Action recommandee
+
+=== SCOPE ===
+wiki/meta/build-alert.md + wiki/meta/thinking.md UNIQUEMENT. JAMAIS code source.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "fix(wiki): routine build canary — [OK ou ALERT]"</pre>
+</div></div>
+
+<div class="card daily">
+<div class="card-header"><span class="card-title">R8 Evolution</span><span class="badge daily">Quotidien 21h</span></div>
+<div class="module">→ Knowledge Phase 7 (neuroplasticité)</div>
+<div class="desc">Réfléchit sur TOUT l'OS + analyse les autres routines + propose 5 améliorations/jour.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p8">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Evolution de Foundation OS. Tu REFLECHIS et PROPOSES.
+
+=== LIRE TOUT ===
+1. CLAUDE.md 2. CONTEXT.md 3. wiki/hot.md 4. wiki/meta/sessions-recent.md
+5. wiki/meta/thinking.md 6. wiki/meta/lessons-learned.md
+7. wiki/meta/weekly-digest.md 8. wiki/meta/daily-evolution.md (dernier rapport)
+9. git log --oneline -20 10. docs/core/knowledge.md section 8
+11. docs/core/architecture-core.md
+
+Lis aussi les rapports des autres routines DU JOUR :
+- wiki/meta/build-alert.md, weekly-digest.md, worktrees-report.md
+- ds-regression-report.md, tech-debt-report.md, code-review-weekly.md, security-alert.md
+
+=== ANALYSER ===
+A. SANTE : build ? wiki a jour ? docs coherents ?
+B. PATTERNS : types commits ? erreurs recurrentes ? hotspots ?
+C. OPPORTUNITES : conventions non-respectees ? scripts ameliorables ? pages manquantes ?
+D. VISION : Cap pertinent ? quel module Phase 5 lancer ?
+
+=== META-ANALYSE ROUTINES ===
+git log --grep="routine" --since="24 hours ago" --oneline
+Pour chaque routine du jour : a-t-elle tourne ? commit coherent ? casse qqchose ?
+Peut-on ameliorer son prompt ?
+
+=== REDIGER daily-evolution.md ===
+# Evolution — [date]
+## Etat de sante (factuel)
+## Ce qui fonctionne bien (3-5 points)
+## Propositions amelioration (5 max avec Impact/Effort/Fichiers/Action/Pourquoi)
+## Meta : etat des routines (analyse chaque routine du jour)
+## Question du jour (strategique pour Kevin)
+## Meta-reflexion (le systeme de routines fonctionne-t-il ?)
+
+=== SCOPE ===
+wiki/meta/daily-evolution.md + wiki/meta/thinking.md UNIQUEMENT.
+JAMAIS appliquer ses propres propositions. JAMAIS modifier prompts des autres routines.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "feat(wiki): routine evolution — [date] — [N propositions]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R4 CONTEXT Hygiene</span><span class="badge weekly">Lundi 8h</span></div>
+<div class="module">→ Communication Phase 2</div>
+<div class="desc">Compresse CONTEXT.md si &gt; 150L, archive décisions &gt; 30j, signale items stale.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p4">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine CONTEXT Hygiene de Foundation OS.
+
+=== CONTEXTE ===
+Lis docs/core/communication.md section 4.2 (budget taille) + CONTEXT.md EN ENTIER.
+
+=== MESURER ===
+LIGNES=$(wc -l &lt; CONTEXT.md) → seuil 150/200
+SESSIONS=$(grep -c "^| 2026-" CONTEXT.md) → max 5
+DECISIONS=$(grep -c "^| D-" CONTEXT.md) → max 15
+
+=== ACTIONS ===
+1. Sessions &gt; 5 : supprimer sessions 6+ (dans git log de toute facon)
+2. CONTEXT &gt; 150L : compresser sessions 2-5 a 1 ligne
+3. Decisions &gt; 15 : copier decisions &gt; 30j dans docs/decisions-log.md PUIS supprimer de CONTEXT
+4. En attente Kevin stale : noter dans thinking.md
+
+=== SCOPE ===
+CONTEXT.md + docs/decisions-log.md + wiki/meta/thinking.md. JAMAIS Cap/Modules/Metriques.
+
+=== COMMIT ===
+git add CONTEXT.md docs/decisions-log.md wiki/meta/thinking.md
+git commit -m "chore(os): routine hygiene CONTEXT — [actions]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R10 Planner Tracker</span><span class="badge weekly">Mardi 8h</span></div>
+<div class="module">→ Planner Phase 5</div>
+<div class="desc">Auto-archive plans terminés, détecte plans stale &gt; 14j.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p10">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Planner Tracker de Foundation OS.
+
+=== SCANNER ===
+ls docs/plans/*.md | grep -v _template-plan.md
+Pour chaque plan : lis frontmatter status + compte [x] vs [ ] dans Execution log.
+
+=== ACTIONS ===
+TERMINE (toutes [x] OU status done) :
+  mkdir -p .archive/plans-done-$(date +%y%m%d)
+  git mv docs/plans/[fichier] .archive/plans-done-$(date +%y%m%d)/
+  Ajouter dans wiki/log.md
+
+STALE (zero [x] depuis &gt; 14j) :
+  git log --since="14 days ago" -- docs/plans/[fichier]
+  Si rien → noter dans thinking.md. NE PAS archiver.
+
+=== SCOPE ===
+docs/plans/ (git mv), .archive/, wiki/log.md, wiki/hot.md, wiki/meta/thinking.md
+
+=== COMMIT ===
+git add docs/plans/ .archive/ wiki/ &amp;&amp; git commit -m "chore(os): routine planner — [N archives]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R11 Worktrees Cleanup</span><span class="badge weekly">Mardi 9h</span></div>
+<div class="module">→ Worktrees Phase 6</div>
+<div class="desc">Rapport worktrees : mergés, stale, legacy. Ne supprime RIEN (rapport seulement).</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p11">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Worktrees Cleanup. Tu RAPPORTES seulement. Tu ne supprimes AUCUN worktree.
+
+=== SCANNER ===
+git worktree list
+Pour chaque (sauf main) : branche, merged dans main ?, age dernier commit, fichiers non-commites
+
+=== RAPPORT ===
+Cree wiki/meta/worktrees-report.md :
+| Worktree | Branche | Merge main | Dernier commit | Non-commites | Action |
++ Recommandations (pret a supprimer / legacy / verifier)
+
+=== SCOPE ===
+wiki/meta/worktrees-report.md UNIQUEMENT. JAMAIS supprimer un worktree.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "docs(wiki): routine worktrees — [N worktrees]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R6 Tools Inventory</span><span class="badge weekly">Mercredi 8h</span></div>
+<div class="module">→ Tools Phase 4</div>
+<div class="desc">Scan plugins/scripts/agents réels vs catalogue. Met à jour si désync.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p6">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Tools Inventory de Foundation OS.
+
+=== SCANNER ===
+1. ls scripts/*.sh  2. ls scripts/git-hooks/ scripts/hooks/
+3. ls .claude/agents/*.md  4. ls .claude/commands/*.md
+5. cat package.json scripts  6. ls .github/workflows/*.yml
+7. ls ~/.claude/plugins/cache/claude-obsidian-marketplace/claude-obsidian/*/skills/
+
+=== COMPARER avec docs/core/tools.md + tools/index.json ===
+Non-documente → ajouter dans tools.md + index.json
+Fantome (documente mais absent) → retirer
+Verifier JSON valide : python3 -c "import json; json.load(open('docs/core/tools/index.json'))"
+
+=== SCOPE ===
+docs/core/tools.md, tools/index.json, tools/README-tools-catalogue.md. JAMAIS creer/supprimer un outil.
+
+=== COMMIT ===
+git add docs/core/tools* &amp;&amp; git commit -m "docs(tools): routine inventory — [N ajoutes, M retires]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R13 Tech Debt</span><span class="badge weekly">Mercredi 14h</span></div>
+<div class="module">→ Monitor + Tools</div>
+<div class="desc">Scan TODO/FIXME, gros fichiers, pages sans tests, CSS bundle. Rapport.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p13">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Tech Debt Scanner de Foundation OS.
+
+=== SCANNER ===
+1. grep -rn "TODO\|FIXME\|HACK" modules/*/src/ --include="*.ts" --include="*.tsx"
+2. find modules/*/src/ -name "*.tsx" -o -name "*.ts" | xargs wc -l | sort -rn | head -10
+3. Pages sans tests : modules/app/src/pages/*.tsx sans *.test.tsx
+4. CSS bundle vs seuil 40KB (CONTEXT.md Metriques)
+
+=== RAPPORT wiki/meta/tech-debt-report.md ===
+TODO/FIXME [N], Gros fichiers top 10, Pages sans tests, CSS [size], Score [bas/moyen/eleve]
+
+=== SCOPE ===
+wiki/meta/tech-debt-report.md UNIQUEMENT. JAMAIS code source.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "docs(wiki): routine tech debt — score [X]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R9 Cortex Coherence</span><span class="badge weekly">Jeudi 8h</span></div>
+<div class="module">→ Cortex Phase 1</div>
+<div class="desc">Vérifie que CLAUDE.md agents/commands = fichiers réels. Sync si désync.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p9">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Cortex Coherence de Foundation OS.
+
+=== SCANNER ===
+1. ls .claude/agents/*.md → agents reels
+2. ls .claude/commands/*.md → commands reelles
+3. Lis CLAUDE.md sections Agents + Commands
+
+=== COMPARER ===
+Agent dans CLAUDE.md mais fichier absent → FANTOME → noter thinking.md
+Fichier agent existant pas dans CLAUDE.md → ajouter la ligne
+Idem commands.
+
+=== SCOPE ===
+CLAUDE.md (sections Agents + Commands seulement) + thinking.md. JAMAIS modifier contenu agent/command.
+
+=== COMMIT ===
+git add CLAUDE.md wiki/meta/ &amp;&amp; git commit -m "docs(os): routine cortex — [N synces]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R7 Deps Security</span><span class="badge weekly">Vendredi 8h</span></div>
+<div class="module">→ Tools + Monitor</div>
+<div class="desc">npm audit + outdated. Fix vulns mineures auto, alerte si majeur/critical.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p7">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Deps Security de Foundation OS.
+
+=== SCANNER ===
+1. npm audit 2>&amp;1  2. npm outdated 2>&amp;1
+3. git ls-files | grep -iE "(\.env[^.]|credentials|\.key$|\.pem$|secret)"
+
+=== AGIR ===
+Secrets exposes → wiki/meta/security-alert.md URGENT
+Vulns low/moderate → npm audit fix (sans --force). Si build fail apres → revert.
+Vulns high/critical → NE PAS fixer. Documenter dans security-alert.md.
+Deps outdated majeures → NE PAS upgrader. Lister dans security-alert.md.
+
+=== SCOPE ===
+package-lock.json (npm audit fix) + wiki/meta/security-alert.md. JAMAIS package.json, JAMAIS npm update majeure.
+
+=== COMMIT ===
+git add package-lock.json wiki/meta/ &amp;&amp; git commit -m "fix(deps): routine security — [description]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R5 Apprentissage</span><span class="badge weekly">Samedi 9h</span></div>
+<div class="module">→ Knowledge + Communication</div>
+<div class="desc">Git log semaine → digest + patterns + hotspots + refresh hot.md.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p5">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Apprentissage Hebdo de Foundation OS.
+
+=== COLLECTER ===
+1. git log --oneline --since="7 days ago"
+2. git diff --stat HEAD~20..HEAD
+3. Lis sessions-recent.md, thinking.md, lessons-learned.md, daily-evolution.md, CONTEXT.md
+
+=== SYNTHETISER wiki/meta/weekly-digest.md ===
+Commits [N] groupes par type. Fichiers hotspots top 5. Patterns observes.
+Lecons semaine. Questions ouvertes. Etat global (1 paragraphe).
+
+=== REFRESH HOT.MD si &gt; 3 jours ===
+
+=== SCOPE ===
+wiki/meta/weekly-digest.md + wiki/hot.md. JAMAIS code, docs, CONTEXT.md.
+
+=== COMMIT ===
+git add wiki/ &amp;&amp; git commit -m "feat(wiki): routine apprentissage — digest [dates]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R12 DS Regression</span><span class="badge weekly">Samedi 14h</span></div>
+<div class="module">→ Monitor + Knowledge</div>
+<div class="desc">Storybook build + Void Glass check + stories count vs CONTEXT.md.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p12">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine DS Regression de Foundation OS.
+
+=== TESTS ===
+1. cd modules/design-system &amp;&amp; npm run build-storybook 2>&amp;1
+2. grep -rni "#0A0A0B\|#08080A" modules/*/src/ --include="*.tsx" --include="*.ts" --include="*.css" | wc -l
+3. Lis CONTEXT.md Metriques → stories count attendu (62)
+
+=== RAPPORT wiki/meta/ds-regression-report.md ===
+Build [OK/FAIL], Void Glass [N violations], Stories [mesure vs attendu], Diagnostic [SAIN/REGRESSION]
+
+=== SCOPE ===
+wiki/meta/ds-regression-report.md UNIQUEMENT. JAMAIS code DS.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "docs(wiki): routine DS regression — [SAIN/REGRESSION]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R14 Code Review</span><span class="badge weekly">Dimanche 14h</span></div>
+<div class="module">→ Monitor</div>
+<div class="desc">Review auto commits semaine : sécurité, perf, qualité. Score A/B/C/D.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p14">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Code Review de Foundation OS.
+
+=== COLLECTER ===
+git log --oneline --since="7 days ago" -- modules/*/src/
+Si 0 commits code → ne rien faire.
+Pour chaque commit src/ : git show [hash] -- modules/*/src/
+
+=== ANALYSER ===
+SECURITE : secrets hardcodes, innerHTML, eval
+PERFORMANCE : missing memo, useEffect sans deps, inline objects JSX
+QUALITE : fonctions &gt; 50L, nesting &gt; 3, console.log, type any
+
+=== RAPPORT wiki/meta/code-review-weekly.md ===
+Commits [N]. Critical [liste]. Warning [liste]. Suggestions [liste]. Score [A/B/C/D].
+
+=== SCOPE ===
+wiki/meta/code-review-weekly.md UNIQUEMENT. JAMAIS code source.
+
+=== COMMIT ===
+git add wiki/meta/ &amp;&amp; git commit -m "docs(wiki): routine code review — score [X]"</pre>
+</div></div>
+
+<div class="card weekly">
+<div class="card-header"><span class="card-title">R3 Consolidation</span><span class="badge weekly">Dimanche 18h</span></div>
+<div class="module">→ Knowledge Phase 7 (neuroplasticité)</div>
+<div class="desc">Enrichit pages wiki seed &gt; 7j, bidirectionnalise wikilinks, détecte doublons.</div>
+<div class="prompt-container">
+<button class="copy-btn" onclick="copyPrompt(this)">Copier</button>
+<pre class="prompt" id="p3">Lis wiki/meta/routines-guardrails.md EN ENTIER avant toute action.
+Tu es la routine Consolidation Knowledge de Foundation OS.
+
+=== CONTEXTE ===
+Lis docs/core/knowledge.md section 8 + wiki/index-wiki.md + lessons-learned.md
+
+=== ETAPES ===
+1. PAGES SEED &gt; 7J : pour chaque page seed, lis les pages related. Si enrichissable
+   → ajouter contenu + callout [!updated] + changer status seed → developing.
+   Si pas assez d'info → ne pas toucher, noter dans thinking.md.
+
+2. WIKILINKS BIDI : si A mentionne [[B]] mais B ne mentionne pas [[A]] → ajouter [[A]] dans B.
+
+3. DOMAINES VIDES : si wiki/domains/X/concepts/ a 0 pages → noter dans thinking.md.
+
+4. DOUBLONS : si 2 pages semblent traiter le meme sujet → noter dans thinking.md (NE PAS fusionner).
+
+5. UPDATE INDEX + LOG.
+
+=== SCOPE ===
+wiki/ UNIQUEMENT. JAMAIS supprimer contenu existant. SEULEMENT ajouter.
+
+=== COMMIT ===
+git add wiki/ &amp;&amp; git commit -m "feat(wiki): routine consolidation — [N enrichies, M liens bidi]"</pre>
+</div></div>
+
+</div>
+
+<div class="footer">
+Foundation OS — 14 routines × 7/7 modules Core OS — v4 final
+</div>
+
+<script>
+function copyPrompt(btn) {
+  const pre = btn.parentElement.querySelector('.prompt');
+  const text = pre.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copié';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
