@@ -42,20 +42,20 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 ## Core OS — Agents (.claude/agents/)
 
-- [[os-architect]] — Agent Opus : architecture, decisions, stack, schema DB
-- [[dev-agent]] — Agent Sonnet : code React/TS, composants, Supabase, Void Glass
-- [[doc-agent]] — Agent Sonnet : documentation, CONTEXT.md, traces
-- [[review-agent]] — Agent Sonnet : coherence, audit, zero regression, pre-deploy
+- [[.claude/agents/os-architect|os-architect]] — Agent Opus : architecture, decisions, stack, schema DB
+- [[.claude/agents/dev-agent|dev-agent]] — Agent Sonnet : code React/TS, composants, Supabase, Void Glass
+- [[.claude/agents/doc-agent|doc-agent]] — Agent Sonnet : documentation, CONTEXT.md, traces
+- [[.claude/agents/review-agent|review-agent]] — Agent Sonnet : coherence, audit, zero regression, pre-deploy
 
 ## Core OS — Commands (.claude/commands/)
 
-- [[cockpit]] — /cockpit : point d'entree unique (scan + brief + routing + cloture)
-- [[session-start]] — /session-start : protocole debut session (collecte + brief v12 14 sections)
-- [[session-end]] — /session-end : protocole fin session (inventaire + CONTEXT + hot.md + brief cloture)
-- [[plan-os]] — /plan-os : orchestrateur plans (brainstorming → writing-plans → EnterPlanMode)
-- [[wt]] — /wt : worktrees Foundation OS (new/list/clean)
-- [[new-project]] — /new-project : scaffold nouveau module
-- [[sync]] — /sync : audit coherence full-repo
+- [[.claude/commands/cockpit|cockpit]] — /cockpit : point d'entree unique (scan + brief + routing + cloture)
+- [[.claude/commands/session-start|session-start]] — /session-start : protocole debut session (collecte + brief v12 14 sections)
+- [[.claude/commands/session-end|session-end]] — /session-end : protocole fin session (inventaire + CONTEXT + hot.md + brief cloture)
+- [[.claude/commands/plan-os|plan-os]] — /plan-os : orchestrateur plans (brainstorming → writing-plans → EnterPlanMode)
+- [[.claude/commands/wt|wt]] — /wt : worktrees Foundation OS (new/list/clean)
+- [[.claude/commands/new-project|new-project]] — /new-project : scaffold nouveau module
+- [[.claude/commands/sync|sync]] — /sync : audit coherence full-repo
 
 ## Documentation (docs/)
 
