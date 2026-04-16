@@ -18,7 +18,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-16 : Audit mapping DONE + méga audit final planifié.
+2026-04-16 : Hygiene OS — health-check DEGRADED→SAIN (26 refs, 3 drifts, 5 warnings→0).
 
 ## Plugin State
 
@@ -40,13 +40,12 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Recent Changes
 
-- 2026-04-16 `39cff18` fix(wiki): align scripts sur index-wiki.md (ex index.md) — wiki BROKEN → SAIN
-- 2026-04-16 `6cb443a` feat(wiki): audit mapping Obsidian — 29 findings, 5 phases, +173 wikilinks, 5 concepts créés
-- 2026-04-16 `bc02d7a` docs(os): session-start/end/cockpit alignés état OS actuel — 14 sections brief
-- 2026-04-16 `4ea4b0c` fix(wiki): tools-fo — Void Glass + design-system-components (Finding 6 complet)
-- 2026-04-16 `9144c83` fix(wiki): Finding 1 phantômes + archive plan audit mapping done
-- 2026-04-16 `b94e428` fix(wiki): index-wiki stats sync (27→35 pages) + CONTEXT 6→5 sessions
-- 2026-04-16 Plan méga audit final créé (63 findings + 9 innovations, 8 phases)
+- 2026-04-16 `b1d7501` fix(os): health-check DEGRADED→SAIN — 26 refs, 3 drifts, 5 warnings corrigés
+- 2026-04-16 `079500b` feat(os): brief v12 tuiles Markdown — refonte UI session-start + session-end
+- 2026-04-16 `968ef12` docs(os): session-end — mega audit DONE, 2 plans archives, session DNA
+- 2026-04-16 `a615bf8` feat(os): 9 innovations — suggest-links, metrics, recall-hook, routine-tracker
+- 2026-04-16 `39cff18` fix(wiki): align scripts sur index-wiki.md — wiki BROKEN→SAIN
+- 2026-04-16 `6cb443a` feat(wiki): audit mapping Obsidian — 29 findings, +173 wikilinks, 5 concepts
 
 ## Active Threads
 

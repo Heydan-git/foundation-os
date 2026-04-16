@@ -19,6 +19,7 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 12 fichiers, 1 commit `b1d7501`. |
 | 2026-04-16 | **[DONE] Audit Mapping + Méga Audit Final Foundation OS** |
 |            | Audit mapping 29 findings (5 phases DONE, 5 concepts créés, +173 wikilinks). Méga audit 63 findings + 9 innovations (scripts, docs, wiki, commands, routines, CI). 3 scripts créés (wiki-suggest-links, wiki-metrics, wiki-recall-reminder). Session commands alignées 14 sections. 13 commits, 53 fichiers, +1400 lignes. |
 |            | Decisions : D-NAMING-02 espaces wiki, D-VAULT-01 vault racine. Plans archivés : audit-mapping + mega-audit. |
@@ -34,14 +35,11 @@
 |            | Features natives Desktop exploitees : plan window UI (/plan-os orchestrateur), tasks pane (TodoWrite systematique), worktrees actifs (/wt), sessions 🪐 (rename manuel via bloc /plan-os), conventions nommage unifiees. |
 |            | 8 memoires permanentes creees + MEMORY.md index update. |
 |            | Decisions : D-DESKTOP-01, D-NAMING-01, D-PLAN-02 (supersede D-PLAN-01). |
-| 2026-04-15 | **[DONE_COTE_CLAUDE / EN_COURS_KEVIN] DS iso visuel + typography critique** |
-|            | 3 causes racines (font tokens @theme, tailwind-merge dedup, @layer base regles bruyantes) + rewrite 46 composants ui iso template via 8 sub-agents paralleles. Test manuel Kevin en attente sur 46 ui Storybook. |
-
-> Sessions plus anciennes (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
+> Sessions plus anciennes (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
 
 ## Cap
 
-**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (40 pages, 762+ wikilinks, graph connecté, 9 groupes couleurs). Neuroplasticité active. Méga audit DONE (63 findings corrigés + 9 innovations livrées + 3 scripts créés). OS cohérent et prêt pour Phase 5.
+**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (36 pages content, 762+ wikilinks, graph connecté). Neuroplasticité active. Health-check SAIN (0 warning). OS cohérent et prêt pour Phase 5.
 
 **Prochaine action** :
   - **Configurer 9 groupes couleur Obsidian** : Kevin dans UI graph (voir instructions session).
@@ -58,8 +56,7 @@
 - 🔮 **modules/shared** : extraction auth+DB. A faire quand 2e module.
 - 💡 **P5 auto-maintenance.sh mega-script** : attendre feedback drift-detector avant d'ajouter orchestrateur (YAGNI).
 - 💡 **P11 generate-brief.sh** : si drift v11 trop frequent, automatiser generation.
-- 🔧 **CSS>40KB** (55.66) : investigation Tailwind purge, chantier DS separe.
-- 🔧 **Vitest DS output illisible** : parsing health-check fragile, chantier separe.
+- 🔧 **CSS 55KB** : sous seuil 65KB (gzip 9KB). Re-evaluer si > 65KB apres Phase 5.
 - ❓ **Cowork : methodo ou produit ?** : a trancher avant Sprint 1.
 
 ## En attente Kevin
@@ -104,7 +101,7 @@
 | Storybook | OK 5.87s | — | — | — | 62 stories (53 DS + 9 app) |
 
 Seuils : voir `docs/core/monitor.md` section 4.
-Health-check : DEGRADED permanent (2 warn hors scope : Vitest DS output illisible, CSS>40KB).
+Health-check : SAIN (0 critical, 0 warning). Seuil CSS releve 40→65KB, Vitest DS "No test files" gere.
 Deploy : https://foundation-os.vercel.app/
 DB : Supabase, 6 tables + triggers.
 

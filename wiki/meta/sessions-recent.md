@@ -22,6 +22,28 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-16 · Hygiène OS — DEGRADED→SAIN
+
+**Durée** : 1 session, ~30min
+**Scope** : Audit + fix tous les warnings health-check (26 refs cassées, 3 drifts, 5 warnings → 0)
+
+**Fixes** :
+- 6 refs index.md → index-documentation.md (renommage non propagé)
+- 6 refs plans archivés → .archive/ (wiki hot/log/CONTEXT/sources)
+- 11 refs Phase 5 scaffold → ref-checker ignore modules Phase 5
+- Vitest DS "No test files" handling dans health-check
+- CSS seuil 40→65KB (55KB raw / 9KB gzip = normal pour DS complet)
+- Wikilink `[[knowledge]]` → `[[Core OS]]` dans Neuroplasticite.md
+- Drift-detector : worktree Desktop claude/* exclu du branch check
+- CONTEXT.md 6→5 sessions, index-wiki count 40→36
+
+**Commits** : 1 (b1d7501)
+
+**Threads ouverts** :
+- Décision Phase 5 : Finance / Santé / Trading
+- 14 routines Desktop (Kevin UI)
+- Clean worktrees legacy (sleepy-ellis, suspicious-khayyam)
+
 ## 2026-04-16 · Audit Mapping + Méga Audit Final
 
 **Durée** : 1 session, ~3h
@@ -83,6 +105,5 @@ related:
 
 ## 2026-04-15 · DS iso visuel + typography critique
 
-**Scope** : 3 causes racines (font tokens, tailwind-merge, @layer) + rewrite 46 composants
-**Résultat** : DONE côté Claude, test manuel Kevin en attente
+**Scope** : 3 causes racines (font tokens, tailwind-merge, @layer) + rewrite 46 composants. DONE côté Claude, test Kevin en attente.
 
