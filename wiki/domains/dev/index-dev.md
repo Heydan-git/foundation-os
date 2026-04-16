@@ -5,9 +5,13 @@ updated: 2026-04-15
 tags:
   - domain-index
   - dev
+  - meta
 status: evergreen
 related:
   - "[[index-wiki]]"
+  - "[[foundation-os-desktop-migration]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[tools-foundation-os]]"
 ---
 
 # Domaine : dev

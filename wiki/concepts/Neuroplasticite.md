@@ -22,6 +22,7 @@ related:
   - "[[sessions-recent]]"
   - "[[lessons-learned]]"
   - "[[knowledge]]"
+  - "[[Foundation OS]]"
 sources: []
 ---
 

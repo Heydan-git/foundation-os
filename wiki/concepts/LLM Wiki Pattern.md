@@ -25,6 +25,8 @@ related:
   - "[[Obsidian]]"
   - "[[Pinecone]]"
   - "[[foundation-os-desktop-migration]]"
+  - "[[agricidaniel-claude-obsidian]]"
+  - "[[karpathy-llm-wiki-pattern]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"

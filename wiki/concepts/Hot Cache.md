@@ -22,6 +22,9 @@ related:
   - "[[Compounding Knowledge]]"
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
+  - "[[Foundation OS]]"
+  - "[[Brief v11]]"
+  - "[[Neuroplasticite]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"

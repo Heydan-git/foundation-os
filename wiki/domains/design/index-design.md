@@ -5,9 +5,12 @@ updated: 2026-04-15
 tags:
   - domain-index
   - design
+  - meta
 status: evergreen
 related:
   - "[[index-wiki]]"
+  - "[[design-system-components]]"
+  - "[[Obsidian]]"
 ---
 
 # Domaine : design

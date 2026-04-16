@@ -1,11 +1,16 @@
 ---
 type: meta
 title: "Wiki Operations Log"
-updated: 2026-04-15
+updated: 2026-04-16
 tags:
   - meta
   - log
 status: evergreen
+related:
+  - "[[index-wiki]]"
+  - "[[hot]]"
+  - "[[overview]]"
+  - "[[foundation-os-map]]"
 ---
 
 # Wiki Operations Log
@@ -13,6 +18,40 @@ status: evergreen
 Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[foundation-os-map]]
 
 Chronological record of all wiki operations (scaffold, ingest, save, migrate, archive).
+
+## 2026-04-16
+
+### Audit Mapping Obsidian (plan `docs/plans/2026-04-16-audit-mapping-obsidian.md` — DONE, archivé)
+
+- **Phase 1** : orphelins connectés (routines-guardrails, routines-setup), log.md header, tools-fo enrichi, source wiki-adoption ajoutée
+- **Phase 2** : 26 wikilinks dans 12 fichiers (CLAUDE/CONTEXT/README + 8 "Voir aussi" docs/core/)
+- **Phase 3** : frontmatter related: aligné sur 8 pages
+- **Phase 4** : overview enrichi, 5 domaines cross-linkés, Void Glass connecté, map stats à jour
+- **Phase 5** : 5 concepts créés (Foundation OS, Core OS, Brief v11, Neuroplasticité, TDAH workflow) + tags harmonisés
+- **Finding 1** : 6 phantômes retirés ([[A]], [[B]], [[X]], [[page]], [[file]])
+- **Finding 6** : tools-fo complété (Void Glass + design-system-components)
+- **Stats sync** : index-wiki 27→35 pages, CONTEXT 6→5 sessions
+
+Résultat : 589→762+ wikilinks, 35→40 pages, plan archivé `.archive/plans-done-260416/`
+
+### Session commands alignées
+
+- session-start.md : brief 12→14 sections (HOT + WIKI + SYNC)
+- session-end.md : Tour 3 index-wiki stats + plan execution log, brief 7 sections
+- cockpit.md : wiki/hot.md read ajouté
+
+### Scripts corrigés
+
+- wiki-health.sh : index.md → index-wiki.md (fix BROKEN → SAIN)
+- drift-detector.sh : index.md → index-wiki.md
+- knowledge.md : index.md → index-wiki.md
+
+### Méga audit final
+
+- 5 agents opus : scripts/hooks/CI, wiki/graph, docs/commands/agents, routines/sessions, tags/catégorisation
+- 63 findings vérifiés (11 bullshit retirés post-vérification vault=root)
+- 9 innovations proposées
+- Plan créé : `docs/plans/2026-04-16-mega-audit-final.md` (8 phases, 721 lignes)
 
 ## 2026-04-15
 

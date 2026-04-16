@@ -19,6 +19,7 @@ related:
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
   - "[[tools-foundation-os]]"
+  - "[[agricidaniel-claude-obsidian]]"
 sources:
   - "[[agricidaniel-claude-obsidian]]"
 ---

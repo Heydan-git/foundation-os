@@ -29,6 +29,7 @@ related:
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
   - "[[Compounding Knowledge]]"
+  - "[[Andrej Karpathy]]"
 sources: []
 ---
 

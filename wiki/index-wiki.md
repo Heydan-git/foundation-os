@@ -14,7 +14,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 35 | Sources ingested: 4
+Last updated: 2026-04-16 | Total pages: 40 | Sources ingested: 4
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -93,5 +93,5 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 | Comparisons | 0 |
 | Questions | 0 |
 | Domaines actifs | 5 |
-| Meta | 6 |
-| Total pages | 35 |
+| Meta | 10 |
+| Total pages | 40 |

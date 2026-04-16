@@ -10,6 +10,9 @@ related:
   - "[[index-wiki]]"
   - "[[log]]"
   - "[[hot]]"
+  - "[[LLM Wiki Pattern]]"
+  - "[[Obsidian]]"
+  - "[[foundation-os-map]]"
 ---
 
 # Foundation OS Wiki — Overview

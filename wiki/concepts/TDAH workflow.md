@@ -19,6 +19,7 @@ related:
   - "[[Brief v11]]"
   - "[[Foundation OS]]"
   - "[[communication]]"
+  - "[[Neuroplasticite]]"
 sources: []
 ---
 

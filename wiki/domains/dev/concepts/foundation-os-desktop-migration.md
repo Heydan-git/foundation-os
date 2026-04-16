@@ -21,6 +21,8 @@ confidence: high
 related:
   - "[[LLM Wiki Pattern]]"
   - "[[tools-foundation-os]]"
+  - "[[Obsidian]]"
+  - "[[index-dev]]"
 sources: []
 migrated_from: "auto-memory/project_migration_desktop.md (2026-04-16, D-WIKI-01 Phase 5)"
 ---

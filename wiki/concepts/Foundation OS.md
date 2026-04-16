@@ -19,6 +19,10 @@ related:
   - "[[Void Glass]]"
   - "[[LLM Wiki Pattern]]"
   - "[[index-wiki]]"
+  - "[[Compounding Knowledge]]"
+  - "[[Hot Cache]]"
+  - "[[foundation-os-desktop-migration]]"
+  - "[[tools-foundation-os]]"
 sources: []
 ---
 

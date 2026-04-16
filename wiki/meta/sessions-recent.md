@@ -22,6 +22,26 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-16 · Audit Mapping + Méga Audit Final
+
+**Durée** : 1 session, ~3h
+**Scope** : Audit mapping Obsidian 29 findings (DONE) + méga audit final 63 findings + 9 innovations (plan créé)
+
+**Decisions** :
+- D-NAMING-02 : convention nommage wiki = garder espaces
+- D-VAULT-01 : vault Obsidian = racine projet, 9 groupes couleurs
+
+**Pages wiki créées** :
+- Concepts : [[Foundation OS]], [[Core OS]], [[Brief v11]], [[Neuroplasticite]], [[TDAH workflow]]
+
+**Commits** : 7 (39cff18, 6cb443a, bc02d7a, 4ea4b0c, 9144c83, b94e428, + plan commit)
+
+**Threads ouverts** :
+- Exécuter méga audit final (docs/plans/2026-04-16-mega-audit-final.md)
+- Créer 14 routines Desktop (Kevin UI)
+- Clean 3 worktrees legacy
+- Decision Phase 5 module
+
 ## 2026-04-15 — 2026-04-16 · Adoption Wiki Obsidian (D-WIKI-01)
 
 **Durée** : 2 sessions, ~7h
@@ -66,7 +86,3 @@ related:
 **Scope** : 3 causes racines (font tokens, tailwind-merge, @layer) + rewrite 46 composants
 **Résultat** : DONE côté Claude, test manuel Kevin en attente
 
-## 2026-04-14 · DS Rebuild iso base DS (phases 0-5 + 3b)
-
-**Scope** : Rebuild complet DS depuis base DS/src.zip, dark-only Void Glass
-**Résultat** : 62 stories Storybook, 8 commits, archivé

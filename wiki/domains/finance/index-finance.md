@@ -5,9 +5,11 @@ updated: 2026-04-15
 tags:
   - domain-index
   - finance
+  - meta
 status: evergreen
 related:
   - "[[index-wiki]]"
+  - "[[Compounding Knowledge]]"
 ---
 
 # Domaine : finance

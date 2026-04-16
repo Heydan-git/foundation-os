@@ -74,8 +74,7 @@ Navigation: [[index-wiki]] | [[hot]] | [[overview]] | [[log]]
 
 ### Plans (docs/plans/)
 
-- [[2026-04-15-wiki-obsidian-adoption]] — Plan adoption wiki Obsidian (D-WIKI-01, 12 phases, 4050 lignes)
-- [[2026-04-16-audit-mapping-obsidian]] — Plan audit mapping Obsidian (29 findings, 5 phases)
+- [[2026-04-16-mega-audit-final]] — Méga audit final Foundation OS (63 findings + 9 innovations, 8 phases)
 - [[_template-plan]] — Template plan Foundation OS (frontmatter + structure 12 sections)
 
 ## Travaux Cowork (docs/travaux-cowork/)

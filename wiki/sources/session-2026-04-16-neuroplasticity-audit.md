@@ -31,6 +31,9 @@ related:
   - "[[Compounding Knowledge]]"
   - "[[foundation-os-map]]"
   - "[[tools-foundation-os]]"
+  - "[[lessons-learned]]"
+  - "[[sessions-recent]]"
+  - "[[thinking]]"
 sources: []
 ---
 

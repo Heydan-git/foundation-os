@@ -5,9 +5,11 @@ updated: 2026-04-15
 tags:
   - domain-index
   - trading
+  - meta
 status: evergreen
 related:
   - "[[index-wiki]]"
+  - "[[Compounding Knowledge]]"
 ---
 
 # Domaine : trading

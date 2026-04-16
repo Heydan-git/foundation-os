@@ -176,7 +176,7 @@ Ne rien faire. Session silencieuse.
 
 ---
 
-## Routine 3 — Consolidation Knowledge (hebdo dimanche 20h)
+## Routine 3 — Consolidation Knowledge (hebdo dimanche 18h)
 
 ```
 Tu es le systeme de consolidation knowledge de Foundation OS.
@@ -380,7 +380,7 @@ Pour chaque outil fantome :
 - Retirer du catalogue tools.md + index.json
 - Mettre a jour le total_tools
 
-Mettre a jour docs/core/tools/README.md table resume si les counts changent.
+Mettre a jour docs/core/tools/README-tools-catalogue.md table resume si les counts changent.
 
 === GARDE-FOUS ===
 - Ne JAMAIS supprimer un script ou un agent (seulement mettre a jour la doc)
@@ -443,7 +443,7 @@ Lis CLAUDE.md section "Garde-fous" pour connaitre les regles securite.
 
 ---
 
-## Routine 8 — Evolution & Auto-apprentissage (quotidien 20h)
+## Routine 8 — Evolution & Auto-apprentissage (quotidien 21h)
 
 **But** : forcer Claude a reflechir CHAQUE JOUR sur comment ameliorer l'OS. Rapport avec propositions. Kevin decide ce qui est applique.
 **Pouvoir** : LECTURE SEULE + ecriture wiki/meta/daily-evolution.md uniquement.
@@ -553,6 +553,9 @@ Lis les rapports des autres routines DU JOUR (s'ils existent) :
 - wiki/meta/tech-debt-report.md (R13 Tech Debt)
 - wiki/meta/code-review-weekly.md (R14 Code Review)
 - wiki/meta/security-alert.md (R7 Deps Security)
+
+Pour chaque fichier : si le fichier n'existe pas, noter "R[N] pas encore execute" et continuer.
+Ne PAS creer le fichier, ne PAS signaler comme erreur.
 
 Lis les commits des routines : git log --grep="routine" --since="24 hours ago" --oneline
 

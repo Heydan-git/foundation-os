@@ -22,6 +22,8 @@ related:
   - "[[AgriciDaniel]]"
   - "[[Pinecone]]"
   - "[[tools-foundation-os]]"
+  - "[[Compounding Knowledge]]"
+  - "[[Hot Cache]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
   - "[[agricidaniel-claude-obsidian]]"

@@ -21,6 +21,7 @@ related:
   - "[[Andrej Karpathy]]"
   - "[[Obsidian]]"
   - "[[Pinecone]]"
+  - "[[Foundation OS]]"
 sources:
   - "[[karpathy-llm-wiki-pattern]]"
 ---

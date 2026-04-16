@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache Foundation OS"
-updated: 2026-04-15T00:00:00
+updated: 2026-04-16T00:00:00
 tags:
   - meta
   - hot-cache
@@ -18,7 +18,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-15 : Vault initialise. Foundation OS adoption claude-obsidian Phase 2 scaffold.
+2026-04-16 : Audit mapping DONE + méga audit final planifié.
 
 ## Plugin State
 
@@ -40,23 +40,22 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Recent Changes
 
-- 2026-04-15 Phase 0 : worktree `wt/wiki-adoption-260415` cree (commit `be7af11`)
-- 2026-04-15 Phase 1 : plugin claude-obsidian v1.4.3 installe globalement (patch settings.json HTTPS + git insteadOf AgriciDaniel)
-- 2026-04-15 Phase 2 : scaffold vault (31 dossiers wiki/ + 6 .raw/ + 28 .gitkeep + 4 fichiers MD racine + 5 _index domaines + 5 templates)
-- 2026-04-15 Phase 3 : documentation 5 tiers + module Knowledge Core OS (docs/core/knowledge.md)
-- 2026-04-15 Phase 4 : hooks integres (SessionStart wrapper + PostCompact + Stop ; PostToolUse DESACTIVE)
-- 2026-04-16 Phase 5 : migration selective auto-memory (2 pages migrees → wiki/, 27 restent auto-memory)
-- 2026-04-16 Phase 6 : 10 skills documentes Core Tools (109 tools, 35 routing rules)
-- 2026-04-16 Phase 7 : premier ingest test (2 sources → 9 pages crees, 11 total, ~50 wikilinks)
+- 2026-04-16 `39cff18` fix(wiki): align scripts sur index-wiki.md (ex index.md) — wiki BROKEN → SAIN
+- 2026-04-16 `6cb443a` feat(wiki): audit mapping Obsidian — 29 findings, 5 phases, +173 wikilinks, 5 concepts créés
+- 2026-04-16 `bc02d7a` docs(os): session-start/end/cockpit alignés état OS actuel — 14 sections brief
+- 2026-04-16 `4ea4b0c` fix(wiki): tools-fo — Void Glass + design-system-components (Finding 6 complet)
+- 2026-04-16 `9144c83` fix(wiki): Finding 1 phantômes + archive plan audit mapping done
+- 2026-04-16 `b94e428` fix(wiki): index-wiki stats sync (27→35 pages) + CONTEXT 6→5 sessions
+- 2026-04-16 Plan méga audit final créé (63 findings + 9 innovations, 8 phases)
 
 ## Active Threads
 
-- Plan adoption wiki : `docs/plans/2026-04-15-wiki-obsidian-adoption.md` (12 phases, 7/12 done)
-- Prochaine phase : 8 (brief v11 enrichi cadres HOT + WIKI)
-- Wiki operationnel : 11 pages, 2 sources, 5 domaines. Graph view Obsidian maintenant riche.
-- Premier ingest test (Phase 7) : Karpathy LLM Wiki + AgriciDaniel claude-obsidian
-- Brief v11 enrichi (Phase 8) : cadres HOT + WIKI
+- Méga audit final 8 phases : `docs/plans/2026-04-16-mega-audit-final.md` (63 findings + 9 innovations)
+- Wiki opérationnel : 40 pages, 762+ wikilinks, 5 domaines, graph connecté, 9 groupes couleurs
+- 14 routines Desktop documentées (routines-setup.md + guardrails.md) — Kevin doit créer dans UI Desktop
+- Decision Phase 5 : Finance / Santé / Trading — lequel lancer ?
+- Clean 3 worktrees legacy (sleepy-ellis, suspicious-khayyam, bold-newton post-merge)
 
 ## Next Action
 
-Phase 8 : update `.claude/commands/session-start.md` + `session-end.md` pour integration cadres HOT + WIKI dans brief v11. Puis Phase 9 (scripts custom), Phase 10 (anti-regression), Phase 11 (merge main).
+Exécuter `docs/plans/2026-04-16-mega-audit-final.md` Phase 1-8.
