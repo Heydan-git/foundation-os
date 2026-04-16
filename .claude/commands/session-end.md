@@ -20,8 +20,10 @@
 > 10. `Edit wiki/meta/thinking.md` — ajouter insights/hypotheses de cette session si pertinent
 > 11. `Edit wiki/meta/lessons-learned.md` — ajouter erreurs/pieges rencontres cette session si applicable
 > 12. `Edit wiki/log.md` — ajouter operations wiki de cette session (ingest, save, migrate, etc.)
-> 13. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
-> 14. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
+> 13. `Edit wiki/index-wiki.md` — mettre a jour stats (Concepts/Entities/Sources/Total pages) si pages wiki creees/modifiees
+> 14. Si plan execute cette session → marquer phases `[x]` dans `docs/plans/<slug>.md` Execution log
+> 15. Si wiki/ modifie non committe → proposer `bash scripts/wiki-commit.sh` ou inclure dans commit principal
+> 16. Proposer commit conventionnel (pas de `git commit` automatique, attendre OK Kevin)
 >
 > **Tour 4** : produire brief cloture v11 (format `docs/core/communication.md` section 6.2)
 >
@@ -162,12 +164,14 @@ Si variable absente → skip la phase entierement.
 
 Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.2 (cloture), 6.3 (rendu), 6.4 (sources).
 
-**Sections du brief de cloture** (ordre, voir spec) :
-1. ETAT TECHNIQUE (build + tests + health + refs)
-2. CE QUI A ETE FAIT (commits + fichiers + decisions)
-3. IDEES CAPTUREES (3-5 max)
-4. CAP MIS A JOUR (direction + prochaine action)
-5. ⚠ CONCERNS (uniquement si statut != DONE)
+**Sections du brief de cloture** (ordre, voir spec communication.md 6.2) :
+1. Entete (double trait `╔═══╗` — date + statut DONE/CONCERNS/NEEDS_CONTEXT/BLOCKED)
+2. ETAT TECHNIQUE (build + tests + health + refs + wiki-health)
+3. CE QUI A ETE FAIT (commits + fichiers + decisions)
+4. PLANS TERMINES CETTE SESSION (si plans archives Phase 5bis — cadre dedie)
+5. IDEES CAPTUREES (3-5 max)
+6. CAP MIS A JOUR (direction + prochaine action)
+7. ⚠ CONCERNS (uniquement si statut != DONE)
 
 Les regles de cadres, entete double trait, espacement, alignement, emojis couleur sont **dans communication.md section 6.3**. Ne pas reinventer.
 

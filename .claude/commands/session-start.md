@@ -40,8 +40,8 @@ Lancer en parallele :
    - decoupage en sessions/phases pour afficher reste
    - Un plan avec toutes ses cases `[x]` OU status `done`/`closed` → **considerer TERMINE**, proposer l'archivage `mv .archive/plans-done-$(date +%y%m%d)/` (normalement fait par `/session-end` precedent mais fallback si oublie)
 7. **Plans recemment termines** : `ls .archive/plans-done-*/` pour les 7 derniers jours. Afficher dans brief v11 cadre PLANS ACTIFS : ligne `🟢 <N> plans termines recemment` (ex : `🟢 11 plans termines (2026-04-15)`) sans detail. Permet a Kevin de voir la progression.
-7. **TodoWrite initial** (apres Phase 6) : creer un TodoWrite avec une todo par plan actif (1 plan = 1 todo). Kevin voit immediatement l'avancement dans la tasks pane Desktop. Memoire : `feedback_todowrite_systematique.md`.
-8. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
+8. **TodoWrite initial** (apres Phase 6) : creer un TodoWrite avec une todo par plan actif (1 plan = 1 todo). Kevin voit immediatement l'avancement dans la tasks pane Desktop. Memoire : `feedback_todowrite_systematique.md`.
+9. **Etat externe (opt-in via `OMC_SYNC_EXTERNAL=1`)** : lecture seule MCP.
    - Asana : `mcp__claude_ai_Asana__get_my_tasks` workspace `1213280972575193` → 3 taches ouvertes top priorite + derniere modif
    - Notion : `mcp__claude_ai_Notion__notion-search` workspace user `4f1b99db` → 3 pages modifiees < 48h
    - Affichage : cadre `┌─ ETAT EXTERNE ─┐` apres PLANS ACTIFS. Jamais d'ecriture en session-start.
@@ -61,19 +61,22 @@ Si health-check BROKEN ou build failure → signaler les erreurs critiques, ne p
 
 Appliquer le template + regles de rendu definis dans `docs/core/communication.md` section 6.1 (debut de session), 6.3 (regles rendu), 6.4 (sources donnees → quelle section vient d'ou).
 
-**Sections du brief debut de session** (ordre, voir spec) :
-1. Sante (health-check + build + worktree actif)
-2. Trajectoire (mission + focus + tendance + derniere decision)
-3. Plans actifs (1 sous-cadre par plan actif avec progression + hier + prochain + reste)
-4. Modules (Code + Meta + Prevu) + Acces
-5. Attention (alertes + rappels + en attente Kevin)
-6. Dernier travail (commits + bullets vulgarises)
-7. Statut projet (modules + chantier en cours)
-8. Idees (3-5 max recentes)
-9. Reflexion (1-3 lignes optionnelles)
-10. Historique (3 decisions recentes)
-11. Cap (direction + prochaine action)
-12. Input (question ouverte ou choix structure)
+**Sections du brief debut de session** (ordre, voir spec communication.md 6.1 — 14 sections post-D-WIKI-01) :
+1. Sante (health-check + build + worktree actif + wiki-health)
+2. HOT (3-5 lignes condensees de wiki/hot.md — cache derniere session)
+3. Trajectoire (mission + focus + tendance + derniere decision)
+4. Plans actifs (1 sous-cadre par plan actif avec progression + hier + prochain + reste)
+5. WIKI (compteur pages/sources/domaines + derniere ingest — source wiki-health.sh + wiki/log.md)
+6. Modules (Code + Meta + Prevu) + Acces
+7. Attention (alertes + rappels + en attente Kevin)
+   + SYNC optionnel (si drift-detector exit 1 — entre Attention et Dernier travail)
+8. Dernier travail (commits + bullets vulgarises)
+9. Statut projet (modules + chantier en cours)
+10. Idees & Parking (3-5 max recentes)
+11. Reflexion (1-3 lignes optionnelles)
+12. Historique (3 decisions recentes)
+13. Cap (direction + prochaine action)
+14. Input (question ouverte ou choix structure — double trait)
 
 Les regles de cadres (`┌─ TITRE ─┐ ... └─┘` 42 chars), entete double trait, espacement, alignement, emojis couleur, barres 12 blocs, etc. sont **dans communication.md section 6.3**. Ne pas reinventer.
 

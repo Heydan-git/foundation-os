@@ -4,9 +4,10 @@
 >
 > **Tour 1 (parallele, OBLIGATOIRE)** :
 > 1. `Read CONTEXT.md` — etat projet
-> 2. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
-> 3. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante
-> 4. `Glob docs/plans/*.md` — lister plans existants
+> 2. `Read wiki/hot.md` — cache flash derniere session (cadre HOT)
+> 3. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
+> 4. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health)
+> 5. `Glob docs/plans/*.md` — lister plans existants
 >
 > **Tour 2 (OBLIGATOIRE apres Tour 1)** :
 > 5. `Read` chaque plan actif identifie (non-DONE, non-SUPERSEDED)
