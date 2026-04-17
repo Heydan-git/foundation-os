@@ -236,6 +236,17 @@ if [ -x scripts/drift-detector.sh ]; then
   fi
 fi
 
+# Tier contradictions (P17 audit v2 I-06 — enforce D-WIKI-01 une info = un tier)
+if [ -x scripts/tier-contradiction-check.sh ]; then
+  TCC_LINE=$(bash scripts/tier-contradiction-check.sh --quiet 2>/dev/null)
+  TCC_N=$(echo "$TCC_LINE" | grep -oE "[0-9]+ duplications" | grep -oE "[0-9]+")
+  if [ "${TCC_N:-0}" -eq 0 ]; then
+    echo -e "  ${DIM}[OK]${RST} Tier contradictions : 0 duplication (5 tiers scannes)"
+  else
+    echo -e "  ${DIM}[OK]${RST} Tier contradictions : ${TCC_N} detectees (voir bash scripts/tier-contradiction-check.sh)"
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────
