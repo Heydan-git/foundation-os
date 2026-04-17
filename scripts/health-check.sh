@@ -181,6 +181,12 @@ fi
 DATED=$(grep -E "^\| .* \| 20[0-9]{2}-[0-9]{2}-[0-9]{2}" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
 echo -e "  ${DIM}[OK]${RST} Decisions datees: $DATED"
 
+# Neuroplasticity score (Phase 14 I-07 audit v2) — mesure reflexes cognitifs
+if [ -x scripts/neuroplasticity-score.sh ]; then
+  NEURO_LINE=$(bash scripts/neuroplasticity-score.sh --quiet 2>/dev/null)
+  echo -e "  ${DIM}[OK]${RST} ${NEURO_LINE}"
+fi
+
 # Tool registry scan (Phase 6 audit v2) — detect scripts/commands/hooks non-enregistres
 if [ -x scripts/tool-register.sh ]; then
   REG_OUT=$(bash scripts/tool-register.sh scan 2>&1 | tail -3)
