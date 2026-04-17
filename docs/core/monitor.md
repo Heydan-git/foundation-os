@@ -11,7 +11,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | Indicateur | Commande | Seuil |
 |------------|----------|-------|
 | Build passe | `cd modules/[mod] && npm run build` | Exit 0 par module actif |
-| Zero fichier a la racine | `ls -1 racine` | Seulement CLAUDE.md, CONTEXT.md, README.md, package.json, package-lock.json, .gitignore, package.json, package-lock.json |
+| Zero fichier a la racine | `ls -1 racine` | Seulement CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json, package-lock.json |
 | TypeScript compile | `cd modules/[mod] && npx tsc --noEmit` | Zero erreur |
 
 ### Warning (a corriger avant deploy)

@@ -113,6 +113,10 @@ git worktree list
 | Date | Nom | Branche | Origine | Destin |
 |------|-----|---------|---------|--------|
 | 2026-04-10 | admiring-sutherland | claude/admiring-sutherland | Session Tools v2 scaffold (c979262) | Archive 2026-04-11 (`.archive/worktrees-orphelins/admiring-sutherland-20260411/`) — contenu duplique avec main, 0 travail unique |
+| 2026-04-16 | sleepy-ellis | claude/sleepy-ellis | Session audit profondeur | Nettoye 2026-04-16 — merge dans main puis `git worktree remove` |
+| 2026-04-16 | suspicious-khayyam | claude/suspicious-khayyam | Session audit profondeur | Nettoye 2026-04-16 — merge dans main puis `git worktree remove` |
+| 2026-04-16 | bold-newton | claude/bold-newton | Session audit profondeur | Nettoye 2026-04-16 — merge dans main puis `git worktree remove` |
+| 2026-04-16 | sharp-albattani | claude/sharp-albattani | Session audit profondeur | Nettoye 2026-04-16 — merge dans main puis `git worktree remove` |
 
 ## 7. Workflow Foundation OS (actif depuis 2026-04-15)
 

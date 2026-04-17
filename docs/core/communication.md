@@ -441,17 +441,6 @@ Max 10 idees en parking. Au-dela, forcer une priorisation : garder les 10 plus p
 | Monitor | Communication consomme les metriques de Monitor pour le brief |
 | Tools | session-start et session-end sont des commands (outils) qui executent les protocoles Communication |
 
-## 9. Migration depuis Memory
+## 9. Historique
 
-Cette spec remplace l'ancien module Memory (l'ancien fichier memory.md dans `docs/core/` a ete renomme en `docs/core/communication.md` le 2026-04-10, pas archive). Les changements :
-
-| Aspect | Memory (ancien) | Communication (nouveau) |
-|--------|----------------|------------------------|
-| Scope | Persistance uniquement | Journalisation + Indexation + Lecture + Briefing |
-| Tiers | 4 tiers definis | 4 tiers + protocoles de lecture/ecriture |
-| Format sessions | Libre (blobs) | Structure a champs fixes |
-| Decisions | Format table simple | Format compact + archivage auto |
-| Idees | Non couvert | Section dediee + lifecycle |
-| Brief | Non couvert (dans commands/) | Spec complete v12 |
-| Nomenclature | Non definie | Table de nommage unifiee |
-| Budget taille | Non defini | < 150L CONTEXT.md, garde-fou 200L |
+Rename Memory -> Communication (2026-04-10) archive dans `docs/decisions-log.md` section "Archivage 2026-04-17 — 2 migrations historiques Core OS".

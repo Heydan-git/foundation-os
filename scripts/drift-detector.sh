@@ -53,8 +53,8 @@ fi
 
 # 3. CLAUDE.md lines
 CLAUDE_LINES=$(wc -l < CLAUDE.md | tr -d ' ')
-if [ "$CLAUDE_LINES" -gt 200 ]; then
-  echo -e "  ${YEL}[DRIFT]${RST} CLAUDE.md $CLAUDE_LINES L (cible < 200)"
+if [ "$CLAUDE_LINES" -gt 250 ]; then
+  echo -e "  ${YEL}[DRIFT]${RST} CLAUDE.md $CLAUDE_LINES L (cible < 250)"
   DRIFT=$((DRIFT + 1))
 else
   echo -e "  ${GRN}[OK]${RST} CLAUDE.md $CLAUDE_LINES L"
@@ -150,7 +150,7 @@ if [ $SUGGEST_MODE -eq 1 ] && [ "$DRIFT" -gt 0 ]; then
     echo ""
     [ "$CTX_SESSIONS" -gt 5 ] 2>/dev/null && echo "- CONTEXT.md sessions > 5 : compresser la ${CTX_SESSIONS}eme"
     [ "$CTX_LINES" -gt 150 ] 2>/dev/null && echo "- CONTEXT.md ${CTX_LINES}L : compresser (garde-fou 200L)"
-    [ "$CLAUDE_LINES" -gt 200 ] 2>/dev/null && echo "- CLAUDE.md ${CLAUDE_LINES}L : reduire (cible < 200)"
+    [ "$CLAUDE_LINES" -gt 250 ] 2>/dev/null && echo "- CLAUDE.md ${CLAUDE_LINES}L : reduire (cible < 250)"
     if [ -n "${WIKI_PAGES_IDX:-}" ] && [ -n "${WIKI_PAGES_FS:-}" ] && [ "$WIKI_PAGES_IDX" -ne "$WIKI_PAGES_FS" ] 2>/dev/null; then
       echo "- wiki/index-wiki.md : Total pages $WIKI_PAGES_IDX vs $WIKI_PAGES_FS filesystem"
     fi

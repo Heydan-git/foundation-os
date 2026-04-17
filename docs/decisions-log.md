@@ -51,6 +51,15 @@ Decisions stabilisees retirees de CONTEXT.md lors du cleanup drifts Phase 6 (pas
 | D-HK-02 Deps upgrade | 2026-04-10 | React 19, Vite 8, Tailwind 4. Build -74%. |
 | Compactage -> re-audit | 2026-04-07 | Si compactage risque -> refaire cycle audit complet avant de continuer. |
 
+## Archivage 2026-04-17 — 2 migrations historiques Core OS
+
+Sections historiques migrees depuis `docs/core/communication.md` (section 9) et `docs/core/knowledge.md` (section 11) lors du cleanup drifts Phase 7-8. Specs Core OS n'ont plus a contenir d'historique descriptif — les changements sont deja traces dans CONTEXT.md Sessions + git log.
+
+| Migration | Date | Detail |
+|-----------|------|--------|
+| Memory -> Communication (rename spec) | 2026-04-10 | Ancien fichier `memory.md` (dans docs/core/) renomme en `docs/core/communication.md`. Scope elargi : persistance uniquement -> journalisation + indexation + lecture + briefing. 4 tiers + protocoles lecture/ecriture, sessions structurees, decisions compactes, idees + lifecycle, brief v12, nomenclature unifiee, budget CONTEXT.md < 150L. |
+| auto-memory -> wiki/ (migrations selectives D-WIKI-01) | 2026-04-15 | 2 memoires migrees : `project_migration_desktop.md` -> `wiki/domains/dev/concepts/foundation-os-desktop-migration.md` (concept dev atemporel), `tools_inventory.md` -> `wiki/entities/tools-foundation-os.md` (entity tool). 27 autres memoires restees dans auto-memory (profile Kevin + feedback comportement Claude = bon tier). Principe : 1-par-1 avec ASK Kevin, zero perte. |
+
 ## Protocole
 
 Quand CONTEXT.md depasse 15 decisions actives :

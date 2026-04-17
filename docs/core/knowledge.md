@@ -242,7 +242,7 @@ Versionne git. Obsidian sync cloud NON utilise (privacy Phase 5).
 ### Lint
 `wiki-lint` skill pour audit qualite (broken links, orphans, inconsistances).
 
-## 11. Migration auto-memory → wiki/ (historique)
+## 11. Historique
 
 Lors adoption 2026-04-15, 2 memoires migrees selectivement :
 - `project_migration_desktop.md` → `wiki/domains/dev/concepts/foundation-os-desktop-migration.md` (concept dev atemporel)

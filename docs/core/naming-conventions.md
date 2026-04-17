@@ -120,7 +120,7 @@ docs/plans/YYYY-MM-DD-<slug>.md
 
 - `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
 - `.archive/plans-done-260415/2026-04-14-ds-rebuild-from-base.md`
-- `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
+- `.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md`
 
 ### Duplication plan mode natif
 

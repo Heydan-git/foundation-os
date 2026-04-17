@@ -56,10 +56,16 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 
 | Command | Quand | Ce qu'elle fait |
 |---------|-------|-----------------|
+| /cockpit | Point d'entree unique | Scan + brief v12 + routing agent + cloture (orchestrateur) |
 | /session-start | Debut de session | Lire contexte → check structure → build tous modules actifs → annoncer |
 | /session-end | Fin de session | Lister changes → coherence → build → update CONTEXT.md → proposer commit |
+| /plan-os | Creer un plan multi-session | Orchestrateur skills (brainstorming/writing-plans/ralplan) + EnterPlanMode natif + dual-path |
+| /wt | Gestion worktrees | `/wt new <desc>` / `/wt list` / `/wt clean` — convention `wt/<desc>-<yymmdd>` |
 | /new-project | Creer un module | Scaffold modules/[nom]/ → update CONTEXT.md |
 | /sync | Verifier coherence | Structure + refs + CONTEXT.md vs filesystem + Void Glass + MD pairs |
+| /wiki | Bootstrap vault Obsidian | Plugin claude-obsidian — setup + check |
+| /save | Sauvegarder session | Conversation courante → page wiki structuree |
+| /autoresearch | Research loop | Web search 3-5 rounds + synthese → wiki/ |
 
 Detail de chaque command : `.claude/commands/<nom>.md` (source unique).
 
@@ -97,14 +103,6 @@ Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
 
 Status : les 8 modules Core OS sont actifs (Phase 1-7 depuis 2026-04-07/15, Phase 8 Body depuis 2026-04-19).
 
-## Voir aussi
-
-- [[communication]] — module Communication (tiers memoire, brief v12)
-- [[monitor]] — module Monitor (health indicators, seuils)
-- [[tools]] — module Tools (scripts, CI/CD, catalogue)
-- [[knowledge]] — module Knowledge (wiki, neuroplasticite)
-- [[Body]] — module Body (proprioception alignement intention-action)
-
 ## 6. Cockpit — Point d'entree simplifie
 
 Le skill `/cockpit` est un super-pilote optionnel au-dessus de Cortex.
@@ -117,3 +115,18 @@ Kevin n'a plus a choisir entre /session-start, agents, ou /session-end.
 **Routing** : le cockpit utilise la table de routing section 1 (memes signaux, memes agents). La seule difference : le routing est automatique au lieu de manuel.
 
 **Spec complete** : `.archive/specs-done-260417/2026-04-10-cockpit-design.md`
+
+## Voir aussi
+
+- [[communication]] — module Communication (tiers memoire, brief v12)
+- [[monitor]] — module Monitor (health indicators, seuils)
+- [[tools]] — module Tools (scripts, CI/CD, catalogue)
+- [[knowledge]] — module Knowledge (wiki, neuroplasticite)
+- [[Body]] — module Body (proprioception alignement intention-action)
+
+## Voir aussi
+
+- [[communication]] — module Communication (tiers memoire, brief v12)
+- [[monitor]] — module Monitor (health indicators, seuils)
+- [[tools]] — module Tools (scripts, CI/CD, catalogue)
+- [[knowledge]] — module Knowledge (wiki, neuroplasticite)
