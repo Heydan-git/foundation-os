@@ -1683,7 +1683,7 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 - [x] Phase 4 — Navigation 2 niveaux (~30min) [Session A]
 - [x] Phase 5 — Clean graph.json Obsidian (~15min) [Session A] — **NOTE : `.obsidian/` gitignored, modif locale uniquement. Commit impossible. Verifie 9 groupes uniques, JSON valide.**
 - [x] Phase 6 — Rationaliser journals 4→2 (~45min) [Session B]
-- [ ] Phase 7 — SessionStart optimise (~1h) [Session B]
+- [x] Phase 7 — SessionStart optimise (~1h) [Session B]
 - [ ] Phase 8 — Memoires nettoyage (~45min) [Session B]
 - [ ] Phase 9 — Domains vides [!placeholder] (~30min) [Session B]
 - [ ] Phase 10 — Categories mortes supprimees (~30min) [Session B]

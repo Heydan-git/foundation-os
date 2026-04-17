@@ -2,14 +2,16 @@
 
 > **IMPERATIF** — Quand cette command est invoquee, tu DOIS executer les tool calls suivants dans CET ORDRE avant toute reponse texte :
 >
-> **Tour 1 (parallele, OBLIGATOIRE)** :
+> **Tour 1 (parallele, OBLIGATOIRE — unifie avec `/session-start` depuis Phase 7 audit mapping 2026-04-17)** :
 > 1. `Read CONTEXT.md` — etat projet
 > 2. `Read wiki/hot.md` — cache flash derniere session (cadre HOT)
 > 3. `Read wiki/meta/sessions-recent.md` — memoire court terme
 > 4. `Read wiki/meta/lessons-learned.md` — erreurs a ne pas repeter
-> 5. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
-> 6. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health)
-> 7. `Glob docs/plans/*.md` — lister plans existants
+> 5. `Read wiki/meta/thinking.md` — reflexions en cours
+> 6. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
+> 7. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health chain)
+> 8. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` — sante wiki (pages, hot.md age)
+> 9. `Glob docs/plans/*.md` — lister plans existants
 >
 > **Tour 2 (OBLIGATOIRE apres Tour 1)** :
 > 5. `Read` chaque plan actif identifie (non-DONE, non-SUPERSEDED)
