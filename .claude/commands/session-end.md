@@ -183,6 +183,39 @@ Appliquer le format **tuiles Markdown** defini dans `docs/core/communication.md`
 
 Les regles de rendu (tuiles blockquote, hierarchie 4 niveaux, emojis, tables) sont **dans communication.md section 6.3 (v12)**. Ne pas reinventer. NE PAS utiliser de box-drawing terminal.
 
+## Phase 7bis — Rating session (feedback loop I-10)
+
+**Spec** : audit v2 S3 Phase 18 I-10 (feedback loop post-session). Mesure satisfaction Kevin pour detecter streaks negatives + patterns.
+
+1. **Apres le brief cloture v12** (Phase 7), demander a Kevin via `AskUserQuestion` :
+   - Question : "Comment s'est passee cette session ?"
+   - Options : `Y` (bien), `N` (mal), `partial` (mitige)
+   - Option libre "Other" : notes libres (optionnel, max 200 chars)
+
+2. **Append dans `.omc/ratings.jsonl`** (format JSONL, une ligne par session) :
+   ```jsonl
+   {"id":"<session_id_or_branch>","date":"YYYY-MM-DD","rating":"Y|N|partial","notes":"<notes optionnelles>"}
+   ```
+   - `id` : branche courante (`git branch --show-current`) ou timestamp si absent
+   - `date` : `date +%Y-%m-%d`
+   - `rating` : reponse Kevin
+   - `notes` : texte libre (vide si Kevin skip)
+
+3. **Exemple d'append bash** :
+   ```bash
+   BRANCH=$(git branch --show-current)
+   TODAY=$(date +%Y-%m-%d)
+   NOTES="<reponse Kevin>"
+   RATING="<Y|N|partial>"
+   echo "{\"id\":\"$BRANCH\",\"date\":\"$TODAY\",\"rating\":\"$RATING\",\"notes\":\"$NOTES\"}" >> .omc/ratings.jsonl
+   ```
+
+4. **Kevin peut skip** le rating (reponse vide ou refus explicite) — ne pas bloquer le workflow.
+
+5. **Apres append** : rappeler que `bash scripts/session-ratings-analyze.sh` donne la distribution Y/N/partial + streak detection (3 N consecutifs = alerte).
+
+**Regle** : rating systematique a chaque /session-end, meme pour sessions courtes. Sans mesure, pas de detection des streaks negatives.
+
 ## Phase 8 — Merge main + worktree cleanup (OBLIGATOIRE si worktree)
 
 Si on est dans un worktree (`git worktree list` != main path) :
