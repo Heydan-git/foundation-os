@@ -86,19 +86,29 @@ echo ""
 echo "[WARNING]"
 
 # TSX/JSX component sizes (pages + components)
+# Seuil : 700L par defaut, 800L exception pour modules/design-system/src/components/ui/
+# (composants shadcn origin — sidebar.tsx 725L typique, voir docs/core/monitor.md section 1)
 MAX_TSX=0
-OVER_700=""
+OVER_LIMIT=""
 TSX_FILES=$(find modules/*/src -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null | grep -v node_modules | grep -v dist | grep -v storybook-static)
 for f in $TSX_FILES; do
   [ -f "$f" ] || continue
   LINES=$(wc -l < "$f" | tr -d ' ')
   [ "$LINES" -gt "$MAX_TSX" ] && MAX_TSX=$LINES
-  [ "$LINES" -ge 700 ] && OVER_700="$OVER_700 $(basename $f):${LINES}L"
+  # Exception ui/ DS (shadcn origin) : seuil 800L au lieu de 700L
+  case "$f" in
+    *modules/design-system/src/components/ui/*)
+      [ "$LINES" -ge 800 ] && OVER_LIMIT="$OVER_LIMIT $(basename $f):${LINES}L"
+      ;;
+    *)
+      [ "$LINES" -ge 700 ] && OVER_LIMIT="$OVER_LIMIT $(basename $f):${LINES}L"
+      ;;
+  esac
 done
-if [ -z "$OVER_700" ]; then
+if [ -z "$OVER_LIMIT" ]; then
   echo -e "  ${GRN}[OK]${RST} TSX sizes (max ${MAX_TSX}L)"
 else
-  echo -e "  ${YEL}[WARN]${RST} TSX > 700L:$OVER_700"
+  echo -e "  ${YEL}[WARN]${RST} TSX > seuil (700L, ou 800L pour ui/ DS):$OVER_LIMIT"
   WARNING=$((WARNING + 1))
 fi
 

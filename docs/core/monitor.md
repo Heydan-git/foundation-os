@@ -18,7 +18,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 
 | Indicateur | Commande | Seuil |
 |------------|----------|-------|
-| TSX < 700 lignes | `wc -l modules/app/src/pages/*.tsx modules/app/src/components/*.tsx` | Chaque fichier < 700 |
+| TSX < 700 lignes (800 exception ui/ DS shadcn) | `wc -l modules/app/src/**/*.tsx modules/design-system/src/components/patterns/*.tsx` | App + DS patterns < 700L. Exception `modules/design-system/src/components/ui/` (shadcn origin, sidebar.tsx typique 700+L) : seuil 800L. |
 | Void Glass respecte | `grep -r "#0A0A0B\|#08080A\|Outfit\|Inter" modules/app/src/` | Zero match |
 | MD pairs alignes | Comparer `modules/app/data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx` | Chaque archive a son MD |
 | Tests vitest passent | `cd modules/app && npm test` | Zero test en echec |
