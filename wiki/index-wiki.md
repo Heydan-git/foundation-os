@@ -26,14 +26,14 @@ Navigation: [[overview]] | [[hot]]
 
 ## Domaines
 
-### Trading
-- [[domains/trading/index-trading]] — strategies, backtests, whitepapers, instruments
+### Trading 🔴 placeholder Phase 5
+- [[domains/trading/index-trading]] — strategies, backtests, whitepapers, instruments (vide)
 
-### Finance
-- [[domains/finance/index-finance]] — patrimoine, fiscalite, decisions
+### Finance 🔴 placeholder Phase 5
+- [[domains/finance/index-finance]] — patrimoine, fiscalite, decisions (vide)
 
-### Sante
-- [[domains/sante/index-sante]] — bilans bio, protocoles, papers medicaux, conseil multi-agents
+### Sante 🔴 placeholder Phase 5
+- [[domains/sante/index-sante]] — bilans bio, protocoles, papers medicaux, conseil multi-agents (vide)
 
 ### Design
 - [[domains/design/index-design]] — UX research, patterns, heuristiques

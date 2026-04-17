@@ -1685,7 +1685,7 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 - [x] Phase 6 — Rationaliser journals 4→2 (~45min) [Session B]
 - [x] Phase 7 — SessionStart optimise (~1h) [Session B]
 - [x] Phase 8 — Memoires nettoyage (~45min) [Session B]
-- [ ] Phase 9 — Domains vides [!placeholder] (~30min) [Session B]
+- [x] Phase 9 — Domains vides [!placeholder] (~30min) [Session B]
 - [ ] Phase 10 — Categories mortes supprimees (~30min) [Session B]
 - [ ] Phase 11 — Wikilinks DS hors-vault (~30min) [Session B]
 - [~] Phase 12 — SKIP Enforcement routing (decision) [Session C]

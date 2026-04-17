@@ -13,6 +13,10 @@ related:
 
 # Domaine : sante
 
+> [!placeholder] **Phase 5 non-demarree** (2026-04-17)
+> Ce domaine est scaffolde mais 100% vide (aucune page `concepts/`, `sources/`, `bilans/`, `protocoles/`). Il sera actif quand le module `modules/sante/` sera lance (decision Kevin Phase 5).
+> **Pour demarrer** : ingerer un paper PubMed via `.raw/sante/` + `wiki-ingest` OU creer concept (ex: TSH, ferritine, chronobiologie).
+
 Knowledge layer pour module `modules/sante/` (Phase 5) : suivi bio, protocoles, papers medicaux, conseil sante multi-agents.
 
 ## Sous-dossiers
