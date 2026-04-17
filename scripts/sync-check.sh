@@ -198,6 +198,20 @@ else
 fi
 rm -f "$FONT_VIOL_FILE"
 
+# ── 8. Docs sync (chain docs-sync-check.sh — Phase 6 audit v2) ─────
+if [ -x scripts/docs-sync-check.sh ]; then
+  DSC_OUT=$(bash scripts/docs-sync-check.sh 2>&1)
+  DSC_EXIT=$?
+  # Extract DRIFT count from verdict line
+  DSC_DRIFT=$(echo "$DSC_OUT" | grep -oE "\([0-9]+ drifts detectes\)" | grep -oE "[0-9]+")
+  if [ $DSC_EXIT -eq 0 ]; then
+    echo -e "  ${GRN}[OK]${RST} Docs sync (architecture.md + memory + manifeste alignes)"
+  else
+    echo -e "  ${YEL}[WARN]${RST} Docs sync : ${DSC_DRIFT:-N} drifts (voir bash scripts/docs-sync-check.sh)"
+    WARNING=$((WARNING + 1))
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────────────────────────────────────────────────

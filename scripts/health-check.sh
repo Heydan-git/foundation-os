@@ -88,7 +88,7 @@ echo "[WARNING]"
 # TSX/JSX component sizes (pages + components)
 MAX_TSX=0
 OVER_700=""
-TSX_FILES=$(find modules/app/src/pages modules/app/src/components -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null)
+TSX_FILES=$(find modules/*/src -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null | grep -v node_modules | grep -v dist | grep -v storybook-static)
 for f in $TSX_FILES; do
   [ -f "$f" ] || continue
   LINES=$(wc -l < "$f" | tr -d ' ')
@@ -180,6 +180,17 @@ fi
 # Decisions dated (annee any 20XX, evite Y2027 bug)
 DATED=$(grep -E "^\| .* \| 20[0-9]{2}-[0-9]{2}-[0-9]{2}" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
 echo -e "  ${DIM}[OK]${RST} Decisions datees: $DATED"
+
+# Tool registry scan (Phase 6 audit v2) — detect scripts/commands/hooks non-enregistres
+if [ -x scripts/tool-register.sh ]; then
+  REG_OUT=$(bash scripts/tool-register.sh scan 2>&1 | tail -3)
+  if echo "$REG_OUT" | grep -qE "drift|missing|orphan|non-registered"; then
+    echo -e "  ${YEL}[WARN]${RST} Tool registry drift detecte (voir bash scripts/tool-register.sh scan)"
+    WARNING=$((WARNING + 1))
+  else
+    echo -e "  ${DIM}[OK]${RST} Tool registry scan (109 tools + 10 knowledge-skills)"
+  fi
+fi
 
 # CONTEXT.md taille (budget < 150L, garde-fou 200L — spec communication.md section 4.2)
 CTX_LINES=$(wc -l < CONTEXT.md 2>/dev/null | tr -d ' ')
