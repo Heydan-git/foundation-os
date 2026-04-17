@@ -186,20 +186,4 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 
 ## Statistiques
 
-> Source unique wiki : [[counts]] (wiki/meta/counts.md).
-
-| Type | Count |
-|------|-------|
-| Fichiers racine | 3 |
-| Core OS specs | 9 |
-| Documentation + specs | 6 + 0 actif (3 archives 2026-04-17) |
-| Travaux Cowork | 19 |
-| App Builder | 2 (README + wiki Design System) |
-| Design System | 3 |
-| Wiki concepts | 9 + 2 domain = 11 |
-| Wiki entities | 5 |
-| Wiki sources | 4 |
-| Wiki domaines | 5 |
-| Wiki meta (hors templates) | 14 |
-| Sous-index | 7 |
-| **Total connecte** | **~94** |
+> Stats wiki : voir [[counts]]. Cette carte liste les *relations*, pas les counts.
