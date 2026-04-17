@@ -55,6 +55,10 @@ Navigation: [[overview]] | [[hot]]
 - [[concepts/Neuroplasticite]] — systeme auto-amelioration memoire 4 reflexes (status: seed)
 - [[concepts/TDAH workflow]] — adaptations workflow pour profil TDAH Kevin (status: seed)
 - [[concepts/Void Glass]] — design system dark-only #030303 Foundation OS (status: seed)
+- [[concepts/Confidence Tagging]] — granularite frontmatter pour distinguer facts vs hypotheses (D-INTEG-01)
+- [[concepts/Graph Report]] — rapport auto god nodes + orphelins + surprising connections (D-INTEG-01)
+- [[concepts/Layered Loading]] — 4 layers chargement context L0-L3 discipline tokens (D-INTEG-01)
+- [[concepts/Pre-compaction Snapshot]] — snapshot auto avant compaction sessions longues (D-INTEG-01)
 - [[domains/dev/concepts/foundation-os-desktop-migration]] — Migration Foundation OS → Claude Code Desktop natif (2026-04-15, DONE)
 - [[domains/design/concepts/design-system-components]] — 46 composants ui + 6 foundations DS (status: mature)
 

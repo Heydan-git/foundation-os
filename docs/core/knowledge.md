@@ -251,3 +251,63 @@ Lors adoption 2026-04-15, 2 memoires migrees selectivement :
 27 autres memoires RESTENT dans auto-memory (profile Kevin + feedback comportement Claude = bon tier).
 
 Principe migration : 1-par-1 avec ASK Kevin, zero perte. Voir Phase 5 du plan adoption.
+
+## 12. Enhancements 2026 (D-INTEG-01, 2026-04-17)
+
+Apres lecture comparative 5 sources externes ([MemPalace](https://github.com/MemPalace/mempalace), [Octogent](https://github.com/hesamsheikh/octogent), [Graphify](https://github.com/safishamsi/graphify), [Penpax.ai](https://safishamsi.github.io/penpax.ai/), MemPalace site), 4 enhancements integres organiquement :
+
+### 12.1 Confidence tagging systematique
+
+- Clef frontmatter `confidence: high|medium|low` OBLIGATOIRE sur toute page wiki.
+- Scale definie :
+  - `high` : fact verifie multi-session, stable, non contredit
+  - `medium` : observation single-session, absent de contradiction
+  - `low` : draft, hypothese, awaiting validation
+- Clef optionnelle `claim_type: extracted|inferred|speculated` pour traces fines.
+- Audit : `bash scripts/wiki-confidence-audit.sh` (mode `--check` exit 1 si drift, `--fix` backfill interactif).
+- Templates `wiki/meta/templates/*.md` mis a jour avec `confidence: medium` par defaut (seed fraiche).
+- Detail : [[Confidence Tagging]]
+- Status : Phase 3/5 (pending impl)
+
+### 12.2 Graph report auto
+
+- Fichier auto-regenere : `wiki/meta/graph-report.md` (source unique pattern counts.md).
+- Sections : god nodes (> seuil wikilinks entrants), orphelins (0 wikilink entrant), surprising connections (cross-domain), communities (par tag).
+- Script : `scripts/wiki-graph-report.sh` (mode idempotent).
+- Chain dans `scripts/health-check.sh` section INFO (non-bloquant).
+- Seuils : `scripts/thresholds.json` section `wiki.graph_report` (god_nodes_min_wikilinks, orphan_max_allowed).
+- Detail : [[Graph Report]]
+- Status : Phase 4/5 (pending impl)
+
+### 12.3 Layered loading formel
+
+- 4 layers chargement context (inspire MemPalace L0-L3) :
+  - L0 : `wiki/hot.md` (< 200 tokens, hook SessionStart)
+  - L1 : `CONTEXT.md` + `wiki/meta/sessions-recent.md` (< 2k tokens, Tour 1 `/session-start`)
+  - L2 : `wiki/meta/lessons-learned.md` + `wiki/meta/thinking.md` + plans actifs (< 10k tokens)
+  - L3 : pages wiki on-demand via wikilinks (reflex 1 neuroplasticite recall)
+- Spec canonique (post Phase 5/5) : `docs/core/communication.md` section 6.5.
+- Detail : [[Layered Loading]]
+- Status : Phase 5/5 (pending impl)
+
+### 12.4 Pre-compaction snapshot
+
+- Hook `PreCompaction` Claude Code Desktop (non-bloquant, a verifier API) execute `scripts/hooks/pre-compaction-snapshot.sh`.
+- Snapshot atomique de `wiki/hot.md` + TodoWrite actif + `CONTEXT.md` section Cap dans `.omc/snapshots/YYYYMMDD-HHMM.md`.
+- Rotation : garder 14 derniers snapshots, auto-prune oldest.
+- Recovery : `cat .omc/snapshots/$(ls -t .omc/snapshots/ | head -1)` en debut session si compactage detecte.
+- Detail : [[Pre-compaction Snapshot]]
+- Status : Phase 2/5 (pending impl)
+
+### 12.5 Ignores (inspiration partielle, non integres)
+
+- MemPalace ChromaDB vector store → privilegier Obsidian grep deterministe + wikilinks
+- MemPalace AAAK compression 30x → overkill scale 43 pages
+- Octogent tentacles folder-based → overlap avec worktrees + plans ultra-detailles 6 elements
+- Octogent API/UI dashboard → Desktop sidebar + tasks pane couvrent
+- Octogent inter-agent messaging formel → Kevin prefere coordination manuelle (memoire `feedback_subagents_context.md`)
+- Graphify Leiden clustering → Obsidian graph visuel suffit < 500 pages (re-evaluer Phase 5)
+- Graphify Whisper transcription → pas d'audio/video stockes actuellement
+- Penpax.ai capture auto navigateur/meetings → hors philosophie FOS (code volontaire, pas surveillance passive)
+
+Plan execution : `docs/plans/2026-04-17-integration-sources-externes.md` (5 phases, 6 elements chacune).

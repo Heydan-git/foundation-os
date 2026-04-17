@@ -77,6 +77,21 @@ Pages meta lues en SessionStart : [[hot]] · [[sessions-recent]] · [[lessons-le
 
 ---
 
+## Enhancements 2026 (D-INTEG-01)
+
+4 features integrees 2026-04-17 depuis sources externes (MemPalace / Graphify) :
+
+| Feature | Concept | Implementation (Phase) |
+|---------|---------|------------------------|
+| Auto-save pre-compression | [[Pre-compaction Snapshot]] | `scripts/hooks/pre-compaction-snapshot.sh` (Phase 2) |
+| Confidence systematique | [[Confidence Tagging]] | `scripts/wiki-confidence-audit.sh` (Phase 3) |
+| Graph report auto | [[Graph Report]] | `scripts/wiki-graph-report.sh` + `wiki/meta/graph-report.md` (Phase 4) |
+| Layered loading formel | [[Layered Loading]] | `docs/core/communication.md` section 6.5 (Phase 5) |
+
+Spec : `docs/core/knowledge.md` section 12. Plan : `docs/plans/2026-04-17-integration-sources-externes.md`.
+
+---
+
 ## Statistiques
 
 > Stats wiki : voir [[counts]]. Cette carte liste les *relations*, pas les counts.

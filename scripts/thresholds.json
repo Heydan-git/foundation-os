@@ -4,7 +4,8 @@
   "_refs": [
     "docs/core/monitor.md section 4 (seuils actuels)",
     "audit v2 Agent 1 F-04 (3 seuils CSS contradictoires)",
-    "audit v2 Agent 1 I-01 (thresholds.json source unique)"
+    "audit v2 Agent 1 I-01 (thresholds.json source unique)",
+    "D-INTEG-01 (2026-04-17) enhancements INT-1/2/3 + INS-1 (voir docs/core/knowledge.md section 12)"
   ],
   "build": {
     "app_ms_max": 2000,
@@ -25,7 +26,23 @@
     "sessions_max": 5,
     "hot_md_age_days_max": 3,
     "pages_physical": 48,
-    "pages_functional": 43
+    "pages_functional": 43,
+    "confidence_required_on_concepts": true,
+    "confidence_required_on_sources": true,
+    "confidence_required_on_entities": true,
+    "graph_report": {
+      "god_nodes_min_wikilinks": 10,
+      "orphan_max_allowed": 2,
+      "surprising_connection_min_domains": 2
+    },
+    "layered_loading": {
+      "l0_tokens_max": 200,
+      "l1_tokens_max": 2000,
+      "l2_tokens_max": 10000
+    },
+    "pre_compaction": {
+      "snapshots_keep": 14
+    }
   },
   "docs": {
     "context_md_lines_max": 200,

@@ -22,7 +22,7 @@ Navigation : [[foundation-os-map]] | [[index-wiki]] | [[index-entities]] | [[ind
 
 ---
 
-## Cross-domain (9)
+## Cross-domain (13)
 
 | Concept | Status | Description |
 |---------|--------|-------------|
@@ -35,6 +35,10 @@ Navigation : [[foundation-os-map]] | [[index-wiki]] | [[index-entities]] | [[ind
 | [[Neuroplasticite]] | seed | Systeme auto-amelioration memoire 4 reflexes |
 | [[TDAH workflow]] | seed | Adaptations workflow pour profil TDAH Kevin |
 | [[Void Glass]] | mature | Design system dark-only #030303 Foundation OS |
+| [[Confidence Tagging]] | seed | Granularite frontmatter `confidence: high/medium/low` (D-INTEG-01 Phase 3) |
+| [[Graph Report]] | seed | Rapport auto god nodes / orphelins / surprising connections (D-INTEG-01 Phase 4) |
+| [[Layered Loading]] | seed | 4 layers chargement context L0-L3 (D-INTEG-01 Phase 5) |
+| [[Pre-compaction Snapshot]] | seed | Snapshot auto avant compaction Claude Code (D-INTEG-01 Phase 2) |
 
 ## Domaine Design (1)
 
