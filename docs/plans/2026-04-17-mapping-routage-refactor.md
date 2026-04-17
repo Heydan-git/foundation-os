@@ -1679,7 +1679,7 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 
 - [x] Phase 1 — Rapport audit ecrit (~1h30) [Session A]
 - [x] Phase 2 — Unification counts wiki (~30min) [Session A]
-- [ ] Phase 3 — Decomission index-app.md + refs modules/app/data/ (~45min) [Session A]
+- [x] Phase 3 — Decomission index-app.md + refs modules/app/data/ (~45min) [Session A]
 - [ ] Phase 4 — Navigation 2 niveaux (~30min) [Session A]
 - [ ] Phase 5 — Clean graph.json Obsidian (~15min) [Session A]
 - [ ] Phase 6 — Rationaliser journals 4→2 (~45min) [Session B]

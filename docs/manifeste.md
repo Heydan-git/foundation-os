@@ -256,8 +256,8 @@ La skill `foundation-os-orchestrator` decrit un modele a 19 fichiers `fos-*`, st
 ### 13.5 — Paths absolus dans settings.json
 Finding F-S2-08 de la session S2 : les hooks dans `.claude/settings.json` referencent des paths `/Users/kevinnoel/...` non portables. Fix prevu en S21.
 
-### 13.6 — MD pairs figes mais lus
-`modules/app/data/*.md` sont declares « referentiel fige » mais leur contenu n'est plus synchrone avec l'app React. A clarifier : archive read-only ou source vivante ?
+### 13.6 — MD pairs archives (2026-04-17)
+Les MD pairs historiques ont ete archives dans `.archive/app-data-jsx-260417/data/*.md` lors du cleanup audit v2 (2026-04-17). Tension "fige mais lu" resolue : archive read-only pure, plus lu par l'app runtime. Historique conserve pour reference pattern MD-first initial.
 
 ### 13.7 — CLAUDE.md liste outils Tools obsolete (F-S3-01, ajoute 2026-04-08)
 `CLAUDE.md` L95-96 liste les outils Tools mais ref-checker.sh est dans le backlog alors qu'il est construit, et 3 scripts (sync-check, module-scaffold, pre-commit) manquent. Fix S20.

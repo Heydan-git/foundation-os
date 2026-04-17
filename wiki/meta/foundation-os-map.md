@@ -12,7 +12,6 @@ related:
   - "[[hot]]"
   - "[[overview]]"
   - "[[index-core-os]]"
-  - "[[index-app]]"
   - "[[index-concepts]]"
   - "[[index-entities]]"
   - "[[index-sources]]"
@@ -108,12 +107,10 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 
 ## Modules Code
 
-> Sous-index : [[index-app]]
-
 ### App Builder (modules/app/)
 
 - [[modules/app/README-app-builder|README App Builder]] — Description module App
-- Data MD archives 2026-04-17 dans `.archive/app-data-jsx-260417/` (7 MD JSX historique, mots interdits)
+- Data MD historique : `.archive/app-data-jsx-260417/` (7 MD JSX, mots interdits, post-archive 2026-04-17)
 
 ### Design System (modules/design-system/)
 

@@ -16,7 +16,6 @@ related:
   - "[[index-sources]]"
   - "[[index-meta]]"
   - "[[index-core-os]]"
-  - "[[index-app]]"
   - "[[index-cowork]]"
 ---
 
@@ -81,7 +80,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 ## Meta
 
-> **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **App** : [[index-app]] | **Cowork** : [[index-cowork]]
+> **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **Cowork** : [[index-cowork]]
 
 - [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
 - [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain (neuroplasticite)
