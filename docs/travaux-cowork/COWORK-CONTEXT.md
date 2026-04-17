@@ -18,13 +18,14 @@ Regles :
 
 ## Session Cowork en cours
 
-- **Date** : 2026-04-14
-- **Titre** : 🪐 - 📋 PLAN Morning brief + synthese hebdo FoundationOS (2026-04-14)
-- **Travail actif** : Pose des bases du morning brief quotidien et de la synthese hebdo FoundationOS (specs + sources + 2 exemples rendus visuels Void Glass).
-- **Dossier livrables** : `docs/travaux-cowork/2026-04-14-briefs-foundation-os/`
+- **Date** : 2026-04-16
+- **Titre** : 🪐 - 📐 ARCHI Prompt Stitch Dashboard Monitoring FoundationOS (2026-04-16)
+- **Travail actif** : Redaction d'un prompt MD ultra-detaille a coller dans Google Stitch pour generer le visuel d'un dashboard de monitoring couvrant la totalite de FoundationOS (12 vues hierarchiques, 12 clusters de signaux, 3 verdicts universels SAIN/DEGRADED/BROKEN, zero specification visuelle — Kevin gere couleurs/typo/motion directement dans Stitch).
+- **Dossier livrables** : `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/`
 
 ## Derniere action Cowork
 
+- **2026-04-16** — Creation dossier `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/` avec 2 livrables : `00-INDEX.md` (sommaire + sources verifiees + ownership) et `01-prompt-stitch-dashboard-monitoring.md` (prompt final, 1207 lignes, 28 sections niveau 2, 143 sections niveau 3, 12 vues hierarchiques, 48 occurrences SAIN/DEGRADED/BROKEN, 0 emoji, frontmatter YAML valide). Verification via subagent general-purpose : verdict SAIN, zero marqueur `END-PART` residuel, terminaison propre sur `<!-- END-PROMPT -->`. Perimetre couvert : modules, plans, Core OS, wiki, worktrees, MCPs, metriques, decisions, risques, sessions, idees. Format : un seul MD a coller integralement dans Google Stitch. Pret a livrer Kevin.
 - **2026-04-14 (soir)** — Refonte v2 TDAH des specs ecrites : `01-specs-morning-brief.md` et `02-specs-hebdo-synthesis.md` entierement reecrits. Nouvelle structure alignee sur les HTML v2 (philosophie de rendu, sections HTML cards, classes CSS, interdiction formelle des cadres box-drawing et barres ASCII, Hick's law sur CTA, Vulgarisation prose). Dossier `2026-04-14-briefs-foundation-os/` est maintenant coherent : 4 livrables (01 spec morning v2, 02 spec hebdo v2, 04 exemple morning v2, 05 exemple hebdo v2) + 00-INDEX + 03-sources.
 - **2026-04-14 (fin journee)** — Refonte v2 TDAH-friendly des deux HTML d'exemple (`04-exemple-morning-2026-04-14.html` et `05-exemple-hebdo-s15.html`). Nouveau langage visuel : titres conversationnels evocateurs, sections icon+titre+sous-titre, cards backgrounds colores, progress bars / bars de velocite gradient, vulgarisation prose, Hick's law sur les CTA, whitespace genereux. Validation Kevin : "C'est bien mieux. Ok, on part la-dessus."
 - **2026-04-14** — Ouverture dossier `2026-04-14-briefs-foundation-os/`. Creation : `00-INDEX.md`, `01-specs-morning-brief.md`, `02-specs-hebdo-synthesis.md`, `03-sources-et-regles.md`, `04-exemple-morning-2026-04-14.html` (v1 puis v2), `05-exemple-hebdo-s15.html` (v1 puis v2). Desyncs Asana e19+e20 detectees. Scheduling non active (phase 2).
@@ -34,9 +35,9 @@ Regles :
 
 ## Etat pre/post-compactage
 
-- **Dernier compactage detecte** : 2026-04-13 (2 fois dans la meme session Dashboard Monitoring)
-- **Checkpoint post-compactage** : session Cowork close proprement. Plan Dashboard pret handoff CLI (fichier 14). Architecture parallele deployee cote Cowork. Reste a appliquer cote CLI (patchs 2 et 3).
-- **A reprendre si nouveau compactage** : lire patchs 2 et 3 dans section "Patchs en attente", appliquer cote CLI dans une session CLI dediee, puis executer le test de parallelisme.
+- **Dernier compactage detecte** : 2026-04-16 (session Prompt Stitch, apres redaction Parts 1-2 et verification subagent)
+- **Checkpoint post-compactage** : reprise propre via summary fourni par le runtime. Tache pending identifiee = maj COWORK-CONTEXT.md (cette section). Livrable principal deja valide SAIN avant compactage. Aucune divergence detectee entre summary et etat filesystem.
+- **A reprendre si nouveau compactage** : livrable `2026-04-16-prompt-stitch-dashboard-monitoring/01-prompt-stitch-dashboard-monitoring.md` est complet et valide (1207 lignes, 28 sections, 12 vues). Reste : session close + lien computer:// livre a Kevin. Patchs CLI (2 et 3) toujours pending cote architecture parallele.
 
 ## Checkpoint anti-compactage (lu en priorite apres compactage)
 
@@ -51,7 +52,7 @@ Regles :
 5. Poser 1-3 questions ciblees a Kevin. Attendre validation.
 6. Mettre a jour "Dernier compactage detecte" ci-dessus avec horodatage.
 
-**Tache en cours au dernier snapshot** : Deploiement architecture parallele CLI/Cowork. Ce fichier cree. Patchs Project Instructions + CLAUDE.md + retrait lock rediges dans sections "Patchs en attente" ci-dessous. Test de parallelisme pas encore execute.
+**Tache en cours au dernier snapshot** : Livrable `2026-04-16-prompt-stitch-dashboard-monitoring/01-prompt-stitch-dashboard-monitoring.md` complet (1207 lignes, 28 sections, 12 vues, 0 emoji) et valide via subagent. Tache pending en cours = maj de ce fichier (Session en cours, Derniere action, Travaux actifs, Checkpoint). Ensuite cloture session + lien computer:// a Kevin.
 
 **Points chauds qui peuvent etre perdus dans un resume de compactage** :
 - Kevin veut du parallelisme CLI + Cowork reel, pas un faux parallelisme avec verrou.
@@ -64,6 +65,7 @@ Regles :
 
 | Travail | Dossier | Statut |
 |---------|---------|--------|
+| Prompt Stitch Dashboard Monitoring | `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/` | 🟢 Livrable pret a coller dans Stitch (01, 1207 lignes, 28 sections, 12 vues) |
 | Briefs FoundationOS (morning + hebdo) | `docs/travaux-cowork/2026-04-14-briefs-foundation-os/` | 🟢 Specs 01/02 + exemples 04/05 alignes v2 TDAH. Scheduling + generator = phase 2. |
 | Plan Dashboard Monitoring | `docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/` | 🟢 Pret handoff CLI (fichier 14 source de verite) |
 | Evolution Core OS | `docs/travaux-cowork/2026-04-13-evolution-core-os/` | 🔵 Referentiel |
@@ -77,6 +79,7 @@ Candidats a remonter dans CONTEXT.md apres validation Kevin (CLI applique) :
 - `D-CTX-SPLIT` : split contexte CLI / Cowork via COWORK-CONTEXT.md, verrou retire. Date : 2026-04-13.
 - Reference livrable `docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/14-plan-execution-consolide.md` a pointer dans section Travaux Cowork de CONTEXT.md.
 - Reference livrable `docs/travaux-cowork/2026-04-14-briefs-foundation-os/` a pointer dans section Travaux Cowork de CONTEXT.md. Nouveau format recurrent : morning brief quotidien (lundi-vendredi 8h) + hebdo synthesis (vendredi 18h). Scheduling + generateur = phase 2.
+- Reference livrable `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/01-prompt-stitch-dashboard-monitoring.md` a pointer dans section Travaux Cowork de CONTEXT.md. Role : source de verite structurelle/fonctionnelle pour le design Stitch du dashboard de monitoring. Complement narratif du plan 14 (execution) cote visuel.
 - 2 desyncs Asana detectees lors de la conception du hebdo : e19 (Deploy Vercel, due 2026-04-14) et e20 (Build Commander, due 2026-04-16) probablement faits mais non coches. Arbitrage Kevin requis avant tout coche.
 
 ## Patchs en attente d'application
