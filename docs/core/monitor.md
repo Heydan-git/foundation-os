@@ -31,7 +31,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 | CONTEXT.md a jour | Comparer modules/ ↔ section Modules | Correspondance |
 | Decisions datees | Lire section Decisions | Toutes ont une date |
 | Build time | Lire output build | < 2000ms (baseline: ~800ms) |
-| Bundle size | Lire output build | JS < 600KB, CSS < 40KB |
+| Bundle size | Lire output build | JS < 600KB, CSS < 65KB (voir scripts/thresholds.json source unique) |
 | Drift detector | `bash scripts/drift-detector.sh` | exit 0 = SYNC, exit 1 = drift detecte |
 | Docs sync | `bash scripts/docs-sync-check.sh` | exit 0 = DOCS SYNC, exit 1 = drift |
 

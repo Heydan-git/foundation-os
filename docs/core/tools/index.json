@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "updated": "2026-04-17",
-  "total_tools": 99,
+  "total_tools": 109,
   "categories": {
     "agents": {
       "file": "registry/agents.json",
@@ -18,6 +18,10 @@
     "hooks": {
       "file": "registry/hooks.json",
       "count": 4
+    },
+    "knowledge-skills": {
+      "file": "registry/knowledge-skills.json",
+      "count": 10
     },
     "mcp": {
       "file": "registry/mcp.json",

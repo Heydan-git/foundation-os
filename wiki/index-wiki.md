@@ -22,7 +22,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-16 | Total pages: 43 | Sources ingested: 4
+Last updated: 2026-04-17 | Total pages: 48 (43 fonctionnelles, hors templates) | Sources ingested: 4 — voir [[counts]] source unique
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 
@@ -98,17 +98,23 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 ## Statistiques
 
+> Source unique : [[counts]] (wiki/meta/counts.md). Regenere via `scripts/wiki-counts-sync.sh`.
+
 | Type | Count |
 |------|-------|
-| Concepts | 11 |
+| Concepts racine | 9 |
+| Concepts domaines (design + dev) | 2 |
 | Entities | 5 |
 | Sources | 4 |
 | Comparisons | 0 |
 | Questions | 0 |
-| Domaines actifs | 5 |
-| Meta | 8 |
-| Top-level | 4 |
-| Total pages | 43 |
+| Meta (hors templates) | 14 |
+| Templates | 5 |
+| Domaines indexes | 5 |
+| Top-level (hot, log, overview, index-wiki) | 4 |
+| **Total physique** | **48** |
+| **Total fonctionnel (hors templates)** | **43** |
+| Wikilinks totaux | 791 |
 
 ## Couverture par domaine
 

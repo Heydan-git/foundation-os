@@ -169,7 +169,7 @@ Compact, factuel, mis a jour a chaque session-end si changement.
 | Design System | OK tokens | — | — | 100/100 | — |
 ```
 
-Seuils d'alerte : JS > 600 kB 🟡, JS > 800 kB 🔴, CSS > 40 kB 🟡.
+Seuils d'alerte : JS > 600 kB 🟡, JS > 800 kB 🔴, CSS > 65 kB 🟡. Source unique : `scripts/thresholds.json`.
 
 ### 3.5 Protocole session-end — journalisation
 

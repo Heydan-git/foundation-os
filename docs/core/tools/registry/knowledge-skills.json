@@ -1,0 +1,122 @@
+[
+  {
+    "id": "wiki",
+    "name": "wiki",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Bootstrap ou check du vault Obsidian Foundation OS (scaffold + router)",
+    "triggers": ["/wiki", "setup wiki", "obsidian vault"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash"],
+    "depends_on": ["wiki/", ".raw/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "wiki-ingest",
+    "name": "wiki-ingest",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Ingest source externe (URL, PDF, transcript, image) → pages wiki structurees avec wikilinks + cross-refs",
+    "triggers": ["ingest", "paste URL", "paste PDF", "document partage"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "WebFetch"],
+    "depends_on": ["wiki/", ".raw/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "wiki-query",
+    "name": "wiki-query",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Search multi-depth dans le vault pour repondre a une question",
+    "triggers": ["question contenu wiki", "est-ce que j'ai deja bosse sur"],
+    "allowed_tools": ["Read", "Glob", "Grep"],
+    "depends_on": ["wiki/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "wiki-lint",
+    "name": "wiki-lint",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Audit qualite vault : broken links, orphans, inconsistances, stale pages",
+    "triggers": ["lint wiki", "check vault", "wiki health"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep"],
+    "depends_on": ["wiki/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "save",
+    "name": "save",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Convertit la conversation courante en wiki page (session DNA, concepts extraits)",
+    "triggers": ["/save", "/save [name]", "/save session"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep"],
+    "depends_on": ["wiki/meta/sessions-recent.md", "wiki/hot.md"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "autoresearch",
+    "name": "autoresearch",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Research loop autonome 3-5 rounds : web search + synthese + pages wiki + cross-refs",
+    "triggers": ["/autoresearch [topic]", "recherche sur"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "WebFetch"],
+    "depends_on": ["wiki/domains/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "canvas",
+    "name": "canvas",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Cree ou edite un Obsidian canvas visual (.canvas) avec images + text cards + PDFs + wiki pages",
+    "triggers": ["/canvas", "/canvas [desc]"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob"],
+    "depends_on": ["wiki/canvases/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "defuddle",
+    "name": "defuddle",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Clean article web (ads/nav/boilerplate removal) avant ingest",
+    "triggers": ["ingest URL avec defuddle", "clean article"],
+    "allowed_tools": ["Read", "Bash"],
+    "depends_on": ["wiki-ingest"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "obsidian-bases",
+    "name": "obsidian-bases",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Create/edit Obsidian Bases (.base files) — Dataview replacement natif (tables, cards, filters dynamiques)",
+    "triggers": ["bases dashboard", "obsidian base"],
+    "allowed_tools": ["Read", "Write", "Edit", "Glob", "Grep"],
+    "depends_on": ["wiki/"],
+    "added": "2026-04-15"
+  },
+  {
+    "id": "obsidian-markdown",
+    "name": "obsidian-markdown",
+    "category": "skill-knowledge",
+    "plugin": "claude-obsidian",
+    "version": "v1.4.3",
+    "description": "Reference pour ecrire Obsidian Flavored Markdown correct : wikilinks, embeds, callouts, properties, tags, highlights, math",
+    "triggers": ["syntax obsidian", "standardiser markdown"],
+    "allowed_tools": ["Read", "Write", "Edit"],
+    "depends_on": [],
+    "added": "2026-04-15"
+  }
+]

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Overview"
-updated: 2026-04-15
+updated: 2026-04-17
 tags:
   - meta
   - overview
@@ -72,12 +72,15 @@ Regle d'or : code executable dans `modules/`, doc+hypotheses+refs dans `wiki/dom
 - `/autoresearch [topic]` — web research 3-5 rounds + synthese
 - `/canvas [desc]` — Obsidian canvas visual
 
-## Stats (2026-04-16)
+## Stats (2026-04-17 — voir [[counts]] source unique)
 
-- Pages : 36 (hot, index, log, overview)
+- Pages : 48 (43 fonctionnelles hors templates)
+- Wikilinks : 791
+- Concepts : 9 + 2 domain concepts = 11
 - Sources : 4
-- Domaines : 5 (pre-scaffolde vides)
-- Templates : 5
+- Entities : 5
+- Meta : 14 + 5 templates = 19
+- Domaines : 5 (trading/finance/sante vides Phase 5, design/dev seed)
 - .raw/ : 6 dossiers
 
 ## Navigation

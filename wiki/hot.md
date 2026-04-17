@@ -56,7 +56,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 - **Definition canonique** `wiki/concepts/Foundation OS.md` (227L) — LIRE EN PREMIER au SessionStart
 - **5 pieges comportementaux** documentes dans `wiki/meta/lessons-learned.md` (ne pas repeter)
 - Audit profondeur DONE (session precedente) — 128 fichiers lus, dette v11 eliminee
-- Wiki operationnel : 48 pages, 733 wikilinks, 5 domaines, graph connecte
+- Wiki operationnel : 48 pages (43 fonctionnelles), 791 wikilinks, 5 domaines — voir [[counts]] pour source unique
 - 14 routines Desktop documentees — A MIGRER en GitHub Actions (Phase 1 plan fonction I-08)
 - Decision Phase 5 (Finance/Sante/Trading) — reportee apres audit v2 complet
 

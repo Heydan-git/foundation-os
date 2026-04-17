@@ -155,9 +155,5 @@ related:
 - Ouvrir Obsidian sur racine projet (remplacer vault worktree)
 - Cleanup 3 worktrees (wiki-adoption + suspicious-khayyam + sleepy-ellis)
 
-## 2026-04-15 · Level Up Foundation OS (7 phases)
-
-**Scope** : Audit exhaustif OS (69 fichiers, 21 findings) + 7 phases corrections
-**Decisions** : D-LEVELUP-01 (organicité detection-only), D-LEVELUP-02 (plans ultra détaillés), D-LEVELUP-03 (worktree legacy merge-then-delete)
-**Résultat** : drift-detector + docs-sync-check + auto-archive plans + branch-name-check + memory/_deprecated/
+> Session "2026-04-15 · Level Up Foundation OS (7 phases)" trimee 2026-04-17 (regle CLAUDE.md max 5 sessions). Detail dans `.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md` + git log.
 
