@@ -1,6 +1,6 @@
 # Foundation OS — Toolbox
 
-> Auto-genere le 2026-04-15 depuis registry/*.json. Ne pas editer manuellement.
+> Auto-genere le 2026-04-17 depuis registry/*.json. Ne pas editer manuellement.
 
 ## Resume
 
@@ -15,8 +15,7 @@
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| knowledge-skills | 10 |
-| **Total** | **109** |
+| **Total** | **99** |
 
 ## Agents
 

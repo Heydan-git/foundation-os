@@ -1,6 +1,6 @@
 /**
  * Foundation OS — Design System
- * Storybook 8 preview config
+ * Storybook 9 preview config
  *
  * - Importe globals.css (Tailwind + tokens + bridge shadcn vars)
  * - Charge Figtree + JetBrains Mono depuis Google Fonts

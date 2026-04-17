@@ -7,8 +7,8 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ✅ iso base DS | `modules/app/` | Tokens `ds-*` partout (0 legacy). Build ~300ms, 19/19 tests. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge iso base DS. |
-| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui iso + 7 patterns Dashboard + 53 stories SB (62 total avec app). Build-storybook 5.87s. [[index-wiki]] |
+| App Builder | ✅ Void Glass dark-only | `modules/app/` | Tokens `ds-*` dominants (sauf forms/ dead code legacy, a archiver). Build ~260ms, 19/19 tests. 6 routes + catchall. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge Void Glass OK. |
+| Design System | ✅ Void Glass fork base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui derives `base DS/` (Figma Make) + 7 patterns Dashboard + 47 stories DS + 9 app = 56 total. 0 unit test + 5 e2e stale (a reecrire). [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
@@ -131,7 +131,7 @@ DB : Supabase, 6 tables + triggers.
 
 - **CI** : GitHub Actions (Node 24, build + TS + tests) + supabase-ping cron + supernova-sync
 - **Tests** : Vitest (app 19 + DS 23) + health-check + sync-check + ref-checker + drift-detector + docs-sync-check
-- **Hooks** : validate-void-glass + security-reminder + branch-name-check + pre-commit + commit-msg + SessionEnd auto-archive + SessionStart drift-detector
+- **Hooks Claude (3)** : PreToolUse validate-void-glass + security-reminder (sur Write|Edit|MultiEdit), SessionEnd auto-archive-plans, SessionStart drift-detector. **Git hooks (2)** : pre-commit health-check, commit-msg conventional (install via `bash scripts/git-hooks-install.sh`). **Opt-in (2, non-actives)** : branch-name-check, wiki-recall-reminder.
 - **Plugins** : OMC, Superpowers v5.0.7, gstack, BMAD v6 (dormant)
 
 ## Travaux Cowork

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Carousel — Embla carousel styled iso base DS.
+ * Carousel — Embla carousel styled derive base DS (Void Glass fork).
  * Previous/Next : Button variant="icon" iso template
  *   (bg-ds-fg/[0.03] border ds-border/8 + hover ds-fg/8 + text ds-fg/60).
  * Dots indicators : bg-ds-fg/20 (inactive) / bg-ds-blue (active).

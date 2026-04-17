@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * NavigationMenu — Radix iso base DS.
+ * NavigationMenu — Radix derive base DS (Void Glass fork).
  * Trigger : text ds-fg/70 + hover ds-fg/90 + px-ds-3 py-ds-2 + text ds-base + transition-colors.
  * Content : bg-ds-surface-2 + border ds-border/10 + rounded-ds-lg + shadow dropdown.
  * Link : text ds-fg/80 + hover bg ds-fg/[0.03] + rounded-ds-md + p-ds-2 + block.

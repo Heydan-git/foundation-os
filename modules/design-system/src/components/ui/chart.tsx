@@ -2,7 +2,7 @@
 "use client";
 
 /**
- * Chart — recharts wrapper iso base DS.
+ * Chart — recharts wrapper derive base DS (Void Glass fork).
  * Tooltip : bg-ds-surface-2 + border ds-border/10 + shadow dropdown.
  * Legend : font-mono text ds-fg/60.
  * Config keys accept CSS var colors (e.g. color: "var(--ds-blue)").

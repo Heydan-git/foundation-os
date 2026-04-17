@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Sidebar — shadcn structure, classes iso base DS.
+ * Sidebar — shadcn structure, classes derive base DS (Void Glass fork).
  * Surface : bg-ds-surface-1 + border-r ds-border/5.
  * GroupLabel : text ds-xs + uppercase + tracking-wider + ds-fg/40 + font-mono.
  * MenuItem   : text ds-fg/60 + hover ds-fg/90 + hover bg ds-fg/[0.03].
