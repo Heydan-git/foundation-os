@@ -19,10 +19,12 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-17 (soir) | **[DONE] Audit v2 S3 Phase 16 I-09 Memory auto-priorisation (Opus 4.7)** |
-|            | Scope : plan S3 cree (`docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements), Phase 16 I-09 execute seul (Kevin : 3 sessions separees). |
-|            | Livrables : 25 auto-memories frontmatter `last_used: 2026-04-17` injecte via awk BSD-safe, `scripts/memory-audit.sh` (detect >30j, env MEMORY_STALE_DAYS), `scripts/memory-last-used-hook.sh` (hook PreToolUse Read idempotent), `.claude/settings.json` matcher Read branche, plan versionne. Commit 98817e7, merge a42b5f5 dans main + push origin. |
-|            | Verifs : hook trigger simule 10→17 OK, idempotence OK, JSON valide, health DEGRADED baseline (3 warnings preexistants). Reste S3 : P17 I-06 contradiction (~2h) + P18 I-10 feedback (~1h). |
+| 2026-04-17 (nuit) | **[DONE] Audit v2 S3 Phase 17+18 — Contradiction + Feedback (Opus 4.7)** |
+|            | Scope : enchainement S3 apres P16. Phase 17 I-06 contradiction detector 5 tiers + Phase 18 I-10 feedback loop post-session. Plan S3 complete (3/3 phases). |
+|            | Livrables : `scripts/tier-contradiction-check.sh` (scan 40 chars min, 4 paires CLAUDE/CONTEXT/memory/docs/wiki, mode --quiet, pattern subshell-safe) chain sync-check section 9 + health-check INFO. `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N + patterns 7-derniers). `.claude/commands/session-end.md` Phase 7bis AskUserQuestion rating. `.omc/ratings.jsonl` append-only trackable. `wiki/meta/routines-setup.md` routine mensuelle ratings-monthly-review. |
+|            | Verifs : dry-run contradiction detecte 1 vraie duplication (CLAUDE<->docs/core/knowledge), ratings-analyze teste empty/injected/quiet, health baseline inchange (0 critical, 3 warn). Commits 7466910 + 8190abc. |
+|            | S3 complete : 4 mecanismes cognitifs auto-gouvernes (sessions-analyze + neuroplasticity + propositions + memory-audit + contradiction-check + feedback-loop). FONCTION estime ~7/10. |
+| 2026-04-17 (soir) | **[DONE] Audit v2 S3 Phase 16 I-09 Memory auto-priorisation** (Opus 4.7). 25 auto-memories `last_used:` + memory-audit.sh + hook PreToolUse Read idempotent. Commit 98817e7 merge a42b5f5 push origin. |
 | 2026-04-17 | **[DONE] Audit v2 execution S1+S2 (Opus 4.7)** |
 |            | Scope : plan master 23 phases, execute ~75% (Phase 12 SQL + Phase 10 routines Cloud reportes Kevin focus local, Phase 7-9 drifts P1-P3 + 16-19 reportes session dediee). |
 |            | 10 commits atomiques. FORME : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages (data/forms/specs/preview/base DS/backup) + counts unifications (wiki + CSS + tools 109 + knowledge-skills registry) + memory consolidations (4 deprecations + 8 markers) + harness wired (settings wiki wrapper + chainages + wiki-counts-sync). FONCTION : sessions-analyze 72 transcripts JSONL + tuile #15 Propositions brief v12 + neuroplasticity-score chain health-check. |
@@ -51,28 +53,29 @@
 
 ## Chantier en cours
 
-**Audit v2 execution** — S1+S2 DONE (11 commits merges main 2026-04-17), S3 P16 DONE 2026-04-17 (merge a42b5f5 main + push), S3 P17-18 a faire nouvelle(s) session(s).
+**Audit v2 S3 DONE** (17-04-2026). Plan complet 3/3 phases livrees. Plan archive `.archive/plans-done-260417/`.
 
-| Phase | I- | Role | Duree | Status |
-|-------|-----|------|-------|--------|
-| 16 | I-09 | Memory auto-priorisation (last_used frontmatter + audit + hook Read) | 1h | ✅ DONE 2026-04-17 (98817e7) |
-| 17 | I-06 | Contradiction detector 5 tiers (CLAUDE/CONTEXT/memory/docs/wiki) | 2h | TODO S3b |
-| 18 | I-10 | Feedback loop post-session (rating Y/N/partial .omc/ratings.jsonl) | 1h | TODO S3c |
+| Phase | I- | Role | Status |
+|-------|-----|------|--------|
+| 16 | I-09 | Memory auto-priorisation (last_used + audit + hook Read) | ✅ DONE (98817e7, merge a42b5f5) |
+| 17 | I-06 | Contradiction detector 5 tiers | ✅ DONE (7466910) |
+| 18 | I-10 | Feedback loop post-session (rating .omc/ratings.jsonl) | ✅ DONE (8190abc) |
 
-**Apres S3 + autres chantiers** : session nettoyage dediee Phase 7-9 drifts P1-P3 (~2h, low value, cosmetique).
-
-**Plan actif** : `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md` (3 phases, 6 elements par phase, commits prets, convention sessions `🪐 Audit v2 S3 P17 Contradiction (DD-04-2026)`).
-**Memoire handoff** : `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (LIRE EN PREMIER nouvelle session).
+**Reste nettoyage** (low value, cosmetique) :
+- Phase 7-9 drifts P1-P3 (~2h, session dediee)
+- Phase 10 I-08 routines Cloud (Kevin focus local, pas prioritaire)
+- Phase 15 I-05 cortex enforcement (si drift observable)
+- Phase 19 I-03 brief adaptatif (nice-to-have)
 
 ## Cap
 
-**Direction** : Audit v2 S1+S2 + S3 P16 DONE. FONCTION : ~6.5/10 -> ~7/10 (estime, +I-09 memoire auto-gouvernee). OS a maintenant 4 mecanismes cognitifs : sessions-analyze + neuroplasticity-score + propositions-generator + memory-audit auto last_used.
+**Direction** : Audit v2 S1+S2+S3 DONE. FONCTION : ~6.5/10 -> ~7/10 (estime, 6 mecanismes cognitifs auto-gouvernes). OS mesure + corrige : sessions-analyze + neuroplasticity-score + propositions-generator + memory-audit + tier-contradiction-check + feedback-loop.
 
 **Prochaine action** (a decider Kevin) :
-  - **A — Continuer S3 P17** : I-06 contradiction detector 5 tiers (~2h). Suite logique du plan.
-  - **B — Continuer S3 P18** : I-10 feedback loop post-session (~1h, plus simple). Peut passer devant P17.
-  - **C — Decision Phase 5 modules** : Finance / Sante / Trading. Pause audit v2.
-  - **D — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
+  - **A — Decision Phase 5 modules** : Finance / Sante / Trading. Audit v2 boucle, temps de construire.
+  - **B — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
+  - **C — Cleanup contradiction detectee** : 1 duplication CLAUDE.md <-> docs/core/knowledge.md a trancher (choisir tier canonique).
+  - **D — Configurer 14 routines Desktop** : R1-R14 documentees dans wiki/meta/routines-setup.md, Kevin UI /schedule.
 
 **Reporte explicitement** :
   - Phase 1.3 migrations SQL (Kevin : risque prod, plus tard)

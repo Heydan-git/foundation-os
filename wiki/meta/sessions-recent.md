@@ -23,6 +23,33 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-17 (nuit) · Audit v2 S3 Phase 17+18 Contradiction + Feedback
+
+**Durée** : 1 session moyenne (~2h, enchainee apres S3 P16 meme journee)
+**Scope** : Completer plan S3 audit v2 — P17 I-06 contradiction detector 5 tiers + P18 I-10 feedback loop post-session. Kevin dit "on a beaucoup de contexte, enchaine" (1 session pour 2 phases).
+
+**Livraison** (2 commits) :
+- `7466910` **P17 I-06** — `scripts/tier-contradiction-check.sh` scan 4 paires (CLAUDE<->memory, CLAUDE<->docs/core, CONTEXT<->docs/core, CONTEXT<->wiki/meta). Seuil 40 chars min, 300 max. Mode `--quiet` pour chain. Extract + scan avec pattern subshell-safe (tmpfile + process sub, lesson-learned wiki-health.sh applique). Chain dans sync-check.sh section 9 (WARN) + health-check.sh INFO (DIM non-bloquant).
+- `8190abc` **P18 I-10** — `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N + patterns 7-derniers apres N>=10). `.claude/commands/session-end.md` Phase 7bis entre 7 et 8 : AskUserQuestion Y/N/partial + notes, append JSONL. `.omc/ratings.jsonl` trackable (append-only). `wiki/meta/routines-setup.md` routine mensuelle manuelle ratings-monthly-review documentee.
+
+**Verifs** :
+- Contradiction dry-run : 1 vraie duplication detectee (`CLAUDE.md:"Si renommage → recabler TOUTES les refs..."` <-> `docs/core/knowledge.md`). Enforcement D-WIKI-01 active.
+- Ratings-analyze teste empty (0 entree) / injected (Y=1/N=1/partial=1) / quiet (1-ligne stats) : OK.
+- Health baseline inchange : DEGRADED 0 critical 3 warn (TSX 2 legacy 700+, refs 87 preexistants, drifts 5 cosmetiques). Aucune regression.
+
+**Decisions** :
+- Plan S3 considere DONE sur 3/3 phases, archive dans `.archive/plans-done-260417/` (pas d'Execution log formel mais 3 commits reels couvrent le scope).
+- Rating session auto-active des prochain /session-end (test live de I-10 sur cette cloture meme).
+
+**Revelation** :
+- Le pattern extraction phrases via `tr '.' '\n'` simpliste mais suffisant pour detection first-pass. `grep -lF` (literal, pas regex) evite faux positifs. Seuil 40 chars elimine phrases courtes communes ("est actif", "voir docs/").
+- Contradiction reelle trouvee : preuve que l'outil bosse. Enforcement D-WIKI-01 n'est plus juste declaratif.
+
+**Threads ouverts** :
+- Trancher duplication detectee : CLAUDE.md garde "Si renommage → recabler TOUTES les refs..." OU docs/core/knowledge.md ? Session cleanup dediee.
+- Configurer 14 routines Desktop via /schedule UI (Kevin UI).
+- Decision Phase 5 modules : Finance / Sante / Trading.
+
 ## 2026-04-17 (soir) · Audit v2 S3 Phase 16 I-09 Memory auto-priorisation
 
 **Durée** : 1 session courte (~1h)

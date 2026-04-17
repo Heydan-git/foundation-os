@@ -19,7 +19,11 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-17 (soir) : **Audit v2 S3 P16 DONE** (I-09 Memory auto-priorisation). 25 auto-memories ont `last_used:` frontmatter + `scripts/memory-audit.sh` + hook PreToolUse Read auto (idempotent) + settings.json matcher Read. Commit 98817e7, merge main a42b5f5, push origin OK. Plan S3 versionne `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`. Reste P17 (contradiction detector 5 tiers, ~2h) + P18 (feedback loop .omc/ratings.jsonl, ~1h).
+2026-04-17 (nuit) : **Audit v2 S3 COMPLET** (3/3 phases). P17 I-06 contradiction detector 5 tiers + P18 I-10 feedback loop livres dans la foulee de P16. `scripts/tier-contradiction-check.sh` (40 chars min, 4 paires, mode --quiet, chain sync section 9 + health INFO) + `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N) + `.claude/commands/session-end.md` Phase 7bis AskUserQuestion + `.omc/ratings.jsonl` append-only + routine mensuelle documentee. Commits 7466910 + 8190abc. Dry-run contradiction detecte 1 vraie duplication CLAUDE<->docs/core/knowledge (a trancher session dediee). Plan S3 archive `.archive/plans-done-260417/`. FONCTION estime ~7/10.
+
+### Avant (2026-04-17 soir)
+
+**Audit v2 S3 P16 DONE** (I-09 Memory auto-priorisation). 25 auto-memories `last_used:` frontmatter + `scripts/memory-audit.sh` + hook PreToolUse Read idempotent + settings.json matcher. Commit 98817e7 merge a42b5f5 push origin.
 
 ### Avant (2026-04-17 matin)
 
@@ -49,13 +53,13 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 
 ## Recent Changes
 
+- 2026-04-17 `8190abc` feat(os): I-10 — feedback loop post-session (rating .omc/ratings.jsonl)
+- 2026-04-17 `7466910` feat(os): I-06 — tier-contradiction-check.sh (5 tiers, 40 chars min)
 - 2026-04-17 `a42b5f5` merge: audit v2 S3 Phase 16 I-09 memory auto-priorisation
 - 2026-04-17 `98817e7` feat(os): I-09 — memory auto-priorisation (last_used frontmatter + audit + hook)
 - 2026-04-17 `57c50f7` fix(os): push main auto apres merge — clarif CLAUDE.md + lesson-learned
 - 2026-04-17 `7906c47` merge: audit v2 S1+S2 execution (11 commits)
-- 2026-04-17 `197b80b` docs(os): S3 handoff — CONTEXT.md + hot.md + memoire
 - 2026-04-16 `e95c986` fix(os): audit profondeur — v11→v12, counts, fantômes, mémoires, worktrees
-- 2026-04-16 `b1d7501` fix(os): health-check DEGRADED→SAIN — 26 refs, 3 drifts, 5 warnings corrigés
 
 ## Active Threads
 
@@ -70,19 +74,17 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 
 ## Next Action
 
-**S3 P16 DONE** (merge a42b5f5 + push main). Reste S3 :
-- Phase 17 I-06 contradiction detector 5 tiers (~2h, session S3b)
-- Phase 18 I-10 feedback loop post-session (~1h, session S3c)
+**Audit v2 COMPLET** (S1+S2+S3). Plan S3 archive. Foundation OS a maintenant 6 mecanismes cognitifs auto-gouvernes.
 
-**Apres S3 + autres chantiers** :
-- Phase 7-9 drifts P1-P3 (cleanup final, low value)
-- Phase 10 I-08 routines Cloud (Kevin : focus local)
-- Phase 15 I-05 cortex enforcement (si drift observable)
+**A decider Kevin (prochaine session)** :
+- **A — Decision Phase 5 modules** : Finance / Sante / Trading. Audit v2 boucle, temps de construire.
+- **B — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
+- **C — Cleanup contradiction detectee** : 1 duplication CLAUDE.md <-> docs/core/knowledge.md a trancher.
+- **D — Configurer 14 routines Desktop** : R1-R14 documentees, Kevin UI /schedule.
+
+**Lowkey reste** (reportes Kevin) :
+- Phase 10 I-08 routines Cloud GitHub Actions (Kevin focus local)
+- Phase 15 I-05 cortex enforcement (log-only si drift observable)
 - Phase 19 I-03 brief adaptatif (nice-to-have)
 
-**LIRE EN PREMIER au SessionStart S3b/S3c** :
-1. `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (auto-memory, charge AUTO)
-2. CONTEXT.md section "Chantier en cours" (P16 DONE, P17-18 TODO)
-3. `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md` Phases 17-18 (detail verbatim)
-
-Objectif : FONCTION ~6.5→7/10 (P16 done). Reste ~7→7.5/10 si P17+P18 livres.
+Objectif atteint : FONCTION ~6.5→7/10 (6 mecanismes livres).

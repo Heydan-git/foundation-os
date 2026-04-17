@@ -60,3 +60,29 @@ memories_created: [feedback_imperatifs_qualite, feedback_audit_exhaustif, feedba
 worktrees_cleaned: [sleepy-ellis, suspicious-khayyam, bold-newton, sharp-albattani]
 ghost_files_deleted: [A.md, X.md, file.md, page.md]
 ```
+
+## 2026-04-17 (nuit) · Audit v2 S3 Phase 17+18 Contradiction + Feedback
+
+```yaml
+date: 2026-04-17
+type: coding
+zones: [scripts, .claude/commands, .omc, wiki/meta, CONTEXT.md]
+commits: [7466910, 8190abc]
+files_touched: 7
+decisions: [plan_s3_done_archived]
+pages_wiki_created: []
+wikilinks_delta: 0
+scripts_created: [tier-contradiction-check.sh, session-ratings-analyze.sh]
+scripts_chained: [sync-check.sh section 9, health-check.sh INFO]
+commands_updated: [session-end.md Phase 7bis]
+jsonl_created: [.omc/ratings.jsonl]
+plan_archived: [docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md -> .archive/plans-done-260417/]
+contradictions_detected: 1
+contradiction_location: "CLAUDE.md <-> docs/core/knowledge.md"
+health_before: DEGRADED (0 crit, 3 warn)
+health_after: DEGRADED (0 crit, 3 warn)
+regression: 0
+audit_v2_s3_status: complete
+cognitive_mechanisms_total: 6
+function_score_estimated: 7/10
+```
