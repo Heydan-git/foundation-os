@@ -4,7 +4,7 @@
     "name": "/cockpit",
     "category": "command",
     "path": ".claude/commands/cockpit.md",
-    "description": "Point d'entree unique TDAH-friendly : scan parallele (CONTEXT + git + build + health) → brief v11 → routing automatique vers le bon agent → execution → cloture avec commit + CONTEXT.md update",
+    "description": "Point d'entree unique TDAH-friendly : scan parallele (CONTEXT + git + build + health) → brief v12 → routing automatique vers le bon agent → execution → cloture avec commit + CONTEXT.md update",
     "usage": "/cockpit",
     "triggers": [
       "cockpit",
@@ -19,12 +19,12 @@
       "health-check.sh",
       "CONTEXT.md"
     ],
-    "outputs": "Brief v11 + question 'On fait quoi ?' + routing agent + execution + commit + CONTEXT.md update",
+    "outputs": "Brief v12 + question 'On fait quoi ?' + routing agent + execution + commit + CONTEXT.md update",
     "examples": [
       {
         "situation": "Debut de session sans scope precis",
         "command": "/cockpit",
-        "result": "Brief v11 affiche, puis Kevin dit ce qu'il veut faire, cockpit route vers le bon agent"
+        "result": "Brief v12 affiche, puis Kevin dit ce qu'il veut faire, cockpit route vers le bon agent"
       }
     ],
     "auto_routing": true,
@@ -37,7 +37,7 @@
     "name": "/session-start",
     "category": "command",
     "path": ".claude/commands/session-start.md",
-    "description": "Brief de debut de session au format v11 TDAH-friendly : collecte parallele (CONTEXT + git + build + health) → verification structure → brief 11 sections avec cadres box-drawing → questions pour Kevin",
+    "description": "Brief de debut de session au format v12 TDAH-friendly : collecte parallele (CONTEXT + git + build + health + wiki-health) → verification structure → brief 14 tuiles Markdown → questions pour Kevin",
     "usage": "/session-start",
     "triggers": [
       "session start",
@@ -52,7 +52,7 @@
       "health-check.sh",
       "CONTEXT.md"
     ],
-    "outputs": "Brief v11 avec 11 sections (Sante, Trajectoire, Modules, Attention, Dernier travail, Statut, Idees, Reflexion, Historique, Cap, Input) + questions",
+    "outputs": "Brief v12 avec 14 tuiles (Sante, Hot, Trajectoire, Plans, Wiki, Modules, Attention, Dernier travail, Statut, Idees, Reflexion, Historique, Cap, Input) + questions",
     "examples": [
       {
         "situation": "Debut de journee de travail",
@@ -70,7 +70,7 @@
     "name": "/session-end",
     "category": "command",
     "path": ".claude/commands/session-end.md",
-    "description": "Cloture de session : inventaire git diff → verification coherence + build + tests + health → classification (DONE/CONCERNS/BLOCKED) → capture idees → mise a jour CONTEXT.md (7 sections) → commit → brief cloture v11",
+    "description": "Cloture de session : inventaire git diff → verification coherence + build + tests + health → classification (DONE/CONCERNS/BLOCKED) → capture idees → mise a jour CONTEXT.md (7 sections) → commit → brief cloture v12",
     "usage": "/session-end",
     "triggers": [
       "session end",
@@ -86,7 +86,7 @@
       "ref-checker.sh",
       "CONTEXT.md"
     ],
-    "outputs": "Brief de cloture v11 (Etat technique, Ce qui a ete fait, Idees capturees, Cap mis a jour, Concerns) + CONTEXT.md mis a jour + commit propose",
+    "outputs": "Brief de cloture v12 (Etat technique, Ce qui a ete fait, Idees capturees, Cap mis a jour, Concerns) + CONTEXT.md mis a jour + commit propose",
     "examples": [
       {
         "situation": "Fin de session de travail",

@@ -19,7 +19,11 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-16 : **Mega Audit V2 COMPLET (Opus 4.7)**. FORME + FONCTION audites. 166 findings (146 hygiene + 20 cognitifs). Revelation : FOS a 70% structure + 30% fonction. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. Definition canonique `wiki/concepts/Foundation OS.md` ecrite (227L). 5 pieges Claude documentes dans lessons-learned. 2 plans execution prets (FORME 1403L + FONCTION 600L).
+2026-04-17 : **Audit v2 S1+S2 EXECUTE** (10 commits). FORME critique DONE (Phase 1-6 : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages + counts unifications + memory consolidations + harness wired). FONCTION partielle DONE (Phase 11 I-02 sessions-analyze 72 transcripts + Phase 13 I-04 tuile Propositions + Phase 14 I-07 neuroplasticity-score chain health-check). Phase 12 I-01 hook wiki-recall SKIP (API CLAUDE_USER_PROMPT inexistante, documente lessons-learned). Phase 1.3 SQL + Phase 10 routines Cloud reportees (Kevin "focus local").
+
+### Avant (2026-04-16)
+
+Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hygiene + 20 cognitifs). Revelation : FOS a 70% structure + 30% fonction. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction. Definition canonique `wiki/concepts/Foundation OS.md` ecrite (227L).
 
 ## Plugin State
 
@@ -56,19 +60,25 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 - **Definition canonique** `wiki/concepts/Foundation OS.md` (227L) — LIRE EN PREMIER au SessionStart
 - **5 pieges comportementaux** documentes dans `wiki/meta/lessons-learned.md` (ne pas repeter)
 - Audit profondeur DONE (session precedente) — 128 fichiers lus, dette v11 eliminee
-- Wiki operationnel : 48 pages, 733 wikilinks, 5 domaines, graph connecte
+- Wiki operationnel : 48 pages (43 fonctionnelles), 791 wikilinks, 5 domaines — voir [[counts]] pour source unique
 - 14 routines Desktop documentees — A MIGRER en GitHub Actions (Phase 1 plan fonction I-08)
 - Decision Phase 5 (Finance/Sante/Trading) — reportee apres audit v2 complet
 
 ## Next Action
 
-**EXECUTER PLAN MASTER AUDIT V2 a 100%**. Fichier : `docs/plans/2026-04-16-mega-audit-v2-master.md` (1349L, 23 phases).
+**Audit v2 S1+S2 LIVRE** (10 commits, ~75% plan master execute). Reste :
+- Phases 7-9 drifts P1-P3 (low value, session nettoyage dediee)
+- Phase 10 I-08 routines Cloud (Kevin : focus local, plus tard)
+- Phase 12 I-01 hook wiki-recall (API CLAUDE_USER_PROMPT inexistante, reporte si besoin)
+- Phase 15 I-05 cortex enforcement (log-only, a faire si drift observable)
+- Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop)
+- Phase 19 I-03 brief adaptatif (nice-to-have)
 
-Decoupage 5 sessions :
-- **S1 (3h30)** : Phases 0-6 FORME critique (bombes + narratives + archivages + counts + memory + harness)
-- **S2 (2h)** : Phases 7-9 FORME drifts P1-P3 exhaustifs
-- **S3 (4h)** : Phases 10-12 FONCTION batch 1 (I-08 routines Cloud, I-02 session analyzer, I-01 hook wiki-recall)
-- **S4 (4h)** : Phases 13-15 FONCTION batch 2 (I-04 propositions, I-07 neuroplasticite score, I-05 cortex enforcement)
-- **S5 (4h)** : Phases 16-18 + 20-22 FONCTION batch 3 + cloture
+**Decision Kevin 2026-04-17** : merge main done, prochaine session = Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop). Nettoyage Phase 7-9 APRES (a la fin, apres autres chantiers possibles).
 
-Plan auto-contenu — 6 elements par phase (pre-conditions + etat repo + actions atomiques + verif + rollback + commit). Objectif : FORME 7.2→9/10 + FONCTION 4→8/10.
+**LIRE EN PREMIER au SessionStart S3** :
+1. `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (auto-memory, charge AUTO)
+2. CONTEXT.md section "Chantier en cours"
+3. `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9 (detail verbatim)
+
+Objectif atteint : FORME 7.2→8.5/10 (estime) + FONCTION 4→6.5/10 (estime).

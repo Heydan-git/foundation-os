@@ -1,7 +1,7 @@
 import { createRequire } from "node:module";
 /**
  * Foundation OS — Design System
- * Storybook 8 main config
+ * Storybook 9 main config
  *
  * Framework : @storybook/react-vite (React 18 + Vite 5)
  * Stories   : src/**\/*.stories.@(tsx|ts|jsx|js|mdx)

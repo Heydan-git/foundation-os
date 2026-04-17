@@ -1,6 +1,6 @@
 /**
  * Foundation OS — Design System
- * Storybook 8 manager config — theme dark pour la sidebar et la toolbar
+ * Storybook 9 manager config — theme dark pour la sidebar et la toolbar
  */
 import { addons } from 'storybook/internal/manager-api'
 import { create } from 'storybook/internal/theming/create'

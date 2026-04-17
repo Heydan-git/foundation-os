@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ScrollArea — Radix ScrollArea iso base DS.
+ * ScrollArea — Radix ScrollArea derive base DS (Void Glass fork).
  * Scrollbar : w-1.5 + bg-ds-border/5.
  * Thumb : bg-ds-fg/20 + hover bg-ds-fg/40 + rounded-ds-full.
  */

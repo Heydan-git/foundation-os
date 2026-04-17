@@ -2,45 +2,34 @@
   "name": "@foundation-os/design-system",
   "version": "0.0.1",
   "private": true,
-  "description": "Foundation OS Design System — shadcn/ui + Void Glass tokens",
+  "description": "Foundation OS Design System — Void Glass dark-only, 46 composants React/TS derives base DS + 7 patterns Dashboard, tokens CSS --ds-* + Figtree/JetBrainsMono",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
     "./styles.css": "./src/styles/globals.css",
-    "./tokens.css": "./tokens/build/tokens.css",
-    "./tokens": "./tokens/build/tokens.js",
-    "./tokens.json": "./tokens/build/tokens.json",
     "./lib/utils": "./src/lib/utils.ts",
     "./components/*": "./src/components/*"
   },
   "files": [
     "src",
-    "tokens/source",
-    "tokens/build",
-    "README.md"
+    "README-design-system.md"
   ],
   "scripts": {
-    "build:tokens": "node scripts/build-tokens.mjs",
-    "check:contrast": "node scripts/check-contrast.mjs",
-    "build": "npm run build:tokens",
-    "prestorybook": "npm run build:tokens",
+    "build": "echo '[DS] Void Glass — no build step (src/styles/tokens.css et globals.css sont la source, consommes directement par modules/app)'",
     "storybook": "storybook dev -p 6006 --no-open --disable-telemetry",
-    "prebuild-storybook": "npm run build:tokens",
     "build-storybook": "storybook build --disable-telemetry",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview:ds": "vite --config preview/vite.config.ts",
     "lint": "biome lint src/",
     "lint:fix": "biome lint src/ --fix",
-    "supernova:sync-tokens": "npx -y @supernovaio/cli@latest sync-tokens --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --configFilePath supernova.config.json --tokenDirPath tokens/source",
     "supernova:analyze": "npx -y @supernovaio/cli@latest analyze --designSystemId 790241 --package @foundation-os/design-system",
     "supernova:components": "node scripts/supernova-sync.mjs",
     "supernova:import-storybook": "npm run build-storybook && npx -y @supernovaio/cli@latest storybook-import -d 790241 -f storybook-static -n \"Foundation OS DS\" --publicAccess",
     "supernova:publish": "npx -y @supernovaio/cli@latest publish-documentation --apiKey \"$SUPERNOVA_TOKEN\" --designSystemId 790241 --awaitPublishJob",
-    "supernova:all": "npm run supernova:sync-tokens && npm run supernova:analyze && npm run supernova:components && npm run supernova:import-storybook && npm run supernova:publish"
+    "supernova:all": "npm run supernova:analyze && npm run supernova:components && npm run supernova:import-storybook && npm run supernova:publish"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0",
@@ -118,7 +107,6 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "storybook": "9.1.20",
-    "style-dictionary": "^4.1.4",
     "typescript": "^5.3.0",
     "vite": "^7.3.2",
     "vitest": "^4.1.2"

@@ -62,9 +62,9 @@ Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md
 
 ## Stack & Regles code
 
-- Vite + React 19 + TypeScript + Tailwind 4 + Supabase + Vercel
+- Vite + React 19 + TypeScript + Tailwind 4 + Supabase + Vercel (package.json racine overrides react/react-dom 19.2.5)
 - Conventional commits : `type(scope): description`
-- Void Glass : dark-only `#030303` (ds-surface-0), Figtree UI, JetBrains Mono code, tokens DTCG
+- Void Glass : dark-only `#030303` (ds-surface-0), Figtree UI, JetBrains Mono code, tokens CSS `--ds-*` (pas DTCG — source unique `modules/design-system/src/styles/tokens.css`)
 - Design wiki : [[index-wiki]]. Carte projet : [[foundation-os-map]].
 - Interdit : `#0A0A0B`, `#08080A`, Outfit, Inter, system-ui seul (OK fallback CSS)
 - TSX < 700 lignes — decouper si plus
@@ -104,9 +104,9 @@ Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/co
 
 - **Archivage plans** : frontmatter `status:done` OU cases `[x] >= 3` → `.archive/plans-done-$(date +%y%m%d)/` via `scripts/auto-archive-plans.sh` (hook SessionEnd)
 - **Drift detection** : `scripts/drift-detector.sh` au SessionStart (detection only, pas de fix auto destructif)
-- **Docs sync** : `scripts/docs-sync-check.sh` (manuel, chain dans health-check)
+- **Docs sync** : `scripts/docs-sync-check.sh` (manuel ou via `/sync`). Chain sync-check.sh prevu Phase 6 audit v2.
 - **Ref integrity** : `scripts/ref-checker.sh` (chain dans health-check + sync-check)
-- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` quand Kevin partage document. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
+- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` (skill plugin claude-obsidian, invoque via Task tool / slash command) quand Kevin partage document. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
 
 ### Neuroplasticite memoire (D-WIKI-01 Phase 2)
 

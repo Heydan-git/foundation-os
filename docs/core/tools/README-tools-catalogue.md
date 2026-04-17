@@ -1,6 +1,6 @@
 # Foundation OS — Toolbox
 
-> Auto-genere le 2026-04-15 depuis registry/*.json. Ne pas editer manuellement.
+> Auto-genere le 2026-04-17 depuis registry/*.json. Ne pas editer manuellement.
 
 ## Resume
 
@@ -10,12 +10,12 @@
 | ci | 2 |
 | commands | 7 |
 | hooks | 4 |
+| knowledge-skills | 10 |
 | mcp | 13 |
 | scripts | 7 |
 | skills-bmad | 12 |
 | skills-omc | 36 |
 | skills-superpowers | 14 |
-| knowledge-skills | 10 |
 | **Total** | **109** |
 
 ## Agents
@@ -54,6 +54,21 @@
 | Security Reminder | Hook PreToolUse Claude — detecte 9 patterns de code dangereux (OWASP t | `Automatique via .claude/settings.json PreToolUse sur Write/Edit/MultiEdit` |
 | Commit Message Validator | Hook git commit-msg — enforce le format conventional commits (type(sco | `Automatique a chaque git commit. Install : cp scripts/git-hooks/commit-msg .git/hooks/commit-msg` |
 | Pre-commit Health Gate | Hook git pre-commit — execute health-check.sh avant chaque commit. BRO | `Automatique a chaque git commit. Install : cp scripts/git-hooks/pre-commit .git/hooks/pre-commit` |
+
+## Knowledge-skills
+
+| Outil | Description | Usage |
+|-------|-------------|-------|
+| wiki | Bootstrap ou check du vault Obsidian Foundation OS (scaffold + router) | `` |
+| wiki-ingest | Ingest source externe (URL, PDF, transcript, image) → pages wiki struc | `` |
+| wiki-query | Search multi-depth dans le vault pour repondre a une question | `` |
+| wiki-lint | Audit qualite vault : broken links, orphans, inconsistances, stale pag | `` |
+| save | Convertit la conversation courante en wiki page (session DNA, concepts | `` |
+| autoresearch | Research loop autonome 3-5 rounds : web search + synthese + pages wiki | `` |
+| canvas | Cree ou edite un Obsidian canvas visual (.canvas) avec images + text c | `` |
+| defuddle | Clean article web (ads/nav/boilerplate removal) avant ingest | `` |
+| obsidian-bases | Create/edit Obsidian Bases (.base files) — Dataview replacement natif  | `` |
+| obsidian-markdown | Reference pour ecrire Obsidian Flavored Markdown correct : wikilinks,  | `` |
 
 ## Mcp
 

@@ -1,111 +1,93 @@
 # @foundation-os/design-system
 
-Design System package for Foundation OS — Void Glass tokens (DTCG W3C) + primitives atomiques Button / Text / Icon / Input / Card + Storybook 8 preview.
+Design System package for Foundation OS — **Void Glass dark-only**, 46 composants UI derives `.archive/ds-reference-base-260417/base DS/` (Figma Make, reworked fork) + 7 patterns Dashboard + Storybook 9.
 
-## Status actuel
+## Narrative
 
-- **DS-1** (2026-04-09) — Scaffold module + tokens DTCG 2-tier (primitives + semantic) + Style Dictionary 4.
-- **DS-2** (2026-04-09) — Storybook 8.6.18 + preview Void Glass + Welcome story (tokens showcase) + addon-a11y.
-- **DS-3** (2026-04-09) — Primitives P1 Button + Text + Icon (forwardRef, CSS Modules, stories, tests).
-- **DS-4** (2026-04-09) — Primitives P2 Input + Card (forwardRef, slots, interactive keyboard, stories, tests).
-- **DS-6 partial** (2026-04-09) — Consommation tokens.css par modules/app via prebuild workspace chain.
-
-**Reste a faire** : DS-5 CI Playwright visual regression + axe gate (housekeeping), DS-6 complet (scripts/export-dtcg.mjs pour Figma/Penpot import natif).
+- **Fork Void Glass de base DS** : les 46 composants UI sont derives de `base DS/src.zip` (Figma Make, archivee dans `.archive/ds-reference-base-260417/`), puis retravailles pour matcher le template visuel `DashboardDesignSystem` (Void Glass dark-only, tokens `--ds-*`, glassmorphism, glow).
+- **Tokens CSS directs** : pas de Style Dictionary / DTCG build pipeline. La source unique est `src/styles/tokens.css` (variables CSS `--ds-*`) consomme directement par `modules/app` via `@foundation-os/design-system/styles.css`.
+- **Dark-only** : fond `#030303` (`ds-surface-0`). Figtree UI + JetBrains Mono. Pas de mode clair.
 
 ## Scripts
 
 ```bash
-npm run build:tokens      # Genere tokens/build/ (tokens.css + tokens.js + tokens.json)
-npm run check:contrast    # Verifie ratios WCAG AA sur les paires fond/texte semantic
-npm run build             # Alias de build:tokens
-npm run storybook         # Dev server Storybook 8 (port 6006)
+npm run build             # No-op (DS consomme directement src/styles/tokens.css)
+npm run storybook         # Dev server Storybook 9 (port 6006)
 npm run build-storybook   # Build statique Storybook (storybook-static/)
-npm test                  # Vitest run (tests unitaires + a11y jest-axe)
+npm run typecheck         # tsc --noEmit
+npm test                  # Vitest run
 npm run test:watch        # Vitest watch mode
+npm run preview:ds        # Preview standalone (port 6007)
+npm run lint              # Biome lint src/
+npm run lint:fix          # Biome lint src/ --fix
 ```
 
 ## Structure
 
 ```
 modules/design-system/
-├── tokens/
-│   ├── source/             # DTCG JSON source de verite
-│   │   ├── primitives/     # Palettes brutes (color, typography, spacing, radius, elevation, motion)
-│   │   └── semantic/       # Intentions via aliases DTCG (bg, text, border, accent, status, glow)
-│   └── build/              # Outputs generes — GITIGNORED, recalcules par build:tokens
-│       ├── tokens.css      # CSS vars (consommable par n'importe quel CSS)
-│       ├── tokens.js       # ESM export pour runtime JS/TS
-│       └── tokens.json     # Flat JSON pour outils externes (Figma import, CI)
-├── scripts/
-│   ├── build-tokens.mjs    # Style Dictionary 4 runner (custom transforms pour preserver alpha)
-│   └── check-contrast.mjs  # Validation WCAG AA (8 paires semantic)
 ├── src/
-│   ├── index.ts            # Barrel top-level
-│   └── primitives/
-│       ├── index.ts        # Barrel primitives (5 composants)
-│       ├── Button.{tsx,module.css,stories.tsx,test.tsx}
-│       ├── Text.{tsx,module.css,stories.tsx,test.tsx}
-│       ├── Icon.{tsx,stories.tsx,test.tsx}                  # Wrapper lucide-react tree-shakeable (21 icones curees)
-│       ├── Input.{tsx,module.css,stories.tsx,test.tsx}
-│       └── Card.{tsx,module.css,stories.tsx,test.tsx}
-├── .storybook/
-│   ├── main.ts             # Framework react-vite + addons (essentials + a11y)
-│   ├── preview.ts          # Preview global Void Glass (tokens.css import + Figtree + a11y rules)
-│   └── manager.ts          # Theme dark manager (sidebar + toolbar Void Glass)
+│   ├── index.ts                 # Barrel top-level
+│   ├── components/
+│   │   ├── ui/                  # 46 composants derives base DS + stories
+│   │   └── patterns/            # 7 Dashboard patterns + Patterns.stories.tsx
+│   ├── lib/                     # utils.ts + use-mobile.ts (deprecated, voir src/components/ui/)
+│   └── styles/
+│       ├── globals.css          # Import tokens.css + resets Tailwind (exporte via ./styles.css)
+│       └── tokens.css           # CSS vars --ds-* — source unique
+├── .storybook/                  # Framework react-vite + addons (a11y, docs)
 ├── test/
-│   └── setup.ts            # Vitest + jest-dom + jest-axe + cleanup auto
-├── vitest.config.ts        # jsdom + CSS Modules non-scoped
+│   └── setup.ts                 # Vitest + jest-dom + jest-axe
+├── e2e/                         # Playwright visual-a11y (stale, a re-tester)
+├── docs-supernova/              # 6 foundations + 46 component docs (publie Supernova)
+├── biome.json                   # Linter
 ├── tsconfig.json
-├── package.json            # Workspace member @foundation-os/design-system
-└── README.md               # Ce fichier
+├── vitest.config.ts
+├── playwright.config.ts
+├── supernova.config.json        # Config Supernova DS ID 790241
+└── package.json
 ```
 
 ## Exports publics
 
 ```ts
-import {
-  // Primitives
-  Button, Text, Icon, Input, Card,
-  // Icons helpers
-  ICON_NAMES,
-  // Types
-  type ButtonProps, type ButtonVariant, type ButtonSize,
-  type TextProps, type TextVariant, type TextWeight, type TextColor,
-  type IconProps, type IconName,
-  type InputProps, type InputType,
-  type CardProps, type CardVariant, type CardElement,
-} from '@foundation-os/design-system'
+// Barrel complet (composants UI + types)
+import { Button, Card, Badge, ... } from '@foundation-os/design-system'
 
-// Tokens
-import '@foundation-os/design-system/tokens.css'                  // CSS vars (semantic + primitives)
-import tokens from '@foundation-os/design-system/tokens'          // ESM object
-import tokensJson from '@foundation-os/design-system/tokens.json' // Flat JSON
+// Tokens CSS (import global dans modules/app/src/main.tsx)
+import '@foundation-os/design-system/styles.css'
+
+// Utilitaires
+import { cn } from '@foundation-os/design-system/lib/utils'
 ```
 
 ## Principes
 
-- **Zero SaaS** : pas de Chromatic, pas de Supernova, pas d'externe. Tout en local/CI GitHub Actions.
-- **DTCG W3C format** : tokens/source/*.json suivent la spec Community Group. Compatible Figma Variables import natif + Penpot + tout outil DTCG-compliant.
-- **CSS Modules** pour les primitives — decouple du Tailwind de `modules/app`, portable vers futurs modules Finance / Sante / Trading.
-- **Void Glass dark-only** : fond #030303 (ds-surface-0), accent #60a5fa (ds-blue), Figtree + JetBrains Mono. Tokens DTCG semantic.
-- **WCAG AA par defaut** : toutes les paires semantic sont verifiees via `npm run check:contrast`. Tests jest-axe sur chaque primitive.
-- **Alpha precision preservee** : custom Style Dictionary transforms (voir scripts/build-tokens.mjs commentaires F-DS1-01) pour garder les rgba alpha exacts des tokens Void Glass canoniques (0.025, 0.055, 0.42, 0.88).
+- **Void Glass dark-only** : fond `#030303` (ds-surface-0), accent bleu/violet, Figtree + JBMono.
+- **Tokens CSS directs** : `src/styles/tokens.css` = source unique (pas de build DTCG).
+- **46 composants UI** : derives `.archive/ds-reference-base-260417/base DS/src.zip` (Figma Make) puis reworked (Button 9 variants vs 6, Card avec glow, Badge avec live pulse, etc.).
+- **7 patterns Dashboard** : `src/components/patterns/Dashboard*.tsx` — showcase du DS (certains dupliques de `.archive/ds-reference-base-260417/base DS/`).
+- **Storybook 9** : 47 stories DS + 9 app = 56 stories totales.
 
 ## Consommation par modules/app
 
 `modules/app/src/main.tsx` importe les tokens globaux :
 
 ```ts
-import '@foundation-os/design-system/tokens.css'
+import '@foundation-os/design-system/styles.css'
 ```
 
-Le prebuild hook de `modules/app` invoque automatiquement `npm run build --workspace=@foundation-os/design-system` avant tout `build` / `dev` / `test`, garantissant que `tokens/build/tokens.css` existe a chaque execution (le dossier `tokens/build/` est gitignore).
+Le prebuild hook de `modules/app` invoque `npm run build --workspace=@foundation-os/design-system` qui est un no-op (DS consomme directement `src/styles/tokens.css`).
 
-Les primitives (Button, Text, etc.) sont disponibles pour import nomme des que `modules/app` en aura besoin.
+## Tests
+
+- **Unitaires** : 0 test `.test.tsx` dans `src/` (roadmap : smoke + a11y sur 15 composants core).
+- **E2E** : `e2e/visual-a11y.spec.ts` Playwright — **stale** (story IDs obsoletes `primitives-*`, a reecrire pour `ui-*`).
 
 ## Refs
 
-- Spec DS bootstrap : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/01-spec.md`
-- Plan 6 sessions   : `.archive/travaux-cowork/2026-04-08-design-system-bootstrap/02-plan.md`
-- Void Glass source : `modules/design-system/`
-- Storybook local   : http://localhost:6006/ (apres `npm run storybook`)
+- Base reference : `.archive/ds-reference-base-260417/base DS/` (Figma Make export fig, fige, derivation source)
+- Storybook local : http://localhost:6006/ (apres `npm run storybook`)
+- Preview standalone : http://localhost:6007/ (apres `npm run preview:ds`)
+- Spec wiki : `wiki/domains/design/concepts/design-system-components.md`
+- Audit v2 : `docs/audits/2026-04-16-mega-audit-v2/raw/agent-6-modules-ds.md`

@@ -37,4 +37,4 @@
 
 ## Voir aussi
 
-- `modules/design-system/tokens/source/primitives/spacing.json`
+- `modules/design-system/src/styles/tokens.css` (source unique CSS vars --ds-space-*)

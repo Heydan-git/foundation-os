@@ -1,0 +1,41 @@
+{
+  "_doc": "Source unique des seuils Foundation OS. Consomme (a terme) par health-check, drift-detector, monitor spec. Pour l'instant reference partagee.",
+  "_version": "2026-04-17",
+  "_refs": [
+    "docs/core/monitor.md section 4 (seuils actuels)",
+    "audit v2 Agent 1 F-04 (3 seuils CSS contradictoires)",
+    "audit v2 Agent 1 I-01 (thresholds.json source unique)"
+  ],
+  "build": {
+    "app_ms_max": 2000,
+    "app_ms_baseline": 250,
+    "ds_ms_max": 5000
+  },
+  "bundle": {
+    "js_kb_max": 600,
+    "js_kb_baseline": 184,
+    "css_kb_max": 65,
+    "css_kb_baseline": 55
+  },
+  "tsx": {
+    "lines_max": 700,
+    "lines_warning": 500
+  },
+  "wiki": {
+    "sessions_max": 5,
+    "hot_md_age_days_max": 3,
+    "pages_physical": 48,
+    "pages_functional": 43
+  },
+  "docs": {
+    "context_md_lines_max": 200,
+    "context_md_lines_baseline": 148,
+    "claude_md_lines_max": 250,
+    "claude_md_lines_baseline": 204
+  },
+  "tests": {
+    "app_count_baseline": 15,
+    "ds_count_baseline": 0,
+    "_note": "DS tests unitaires : 0 actuellement (roadmap post-audit v2)"
+  }
+}

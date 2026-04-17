@@ -21,6 +21,14 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## I-01 hook wiki-recall : API CLAUDE_USER_PROMPT inexistante (2026-04-17)
+
+- **Date** : 2026-04-17 (audit v2 Phase 12)
+- **Contexte** : Plan master audit v2 proposait un hook PreToolUse qui grep `wiki/` avant chaque reponse technique via `$CLAUDE_USER_PROMPT` env var. Objectif : forcer reflexe 1 neuroplasticite.
+- **Verification** : `CLAUDE_USER_PROMPT` **n'est pas une variable standard** Claude Code. Les hooks recoivent leur input via **stdin JSON**, pas env. Implementer un hook qui `grep wiki/ $CLAUDE_USER_PROMPT` tournerait a vide silencieusement.
+- **Decision** : SKIP Phase 12 audit v2. Re-faisabilite requiert lecture spec Claude Code hooks (stdin JSON format) + parsing correct.
+- **Regle** : **tester la faisabilite d'une API AVANT** d'implementer un hook. Les specs audit qui supposent des env vars (`$CLAUDE_USER_PROMPT`) doivent etre verifiees avec `man` equivalent OU un test reel avant commit.
+
 ## Audit Foundation OS — 5 pièges de cadrage (mega audit v2, 2026-04-16)
 
 ### Piège 1 — Confondre FORME et FONCTION quand Kevin dit "audit"

@@ -7,8 +7,8 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ✅ iso base DS | `modules/app/` | Tokens `ds-*` partout (0 legacy). Build ~300ms, 19/19 tests. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge iso base DS. |
-| Design System | ✅ iso base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui iso + 7 patterns Dashboard + 53 stories SB (62 total avec app). Build-storybook 5.87s. [[index-wiki]] |
+| App Builder | ✅ Void Glass dark-only | `modules/app/` | Tokens `ds-*` partout (forms/ dead code archive 2026-04-17). Build ~250ms, 15/15 tests. 6 routes + catchall. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge Void Glass OK. |
+| Design System | ✅ Void Glass fork base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui derives `base DS/` (Figma Make) + 7 patterns Dashboard + 47 stories DS + 9 app = 56 total. 0 unit test + 5 e2e stale (a reecrire). [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
@@ -19,7 +19,12 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-16 | **[IN PROGRESS] Mega Audit V2 — FORME + FONCTION (Opus 4.7)** |
+| 2026-04-17 | **[DONE] Audit v2 execution S1+S2 (Opus 4.7)** |
+|            | Scope : plan master 23 phases, execute ~75% (Phase 12 SQL + Phase 10 routines Cloud reportes Kevin focus local, Phase 7-9 drifts P1-P3 + 16-19 reportes session dediee). |
+|            | 10 commits atomiques. FORME : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages (data/forms/specs/preview/base DS/backup) + counts unifications (wiki + CSS + tools 109 + knowledge-skills registry) + memory consolidations (4 deprecations + 8 markers) + harness wired (settings wiki wrapper + chainages + wiki-counts-sync). FONCTION : sessions-analyze 72 transcripts JSONL + tuile #15 Propositions brief v12 + neuroplasticity-score chain health-check. |
+|            | Livrables : scripts nouveaux (git-hooks-install, wiki-counts-sync, sessions-analyze, propositions-generator, neuroplasticity-score), tuile #15 brief v12, wiki/meta/counts.md + session-patterns.md, MEMORY.md 24 actives + 12 deprecated. Health : 0 critical, 3 warnings mineurs (TSX 2 legacy 700+, refs, drifts). |
+|            | Lecons : API CLAUDE_USER_PROMPT inexistante pour I-01 hook wiki-recall (documente lessons-learned). SQL migrations fragile si modif en prod (skip). |
+| 2026-04-16 | **[DONE] Mega Audit V2 — FORME + FONCTION (Opus 4.7)** |
 |            | Scope : 7 sous-agents paralleles (707 fichiers, 18000L) audit hygiene + simulation 10 scenarios audit cognitif. 146 findings FORME (7.2/10, hygiene OK) + 20 findings FONCTION (4/10, cerveau cognitif faible). |
 |            | Insights majeurs : FOS a 70% structure + 30% fonction cognitive. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. |
 |            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
@@ -40,18 +45,36 @@
 |            | Memoire creee : `feedback_plans_ultra_detailles.md`. |
 > Sessions plus anciennes (Migration Desktop 9 phases DONE 2026-04-15, DS iso visuel 46 composants) (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
 
+## Chantier en cours
+
+**Audit v2 execution** — S1+S2 DONE (11 commits merges main 2026-04-17), S3 a faire nouvelle session.
+
+| Phase | I- | Role | Duree | Status |
+|-------|-----|------|-------|--------|
+| 16 | I-09 | Memory auto-priorisation (last_used + trim script) | 1h | TODO S3 |
+| 17 | I-06 | Contradiction detector tiers (CLAUDE/CONTEXT/memory/docs/wiki) | 2h | TODO S3 |
+| 18 | I-10 | Feedback loop post-session (rating Y/N/partial) | 1h | TODO S3 |
+
+**Apres S3 + autres chantiers** : session nettoyage dediee Phase 7-9 drifts P1-P3 (~2h, low value, cosmetique).
+
+**Memoire handoff complete** : `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (LIRE EN PREMIER nouvelle session). Plan detail `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9.
+
 ## Cap
 
-**Direction** : Mega Audit V2 revele FOS a 70% structure + 30% fonction cognitive. Priorite = transformer "pile de rituels manuels" en "systeme cognitif auto-observant". 2 plans dispo pour session suivante.
+**Direction** : Audit v2 S1+S2 DONE (~75% plan master). FORME : 7.2/10 -> ~8.5/10 (estime). FONCTION : 4/10 -> ~6.5/10 (estime). OS passe de "pile de rituels documentes" a "systeme avec mecanisme de mesure cognitive" (sessions-analyze + neuroplasticity-score + propositions-generator).
 
-**Prochaine action** :
-  - **EXECUTER PLAN MASTER AUDIT V2** : `docs/plans/2026-04-16-mega-audit-v2-master.md` (1349 lignes, 23 phases, 5-7 sessions). Couvre **100%** des 166 findings (146 FORME + 20 FONCTION + 10 innovations cognitives). Reparti en 7 BLOCs A-G avec 6 elements par phase.
-  - **Session 1** (3h30, MUST) : Phases 0-6 BLOCs A+B+C+D (bombes latentes + narratives + archivages + counts + memory + harness)
-  - **Session 2** (2h) : Phases 7-9 BLOC E (drifts P1-P3 exhaustifs)
-  - **Sessions 3-5** (12h) : Phases 10-18 BLOC F (10 innovations cognitives FONCTION)
-  - **Session 5 cloture** : Phases 20-22 BLOC G (verif + merge + archive)
-  - **Session 6 optionnel** : Phase 19 I-03 brief adaptatif (nice-to-have)
-  - Sub-plans detailles : `2026-04-16-mega-audit-v2-execution.md` (FORME verbatim) + `2026-04-16-mega-audit-v2-fonction.md` (FONCTION verbatim)
+**Prochaine action** (a decider Kevin) :
+  - **A — Merger S1+S2 dans main** : 10 commits prets dans `claude/elated-easley-38523c`. Kevin valide + merge manuel.
+  - **B — Continuer S3 (Phase 16-18)** : I-09 memory auto-priorisation + I-06 contradiction detector + I-10 feedback loop (~4h). Utile mais non-bloquant.
+  - **C — Decision Phase 5 modules** : Finance / Sante / Trading (reportee, maintenant que FOS est plus propre).
+  - **D — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
+
+**Reporte explicitement** :
+  - Phase 1.3 migrations SQL (Kevin : risque prod, plus tard)
+  - Phase 10 I-08 routines Cloud (Kevin : focus local)
+  - Phase 12 I-01 hook wiki-recall (API CLAUDE_USER_PROMPT inexistante)
+  - Phase 15 I-05 cortex enforcement (log-only initial, si drift observable)
+  - Phase 19 I-03 brief adaptatif (nice-to-have)
 
 **En backlog** :
   - Configurer 9 groupes couleur Obsidian (Kevin UI graph)
@@ -108,7 +131,7 @@
 
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
-| App Builder | OK ~300ms | 184KB | 55KB | 19/19 | 5 |
+| App Builder | OK ~250ms | 184KB | 55KB | 15/15 | 6 |
 | Design System | OK | — | — | 23/23 | — |
 | Storybook | OK 5.87s | — | — | — | 62 stories (53 DS + 9 app) |
 
@@ -131,7 +154,7 @@ DB : Supabase, 6 tables + triggers.
 
 - **CI** : GitHub Actions (Node 24, build + TS + tests) + supabase-ping cron + supernova-sync
 - **Tests** : Vitest (app 19 + DS 23) + health-check + sync-check + ref-checker + drift-detector + docs-sync-check
-- **Hooks** : validate-void-glass + security-reminder + branch-name-check + pre-commit + commit-msg + SessionEnd auto-archive + SessionStart drift-detector
+- **Hooks Claude (3)** : PreToolUse validate-void-glass + security-reminder (sur Write|Edit|MultiEdit), SessionEnd auto-archive-plans, SessionStart drift-detector. **Git hooks (2)** : pre-commit health-check, commit-msg conventional (install via `bash scripts/git-hooks-install.sh`). **Opt-in (2, non-actives)** : branch-name-check, wiki-recall-reminder.
 - **Plugins** : OMC, Superpowers v5.0.7, gstack, BMAD v6 (dormant)
 
 ## Travaux Cowork

@@ -1,7 +1,7 @@
 node_modules/
-tokens/build/
 dist/
 storybook-static/
+.supernova/snapshots/
 *.log
 .DS_Store
 .omc/

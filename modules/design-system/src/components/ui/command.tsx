@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Command — cmdk palette iso base DS.
+ * Command — cmdk palette derive base DS (Void Glass fork).
  * Container : bg-ds-surface-2 + border ds-border/8 + rounded ds-lg + shadow dropdown.
  * Input : border-b ds-border/5 + transparent + text ds-base + placeholder ds-fg/30.
  * Item : text ds-fg/70 + hover bg ds-fg/[0.03] + selected bg ds-fg/[0.06] + text ds-fg/90.

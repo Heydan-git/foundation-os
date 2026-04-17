@@ -88,7 +88,7 @@ echo "[WARNING]"
 # TSX/JSX component sizes (pages + components)
 MAX_TSX=0
 OVER_700=""
-TSX_FILES=$(find modules/app/src/pages modules/app/src/components -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null)
+TSX_FILES=$(find modules/*/src -type f \( -name "*.tsx" -o -name "*.jsx" \) 2>/dev/null | grep -v node_modules | grep -v dist | grep -v storybook-static)
 for f in $TSX_FILES; do
   [ -f "$f" ] || continue
   LINES=$(wc -l < "$f" | tr -d ' ')
@@ -111,8 +111,11 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# MD pairs (artifacts archived in .archive/artifacts-jsx/ since Phase 2.4)
-MD_COUNT=$(ls -1 modules/app/data/*.md 2>/dev/null | wc -l | tr -d ' ')
+# MD pairs (artifacts JSX archived — check pair count entre MD archives + JSX archives)
+# Post audit v2 Phase 3 : modules/app/data/ archive vers .archive/app-data-jsx-260417/
+MD_COUNT=$(ls -1 .archive/app-data-jsx-260417/data/*.md 2>/dev/null | wc -l | tr -d ' ')
+# Fallback si active (si jamais restauration un jour)
+[ "$MD_COUNT" -eq 0 ] && MD_COUNT=$(ls -1 modules/app/data/*.md 2>/dev/null | wc -l | tr -d ' ')
 ART_COUNT=$(ls -1 .archive/artifacts-jsx/fos-*.jsx 2>/dev/null | wc -l | tr -d ' ')
 if [ "$MD_COUNT" -eq "$ART_COUNT" ]; then
   echo -e "  ${GRN}[OK]${RST} MD pairs ($MD_COUNT/$ART_COUNT in archive)"
@@ -177,6 +180,23 @@ fi
 # Decisions dated (annee any 20XX, evite Y2027 bug)
 DATED=$(grep -E "^\| .* \| 20[0-9]{2}-[0-9]{2}-[0-9]{2}" CONTEXT.md 2>/dev/null | wc -l | tr -d ' ')
 echo -e "  ${DIM}[OK]${RST} Decisions datees: $DATED"
+
+# Neuroplasticity score (Phase 14 I-07 audit v2) — mesure reflexes cognitifs
+if [ -x scripts/neuroplasticity-score.sh ]; then
+  NEURO_LINE=$(bash scripts/neuroplasticity-score.sh --quiet 2>/dev/null)
+  echo -e "  ${DIM}[OK]${RST} ${NEURO_LINE}"
+fi
+
+# Tool registry scan (Phase 6 audit v2) — detect scripts/commands/hooks non-enregistres
+if [ -x scripts/tool-register.sh ]; then
+  REG_OUT=$(bash scripts/tool-register.sh scan 2>&1 | tail -3)
+  if echo "$REG_OUT" | grep -qE "drift|missing|orphan|non-registered"; then
+    echo -e "  ${YEL}[WARN]${RST} Tool registry drift detecte (voir bash scripts/tool-register.sh scan)"
+    WARNING=$((WARNING + 1))
+  else
+    echo -e "  ${DIM}[OK]${RST} Tool registry scan (109 tools + 10 knowledge-skills)"
+  fi
+fi
 
 # CONTEXT.md taille (budget < 150L, garde-fou 200L — spec communication.md section 4.2)
 CTX_LINES=$(wc -l < CONTEXT.md 2>/dev/null | tr -d ' ')

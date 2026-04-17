@@ -64,7 +64,7 @@ echo -e "  ${DIM}[OK]${RST} Domaines : ${DOMAINS}"
 BROKEN_LINKS_FILE=$(mktemp)
 echo 0 > "$BROKEN_LINKS_FILE"
 CHECKED=0
-for f in $(find wiki/concepts wiki/entities wiki/sources -name "*.md" 2>/dev/null | head -20); do
+for f in $(find wiki/concepts wiki/entities wiki/sources -name "*.md" 2>/dev/null); do
   [ -f "$f" ] || continue
   CHECKED=$((CHECKED + 1))
   # Extract wikilinks [[Target]] or [[path/Target]]

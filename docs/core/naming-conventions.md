@@ -146,7 +146,7 @@ Scope optionnel mais recommande (match avec scope de branche).
 - Message factuel, imperatif
 - Ligne sujet < 72 chars
 - Body optionnel pour phase majeure
-- Co-author `Claude Opus 4.6 (1M context)` en footer si session Claude
+- Co-author `Claude (Opus)` en footer si session Claude (version auto-detectee, pas hardcodee)
 
 ## 6. Fichiers de specs
 
