@@ -19,6 +19,10 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-17 (soir) | **[DONE] Audit v2 S3 Phase 16 I-09 Memory auto-priorisation (Opus 4.7)** |
+|            | Scope : plan S3 cree (`docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements), Phase 16 I-09 execute seul (Kevin : 3 sessions separees). |
+|            | Livrables : 25 auto-memories frontmatter `last_used: 2026-04-17` injecte via awk BSD-safe, `scripts/memory-audit.sh` (detect >30j, env MEMORY_STALE_DAYS), `scripts/memory-last-used-hook.sh` (hook PreToolUse Read idempotent), `.claude/settings.json` matcher Read branche, plan versionne. Commit 98817e7, merge a42b5f5 dans main + push origin. |
+|            | Verifs : hook trigger simule 10→17 OK, idempotence OK, JSON valide, health DEGRADED baseline (3 warnings preexistants). Reste S3 : P17 I-06 contradiction (~2h) + P18 I-10 feedback (~1h). |
 | 2026-04-17 | **[DONE] Audit v2 execution S1+S2 (Opus 4.7)** |
 |            | Scope : plan master 23 phases, execute ~75% (Phase 12 SQL + Phase 10 routines Cloud reportes Kevin focus local, Phase 7-9 drifts P1-P3 + 16-19 reportes session dediee). |
 |            | 10 commits atomiques. FORME : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages (data/forms/specs/preview/base DS/backup) + counts unifications (wiki + CSS + tools 109 + knowledge-skills registry) + memory consolidations (4 deprecations + 8 markers) + harness wired (settings wiki wrapper + chainages + wiki-counts-sync). FONCTION : sessions-analyze 72 transcripts JSONL + tuile #15 Propositions brief v12 + neuroplasticity-score chain health-check. |
@@ -47,26 +51,27 @@
 
 ## Chantier en cours
 
-**Audit v2 execution** — S1+S2 DONE (11 commits merges main 2026-04-17), S3 a faire nouvelle session.
+**Audit v2 execution** — S1+S2 DONE (11 commits merges main 2026-04-17), S3 P16 DONE 2026-04-17 (merge a42b5f5 main + push), S3 P17-18 a faire nouvelle(s) session(s).
 
 | Phase | I- | Role | Duree | Status |
 |-------|-----|------|-------|--------|
-| 16 | I-09 | Memory auto-priorisation (last_used + trim script) | 1h | TODO S3 |
-| 17 | I-06 | Contradiction detector tiers (CLAUDE/CONTEXT/memory/docs/wiki) | 2h | TODO S3 |
-| 18 | I-10 | Feedback loop post-session (rating Y/N/partial) | 1h | TODO S3 |
+| 16 | I-09 | Memory auto-priorisation (last_used frontmatter + audit + hook Read) | 1h | ✅ DONE 2026-04-17 (98817e7) |
+| 17 | I-06 | Contradiction detector 5 tiers (CLAUDE/CONTEXT/memory/docs/wiki) | 2h | TODO S3b |
+| 18 | I-10 | Feedback loop post-session (rating Y/N/partial .omc/ratings.jsonl) | 1h | TODO S3c |
 
 **Apres S3 + autres chantiers** : session nettoyage dediee Phase 7-9 drifts P1-P3 (~2h, low value, cosmetique).
 
-**Memoire handoff complete** : `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (LIRE EN PREMIER nouvelle session). Plan detail `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9.
+**Plan actif** : `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md` (3 phases, 6 elements par phase, commits prets, convention sessions `🪐 Audit v2 S3 P17 Contradiction (DD-04-2026)`).
+**Memoire handoff** : `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (LIRE EN PREMIER nouvelle session).
 
 ## Cap
 
-**Direction** : Audit v2 S1+S2 DONE (~75% plan master). FORME : 7.2/10 -> ~8.5/10 (estime). FONCTION : 4/10 -> ~6.5/10 (estime). OS passe de "pile de rituels documentes" a "systeme avec mecanisme de mesure cognitive" (sessions-analyze + neuroplasticity-score + propositions-generator).
+**Direction** : Audit v2 S1+S2 + S3 P16 DONE. FONCTION : ~6.5/10 -> ~7/10 (estime, +I-09 memoire auto-gouvernee). OS a maintenant 4 mecanismes cognitifs : sessions-analyze + neuroplasticity-score + propositions-generator + memory-audit auto last_used.
 
 **Prochaine action** (a decider Kevin) :
-  - **A — Merger S1+S2 dans main** : 10 commits prets dans `claude/elated-easley-38523c`. Kevin valide + merge manuel.
-  - **B — Continuer S3 (Phase 16-18)** : I-09 memory auto-priorisation + I-06 contradiction detector + I-10 feedback loop (~4h). Utile mais non-bloquant.
-  - **C — Decision Phase 5 modules** : Finance / Sante / Trading (reportee, maintenant que FOS est plus propre).
+  - **A — Continuer S3 P17** : I-06 contradiction detector 5 tiers (~2h). Suite logique du plan.
+  - **B — Continuer S3 P18** : I-10 feedback loop post-session (~1h, plus simple). Peut passer devant P17.
+  - **C — Decision Phase 5 modules** : Finance / Sante / Trading. Pause audit v2.
   - **D — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
 
 **Reporte explicitement** :

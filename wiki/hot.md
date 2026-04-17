@@ -19,7 +19,11 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-17 : **Audit v2 S1+S2 EXECUTE** (10 commits). FORME critique DONE (Phase 1-6 : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages + counts unifications + memory consolidations + harness wired). FONCTION partielle DONE (Phase 11 I-02 sessions-analyze 72 transcripts + Phase 13 I-04 tuile Propositions + Phase 14 I-07 neuroplasticity-score chain health-check). Phase 12 I-01 hook wiki-recall SKIP (API CLAUDE_USER_PROMPT inexistante, documente lessons-learned). Phase 1.3 SQL + Phase 10 routines Cloud reportees (Kevin "focus local").
+2026-04-17 (soir) : **Audit v2 S3 P16 DONE** (I-09 Memory auto-priorisation). 25 auto-memories ont `last_used:` frontmatter + `scripts/memory-audit.sh` + hook PreToolUse Read auto (idempotent) + settings.json matcher Read. Commit 98817e7, merge main a42b5f5, push origin OK. Plan S3 versionne `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`. Reste P17 (contradiction detector 5 tiers, ~2h) + P18 (feedback loop .omc/ratings.jsonl, ~1h).
+
+### Avant (2026-04-17 matin)
+
+**Audit v2 S1+S2 EXECUTE** (10 commits). FORME critique DONE (Phase 1-6 : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages + counts unifications + memory consolidations + harness wired). FONCTION partielle DONE (Phase 11 I-02 sessions-analyze 72 transcripts + Phase 13 I-04 tuile Propositions + Phase 14 I-07 neuroplasticity-score chain health-check). Phase 12 I-01 hook wiki-recall SKIP.
 
 ### Avant (2026-04-16)
 
@@ -45,13 +49,13 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 
 ## Recent Changes
 
+- 2026-04-17 `a42b5f5` merge: audit v2 S3 Phase 16 I-09 memory auto-priorisation
+- 2026-04-17 `98817e7` feat(os): I-09 — memory auto-priorisation (last_used frontmatter + audit + hook)
+- 2026-04-17 `57c50f7` fix(os): push main auto apres merge — clarif CLAUDE.md + lesson-learned
+- 2026-04-17 `7906c47` merge: audit v2 S1+S2 execution (11 commits)
+- 2026-04-17 `197b80b` docs(os): S3 handoff — CONTEXT.md + hot.md + memoire
 - 2026-04-16 `e95c986` fix(os): audit profondeur — v11→v12, counts, fantômes, mémoires, worktrees
 - 2026-04-16 `b1d7501` fix(os): health-check DEGRADED→SAIN — 26 refs, 3 drifts, 5 warnings corrigés
-- 2026-04-16 `079500b` feat(os): brief v12 tuiles Markdown — refonte UI session-start + session-end
-- 2026-04-16 `968ef12` docs(os): session-end — mega audit DONE, 2 plans archives, session DNA
-- 2026-04-16 `a615bf8` feat(os): 9 innovations — suggest-links, metrics, recall-hook, routine-tracker
-- 2026-04-16 `39cff18` fix(wiki): align scripts sur index-wiki.md — wiki BROKEN→SAIN
-- 2026-04-16 `6cb443a` feat(wiki): audit mapping Obsidian — 29 findings, +173 wikilinks, 5 concepts
 
 ## Active Threads
 
@@ -66,19 +70,19 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 
 ## Next Action
 
-**Audit v2 S1+S2 LIVRE** (10 commits, ~75% plan master execute). Reste :
-- Phases 7-9 drifts P1-P3 (low value, session nettoyage dediee)
-- Phase 10 I-08 routines Cloud (Kevin : focus local, plus tard)
-- Phase 12 I-01 hook wiki-recall (API CLAUDE_USER_PROMPT inexistante, reporte si besoin)
-- Phase 15 I-05 cortex enforcement (log-only, a faire si drift observable)
-- Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop)
+**S3 P16 DONE** (merge a42b5f5 + push main). Reste S3 :
+- Phase 17 I-06 contradiction detector 5 tiers (~2h, session S3b)
+- Phase 18 I-10 feedback loop post-session (~1h, session S3c)
+
+**Apres S3 + autres chantiers** :
+- Phase 7-9 drifts P1-P3 (cleanup final, low value)
+- Phase 10 I-08 routines Cloud (Kevin : focus local)
+- Phase 15 I-05 cortex enforcement (si drift observable)
 - Phase 19 I-03 brief adaptatif (nice-to-have)
 
-**Decision Kevin 2026-04-17** : merge main done, prochaine session = Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop). Nettoyage Phase 7-9 APRES (a la fin, apres autres chantiers possibles).
-
-**LIRE EN PREMIER au SessionStart S3** :
+**LIRE EN PREMIER au SessionStart S3b/S3c** :
 1. `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (auto-memory, charge AUTO)
-2. CONTEXT.md section "Chantier en cours"
-3. `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9 (detail verbatim)
+2. CONTEXT.md section "Chantier en cours" (P16 DONE, P17-18 TODO)
+3. `docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md` Phases 17-18 (detail verbatim)
 
-Objectif atteint : FORME 7.2→8.5/10 (estime) + FONCTION 4→6.5/10 (estime).
+Objectif : FONCTION ~6.5→7/10 (P16 done). Reste ~7→7.5/10 si P17+P18 livres.
