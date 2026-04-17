@@ -857,3 +857,47 @@ Les rapports apparaissent dans wiki/meta/ — consultables dans Obsidian :
 - tech-debt-report.md (R13, mercredi)
 - code-review-weekly.md (R14, dimanche)
 - security-alert.md (R7, vendredi, si vulns)
+
+## Routine mensuelle manuelle — ratings-monthly-review
+
+> **Type** : manuel / opt-in (pas une routine Desktop)
+> **Source** : audit v2 S3 Phase 18 I-10 (feedback loop post-session)
+> **Quand** : 1x par mois, ou a la demande quand Kevin veut reviewer sa satisfaction
+
+### But
+
+Analyser la distribution des ratings `.omc/ratings.jsonl` (remplis en fin de chaque `/session-end` Phase 7bis) pour detecter :
+- Streaks negatives (3 N consecutifs -> retrospective recommandee)
+- Tendance recente (7 dernieres sessions)
+- Pourcentage Y vs N vs partial global
+
+### Commande
+
+```bash
+bash scripts/session-ratings-analyze.sh
+```
+
+### Exemple output attendu
+
+```
+SESSION RATINGS — 2026-05-17
+
+  Total sessions ratees : 24
+  Y (bien)     : 18 (75%)
+  N (mal)      : 3 (12%)
+  partial      : 3 (12%)
+
+--- Patterns (N >= 10) ---
+  7 dernieres : Y=5 N=1 partial=1
+```
+
+### Que faire avec le rapport
+
+- **Y majoritaire (>70%)** : OS sain, continuer workflow actuel
+- **N qui monte** : lire `tail -10 .omc/ratings.jsonl` pour voir les notes, identifier patterns (type session, zone code, heure)
+- **3 N consecutifs** : retrospective obligatoire — quoi a change ? quel workflow a casse ?
+- **Partial >30%** : sessions souvent inachevees — decoupage phases trop gros ?
+
+### Archiver l'analyse (optionnel)
+
+Si Kevin veut garder un suivi historique, creer `wiki/meta/ratings-monthly-YYYYMM.md` avec l'output + interpretation Kevin.

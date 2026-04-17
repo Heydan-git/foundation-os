@@ -212,6 +212,18 @@ if [ -x scripts/docs-sync-check.sh ]; then
   fi
 fi
 
+# ── 9. Tier contradictions (chain tier-contradiction-check.sh — P17 audit v2 I-06) ─
+if [ -x scripts/tier-contradiction-check.sh ]; then
+  TCC_LINE=$(bash scripts/tier-contradiction-check.sh --quiet 2>/dev/null)
+  TCC_N=$(echo "$TCC_LINE" | grep -oE "[0-9]+ duplications" | grep -oE "[0-9]+")
+  if [ "${TCC_N:-0}" -eq 0 ]; then
+    echo -e "  ${GRN}[OK]${RST} Tier contradictions (5 tiers scannes, 0 duplication)"
+  else
+    echo -e "  ${YEL}[WARN]${RST} Tier contradictions : ${TCC_N} duplications (voir bash scripts/tier-contradiction-check.sh)"
+    WARNING=$((WARNING + 1))
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────────────────────────────────────────────────
