@@ -49,6 +49,7 @@ Hubs principaux (wikilinks pour graph Obsidian) :
 - [[docs/index-documentation|Index documentation]]
 - [[docs/core/tools/README-tools-catalogue|README Tools Catalogue]]
 - [[docs/specs/README|Specs README]]
+- [[_template-plan|Template plan Foundation OS]]
 
 ## Travaux Cowork
 
