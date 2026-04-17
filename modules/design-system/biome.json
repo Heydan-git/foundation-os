@@ -46,8 +46,7 @@
   "files": {
     "includes": [
       "src/**",
-      "scripts/**",
-      "tokens/source/**"
+      "scripts/**"
     ]
   }
 }

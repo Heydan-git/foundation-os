@@ -32,4 +32,4 @@
 
 ## Voir aussi
 
-- `modules/design-system/tokens/source/primitives/radius.json`
+- `modules/design-system/src/styles/tokens.css` (source unique CSS vars --ds-radius-*)

@@ -41,4 +41,4 @@ Le Void Glass est un systeme dark-only construit autour de quatre surfaces empil
 ## Voir aussi
 
 - Typography · Spacing · Radius · Motion · Icons
-- Source : `modules/design-system/tokens/source/primitives/color.json`
+- Source : `modules/design-system/src/styles/tokens.css` (source unique, CSS vars --ds-*)

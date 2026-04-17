@@ -47,5 +47,4 @@ Jamais de `300` ni `800+` : trop fragiles ou trop lourds sur fond sombre.
 
 ## Voir aussi
 
-- `modules/design-system/tokens/source/primitives/typography.json`
-- `modules/design-system/tokens/source/semantic/typography.json`
+- `modules/design-system/src/styles/tokens.css` (source unique CSS vars --ds-text-*)

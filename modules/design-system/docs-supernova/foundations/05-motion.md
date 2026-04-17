@@ -33,4 +33,4 @@
 
 ## Voir aussi
 
-- `modules/design-system/tokens/source/primitives/motion.json`
+- `modules/design-system/src/styles/tokens.css` (source unique CSS vars --ds-duration-* / --ds-ease-*)
