@@ -9,6 +9,8 @@ storybook-static.zip
 .fos/
 .fos-session.lock
 .omc/state/
+.omc/snapshots/*.md
+!.omc/snapshots/.gitkeep
 .claude/worktrees/
 *.pyc
 __pycache__/

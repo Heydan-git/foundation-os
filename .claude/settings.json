@@ -52,6 +52,16 @@
           }
         ]
       }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/scripts/hooks/pre-compaction-snapshot.sh\""
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

@@ -4,9 +4,9 @@ slug: integration-sources-externes-260417
 session_title: "🪐 Integration sources externes (17-04-2026)"
 status: active
 phases_total: 5
-phases_done: 0
+phases_done: 2
 created: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-18
 tags:
   - plan
   - integration
@@ -753,24 +753,24 @@ Apres Phase 5 : `/session-end` detecte cases `[x] >= 3` toutes cochees → auto-
 
 ## Execution log
 
-### Phase 1 — Preparation architecturale
+### Phase 1 — Preparation architecturale [DONE 2026-04-18]
 
-- [ ] 3.1 Creer 4 concepts wiki (Confidence Tagging / Graph Report / Layered Loading / Pre-compaction Snapshot)
-- [ ] 3.2 Linker 4 concepts dans 3 indexes (index-wiki / index-concepts / foundation-os-map)
-- [ ] 3.3 `docs/core/knowledge.md` section 10 "Enhancements 2026"
-- [ ] 3.4 `scripts/thresholds.json` sections wiki.confidence, graph_report, layered_loading
-- [ ] 3.5 `CONTEXT.md` D-INTEG-01
-- [ ] 3.6 Dual-path plan versionne `docs/plans/2026-04-17-integration-sources-externes.md`
-- [ ] 4 Verifications (counts 47, health SAIN, ref 0, thresholds JSON valide, section 10 presente)
-- [ ] 6 Commit + merge main + push
+- [x] 3.1 Creer 4 concepts wiki (Confidence Tagging / Graph Report / Layered Loading / Pre-compaction Snapshot)
+- [x] 3.2 Linker 4 concepts dans 3 indexes (index-wiki / index-concepts / foundation-os-map)
+- [x] 3.3 `docs/core/knowledge.md` section 12 "Enhancements 2026" (section renumerotee)
+- [x] 3.4 `scripts/thresholds.json` sections wiki.confidence, graph_report, layered_loading, pre_compaction
+- [x] 3.5 `CONTEXT.md` D-INTEG-01
+- [x] 3.6 Dual-path plan versionne `docs/plans/2026-04-17-integration-sources-externes.md`
+- [x] 4 Verifications (47 pages, 712 wikilinks, health SAIN, ref 0, thresholds JSON valide, section 12 presente)
+- [x] 6 Commit `6386823` + merge `452a342` + push origin main
 
-### Phase 2 — INT-1 Pre-compression snapshot
+### Phase 2 — INT-1 Pre-compression snapshot [DONE 2026-04-18]
 
-- [ ] 3.1 `scripts/hooks/pre-compaction-snapshot.sh`
-- [ ] 3.2 `.claude/settings.json` PreCompaction matcher
-- [ ] 3.3 `.gitignore` `.omc/snapshots/*.md`
-- [ ] 3.4 `docs/core/tools.md` entree
-- [ ] 4 Verifications (snapshot cree, rotation 14, JSON valide, health SAIN)
+- [x] 3.1 `scripts/hooks/pre-compaction-snapshot.sh` (2217 bytes, +x, rotation 14)
+- [x] 3.2 `.claude/settings.json` PreCompact matcher (best-effort, fallback manuel)
+- [x] 3.3 `.gitignore` `.omc/snapshots/*.md` + `!.omc/snapshots/.gitkeep`
+- [x] 3.4 `docs/core/tools.md` entree Validators
+- [x] 4 Verifications (snapshot cree 139L, rotation 16->14, JSON valide, health SAIN, ref 0)
 - [ ] 6 Commit + merge main + push
 
 ### Phase 3 — INT-2 Confidence tagging
