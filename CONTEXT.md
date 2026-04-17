@@ -19,7 +19,12 @@
 
 | Date | Resume |
 |------|--------|
-| 2026-04-16 | **[IN PROGRESS] Mega Audit V2 — FORME + FONCTION (Opus 4.7)** |
+| 2026-04-17 | **[DONE] Audit v2 execution S1+S2 (Opus 4.7)** |
+|            | Scope : plan master 23 phases, execute ~75% (Phase 12 SQL + Phase 10 routines Cloud reportes Kevin focus local, Phase 7-9 drifts P1-P3 + 16-19 reportes session dediee). |
+|            | 10 commits atomiques. FORME : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages (data/forms/specs/preview/base DS/backup) + counts unifications (wiki + CSS + tools 109 + knowledge-skills registry) + memory consolidations (4 deprecations + 8 markers) + harness wired (settings wiki wrapper + chainages + wiki-counts-sync). FONCTION : sessions-analyze 72 transcripts JSONL + tuile #15 Propositions brief v12 + neuroplasticity-score chain health-check. |
+|            | Livrables : scripts nouveaux (git-hooks-install, wiki-counts-sync, sessions-analyze, propositions-generator, neuroplasticity-score), tuile #15 brief v12, wiki/meta/counts.md + session-patterns.md, MEMORY.md 24 actives + 12 deprecated. Health : 0 critical, 3 warnings mineurs (TSX 2 legacy 700+, refs, drifts). |
+|            | Lecons : API CLAUDE_USER_PROMPT inexistante pour I-01 hook wiki-recall (documente lessons-learned). SQL migrations fragile si modif en prod (skip). |
+| 2026-04-16 | **[DONE] Mega Audit V2 — FORME + FONCTION (Opus 4.7)** |
 |            | Scope : 7 sous-agents paralleles (707 fichiers, 18000L) audit hygiene + simulation 10 scenarios audit cognitif. 146 findings FORME (7.2/10, hygiene OK) + 20 findings FONCTION (4/10, cerveau cognitif faible). |
 |            | Insights majeurs : FOS a 70% structure + 30% fonction cognitive. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. |
 |            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
@@ -42,16 +47,20 @@
 
 ## Cap
 
-**Direction** : Mega Audit V2 revele FOS a 70% structure + 30% fonction cognitive. Priorite = transformer "pile de rituels manuels" en "systeme cognitif auto-observant". 2 plans dispo pour session suivante.
+**Direction** : Audit v2 S1+S2 DONE (~75% plan master). FORME : 7.2/10 -> ~8.5/10 (estime). FONCTION : 4/10 -> ~6.5/10 (estime). OS passe de "pile de rituels documentes" a "systeme avec mecanisme de mesure cognitive" (sessions-analyze + neuroplasticity-score + propositions-generator).
 
-**Prochaine action** :
-  - **EXECUTER PLAN MASTER AUDIT V2** : `docs/plans/2026-04-16-mega-audit-v2-master.md` (1349 lignes, 23 phases, 5-7 sessions). Couvre **100%** des 166 findings (146 FORME + 20 FONCTION + 10 innovations cognitives). Reparti en 7 BLOCs A-G avec 6 elements par phase.
-  - **Session 1** (3h30, MUST) : Phases 0-6 BLOCs A+B+C+D (bombes latentes + narratives + archivages + counts + memory + harness)
-  - **Session 2** (2h) : Phases 7-9 BLOC E (drifts P1-P3 exhaustifs)
-  - **Sessions 3-5** (12h) : Phases 10-18 BLOC F (10 innovations cognitives FONCTION)
-  - **Session 5 cloture** : Phases 20-22 BLOC G (verif + merge + archive)
-  - **Session 6 optionnel** : Phase 19 I-03 brief adaptatif (nice-to-have)
-  - Sub-plans detailles : `2026-04-16-mega-audit-v2-execution.md` (FORME verbatim) + `2026-04-16-mega-audit-v2-fonction.md` (FONCTION verbatim)
+**Prochaine action** (a decider Kevin) :
+  - **A — Merger S1+S2 dans main** : 10 commits prets dans `claude/elated-easley-38523c`. Kevin valide + merge manuel.
+  - **B — Continuer S3 (Phase 16-18)** : I-09 memory auto-priorisation + I-06 contradiction detector + I-10 feedback loop (~4h). Utile mais non-bloquant.
+  - **C — Decision Phase 5 modules** : Finance / Sante / Trading (reportee, maintenant que FOS est plus propre).
+  - **D — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
+
+**Reporte explicitement** :
+  - Phase 1.3 migrations SQL (Kevin : risque prod, plus tard)
+  - Phase 10 I-08 routines Cloud (Kevin : focus local)
+  - Phase 12 I-01 hook wiki-recall (API CLAUDE_USER_PROMPT inexistante)
+  - Phase 15 I-05 cortex enforcement (log-only initial, si drift observable)
+  - Phase 19 I-03 brief adaptatif (nice-to-have)
 
 **En backlog** :
   - Configurer 9 groupes couleur Obsidian (Kevin UI graph)

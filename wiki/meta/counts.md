@@ -25,12 +25,12 @@ related:
 
 | Metrique | Valeur | Commande verification |
 |----------|--------|-----------------------|
-| Pages physiques | 49 | `find wiki -name "*.md" \| wc -l` |
-| Pages fonctionnelles (hors templates) | 44 | 49 - 5 templates |
+| Pages physiques | 50 | `find wiki -name "*.md" \| wc -l` |
+| Pages fonctionnelles (hors templates) | 45 | 50 - 5 templates |
 | Concepts racine | 9 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
 | Entities | 5 | `find wiki/entities -maxdepth 1 -name "*.md"` |
 | Sources | 4 | `find wiki/sources -maxdepth 1 -name "*.md"` |
-| Meta (hors templates) | 15 | `find wiki/meta -maxdepth 1 -name "*.md"` |
+| Meta (hors templates) | 16 | `find wiki/meta -maxdepth 1 -name "*.md"` |
 | Templates | 5 | `find wiki/meta/templates -name "*.md"` |
 | Domain indexes | 5 | `find wiki/domains -maxdepth 2 -name "index-*.md"` |
 | Domain content (hors index) | 2 | 7 total - 5 indexes |
@@ -39,7 +39,7 @@ related:
 
 | Metrique | Valeur | Commande |
 |----------|--------|----------|
-| Wikilinks totaux | 801 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
+| Wikilinks totaux | 804 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
 
 ## Comment regenerer
 

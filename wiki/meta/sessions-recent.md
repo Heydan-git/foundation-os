@@ -23,6 +23,38 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-17 · Audit v2 execution S1+S2 (~75% plan master)
+
+**Durée** : 1 session longue (~4h)
+**Scope** : Execution plan master audit v2, FORME critique + FONCTION partielle
+
+**Livraison** (10 commits atomiques) :
+- Phase 1.1 fix `.git/hooks/commit-msg` reinstall + `scripts/git-hooks-install.sh`
+- Phase 1.2 purge refs `tokens/` DS inexistant (package.json, README DS, 6 foundations, biome, .gitignore, archive 2 scripts mjs)
+- Phase 2 narratives alignees (CONTEXT Void Glass fork, CLAUDE wiki-ingest skill, naming Opus generique, registry v11→v12, DS CHANGELOG Storybook 9, 6 UI commentaires, globals.css)
+- Phase 3 archivages 6 zones (app/data/ mots interdits, forms/ dead code, docs/specs DONE, DS preview duplica, DS base DS reference, settings backup) + purge supernova snapshots + README chaque archive
+- Phase 4 counts unifications (`wiki/meta/counts.md` + alignement hot/overview/index-wiki/foundation-os-map + trim sessions 6→5 + `scripts/thresholds.json` + `registry/knowledge-skills.json` 10 skills + tools 109 total + CSS 65KB coherent)
+- Phase 5 memory consolidations (4 deprecations + markers frontmatter 8 existants + MEMORY.md index 24 actives + 12 deprecated)
+- Phase 6 harness wired (settings.json SessionStart wrapper wiki, tool-register chain health-check, docs-sync-check chain sync-check, TSX scope dynamique, wiki-health full scan, nouveau `scripts/wiki-counts-sync.sh`, archive `wiki-recall-reminder.sh` orphelin)
+- Phase 11 I-02 `scripts/sessions-analyze.sh` + `_sessions-analyze.py` (72 transcripts JSONL Kevin, 548 msgs, 9549 tool calls) → `wiki/meta/session-patterns.md`
+- Phase 13 I-04 `scripts/propositions-generator.sh` + tuile #15 brief v12
+- Phase 14 I-07 `scripts/neuroplasticity-score.sh` + chain health-check
+
+**Revelations** :
+- `.omc/sessions/*.json` = metadata 189 bytes, pas transcripts. Vrais transcripts dans `~/.claude/projects/.../*.jsonl` (72 fichiers, 267MB)
+- `CLAUDE_USER_PROMPT` env var **inexistante** pour hooks Claude Code (stdin JSON). Phase 12 I-01 skip + documente lessons-learned
+- SQL migrations existantes risque si modif en prod (Phase 1.3 skip, Kevin validera plan compense plus tard)
+
+**Decisions** :
+- Kevin : routines Cloud + SQL migrations reportees (focus local)
+- Skip Phase 7-9 drifts P1-P3 (low value, session nettoyage dediee)
+- Skip Phase 19 I-03 brief adaptatif (nice-to-have)
+
+**Threads ouverts** :
+- Merger `claude/elated-easley-38523c` dans main (Kevin valide)
+- Decision Phase 5 modules (Finance / Sante / Trading)
+- Continuer I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop (Phase 16-18)
+
 ## 2026-04-16 · Mega Audit V2 FORME + FONCTION (Opus 4.7)
 
 **Durée** : 1 session longue, ~2h30 apres plusieurs corrections Kevin
@@ -128,32 +160,7 @@ related:
 - Clean 3 worktrees legacy
 - Decision Phase 5 module
 
-## 2026-04-15 — 2026-04-16 · Adoption Wiki Obsidian (D-WIKI-01)
-
-**Durée** : 2 sessions, ~7h
-**Scope** : Adoption complète plugin claude-obsidian (pattern Karpathy LLM Wiki) dans Foundation OS
-
-**Decisions** :
-- D-WIKI-01 : 5 tiers mémoire (conversation / CONTEXT / auto-memory / docs / wiki)
-- PostToolUse auto-commit DÉSACTIVÉ (respect règle Kevin-valide)
-- 27/29 mémoires RESTENT auto-memory, 2 migrent wiki/
-- Repo reste PRIVÉ (Phase 5 données perso)
-- Wiki = cerveau autonome Claude (utilisation proactive)
-- Max x20 : ne pas se brider sur les tokens
-
-**Pages wiki créées/modifiées** :
-- Concepts : [[LLM Wiki Pattern]], [[Hot Cache]], [[Compounding Knowledge]]
-- Entities : [[Andrej Karpathy]], [[AgriciDaniel]], [[Obsidian]], [[Pinecone]], [[tools-foundation-os]]
-- Sources : [[karpathy-llm-wiki-pattern]], [[agricidaniel-claude-obsidian]], [[session-2026-04-16-wiki-adoption]]
-- Meta : [[foundation-os-map]], [[design-system-components]], thinking.md, sessions-recent.md, lessons-learned.md
-
-**Threads ouverts** :
-- Tester /save sur conversation réelle
-- Tester /autoresearch sur topic réel
-- Créer Cloud Routines (wiki-health, drift, consolidation)
-- Phase 5 : Finance / Trading / Santé — lequel lancer ?
-- Ouvrir Obsidian sur racine projet (remplacer vault worktree)
-- Cleanup 3 worktrees (wiki-adoption + suspicious-khayyam + sleepy-ellis)
+> Session "2026-04-15 — 2026-04-16 · Adoption Wiki Obsidian (D-WIKI-01)" trimee 2026-04-17 (regle max 5 sessions). Detail dans `.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md`.
 
 > Session "2026-04-15 · Level Up Foundation OS (7 phases)" trimee 2026-04-17 (regle CLAUDE.md max 5 sessions). Detail dans `.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md` + git log.
 
