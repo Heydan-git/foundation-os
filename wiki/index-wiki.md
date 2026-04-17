@@ -84,8 +84,6 @@ Navigation: [[overview]] | [[hot]]
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]
-- [[meta/templates/comparison]]
-- [[meta/templates/question]]
 
 ## Statistiques
 
