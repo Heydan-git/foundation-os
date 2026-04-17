@@ -21,6 +21,10 @@ related:
 > Questions ouvertes, hypotheses, connexions cross-domain, insights.
 > Enrichi par Claude EN SESSION quand un insight emerge. Kevin peut lire pour voir "comment Claude pense".
 
+## Protocole append
+
+Quand un insight emerge en session, ajouter sous `## Insights YYYY-MM-DD` en tete du fichier (apres ce protocole). Garder max 3 sections datees. Plus anciennes → compresser dans `## Hypotheses` ou `## Connexions cross-domain` si toujours pertinentes, sinon retirer.
+
 ## Questions ouvertes
 
 - Le [[Compounding Knowledge]] s'applique-t-il aux backtests Trading ? Chaque backtest enrichit la comprehension marche, pas juste la strategie testee. Explorer quand module Trading demarre.
