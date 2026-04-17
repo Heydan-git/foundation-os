@@ -9,7 +9,6 @@ status: evergreen
 related:
   - "[[index-meta]]"
   - "[[index-wiki]]"
-  - "[[log]]"
   - "[[hot]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Obsidian]]"
@@ -72,16 +71,9 @@ Regle d'or : code executable dans `modules/`, doc+hypotheses+refs dans `wiki/dom
 - `/autoresearch [topic]` — web research 3-5 rounds + synthese
 - `/canvas [desc]` — Obsidian canvas visual
 
-## Stats (2026-04-17 — voir [[counts]] source unique)
+## Stats
 
-- Pages : 48 (43 fonctionnelles hors templates)
-- Wikilinks : 791
-- Concepts : 9 + 2 domain concepts = 11
-- Sources : 4
-- Entities : 5
-- Meta : 14 + 5 templates = 19
-- Domaines : 5 (trading/finance/sante vides Phase 5, design/dev seed)
-- .raw/ : 6 dossiers
+> **Stats live** : voir [[counts]] (source unique regeneree par `bash scripts/wiki-counts-sync.sh`).
 
 ## Navigation
 

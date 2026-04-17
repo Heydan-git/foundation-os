@@ -33,7 +33,7 @@ Chronological record of all wiki operations (scaffold, ingest, save, migrate, ar
 - **Finding 6** : tools-fo complété (Void Glass + design-system-components)
 - **Stats sync** : index-wiki 27→35 pages, CONTEXT 6→5 sessions
 
-Résultat : 589→762+ wikilinks, 35→40 pages, plan archivé `.archive/plans-done-260416/`
+Résultat : wikilinks et pages voir [[counts]] (historique dans git), plan archivé `.archive/plans-done-260416/`
 
 ### Session commands alignées
 

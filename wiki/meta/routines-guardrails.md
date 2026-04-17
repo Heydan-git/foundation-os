@@ -128,7 +128,6 @@ Si un check montre BROKEN ou une anomalie → revert et arrete.
 |---------|---------------------|
 | wiki/hot.md | R1, R5 |
 | wiki/index-wiki.md | R1, R3 |
-| wiki/log.md | R1, R3, R10 |
 | wiki/meta/foundation-os-map.md | R1 |
 | wiki/meta/thinking.md | R3, R8, toutes (si doute) |
 | wiki/meta/lessons-learned.md | R1 (si erreur corrigee) |

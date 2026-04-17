@@ -20,7 +20,7 @@ Chaque indicateur a une severite, une commande de verification, et un seuil.
 |------------|----------|-------|
 | TSX < 700L (exceptions ui/ DS 800L, patterns/ DS 2000L) | `wc -l modules/*/src/**/*.tsx` | Code runtime app < 700L. Exception `modules/design-system/src/components/ui/` (shadcn origin) : seuil 800L. Exception `modules/design-system/src/components/patterns/` (template showcase Storybook, DashboardDesignSystem.tsx reference ligne-par-ligne par 41 composants ui/) : seuil 2000L. |
 | Void Glass respecte | `grep -r "#0A0A0B\|#08080A\|Outfit\|Inter" modules/app/src/` | Zero match |
-| MD pairs alignes | Comparer `modules/app/data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx` | Chaque archive a son MD |
+| MD pairs alignes (archive) | Comparer `.archive/app-data-jsx-260417/data/*.md` ↔ `.archive/artifacts-jsx/fos-*.jsx` | Historique fige post-2026-04-17, chaque MD a son JSX pair archive |
 | Tests vitest passent | `cd modules/app && npm test` | Zero test en echec |
 | Refs intactes | `grep -r` noms fichiers supprimes/deplaces | Zero ref cassee |
 

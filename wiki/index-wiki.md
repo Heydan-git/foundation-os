@@ -8,7 +8,6 @@ tags:
 status: evergreen
 related:
   - "[[overview]]"
-  - "[[log]]"
   - "[[hot]]"
   - "[[foundation-os-map]]"
   - "[[index-concepts]]"
@@ -16,26 +15,25 @@ related:
   - "[[index-sources]]"
   - "[[index-meta]]"
   - "[[index-core-os]]"
-  - "[[index-app]]"
   - "[[index-cowork]]"
 ---
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-17 | Total pages: 45 (hors templates) | Sources ingested: 4 — voir [[counts]] source unique
+Last updated: 2026-04-17 | Stats : voir [[counts]]
 
-Navigation: [[overview]] | [[log]] | [[hot]]
+Navigation: [[overview]] | [[hot]]
 
 ## Domaines
 
-### Trading
-- [[domains/trading/index-trading]] — strategies, backtests, whitepapers, instruments
+### Trading 🔴 placeholder Phase 5
+- [[domains/trading/index-trading]] — strategies, backtests, whitepapers, instruments (vide)
 
-### Finance
-- [[domains/finance/index-finance]] — patrimoine, fiscalite, decisions
+### Finance 🔴 placeholder Phase 5
+- [[domains/finance/index-finance]] — patrimoine, fiscalite, decisions (vide)
 
-### Sante
-- [[domains/sante/index-sante]] — bilans bio, protocoles, papers medicaux, conseil multi-agents
+### Sante 🔴 placeholder Phase 5
+- [[domains/sante/index-sante]] — bilans bio, protocoles, papers medicaux, conseil multi-agents (vide)
 
 ### Design
 - [[domains/design/index-design]] — UX research, patterns, heuristiques
@@ -73,15 +71,9 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[sources/session-2026-04-16-wiki-adoption]] — 2026-04-16 | session adoption wiki Obsidian D-WIKI-01
 - [[sources/session-2026-04-16-neuroplasticity-audit]] — 2026-04-16 | session audit neuroplasticite (7 failles + 4 reflexes + routines)
 
-### Comparisons (analyses side-by-side)
-<!-- Populated par ingest -->
-
-### Questions (Q&A avec citations)
-<!-- Populated par /save ou /autoresearch -->
-
 ## Meta
 
-> **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **App** : [[index-app]] | **Cowork** : [[index-cowork]]
+> **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **Cowork** : [[index-cowork]]
 
 - [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
 - [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain (neuroplasticite)
@@ -89,7 +81,6 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[lessons-learned]] — Auto-apprentissage erreurs/pieges (neuroplasticite)
 - [[routines-guardrails]] — Garde-fous communs des 14 routines
 - [[routines-setup]] — Prompts des 14 routines Desktop autopilote
-- [[session-dna]] — Empreinte ADN des sessions (patterns, metriques)
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]
@@ -98,23 +89,7 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 
 ## Statistiques
 
-> Source unique : [[counts]] (wiki/meta/counts.md). Regenere via `scripts/wiki-counts-sync.sh`.
-
-| Type | Count |
-|------|-------|
-| Concepts racine | 9 |
-| Concepts domaines (design + dev) | 2 |
-| Entities | 5 |
-| Sources | 4 |
-| Comparisons | 0 |
-| Questions | 0 |
-| Meta (hors templates) | 14 |
-| Templates | 5 |
-| Domaines indexes | 5 |
-| Top-level (hot, log, overview, index-wiki) | 4 |
-| **Total physique** | **48** |
-| **Total fonctionnel (hors templates)** | **43** |
-| Wikilinks totaux | 791 |
+> Stats chiffrees : voir [[counts]] (source unique regeneree par `bash scripts/wiki-counts-sync.sh`).
 
 ## Couverture par domaine
 

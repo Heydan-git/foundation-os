@@ -25,7 +25,7 @@
 | Dev Agent | Agent developpement — code React/Vite/TypeScript, composants Void Glas | `Delegation automatique via Cortex ou invocation directe via Agent tool` |
 | OS Architect | Architecte Foundation OS — decisions de stack, structure modules, sche | `Delegation automatique via Cortex ou invocation directe via Agent tool` |
 | Review Agent | Agent revue — coherence, audit, zero regression. Execute health-check  | `Delegation automatique via Cortex ou invocation directe via Agent tool` |
-| Doc Agent | Agent documentation — mise a jour CONTEXT.md, docs/, modules/app/data/ | `Delegation automatique via Cortex ou invocation directe via Agent tool` |
+| Doc Agent | Agent documentation — mise a jour CONTEXT.md, docs/ | `Delegation automatique via Cortex ou invocation directe via Agent tool` |
 
 ## Ci
 

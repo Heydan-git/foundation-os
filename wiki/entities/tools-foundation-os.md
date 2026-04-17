@@ -8,7 +8,7 @@ aliases:
   - "Outils installes Foundation OS"
 url: ""
 created: 2026-04-15
-updated: 2026-04-16
+updated: 2026-04-17
 tags:
   - entity
   - tool
@@ -35,10 +35,10 @@ migrated_from: "auto-memory/tools_inventory.md (2026-04-16, D-WIKI-01 Phase 5)"
 
 ## Claude Code
 
-- CLAUDE.md (~177 lignes), 4 agents custom, 6+ commands custom (dont /wiki /save /autoresearch /canvas post-D-WIKI-01)
-- Hooks PreToolUse (validate-void-glass + security-reminder)
-- Hooks SessionStart (drift-detector + wiki hot.md), PostCompact (hot.md re-read), Stop (wiki changed notif)
-- Git hooks : pre-commit (build+vitest+health) + commit-msg (11 types conventional) + branch-name-check
+- CLAUDE.md (~195 lignes), 4 agents, 7 commands (cockpit, session-start, session-end, plan-os, wt, new-project, sync) + 4 commands claude-obsidian (/wiki, /save, /autoresearch, /canvas)
+- Hooks PreToolUse Write|Edit (validate-void-glass + security-reminder) + PreToolUse Read (memory-last-used)
+- Hooks SessionStart (wiki hot.md cat via session-start-wiki.sh — drift-detector chain dans health-check INFO depuis Phase 7 2026-04-17)
+- Git hooks : pre-commit (build+vitest+health) + commit-msg (conventional) + branch-name-check optionnel
 
 ## OMC (oh-my-claudecode) v4.10.1
 
@@ -50,7 +50,7 @@ Agents : executor, designer, writer, architect, code-reviewer, verifier, explore
 10 skills : wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown
 4 commands : /wiki, /save, /autoresearch, /canvas
 2 agents : wiki-ingest, wiki-lint
-5 templates : concept, source, entity, comparison, question
+3 templates : concept, source, entity (comparison + question archives 2026-04-17 Phase 10, jamais utilises)
 
 ## BMAD v6 (_bmad/)
 
@@ -76,4 +76,4 @@ health-check, drift-detector, docs-sync-check, ref-checker, wiki-commit, wiki-he
 
 ## Total
 
-~177+ points d'invocation (post-D-WIKI-01 : +10 skills +4 commands +2 agents claude-obsidian)
+Catalogue complet dans `docs/core/tools.md` + `docs/core/tools/index.json` (109 outils, 10 categories, routing 35 regles).

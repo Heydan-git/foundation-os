@@ -12,7 +12,6 @@ Module Core OS responsable du knowledge layer persistant Foundation OS via plugi
 wiki/
 ├── hot.md          cache narratif 500 mots derniere session
 ├── index-wiki.md   master catalog (1 ligne par page)
-├── log.md          chronological operations log
 ├── overview.md     executive summary wiki
 ├── domains/        5 domaines pre-scaffoldes
 │   ├── trading/    concepts, sources, strategies, backtests, instruments
@@ -23,10 +22,7 @@ wiki/
 ├── concepts/       cross-domain (atemporel)
 ├── entities/       personnes, orgs, produits, outils
 ├── sources/        articles, papers, transcripts ingeres
-├── comparisons/    analyses side-by-side
-├── questions/      Q&A avec citations
-├── meta/           dashboards + templates
-└── canvases/       Obsidian canvas .canvas
+└── meta/           dashboards + templates (3 : concept, entity, source)
 
 .raw/               archive sources brutes (immutable)
 ├── trading/
@@ -42,7 +38,7 @@ wiki/
 - Source : https://github.com/AgriciDaniel/claude-obsidian
 - 10 skills, 4 commands, 3 hooks actifs (1 desactive : PostToolUse auto-commit)
 - 2 agents : wiki-ingest, wiki-lint (compatibles Task tool)
-- 5 templates : concept, source, entity, comparison, question
+- 3 templates : concept, source, entity (comparison + question archives 2026-04-17 Phase 10, jamais utilises dans notre vault)
 
 ## 2. Couplage modules <-> wiki
 
@@ -93,7 +89,7 @@ Catalogue complet avec allowed-tools : `docs/core/tools.md` section 1c (Phase 6)
 1. Drop PDF/URL/transcript dans `.raw/<domain>/`
 2. `wiki-ingest .raw/<domain>/<file>` ou `ingest .raw/<domain>/<file>`
 3. Plugin cree 8-15 pages wiki avec wikilinks + cross-refs
-4. Update `wiki/index.md` + `wiki/log.md` auto
+4. Update `wiki/index-wiki.md` + `wiki/meta/sessions-recent.md` auto
 
 ### Save conversation
 
@@ -203,7 +199,6 @@ ENTRE SESSIONS (Routines Cloud, Max 15/jour)
 | `wiki/meta/sessions-recent.md` | 5 dernieres sessions (append, memoire court terme) | Append en /session-end |
 | `wiki/meta/lessons-learned.md` | Auto-apprentissage erreurs/pieges | Enrichi en session |
 | `wiki/hot.md` | Cache flash derniere session (overwrite) | Overwrite en /session-end |
-| `wiki/log.md` | Chronological operations log | Append en /session-end |
 | `.claude/loop.md` | Maintenance memoire si `/loop` bare | 7 checks automatises |
 
 ### Routines Cloud autonomes (Max x20 = 15/jour)

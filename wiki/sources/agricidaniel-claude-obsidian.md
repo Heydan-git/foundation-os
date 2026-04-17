@@ -8,7 +8,7 @@ url: "https://github.com/AgriciDaniel/claude-obsidian"
 confidence: high
 key_claims:
   - "Plugin Claude Code implementant le pattern Karpathy LLM Wiki avec Obsidian"
-  - "10 skills + 4 commands + 2 agents + 5 templates"
+  - "10 skills + 4 commands + 2 agents + 3 templates (comparison + question archives Phase 10 2026-04-17)"
   - "Hot cache wiki/hot.md (~500 mots) lu en premier chaque session"
   - "Token cost stable meme avec 1000+ pages (on-demand loading)"
   - "Delta tracking .manifest.json evite re-ingestion"

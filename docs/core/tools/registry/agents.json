@@ -76,7 +76,7 @@
     "name": "Doc Agent",
     "category": "agent",
     "path": ".claude/agents/doc-agent.md",
-    "description": "Agent documentation — mise a jour CONTEXT.md, docs/, modules/app/data/. Protocole Communication 4 tiers. N'intervient PAS en session-end (gere par /session-end directement)",
+    "description": "Agent documentation — mise a jour CONTEXT.md, docs/. Protocole Communication 4 tiers. N'intervient PAS en session-end (gere par /session-end directement)",
     "usage": "Delegation automatique via Cortex ou invocation directe via Agent tool",
     "triggers": ["documente", "note", "trace", "journalise", "met a jour context", "met a jour docs", "documentation"],
     "when_to_use": "Mise a jour de CONTEXT.md hors session-end. Documentation technique (docs/). Quand les decisions/modules/specs changent et doivent etre documentes",

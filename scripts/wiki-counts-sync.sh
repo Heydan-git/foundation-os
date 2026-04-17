@@ -98,6 +98,16 @@ related:
 |----------|--------|----------|
 | Wikilinks totaux | $WIKILINKS | \`grep -rho "\\[\\[[^]]*\\]\\]" wiki/ \| wc -l\` |
 
+## Consumers (pages qui pointent ici, source unique)
+
+- \`wiki/hot.md\` (section Key Recent Facts)
+- \`wiki/overview.md\` (section Stats)
+- \`wiki/index-wiki.md\` (header + section Statistiques)
+- \`wiki/log.md\` (resultats cumules)
+- \`wiki/meta/foundation-os-map.md\` (section Statistiques)
+
+Toute page qui affiche des counts wiki DOIT pointer vers \`counts.md\` via wikilink, pas dupliquer les chiffres.
+
 ## Comment regenerer
 
 \`\`\`bash

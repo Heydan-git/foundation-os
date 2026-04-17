@@ -14,6 +14,10 @@ related:
 
 # Domaine : trading
 
+> [!placeholder] **Phase 5 non-demarree** (2026-04-17)
+> Ce domaine est scaffolde mais 100% vide (aucune page `concepts/`, `sources/`, `strategies/`, `backtests/`, `instruments/`). Il sera actif quand le module `modules/trading/` sera lance (decision Kevin Phase 5).
+> **Pour demarrer** : ingerer un whitepaper via `.raw/trading/` + `wiki-ingest` OU creer concept atemporel (ex: Sharpe ratio, momentum).
+
 Knowledge layer pour module `modules/trading/` (Phase 5) : backtest engine, strategies automatisees, market microstructure, regulations, instruments.
 
 ## Sous-dossiers

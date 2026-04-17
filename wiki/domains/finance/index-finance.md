@@ -14,6 +14,10 @@ related:
 
 # Domaine : finance
 
+> [!placeholder] **Phase 5 non-demarree** (2026-04-17)
+> Ce domaine est scaffolde mais 100% vide (aucune page `concepts/`, `sources/`, `decisions/`). Il sera actif quand le module `modules/finance/` sera lance (decision Kevin Phase 5).
+> **Pour demarrer** : ingerer un article fiscal via `.raw/finance/` + `wiki-ingest` OU creer concept (ex: PER, PEA, SCPI).
+
 Knowledge layer pour module `modules/finance/` (Phase 5) : gestion patrimoine perso, fiscalite, decisions d'investissement, regulations.
 
 ## Sous-dossiers
