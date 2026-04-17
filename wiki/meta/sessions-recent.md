@@ -23,6 +23,40 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-17 (soir) · Audit v2 S3 Phase 16 I-09 Memory auto-priorisation
+
+**Durée** : 1 session courte (~1h)
+**Scope** : Plan S3 versionne (`docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements) + Phase 16 I-09 execute seul (Kevin : 3 sessions separees, hook auto OUI, ratings.jsonl, 5 tiers complets).
+
+**Livraison** (1 commit + 1 merge) :
+- 25 auto-memories : frontmatter `last_used: 2026-04-17` injecte via awk BSD-safe (guard : skip MEMORY.md index, skip si pas de `type:`)
+- `scripts/memory-audit.sh` : detect memoires > 30j sans usage (rapport only, env `MEMORY_STALE_DAYS` configurable, exit 0 toujours)
+- `scripts/memory-last-used-hook.sh` : hook PreToolUse Read qui update `last_used` auto sur lecture `memory/*.md`. Idempotent (skip si deja today, skip si pas de frontmatter `last_used` deja present).
+- `.claude/settings.json` : nouveau matcher `Read` branche sur le script
+- Commit `98817e7` → merge `a42b5f5` dans main + push origin
+
+**Verifs** :
+- 25/25 memoires injectees (0 skipped, 0 sans type:)
+- Hook trigger simule : last_used 2026-04-10 → 2026-04-17 OK
+- Idempotence : pas de re-write si deja today (stat mtime identique avant/apres)
+- `.claude/settings.json` : JSON valide (python3 json.load OK)
+- Health-check : DEGRADED baseline (0 critical, 3 warnings preexistants : TSX legacy, refs manifeste+DS, drifts cosmetiques)
+
+**Decisions Kevin** :
+- 3 sessions separees (pas 1 intensive) pour absorber compactage eventuel
+- Hook PreToolUse Read auto ACTIVE (pas juste MVP frontmatter seul)
+- Rating storage : `.omc/ratings.jsonl` append-only (pas fichier par session)
+- Contradiction detector : 5 tiers complets (pas 3 MVP)
+
+**Revelation technique** :
+- Le plan archive utilisait `sed -i.bak "/^type:/a\\ last_used: $TODAY\n"` — syntaxe BSD fragile. Remplace par `awk` one-liner avec guard `!done` : portable + plus sur.
+
+**Threads ouverts (S3 restant)** :
+- Phase 17 I-06 contradiction detector 5 tiers (~2h, session S3b)
+- Phase 18 I-10 feedback loop post-session (~1h, session S3c)
+
+---
+
 ## 2026-04-17 · Audit v2 execution S1+S2 (~75% plan master)
 
 **Durée** : 1 session longue (~4h)
@@ -140,25 +174,7 @@ related:
 - 14 routines Desktop (Kevin UI)
 - Clean worktrees legacy (sleepy-ellis, suspicious-khayyam)
 
-## 2026-04-16 · Audit Mapping + Méga Audit Final
-
-**Durée** : 1 session, ~3h
-**Scope** : Audit mapping Obsidian 29 findings (DONE) + méga audit final 63 findings + 9 innovations (plan créé)
-
-**Decisions** :
-- D-NAMING-02 : convention nommage wiki = garder espaces
-- D-VAULT-01 : vault Obsidian = racine projet, 9 groupes couleurs
-
-**Pages wiki créées** :
-- Concepts : [[Foundation OS]], [[Core OS]], [[Brief v12]], [[Neuroplasticite]], [[TDAH workflow]]
-
-**Commits** : 7 (39cff18, 6cb443a, bc02d7a, 4ea4b0c, 9144c83, b94e428, + plan commit)
-
-**Threads ouverts** :
-- Exécuter méga audit final (docs/plans/2026-04-16-mega-audit-final.md)
-- Créer 14 routines Desktop (Kevin UI)
-- Clean 3 worktrees legacy
-- Decision Phase 5 module
+> Session "2026-04-16 · Audit Mapping + Méga Audit Final" trimee 2026-04-17 soir (regle max 5 sessions). Detail : 29 findings mapping + 63 findings méga audit + 9 innovations. Decisions D-NAMING-02 + D-VAULT-01. 7 commits (39cff18, 6cb443a, bc02d7a, 4ea4b0c, 9144c83, b94e428). Concepts crees : [[Foundation OS]], [[Core OS]], [[Brief v12]], [[Neuroplasticite]], [[TDAH workflow]].
 
 > Session "2026-04-15 — 2026-04-16 · Adoption Wiki Obsidian (D-WIKI-01)" trimee 2026-04-17 (regle max 5 sessions). Detail dans `.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md`.
 
