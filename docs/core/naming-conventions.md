@@ -162,9 +162,9 @@ docs/specs/YYYY-MM-DD-<slug>-(design|plan|audit).md
 
 ### Exemples
 
-- `docs/specs/2026-04-10-cockpit-design.md`
-- `docs/specs/2026-04-10-tools-module-v2-design.md`
-- `docs/specs/2026-04-10-tools-module-v2-design.md`
+- `.archive/specs-done-260417/2026-04-10-cockpit-design.md`
+- `.archive/specs-done-260417/2026-04-10-tools-module-v2-design.md`
+- `.archive/specs-done-260417/2026-04-05-foundation-os-v2-design.md`
 
 ## 7. Memoires auto-memory
 

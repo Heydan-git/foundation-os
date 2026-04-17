@@ -35,7 +35,7 @@
 |            | Insights majeurs : FOS a 70% structure + 30% fonction cognitive. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. |
 |            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
 |            | Livrables : wiki/concepts/Foundation OS.md (definition canonique 227L), docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md, rapport-comportement.md, 7 raw/, 2 plans execution (FORME 1403L + FONCTION 600L), CLAUDE.md pointeur canonique. |
-|            | 2 plans dispo session suivante : `docs/plans/2026-04-16-mega-audit-v2-execution.md` (FORME, 8 phases, 3h30) + `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (FONCTION, 11 phases, 15-18h). |
+|            | 2 plans dispo archives apres execution : `.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md` (FORME) + `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` (FONCTION). |
 | 2026-04-16 | **[DONE] Audit profondeur + fantômes + sous-index graph Obsidian** |
 |            | Audit 128 fichiers (7 agents opus). 14 fantômes Obsidian supprimés. 4 worktrees nettoyés. v11→v12 ~25 fichiers. 6 mémoires deprecated. CLAUDE.md +4 impératifs. 7 sous-index wiki créés (core-os, app, concepts, entities, sources, meta, cowork). Graph restructuré hub→sous-index→fichiers. 12 commits. |
 | 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 1 commit `b1d7501`. |

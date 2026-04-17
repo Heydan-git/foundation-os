@@ -39,11 +39,11 @@ Que chaque session de travail avec Claude soit productive :
 
 Le projet a commence en avril 2026 comme une collection d'artifacts JSX (`fos-commander`, `fos-knowledge`, `fos-scale-orchestrator`...) rendus dans des conversations Claude, pilotes par des fichiers MD « source de verite » (pattern MD-first). Une premiere iteration a pense l'architecture en 6 artifacts et 7 couches de stack (L0→L6).
 
-Le projet a ensuite mute vers une vraie application React (Vite + TypeScript + Tailwind + Supabase + Vercel). Les artifacts JSX ont ete archives (`.archive/artifacts-jsx/`) et remplaces par des pages TSX (Commander, Knowledge, Dashboard...). Les MD pairs correspondants vivent desormais dans `modules/app/data/`.
+Le projet a ensuite mute vers une vraie application React (Vite + TypeScript + Tailwind + Supabase + Vercel). Les artifacts JSX ont ete archives (`.archive/artifacts-jsx/`) et remplaces par des pages TSX (Commander, Knowledge, Dashboard...). Les MD pairs correspondants sont archives dans `.archive/app-data-jsx-260417/data/` (ancien chemin modules/app/data/ archive 2026-04-17).
 
 Quatre phases iteratives (Phase 1 Fondations → Phase 4 Monitoring) ont ete executees et validees SAIN. Un Cycle 3 d'audit massif (24 sessions S0-S23) a ete complete (100%, 35/42 fixes) et merge sur `main` le 2026-04-10.
 
-> **Tension observee**. Certains fichiers legacy (par ex. `modules/app/data/commander.md`) contiennent encore un vocabulaire grandiose (« revolution historique », « reference mondiale », « $1B+ potential ») qui contredit directement les anti-bullshit gates actuels du `CLAUDE.md`. C'est une trace de la premiere iteration, pas l'etat revendique aujourd'hui.
+> **Tension observee**. Certains fichiers legacy (par ex. `.archive/app-data-jsx-260417/data/commander.md`) contiennent encore un vocabulaire grandiose (« revolution historique », « reference mondiale », « $1B+ potential ») qui contredit directement les anti-bullshit gates actuels du `CLAUDE.md`. C'est une trace de la premiere iteration, pas l'etat revendique aujourd'hui.
 
 ---
 
@@ -222,7 +222,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 |-----------|-----------------|-------------|
 | Documents Core OS | 8 specs | `docs/core/` (cortex, communication, monitor, tools, planner, worktrees, knowledge, architecture-core) |
 | Plans de phases | 7 plans dates | `docs/plans/` (phase1 → phase4, cycle3, finition-os, audit-massif) |
-| Specs | 1 design spec v2 | `docs/specs/2026-04-05-foundation-os-v2-design.md` |
+| Specs | 1 design spec v2 | `.archive/specs-done-260417/2026-04-05-foundation-os-v2-design.md` |
 | Audit massif Cycle 3 | 4 livrables rediges + 20 placeholders | `.archive/audit-massif/` (00-INDEX + 00-preflight + 01-carto + 02-inventaire + 03-fondations-core) |
 | Agents Claude | 4 agents / 193L | `.claude/agents/` |
 | Commands Claude | 7 commands | `.claude/commands/` (cockpit, plan-os, session-start, session-end, new-project, sync, wt) |
@@ -231,7 +231,7 @@ Une seule migration active `001_create_tables.sql`. Toutes les tables utilisent 
 | Pages React | 7 pages TSX | `modules/app/src/pages/` |
 | Composants React | 13 composants (dont 7 panels Commander + 3 forms) | `modules/app/src/components/` |
 | Tests Vitest | 19 tests / 6 fichiers | `modules/app/src/test/` |
-| MD pairs Data | 7 fichiers | `modules/app/data/` (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) |
+| MD pairs Data (archive) | 7 fichiers | `.archive/app-data-jsx-260417/data/` (commander, graph, index, knowledge, scale-orchestrator, sync, toolbox) |
 | Migration SQL | 1 migration | `supabase/migrations/001_create_tables.sql` |
 | Workflows CI | 2 workflows | `.github/workflows/ci.yml`, `supabase-ping.yml` |
 | BMAD v6 | 12 modules (dormant) | `_bmad/core/` |
@@ -280,7 +280,7 @@ Foundation OS est un chantier de 2 mois. Il est passe d'un empilement d'artifact
 
 ### Sources lues pour ce manifeste
 
-`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index-documentation.md`, `.archive/docs-old/design-system-v1.md`, `docs/specs/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `modules/app/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
+`CLAUDE.md`, `CONTEXT.md`, `README.md`, `docs/architecture.md`, `docs/core/architecture-core.md`, `docs/core/cortex.md`, `docs/core/communication.md`, `docs/core/monitor.md`, `docs/core/tools.md`, `.archive/directive-v1.md`, `docs/index-documentation.md`, `.archive/docs-old/design-system-v1.md`, `.archive/specs-done-260417/2026-04-05-foundation-os-v2-design.md`, `.archive/audit-massif/00-INDEX.md`, `.archive/audit-massif/00-preflight.md`, `.archive/audit-massif/01-carto-repo.md`, `.archive/audit-massif/02-inventaire-components.md`, `.archive/audit-massif/03-fondations-core.md`, `.claude/agents/os-architect.md`, `modules/app/package.json`, `modules/app/src/App.tsx`, `.archive/app-data-jsx-260417/data/commander.md`, `supabase/migrations/001_create_tables.sql`. Inventaires filesystem obtenus via `find` et `wc -l`.
 
 ### Refs externes
 

@@ -14,7 +14,7 @@ CORE OS        (cortex, communication,  Intelligence methodologique
 TOOLKIT        (OMC, BMAD, MCP)         Outils externes
 ```
 
-Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → routing → execution → cloture. Les commands /plan-os, /session-start, /session-end, /sync, /new-project, /wt restent utilisables independamment. Spec : `docs/specs/2026-04-10-cockpit-design.md`.
+Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → routing → execution → cloture. Les commands /plan-os, /session-start, /session-end, /sync, /new-project, /wt restent utilisables independamment. Spec : `.archive/specs-done-260417/2026-04-10-cockpit-design.md`.
 
 ## Modules
 

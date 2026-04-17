@@ -112,4 +112,4 @@ Kevin n'a plus a choisir entre /session-start, agents, ou /session-end.
 
 **Routing** : le cockpit utilise la table de routing section 1 (memes signaux, memes agents). La seule difference : le routing est automatique au lieu de manuel.
 
-**Spec complete** : `docs/specs/2026-04-10-cockpit-design.md`
+**Spec complete** : `.archive/specs-done-260417/2026-04-10-cockpit-design.md`

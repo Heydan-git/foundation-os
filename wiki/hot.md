@@ -64,7 +64,7 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 ## Active Threads
 
 - **Mega Audit V2 DONE** (rapport-master-v2.md, rapport-comportement.md, 7 raw/) — FORME 7.2/10 + FONCTION 4/10
-- **2 plans execution prets** : FORME (`docs/plans/2026-04-16-mega-audit-v2-execution.md`) + FONCTION (`docs/plans/2026-04-16-mega-audit-v2-fonction.md`)
+- **2 plans execution archives** : FORME (`.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md`) + FONCTION (`.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md`)
 - **Definition canonique** `wiki/concepts/Foundation OS.md` (227L) — LIRE EN PREMIER au SessionStart
 - **5 pieges comportementaux** documentes dans `wiki/meta/lessons-learned.md` (ne pas repeter)
 - Audit profondeur DONE (session precedente) — 128 fichiers lus, dette v11 eliminee

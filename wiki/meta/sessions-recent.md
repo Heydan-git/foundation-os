@@ -53,7 +53,7 @@ related:
 ## 2026-04-17 (soir) · Audit v2 S3 Phase 16 I-09 Memory auto-priorisation
 
 **Durée** : 1 session courte (~1h)
-**Scope** : Plan S3 versionne (`docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements) + Phase 16 I-09 execute seul (Kevin : 3 sessions separees, hook auto OUI, ratings.jsonl, 5 tiers complets).
+**Scope** : Plan S3 versionne (`.archive/plans-done-260417/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements) + Phase 16 I-09 execute seul (Kevin : 3 sessions separees, hook auto OUI, ratings.jsonl, 5 tiers complets).
 
 **Livraison** (1 commit + 1 merge) :
 - 25 auto-memories : frontmatter `last_used: 2026-04-17` injecte via awk BSD-safe (guard : skip MEMORY.md index, skip si pas de `type:`)
@@ -139,11 +139,11 @@ related:
 **Livrables** :
 - `wiki/concepts/Foundation OS.md` (definition canonique 227L — LIRE EN PREMIER)
 - `CLAUDE.md` (pointeur en tete vers page canonique)
-- `docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md` (unifie FORME + FONCTION)
-- `docs/audits/2026-04-16-mega-audit-v2/rapport-comportement.md` (20 findings + 10 innovations)
+- `.archive/audit-v2-done-260417/rapport-master-v2.md` (unifie FORME + FONCTION)
+- `.archive/audit-v2-done-260417/rapport-comportement.md` (20 findings + 10 innovations)
 - `docs/audits/2026-04-16-mega-audit-v2/raw/agent-*.md` (7 rapports bruts hygiene)
-- `docs/plans/2026-04-16-mega-audit-v2-execution.md` (plan FORME, 8 phases, 3h30)
-- `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (plan FONCTION, 11 phases, 15-18h)
+- `.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md` (plan FORME, 8 phases, 3h30)
+- `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` (plan FONCTION, 11 phases, 15-18h)
 - `wiki/meta/lessons-learned.md` (5 pieges Claude ajoutes)
 
 **Threads ouverts** :

@@ -23,7 +23,7 @@
 Super-pilote TDAH-friendly. Un seul appel, zero friction.
 Coexiste avec /session-start, /session-end, /sync, /new-project (qui restent intactes).
 
-Spec design : `docs/specs/2026-04-10-cockpit-design.md`
+Spec design : `.archive/specs-done-260417/2026-04-10-cockpit-design.md`
 
 ## Phase 1 — SCAN (parallele)
 

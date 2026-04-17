@@ -57,7 +57,7 @@ Memoire auto : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/` (29 f
 | **Planner** | `docs/core/planner.md` | Orchestrateur skills plan + EnterPlanMode |
 | **Worktrees** | `docs/core/worktrees.md` | Plomberie + workflow `/wt` |
 | **Knowledge** | `docs/core/knowledge.md` | Wiki layer persistant (claude-obsidian D-WIKI-01) |
-| **Cockpit** | `docs/specs/2026-04-10-cockpit-design.md` | Point d'entree unique super-pilote |
+| **Cockpit** | `.archive/specs-done-260417/2026-04-10-cockpit-design.md` | Point d'entree unique super-pilote |
 
 ### Agents (`.claude/agents/`)
 
@@ -172,5 +172,5 @@ Decisions structurantes recentes :
 - Manifeste : `docs/manifeste.md`
 - Index navigation : `docs/index-documentation.md`
 - Conventions : `docs/core/naming-conventions.md`
-- Cockpit spec : `docs/specs/2026-04-10-cockpit-design.md`
+- Cockpit spec : `.archive/specs-done-260417/2026-04-10-cockpit-design.md`
 - Plan migration Desktop : `.archive/plans-done-260415/2026-04-15-migration-foundation-desktop.md`
