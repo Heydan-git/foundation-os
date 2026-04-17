@@ -41,7 +41,14 @@ Concepts canoniques (a lire pour comprendre l'OS) : [[Foundation OS]] · [[Core 
 
 ## Documentation (docs/)
 
-Voir [docs/index-documentation.md](../../docs/index-documentation.md) pour la navigation complete des specs/plans/manifeste.
+Hubs principaux (wikilinks pour graph Obsidian) :
+- [[docs/architecture|Architecture globale]]
+- [[docs/manifeste|Manifeste]]
+- [[docs/setup-guide|Setup guide]]
+- [[docs/decisions-log|Decisions archivees]]
+- [[docs/index-documentation|Index documentation]]
+- [[docs/core/tools/README-tools-catalogue|README Tools Catalogue]]
+- [[docs/specs/README|Specs README]]
 
 ## Travaux Cowork
 

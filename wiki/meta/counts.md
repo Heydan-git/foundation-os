@@ -39,7 +39,7 @@ related:
 
 | Metrique | Valeur | Commande |
 |----------|--------|----------|
-| Wikilinks totaux | 643 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
+| Wikilinks totaux | 706 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
 
 ## Consumers (pages qui pointent ici, source unique)
 
