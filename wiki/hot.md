@@ -19,7 +19,11 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-17 (nuit) : **Audit v2 S3 COMPLET** (3/3 phases). P17 I-06 contradiction detector 5 tiers + P18 I-10 feedback loop livres dans la foulee de P16. `scripts/tier-contradiction-check.sh` (40 chars min, 4 paires, mode --quiet, chain sync section 9 + health INFO) + `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N) + `.claude/commands/session-end.md` Phase 7bis AskUserQuestion + `.omc/ratings.jsonl` append-only + routine mensuelle documentee. Commits 7466910 + 8190abc. Dry-run contradiction detecte 1 vraie duplication CLAUDE<->docs/core/knowledge (a trancher session dediee). Plan S3 archive `.archive/plans-done-260417/`. FONCTION estime ~7/10.
+2026-04-17 (cleanup) : **Cleanup complet drifts + refs + TSX legacy** (Opus 4.7, 6 commits atomiques). Plan `parsed-swimming-torvalds.md` 8 phases. Archivage rapports audit v2 (10 fichiers) + recablage 31 refs cassees vers `.archive/` + resolution contradiction CLAUDE<->knowledge.md (canonique = knowledge.md section 5) + seuils TSX ajustes (800L ui/ shadcn, 2000L patterns/ showcase) + CONTEXT compress 179->133L + CLAUDE compress 220->195L + drift-detector regex worktrees Desktop hex + wiki/index-wiki count sync. **Verdict : SAIN** (0 critical, 0 warning, ref-checker 88->0, drift-detector SYNC, tier-contradiction 0, 15/15 tests, 0 erreur TS). Commits 9f9bf4c + 2f78d5c + 64fd1a7 + 205a1e4 + 570846f + c26ef46.
+
+### Avant (2026-04-17 nuit)
+
+**Audit v2 S3 COMPLET** (3/3 phases). P17 I-06 contradiction detector 5 tiers + P18 I-10 feedback loop livres dans la foulee de P16. Plan S3 archive `.archive/plans-done-260417/`. FONCTION estime ~7/10. Commits 7466910 + 8190abc.
 
 ### Avant (2026-04-17 soir)
 
@@ -53,13 +57,15 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 
 ## Recent Changes
 
-- 2026-04-17 `8190abc` feat(os): I-10 — feedback loop post-session (rating .omc/ratings.jsonl)
-- 2026-04-17 `7466910` feat(os): I-06 — tier-contradiction-check.sh (5 tiers, 40 chars min)
+- 2026-04-17 `c26ef46` chore(os): cleanup drifts (CONTEXT 133L, CLAUDE 195L, regex, index-wiki)
+- 2026-04-17 `570846f` chore(health): raise TSX threshold 2000L for patterns/ DS (showcase)
+- 2026-04-17 `205a1e4` chore(health): raise TSX threshold 800L for ui/ DS (shadcn origin)
+- 2026-04-17 `64fd1a7` fix(refs): rewire 31 broken refs to .archive after audit v2 execution
+- 2026-04-17 `2f78d5c` fix(os): resolve tier contradiction CLAUDE <-> knowledge.md
+- 2026-04-17 `9f9bf4c` chore(audit): archive audit v2 reports to .archive/audit-v2-done-260417
+- 2026-04-17 `8190abc` feat(os): I-10 — feedback loop post-session
+- 2026-04-17 `7466910` feat(os): I-06 — tier-contradiction-check.sh
 - 2026-04-17 `a42b5f5` merge: audit v2 S3 Phase 16 I-09 memory auto-priorisation
-- 2026-04-17 `98817e7` feat(os): I-09 — memory auto-priorisation (last_used frontmatter + audit + hook)
-- 2026-04-17 `57c50f7` fix(os): push main auto apres merge — clarif CLAUDE.md + lesson-learned
-- 2026-04-17 `7906c47` merge: audit v2 S1+S2 execution (11 commits)
-- 2026-04-16 `e95c986` fix(os): audit profondeur — v11→v12, counts, fantômes, mémoires, worktrees
 
 ## Active Threads
 

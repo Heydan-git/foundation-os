@@ -136,6 +136,12 @@
       "type": "file"
     },
     {
+      "path": "CONTEXT.md",
+      "accessCount": 8,
+      "lastAccessed": 1776442439256,
+      "type": "file"
+    },
+    {
       "path": "CLAUDE.md",
       "accessCount": 6,
       "lastAccessed": 1776442326950,
@@ -143,14 +149,14 @@
     },
     {
       "path": "wiki/meta/sessions-recent.md",
-      "accessCount": 5,
-      "lastAccessed": 1776441716148,
+      "accessCount": 6,
+      "lastAccessed": 1776442490397,
       "type": "file"
     },
     {
-      "path": "CONTEXT.md",
-      "accessCount": 5,
-      "lastAccessed": 1776442191679,
+      "path": "wiki/hot.md",
+      "accessCount": 4,
+      "lastAccessed": 1776442462330,
       "type": "file"
     },
     {
@@ -193,12 +199,6 @@
       "path": "docs/index-documentation.md",
       "accessCount": 2,
       "lastAccessed": 1776441631217,
-      "type": "file"
-    },
-    {
-      "path": "wiki/hot.md",
-      "accessCount": 2,
-      "lastAccessed": 1776441632886,
       "type": "file"
     },
     {
@@ -245,8 +245,8 @@
     },
     {
       "path": "wiki/meta/lessons-learned.md",
-      "accessCount": 1,
-      "lastAccessed": 1776440452049,
+      "accessCount": 2,
+      "lastAccessed": 1776442518108,
       "type": "file"
     },
     {

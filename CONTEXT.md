@@ -19,6 +19,10 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-17 (cleanup) | **[DONE] Cleanup drifts + refs + TSX legacy (Opus 4.7, 6 commits atomiques)** |
+|            | Scope : post-audit v2 S3, nettoyage complet. Plan `parsed-swimming-torvalds.md` (8 phases 6 elements). Archivage rapports audit v2 (10 fichiers -> `.archive/audit-v2-done-260417/`), recablage 31 refs cassees vers `.archive/`, resolution 1 contradiction CLAUDE<->knowledge.md, seuils TSX ajustes (800L ui/ DS shadcn, 2000L patterns/ DS showcase), CONTEXT.md compression 179->133L + trim sessions 9->5, CLAUDE.md compression 220->195L, drift-detector regex fix (worktrees Desktop hex suffix), wiki/index-wiki count sync (48->45). |
+|            | Verifs : health-check = **SAIN** (0 critical, 0 warning), ref-checker 88->0, tier-contradiction 0, drift-detector SYNC, 15/15 tests app, 0 erreur TS DS. Commits 9f9bf4c + 2f78d5c + 64fd1a7 + 205a1e4 + 570846f + c26ef46. |
+|            | Decisions implicites : tier canonique refs renommage = knowledge.md section 5 (pas CLAUDE.md), patterns/ DS accepte >1500L (template showcase reference par ligne 41 ui/). |
 | 2026-04-17 (nuit) | **[DONE] Audit v2 S3 Phase 17+18 — Contradiction + Feedback (Opus 4.7)** |
 |            | Scope : enchainement S3 apres P16. Phase 17 I-06 contradiction detector 5 tiers + Phase 18 I-10 feedback loop post-session. Plan S3 complete (3/3 phases). |
 |            | Livrables : `scripts/tier-contradiction-check.sh` (scan 40 chars min, 4 paires CLAUDE/CONTEXT/memory/docs/wiki, mode --quiet, pattern subshell-safe) chain sync-check section 9 + health-check INFO. `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N + patterns 7-derniers). `.claude/commands/session-end.md` Phase 7bis AskUserQuestion rating. `.omc/ratings.jsonl` append-only trackable. `wiki/meta/routines-setup.md` routine mensuelle ratings-monthly-review. |
@@ -36,9 +40,7 @@
 |            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
 |            | Livrables : wiki/concepts/Foundation OS.md (definition canonique 227L), docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md, rapport-comportement.md, 7 raw/, 2 plans execution (FORME 1403L + FONCTION 600L), CLAUDE.md pointeur canonique. |
 |            | 2 plans dispo archives apres execution : `.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md` (FORME) + `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` (FONCTION). |
-| 2026-04-16 | **[DONE] Audit profondeur + fantômes + sous-index graph Obsidian** |
-|            | Audit 128 fichiers (7 agents opus). 14 fantômes Obsidian supprimés. 4 worktrees nettoyés. v11→v12 ~25 fichiers. 6 mémoires deprecated. CLAUDE.md +4 impératifs. 7 sous-index wiki créés (core-os, app, concepts, entities, sources, meta, cowork). Graph restructuré hub→sous-index→fichiers. 12 commits. |
-> Sessions plus anciennes (Hygiene OS 2026-04-16 `b1d7501`, Audit Mapping + Mega Audit Final 2026-04-16 D-NAMING-02+D-VAULT-01, Adoption Wiki D-WIKI-01 2026-04-16 19 commits, Level Up OS 7 phases 2026-04-15 D-LEVELUP-01/02/03, Migration Desktop 9 phases 2026-04-15, DS iso visuel 46 composants, S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/` + `.archive/plans-done-260415/` + `.archive/plans-done-260416/`.
+> Sessions plus anciennes (Audit profondeur + fantomes + sous-index graph 2026-04-16 12 commits, Hygiene OS 2026-04-16 `b1d7501`, Audit Mapping + Mega Audit Final 2026-04-16 D-NAMING-02+D-VAULT-01, Adoption Wiki D-WIKI-01 2026-04-16 19 commits, Level Up OS 7 phases 2026-04-15 D-LEVELUP-01/02/03, Migration Desktop 9 phases 2026-04-15, DS iso visuel 46 composants, S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/` + `.archive/plans-done-260415/` + `.archive/plans-done-260416/`.
 
 ## Cap
 
