@@ -9,13 +9,12 @@ status: evergreen
 related:
   - "[[index-meta]]"
   - "[[index-wiki]]"
-  - "[[log]]"
   - "[[overview]]"
 ---
 
 # Hot Cache
 
-Navigation: [[index-wiki]] | [[log]] | [[overview]]
+Navigation: [[index-wiki]] | [[overview]]
 
 ## Last Updated
 

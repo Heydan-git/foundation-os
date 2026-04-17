@@ -8,7 +8,6 @@ tags:
 status: evergreen
 related:
   - "[[overview]]"
-  - "[[log]]"
   - "[[hot]]"
   - "[[foundation-os-map]]"
   - "[[index-concepts]]"
@@ -23,7 +22,7 @@ related:
 
 Last updated: 2026-04-17 | Stats : voir [[counts]]
 
-Navigation: [[overview]] | [[log]] | [[hot]]
+Navigation: [[overview]] | [[hot]]
 
 ## Domaines
 
@@ -88,7 +87,6 @@ Navigation: [[overview]] | [[log]] | [[hot]]
 - [[lessons-learned]] — Auto-apprentissage erreurs/pieges (neuroplasticite)
 - [[routines-guardrails]] — Garde-fous communs des 14 routines
 - [[routines-setup]] — Prompts des 14 routines Desktop autopilote
-- [[session-dna]] — Empreinte ADN des sessions (patterns, metriques)
 - [[meta/templates/concept]]
 - [[meta/templates/source]]
 - [[meta/templates/entity]]

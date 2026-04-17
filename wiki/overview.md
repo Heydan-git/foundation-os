@@ -9,7 +9,6 @@ status: evergreen
 related:
   - "[[index-meta]]"
   - "[[index-wiki]]"
-  - "[[log]]"
   - "[[hot]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Obsidian]]"

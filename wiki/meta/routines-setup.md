@@ -97,7 +97,7 @@ Lance ces commandes et note les resultats :
 === ETAPE 2 : AGIR (si problemes detectes) ===
 
 2a. hot.md stale (> 3 jours) :
-- Lis wiki/log.md pour les dernieres operations
+- Lis wiki/meta/sessions-recent.md pour les dernieres sessions
 - Lis git log --oneline -10 pour les derniers commits
 - Reecris wiki/hot.md avec le format standard :
   Last Updated / Key Recent Facts / Recent Changes / Active Threads / Next Action
@@ -217,7 +217,7 @@ Pour chaque page wiki modifiee a l'etape 2 :
 
 === ETAPE 4 : METTRE A JOUR INDEX ===
 - Mettre a jour wiki/index-wiki.md : les nouvelles pages/modifications doivent y etre
-- Mettre a jour wiki/log.md : ajouter une entree "Routine consolidation : N pages enrichies, M liens bidirectionnalises"
+- Append entree dans wiki/meta/sessions-recent.md : "Routine consolidation : N pages enrichies, M liens bidirectionnalises"
 
 === GARDE-FOUS (NON NEGOCIABLE) ===
 - JAMAIS supprimer du contenu existant d'une page (SEULEMENT ajouter)
@@ -658,7 +658,7 @@ Pour chaque plan :
 PLAN TERMINE (toutes cases [x] OU status done/closed) :
   1. mkdir -p .archive/plans-done-$(date +%y%m%d)
   2. git mv docs/plans/[fichier] .archive/plans-done-$(date +%y%m%d)/
-  3. Ajouter dans wiki/log.md : "[date] Routine planner : plan [titre] archive"
+  3. Append dans wiki/meta/sessions-recent.md : "[date] Routine planner : plan [titre] archive"
   4. Si le plan est mentionne dans wiki/hot.md → retirer la mention
 
 PLAN STALE (zero [x] ajoute depuis > 14 jours) :
@@ -667,7 +667,7 @@ PLAN STALE (zero [x] ajoute depuis > 14 jours) :
   - NE PAS archiver (Kevin decide)
 
 === SCOPE ===
-Modifie : docs/plans/ (git mv pour archivage), .archive/, wiki/log.md, wiki/hot.md, wiki/meta/thinking.md
+Modifie : docs/plans/ (git mv pour archivage), .archive/, wiki/meta/sessions-recent.md, wiki/hot.md, wiki/meta/thinking.md
 JAMAIS modifier le contenu d'un plan.
 
 === COMMIT ===

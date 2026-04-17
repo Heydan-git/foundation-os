@@ -34,8 +34,6 @@ Navigation : [[foundation-os-map]] | [[index-wiki]] | [[Neuroplasticite]]
 
 | Page | Role | Frequence |
 |------|------|-----------|
-| [[log]] | Journal chronologique operations wiki | Append en /session-end |
-| [[session-dna]] | Empreinte ADN des sessions (YAML structure) | Append en /session-end |
 | [[foundation-os-map]] | Carte neuronale complete (hub central graph) | Mis a jour en session |
 
 ## Routines

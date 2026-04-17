@@ -11,7 +11,6 @@ status: evergreen
 related:
   - "[[index-meta]]"
   - "[[hot]]"
-  - "[[log]]"
   - "[[thinking]]"
   - "[[lessons-learned]]"
   - "[[index-wiki]]"
