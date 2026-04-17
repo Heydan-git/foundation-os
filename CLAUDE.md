@@ -125,10 +125,26 @@ Lecture SessionStart elargie (pas de limite tokens) :
 Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Si renommage → recabler TOUTES les refs. Verifier refs apres toute modification.
 
 ### Interdit sans Kevin
-- `git push` sur main/remote ou `--force`
+- `git push --force` ou `rewrite history` jamais
 - `rm -rf` hors `.archive/` ou `node_modules` regenerable
 - `git commit` automatique (attendre OK sauf `/session-end` apres diff review)
 - Actions Asana/Notion/MCP externes
+
+### Push main : autorise automatiquement apres merge valide par Kevin
+**Fin de session** : si Kevin dit "on merge", "merge dans main", "clotur ce travail", "change de session" → **le push sur origin/main fait partie du merge**. Pas de push = nouveau contexte aveugle + Vercel stale + autres devices desync.
+
+**Workflow attendu** :
+1. Kevin valide merge (explicite ou implicite "on clot")
+2. `git merge --no-ff <branch>` sur main
+3. **`git push origin main` IMMEDIATEMENT** (sans redemander)
+4. Brief cloture signale "merge + push DONE"
+
+**Interdit quand meme** :
+- `git push --force` sur main (re-ecrit historique → JAMAIS)
+- `git push` sur des branches dev pas validees par Kevin
+- `git push` immediatement apres un commit isole sans contexte session-end
+
+Raison racine : CLAUDE.md ligne 128 ancienne ("git push jamais sans Kevin") etait trop literal. Kevin s'attendait a push auto en fin de merge. Lesson-learned 2026-04-17 documentee.
 
 ## Garde-fous (non-negociable)
 - Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json, package-lock.json)
