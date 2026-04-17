@@ -74,6 +74,11 @@ Mega Audit V2 COMPLET (Opus 4.7). FORME + FONCTION audites. 166 findings (146 hy
 - Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop)
 - Phase 19 I-03 brief adaptatif (nice-to-have)
 
-**Prochaine session possible** : merge main + archiver plans + decider Phase 5 (Finance/Sante/Trading) OU continuer Phase 16-18.
+**Decision Kevin 2026-04-17** : merge main done, prochaine session = Phase 16-18 (I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop). Nettoyage Phase 7-9 APRES (a la fin, apres autres chantiers possibles).
+
+**LIRE EN PREMIER au SessionStart S3** :
+1. `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (auto-memory, charge AUTO)
+2. CONTEXT.md section "Chantier en cours"
+3. `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9 (detail verbatim)
 
 Objectif atteint : FORME 7.2→8.5/10 (estime) + FONCTION 4→6.5/10 (estime).

@@ -45,6 +45,20 @@
 |            | Memoire creee : `feedback_plans_ultra_detailles.md`. |
 > Sessions plus anciennes (Migration Desktop 9 phases DONE 2026-04-15, DS iso visuel 46 composants) (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
 
+## Chantier en cours
+
+**Audit v2 execution** — S1+S2 DONE (11 commits merges main 2026-04-17), S3 a faire nouvelle session.
+
+| Phase | I- | Role | Duree | Status |
+|-------|-----|------|-------|--------|
+| 16 | I-09 | Memory auto-priorisation (last_used + trim script) | 1h | TODO S3 |
+| 17 | I-06 | Contradiction detector tiers (CLAUDE/CONTEXT/memory/docs/wiki) | 2h | TODO S3 |
+| 18 | I-10 | Feedback loop post-session (rating Y/N/partial) | 1h | TODO S3 |
+
+**Apres S3 + autres chantiers** : session nettoyage dediee Phase 7-9 drifts P1-P3 (~2h, low value, cosmetique).
+
+**Memoire handoff complete** : `~/.claude/projects/.../memory/project_audit_v2_s3_handoff.md` (LIRE EN PREMIER nouvelle session). Plan detail `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` Phases 7-9.
+
 ## Cap
 
 **Direction** : Audit v2 S1+S2 DONE (~75% plan master). FORME : 7.2/10 -> ~8.5/10 (estime). FONCTION : 4/10 -> ~6.5/10 (estime). OS passe de "pile de rituels documentes" a "systeme avec mecanisme de mesure cognitive" (sessions-analyze + neuroplasticity-score + propositions-generator).

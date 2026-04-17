@@ -16,7 +16,7 @@ related:
 
 # Session Patterns — Analytics
 
-> Auto-regenere par . Source :  (72 sessions).
+> Auto-regenere par `scripts/sessions-analyze.sh`. Source : `~/.claude/projects/-Users-kevinnoel-foundation-os/*.jsonl` (28 sessions (periode 7d)).
 >
 > Objectif : observer comment Kevin travaille avec Claude pour detecter patterns, friction, opportunites d'amelioration.
 
@@ -24,123 +24,123 @@ related:
 
 | Metrique | Valeur |
 |----------|--------|
-| Sessions analysees | 72 |
-| Messages Kevin totaux | 548 |
-| Tool calls totaux | 9549 |
-| Moyenne msgs/session | 7.6 |
-| Moyenne tools/session | 132.6 |
+| Sessions analysees | 28 |
+| Messages Kevin totaux | 203 |
+| Tool calls totaux | 3846 |
+| Moyenne msgs/session | 7.2 |
+| Moyenne tools/session | 137.4 |
+| Transcripts total | 58.1 MB |
 
 ## Slash commands frequence (top 10)
 
 | Command | Count | Part |
 |---------|-------|------|
-|  | 27 | 30.0% |
-|  | 26 | 28.9% |
-|  | 19 | 21.1% |
-|  | 13 | 14.4% |
-|  | 4 | 4.4% |
-|  | 1 | 1.1% |
+| `/cockpit` | 4 | 100.0% |
 
 ## Tools utilises (top 15)
 
 | Tool | Count | Part |
 |------|-------|------|
-|  | 3192 | 33.4% |
-|  | 1864 | 19.5% |
-|  | 1298 | 13.6% |
-|  | 636 | 6.7% |
-|  | 550 | 5.8% |
-|  | 356 | 3.7% |
-|  | 346 | 3.6% |
-|  | 203 | 2.1% |
-|  | 145 | 1.5% |
-|  | 98 | 1.0% |
-|  | 93 | 1.0% |
-|  | 92 | 1.0% |
-|  | 87 | 0.9% |
-|  | 86 | 0.9% |
-|  | 69 | 0.7% |
+| `Bash` | 1214 | 31.6% |
+| `Read` | 852 | 22.2% |
+| `Edit` | 548 | 14.2% |
+| `Write` | 253 | 6.6% |
+| `TaskUpdate` | 200 | 5.2% |
+| `Grep` | 169 | 4.4% |
+| `TaskCreate` | 118 | 3.1% |
+| `mcp__plugin_chrome-devtools-mcp_chrome-devtools__navigate_page` | 78 | 2.0% |
+| `mcp__plugin_chrome-devtools-mcp_chrome-devtools__take_screenshot` | 70 | 1.8% |
+| `Skill` | 42 | 1.1% |
+| `Agent` | 39 | 1.0% |
+| `mcp__neon-browser__tab-content-jq-search-query` | 37 | 1.0% |
+| `ToolSearch` | 29 | 0.8% |
+| `mcp__neon-browser__click` | 28 | 0.7% |
+| `Glob` | 26 | 0.7% |
 
 ## Agents delegues (top 10 via Task tool)
 
 | Agent | Count |
 |-------|-------|
-| (aucun agent delegue dans la periode) | 0 |
+| (aucun agent delegue) | 0 |
 
 ## Lexique Kevin — top 30 mots (hors stopwords, >= 4 chars)
 
 | Mot | Count |
 |-----|-------|
-| task | 1171 |
-| file | 968 |
-| output | 928 |
-| foundation | 819 |
-| claude | 809 |
-| status | 737 |
-| users | 640 |
-| kevinnoel | 633 |
-| tool | 633 |
-| summary | 621 |
-| code | 590 |
-| notification | 580 |
-| completed | 538 |
-| memory | 381 |
-| exit | 326 |
-| check | 310 |
-| json | 308 |
-| command | 305 |
-| tasks | 305 |
-| private | 295 |
-| session | 271 |
-| system | 268 |
-| files | 266 |
-| modules | 259 |
-| background | 257 |
-| context | 225 |
-| data | 209 |
-| module | 204 |
-| build | 199 |
-| test | 189 |
+| task | 272 |
+| output | 210 |
+| claude | 161 |
+| file | 152 |
+| status | 146 |
+| foundation | 139 |
+| tool | 139 |
+| notification | 136 |
+| summary | 136 |
+| completed | 128 |
+| veux | 106 |
+| kevinnoel | 93 |
+| code | 93 |
+| users | 90 |
+| command | 71 |
+| private | 68 |
+| tasks | 68 |
+| background | 63 |
+| exit | 63 |
+| composants | 63 |
+| branch | 58 |
+| main | 50 |
+| build | 46 |
+| merge | 43 |
+| sont | 42 |
+| fois | 41 |
+| check | 39 |
+| worktree | 38 |
+| system | 38 |
+| jolly | 36 |
 
 ## Rework ratio — fichiers modifies plusieurs fois
 
-**227 fichiers** modifies > 1 fois (sur 487 fichiers distincts).
+**124 fichiers** modifies > 1 fois (sur 283 fichiers distincts).
 
 | Fichier | Modifications |
 |---------|---------------|
-|  | 340 |
-|  | 53 |
-|  | 40 |
-|  | 32 |
-|  | 32 |
-|  | 23 |
-|  | 23 |
-|  | 22 |
-|  | 21 |
-|  | 20 |
+| `~/foundation-os/CONTEXT.md` | 119 |
+| `~/foundation-os/modules/app/src/lib/mutations.ts` | 31 |
+| `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/MEMORY.md` | 17 |
+| `~/foundation-os/docs/monitor/data.js` | 17 |
+| `~/foundation-os/CLAUDE.md` | 15 |
+| `~/foundation-os/modules/app/src/pages/IndexPage.tsx` | 15 |
+| `~/foundation-os/modules/design-system/package.json` | 15 |
+| `~/foundation-os/modules/app/src/App.tsx` | 11 |
+| `~/foundation-os/scripts/health-check.sh` | 10 |
+| `~/foundation-os/modules/design-system/src/styles/globals.css` | 9 |
 
 ## Sessions recentes (5 dernieres)
 
 | Session | Date | Msgs Kevin | Tool calls | Fichiers touches |
 |---------|------|-----------|-----------|------------------|
-|  | 2026-04-16 | 7 | 194 | 22 |
-|  | 2026-04-15 | 13 | 81 | 16 |
-|  | 2026-04-15 | 45 | 398 | 35 |
-|  | 2026-04-15 | 3 | 13 | 1 |
-|  | 2026-04-14 | 0 | 117 | 11 |
+| `b6e881e7...` | 2026-04-16 | 7 | 194 | 22 |
+| `83ec785d...` | 2026-04-15 | 13 | 81 | 16 |
+| `8b1ca419...` | 2026-04-15 | 45 | 398 | 35 |
+| `047a27da...` | 2026-04-15 | 3 | 13 | 1 |
+| `b1478500...` | 2026-04-14 | 0 | 117 | 11 |
 
 ## Insights
 
-- **Command dominant** :  (27 invocations = 30% du total)
-- **Tool dominant** :  (3192 calls = 33% du total)
-- **Agents peu delegues** : oui (ratio Task/total tools < 5%)
-- **Rework concentre** : top fichier modifie 340 fois sur 72 sessions
+- **Command dominant** : `/cockpit` (4 invocations = 100% du total)
+- **Tool dominant** : `Bash` (1214 calls = 32% du total)
+- **Ratio delegation agents** : Task = 0/3846 tool calls (0.0%). Faible delegation (Claude fait tout en direct).
+- **Rework concentre** : top fichier modifie 119 fois sur 28 sessions
 
 ## Regeneration
 
-
+```bash
+bash scripts/sessions-analyze.sh                   # complet
+bash scripts/sessions-analyze.sh --limit=10        # dev (10 sessions)
+bash scripts/sessions-analyze.sh --period=7d       # derniers 7 jours
+```
 
 ## Refs
 
-- Audit v2 :  I-02 (C-17 transcripts inexploites)
-- Note : l'audit mentionnait 71 transcripts dans  — en realite ceux-ci sont 70 metadata-only (189 bytes). Les vrais transcripts sont dans  (72 transcripts reels, 177.2 MB).
+- Audit v2 : `docs/audits/2026-04-16-mega-audit-v2/rapport-comportement.md` I-02 (C-17 transcripts inexploites)
+- Decouverte : les vrais transcripts sont dans `~/.claude/projects/-Users-kevinnoel-foundation-os/*.jsonl` (28 transcripts, 58.1 MB). `.omc/sessions/*.json` ne contient que metadata 189 bytes chacune.
