@@ -296,6 +296,7 @@ Le brief est du **Markdown natif** (PAS du box-drawing terminal). Claude Desktop
 12. **REFLEXION** `🤔` : bullets courtes
 13. **HISTORIQUE** `📜` : table 3 decisions recentes
 14. **CAP + INPUT** `🎯📥` : direction + prochaines actions + choix Kevin
+15. **PROPOSITIONS CLAUDE** `🤖` (optionnel, I-04 audit v2) : max 3 propositions proactives si triggers actifs. Table `| emoji | proposition | raison | action |`. Triggers : drift detecte, hot.md stale, plans inactifs > 7j, lessons-learned recentes, idees en parking >= 5. Si aucun trigger → tuile non affichee. Genere par `scripts/propositions-generator.sh`.
 
 #### Regle plans
 
