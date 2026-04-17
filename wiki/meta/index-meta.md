@@ -50,5 +50,3 @@ Navigation : [[foundation-os-map]] | [[index-wiki]] | [[Neuroplasticite]]
 | [[meta/templates/concept]] | Nouveau concept wiki |
 | [[meta/templates/entity]] | Nouvelle entity wiki |
 | [[meta/templates/source]] | Nouvelle source ingeree |
-| [[meta/templates/comparison]] | Analyse comparative |
-| [[meta/templates/question]] | Q&A avec citations |
