@@ -222,6 +222,4 @@ Cette page est ce resume. CLAUDE.md pointe vers cette page en tete avec une dire
 
 ## Sources
 
-- [[session-2026-04-16-wiki-adoption]]
-- [[session-2026-04-16-neuroplasticity-audit]]
 - Session 2026-04-16 mega audit v2 (cette page ecrite)

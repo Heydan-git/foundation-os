@@ -61,4 +61,3 @@ Sans Core OS, chaque session Claude serait ad-hoc. Core OS garantit : continuite
 
 ## Sources
 
-- [[session-2026-04-16-neuroplasticity-audit]]

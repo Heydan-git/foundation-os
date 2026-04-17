@@ -74,4 +74,3 @@ Les 7 failles identifiees lors de l'audit post-adoption wiki (cerveau passif, ti
 
 ## Sources
 
-- [[session-2026-04-16-neuroplasticity-audit]]
