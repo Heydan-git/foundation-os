@@ -20,6 +20,7 @@ Le catalogue est la source de verite pour le routing intelligent.
 |-------|---------|------|
 | Void Glass validator | scripts/hooks/validate-void-glass.sh | PreToolUse hook — bloque les couleurs/fonts interdites |
 | Security reminder | scripts/hooks/security-reminder.py | PreToolUse hook — rappel de ne pas commit de secrets |
+| Pre-compaction snapshot | scripts/hooks/pre-compaction-snapshot.sh | PreCompact hook (best-effort) — dump wiki/hot.md + CONTEXT Cap + TodoWrite dans `.omc/snapshots/YYYYMMDD-HHMM.md`. Rotation 14 derniers. Fallback manuel `bash scripts/hooks/pre-compaction-snapshot.sh`. Spec [[Pre-compaction Snapshot]] / `docs/core/knowledge.md` section 12.4 |
 
 ### Scripts
 
