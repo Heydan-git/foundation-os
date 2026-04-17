@@ -37,6 +37,20 @@ Decisions stables migres depuis CONTEXT.md "Decisions actives" lors du housekeep
 | Phase 4 DONE | 2026-04-07 | Monitoring : pre-commit health-check (BROKEN bloque), bundle thresholds JS>600KB/CSS>40KB, token-awareness rules dans CLAUDE.md. |
 | module-scaffold | 2026-04-07 | scripts/module-scaffold.sh (170L) — automatise /new-project, idempotent, --help, gere upgrade ligne CONTEXT.md. Commit 025615c. Sort du backlog Tools moyenne priorite. |
 
+## Archivage 2026-04-17 — 7 decisions stabilisees avril 2026
+
+Decisions stabilisees retirees de CONTEXT.md lors du cleanup drifts Phase 6 (passage CONTEXT.md 179L -> <150L).
+
+| Decision | Date | Detail |
+|----------|------|--------|
+| D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | SUPERSEDE par D-PLAN-02 (/plan-os orchestrateur EnterPlanMode dual-path). |
+| D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 109 outils documentes, routing etendu (35 regles), `tool-register.sh` CLI. |
+| D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. |
+| D-BRIEF-01 Format v11 TDAH | 2026-04-10 | Cadres box-drawing, zones visuelles, alignement strict. SUPERSEDE par brief v12 tuiles Markdown. |
+| D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. 5 tiers persistance (D-WIKI-01) + brief v11/v12. |
+| D-HK-02 Deps upgrade | 2026-04-10 | React 19, Vite 8, Tailwind 4. Build -74%. |
+| Compactage -> re-audit | 2026-04-07 | Si compactage risque -> refaire cycle audit complet avant de continuer. |
+
 ## Protocole
 
 Quand CONTEXT.md depasse 15 decisions actives :

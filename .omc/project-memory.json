@@ -136,21 +136,33 @@
       "type": "file"
     },
     {
+      "path": "CLAUDE.md",
+      "accessCount": 6,
+      "lastAccessed": 1776442326950,
+      "type": "file"
+    },
+    {
       "path": "wiki/meta/sessions-recent.md",
       "accessCount": 5,
       "lastAccessed": 1776441716148,
       "type": "file"
     },
     {
-      "path": "CLAUDE.md",
-      "accessCount": 2,
-      "lastAccessed": 1776441514656,
+      "path": "CONTEXT.md",
+      "accessCount": 5,
+      "lastAccessed": 1776442191679,
       "type": "file"
     },
     {
-      "path": "CONTEXT.md",
-      "accessCount": 2,
-      "lastAccessed": 1776441620969,
+      "path": "scripts/health-check.sh",
+      "accessCount": 3,
+      "lastAccessed": 1776442038558,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/monitor.md",
+      "accessCount": 3,
+      "lastAccessed": 1776442042637,
       "type": "file"
     },
     {
@@ -214,6 +226,24 @@
       "type": "file"
     },
     {
+      "path": "docs/decisions-log.md",
+      "accessCount": 2,
+      "lastAccessed": 1776442223760,
+      "type": "file"
+    },
+    {
+      "path": "scripts/drift-detector.sh",
+      "accessCount": 2,
+      "lastAccessed": 1776442296309,
+      "type": "file"
+    },
+    {
+      "path": "wiki/index-wiki.md",
+      "accessCount": 2,
+      "lastAccessed": 1776442298913,
+      "type": "file"
+    },
+    {
       "path": "wiki/meta/lessons-learned.md",
       "accessCount": 1,
       "lastAccessed": 1776440452049,
@@ -229,12 +259,6 @@
       "path": "docs/core/communication.md",
       "accessCount": 1,
       "lastAccessed": 1776440679965,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/monitor.md",
-      "accessCount": 1,
-      "lastAccessed": 1776440680731,
       "type": "file"
     },
     {
@@ -259,18 +283,6 @@
       "path": "docs/core/knowledge.md",
       "accessCount": 1,
       "lastAccessed": 1776440682880,
-      "type": "file"
-    },
-    {
-      "path": "scripts/health-check.sh",
-      "accessCount": 1,
-      "lastAccessed": 1776440714163,
-      "type": "file"
-    },
-    {
-      "path": "scripts/drift-detector.sh",
-      "accessCount": 1,
-      "lastAccessed": 1776440714997,
       "type": "file"
     },
     {
@@ -313,12 +325,6 @@
       "path": "docs/audits/2026-04-16-mega-audit-v2/rapport-master.md",
       "accessCount": 1,
       "lastAccessed": 1776440804220,
-      "type": "file"
-    },
-    {
-      "path": "wiki/index-wiki.md",
-      "accessCount": 1,
-      "lastAccessed": 1776440804422,
       "type": "file"
     },
     {
