@@ -80,7 +80,7 @@ Mega Audit V2 COMPLET. 166 findings. Foundation OS = 70% structure + 30% fonctio
 
 ## Active Threads
 
-- **Refactor mapping/routage DONE** (14 phases executees + 1 skip). Plan : `docs/plans/2026-04-17-mapping-routage-refactor.md`. Rapport audit : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`.
+- **Refactor mapping/routage DONE** (14 phases executees + 1 skip). Plan : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. Rapport audit : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`.
 - **Wiki operationnel** : voir [[counts]] (45 pages, 636 wikilinks)
 - **Decision Phase 5** (Finance/Sante/Trading) — reportee (toujours en attente Kevin)
 - **14 routines Desktop** documentees — a creer via `/schedule` UI

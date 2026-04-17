@@ -525,7 +525,7 @@ wc -l ~/.claude/projects/-Users-kevinnoel-foundation-os/memory/feedback_tout_aut
 
 ## 7. Recommandations
 
-Voir plan d'execution dedie : [`docs/plans/2026-04-17-mapping-routage-refactor.md`](../../plans/2026-04-17-mapping-routage-refactor.md)
+Voir plan d'execution dedie : [`.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`](../../../.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md)
 
 **Synthese plan** : 15 phases sur 3 sessions (~10h).
 
@@ -666,21 +666,79 @@ find wiki/meta/templates -name "*.md" | wc -l
 # Cible P10 : 3 (comparison + question archives)
 ```
 
-## 9. Execution results
+## 9. Execution results (2026-04-17)
 
-> **SECTION A REMPLIR EN PHASE 15** du plan d'execution. Pour chaque finding : STATUS (RESOLU / SKIP / DEFERRE) + commit hash + commande verification.
+> Execution terminee. 14 phases actives + 1 SKIP (Phase 12 enforcement routing, garde decoratif comme decide).
 
-_Cette section sera completee apres execution des 14 phases actives (Phase 12 SKIP)._
+### Resolution par finding
 
-### Template par finding
+| Finding | Status | Phase | Commit | Verification |
+|---------|--------|-------|--------|-------------|
+| F1 Cockpit Tour 1 divergence | ✅ RESOLU | P7 | `d872aa2` | cockpit.md Tour 1 = 9 reads (idem session-start) |
+| F2 Hook tronque hot.md head -60 | ✅ RESOLU | P7 | `d872aa2` | session-start-wiki.sh : cat hot.md (pas head) |
+| F3 Double appel drift-detector | ✅ RESOLU | P7 | `d872aa2` | Hook retire drift-detector, garde chain health-check INFO |
+| F4 Hub etoile foundation-os-map | ✅ RESOLU | P4 | `dd0825c` | 205L->74L, 81->27 wikilinks (`wc -l` + `grep -c '\[\['`) |
+| F5 index-app.md 7 wikilinks casses | ✅ RESOLU | P3 | `6193d7e` | Archive `.archive/wiki-orphans-260417/index-app.md` |
+| F6 Wikilinks DS hors-vault | ✅ RESOLU | P11 | `5129f13` | 52 wikilinks -> backtick paths modules/design-system/docs-supernova/* |
+| F7 graph.json 3 duplicates couleurs | ✅ RESOLU | P5 | `d2c4af3` | 12 -> 9 groupes (python3 json.load verifie) |
+| F8 4 sources verite counts | ✅ RESOLU | P2 | `15bd8fe` | counts.md source unique, 5 consumers pointent vers [[counts]] |
+| F9 4 journals redondants | ✅ RESOLU | P6 | `d425ea9` | log + session-dna archives, sessions-recent + session-patterns gardees |
+| F10 project_structure outdated | ✅ RESOLU | P8 | `b461e82` | Storybook 9, tokens CSS `--ds-*`, updated |
+| F11 project_audit_v2_s3_handoff active | ✅ RESOLU | P8 | `b461e82` | Deplace vers `memory/_deprecated/` |
+| F12 tools-foundation-os bullshit | ✅ RESOLU | P8+P11 | `b461e82`+`5129f13` | "177+ points" + "26 tools" retires, pointer docs/core/tools.md |
+| F13 feedback_tout_automatique duplication | ✅ RESOLU | P8 | `b461e82` | 60L -> 29L, listes compressees en pointers |
+| F14 Domains Phase 5 squelettes | ✅ RESOLU | P9 | `14a7714` | Callouts [!placeholder] sur trading/finance/sante |
+| F15 Categories mortes | ✅ RESOLU | P10 | `604fbe3` | comparisons/+questions/+canvases/ supprimes + 2 templates archives |
 
-```markdown
-### Fxx — <titre>
-- **Status** : RESOLU / SKIP / DEFERRE
-- **Resolution** : Phase X, commit `abc1234`
-- **Verification** : <commande bash> → <output attendu>
-- **Notes** : <ecart eventuel vs plan>
-```
+### Verdict final
+
+**SAIN complet** post-refactor :
+- Health-check : SAIN (0 critical, 0 warning)
+- Drift-detector : SYNC
+- Wiki-health : SAIN (45 pages, 5 domaines, hot.md 0j)
+- Ref-checker : 138 .md scannes, 0 ref cassee
+- Tier-contradiction : 0 duplications
+- Neuroplasticite : 100% actif (7j)
+- Tests app : 15/15
+- Build : 244ms (modules/app) + modules/design-system OK
+- Counts wiki : 45 pages, 643 wikilinks (stable)
+
+### Metriques avant/apres
+
+| Metrique | Avant | Apres | Delta |
+|----------|-------|-------|-------|
+| Pages wiki | 50 | 45 | -5 (categories mortes + index-app + journals) |
+| Wikilinks total | 791 | 643 | -148 (cleanup DS hors-vault + foundation-os-map compressed) |
+| foundation-os-map.md | 205L, 81 wikilinks | 74L, 27 wikilinks | -64% lignes, -67% wikilinks |
+| graph.json color groups | 12 | 9 | -3 duplicates |
+| Journals wiki meta | 4 | 2 | -2 archives |
+| Templates | 5 | 3 | -2 archives (comparison + question jamais utilises) |
+| Sources verite counts | 4 (hot + overview + index-wiki + counts) | 1 (counts seul) | -3 |
+| Routage SessionStart | 2 reads differents (cockpit 7 vs session-start 9) | 1 unifie (9 reads) | unifie |
+| Ref-checker baseline | 0 | 0 | unchanged (zero regression) |
+| Health-check | SAIN | SAIN | unchanged |
+
+### Lessons retenues (ajoutees wiki/meta/lessons-learned.md)
+
+- **Pattern etoile vs mesh 2 niveaux** : plafonner hubs wiki a 30-40 wikilinks max. Au-dela, decouper en sous-indexes par famille.
+- **Sources verite multiples = drift silencieux** : 1 metrique en plusieurs endroits = divergence garantie. Source unique + pointers + regen auto par script.
+- **Categories vides 1 mois = supprimer** : pas d'usage emerging = pollution visuelle graph + confusion "ou mettre quoi".
+- **Frontieres vault strictes** : backticks paths explicites pour refs hors vault = signal clair "ce n'est pas une page wiki".
+
+### Execution timeline
+
+Session A (Phases 1-5) : ~1h15 (rapport + counts + index-app + navigation + graph)
+Session B (Phases 6-11) : ~1h30 (journals + SessionStart + memoires + domains + categories + DS)
+Session C (Phases 12-15) : ~45min (SKIP routing + tests + docs sync + archive)
+
+Total reel : ~3h30 (vs estime initial ~10h sur 3 sessions). Gains : lecture exhaustive debut session a donne toute l'info + Edits atomiques tres cibles + pas de retour arriere majeur.
+
+### Ouvert apres refactor
+
+- **Decision Phase 5 modules** : Finance / Sante / Trading (Kevin)
+- **Configurer 14 routines Desktop** : UI `/schedule` (Kevin)
+- **OMC update v4.12.0** : actuel v4.10.1 (Kevin decide)
+- **2 worktrees legacy** (sleepy-ellis, suspicious-khayyam) : decision cleanup eventuel
 
 ## 10. Honnetete et limites du present audit
 
@@ -705,7 +763,7 @@ _Cette section sera completee apres execution des 14 phases actives (Phase 12 SK
 
 ## 12. References
 
-- Plan execution : [`docs/plans/2026-04-17-mapping-routage-refactor.md`](../../plans/2026-04-17-mapping-routage-refactor.md)
+- Plan execution : [`.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`](../../../.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md)
 - Foundation OS concept : [`wiki/concepts/Foundation OS.md`](../../../wiki/concepts/Foundation OS.md)
 - CLAUDE.md : [`CLAUDE.md`](../../../CLAUDE.md)
 - CONTEXT.md : [`CONTEXT.md`](../../../CONTEXT.md)

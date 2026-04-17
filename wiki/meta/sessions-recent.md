@@ -47,7 +47,7 @@ related:
 
 **Decisions** : D-MAPPING-01 Refactor mapping/routage cerveau OS (2026-04-17).
 
-**Livrables** : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md` (13 axes, 15 findings, preuves bash), `docs/plans/2026-04-17-mapping-routage-refactor.md` (15 phases, anti-compactage). Wiki 45 pages (50->47->45). 3 dossiers archives vers `.archive/wiki-orphans-260417/` (index-app, log, session-dna) + `.archive/wiki-empty-categories-260417/` (comparison template, question template).
+**Livrables** : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md` (13 axes, 15 findings, preuves bash), `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md` (15 phases, anti-compactage). Wiki 45 pages (50->47->45). 3 dossiers archives vers `.archive/wiki-orphans-260417/` (index-app, log, session-dna) + `.archive/wiki-empty-categories-260417/` (comparison template, question template).
 
 **Revelation** : pattern "etoile" vs "mesh 2 niveaux". Hub surdimensionne (81 wikilinks foundation-os-map) = fragile + scalability issue. Mesh avec sous-indexes = plus resilient. Methode validee via rewrite foundation-os-map en hub niveau 2 (pointers vers 7 sous-indexes existants).
 

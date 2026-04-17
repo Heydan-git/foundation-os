@@ -17,8 +17,17 @@
 
 ## Plan d'execution associe
 
-`docs/plans/2026-04-17-mapping-routage-refactor.md` (15 phases, 3 sessions ~10h, format 6 elements par phase anti-compactage).
+`.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md` (15 phases, 3 sessions ~10h, format 6 elements par phase anti-compactage).
 
-## Resultats (a remplir post-execution Phase 15)
+## Resultats (Phase 15 DONE)
 
-_A remplir apres Phase 15._
+**14 phases executees + 1 SKIP (Phase 12 enforcement routing).**
+
+- 15/15 findings RESOLUS
+- Verdict final : SAIN (health + drift + wiki + refs + tier + neuro + tests + build)
+- Wiki 50 → 45 pages. Wikilinks 791 → 643.
+- foundation-os-map 205L → 74L (pattern etoile → mesh 2 niveaux).
+- Source unique counts, SessionStart unifie, 4 journals → 2, categories mortes supprimees.
+- 14 commits + 1 commit local graph.json (.obsidian gitignored).
+
+Voir section 9 du rapport pour detail par finding + metriques avant/apres + lessons.

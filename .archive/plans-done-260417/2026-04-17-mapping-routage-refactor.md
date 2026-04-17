@@ -1691,7 +1691,7 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 - [~] Phase 12 — SKIP Enforcement routing (decision) [Session C]
 - [x] Phase 13 — Tests end-to-end (~30min) [Session C]
 - [x] Phase 14 — Docs sync (~1h) [Session C]
-- [ ] Phase 15 — Rapport post-exec + archive (~30min) [Session C]
+- [x] Phase 15 — Rapport post-exec + archive (~30min) [Session C]
 
 ## Notes post-execution
 
