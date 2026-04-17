@@ -21,6 +21,15 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Pattern etoile vs mesh : eviter hubs surdimensionnes (2026-04-17)
+
+- **Date** : 2026-04-17 (mapping refactor session)
+- **Contexte** : `wiki/meta/foundation-os-map.md` avait accumule 81 wikilinks (hub central "etoile") qui listait CHAQUE page du projet individuellement. Redondant avec `index-wiki.md` (53 wikilinks) + 7 sous-indexes (index-concepts, index-entities, index-sources, index-meta, index-core-os, index-cowork). Pattern "etoile" fragile : si map casse → graph Obsidian perd colonne vertebrale.
+- **Probleme** : a 50 pages c'est gerable. A 500 pages (Phase 5 Finance/Sante/Trading) ca aurait ete ingerable (500+ wikilinks dans 1 fichier). Non-scalable.
+- **Fix** : refactor foundation-os-map en **hub niveau 2** (205L -> 74L, 81 wikilinks -> 27). Role : pointer vers sous-indexes + 4 concepts canoniques. Les sous-indexes font le travail des listes exhaustives. Les pages feuilles sont reachable en 2-3 clicks via index-wiki -> sous-index -> page.
+- **Regle** : pour un hub wiki, **plafonner a 30-40 wikilinks max**. Au-dela, decouper en sous-indexes par famille (concepts, entities, sources, domains, meta). Pattern mesh > etoile pour resilience + scalabilite.
+- **Application** : chaque fois qu'un fichier accumule > 40 wikilinks, considerer decoupage en sous-indexes. Exemple futur : si index-concepts.md grossit (Phase 5 ajoute concepts trading/finance/sante), split par domaine.
+
 ## Split TSX legacy : verifier refs documentaires avant de decouper (2026-04-17)
 
 - **Date** : 2026-04-17 (cleanup session)

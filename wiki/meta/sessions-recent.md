@@ -22,6 +22,40 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-17 (mapping refactor) · Refactor radical mapping/routage cerveau OS
+
+**Durée** : 1 session longue (~5h, Session A+B+C enchainees)
+**Scope** : Audit exhaustif 128 fichiers + refactor radical du cerveau (mapping, indexage, nommage, tags, regroupements, routes de lecture, noeuds logiques, references, articulation, memoire). Scope cerveau uniquement (pas modules/app, pas modules/design-system). Ambition Kevin : radical (B3 — renommage, restructuration, fusion/split, suppression orphelines).
+
+**Livraison** (14 commits + 1 Phase SKIP) :
+- Phase 1 `005703d` : rapport audit 720L + plan execution 15 phases 6 elements
+- Phase 2 `15bd8fe` : unification counts wiki (F8, 4 sources -> 1)
+- Phase 3 `6193d7e` : decomission index-app.md + refs modules/app/data/* (F5)
+- Phase 4 `dd0825c` : navigation 2 niveaux, foundation-os-map 205L->74L (F4)
+- Phase 5 `d2c4af3` : graph.json Obsidian 12->9 color groups (F7 local)
+- Phase 6 `d425ea9` : rationalisation journals 4->2 (F9, archive log + session-dna)
+- Phase 7 `d872aa2` : SessionStart optimise, unify cockpit+session-start (F1 F2 F3)
+- Phase 8 `b461e82` : memoires nettoyage (F10 F11 F12 F13)
+- Phase 9 `14a7714` : domains Phase 5 [!placeholder] (F14)
+- Phase 10 `604fbe3` : suppression categories mortes comparisons/questions/canvases (F15)
+- Phase 11 `5129f13` : DS components wikilinks -> backtick paths (F6)
+- Phase 12 SKIP : enforcement routing decide (discipline garde)
+- Phase 13 : tests end-to-end SAIN
+- Phase 14-15 : docs sync + archive plan
+
+**Verifs** : health SAIN + drift SYNC + wiki-health SAIN + ref-checker 0 cassees + tier-contradiction 0 + neuroplasticite 100% + tests 15/15 app + build 244ms.
+
+**Decisions** : D-MAPPING-01 Refactor mapping/routage cerveau OS (2026-04-17).
+
+**Livrables** : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md` (13 axes, 15 findings, preuves bash), `docs/plans/2026-04-17-mapping-routage-refactor.md` (15 phases, anti-compactage). Wiki 45 pages (50->47->45). 3 dossiers archives vers `.archive/wiki-orphans-260417/` (index-app, log, session-dna) + `.archive/wiki-empty-categories-260417/` (comparison template, question template).
+
+**Revelation** : pattern "etoile" vs "mesh 2 niveaux". Hub surdimensionne (81 wikilinks foundation-os-map) = fragile + scalability issue. Mesh avec sous-indexes = plus resilient. Methode validee via rewrite foundation-os-map en hub niveau 2 (pointers vers 7 sous-indexes existants).
+
+**Threads ouverts** : Decision Phase 5 (Finance/Sante/Trading). Configurer 14 routines Desktop UI /schedule.
+
+---
+
+
 ## 2026-04-17 (cleanup) · Cleanup complet drifts + refs + TSX legacy
 
 **Durée** : 1 session longue (~2h30)

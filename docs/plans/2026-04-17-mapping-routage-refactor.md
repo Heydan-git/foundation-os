@@ -1689,8 +1689,8 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 - [x] Phase 10 — Categories mortes supprimees (~30min) [Session B]
 - [x] Phase 11 — Wikilinks DS hors-vault (~30min) [Session B]
 - [~] Phase 12 — SKIP Enforcement routing (decision) [Session C]
-- [ ] Phase 13 — Tests end-to-end (~30min) [Session C]
-- [ ] Phase 14 — Docs sync (~1h) [Session C]
+- [x] Phase 13 — Tests end-to-end (~30min) [Session C]
+- [x] Phase 14 — Docs sync (~1h) [Session C]
 - [ ] Phase 15 — Rapport post-exec + archive (~30min) [Session C]
 
 ## Notes post-execution
