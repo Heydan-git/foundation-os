@@ -69,17 +69,9 @@ Questions groupees en debut pour plans (memoire `feedback_frontload_questions.md
 - Interdit : `#0A0A0B`, `#08080A`, Outfit, Inter, system-ui seul (OK fallback CSS)
 - TSX < 700 lignes — decouper si plus
 
-## Conventions nommage (Claude Code Desktop)
+## Conventions nommage
 
-Source unique : `docs/core/naming-conventions.md`. Appliquees auto par `/plan-os`, `/wt`, `/cockpit`, `/session-end`.
-
-- **Branches** : `<type>/<scope>-<desc>[-yymmdd]` (lowercase, max 40 chars, types : feat/fix/docs/refactor/chore/audit/wt)
-- **Worktrees** : `/wt new <desc>` → `wt/<desc>-<yymmdd>`, jamais `git worktree add` manuel
-- **Sessions Desktop** : `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan (rename manuel — `/plan-os` affiche le nom en fin de flow, Kevin colle dans sidebar)
-- **Plans** : `docs/plans/YYYY-MM-DD-<slug>.md` versionne + `~/.claude/plans/<slug>.md` natif (dual-path)
-- **Memoires** : 6 elements stricts par phase si plan multi-session (memoire `feedback_plans_ultra_detailles.md`)
-
-Red flag si branche/worktree hors format : arreter, renommer, reprendre.
+Source unique : `docs/core/naming-conventions.md`. Appliquees auto par `/plan-os`, `/wt`, `/cockpit`, `/session-end`. Branches `<type>/<scope>-<desc>[-yymmdd]` (feat/fix/docs/refactor/chore/audit/wt, lowercase, max 40 chars). Worktrees `wt/<desc>-<yymmdd>` via `/wt new` (jamais manuel). Sessions Desktop `🪐 <mini-detail> (DD-MM-YYYY)` via titre plan (rename manuel Kevin). Plans dual-path `docs/plans/YYYY-MM-DD-<slug>.md` + `~/.claude/plans/<slug>.md`. Plans multi-session : 6 elements stricts par phase (memoire `feedback_plans_ultra_detailles.md`). Red flag si hors format : arreter, renommer, reprendre.
 
 ## Decisions autonomes (agis SANS demander)
 
@@ -106,7 +98,7 @@ Quand je modifie Core OS (scripts, hooks, commands, settings, CLAUDE.md, docs/co
 - **Drift detection** : `scripts/drift-detector.sh` au SessionStart (detection only, pas de fix auto destructif)
 - **Docs sync** : `scripts/docs-sync-check.sh` (manuel ou via `/sync`). Chain sync-check.sh prevu Phase 6 audit v2.
 - **Ref integrity** : `scripts/ref-checker.sh` (chain dans health-check + sync-check)
-- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ EN AUTONOMIE sans attendre Kevin. `/save` quand info a retenir, `/autoresearch` quand recherche necessaire, `wiki-ingest` (skill plugin claude-obsidian, invoque via Task tool / slash command) quand Kevin partage document. Spec `docs/core/knowledge.md`. Memoire `feedback_wiki_autonome.md`.
+- **Wiki = cerveau autonome (D-WIKI-01)** : utiliser wiki/ sans attendre Kevin via `/save`, `/autoresearch`, `wiki-ingest` (plugin claude-obsidian). Spec `docs/core/knowledge.md` + memoire `feedback_wiki_autonome.md`.
 
 ### Neuroplasticite memoire (D-WIKI-01 Phase 2)
 
@@ -122,7 +114,7 @@ Lecture SessionStart elargie (pas de limite tokens) :
 - `wiki/meta/lessons-learned.md` (Tour 1 /session-start)
 - `wiki/meta/thinking.md` (Tour 1 /session-start, si < 50 lignes)
 
-Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Si renommage → recabler TOUTES les refs. Verifier refs apres toute modification.
+Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Regles refs (renommage, verification post-modif) : voir `docs/core/knowledge.md` section 5 (tier canonique).
 
 ### Interdit sans Kevin
 - `git push --force` ou `rewrite history` jamais
@@ -131,20 +123,9 @@ Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, touj
 - Actions Asana/Notion/MCP externes
 
 ### Push main : autorise automatiquement apres merge valide par Kevin
-**Fin de session** : si Kevin dit "on merge", "merge dans main", "clotur ce travail", "change de session" → **le push sur origin/main fait partie du merge**. Pas de push = nouveau contexte aveugle + Vercel stale + autres devices desync.
+Si Kevin dit "on merge / clot / change de session" → `git merge --no-ff <branch>` sur main puis `git push origin main` IMMEDIATEMENT (pas de redemande). Interdit : `--force` sur main, push branches dev non-validees, push isole sans contexte session-end.
 
-**Workflow attendu** :
-1. Kevin valide merge (explicite ou implicite "on clot")
-2. `git merge --no-ff <branch>` sur main
-3. **`git push origin main` IMMEDIATEMENT** (sans redemander)
-4. Brief cloture signale "merge + push DONE"
-
-**Interdit quand meme** :
-- `git push --force` sur main (re-ecrit historique → JAMAIS)
-- `git push` sur des branches dev pas validees par Kevin
-- `git push` immediatement apres un commit isole sans contexte session-end
-
-Raison racine : CLAUDE.md ligne 128 ancienne ("git push jamais sans Kevin") etait trop literal. Kevin s'attendait a push auto en fin de merge. Lesson-learned 2026-04-17 documentee.
+Spec complete + raison racine : `wiki/meta/lessons-learned.md` section "Push main apres merge".
 
 ## Garde-fous (non-negociable)
 - Jamais de fichier a la racine (seuls CLAUDE.md, CONTEXT.md, README.md, .gitignore, package.json, package-lock.json)
@@ -158,13 +139,7 @@ Raison racine : CLAUDE.md ligne 128 ancienne ("git push jamais sans Kevin") etai
 
 ## Token-awareness
 
-| Situation | Action |
-|-----------|--------|
-| < 3 fichiers, 1 domaine | Direct (pas d'agent) |
-| 3+ fichiers ou 2+ domaines | Agent(s) |
-| Recherche exploratoire | Agent Explore |
-| Max agents paralleles | 3 (projet solo) |
-| Build/tests longs | run_in_background |
+< 3 fichiers/1 domaine → direct (pas d'agent). 3+ fichiers ou 2+ domaines → agent(s). Recherche exploratoire → agent Explore. Max 3 agents paralleles. Build/tests longs → `run_in_background`.
 
 ## Anti-bullshit gates
 - Jamais de "TERMINE" ou "100%" sans preuve (build + test executes)

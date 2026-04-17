@@ -142,5 +142,5 @@ bash scripts/sessions-analyze.sh --period=7d       # derniers 7 jours
 
 ## Refs
 
-- Audit v2 : `docs/audits/2026-04-16-mega-audit-v2/rapport-comportement.md` I-02 (C-17 transcripts inexploites)
+- Audit v2 (archive) : `.archive/audit-v2-done-260417/rapport-comportement.md` I-02 (C-17 transcripts inexploites)
 - Decouverte : les vrais transcripts sont dans `~/.claude/projects/-Users-kevinnoel-foundation-os/*.jsonl` (28 transcripts, 58.1 MB). `.omc/sessions/*.json` ne contient que metadata 189 bytes chacune.

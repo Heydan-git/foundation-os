@@ -22,7 +22,7 @@ related:
 
 # Foundation OS — Knowledge Wiki
 
-Last updated: 2026-04-17 | Total pages: 48 (43 fonctionnelles, hors templates) | Sources ingested: 4 — voir [[counts]] source unique
+Last updated: 2026-04-17 | Total pages: 45 (hors templates) | Sources ingested: 4 — voir [[counts]] source unique
 
 Navigation: [[overview]] | [[log]] | [[hot]]
 

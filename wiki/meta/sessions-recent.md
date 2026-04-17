@@ -23,6 +23,43 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-17 (cleanup) · Cleanup complet drifts + refs + TSX legacy
+
+**Durée** : 1 session longue (~2h30)
+**Scope** : Post-audit v2 S3 DONE, Kevin demande nettoyage end-to-end (B + C + warnings + legacy + refs). Lecture massive contexte (40+ fichiers) puis plan approuve EnterPlanMode (`parsed-swimming-torvalds.md` 8 phases, 6 elements chacune).
+
+**Livraison** (6 commits atomiques) :
+- `9f9bf4c` Phase 1 : archivage 10 rapports audit v2 -> `.archive/audit-v2-done-260417/` (retire 57 refs cassees d'un coup)
+- `2f78d5c` Phase 2 : resolution contradiction CLAUDE <-> knowledge.md (canonique = knowledge.md section 5)
+- `64fd1a7` Phase 3 : recablage 31 refs cassees vers `.archive/plans-done-260417/`, `.archive/specs-done-260417/`, `.archive/app-data-jsx-260417/`, `.archive/audit-v2-done-260417/`. IGNORE_REFS_RE ref-checker etendu (ds-reference-base-|audit-v2-done-)
+- `205a1e4` Phase 4 : seuil TSX 800L pour `modules/design-system/src/components/ui/` (shadcn origin, sidebar.tsx 725L tolere)
+- `570846f` Phase 5 : seuil TSX 2000L pour `patterns/` DS (DashboardDesignSystem.tsx 1788L = template showcase reference par ligne dans 41 composants ui/ DS, split casserait les refs documentaires)
+- `c26ef46` Phase 6 : drifts cosmetiques (CONTEXT 179->133L, CLAUDE 220->195L, trim sessions 9->5, 7 decisions archivees dans decisions-log.md, drift-detector regex worktrees Desktop hex fix, wiki/index-wiki count sync 48->45)
+
+**Verifs** :
+- `ref-checker` : 88 -> 0 refs cassees (140 .md scannes)
+- `tier-contradiction-check` : 0 duplications (5 tiers)
+- `drift-detector` : SYNC (passe de 5 drifts a 0)
+- `health-check` : **SAIN** (0 critical, 0 warning — evolution DEGRADED 3 warnings -> SAIN)
+- `wiki-health` : SAIN (50 pages, 5 domaines, hot.md 0j)
+- Tests : 15/15 app passants, 0 erreur TS app + DS
+- Build : OK modules/app (~250ms) + design-system
+
+**Decisions** :
+- Contradiction tier canonique : spec module Knowledge = autorite (docs/core/knowledge.md section 5), CLAUDE.md pointe vers spec
+- TSX legacy : accepter comme exceptions documentees plutot que split (shadcn ui + patterns showcase reference par ligne)
+- Rapports audit v2 : archiver en bloc (audit execute 100%, rapports = snapshot historique)
+
+**Revelation technique** :
+- 41 composants ui/ DS ont des commentaires "iso DashboardDesignSystem.tsx lignes X-Y" — split du fichier casserait ces refs documentaires. Decision (Kevin) : accepter comme exception 2000L.
+- drift-detector regex `^claude/[a-z]+-[a-z]+$` ne matchait pas worktrees Desktop auto avec hex (`claude/beautiful-darwin-8782be`). Fix : `^claude/[a-z]+-[a-z]+(-[a-z0-9]+)?$`.
+- ref-checker regex split sur espace dans backtick path (`base DS/`) generait faux positifs. Fix : ajout `ds-reference-base-` + `audit-v2-done-` dans IGNORE_REFS_RE.
+
+**Threads ouverts** :
+- Decision Phase 5 modules : Finance / Sante / Trading (A)
+- Configurer 14 routines Desktop UI /schedule (D)
+- 2 worktrees legacy sleepy-ellis + suspicious-khayyam a decider
+
 ## 2026-04-17 (nuit) · Audit v2 S3 Phase 17+18 Contradiction + Feedback
 
 **Durée** : 1 session moyenne (~2h, enchainee apres S3 P16 meme journee)
@@ -53,7 +90,7 @@ related:
 ## 2026-04-17 (soir) · Audit v2 S3 Phase 16 I-09 Memory auto-priorisation
 
 **Durée** : 1 session courte (~1h)
-**Scope** : Plan S3 versionne (`docs/plans/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements) + Phase 16 I-09 execute seul (Kevin : 3 sessions separees, hook auto OUI, ratings.jsonl, 5 tiers complets).
+**Scope** : Plan S3 versionne (`.archive/plans-done-260417/2026-04-17-audit-v2-s3-phase-16-18.md`, 3 phases 6 elements) + Phase 16 I-09 execute seul (Kevin : 3 sessions separees, hook auto OUI, ratings.jsonl, 5 tiers complets).
 
 **Livraison** (1 commit + 1 merge) :
 - 25 auto-memories : frontmatter `last_used: 2026-04-17` injecte via awk BSD-safe (guard : skip MEMORY.md index, skip si pas de `type:`)
@@ -139,11 +176,11 @@ related:
 **Livrables** :
 - `wiki/concepts/Foundation OS.md` (definition canonique 227L — LIRE EN PREMIER)
 - `CLAUDE.md` (pointeur en tete vers page canonique)
-- `docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md` (unifie FORME + FONCTION)
-- `docs/audits/2026-04-16-mega-audit-v2/rapport-comportement.md` (20 findings + 10 innovations)
+- `.archive/audit-v2-done-260417/rapport-master-v2.md` (unifie FORME + FONCTION)
+- `.archive/audit-v2-done-260417/rapport-comportement.md` (20 findings + 10 innovations)
 - `docs/audits/2026-04-16-mega-audit-v2/raw/agent-*.md` (7 rapports bruts hygiene)
-- `docs/plans/2026-04-16-mega-audit-v2-execution.md` (plan FORME, 8 phases, 3h30)
-- `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (plan FONCTION, 11 phases, 15-18h)
+- `.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md` (plan FORME, 8 phases, 3h30)
+- `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` (plan FONCTION, 11 phases, 15-18h)
 - `wiki/meta/lessons-learned.md` (5 pieges Claude ajoutes)
 
 **Threads ouverts** :

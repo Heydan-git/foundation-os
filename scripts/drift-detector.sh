@@ -88,7 +88,9 @@ fi
 # 6. Branch name check
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 VALID_REGEX="^(main|(feat|fix|docs|refactor|chore|audit|wt)/[a-z0-9]+[-a-z0-9]*(-[0-9]{6})?)$"
-LEGACY_REGEX="^claude/[a-z]+-[a-z]+$"
+# LEGACY_REGEX : noms Desktop auto-generes (claude/<word>-<word> et claude/<word>-<word>-<hex>)
+# ex: claude/jolly-wescoff, claude/beautiful-darwin-8782be (hex suffix quand multiple worktrees)
+LEGACY_REGEX="^claude/[a-z]+-[a-z]+(-[a-z0-9]+)?$"
 # Desktop auto-creates worktrees with claude/* branch names — not controllable.
 # Only flag as drift on the main working tree, not inside .claude/worktrees/.
 IS_WORKTREE=0

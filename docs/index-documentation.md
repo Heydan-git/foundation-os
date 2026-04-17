@@ -165,7 +165,7 @@
 
 ## References croisees
 
-- Audit v2 : `docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md`
-- Plan master : `docs/plans/2026-04-16-mega-audit-v2-master.md`
+- Audit v2 (archive 2026-04-17) : `.archive/audit-v2-done-260417/rapport-master-v2.md`
+- Plan master (archive 2026-04-17) : `.archive/plans-done-260417/2026-04-16-mega-audit-v2-master.md`
 - Memoires permanentes : `~/.claude/projects/-Users-kevinnoel-foundation-os/memory/MEMORY.md` (28 entrees)
 - Health-check actuel : `bash scripts/health-check.sh`

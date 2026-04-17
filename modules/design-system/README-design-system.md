@@ -90,4 +90,4 @@ Le prebuild hook de `modules/app` invoque `npm run build --workspace=@foundation
 - Storybook local : http://localhost:6006/ (apres `npm run storybook`)
 - Preview standalone : http://localhost:6007/ (apres `npm run preview:ds`)
 - Spec wiki : `wiki/domains/design/concepts/design-system-components.md`
-- Audit v2 : `docs/audits/2026-04-16-mega-audit-v2/raw/agent-6-modules-ds.md`
+- Audit v2 (archive) : `.archive/audit-v2-done-260417/raw/agent-6-modules-ds.md`

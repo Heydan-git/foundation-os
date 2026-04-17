@@ -19,6 +19,10 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-17 (cleanup) | **[DONE] Cleanup drifts + refs + TSX legacy (Opus 4.7, 6 commits atomiques)** |
+|            | Scope : post-audit v2 S3, nettoyage complet. Plan `parsed-swimming-torvalds.md` (8 phases 6 elements). Archivage rapports audit v2 (10 fichiers -> `.archive/audit-v2-done-260417/`), recablage 31 refs cassees vers `.archive/`, resolution 1 contradiction CLAUDE<->knowledge.md, seuils TSX ajustes (800L ui/ DS shadcn, 2000L patterns/ DS showcase), CONTEXT.md compression 179->133L + trim sessions 9->5, CLAUDE.md compression 220->195L, drift-detector regex fix (worktrees Desktop hex suffix), wiki/index-wiki count sync (48->45). |
+|            | Verifs : health-check = **SAIN** (0 critical, 0 warning), ref-checker 88->0, tier-contradiction 0, drift-detector SYNC, 15/15 tests app, 0 erreur TS DS. Commits 9f9bf4c + 2f78d5c + 64fd1a7 + 205a1e4 + 570846f + c26ef46. |
+|            | Decisions implicites : tier canonique refs renommage = knowledge.md section 5 (pas CLAUDE.md), patterns/ DS accepte >1500L (template showcase reference par ligne 41 ui/). |
 | 2026-04-17 (nuit) | **[DONE] Audit v2 S3 Phase 17+18 — Contradiction + Feedback (Opus 4.7)** |
 |            | Scope : enchainement S3 apres P16. Phase 17 I-06 contradiction detector 5 tiers + Phase 18 I-10 feedback loop post-session. Plan S3 complete (3/3 phases). |
 |            | Livrables : `scripts/tier-contradiction-check.sh` (scan 40 chars min, 4 paires CLAUDE/CONTEXT/memory/docs/wiki, mode --quiet, pattern subshell-safe) chain sync-check section 9 + health-check INFO. `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N + patterns 7-derniers). `.claude/commands/session-end.md` Phase 7bis AskUserQuestion rating. `.omc/ratings.jsonl` append-only trackable. `wiki/meta/routines-setup.md` routine mensuelle ratings-monthly-review. |
@@ -35,62 +39,20 @@
 |            | Insights majeurs : FOS a 70% structure + 30% fonction cognitive. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. |
 |            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
 |            | Livrables : wiki/concepts/Foundation OS.md (definition canonique 227L), docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md, rapport-comportement.md, 7 raw/, 2 plans execution (FORME 1403L + FONCTION 600L), CLAUDE.md pointeur canonique. |
-|            | 2 plans dispo session suivante : `docs/plans/2026-04-16-mega-audit-v2-execution.md` (FORME, 8 phases, 3h30) + `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (FONCTION, 11 phases, 15-18h). |
-| 2026-04-16 | **[DONE] Audit profondeur + fantômes + sous-index graph Obsidian** |
-|            | Audit 128 fichiers (7 agents opus). 14 fantômes Obsidian supprimés. 4 worktrees nettoyés. v11→v12 ~25 fichiers. 6 mémoires deprecated. CLAUDE.md +4 impératifs. 7 sous-index wiki créés (core-os, app, concepts, entities, sources, meta, cowork). Graph restructuré hub→sous-index→fichiers. 12 commits. |
-| 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 1 commit `b1d7501`. |
-| 2026-04-16 | **[DONE] Audit Mapping + Méga Audit Final Foundation OS** |
-|            | Audit mapping 29 findings (5 phases DONE, 5 concepts créés, +173 wikilinks). Méga audit 63 findings + 9 innovations (scripts, docs, wiki, commands, routines, CI). 3 scripts créés (wiki-suggest-links, wiki-metrics, wiki-recall-reminder). Session commands alignées 14 sections. 13 commits, 53 fichiers, +1400 lignes. |
-|            | Decisions : D-NAMING-02 espaces wiki, D-VAULT-01 vault racine. Plans archivés : audit-mapping + mega-audit. |
-| 2026-04-16 | **[DONE] Adoption Wiki + Neuroplasticité + 14 Routines** — D-WIKI-01, 19 commits. |
-| 2026-04-15 | **[DONE] Level Up Foundation OS — audit + 7 phases** |
-|            | Audit exhaustif OS (69 fichiers lus), 21 findings P0/P1/P2, 15 propositions priorisees. |
-|            | 7 phases livrees : hygiene settings.local (159→81L) + ref-checker extended (16→0 refs cassees) + manifeste/README syncrones + auto-archive plans retrofit (plan migration archive) + branch-name-check dans pre-commit + 2 branches legacy cleaned (tags archive/* preserves) + memory/_deprecated/ (2 memoires SUPERSEDED/DONE) + CONTEXT compression + CLAUDE compression + tools catalogue regen + drift-detector.sh + docs-sync-check.sh + hook SessionStart + cadre SYNC brief v11 + chain drift health-check. |
-|            | Plan : `.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md` (7 phases, 7 commits). |
-|            | Decisions : D-LEVELUP-01 organicite detection-only, D-LEVELUP-02 plans ultra detailles, D-LEVELUP-03 claude/jolly-wescoff merge-then-delete. |
-|            | Memoire creee : `feedback_plans_ultra_detailles.md`. |
-> Sessions plus anciennes (Migration Desktop 9 phases DONE 2026-04-15, DS iso visuel 46 composants) (DS iso visuel 2026-04-15 DONE_COTE_CLAUDE/EN_COURS_KEVIN 46 composants) (S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/23-rapport-final.md` + `.archive/plans-done-260415/`.
-
-## Chantier en cours
-
-**Audit v2 S3 DONE** (17-04-2026). Plan complet 3/3 phases livrees. Plan archive `.archive/plans-done-260417/`.
-
-| Phase | I- | Role | Status |
-|-------|-----|------|--------|
-| 16 | I-09 | Memory auto-priorisation (last_used + audit + hook Read) | ✅ DONE (98817e7, merge a42b5f5) |
-| 17 | I-06 | Contradiction detector 5 tiers | ✅ DONE (7466910) |
-| 18 | I-10 | Feedback loop post-session (rating .omc/ratings.jsonl) | ✅ DONE (8190abc) |
-
-**Reste nettoyage** (low value, cosmetique) :
-- Phase 7-9 drifts P1-P3 (~2h, session dediee)
-- Phase 10 I-08 routines Cloud (Kevin focus local, pas prioritaire)
-- Phase 15 I-05 cortex enforcement (si drift observable)
-- Phase 19 I-03 brief adaptatif (nice-to-have)
+|            | 2 plans dispo archives apres execution : `.archive/plans-done-260417/2026-04-16-mega-audit-v2-execution.md` (FORME) + `.archive/plans-done-260417/2026-04-16-mega-audit-v2-fonction.md` (FONCTION). |
+> Sessions plus anciennes (Audit profondeur + fantomes + sous-index graph 2026-04-16 12 commits, Hygiene OS 2026-04-16 `b1d7501`, Audit Mapping + Mega Audit Final 2026-04-16 D-NAMING-02+D-VAULT-01, Adoption Wiki D-WIKI-01 2026-04-16 19 commits, Level Up OS 7 phases 2026-04-15 D-LEVELUP-01/02/03, Migration Desktop 9 phases 2026-04-15, DS iso visuel 46 composants, S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/` + `.archive/plans-done-260415/` + `.archive/plans-done-260416/`.
 
 ## Cap
 
-**Direction** : Audit v2 S1+S2+S3 DONE. FONCTION : ~6.5/10 -> ~7/10 (estime, 6 mecanismes cognitifs auto-gouvernes). OS mesure + corrige : sessions-analyze + neuroplasticity-score + propositions-generator + memory-audit + tier-contradiction-check + feedback-loop.
+**Direction** : Audit v2 S1+S2+S3 DONE + cleanup drifts/refs/legacy (17-04-2026). FONCTION ~7/10 (6 mecanismes auto-gouvernes : sessions-analyze + neuroplasticity + propositions + memory-audit + tier-contradiction + feedback-loop). Plan S3 archive `.archive/plans-done-260417/`.
 
 **Prochaine action** (a decider Kevin) :
-  - **A — Decision Phase 5 modules** : Finance / Sante / Trading. Audit v2 boucle, temps de construire.
-  - **B — Session nettoyage Phase 7-9** : drifts P1-P3 (~2h, low value, cosmetique).
-  - **C — Cleanup contradiction detectee** : 1 duplication CLAUDE.md <-> docs/core/knowledge.md a trancher (choisir tier canonique).
-  - **D — Configurer 14 routines Desktop** : R1-R14 documentees dans wiki/meta/routines-setup.md, Kevin UI /schedule.
+  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
+  - **D** — Configurer 14 routines Desktop UI /schedule
 
-**Reporte explicitement** :
-  - Phase 1.3 migrations SQL (Kevin : risque prod, plus tard)
-  - Phase 10 I-08 routines Cloud (Kevin : focus local)
-  - Phase 12 I-01 hook wiki-recall (API CLAUDE_USER_PROMPT inexistante)
-  - Phase 15 I-05 cortex enforcement (log-only initial, si drift observable)
-  - Phase 19 I-03 brief adaptatif (nice-to-have)
+**Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
-**En backlog** :
-  - Configurer 9 groupes couleur Obsidian (Kevin UI graph)
-  - Créer 14 routines Desktop (remplace Cloud GitHub Actions apres I-08 Phase 1 plan fonction)
-  - Décider sort 2 worktrees legacy : sleepy-ellis + suspicious-khayyam
-  - Decision Phase 5 : Finance / Santé / Trading — apres audit v2 complet
-
-> Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
+**Backlog** : 9 groupes couleur Obsidian graph, 2 worktrees legacy (sleepy-ellis + suspicious-khayyam) decision.
 
 ## Idees & Parking
 
@@ -127,13 +89,7 @@
 | D-VAULT-01 Obsidian vault = racine projet | 2026-04-16 | Vault Obsidian configuré sur `/Users/kevinnoel/foundation-os/` (pas juste wiki/). Tous les .md du repo visibles dans graph. 9 groupes couleurs (5 tags + 4 path:). |
 | D-DS-REBUILD Remplacement total shadcn | 2026-04-11 | Option C : supprimer ancien DS + reconstruire from scratch depuis Figma Make `base DS/src.zip`. Dark-only, tokens `--ds-*` (retire `--fos-*`). Plan `.archive/plans/2026-04-11-ds-shadcn-finition.md`. |
 | D-WT-01 Worktrees integres Core OS | 2026-04-11 | Feature native Claude Code documentee `docs/core/worktrees.md`. `.claude/worktrees/` dans `.gitignore` + exclu `ref-checker.sh`. |
-| D-PLAN-01 Planner MVP wrapper Superpowers | 2026-04-11 | SUPERSEDE par D-PLAN-02. |
-| D-TOOLS-01 Catalogue modulaire v2 | 2026-04-10 | 109 outils documentes, routing etendu (35 regles), `tool-register.sh` CLI. |
-| D-COCKPIT-01 Point d'entree unique | 2026-04-10 | /cockpit = super-pilote optionnel. Coexiste avec session-start/end/sync/new-project. |
-| D-BRIEF-01 Format v11 TDAH | 2026-04-10 | Cadres box-drawing, zones visuelles, alignement strict. Remplace v10. |
-| D-COM-01 Module Communication | 2026-04-10 | Remplace Memory. 5 tiers persistance (D-WIKI-01) + brief v11. |
-| D-HK-02 Deps upgrade | 2026-04-10 | React 19, Vite 8, Tailwind 4. Build -74%. |
-| Compactage → re-audit | 2026-04-07 | Si compactage risque → refaire cycle audit complet avant de continuer. |
+> Decisions anciennes archivees dans `docs/decisions-log.md` : D-PLAN-01 SUPERSEDE (2026-04-11), D-TOOLS-01 catalogue 109 outils (2026-04-10), D-COCKPIT-01 point d'entree unique (2026-04-10), D-BRIEF-01 v11 TDAH → supersede par v12 (2026-04-10), D-COM-01 module Communication (2026-04-10), D-HK-02 deps upgrade React 19/Vite 8 (2026-04-10), Compactage → re-audit (2026-04-07).
 
 ## Metriques
 

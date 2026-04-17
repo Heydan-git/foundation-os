@@ -21,6 +21,25 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Split TSX legacy : verifier refs documentaires avant de decouper (2026-04-17)
+
+- **Date** : 2026-04-17 (cleanup session)
+- **Contexte** : DashboardDesignSystem.tsx (1788L) tagged WARN par health-check. Plan propose split en 5 sous-sections.
+- **Decouverte** : `grep "DashboardDesignSystem" modules/design-system/src/components/ui/` revele 41 composants ui/ avec commentaires `iso DashboardDesignSystem.tsx lignes X-Y` en header docstring (ex: `avatar.tsx:4 — iso DashboardDesignSystem.tsx "Avatars & Groupes" (lignes 1349-1375)`).
+- **Risque** : split casserait toutes ces 41 refs documentaires de derivation. Elles temoignent que chaque ui/ composant est derive d'une section precise du template showcase.
+- **Decision Kevin** : accepter le fichier comme exception template showcase. Seuil TSX releve a 2000L pour `modules/design-system/src/components/patterns/` (comme 800L exception pour `ui/` DS shadcn origin).
+- **Regle** : avant de split un gros fichier, `grep` son basename dans tout le codebase. Si > 10 refs le pointent par ligne ou par section, **ne pas split** sans update coordonne des refs. Accepter comme exception documentee si c'est un template/showcase, pas du code runtime.
+- **Gain** : 5 min d'analyse au lieu de 1h30 de remapping fragile.
+
+## ref-checker regex split sur espace : faux positifs backtick avec path spaces (2026-04-17)
+
+- **Date** : 2026-04-17 (cleanup session)
+- **Contexte** : `modules/design-system/README-design-system.md` reference `` `.archive/ds-reference-base-260417/base DS/` `` (espace dans path). ref-checker reporte "broken".
+- **Cause racine** : `scripts/ref-checker.sh` ligne 144 `ref_clean="${ref_clean%% *}"` retire tout apres le premier espace. Le ref devient `.archive/ds-reference-base-260417/base` (sans `DS/`), qui n'existe pas → flagged.
+- **Contexte du split** : utile pour les refs type *"scripts/example.sh arg1 arg2"* ou on veut juste le path avant l'espace, mais casse les paths qui contiennent un espace (ex: `base DS/`).
+- **Fix pragmatique** : etendre `IGNORE_REFS_RE` avec les prefixes `.archive/` connus qui ont des paths avec espaces (`ds-reference-base-|audit-v2-done-`). Plus simple que re-ecrire la logique split.
+- **Regle** : si ref-checker flag une ref qui existe visiblement, **verifier manuellement** via `ls` ou `find`. Si vrai positif → recabler. Si faux positif (espaces, path pattern script limitation) → ajouter au `IGNORE_REFS_RE` + documenter.
+
 ## Push main apres merge : autoriser automatiquement (2026-04-17)
 
 - **Date** : 2026-04-17 (audit v2 cloture)
