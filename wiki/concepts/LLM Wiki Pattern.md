@@ -79,7 +79,7 @@ Spec : `docs/core/knowledge.md`.
 ## Examples
 
 - Foundation OS wiki/ avec 5 domaines pre-scaffoldes (trading, finance, sante, design, dev)
-- [[AgriciDaniel|claude-obsidian]] vault avec concepts/, entities/, sources/, comparisons/, questions/
+- [[AgriciDaniel|claude-obsidian]] vault avec concepts/, entities/, sources/ (comparisons/, questions/ archives 2026-04-17, non-utilises dans notre vault)
 - Second brain personnel navigable dans [[Obsidian]] graph view
 
 ## Connections

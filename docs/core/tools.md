@@ -46,7 +46,7 @@ Le catalogue est la source de verite pour le routing intelligent.
 
 ## 1c. Skills Knowledge (claude-obsidian v1.4.3 — D-WIKI-01)
 
-Plugin `claude-obsidian` adopte 2026-04-15. 10 skills + 4 commands + 2 agents + 5 templates. Spec complete : `docs/core/knowledge.md`.
+Plugin `claude-obsidian` adopte 2026-04-15. 10 skills + 4 commands + 2 agents + 3 templates. Spec complete : `docs/core/knowledge.md`.
 
 ### Skills
 

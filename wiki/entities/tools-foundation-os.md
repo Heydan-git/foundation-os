@@ -50,7 +50,7 @@ Agents : executor, designer, writer, architect, code-reviewer, verifier, explore
 10 skills : wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown
 4 commands : /wiki, /save, /autoresearch, /canvas
 2 agents : wiki-ingest, wiki-lint
-5 templates : concept, source, entity, comparison, question
+3 templates : concept, source, entity (comparison + question archives 2026-04-17 Phase 10, jamais utilises)
 
 ## BMAD v6 (_bmad/)
 

@@ -38,7 +38,7 @@ Son plugin est adopte par Foundation OS (D-WIKI-01, 2026-04-15) comme couche kno
 ## Key Facts
 
 - Createur plugin claude-obsidian (v1.4.3, MIT license)
-- 10 skills + 4 commands + 2 agents + 5 templates
+- 10 skills + 4 commands + 2 agents + 3 templates
 - Multi-agent bootstrap files (Codex, OpenCode, Gemini, Cursor, Windsurf, GitHub Copilot)
 - Repo : https://github.com/AgriciDaniel/claude-obsidian
 

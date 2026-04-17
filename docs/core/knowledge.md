@@ -22,10 +22,7 @@ wiki/
 ├── concepts/       cross-domain (atemporel)
 ├── entities/       personnes, orgs, produits, outils
 ├── sources/        articles, papers, transcripts ingeres
-├── comparisons/    analyses side-by-side
-├── questions/      Q&A avec citations
-├── meta/           dashboards + templates
-└── canvases/       Obsidian canvas .canvas
+└── meta/           dashboards + templates (3 : concept, entity, source)
 
 .raw/               archive sources brutes (immutable)
 ├── trading/
@@ -41,7 +38,7 @@ wiki/
 - Source : https://github.com/AgriciDaniel/claude-obsidian
 - 10 skills, 4 commands, 3 hooks actifs (1 desactive : PostToolUse auto-commit)
 - 2 agents : wiki-ingest, wiki-lint (compatibles Task tool)
-- 5 templates : concept, source, entity, comparison, question
+- 3 templates : concept, source, entity (comparison + question archives 2026-04-17 Phase 10, jamais utilises dans notre vault)
 
 ## 2. Couplage modules <-> wiki
 

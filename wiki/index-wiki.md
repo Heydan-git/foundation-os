@@ -71,12 +71,6 @@ Navigation: [[overview]] | [[hot]]
 - [[sources/session-2026-04-16-wiki-adoption]] — 2026-04-16 | session adoption wiki Obsidian D-WIKI-01
 - [[sources/session-2026-04-16-neuroplasticity-audit]] — 2026-04-16 | session audit neuroplasticite (7 failles + 4 reflexes + routines)
 
-### Comparisons (analyses side-by-side)
-<!-- Populated par ingest -->
-
-### Questions (Q&A avec citations)
-<!-- Populated par /save ou /autoresearch -->
-
 ## Meta
 
 > **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **Cowork** : [[index-cowork]]
