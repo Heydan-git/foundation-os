@@ -76,4 +76,4 @@ health-check, drift-detector, docs-sync-check, ref-checker, wiki-commit, wiki-he
 
 ## Total
 
-Catalogue complet dans `docs/core/tools.md` + `docs/core/tools/index.json` (109 outils, 10 categories, routing 35 regles). Voir [[tools]] pour detail.
+Catalogue complet dans `docs/core/tools.md` + `docs/core/tools/index.json` (109 outils, 10 categories, routing 35 regles).
