@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sessions récentes (5 dernières)"
-updated: 2026-04-16
+updated: 2026-04-18
 tags:
   - meta
   - sessions
@@ -21,6 +21,49 @@ related:
 > Mémoire court terme : résumé des 5 dernières sessions avec decisions, pages wiki impactees, threads ouverts.
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
+
+## 2026-04-18 (D-INTEG-01 Phase 1/5) · Preparation integration sources externes
+
+**Duree** : 1 session moyenne (~1h30, audit surface + analyse 5 sources + plan + Phase 1 exec + push)
+
+**Scope** : 
+1. Audit de surface Core OS post-refactor mapping (verdict SAIN)
+2. Lecture profonde 5 sources externes : [MemPalace](https://github.com/MemPalace/mempalace), [Octogent](https://github.com/hesamsheikh/octogent), [Graphify](https://github.com/safishamsi/graphify), [Penpax.ai](https://safishamsi.github.io/penpax.ai/), MemPalace site (via WebSearch, site principal 403)
+3. Synthese comparative 3 tiers (integrer / inspirer / ignorer)
+4. Plan 5 phases 6 elements anti-compactage
+5. Execution Phase 1 (preparation architecturale legere)
+
+**Livraison Phase 1** (commit `6386823` + merge `452a342` push origin main) :
+- 4 concepts wiki : [[Confidence Tagging]] + [[Graph Report]] + [[Layered Loading]] + [[Pre-compaction Snapshot]]
+- Linking : `wiki/index-wiki.md` + `wiki/meta/index-concepts.md` (Cross-domain 9→13) + `wiki/meta/foundation-os-map.md` (section Enhancements 2026)
+- Spec canonique : `docs/core/knowledge.md` section 12 (12.1 Confidence + 12.2 Graph + 12.3 Layered + 12.4 Pre-compaction + 12.5 Ignores)
+- Seuils : `scripts/thresholds.json` sections `wiki.confidence_required_*` + `wiki.graph_report` + `wiki.layered_loading` + `wiki.pre_compaction`
+- Decision : `CONTEXT.md` D-INTEG-01 (apres D-MAPPING-01)
+- Plan dual-path : `docs/plans/2026-04-17-integration-sources-externes.md` (33KB, 5 phases, 6 elements chacune)
+- Infrastructure : `scripts/ref-checker.sh` IGNORE_REFS_RE etendu pour scripts Phase 2-4 futurs (wiki-confidence-audit, wiki-graph-report, pre-compaction-snapshot) + `wiki/meta/graph-report.md` futur
+
+**Verifs** :
+- wiki-counts-sync : **47 pages, 712 wikilinks** (+4 pages, +55 wikilinks)
+- wiki-health : SAIN (15 concepts, 5 entities, 2 sources, 5 domaines, hot.md 0j)
+- ref-checker : **140 .md / 0 cassee**
+- health-check : SAIN (build 246ms, 15/15 tests, drift SYNC, tier 0, neuro 100%)
+- thresholds.json : JSON valide
+- Push origin main : OK
+
+**Decision** : **D-INTEG-01** (2026-04-18) Integration sources externes MemPalace/Graphify/Octogent/Penpax. 4 enhancements (INT-1/2/3 + INS-1) sur 5 sessions total. Phase 1/5 DONE.
+
+**Revelation** : 
+- FOS est plus mature sur collaboration Kevin-Claude (CLAUDE.md + brief v12 + neuroplasticite + 5 tiers) que les 4 sources externes.
+- 3 gaps reels detectes : auto-save pre-compression (MemPalace), graph report auto (Graphify), confidence tagging systematique (Graphify finding F1 Explore : 37% pages sans confidence, 63% = high uniforme).
+- Penpax.ai (capture navigateur/meetings) hors philosophie FOS (code volontaire, pas surveillance passive) → ignore.
+
+**Threads ouverts** :
+- Phase 2/5 INT-1 pre-compaction snapshot (~1h) — prochaine session
+- Phase 3-5 : confidence tagging + graph report + layered loading
+- Decision Phase 5 modules Finance/Sante/Trading (reportee)
+- 14 routines Desktop UI /schedule
+
+---
 
 ## 2026-04-17 (mapping refactor) · Refactor radical mapping/routage cerveau OS
 

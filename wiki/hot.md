@@ -18,7 +18,9 @@ Navigation: [[index-wiki]] | [[overview]]
 
 ## Last Updated
 
-2026-04-17 (mapping refactor) : **Refactor radical mapping/routage cerveau OS** (Opus 4.7, 1M context, 14 commits Session A+B+C). Audit exhaustif 128 fichiers + rapport 720L (`docs/audits/2026-04-17-mapping-routage-audit/rapport.md`) + plan execution 15 phases 6 elements. Resolution 15 findings (F1 a F15, 3 🔴 critiques + 10 🟡 moyens + 2 🟢 faibles). Verdict post-refactor : **SAIN** (health + drift SYNC + wiki SAIN + refs 0 + tier 0 + neuro 100% + tests 15/15 + build 244ms).
+2026-04-18 (D-INTEG-01 Phase 1/5) : **Preparation architecturale integration 5 sources externes** (MemPalace + Octogent + Graphify + Penpax.ai + MemPalace site). Audit surface SAIN, lecture profonde 5 sources, synthese comparative (3 tiers : a integrer / a inspirer / a ignorer). Plan 5 phases 6 elements anti-compactage (33KB dual-path). **Phase 1 DONE** : 4 concepts wiki (Confidence Tagging, Graph Report, Layered Loading, Pre-compaction Snapshot), 3 indexes lies (index-wiki, index-concepts, foundation-os-map section Enhancements), knowledge.md section 12 (5 sous-sections 12.1-12.5), thresholds.json seeds (wiki.confidence_required + graph_report + layered_loading + pre_compaction), CONTEXT D-INTEG-01, ref-checker IGNORE_REFS_RE etendu pour scripts Phase 2-4. Verdict : **SAIN** (47 pages, 712 wikilinks, 0 ref cassee, health SAIN, build 246ms, 15/15 tests). Commits : `6386823` + merge `452a342` push origin main. **Next : Phase 2/5 INT-1 pre-compaction snapshot** (~1h).
+
+### Avant (2026-04-17 mapping refactor) : **Refactor radical mapping/routage cerveau OS** (Opus 4.7, 1M context, 14 commits Session A+B+C). Audit exhaustif 128 fichiers + rapport 720L (`docs/audits/2026-04-17-mapping-routage-audit/rapport.md`) + plan execution 15 phases 6 elements. Resolution 15 findings (F1 a F15, 3 🔴 critiques + 10 🟡 moyens + 2 🟢 faibles). Verdict post-refactor : **SAIN** (health + drift SYNC + wiki SAIN + refs 0 + tier 0 + neuro 100% + tests 15/15 + build 244ms).
 
 ### Changements structurants
 
@@ -80,17 +82,25 @@ Mega Audit V2 COMPLET. 166 findings. Foundation OS = 70% structure + 30% fonctio
 
 ## Active Threads
 
-- **Refactor mapping/routage DONE** (14 phases executees + 1 skip). Plan : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. Rapport audit : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`.
-- **Wiki operationnel** : voir [[counts]] (43 pages, 657 wikilinks)
-- **Decision Phase 5** (Finance/Sante/Trading) — reportee (toujours en attente Kevin)
+- **D-INTEG-01 Phase 1/5 DONE** (2026-04-18). Plan : `docs/plans/2026-04-17-integration-sources-externes.md`. 5 phases total : Phase 1 preparation (DONE), Phase 2 INT-1 pre-compaction snapshot (~1h), Phase 3 INT-2 confidence tagging (~2h), Phase 4 INT-3 graph report auto (~3h), Phase 5 INS-1 layered loading formel (~30min).
+- **Refactor mapping/routage DONE** (precurseur D-MAPPING-01, `.archive/plans-done-260417/`)
+- **Wiki operationnel** : voir [[counts]] (47 pages, 712 wikilinks)
+- **Decision Phase 5 modules** (Finance/Sante/Trading) — reportee
 - **14 routines Desktop** documentees — a creer via `/schedule` UI
 
 ## Next Action
 
-**Refactor mapping/routage complet** (Phase 1-14 + Phase 12 SKIP). Reste Phase 15 archive plan.
+**Phase 2/5 D-INTEG-01 : INT-1 Pre-compaction snapshot** (~1h, session dediee).
 
-**A decider Kevin (prochaine session)** :
-- **A — Decision Phase 5 modules** : Finance / Sante / Trading. Temps de construire.
-- **B — Configurer 14 routines Desktop** : R1-R14 via `/schedule`.
+Livrables Phase 2 :
+- `scripts/hooks/pre-compaction-snapshot.sh` : dump hot.md + CONTEXT Cap + TodoWrite dans `.omc/snapshots/YYYYMMDD-HHMM.md`
+- `.claude/settings.json` hook PreCompaction (API a verifier, fallback Stop)
+- `.gitignore` snapshots/*.md (garder .gitkeep)
+- `docs/core/tools.md` entree script
+- Rotation 14 derniers
 
-Objectif atteint : **mapping cerveau cleaned**. Sources verite unique. Navigation 2 niveaux. SessionStart deterministe. Categories mortes supprimees. Memoires alignees.
+Specs : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 2 (6 elements) + `docs/core/knowledge.md` section 12.4 + [[Pre-compaction Snapshot]].
+
+Phases suivantes : 3/5 INT-2 confidence (~2h) · 4/5 INT-3 graph report (~3h) · 5/5 INS-1 layered loading (~30min).
+
+Objectif Phase 1 atteint : **fondations posees organiquement**. 4 concepts wiki + spec canonique + seuils + decision + plan dual-path. Phases 2-5 ont tous les wikilinks et refs pre-cable.
