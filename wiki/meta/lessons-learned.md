@@ -36,7 +36,7 @@ related:
 - **Date** : 2026-04-17 (cleanup session)
 - **Contexte** : `modules/design-system/README-design-system.md` reference `` `.archive/ds-reference-base-260417/base DS/` `` (espace dans path). ref-checker reporte "broken".
 - **Cause racine** : `scripts/ref-checker.sh` ligne 144 `ref_clean="${ref_clean%% *}"` retire tout apres le premier espace. Le ref devient `.archive/ds-reference-base-260417/base` (sans `DS/`), qui n'existe pas → flagged.
-- **Contexte du split** : utile pour `` `scripts/foo.sh arg1 arg2` `` ou on veut juste `scripts/foo.sh`, mais casse les paths avec espaces.
+- **Contexte du split** : utile pour les refs type *"scripts/example.sh arg1 arg2"* ou on veut juste le path avant l'espace, mais casse les paths qui contiennent un espace (ex: `base DS/`).
 - **Fix pragmatique** : etendre `IGNORE_REFS_RE` avec les prefixes `.archive/` connus qui ont des paths avec espaces (`ds-reference-base-|audit-v2-done-`). Plus simple que re-ecrire la logique split.
 - **Regle** : si ref-checker flag une ref qui existe visiblement, **verifier manuellement** via `ls` ou `find`. Si vrai positif → recabler. Si faux positif (espaces, path pattern script limitation) → ajouter au `IGNORE_REFS_RE` + documenter.
 
