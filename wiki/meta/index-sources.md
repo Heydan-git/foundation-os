@@ -28,8 +28,6 @@ Navigation : [[foundation-os-map]] | [[index-wiki]] | [[index-concepts]] | [[ind
 |--------|------|------|-------------|
 | [[karpathy-llm-wiki-pattern]] | 2026-04 | article | Article Karpathy LLM Wiki Pattern |
 | [[agricidaniel-claude-obsidian]] | 2026-04-13 | repo | Plugin claude-obsidian v1.4.3 (GitHub) |
-| [[session-2026-04-16-wiki-adoption]] | 2026-04-16 | session | Adoption wiki Obsidian D-WIKI-01 |
-| [[session-2026-04-16-neuroplasticity-audit]] | 2026-04-16 | session | Audit neuroplasticite (7 failles + 4 reflexes) |
 
 ## Sources brutes non ingerees
 

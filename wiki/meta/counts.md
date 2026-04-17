@@ -25,11 +25,11 @@ related:
 
 | Metrique | Valeur | Commande verification |
 |----------|--------|-----------------------|
-| Pages physiques | 45 | `find wiki -name "*.md" \| wc -l` |
-| Pages fonctionnelles (hors templates) | 42 | 45 - 3 templates |
+| Pages physiques | 43 | `find wiki -name "*.md" \| wc -l` |
+| Pages fonctionnelles (hors templates) | 40 | 43 - 3 templates |
 | Concepts racine | 9 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
 | Entities | 5 | `find wiki/entities -maxdepth 1 -name "*.md"` |
-| Sources | 4 | `find wiki/sources -maxdepth 1 -name "*.md"` |
+| Sources | 2 | `find wiki/sources -maxdepth 1 -name "*.md"` |
 | Meta (hors templates) | 14 | `find wiki/meta -maxdepth 1 -name "*.md"` |
 | Templates | 3 | `find wiki/meta/templates -name "*.md"` |
 | Domain indexes | 5 | `find wiki/domains -maxdepth 2 -name "index-*.md"` |
@@ -39,7 +39,7 @@ related:
 
 | Metrique | Valeur | Commande |
 |----------|--------|----------|
-| Wikilinks totaux | 702 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
+| Wikilinks totaux | 656 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
 
 ## Consumers (pages qui pointent ici, source unique)
 

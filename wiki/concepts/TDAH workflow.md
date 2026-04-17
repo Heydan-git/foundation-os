@@ -70,4 +70,3 @@ Le TDAH affecte la memoire de travail, la regulation de l'attention, et la plani
 
 ## Sources
 
-- [[session-2026-04-16-wiki-adoption]]

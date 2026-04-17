@@ -82,4 +82,3 @@ Kevin est TDAH. Les briefs traditionnels en prose sont difficiles a scanner. Le 
 
 ## Sources
 
-- [[session-2026-04-16-wiki-adoption]]

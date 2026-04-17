@@ -68,8 +68,6 @@ Navigation: [[overview]] | [[hot]]
 ### Sources (articles, papers, transcripts, PDFs)
 - [[sources/karpathy-llm-wiki-pattern]] — 2026-04 | article Karpathy | pattern LLM Wiki (status: mature)
 - [[sources/agricidaniel-claude-obsidian]] — 2026-04-13 | repo GitHub | plugin claude-obsidian v1.4.3 (status: mature)
-- [[sources/session-2026-04-16-wiki-adoption]] — 2026-04-16 | session adoption wiki Obsidian D-WIKI-01
-- [[sources/session-2026-04-16-neuroplasticity-audit]] — 2026-04-16 | session audit neuroplasticite (7 failles + 4 reflexes + routines)
 
 ## Meta
 
