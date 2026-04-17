@@ -21,26 +21,61 @@ estimated_duration: 0min
 
 ## Phases (sessions courtes, regle "jamais monolithe" CLAUDE.md)
 
+> Chaque phase DOIT contenir les **6 elements obligatoires** (spec `docs/core/planner.md`, memoire `feedback_plans_ultra_detailles.md`) pour etre resistante au compactage contexte :
+> 1. **Pre-conditions** (etat attendu avant phase)
+> 2. **Etat repo** (branche, worktree, fichiers modifies)
+> 3. **Actions atomiques** (commandes + snippets exacts)
+> 4. **Verification** (commandes + resultat attendu)
+> 5. **Rollback** (comment annuler si echec)
+> 6. **Commit message** (preformate, conventional commits)
+
 ### Phase 1 — [Titre court] (~Xmin)
 
 Objectif : [phrase courte].
 
-**Actions** :
-- [Action 1]
-- [Action 2]
-- ...
+**Pre-conditions** :
+- [Etat repo attendu avant]
+- [Phase prerequise DONE]
 
-**Verification** : `[commande exacte]` doit retourner [resultat attendu].
+**Etat repo** :
+- Branche : `<branche>`
+- Worktree : `<nom>` (si applicable)
+- Fichiers modifies : [liste]
 
-**Commit** : `<type>(scope): description courte`
+**Actions atomiques** :
+```bash
+# Action 1 : [description]
+<commande>
+
+# Action 2 : [description]
+<commande>
+```
+
+**Verification** :
+```bash
+<commande>  # doit retourner [resultat attendu]
+```
+
+**Rollback** :
+```bash
+git reset --hard HEAD
+# ou autre procedure specifique
+```
+
+**Commit** :
+```
+<type>(scope): description courte
+
+Body optionnel si phase majeure.
+```
 
 ### Phase 2 — [Titre court] (~Xmin)
 
-[meme structure]
+[meme structure : 6 elements obligatoires]
 
 ### Phase N — [Titre court] (~Xmin)
 
-[meme structure]
+[meme structure : 6 elements obligatoires]
 
 ## Fichiers critiques (recap)
 
