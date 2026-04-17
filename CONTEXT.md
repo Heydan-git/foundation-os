@@ -7,7 +7,7 @@
 
 | Module | Status | Path | Detail |
 |--------|--------|------|--------|
-| App Builder | ✅ Void Glass dark-only | `modules/app/` | Tokens `ds-*` dominants (sauf forms/ dead code legacy, a archiver). Build ~260ms, 19/19 tests. 6 routes + catchall. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge Void Glass OK. |
+| App Builder | ✅ Void Glass dark-only | `modules/app/` | Tokens `ds-*` partout (forms/ dead code archive 2026-04-17). Build ~250ms, 15/15 tests. 6 routes + catchall. Verif visuelle chrome-devtools : IndexPage + Commander + Knowledge Void Glass OK. |
 | Design System | ✅ Void Glass fork base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui derives `base DS/` (Figma Make) + 7 patterns Dashboard + 47 stories DS + 9 app = 56 total. 0 unit test + 5 e2e stale (a reecrire). [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
@@ -108,7 +108,7 @@
 
 | Module | Build | JS | CSS | Tests | Routes |
 |--------|-------|----|-----|-------|--------|
-| App Builder | OK ~300ms | 184KB | 55KB | 19/19 | 5 |
+| App Builder | OK ~250ms | 184KB | 55KB | 15/15 | 6 |
 | Design System | OK | — | — | 23/23 | — |
 | Storybook | OK 5.87s | — | — | — | 62 stories (53 DS + 9 app) |
 

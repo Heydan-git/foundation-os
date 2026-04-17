@@ -111,8 +111,11 @@ else
   WARNING=$((WARNING + 1))
 fi
 
-# MD pairs (artifacts archived in .archive/artifacts-jsx/ since Phase 2.4)
-MD_COUNT=$(ls -1 modules/app/data/*.md 2>/dev/null | wc -l | tr -d ' ')
+# MD pairs (artifacts JSX archived — check pair count entre MD archives + JSX archives)
+# Post audit v2 Phase 3 : modules/app/data/ archive vers .archive/app-data-jsx-260417/
+MD_COUNT=$(ls -1 .archive/app-data-jsx-260417/data/*.md 2>/dev/null | wc -l | tr -d ' ')
+# Fallback si active (si jamais restauration un jour)
+[ "$MD_COUNT" -eq 0 ] && MD_COUNT=$(ls -1 modules/app/data/*.md 2>/dev/null | wc -l | tr -d ' ')
 ART_COUNT=$(ls -1 .archive/artifacts-jsx/fos-*.jsx 2>/dev/null | wc -l | tr -d ' ')
 if [ "$MD_COUNT" -eq "$ART_COUNT" ]; then
   echo -e "  ${GRN}[OK]${RST} MD pairs ($MD_COUNT/$ART_COUNT in archive)"

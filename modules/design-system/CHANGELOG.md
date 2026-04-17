@@ -16,7 +16,7 @@ All notable changes to the Foundation OS Design System.
 ## [0.0.1] - 2026-04-13
 
 ### Added
-- 46 composants UI derives `base DS/src.zip` (Figma Make) puis retravailles pour matcher template visuel DashboardDesignSystem (Void Glass fork — Button 9 variants custom, Card avec glow, Badge avec live pulse, etc.).
+- 46 composants UI derives `base DS/src.zip` (Figma Make, archivee 2026-04-17 dans `.archive/ds-reference-base-260417/`) puis retravailles pour matcher template visuel DashboardDesignSystem (Void Glass fork — Button 9 variants custom, Card avec glow, Badge avec live pulse, etc.).
 - 7 patterns Dashboard (src/components/patterns/)
 - Tokens CSS directs dans `src/styles/tokens.css` (variables `--ds-*`) — **pas** de pipeline Style Dictionary DTCG.
 - Storybook 9.1.20 preview (port 6006)

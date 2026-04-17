@@ -1,10 +1,10 @@
 # @foundation-os/design-system
 
-Design System package for Foundation OS — **Void Glass dark-only**, 46 composants UI derives `base DS/` (Figma Make, reworked fork) + 7 patterns Dashboard + Storybook 9.
+Design System package for Foundation OS — **Void Glass dark-only**, 46 composants UI derives `.archive/ds-reference-base-260417/base DS/` (Figma Make, reworked fork) + 7 patterns Dashboard + Storybook 9.
 
 ## Narrative
 
-- **Fork Void Glass de base DS** : les 46 composants UI sont derives de `base DS/src.zip` (Figma Make), puis retravailles pour matcher le template visuel `DashboardDesignSystem` (Void Glass dark-only, tokens `--ds-*`, glassmorphism, glow).
+- **Fork Void Glass de base DS** : les 46 composants UI sont derives de `base DS/src.zip` (Figma Make, archivee dans `.archive/ds-reference-base-260417/`), puis retravailles pour matcher le template visuel `DashboardDesignSystem` (Void Glass dark-only, tokens `--ds-*`, glassmorphism, glow).
 - **Tokens CSS directs** : pas de Style Dictionary / DTCG build pipeline. La source unique est `src/styles/tokens.css` (variables CSS `--ds-*`) consomme directement par `modules/app` via `@foundation-os/design-system/styles.css`.
 - **Dark-only** : fond `#030303` (`ds-surface-0`). Figtree UI + JetBrains Mono. Pas de mode clair.
 
@@ -65,8 +65,8 @@ import { cn } from '@foundation-os/design-system/lib/utils'
 
 - **Void Glass dark-only** : fond `#030303` (ds-surface-0), accent bleu/violet, Figtree + JBMono.
 - **Tokens CSS directs** : `src/styles/tokens.css` = source unique (pas de build DTCG).
-- **46 composants UI** : derives `base DS/src.zip` (Figma Make) puis reworked (Button 9 variants vs 6, Card avec glow, Badge avec live pulse, etc.).
-- **7 patterns Dashboard** : `src/components/patterns/Dashboard*.tsx` — showcase du DS (certains dupliques de `base DS/`).
+- **46 composants UI** : derives `.archive/ds-reference-base-260417/base DS/src.zip` (Figma Make) puis reworked (Button 9 variants vs 6, Card avec glow, Badge avec live pulse, etc.).
+- **7 patterns Dashboard** : `src/components/patterns/Dashboard*.tsx` — showcase du DS (certains dupliques de `.archive/ds-reference-base-260417/base DS/`).
 - **Storybook 9** : 47 stories DS + 9 app = 56 stories totales.
 
 ## Consommation par modules/app
@@ -86,7 +86,7 @@ Le prebuild hook de `modules/app` invoque `npm run build --workspace=@foundation
 
 ## Refs
 
-- Base reference : `base DS/` (Figma Make export fig, fige, derivation source)
+- Base reference : `.archive/ds-reference-base-260417/base DS/` (Figma Make export fig, fige, derivation source)
 - Storybook local : http://localhost:6006/ (apres `npm run storybook`)
 - Preview standalone : http://localhost:6007/ (apres `npm run preview:ds`)
 - Spec wiki : `wiki/domains/design/concepts/design-system-components.md`

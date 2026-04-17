@@ -23,7 +23,6 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview:ds": "vite --config preview/vite.config.ts",
     "lint": "biome lint src/",
     "lint:fix": "biome lint src/ --fix",
     "supernova:analyze": "npx -y @supernovaio/cli@latest analyze --designSystemId 790241 --package @foundation-os/design-system",

@@ -63,11 +63,9 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 - [[docs/index-documentation|index (docs)]] — Navigation documentation
 - [[docs/core/tools/README-tools-catalogue|README Tools]] — Vue lisible catalogue outils
 
-### Specs historiques (docs/specs/)
+### Specs archivees
 
-- [[2026-04-05-foundation-os-v2-design]] — Design V2 Foundation OS
-- [[2026-04-10-cockpit-design]] — Design cockpit super-pilote
-- [[2026-04-10-tools-module-v2-design]] — Design module Tools V2
+3 specs DONE archivees 2026-04-17 dans `.archive/specs-done-260417/` : Foundation OS V2 design, Cockpit design, Tools V2 design. Voir `docs/specs/README.md` pour pointeur.
 
 ### Plans (docs/plans/)
 
@@ -115,13 +113,7 @@ Commands (`.claude/commands/`) : `cockpit` `session-start` `session-end` `plan-o
 ### App Builder (modules/app/)
 
 - [[modules/app/README-app-builder|README App Builder]] — Description module App
-- [[modules/app/data/commander|commander (app page)]] — Pilotage OS
-- [[modules/app/data/graph|graph (app page)]] — Visualisation
-- [[modules/app/data/index-app-pages|index (app pages)]] — Index pages app
-- [[modules/app/data/knowledge|knowledge (app page)]] — Base de connaissances UI
-- [[modules/app/data/scale-orchestrator|scale-orchestrator (app page)]] — Orchestration scaling
-- [[modules/app/data/sync|sync (app page)]] — Synchronisation
-- [[modules/app/data/toolbox|toolbox (app page)]] — Outils
+- Data MD archives 2026-04-17 dans `.archive/app-data-jsx-260417/` (7 MD JSX historique, mots interdits)
 
 ### Design System (modules/design-system/)
 
