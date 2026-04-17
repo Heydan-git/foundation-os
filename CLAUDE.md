@@ -122,7 +122,7 @@ Lecture SessionStart elargie (pas de limite tokens) :
 - `wiki/meta/lessons-learned.md` (Tour 1 /session-start)
 - `wiki/meta/thinking.md` (Tour 1 /session-start, si < 50 lignes)
 
-Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Si renommage → recabler TOUTES les refs. Verifier refs apres toute modification.
+Routines Cloud (Max 15/jour) : zero regression, jamais de push direct main, toujours PR pour review Kevin. Regles refs (renommage, verification post-modif) : voir `docs/core/knowledge.md` section 5 (tier canonique).
 
 ### Interdit sans Kevin
 - `git push --force` ou `rewrite history` jamais
