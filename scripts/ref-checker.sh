@@ -54,7 +54,7 @@ KNOWN_DIRS_RE='^(scripts|docs|modules|\.claude|_bmad|supabase|\.github|\.archive
 # Paths a ignorer (faux positifs : existent dans main repo mais pas dans un worktree,
 # OU sont gitignored mais legitimement referenced).
 # Pattern : prefixe de chemin qui sera "ignored" dans le check d'existence.
-IGNORE_REFS_RE='^(\.claude/worktrees/|docs/travaux-cowork/|\.archive/settings-local-before-migration\.json|\.archive/memory\.md|\.archive/worktrees-orphelins/|modules/design-system/base|modules/design-system/src/components/void-glass/|modules/design-system/tokens/(primitives|semantic|bridge|source/primitives|source/semantic)/|modules/app/src/layouts/|\.archive/(ds-void-glass|ds-shadcn-vanilla|ds-patterns-old|ds-tokens-dtcg-old|ds-reference-base-|audit-v2-done-|travaux-cowork|plans-done-|specs-done-)|docs/plans/2026-04-XX-|docs/cockpit-desktop|modules/(trading|finance|sante)/)'
+IGNORE_REFS_RE='^(\.claude/worktrees/|docs/travaux-cowork/|\.archive/settings-local-before-migration\.json|\.archive/memory\.md|\.archive/worktrees-orphelins/|modules/design-system/base|modules/design-system/src/components/void-glass/|modules/design-system/tokens/(primitives|semantic|bridge|source/primitives|source/semantic)/|modules/app/src/layouts/|\.archive/(ds-void-glass|ds-shadcn-vanilla|ds-patterns-old|ds-tokens-dtcg-old|ds-reference-base-|audit-v2-done-|travaux-cowork|plans-done-|specs-done-)|docs/plans/2026-04-XX-|docs/cockpit-desktop|modules/(trading|finance|sante)/|scripts/(wiki-confidence-audit|wiki-graph-report)\.sh|scripts/hooks/pre-compaction-snapshot\.sh|wiki/meta/graph-report\.md)'
 
 # Returns 0 if ref contains glob/template chars (* < > { } [ ])
 has_glob_chars() {

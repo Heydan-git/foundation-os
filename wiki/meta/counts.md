@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Counts — Source unique"
-updated: 2026-04-17
+updated: 2026-04-18
 tags:
   - meta
   - counts
@@ -19,15 +19,15 @@ related:
 > **Source unique** des compteurs wiki Foundation OS. Auto-regenere par
 > `scripts/wiki-counts-sync.sh`.
 
-## Mise a jour : 2026-04-17
+## Mise a jour : 2026-04-18
 
 ### Pages
 
 | Metrique | Valeur | Commande verification |
 |----------|--------|-----------------------|
-| Pages physiques | 43 | `find wiki -name "*.md" \| wc -l` |
-| Pages fonctionnelles (hors templates) | 40 | 43 - 3 templates |
-| Concepts racine | 9 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
+| Pages physiques | 47 | `find wiki -name "*.md" \| wc -l` |
+| Pages fonctionnelles (hors templates) | 44 | 47 - 3 templates |
+| Concepts racine | 13 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
 | Entities | 5 | `find wiki/entities -maxdepth 1 -name "*.md"` |
 | Sources | 2 | `find wiki/sources -maxdepth 1 -name "*.md"` |
 | Meta (hors templates) | 14 | `find wiki/meta -maxdepth 1 -name "*.md"` |
@@ -39,7 +39,7 @@ related:
 
 | Metrique | Valeur | Commande |
 |----------|--------|----------|
-| Wikilinks totaux | 657 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
+| Wikilinks totaux | 712 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
 
 ## Consumers (pages qui pointent ici, source unique)
 
