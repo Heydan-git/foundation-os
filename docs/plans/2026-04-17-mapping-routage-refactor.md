@@ -1681,7 +1681,7 @@ cd modules/design-system && npm run build 2>/dev/null  # OK
 - [x] Phase 2 — Unification counts wiki (~30min) [Session A]
 - [x] Phase 3 — Decomission index-app.md + refs modules/app/data/ (~45min) [Session A]
 - [x] Phase 4 — Navigation 2 niveaux (~30min) [Session A]
-- [ ] Phase 5 — Clean graph.json Obsidian (~15min) [Session A]
+- [x] Phase 5 — Clean graph.json Obsidian (~15min) [Session A] — **NOTE : `.obsidian/` gitignored, modif locale uniquement. Commit impossible. Verifie 9 groupes uniques, JSON valide.**
 - [ ] Phase 6 — Rationaliser journals 4→2 (~45min) [Session B]
 - [ ] Phase 7 — SessionStart optimise (~1h) [Session B]
 - [ ] Phase 8 — Memoires nettoyage (~45min) [Session B]
