@@ -19,6 +19,12 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-16 | **[IN PROGRESS] Mega Audit V2 — FORME + FONCTION (Opus 4.7)** |
+|            | Scope : 7 sous-agents paralleles (707 fichiers, 18000L) audit hygiene + simulation 10 scenarios audit cognitif. 146 findings FORME (7.2/10, hygiene OK) + 20 findings FONCTION (4/10, cerveau cognitif faible). |
+|            | Insights majeurs : FOS a 70% structure + 30% fonction cognitive. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. |
+|            | Pieges Claude documentes (5 dans lessons-learned.md) : confondre FORME/FONCTION, surgonfler findings, cloner mauvais cadrage aux sous-agents, ne pas ecouter mots Kevin, proposer correction au lieu admettre erreur. |
+|            | Livrables : wiki/concepts/Foundation OS.md (definition canonique 227L), docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md, rapport-comportement.md, 7 raw/, 2 plans execution (FORME 1403L + FONCTION 600L), CLAUDE.md pointeur canonique. |
+|            | 2 plans dispo session suivante : `docs/plans/2026-04-16-mega-audit-v2-execution.md` (FORME, 8 phases, 3h30) + `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (FONCTION, 11 phases, 15-18h). |
 | 2026-04-16 | **[DONE] Audit profondeur + fantômes + sous-index graph Obsidian** |
 |            | Audit 128 fichiers (7 agents opus). 14 fantômes Obsidian supprimés. 4 worktrees nettoyés. v11→v12 ~25 fichiers. 6 mémoires deprecated. CLAUDE.md +4 impératifs. 7 sous-index wiki créés (core-os, app, concepts, entities, sources, meta, cowork). Graph restructuré hub→sous-index→fichiers. 12 commits. |
 | 2026-04-16 | **[DONE] Hygiene OS — DEGRADED→SAIN** (26 refs, 3 drifts, 5 warnings→0). 1 commit `b1d7501`. |
@@ -36,13 +42,22 @@
 
 ## Cap
 
-**Direction** : Foundation OS = OS de travail + second-brain knowledge unifié + autopilote 14 routines. Wiki Obsidian opérationnel (36 pages content, 762+ wikilinks, graph connecté). Neuroplasticité active. Health-check SAIN (0 warning). OS cohérent et prêt pour Phase 5.
+**Direction** : Mega Audit V2 revele FOS a 70% structure + 30% fonction cognitive. Priorite = transformer "pile de rituels manuels" en "systeme cognitif auto-observant". 2 plans dispo pour session suivante.
 
 **Prochaine action** :
-  - **Configurer 9 groupes couleur Obsidian** : Kevin dans UI graph (voir instructions session).
-  - **Créer 14 routines Desktop** : prompts dans `wiki/meta/routines-setup.md` (Kevin `/schedule` × 14).
-  - **Décider sort 2 worktrees legacy** : sleepy-ellis (2 commits uniques) + suspicious-khayyam (8 non-commités).
-  - **Decision Phase 5** : Finance / Santé / Trading — lequel lancer ?
+  - **EXECUTER PLAN MASTER AUDIT V2** : `docs/plans/2026-04-16-mega-audit-v2-master.md` (1349 lignes, 23 phases, 5-7 sessions). Couvre **100%** des 166 findings (146 FORME + 20 FONCTION + 10 innovations cognitives). Reparti en 7 BLOCs A-G avec 6 elements par phase.
+  - **Session 1** (3h30, MUST) : Phases 0-6 BLOCs A+B+C+D (bombes latentes + narratives + archivages + counts + memory + harness)
+  - **Session 2** (2h) : Phases 7-9 BLOC E (drifts P1-P3 exhaustifs)
+  - **Sessions 3-5** (12h) : Phases 10-18 BLOC F (10 innovations cognitives FONCTION)
+  - **Session 5 cloture** : Phases 20-22 BLOC G (verif + merge + archive)
+  - **Session 6 optionnel** : Phase 19 I-03 brief adaptatif (nice-to-have)
+  - Sub-plans detailles : `2026-04-16-mega-audit-v2-execution.md` (FORME verbatim) + `2026-04-16-mega-audit-v2-fonction.md` (FONCTION verbatim)
+
+**En backlog** :
+  - Configurer 9 groupes couleur Obsidian (Kevin UI graph)
+  - Créer 14 routines Desktop (remplace Cloud GitHub Actions apres I-08 Phase 1 plan fonction)
+  - Décider sort 2 worktrees legacy : sleepy-ellis + suspicious-khayyam
+  - Decision Phase 5 : Finance / Santé / Trading — apres audit v2 complet
 
 > Note 2026-04-15 : auto-rename session Desktop verifie inexistant. Remplace par bloc SESSION RENAME dans `/plan-os` (Kevin copie-colle manuellement sidebar). Worktrees Desktop auto-cree avec noms random `claude/*` : comportement non-controlable. Seuls worktrees `/wt` explicites respectent convention `wt/*`.
 

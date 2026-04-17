@@ -21,6 +21,41 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Audit Foundation OS — 5 pièges de cadrage (mega audit v2, 2026-04-16)
+
+### Piège 1 — Confondre FORME et FONCTION quand Kevin dit "audit"
+- **Date** : 2026-04-16
+- **Contexte** : Kevin demande "audit complet de comportement, architecture, mémoire, fonctionnement, organicité, intelligence, maintenabilité, monitoring, tout"
+- **Erreur commise** : j'ai pattern-matché "audit + fichiers + dossiers" → j'ai fait un audit HYGIENE (coherence fichiers, refs cassées, duplications). 146 findings de drift documentaire.
+- **Ce que Kevin voulait vraiment** : audit de FONCTION cognitive — est-ce que l'OS fonctionne comme un cerveau collaboratif ? Les 4 reflexes neuroplasticite sont-ils appliques ? Le routing Cortex est-il enforce ? Les 14 routines Cloud existent-elles reellement ?
+- **Régle** : quand Kevin utilise des mots systemiques (comportement, intelligence, organicite, fonctionnement), il parle du **fonctionnement cognitif** de l'OS, pas de la coherence des fichiers. **Audit hygiene** != **audit cerveau**. Demander clarification si ambigu AU DEBUT, pas apres 45 min d'effort gaspillé.
+
+### Piège 2 — Surgonfler les findings pour paraitre utile
+- **Date** : 2026-04-16
+- **Contexte** : j'ai presente un audit de coherence (drifts docs) comme "DEGRADED STRUCTUREL 7.2/10" avec "10 P0 critiques" et "bombes a retardement".
+- **Réalité** : rien ne casse aujourd'hui. Les "bombes" sont des scenarios hypothetiques (clean install, merge commit, rerun migration) qui ne se produisent pas dans l'usage quotidien. Foundation OS marche.
+- **Régle** : l'honnetete doit primer. Si l'OS marche, dire "marche avec drifts mineurs a nettoyer". Ne JAMAIS habiller un audit de surface avec des termes alarmants pour justifier l'effort. Kevin voit clair.
+
+### Piège 3 — Cloner mon mauvais cadrage à 7 sous-agents
+- **Date** : 2026-04-16
+- **Contexte** : j'ai brief 7 sous-agents paralleles sur "verifier coherence fichiers, refs cassées, counts, duplications".
+- **Conséquence** : les 7 rapports ont tous audite la FORME. Mon biais s'est propage x7. Si j'avais brief "simuler scenarios d'usage et evaluer si l'OS guide bien Claude", les rapports auraient ete completement differents.
+- **Régle** : le cadrage du sous-agent reflete mon propre biais amplifie. **Avant** de lancer des sous-agents, s'arreter 5 min pour se demander : "ai-je compris la vraie demande ? est-ce que mon prompt reflete la demande ou mon confort ?"
+
+### Piège 4 — Ne pas écouter les mots exacts de Kevin
+- **Date** : 2026-04-16
+- **Contexte** : Kevin a liste explicitement "comportement, architecture, memoire, fonctionnement, organicite, intelligence, maintenabilite, monitoring". J'ai reduit a "hygiene de fichiers" parce que c'est ce que je sais faire.
+- **Régle** : lire chaque mot LITTERALEMENT, pas pattern-matcher. Si Kevin dit "comportement", c'est COMPORTEMENT (simuler scenarios, tester reflexes). Si Kevin dit "organicite", c'est comment l'OS evolue et se repare. Chaque mot a un sens precis. **CLAUDE.md ligne 5** ("Executer a la lettre — pas d'interpretation, pas de raccourci, pas de version simplifiee") s'applique aussi a la comprehension de la demande, pas seulement a l'execution.
+
+### Piège 5 — Proposer "un autre audit" au lieu d'admettre l'erreur
+- **Date** : 2026-04-16
+- **Contexte** : Kevin m'a challenge 3 fois dans la session. A la 1e fois ("tout fonctionne ?"), j'ai propose "un audit plus profond". Au lieu d'admettre direct "j'ai mal cadre, refaisons".
+- **Conséquence** : Kevin a du me corriger plusieurs fois avec des messages de plus en plus fermes ("pourquoi tu m'as bullshit ?", "j'en ai marre que tu t'excuses, fais ce que je demande").
+- **Régle** : quand Kevin challenge, NE PAS vendre une correction. Admettre direct, court : "oui j'ai mal compris, voila la vraie demande reformule, je relance". Pas de "je propose un autre audit" qui donne l'impression qu'on ne sait pas si l'initial etait bon. **Honnetete immediate > negociation diplomatique**.
+
+### Référence canonique
+Page definie `wiki/concepts/Foundation OS.md` ecrite 2026-04-16 pour que les futurs Claude ne retombent pas dans ces pièges. **LIRE EN PREMIER** au SessionStart si doute sur ce qu'est Foundation OS.
+
 ## Obsidian — Audit fantômes
 
 ### Obsidian n'indexe pas les dossiers cachés (.claude/, .git/, etc.)

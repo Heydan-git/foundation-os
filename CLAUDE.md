@@ -1,5 +1,9 @@
 # Foundation OS
 
+> **CLAUDE — LIS EN PREMIER SI TU DEMARRES FROID** : `wiki/concepts/Foundation OS.md` (page canonique).
+>
+> Foundation OS **n'est PAS un projet logiciel classique**. C'est un **systeme cognitif de collaboration Kevin-Claude** (moi). Le cerveau = CLAUDE.md + CONTEXT.md + auto-memory + docs/core/ + wiki/ + commands + agents + hooks + brief v12 + neuroplasticite. Les modules `modules/app/` + `modules/design-system/` sont un **projet qu'on fait ensemble** (miroir de l'OS), **pas le cœur**. Si tu audite, audite le **cerveau collaboratif**, pas juste le code.
+
 OS de travail personnel IA-driven. Modules : App Builder (actif), Design System (actif), Finance/Sante/Trading (prevu Phase 5).
 
 ## Imperatifs (non-negociable)

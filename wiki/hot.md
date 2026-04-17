@@ -19,7 +19,7 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-04-16 : Audit profondeur + 7 sous-index graph Obsidian. 14 fantômes supprimés, v11→v12 propagé, 4 worktrees nettoyés, 6 mémoires deprecated, CLAUDE.md +4 impératifs. Graph restructuré : foundation-os-map → 7 sous-index par famille → fichiers.
+2026-04-16 : **Mega Audit V2 COMPLET (Opus 4.7)**. FORME + FONCTION audites. 166 findings (146 hygiene + 20 cognitifs). Revelation : FOS a 70% structure + 30% fonction. Routing Cortex decoratif, neuroplasticite manuelle, 14 routines Cloud inertes, monitoring audite forme pas fonction, 71 transcripts `.omc/sessions/` inexploites. Definition canonique `wiki/concepts/Foundation OS.md` ecrite (227L). 5 pieges Claude documentes dans lessons-learned. 2 plans execution prets (FORME 1403L + FONCTION 600L).
 
 ## Plugin State
 
@@ -51,12 +51,24 @@ Navigation: [[index-wiki]] | [[log]] | [[overview]]
 
 ## Active Threads
 
-- Audit profondeur DONE — 128 fichiers lus contenu, 48 corrigés, dette v11 éliminée
-- Méga audit final DONE (`.archive/plans-done-260416/2026-04-16-mega-audit-final.md`) — 63 findings + 9 innovations livrées
-- Wiki opérationnel : 41 pages, 762+ wikilinks, 5 domaines, graph connecté, 9 groupes couleurs
-- 14 routines Desktop documentées (routines-setup.md + guardrails.md) — Kevin doit créer dans UI Desktop
-- Decision Phase 5 : Finance / Santé / Trading — lequel lancer ?
+- **Mega Audit V2 DONE** (rapport-master-v2.md, rapport-comportement.md, 7 raw/) — FORME 7.2/10 + FONCTION 4/10
+- **2 plans execution prets** : FORME (`docs/plans/2026-04-16-mega-audit-v2-execution.md`) + FONCTION (`docs/plans/2026-04-16-mega-audit-v2-fonction.md`)
+- **Definition canonique** `wiki/concepts/Foundation OS.md` (227L) — LIRE EN PREMIER au SessionStart
+- **5 pieges comportementaux** documentes dans `wiki/meta/lessons-learned.md` (ne pas repeter)
+- Audit profondeur DONE (session precedente) — 128 fichiers lus, dette v11 eliminee
+- Wiki operationnel : 48 pages, 733 wikilinks, 5 domaines, graph connecte
+- 14 routines Desktop documentees — A MIGRER en GitHub Actions (Phase 1 plan fonction I-08)
+- Decision Phase 5 (Finance/Sante/Trading) — reportee apres audit v2 complet
 
 ## Next Action
 
-OS stabilisé. Décision Kevin requise : Phase 5 (Finance / Santé / Trading) ou autre chantier.
+**EXECUTER PLAN MASTER AUDIT V2 a 100%**. Fichier : `docs/plans/2026-04-16-mega-audit-v2-master.md` (1349L, 23 phases).
+
+Decoupage 5 sessions :
+- **S1 (3h30)** : Phases 0-6 FORME critique (bombes + narratives + archivages + counts + memory + harness)
+- **S2 (2h)** : Phases 7-9 FORME drifts P1-P3 exhaustifs
+- **S3 (4h)** : Phases 10-12 FONCTION batch 1 (I-08 routines Cloud, I-02 session analyzer, I-01 hook wiki-recall)
+- **S4 (4h)** : Phases 13-15 FONCTION batch 2 (I-04 propositions, I-07 neuroplasticite score, I-05 cortex enforcement)
+- **S5 (4h)** : Phases 16-18 + 20-22 FONCTION batch 3 + cloture
+
+Plan auto-contenu — 6 elements par phase (pre-conditions + etat repo + actions atomiques + verif + rollback + commit). Objectif : FORME 7.2→9/10 + FONCTION 4→8/10.

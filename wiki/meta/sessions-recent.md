@@ -23,6 +23,42 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-16 · Mega Audit V2 FORME + FONCTION (Opus 4.7)
+
+**Durée** : 1 session longue, ~2h30 apres plusieurs corrections Kevin
+**Scope** : Audit complet hygiene (707 fichiers, 18000L, 7 sous-agents paralleles) + audit comportemental simulation 10 scenarios
+
+**Revelations** :
+- FOS a 70% de structure et 30% de fonction cognitive (score 4/10 sur FONCTION vs 7.2/10 sur FORME)
+- Routing Cortex **decoratif** (table pas enforce runtime)
+- Neuroplasticite **manuelle** (4 reflexes dependent de ma discipline, aucun hook ne force)
+- 14 routines Cloud **documentees mais inertes** (jamais creees UI Desktop)
+- Monitoring audite **la forme** (build, tests, CSS), jamais **la fonction** (reflexes, recall, repetitivity erreurs)
+- 71 sessions transcripts `.omc/sessions/` **inexploites** (gold mine patterns Kevin)
+
+**Pieges Claude documentes (lessons-learned)** :
+1. Confondre FORME et FONCTION quand Kevin dit "audit"
+2. Surgonfler findings pour paraitre utile
+3. Cloner mauvais cadrage a 7 sous-agents
+4. Ne pas ecouter mots exacts de Kevin
+5. Proposer "un autre audit" au lieu d'admettre l'erreur
+
+**Livrables** :
+- `wiki/concepts/Foundation OS.md` (definition canonique 227L — LIRE EN PREMIER)
+- `CLAUDE.md` (pointeur en tete vers page canonique)
+- `docs/audits/2026-04-16-mega-audit-v2/rapport-master-v2.md` (unifie FORME + FONCTION)
+- `docs/audits/2026-04-16-mega-audit-v2/rapport-comportement.md` (20 findings + 10 innovations)
+- `docs/audits/2026-04-16-mega-audit-v2/raw/agent-*.md` (7 rapports bruts hygiene)
+- `docs/plans/2026-04-16-mega-audit-v2-execution.md` (plan FORME, 8 phases, 3h30)
+- `docs/plans/2026-04-16-mega-audit-v2-fonction.md` (plan FONCTION, 11 phases, 15-18h)
+- `wiki/meta/lessons-learned.md` (5 pieges Claude ajoutes)
+
+**Threads ouverts** :
+- Executer plan FORME Phase 1 (3 bombes latentes, 90 min)
+- Executer plan FONCTION Phase 1 I-08 (routines Cloud GitHub Actions, 2h)
+- Decision : Option A (FORME d'abord) / B (FONCTION d'abord) / C (hybride, recommande)
+- Definition canonique a relire au prochain SessionStart pour eviter re-confusion
+
 ## 2026-04-16 · Audit profondeur + nettoyage fantômes + worktrees
 
 **Durée** : 1 session
@@ -124,10 +160,4 @@ related:
 **Scope** : Audit exhaustif OS (69 fichiers, 21 findings) + 7 phases corrections
 **Decisions** : D-LEVELUP-01 (organicité detection-only), D-LEVELUP-02 (plans ultra détaillés), D-LEVELUP-03 (worktree legacy merge-then-delete)
 **Résultat** : drift-detector + docs-sync-check + auto-archive plans + branch-name-check + memory/_deprecated/
-
-## 2026-04-15 · Migration Desktop natif (9 phases)
-
-**Scope** : Migration CLI → Desktop app (tasks pane, plan window, worktrees, sessions 🪐)
-**Decisions** : D-DESKTOP-01, D-NAMING-01, D-PLAN-02
-**Résultat** : 8 mémoires permanentes, conventions nommage unifiées
 
