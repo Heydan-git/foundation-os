@@ -8,6 +8,7 @@ tags:
   - errors
   - neuroplasticity
 status: evergreen
+confidence: high
 related:
   - "[[index-meta]]"
   - "[[thinking]]"

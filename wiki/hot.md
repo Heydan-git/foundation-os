@@ -6,6 +6,7 @@ tags:
   - meta
   - hot-cache
 status: evergreen
+confidence: high
 related:
   - "[[index-meta]]"
   - "[[index-wiki]]"

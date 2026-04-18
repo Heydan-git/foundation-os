@@ -6,6 +6,7 @@ tags:
   - index
   - core-os
 status: evergreen
+confidence: high
 related:
   - "[[foundation-os-map]]"
   - "[[index-wiki]]"

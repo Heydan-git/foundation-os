@@ -7,6 +7,7 @@ tags:
   - dev
   - meta
 status: evergreen
+confidence: high
 related:
   - "[[index-wiki]]"
   - "[[foundation-os-desktop-migration]]"

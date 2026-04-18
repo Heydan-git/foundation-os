@@ -7,6 +7,7 @@ tags:
   - thinking
   - neuroplasticity
 status: evergreen
+confidence: high
 related:
   - "[[index-meta]]"
   - "[[sessions-recent]]"
