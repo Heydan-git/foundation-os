@@ -19,6 +19,12 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-18 | **[DONE] D-INTEG-01 Phases 2-5 COMPLET (Opus 4.7, 4 commits + 4 merges, ~5-6h enchainees)** |
+|            | Scope : executer Phases 2-5 du plan D-INTEG-01 apres Phase 1 preparatoire (session precedente). 4 livrables substantiels + backfill 22 pages + graph report auto-gen. Zero regression. |
+|            | Livrables : Phase 2 `scripts/hooks/pre-compaction-snapshot.sh` + PreCompact hook + rotation 14. Phase 3 `scripts/wiki-confidence-audit.sh` + backfill 22 pages (19 high + 3 low placeholders) + chain health-check INFO. Phase 4 `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). Phase 5 `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee. |
+|            | Verifs : health SAIN (build 282ms, 15/15 tests, drift SYNC, tier 0, neuro 100%) avec 2 nouvelles lignes INFO chainees. Wiki 48 pages, 141 .md / 0 ref cassee. wiki-graph-report `--check` exit 0. |
+|            | Commits : 2534137 + cc6d3c4 + 1010887 + 9418661 + merges (34c259b + 4f08465 + fc8ded4 + e861abf). Decision : D-INTEG-01 COMPLET 5/5. Plan archive via hook auto-archive SessionEnd (status:done phases_done:5). |
+|            | Revelations : FOS absorbe 4 features externes sans casser = validation organicite. Layered loading section 6.5 formalise discipline de facto. Graph report revele pattern mesh sain post-D-MAPPING-01 (top hubs index-wiki/index-concepts/LLM Wiki Pattern). 3 placeholders Phase 5 taggues `low` = visibilite explicite claims non-verifiees. |
 | 2026-04-17 (mapping refactor) | **[DONE] Refactor radical mapping/routage cerveau OS (Opus 4.7, 14 commits Session A+B+C)** |
 |            | Scope : audit exhaustif 128 fichiers (lecture ligne par ligne) + rapport ecrit 720L + plan execution 15 phases 6 elements anti-compactage. Resolution 15 findings (3 🔴 + 10 🟡 + 2 🟢). Phase 12 SKIP (enforcement routing decoratif garde). |
 |            | Livrables cles : `docs/audits/2026-04-17-mapping-routage-audit/rapport.md` (13 axes audites), source unique counts.md, foundation-os-map compresse 205L->74L (pattern etoile->mesh 2 niveaux), graph.json Obsidian 12->9 groupes, 4 journals->2, index-app.md + log.md + session-dna.md archives, categories mortes (comparisons/questions/canvases) supprimees, domains Phase 5 `[!placeholder]`, SessionStart unifie cockpit+session-start (9 reads), 52 wikilinks DS hors-vault -> backtick paths. |
@@ -34,24 +40,22 @@
 |            | Verifs : dry-run contradiction detecte 1 vraie duplication (CLAUDE<->docs/core/knowledge), ratings-analyze teste empty/injected/quiet, health baseline inchange (0 critical, 3 warn). Commits 7466910 + 8190abc. |
 |            | S3 complete : 4 mecanismes cognitifs auto-gouvernes (sessions-analyze + neuroplasticity + propositions + memory-audit + contradiction-check + feedback-loop). FONCTION estime ~7/10. |
 | 2026-04-17 (soir) | **[DONE] Audit v2 S3 Phase 16 I-09 Memory auto-priorisation** (Opus 4.7). 25 auto-memories `last_used:` + memory-audit.sh + hook PreToolUse Read idempotent. Commit 98817e7 merge a42b5f5 push origin. |
-| 2026-04-17 | **[DONE] Audit v2 execution S1+S2 (Opus 4.7)** |
-|            | Scope : plan master 23 phases, execute ~75% (Phase 12 SQL + Phase 10 routines Cloud reportes Kevin focus local, Phase 7-9 drifts P1-P3 + 16-19 reportes session dediee). |
-|            | 10 commits atomiques. FORME : git hook reinstall + tokens DS purge + narratives Void Glass fork + 6 archivages (data/forms/specs/preview/base DS/backup) + counts unifications (wiki + CSS + tools 109 + knowledge-skills registry) + memory consolidations (4 deprecations + 8 markers) + harness wired (settings wiki wrapper + chainages + wiki-counts-sync). FONCTION : sessions-analyze 72 transcripts JSONL + tuile #15 Propositions brief v12 + neuroplasticity-score chain health-check. |
-|            | Livrables : scripts nouveaux (git-hooks-install, wiki-counts-sync, sessions-analyze, propositions-generator, neuroplasticity-score), tuile #15 brief v12, wiki/meta/counts.md + session-patterns.md, MEMORY.md 24 actives + 12 deprecated. Health : 0 critical, 3 warnings mineurs (TSX 2 legacy 700+, refs, drifts). |
-|            | Lecons : API CLAUDE_USER_PROMPT inexistante pour I-01 hook wiki-recall (documente lessons-learned). SQL migrations fragile si modif en prod (skip). |
+> Session "2026-04-17 Audit v2 execution S1+S2" trimee 2026-04-18 (regle max 5). 10 commits FORME+FONCTION. Scripts git-hooks-install + wiki-counts-sync + sessions-analyze + propositions-generator + neuroplasticity-score. Tuile #15 brief v12. Lecon CLAUDE_USER_PROMPT inexistante.
 > Sessions plus anciennes (Mega Audit V2 FORME+FONCTION 2026-04-16 166 findings, Audit profondeur + fantomes 2026-04-16 12 commits, Hygiene OS 2026-04-16 `b1d7501`, Audit Mapping + Mega Audit Final 2026-04-16 D-NAMING-02+D-VAULT-01, Adoption Wiki D-WIKI-01 2026-04-16 19 commits, Level Up OS 7 phases 2026-04-15 D-LEVELUP-01/02/03, Migration Desktop 9 phases 2026-04-15, DS iso visuel 46 composants, S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/` + `.archive/plans-done-260415/` + `.archive/plans-done-260416/` + `.archive/plans-done-260417/`.
 
 ## Cap
 
-**Direction** : Refactor mapping/routage cerveau OS DONE (17-04-2026). Wiki 45 pages, 640 wikilinks, mesh 2 niveaux, sources uniques, SessionStart unifie deterministe. FONCTION ~7/10 + MAPPING ~8.5/10. Rapport audit + plan archives apres Phase 15.
+**Direction** : **D-INTEG-01 COMPLET** (18-04-2026) — 4 enhancements MemPalace/Graphify integres (pre-compaction snapshot + confidence tagging + graph report auto + layered loading formel). Wiki 48 pages, 141 .md / 0 ref, mesh 2 niveaux, sources uniques. FONCTION ~7.5/10 + MAPPING ~8.5/10 + arsenal cognitif enrichi. Rapport audit + plan archives via hook SessionEnd.
 
 **Prochaine action** (a decider Kevin) :
   - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
-  - **D** — Configurer 14 routines Desktop UI /schedule
+  - **B** — Configurer 14 routines Desktop UI /schedule
+  - **C** — Cleanup 10 worktrees legacy
+  - **D** — OMC update v4.10.1 → v4.12.0
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
-**Backlog** : 9 groupes couleur Obsidian graph.
+**Backlog** : 10e groupe couleur Obsidian graph pour `#auto-generated` (graph-report).
 
 ## Idees & Parking
 

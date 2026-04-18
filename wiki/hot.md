@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache Foundation OS"
-updated: 2026-04-17
+updated: 2026-04-18
 tags:
   - meta
   - hot-cache
@@ -19,30 +19,15 @@ Navigation: [[index-wiki]] | [[overview]]
 
 ## Last Updated
 
-2026-04-18 (D-INTEG-01 Phase 1/5) : **Preparation architecturale integration 5 sources externes** (MemPalace + Octogent + Graphify + Penpax.ai + MemPalace site). Audit surface SAIN, lecture profonde 5 sources, synthese comparative (3 tiers : a integrer / a inspirer / a ignorer). Plan 5 phases 6 elements anti-compactage (33KB dual-path). **Phase 1 DONE** : 4 concepts wiki (Confidence Tagging, Graph Report, Layered Loading, Pre-compaction Snapshot), 3 indexes lies (index-wiki, index-concepts, foundation-os-map section Enhancements), knowledge.md section 12 (5 sous-sections 12.1-12.5), thresholds.json seeds (wiki.confidence_required + graph_report + layered_loading + pre_compaction), CONTEXT D-INTEG-01, ref-checker IGNORE_REFS_RE etendu pour scripts Phase 2-4. Verdict : **SAIN** (47 pages, 712 wikilinks, 0 ref cassee, health SAIN, build 246ms, 15/15 tests). Commits : `6386823` + merge `452a342` push origin main. **Next : Phase 2/5 INT-1 pre-compaction snapshot** (~1h).
+**2026-04-18 (D-INTEG-01 COMPLET 5/5)** : Integration sources externes MemPalace/Graphify/Octogent/Penpax aboutie. 4 enhancements absorbes organiquement en 1 session Opus 4.7 1M context (5-6h, Phases 2-5 enchainees). **Phase 2 INT-1** : hook pre-compaction snapshot (`scripts/hooks/pre-compaction-snapshot.sh`) + `.claude/settings.json` PreCompact matcher + rotation 14. **Phase 3 INT-2** : `scripts/wiki-confidence-audit.sh` + backfill 22 pages (41 high / 1 medium / 3 low placeholders Phase 5) + chain health-check. **Phase 4 INT-3** : `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). **Phase 5 INS-1** : `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee (2 tables + seuils + regles selection). Commits : `2534137` + `cc6d3c4` + `1010887` + `9418661` (+4 merges + 4 push origin main, dernier `e861abf`). Verdict : **SAIN** (48 pages, 141 .md / 0 ref cassee, health SAIN avec 2 nouvelles lignes INFO chainees, 15/15 tests, drift SYNC, tier 0, neuro 100%).
 
-### Avant (2026-04-17 mapping refactor) : **Refactor radical mapping/routage cerveau OS** (Opus 4.7, 1M context, 14 commits Session A+B+C). Audit exhaustif 128 fichiers + rapport 720L (`docs/audits/2026-04-17-mapping-routage-audit/rapport.md`) + plan execution 15 phases 6 elements. Resolution 15 findings (F1 a F15, 3 🔴 critiques + 10 🟡 moyens + 2 🟢 faibles). Verdict post-refactor : **SAIN** (health + drift SYNC + wiki SAIN + refs 0 + tier 0 + neuro 100% + tests 15/15 + build 244ms).
+### Avant (2026-04-18 Phase 1/5) : **Preparation architecturale D-INTEG-01** (session precedente). Audit surface SAIN + lecture 5 sources + synthese 3 tiers + plan 5 phases + execution Phase 1 (4 concepts wiki + spec knowledge.md section 12 + seuils thresholds.json + decision D-INTEG-01). Commit `6386823` + merge `452a342`.
 
-### Changements structurants
+### Avant (2026-04-17 mapping refactor) : Refactor radical mapping/routage cerveau OS (14 commits Session A+B+C). Rapport 720L + 15 phases. Wiki 45 pages, mesh 2 niveaux, sources uniques (counts.md), SessionStart unifie.
 
-- **counts** : source unique `wiki/meta/counts.md` (4 sources verite -> 1). Consumers pointent vers [[counts]].
-- **index-app.md** archive (7 wikilinks casses vers `.archive/app-data-jsx-260417/`). Refs `modules/app/data/*` dans cerveau actif resolues (doc-agent, monitor, manifeste, tools-catalogue).
-- **foundation-os-map.md** : 205L -> 74L, 81 wikilinks -> 27 (pattern etoile -> mesh 2 niveaux via sous-indexes).
-- **graph.json Obsidian** : 12 -> 9 color groups (retrait 3 duplicates tag:#core-os/#cowork/#app = path equivalents).
-- **Journals** : 4 -> 2 (archive log.md + session-dna.md, gardees sessions-recent + session-patterns).
-- **SessionStart** : /cockpit + /session-start Tour 1 unifie (9 reads). Hook `session-start-wiki.sh` = pure cat hot.md (pas head -60, drift-detector retire chain dans health-check INFO).
-- **Memoires** : project_structure update (Storybook 9, tokens CSS --ds-*), audit_v2_s3_handoff deprecie, feedback_tout_automatique compresse 60L->29L, tools-foundation-os nettoye (177+ bullshit retire).
-- **Domains Phase 5** : callout `[!placeholder]` sur trading/finance/sante (reversible).
-- **Categories mortes** : suppression comparisons/ + questions/ + canvases/ + templates comparison/question archives.
-- **DS components** : 52 wikilinks `[[01-button]]..[[46-carousel]]` + `[[01-colors]]..[[06-icons]]` -> backtick paths `modules/design-system/docs-supernova/*`.
+### Avant (2026-04-17 cleanup/nuit/soir/matin)
 
-### Avant (2026-04-17 cleanup)
-
-**Cleanup complet drifts + refs + TSX legacy** (6 commits atomiques). Archivage rapports audit v2 + recablage 31 refs cassees + resolution contradiction CLAUDE<->knowledge.md + seuils TSX ajustes + CONTEXT 179->133L + CLAUDE 220->195L.
-
-### Avant (2026-04-17 nuit + soir + matin)
-
-**Audit v2 S3 COMPLET** (P16 memory + P17 contradiction + P18 feedback loop). **Audit v2 S1+S2 EXECUTE** (10 commits, FORME critique + FONCTION partielle).
+Cleanup complet drifts + refs + TSX legacy (6 commits). Audit v2 S3 complet (P16 memory + P17 contradiction + P18 feedback loop). Audit v2 S1+S2 execute (10 commits).
 
 ### Avant (2026-04-16)
 
@@ -55,53 +40,46 @@ Mega Audit V2 COMPLET. 166 findings. Foundation OS = 70% structure + 30% fonctio
 - **Skills**: 10
 - **Commands**: 4 (/wiki, /save, /autoresearch, /canvas)
 - **Agents**: 2 (wiki-ingest, wiki-lint)
-- **Templates**: 3 (concept, entity, source) — post-Phase 10 2026-04-17 (comparison + question archives)
-- **Domaines**: 5 (trading/finance/sante placeholder Phase 5 + design/dev seed)
+- **Templates**: 3 (concept, entity, source — tous confidence medium default)
+- **Domaines**: 5 (trading/finance/sante placeholder `low` + design/dev seed `high`)
 
 ## Key Recent Facts
 
 - Foundation OS = OS travail IA-driven (code app/design-system) + second-brain knowledge (wiki/)
 - 5 tiers memoire : conversation / CONTEXT.md / auto-memory / docs/ / wiki/
 - Regle d'or : une info = un seul tier (zero duplication)
-- Couplage modules/ <-> wiki/domains/ via frontmatter `implementation:`
-- SessionStart Tour 1 = 9 reads deterministes (CONTEXT + hot + sessions-recent + lessons-learned + thinking + git + health + wiki-health + plans)
-- Pattern wiki : mesh 2 niveaux (index-wiki niveau 1 + 6 sous-indexes niveau 2 + pages feuilles)
+- D-INTEG-01 COMPLET : 4 enhancements integres (pre-compaction snapshot + confidence tagging + graph report auto + layered loading formel)
+- Confidence tagging systematique : chaque page wiki a `confidence: high|medium|low` (41/1/3 actuel)
+- Graph report auto `wiki/meta/graph-report.md` regenere par `scripts/wiki-graph-report.sh`, chain health-check INFO
+- Layered loading spec canonique : `docs/core/communication.md` section 6.5 (L0 hot.md / L1 CONTEXT+sessions-recent / L2 lessons+thinking+plans / L3 wiki on-demand)
+- SessionStart Tour 1 = 9 reads deterministes (CONTEXT + hot + sessions-recent + lessons-learned + thinking + git + health + wiki-health + plans) = L0+L1+L2
 
-## Recent Changes (post-refactor mapping 2026-04-17)
+## Recent Changes (Phase 2-5 D-INTEG-01, 2026-04-18)
 
-- `5129f13` refactor(wiki): DS components wikilinks -> backtick paths (Phase 11/15, F6)
-- `604fbe3` refactor(wiki): suppression categories mortes (Phase 10/15, F15)
-- `14a7714` docs(wiki): domains Phase 5 marques [!placeholder] (Phase 9/15, F14)
-- `b461e82` chore(memory): nettoyage memoires outdated (Phase 8/15, F10 F11 F12 F13)
-- `d872aa2` refactor(os): SessionStart optimise (Phase 7/15, F1 F2 F3)
-- `d425ea9` refactor(wiki): rationalisation journals 4 -> 2 (Phase 6/15, F9)
-- `d2c4af3` chore(obsidian): graph.json 12 -> 9 groupes (Phase 5/15, F7 local)
-- `dd0825c` refactor(wiki): navigation 2 niveaux (Phase 4/15, F4)
-- `6193d7e` refactor(wiki): decomission index-app + refs (Phase 3/15, F5)
-- `15bd8fe` refactor(wiki): unification counts (Phase 2/15, F8)
-- `005703d` docs(audit): rapport mapping/routage 13 axes + 15 findings (Phase 1/15)
+- `e861abf` merge: Phase 5/5 INS-1 layered loading formel — D-INTEG-01 COMPLET
+- `9418661` docs(os): INS-1 layered loading formel section 6.5 (Phase 5/5)
+- `fc8ded4` merge: Phase 4/5 INT-3 graph report auto (D-INTEG-01)
+- `1010887` feat(wiki): INT-3 graph report auto + chain health-check (Phase 4/5)
+- `4f08465` merge: Phase 3/5 INT-2 confidence tagging (D-INTEG-01)
+- `cc6d3c4` feat(wiki): INT-2 confidence tagging systematique (Phase 3/5)
+- `34c259b` merge: Phase 2/5 INT-1 pre-compaction snapshot (D-INTEG-01)
+- `2534137` feat(os): INT-1 pre-compaction snapshot hook (Phase 2/5)
 
 ## Active Threads
 
-- **D-INTEG-01 Phase 1/5 DONE** (2026-04-18). Plan : `docs/plans/2026-04-17-integration-sources-externes.md`. 5 phases total : Phase 1 preparation (DONE), Phase 2 INT-1 pre-compaction snapshot (~1h), Phase 3 INT-2 confidence tagging (~2h), Phase 4 INT-3 graph report auto (~3h), Phase 5 INS-1 layered loading formel (~30min).
+- **D-INTEG-01 COMPLET** (2026-04-18). Plan archive via hook auto-archive SessionEnd.
 - **Refactor mapping/routage DONE** (precurseur D-MAPPING-01, `.archive/plans-done-260417/`)
-- **Wiki operationnel** : voir [[counts]] (47 pages, 712 wikilinks)
+- **Wiki operationnel** : 48 pages, 141 .md scannes, graph-report auto-gen
 - **Decision Phase 5 modules** (Finance/Sante/Trading) — reportee
 - **14 routines Desktop** documentees — a creer via `/schedule` UI
+- **10 worktrees actifs** — cleanup eventuel apres Phase 5
 
 ## Next Action
 
-**Phase 2/5 D-INTEG-01 : INT-1 Pre-compaction snapshot** (~1h, session dediee).
+**A decider Kevin** :
+- **A** — Decision Phase 5 modules (Finance / Sante / Trading — lequel lancer ?)
+- **B** — Configurer 14 routines Desktop UI `/schedule`
+- **C** — Cleanup worktrees legacy (10 actifs)
+- **D** — OMC update v4.10.1 → v4.12.0
 
-Livrables Phase 2 :
-- `scripts/hooks/pre-compaction-snapshot.sh` : dump hot.md + CONTEXT Cap + TodoWrite dans `.omc/snapshots/YYYYMMDD-HHMM.md`
-- `.claude/settings.json` hook PreCompaction (API a verifier, fallback Stop)
-- `.gitignore` snapshots/*.md (garder .gitkeep)
-- `docs/core/tools.md` entree script
-- Rotation 14 derniers
-
-Specs : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 2 (6 elements) + `docs/core/knowledge.md` section 12.4 + [[Pre-compaction Snapshot]].
-
-Phases suivantes : 3/5 INT-2 confidence (~2h) · 4/5 INT-3 graph report (~3h) · 5/5 INS-1 layered loading (~30min).
-
-Objectif Phase 1 atteint : **fondations posees organiquement**. 4 concepts wiki + spec canonique + seuils + decision + plan dual-path. Phases 2-5 ont tous les wikilinks et refs pre-cable.
+D-INTEG-01 termine, FOS a son nouvel arsenal cognitif operationnel (pre-compaction snapshot + confidence + graph report + layered loading spec). Pattern `scripts + hooks + frontmatter + chain health-check` reutilisable pour futurs enhancements.
