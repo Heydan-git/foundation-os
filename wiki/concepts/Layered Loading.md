@@ -76,6 +76,6 @@ Formalisation du chargement context en 4 layers **L0-L3** (inspire MemPalace). C
 ## Sources
 
 - [MemPalace](https://github.com/MemPalace/mempalace) — 4 layers incremental loading, 170 tokens startup (L0+L1 combine)
-- Plan : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 5
+- Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md` Phase 5
 - Spec canonique (post Phase 5) : `docs/core/communication.md` section 6.5
 - Seuils : `scripts/thresholds.json` section `wiki.layered_loading`

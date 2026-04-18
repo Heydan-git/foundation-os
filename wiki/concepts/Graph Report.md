@@ -72,6 +72,6 @@ Rapport auto-genere de la structure du graphe wiki, consigne dans `wiki/meta/gra
 ## Sources
 
 - [Graphify GRAPH_REPORT.md](https://github.com/safishamsi/graphify) — pattern source : god nodes + surprising connections + suggested questions
-- Plan : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 4
+- Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md` Phase 4
 - Spec canonique : `docs/core/knowledge.md` section 12.2
 - Seuils : `scripts/thresholds.json` section `wiki.graph_report`
