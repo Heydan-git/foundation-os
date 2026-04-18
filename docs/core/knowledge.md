@@ -272,6 +272,7 @@ Apres lecture comparative 5 sources externes ([MemPalace](https://github.com/Mem
 
 ### 12.2 Graph report auto
 
+- **Status : active 2026-04-18** (Phase 4/5 DONE). Premier run : 44 pages (hors templates), 11 god-nodes, 1 orphelin (`session-patterns`, seuil max 2 OK), 6 cross-domain surprising.
 - Fichier auto-regenere : `wiki/meta/graph-report.md` (source unique pattern counts.md).
 - Sections : god nodes (> seuil wikilinks entrants), orphelins (0 wikilink entrant), surprising connections (cross-domain), communities (par tag).
 - Script : `scripts/wiki-graph-report.sh` (mode idempotent).

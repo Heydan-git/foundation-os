@@ -4,7 +4,7 @@ slug: integration-sources-externes-260417
 session_title: "🪐 Integration sources externes (17-04-2026)"
 status: active
 phases_total: 5
-phases_done: 3
+phases_done: 4
 created: 2026-04-17
 updated: 2026-04-18
 tags:
@@ -782,13 +782,13 @@ Apres Phase 5 : `/session-end` detecte cases `[x] >= 3` toutes cochees → auto-
 - [x] 4 Verifications (0 sans confidence, 40 high / 1 medium / 3 low, health SAIN, ref 0/140)
 - [ ] 6 Commit + merge main + push
 
-### Phase 4 — INT-3 Graph report auto
+### Phase 4 — INT-3 Graph report auto [DONE 2026-04-18]
 
-- [ ] 3.1 `scripts/wiki-graph-report.sh`
-- [ ] 3.2 Premier run + inspection `wiki/meta/graph-report.md`
-- [ ] 3.3 Chain health-check INFO
-- [ ] 3.4 Wikilinks (index-wiki + foundation-os-map)
-- [ ] 4 Verifications (fichier cree, --check exit 0, ref 0)
+- [x] 3.1 `scripts/wiki-graph-report.sh` (bash wrapper + python3 inline, 3 modes : default/--check/--quiet)
+- [x] 3.2 Premier run `wiki/meta/graph-report.md` (48 pages, 11 god-nodes, 1 orphelin, 6 cross-domain)
+- [x] 3.3 Chain health-check INFO apres wiki-confidence
+- [x] 3.4 Wikilinks : `[[graph-report]]` dans index-wiki + table Enhancements foundation-os-map update
+- [x] 4 Verifications (fichier 3.2KB, --check exit 0, ref 141 / 0, health SAIN avec nouvelle ligne)
 - [ ] 6 Commit + merge main + push
 
 ### Phase 5 — INS-1 Layered loading formel

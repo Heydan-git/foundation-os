@@ -79,6 +79,7 @@ Navigation: [[overview]] | [[hot]]
 > **Sous-index detaille** : [[index-meta]] | **Core OS** : [[index-core-os]] | **Cowork** : [[index-cowork]]
 
 - [[foundation-os-map]] — Carte neuronale complete du projet (hub central graph)
+- [[graph-report]] — Rapport auto god-nodes / orphelins / cross-domain / communities (D-INTEG-01 Phase 4, regenere par `scripts/wiki-graph-report.sh`)
 - [[thinking]] — Reflexions autonomes, hypotheses, connexions cross-domain (neuroplasticite)
 - [[sessions-recent]] — 5 dernieres sessions, memoire court terme (neuroplasticite)
 - [[lessons-learned]] — Auto-apprentissage erreurs/pieges (neuroplasticite)
