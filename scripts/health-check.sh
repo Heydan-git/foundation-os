@@ -277,6 +277,15 @@ if [ -x scripts/wiki-confidence-audit.sh ]; then
   fi
 fi
 
+# Wiki graph report (INT-3 D-INTEG-01 Phase 4)
+if [ -x scripts/wiki-graph-report.sh ]; then
+  WGR_LINE=$(bash scripts/wiki-graph-report.sh --quiet 2>/dev/null)
+  WGR_GOD=$(echo "$WGR_LINE" | grep -oE "[0-9]+ god-nodes" | grep -oE "[0-9]+")
+  WGR_ORPH=$(echo "$WGR_LINE" | grep -oE "[0-9]+ orphelins" | grep -oE "[0-9]+")
+  WGR_CROSS=$(echo "$WGR_LINE" | grep -oE "[0-9]+ cross-domain" | grep -oE "[0-9]+")
+  echo -e "  ${DIM}[OK]${RST} Wiki graph : ${WGR_GOD:-0} god-nodes / ${WGR_ORPH:-0} orphelins / ${WGR_CROSS:-0} cross-domain (voir [[graph-report]])"
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────
