@@ -288,9 +288,10 @@ Apres lecture comparative 5 sources externes ([MemPalace](https://github.com/Mem
   - L1 : `CONTEXT.md` + `wiki/meta/sessions-recent.md` (< 2k tokens, Tour 1 `/session-start`)
   - L2 : `wiki/meta/lessons-learned.md` + `wiki/meta/thinking.md` + plans actifs (< 10k tokens)
   - L3 : pages wiki on-demand via wikilinks (reflex 1 neuroplasticite recall)
-- Spec canonique (post Phase 5/5) : `docs/core/communication.md` section 6.5.
+- Spec canonique : `docs/core/communication.md` section 6.5 (table layers + table regles selection + seuils).
+- Seuils : `scripts/thresholds.json` section `wiki.layered_loading` (l0_tokens_max 200, l1_tokens_max 2000, l2_tokens_max 10000).
 - Detail : [[Layered Loading]]
-- Status : Phase 5/5 (pending impl)
+- **Status : active 2026-04-18** (Phase 5/5 DONE).
 
 ### 12.4 Pre-compaction snapshot
 

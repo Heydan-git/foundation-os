@@ -2,9 +2,9 @@
 title: "🪐 Integration INT-1/2/3 + INS-1 (17-04-2026)"
 slug: integration-sources-externes-260417
 session_title: "🪐 Integration sources externes (17-04-2026)"
-status: active
+status: done
 phases_total: 5
-phases_done: 4
+phases_done: 5
 created: 2026-04-17
 updated: 2026-04-18
 tags:
@@ -791,13 +791,15 @@ Apres Phase 5 : `/session-end` detecte cases `[x] >= 3` toutes cochees → auto-
 - [x] 4 Verifications (fichier 3.2KB, --check exit 0, ref 141 / 0, health SAIN avec nouvelle ligne)
 - [ ] 6 Commit + merge main + push
 
-### Phase 5 — INS-1 Layered loading formel
+### Phase 5 — INS-1 Layered loading formel [DONE 2026-04-18]
 
-- [ ] 3.1 Spec `docs/core/communication.md` section 6.5
-- [ ] 3.2 Update `wiki/concepts/Layered Loading.md` callout success
-- [ ] 3.3 Update `docs/core/knowledge.md` section 10.3 active
-- [ ] 4 Verifications (section 6.5 presente, ref 0, health SAIN)
-- [ ] 6 Commit + merge main + push + /session-end (archive plan auto)
+- [x] 3.1 Spec `docs/core/communication.md` section 6.5 (2 tables + seuils)
+- [x] 3.2 Update `wiki/concepts/Layered Loading.md` callout success implemente
+- [x] 3.3 Update `docs/core/knowledge.md` section 12.3 active + lien 6.5 + seuils
+- [x] 4 Verifications (section 6.5 presente, ref 141/0, health SAIN)
+- [ ] 6 Commit + merge main + push (archive plan au /session-end via hook auto-archive)
+
+**D-INTEG-01 COMPLET : 5/5 phases DONE.**
 
 ---
 
