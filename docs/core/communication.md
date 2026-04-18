@@ -362,6 +362,48 @@ Un plan est "actif" si son `Execution log` contient au moins une case `[ ]` OU s
 | Historique | Decisions (3 recentes) | — |
 | Cap + Input | Cap | — |
 
+### 6.5 Layered context loading (L0-L3)
+
+Formalisation du chargement context en 4 layers (inspire MemPalace, D-INTEG-01 Phase 5). Chaque layer a un **budget tokens** et un **trigger** precis. Claude adapte les layers charges en fonction du type de tache.
+
+#### Definition des layers
+
+| Layer | Contenu | Tokens cible | Trigger |
+|-------|---------|--------------|---------|
+| **L0** | `wiki/hot.md` | < 200 | Hook SessionStart (auto, pas d'action requise) |
+| **L1** | `CONTEXT.md` + `wiki/meta/sessions-recent.md` | < 2 000 | `/session-start` Tour 1 |
+| **L2** | `wiki/meta/lessons-learned.md` + `wiki/meta/thinking.md` + plans actifs `docs/plans/*.md` | < 10 000 | `/session-start` Tour 1 (suite) |
+| **L3** | Pages wiki (concepts / entities / sources / domains) | on-demand | Reflex 1 neuroplasticite (recall cible) |
+
+#### Regles de selection par type de tache
+
+| Type de tache | Layers charges |
+|---------------|----------------|
+| Tache triviale (typo, clarification) | **L0 seul** |
+| Bug fix / small feature | **L0 + L1** |
+| Refactor / audit / plan | **L0 + L1 + L2** |
+| Architecture / nouveau domaine / ingest | **L0 + L1 + L2 + L3 cible** (via reflex 1 recall) |
+
+#### Pourquoi
+
+- **Discipline tokens** : Kevin Max x20, mais charger 50k tokens pour repondre a un typo = gaspillage.
+- **Anti-compactage** : contexte leger = sessions plus longues avant compaction forcee.
+- **Reflex 1 recall** preserve : L3 reste on-demand, jamais pre-loaded en bloc, evite surcharge.
+
+#### Seuils
+
+Seuils configurables dans `scripts/thresholds.json` section `wiki.layered_loading` :
+
+```json
+"layered_loading": {
+  "l0_tokens_max": 200,
+  "l1_tokens_max": 2000,
+  "l2_tokens_max": 10000
+}
+```
+
+Source : [MemPalace](https://github.com/MemPalace/mempalace) 4 layers (170 tokens startup). Concept canonique : [[Layered Loading]]. Spec D-INTEG-01 section 12.3 : `docs/core/knowledge.md`.
+
 ## 7. Capture d'idees — Mecanisme
 
 ### Quand capturer

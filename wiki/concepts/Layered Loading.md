@@ -27,6 +27,8 @@ sources: []
 
 # Layered Loading
 
+> [!success] **Status : implemente 2026-04-18** (Phase 5/5 D-INTEG-01). Spec canonique : `docs/core/communication.md` section 6.5.
+
 ## Definition
 
 Formalisation du chargement context en 4 layers **L0-L3** (inspire MemPalace). Chaque layer a un **budget tokens** et un **trigger** precis. Claude peut choisir quels layers charger en fonction du type de tache, evitant de tout lire d'un coup.
