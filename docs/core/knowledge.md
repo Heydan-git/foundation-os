@@ -313,4 +313,4 @@ Apres lecture comparative 5 sources externes ([MemPalace](https://github.com/Mem
 - Graphify Whisper transcription → pas d'audio/video stockes actuellement
 - Penpax.ai capture auto navigateur/meetings → hors philosophie FOS (code volontaire, pas surveillance passive)
 
-Plan execution : `docs/plans/2026-04-17-integration-sources-externes.md` (5 phases, 6 elements chacune).
+Plan execution : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md` (5 phases, 6 elements chacune).

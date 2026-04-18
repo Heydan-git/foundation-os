@@ -74,5 +74,5 @@ Clef optionnelle complementaire `claim_type:` avec valeurs `extracted | inferred
 
 - [Graphify confidence tags](https://github.com/safishamsi/graphify) — pattern EXTRACTED/INFERRED/AMBIGUOUS
 - Finding Explore `2026-04-17 F1` : 37% pages wiki sans confidence, 63% avec `high` uniforme
-- Plan : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 3
+- Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md` Phase 3
 - Spec canonique : `docs/core/knowledge.md` section 12.1

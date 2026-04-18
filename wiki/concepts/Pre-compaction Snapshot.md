@@ -68,6 +68,6 @@ Rotation : les 14 derniers snapshots sont conserves, les plus anciens auto-prune
 ## Sources
 
 - [MemPalace auto-save hook](https://github.com/MemPalace/mempalace) — pattern : snapshot pre-compression Claude Code
-- Plan : `docs/plans/2026-04-17-integration-sources-externes.md` Phase 2
+- Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md` Phase 2
 - Spec canonique : `docs/core/knowledge.md` section 12.4
 - Rotation : 14 derniers (configurable via `scripts/thresholds.json` si besoin Phase 2)

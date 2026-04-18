@@ -89,7 +89,7 @@ Pages meta lues en SessionStart : [[hot]] · [[sessions-recent]] · [[lessons-le
 | Graph report auto | [[Graph Report]] | `scripts/wiki-graph-report.sh` → [[graph-report]] (Phase 4) |
 | Layered loading formel | [[Layered Loading]] | `docs/core/communication.md` section 6.5 (Phase 5) |
 
-Spec : `docs/core/knowledge.md` section 12. Plan : `docs/plans/2026-04-17-integration-sources-externes.md`.
+Spec : `docs/core/knowledge.md` section 12. Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md`.
 
 ---
 
