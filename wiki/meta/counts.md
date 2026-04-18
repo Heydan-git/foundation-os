@@ -7,6 +7,7 @@ tags:
   - counts
   - source-of-truth
 status: evergreen
+confidence: high
 related:
   - "[[index-wiki]]"
   - "[[hot]]"

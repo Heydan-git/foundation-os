@@ -7,6 +7,7 @@ tags:
   - finance
   - meta
 status: evergreen
+confidence: low
 related:
   - "[[index-wiki]]"
   - "[[Compounding Knowledge]]"

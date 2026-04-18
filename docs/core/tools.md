@@ -30,6 +30,7 @@ Le catalogue est la source de verite pour le routing intelligent.
 | sync-check | scripts/sync-check.sh | Audit complet /sync : 6 checks auto (health-check + modules vs CONTEXT.md + refs last commit + Core OS coherence + routes vs App.tsx + fonts Void Glass) |
 | ref-checker | scripts/ref-checker.sh | Audit full-repo des refs cassees dans les .md : markdown links `[text](path)` resolus relatif au src + backticks `` `dir/...` `` resolus relatif racine. Code-block aware, glob/template chars filtres. Complementaire de sync-check (qui ne scanne que HEAD~1..HEAD) |
 | module-scaffold | scripts/module-scaffold.sh | Scaffold un nouveau module : `modules/<nom>/{README.md, package.json, src/}` + update CONTEXT.md table Modules. Idempotent, kebab-case, --help |
+| wiki-confidence-audit | scripts/wiki-confidence-audit.sh | Audit frontmatter `confidence:` sur pages wiki. Modes : default (liste + exit 1 si drift), `--quiet` (1-ligne stats pour chain), `--check` (silent exit). Spec [[Confidence Tagging]] / `docs/core/knowledge.md` section 12.1 |
 
 ### Git hooks
 

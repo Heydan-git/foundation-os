@@ -264,10 +264,11 @@ Apres lecture comparative 5 sources externes ([MemPalace](https://github.com/Mem
   - `medium` : observation single-session, absent de contradiction
   - `low` : draft, hypothese, awaiting validation
 - Clef optionnelle `claim_type: extracted|inferred|speculated` pour traces fines.
-- Audit : `bash scripts/wiki-confidence-audit.sh` (mode `--check` exit 1 si drift, `--fix` backfill interactif).
-- Templates `wiki/meta/templates/*.md` mis a jour avec `confidence: medium` par defaut (seed fraiche).
+- Audit : `bash scripts/wiki-confidence-audit.sh` (default = liste + exit 1 si drift, `--quiet` = 1-ligne stats pour chain, `--check` = silent exit 0/1).
+- Templates `wiki/meta/templates/*.md` (concept/entity/source) ont tous `confidence: medium` par defaut (seed fraiche).
+- Chain dans `scripts/health-check.sh` section INFO (non-bloquant).
 - Detail : [[Confidence Tagging]]
-- Status : Phase 3/5 (pending impl)
+- **Status : active 2026-04-18** (Phase 3/5 DONE). Distribution initiale : 40 high / 1 medium / 3 low sur 47 pages (0 manquant, 0 invalide). Placeholders Phase 5 (finance/sante/trading) taggés `low`.
 
 ### 12.2 Graph report auto
 

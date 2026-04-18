@@ -7,6 +7,7 @@ tags:
   - map
   - index
 status: evergreen
+confidence: high
 related:
   - "[[index-wiki]]"
   - "[[hot]]"

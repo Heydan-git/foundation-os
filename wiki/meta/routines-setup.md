@@ -8,6 +8,7 @@ tags:
   - neuroplasticity
   - autopilot
 status: evergreen
+confidence: high
 related:
   - "[[index-meta]]"
   - "[[thinking]]"

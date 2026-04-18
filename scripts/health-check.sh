@@ -263,6 +263,20 @@ if [ -x scripts/tier-contradiction-check.sh ]; then
   fi
 fi
 
+# Wiki confidence tagging (INT-2 D-INTEG-01 Phase 3)
+if [ -x scripts/wiki-confidence-audit.sh ]; then
+  WCA_LINE=$(bash scripts/wiki-confidence-audit.sh --quiet 2>/dev/null)
+  WCA_MISSING=$(echo "$WCA_LINE" | grep -oE "[0-9]+ sans confidence" | grep -oE "[0-9]+")
+  WCA_HIGH=$(echo "$WCA_LINE" | grep -oE "[0-9]+ high" | grep -oE "[0-9]+")
+  WCA_MED=$(echo "$WCA_LINE" | grep -oE "[0-9]+ medium" | grep -oE "[0-9]+")
+  WCA_LOW=$(echo "$WCA_LINE" | grep -oE "[0-9]+ low" | grep -oE "[0-9]+")
+  if [ "${WCA_MISSING:-0}" -eq 0 ]; then
+    echo -e "  ${DIM}[OK]${RST} Wiki confidence : ${WCA_HIGH:-0} high / ${WCA_MED:-0} medium / ${WCA_LOW:-0} low (0 manquant)"
+  else
+    echo -e "  ${DIM}[OK]${RST} Wiki confidence : ${WCA_MISSING} sans tag (voir bash scripts/wiki-confidence-audit.sh)"
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────

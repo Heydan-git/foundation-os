@@ -8,6 +8,7 @@ tags:
   - analytics
   - patterns
 status: evergreen
+confidence: high
 related:
   - "[[sessions-recent]]"
   - "[[thinking]]"

@@ -4,7 +4,7 @@ slug: integration-sources-externes-260417
 session_title: "🪐 Integration sources externes (17-04-2026)"
 status: active
 phases_total: 5
-phases_done: 2
+phases_done: 3
 created: 2026-04-17
 updated: 2026-04-18
 tags:
@@ -773,13 +773,13 @@ Apres Phase 5 : `/session-end` detecte cases `[x] >= 3` toutes cochees → auto-
 - [x] 4 Verifications (snapshot cree 139L, rotation 16->14, JSON valide, health SAIN, ref 0)
 - [ ] 6 Commit + merge main + push
 
-### Phase 3 — INT-2 Confidence tagging
+### Phase 3 — INT-2 Confidence tagging [DONE 2026-04-18]
 
-- [ ] 3.1 `scripts/wiki-confidence-audit.sh`
-- [ ] 3.2 Backfill 26 pages
-- [ ] 3.3 Update 2 templates (entity.md, source.md)
-- [ ] 3.4 Chain health-check INFO
-- [ ] 4 Verifications (0 page sans confidence, health SAIN)
+- [x] 3.1 `scripts/wiki-confidence-audit.sh` (3 modes : default / --quiet / --check)
+- [x] 3.2 Backfill 22 pages (scope reel : 22 MISS, pas 26 — Phase 1 avait deja couvert 4 concepts)
+- [x] 3.3 Update template entity.md (concept.md + source.md deja medium)
+- [x] 3.4 Chain health-check INFO (wiki-confidence apres tier-contradictions)
+- [x] 4 Verifications (0 sans confidence, 40 high / 1 medium / 3 low, health SAIN, ref 0/140)
 - [ ] 6 Commit + merge main + push
 
 ### Phase 4 — INT-3 Graph report auto
