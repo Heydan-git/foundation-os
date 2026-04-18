@@ -23,46 +23,46 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
-## 2026-04-18 (D-INTEG-01 Phase 1/5) · Preparation integration sources externes
+## 2026-04-18 (D-INTEG-01 Phases 2-5 COMPLET) · Integration sources externes 5/5
 
-**Duree** : 1 session moyenne (~1h30, audit surface + analyse 5 sources + plan + Phase 1 exec + push)
+**Duree** : 1 session longue (~5-6h enchainees, Opus 4.7 1M context — Phases 2+3+4+5 sans compactage)
 
-**Scope** : 
-1. Audit de surface Core OS post-refactor mapping (verdict SAIN)
-2. Lecture profonde 5 sources externes : [MemPalace](https://github.com/MemPalace/mempalace), [Octogent](https://github.com/hesamsheikh/octogent), [Graphify](https://github.com/safishamsi/graphify), [Penpax.ai](https://safishamsi.github.io/penpax.ai/), MemPalace site (via WebSearch, site principal 403)
-3. Synthese comparative 3 tiers (integrer / inspirer / ignorer)
-4. Plan 5 phases 6 elements anti-compactage
-5. Execution Phase 1 (preparation architecturale legere)
+**Scope** : Executer Phases 2-5 du plan D-INTEG-01 apres Phase 1 preparatoire (session precedente). 4 livrables substantiels (1 hook + 2 scripts bash/python + 1 section canonique) + backfill 22 pages + graph report auto-gen. Zero regression a chaque phase, health SAIN conserve.
 
-**Livraison Phase 1** (commit `6386823` + merge `452a342` push origin main) :
-- 4 concepts wiki : [[Confidence Tagging]] + [[Graph Report]] + [[Layered Loading]] + [[Pre-compaction Snapshot]]
-- Linking : `wiki/index-wiki.md` + `wiki/meta/index-concepts.md` (Cross-domain 9→13) + `wiki/meta/foundation-os-map.md` (section Enhancements 2026)
-- Spec canonique : `docs/core/knowledge.md` section 12 (12.1 Confidence + 12.2 Graph + 12.3 Layered + 12.4 Pre-compaction + 12.5 Ignores)
-- Seuils : `scripts/thresholds.json` sections `wiki.confidence_required_*` + `wiki.graph_report` + `wiki.layered_loading` + `wiki.pre_compaction`
-- Decision : `CONTEXT.md` D-INTEG-01 (apres D-MAPPING-01)
-- Plan dual-path : `docs/plans/2026-04-17-integration-sources-externes.md` (33KB, 5 phases, 6 elements chacune)
-- Infrastructure : `scripts/ref-checker.sh` IGNORE_REFS_RE etendu pour scripts Phase 2-4 futurs (wiki-confidence-audit, wiki-graph-report, pre-compaction-snapshot) + `wiki/meta/graph-report.md` futur
+**Livraison** (4 commits + 4 merges + 4 push origin main) :
+- **Phase 2 INT-1** (`2534137` + merge `34c259b`) : `scripts/hooks/pre-compaction-snapshot.sh` (+x, rotation 14), `.claude/settings.json` hook PreCompact (best-effort), `.gitignore` snapshots, `docs/core/tools.md` entree. Snapshot atomique dump hot + CONTEXT Cap + TodoWrite dans `.omc/snapshots/YYYYMMDD-HHMM.md`. Recovery : `cat .omc/snapshots/$(ls -t .omc/snapshots | head -1)`.
+- **Phase 3 INT-2** (`cc6d3c4` + merge `4f08465`) : `scripts/wiki-confidence-audit.sh` (3 modes default/--quiet/--check), backfill 22 pages (19 high + 3 low placeholders Phase 5), template `entity.md` patche (medium), chain health-check section INFO, `docs/core/knowledge.md` 12.1 status active. Distribution : 41 high / 1 medium / 3 low sur 48 pages.
+- **Phase 4 INT-3** (`1010887` + merge `fc8ded4`) : `scripts/wiki-graph-report.sh` (bash wrapper + python3 inline, 3 modes), `wiki/meta/graph-report.md` auto-gen (3.2KB). Chain health-check INFO. Wikilinks : [[graph-report]] dans index-wiki + table Enhancements foundation-os-map. Premier run : 44 pages scannees (hors templates), 11 god-nodes, 1 orphelin (session-patterns, seuil OK), 6 cross-domain, 6 communities.
+- **Phase 5 INS-1** (`9418661` + merge `e861abf`) : `docs/core/communication.md` section 6.5 "Layered context loading L0-L3" (2 tables + seuils thresholds.json + regles selection par type de tache). Callout success `wiki/concepts/Layered Loading.md`. `docs/core/knowledge.md` 12.3 status active.
 
-**Verifs** :
-- wiki-counts-sync : **47 pages, 712 wikilinks** (+4 pages, +55 wikilinks)
-- wiki-health : SAIN (15 concepts, 5 entities, 2 sources, 5 domaines, hot.md 0j)
-- ref-checker : **140 .md / 0 cassee**
-- health-check : SAIN (build 246ms, 15/15 tests, drift SYNC, tier 0, neuro 100%)
-- thresholds.json : JSON valide
-- Push origin main : OK
+**Verifs finales** :
+- wiki-health SAIN (48 pages, 15 concepts, 5 entities, 2 sources, 5 domaines, hot.md 0j)
+- ref-checker : 141 .md / 0 cassee
+- health-check SAIN avec 2 nouvelles lignes INFO chainees (Wiki confidence + Wiki graph)
+- wiki-graph-report --check exit 0 (fichier sync)
+- Build 282ms, 15/15 tests app, drift SYNC, tier contradictions 0, neuroplasticite 100%
+- JSON valides : thresholds.json + .claude/settings.json
 
-**Decision** : **D-INTEG-01** (2026-04-18) Integration sources externes MemPalace/Graphify/Octogent/Penpax. 4 enhancements (INT-1/2/3 + INS-1) sur 5 sessions total. Phase 1/5 DONE.
+**Decision** : **D-INTEG-01 COMPLET** (5/5 phases) — 4 enhancements MemPalace/Graphify (INT-1/2/3 + INS-1) absorbes organiquement sans regression. Plan archive via hook auto-archive (status:done, phases_done:5).
 
-**Revelation** : 
-- FOS est plus mature sur collaboration Kevin-Claude (CLAUDE.md + brief v12 + neuroplasticite + 5 tiers) que les 4 sources externes.
-- 3 gaps reels detectes : auto-save pre-compression (MemPalace), graph report auto (Graphify), confidence tagging systematique (Graphify finding F1 Explore : 37% pages sans confidence, 63% = high uniforme).
-- Penpax.ai (capture navigateur/meetings) hors philosophie FOS (code volontaire, pas surveillance passive) → ignore.
+**Revelations** :
+- FOS absorb 4 features externes en 1 session Opus 4.7 1M context sans casser = **validation organicite** (pattern scripts + hooks + frontmatter + chain health-check).
+- Layered loading section 6.5 **formalise une discipline deja de facto** : SessionStart Tour 1 = L0 (hot) + L1 (CONTEXT + sessions-recent) + L2 (lessons + thinking + plans). Explicite l'implicite.
+- Graph report premier run revele pattern **mesh sain** post-refactor D-MAPPING-01 : top god-nodes = index-wiki (19), index-concepts (19), LLM Wiki Pattern (18), foundation-os-map (17). Mesh niveau 2 fonctionne.
+- Confidence tagging honnete : **3 pages `low`** (domaines Phase 5 placeholders) = visibilite explicite des claims non-verifiees. Neuroplasticite applique.
+- Pattern **python3 inline dans bash wrapper** (Phase 4) : robuste pour regex/JSON/graph scan. Reutilisable pour futurs scripts analytiques.
 
 **Threads ouverts** :
-- Phase 2/5 INT-1 pre-compaction snapshot (~1h) — prochaine session
-- Phase 3-5 : confidence tagging + graph report + layered loading
-- Decision Phase 5 modules Finance/Sante/Trading (reportee)
-- 14 routines Desktop UI /schedule
+- Decision Phase 5 modules (Finance/Sante/Trading) — prochain gros chantier
+- 14 routines Desktop UI /schedule (Kevin config manuelle)
+- 10 worktrees actifs — cleanup eventuel post-merge
+- OMC update v4.10.1 → v4.12.0 disponible
+
+---
+
+## 2026-04-18 (D-INTEG-01 Phase 1/5) · Preparation integration sources externes
+
+Session preparatoire : audit surface SAIN + lecture 5 sources externes + synthese 3 tiers + plan 5 phases 6 elements + Phase 1 exec (4 concepts wiki + spec `docs/core/knowledge.md` section 12 + seuils thresholds.json + decision D-INTEG-01 + dual-path plan). Commit `6386823` + merge `452a342`. 47 pages, 712 wikilinks, health SAIN.
 
 ---
 
@@ -198,37 +198,7 @@ related:
 
 ---
 
-## 2026-04-17 · Audit v2 execution S1+S2 (~75% plan master)
-
-**Durée** : 1 session longue (~4h)
-**Scope** : Execution plan master audit v2, FORME critique + FONCTION partielle
-
-**Livraison** (10 commits atomiques) :
-- Phase 1.1 fix `.git/hooks/commit-msg` reinstall + `scripts/git-hooks-install.sh`
-- Phase 1.2 purge refs `tokens/` DS inexistant (package.json, README DS, 6 foundations, biome, .gitignore, archive 2 scripts mjs)
-- Phase 2 narratives alignees (CONTEXT Void Glass fork, CLAUDE wiki-ingest skill, naming Opus generique, registry v11→v12, DS CHANGELOG Storybook 9, 6 UI commentaires, globals.css)
-- Phase 3 archivages 6 zones (app/data/ mots interdits, forms/ dead code, docs/specs DONE, DS preview duplica, DS base DS reference, settings backup) + purge supernova snapshots + README chaque archive
-- Phase 4 counts unifications (`wiki/meta/counts.md` + alignement hot/overview/index-wiki/foundation-os-map + trim sessions 6→5 + `scripts/thresholds.json` + `registry/knowledge-skills.json` 10 skills + tools 109 total + CSS 65KB coherent)
-- Phase 5 memory consolidations (4 deprecations + markers frontmatter 8 existants + MEMORY.md index 24 actives + 12 deprecated)
-- Phase 6 harness wired (settings.json SessionStart wrapper wiki, tool-register chain health-check, docs-sync-check chain sync-check, TSX scope dynamique, wiki-health full scan, nouveau `scripts/wiki-counts-sync.sh`, archive `wiki-recall-reminder.sh` orphelin)
-- Phase 11 I-02 `scripts/sessions-analyze.sh` + `_sessions-analyze.py` (72 transcripts JSONL Kevin, 548 msgs, 9549 tool calls) → `wiki/meta/session-patterns.md`
-- Phase 13 I-04 `scripts/propositions-generator.sh` + tuile #15 brief v12
-- Phase 14 I-07 `scripts/neuroplasticity-score.sh` + chain health-check
-
-**Revelations** :
-- `.omc/sessions/*.json` = metadata 189 bytes, pas transcripts. Vrais transcripts dans `~/.claude/projects/.../*.jsonl` (72 fichiers, 267MB)
-- `CLAUDE_USER_PROMPT` env var **inexistante** pour hooks Claude Code (stdin JSON). Phase 12 I-01 skip + documente lessons-learned
-- SQL migrations existantes risque si modif en prod (Phase 1.3 skip, Kevin validera plan compense plus tard)
-
-**Decisions** :
-- Kevin : routines Cloud + SQL migrations reportees (focus local)
-- Skip Phase 7-9 drifts P1-P3 (low value, session nettoyage dediee)
-- Skip Phase 19 I-03 brief adaptatif (nice-to-have)
-
-**Threads ouverts** :
-- Merger `claude/elated-easley-38523c` dans main (Kevin valide)
-- Decision Phase 5 modules (Finance / Sante / Trading)
-- Continuer I-09 memory priorisation + I-06 contradiction detector + I-10 feedback loop (Phase 16-18)
+> Session "2026-04-17 · Audit v2 execution S1+S2 (~75%)" trimee 2026-04-18 (regle max 5 sessions). Detail : 10 commits atomiques FORME+FONCTION. Livrables : scripts git-hooks-install + wiki-counts-sync + sessions-analyze + propositions-generator + neuroplasticity-score + tuile #15 brief v12 + wiki/meta/counts.md + session-patterns.md. Lecon CLAUDE_USER_PROMPT env var inexistante (stdin JSON only).
 
 ## 2026-04-16 · Mega Audit V2 FORME + FONCTION (Opus 4.7)
 

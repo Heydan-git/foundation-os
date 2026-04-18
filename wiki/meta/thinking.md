@@ -36,6 +36,14 @@ related:
 - [[LLM Wiki Pattern]] + Trading : le pattern "pre-compiler sources en wiki" s'applique parfaitement aux whitepapers trading (Jegadeesh, Asness, etc.). Le wiki/domains/trading/ est deja scaffolde pour ca.
 - [[Hot Cache]] + Sante : un "hot cache sante" pourrait tracker les derniers biomarkers de Kevin (TSH, ferritine, vit D) pour que chaque session sante commence avec les valeurs recentes.
 
+## Insights cette session (2026-04-18 D-INTEG-01 COMPLET)
+
+- **Organicite FOS validee empiriquement.** 4 features externes (MemPalace pre-compaction + Graphify confidence/graph-report + MemPalace layered loading) absorbees en 1 session 5-6h sans regression, health SAIN a chaque phase, 0 ref cassee. Le pattern scripts + hooks + frontmatter + chain health-check est reutilisable = **plomberie solide**. Sources externes inspirent, FOS absorbe a son rythme.
+- **Layered loading formalise une discipline deja de facto.** Section 6.5 communication.md rend **explicite** ce qui etait implicite : SessionStart Tour 1 = L0 (hot) + L1 (CONTEXT + sessions-recent) + L2 (lessons + thinking + plans actifs). Pas d'invention, juste spec canonique. Pattern general : **quand une pratique est stable, la nommer/spec = compounding knowledge**.
+- **Graph report revele pattern mesh sain post-refactor.** Top god-nodes : index-wiki (19 inbound), index-concepts (19), LLM Wiki Pattern (18), foundation-os-map (17). Mesh niveau 2 (post D-MAPPING-01) fonctionne : plusieurs hubs de taille moyenne > 1 hub surdimensionne. Scalabilite confirmee pour Phase 5 (500+ pages).
+- **Confidence honnete via 3 pages `low`.** Les 3 domain indexes Phase 5 (finance/sante/trading) taggues `low` signalent explicitement : "ces pages existent mais le contenu est placeholder". Evite l'illusion qu'elles sont pretes. Neuroplasticite applique : next Claude sait distinguer fact vs placeholder.
+- **Python3 inline dans bash wrapper.** Pattern cle pour Phase 4 : scripts complexes (graph scan + analyse) en python3 embedded via heredoc. Plus robuste que pure bash pour regex/JSON/dict. Pattern reutilisable pour futurs scripts analytiques.
+
 ## Insights cette session (2026-04-17 mapping refactor)
 
 - **Sources verite multiples = source de drift silencieux.** Avant refactor : 4 sources pour wiki counts (counts.md, hot.md, overview.md, index-wiki.md) avec valeurs divergentes (45/48/50/791/804). Apres : 1 source (counts.md regeneree par script), les 5 consumers pointent vers `[[counts]]`. Pattern applicable ailleurs : chaque fois qu'une metrique apparait dans > 1 fichier, soit source unique + pointers, soit regen auto par script.
