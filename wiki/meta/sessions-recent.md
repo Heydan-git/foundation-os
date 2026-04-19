@@ -23,6 +23,60 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-19 (D-PRODUCT-01 COMPLET 5/5) · Module Product 9e Core OS livre + pivot Notion-only
+
+**Duree** : 1 session longue (~6-8h, Opus 4.7 1M context) — 5 commits dont 1 pivot en cours de session
+
+**Scope** : Kevin demande "reintegre Notion et Asana dans le workflow, creer agent PO + skill, bidirectionnel, full integration avec honnetete sur limites". Puis pivot Notion-only P1.5 apres decouverte limites MCP Asana (payant + pas create_project/section/update_project). Agent PO elargi : PO de Foundation OS + modules + apps futures revendables via App Builder.
+
+**Livraison** (5 commits atomiques) :
+- `81cf901` **P1 Bootstrap** : spec canonique `docs/core/product.md` (11 sections), agent `.claude/agents/po-agent.md` sonnet (Task invocable), skill `.claude/commands/po.md` (init/sync/pull/status), 4 scripts `scripts/po-{init,sync,pull,status}.sh` (stubs forward refs), 2 hooks `scripts/hooks/product-session-{start,end}.sh` (stubs forward P4), MCP Notion : archive ancien espace "🪐 Foundation OS" (→ "Archive 2026-04") + nouveau espace + 3 DB (Decisions/Plans/Sessions), Asana : 2 anciens projets supprimes manuellement Kevin + preview projet "FoundationOS" confirme Kevin UI, CONTEXT.md + architecture-core.md + CLAUDE.md updates. 16 fichiers, 1467 insertions.
+- `a39fb11` **P1.5 Pivot Notion-only** : abandon Asana apres decouverte limites MCP (MCP ne supporte pas create_project/section, setup tout manuel = pas viable). Pivot en cours de session vers 100% Notion. Create DB Tasks (716e6844) avec schema complet (Title, Plan ref relation, Phase, Element, Status enum Todo/In Progress/Done/Blocked, Priority, Module, Type Phase/Element/US/Task). Rewrite complet product.md + po-agent.md + po.md + po-init.sh + product-config.json + updates CONTEXT/CLAUDE/architecture-core/plan. 9 fichiers, 367+/274-.
+- `ec49114` **P2 Push** : 4 MCP batch calls `notion-create-pages` vers 4 DB = 28 rows crees (16 Decisions D-PRODUCT-01 a D-WT-01 / 1 Plan D-PRODUCT-01 / 5 Sessions recentes / 6 Tasks phases P1-P5 avec Plan ref relation). Upgrade `po-sync.sh` stub → fonctionnel (parse CONTEXT.md Decisions + count plans/sessions + genere manifest JSON actions suggerees). 2 fichiers, 266+/18-.
+- `6f89ae4` **P3 Pull + Views + Tuile** : 4 views natives MCP `notion-create-view` (Kanban by Status + Kanban by Module + Timeline Tasks + Timeline Plans). Update DB Tasks Module options (add Body + Product). Rewrite `po-pull.sh` stub → fonctionnel (manifest-driven pull avec modes --preview/--apply/--interactive). Rewrite `po-status.sh` stub → fonctionnel (--quiet 1-ligne chain health-check). Chain `scripts/health-check.sh` section INFO (apres alignment-analyze). Ajout tuile brief v12 #17 PRODUCT dans `docs/core/communication.md` (slot 17 car 16 deja PROPOSITIONS). 6 fichiers, 352+/40-.
+- `a687b59` **P4 Hooks auto** : rewrite `scripts/hooks/product-session-{start,end}.sh` stubs → complets (timeout 10s/30s + retry 1x + offline fallback log + opt-in PRODUCT_MCP_SYNC=1). Update `.claude/settings.json` (ajout 2 hooks Product dans SessionStart + SessionEnd). Logs `.omc/logs/product-sync.log`. 3 fichiers, 145+/20-.
+
+**Verifs finales** :
+- health-check SAIN (chaines product-status inclues)
+- 4 MCP Notion calls reussis (archive + create pages + 3 create_database + 4 create_view + update_data_source)
+- Scripts po-*.sh tous testables (--dry-run, --quiet, --preview modes)
+- Hooks online + offline simulation OK (default OFF + opt-in ON ecritures logs)
+- settings.json JSON valide
+- 2 concepts wiki crees ([[Product Management]] + [[Notion integration]])
+- CONTEXT.md Module Product COMPLET 5/5 + decision D-PRODUCT-01 acte
+- Plan frontmatter status:done + phases_done:5 (archive auto via hook SessionEnd)
+
+**Decision** : **D-PRODUCT-01 COMPLET 5/5** Module Product 9e Core OS. Integration bidirectionnelle FOS ↔ Notion 100% (Asana abandonne P1.5). Plan archive `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md`.
+
+**Revelations** :
+- **Pivot en cours de session = flexibilite necessaire face limites MCP**. Plan initial supposait MCP Asana complet. Decouverte limites (create_project/section/update_project absents) en P2 = pivot P1.5 decide en 10 min + execute en 30 min. Pattern : quand une plateforme bloque, pivoter vers l'autre mieux equipee plutot que forcer.
+- **Limites MCP Asana pour automation produit** : `create_tasks` OK, mais pas `create_project`/`create_section`/`update_project archived`. Setup structure = manuel UI. Pour "full integration automatisee", Notion est superieur (create_database + create_view + update_data_source tous dispos).
+- **Manifest-driven pattern pour honnetete P-11**. Bash ne peut pas invoquer MCP. Scripts `po-*.sh` generent manifests JSON dans `.omc/po-manifests/` + Claude execute. Permet traceabilite + idempotence + recovery post-compactage. Reutilisable pour autres integrations MCP futures.
+- **Notion DB + views natifs suffisent pour role PO**. Kanban (board group Status/Module) + timeline (date range) + relations (one-way/two-way DUAL) + formulas + rollups = equivalent complet Asana Premium sans cout supplementaire. 1 plateforme < 2 plateformes pour dev solo (YAGNI P-20).
+- **Scope PO elargi = strategique, pas juste technique**. Agent `po-agent` couvre FOS + modules + apps futures revendables via App Builder. Responsabilites = roadmap, backlog, US, sprint, kanban, metrics. Ne sert pas qu'a "sync technique".
+- **Views Notion MCP requires both database_id AND data_source_id**. Premier essai avec seulement data_source_id failed. Fix = fournir les 2. Lesson pour futurs usages.
+- **DB select options manquantes = ALTER COLUMN SET**. DB Tasks Module n'avait pas "Product" option au depart. Fix via `notion-update-data-source ALTER COLUMN "Module" SET SELECT(...)`. Pattern : pour evolution schema DB post-creation, utiliser ALTER plutot que delete/recreate.
+
+**Threads ouverts** :
+- Merge main + push origin (`/session-end` Phase 8) : a faire maintenant
+- Test live D-PRODUCT-01 : activer `PRODUCT_MCP_SYNC=1` + observer hooks SessionStart/End reels + Kevin move card Notion kanban → pull reel
+- Kevin supprime manuellement projet Asana "FoundationOS" (MCP ne le peut pas)
+- Next rotation MCP Notion : si Kevin passe equipe, reevaluer permissions workspace + 3-way merge
+- Decision Phase 5 modules (Finance/Sante/Trading) — toujours reportee
+
+**Pages wiki impactees** :
+- Creees P5 : `wiki/concepts/Product Management.md` (concept core), `wiki/concepts/Notion integration.md` (concept impl)
+- Mises a jour meta : `wiki/hot.md`, `wiki/meta/sessions-recent.md` (this), `wiki/meta/lessons-learned.md`, `wiki/meta/thinking.md`
+
+**Limites honnetes rencontrees** (P-11) :
+- MCP Asana create_project/section/update_project absents → abandon Asana
+- MCP Notion notion-create-pages root-level non supporte → new root enfant temporaire de Archive
+- MCP Asana create_tasks resource_subtype=section refuse → limite connue
+- `create_project_preview` Asana requiert confirmation UI Kevin (pas creation silencieuse)
+- Rate limit Notion 3 req/s → batching fin session obligatoire
+
+---
+
 ## 2026-04-19 (D-BODY-01 COMPLET 5/5) · Body module 8e Core OS livre integralement
 
 **Duree** : 1 session longue (~3h, Opus 4.7 1M context)

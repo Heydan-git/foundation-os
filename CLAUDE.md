@@ -155,14 +155,7 @@ Kevin peut travailler N sessions Desktop en parallele (1 par worktree). Regle d'
 
 ## Core OS
 
-Specs completes : `docs/core/`.
-- **Cortex** (routing) : `cortex.md`
-- **Communication** (persistance + brief v12) : `communication.md`
-- **Monitor** (health, seuils) : `monitor.md`
-- **Tools** (catalogue 109 outils) : `tools.md` + `tools/index.json` + `tools/routing.json`
-- **Planner** (`/plan-os` orchestrateur) : `planner.md`
-- **Worktrees** (feature native + workflow `/wt`) : `worktrees.md`
-- **Architecture globale** : `architecture-core.md`
+Specs completes : `docs/core/`. 9 modules : **Foundational** `cortex.md` (routing), `communication.md` (brief v12), `monitor.md` (health), `tools.md` (109 outils), `planner.md` (/plan-os), `worktrees.md` (/wt) + **Knowledge** `knowledge.md` (wiki) + **Body** `body.md`+`constitution.md` (alignement) + **Product** `product.md` (Notion PO). **Architecture globale** : `architecture-core.md`.
 
 ## Commands (.claude/commands/ + plugin claude-obsidian)
 - `/cockpit` : point d'entree unique (scan + brief + routing + cloture)
@@ -181,6 +174,7 @@ Specs completes : `docs/core/`.
 - `dev-agent` (sonnet) : code React/TS, composants, Supabase, Void Glass
 - `doc-agent` (sonnet) : documentation, CONTEXT.md, traces
 - `review-agent` (sonnet) : coherence, audit, zero regression, pre-deploy
+- `po-agent` (sonnet) : Product Owner FOS + modules + apps futures. Expert Notion 100% + MCP (14 tools). Gestion bidirectionnelle (DB Decisions/Plans/Sessions/Tasks, kanban views, roadmap, backlog). Pivot Notion-only (Asana abandonne). Invocable via `/po` skill ou Task.
 
 Protocole : entree (CONTEXT.md + scope) → execution dans scope → sortie (rapport court).
 

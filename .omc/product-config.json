@@ -1,0 +1,114 @@
+{
+  "version": "1.1",
+  "created_at": "2026-04-19",
+  "updated_at": "2026-04-19",
+  "decision": "D-PRODUCT-01",
+  "phase_state": "P1.5 pivot Notion-only complete",
+  "pivot_note": "Asana abandonne 2026-04-19 (payant + MCP limite : pas de create_project/create_section). Notion only.",
+  "notion": {
+    "workspace_user_id": "4f1b99db",
+    "archived_space": {
+      "page_id": "33721e30-0c7b-812d-923a-f0f229508a24",
+      "title": "🪐 Foundation OS — Archive 2026-04",
+      "archived_at": "2026-04-19",
+      "note": "Ancien espace initial du 2026-04-03, renomme (pas supprime) pour preserver 9 sous-pages historiques."
+    },
+    "new_space": {
+      "page_id": "34721e30-0c7b-8109-ad34-cc6baec0f265",
+      "url": "https://www.notion.so/34721e300c7b8109ad34cc6baec0f265",
+      "title": "🪐 Foundation OS",
+      "parent": "33721e30-0c7b-812d-923a-f0f229508a24",
+      "parent_note": "Temporairement enfant de l'archive (limite MCP : creation workspace-level non supportee). Kevin peut deplacer manuellement au niveau racine via Notion UI."
+    },
+    "databases": {
+      "decisions": {
+        "page_url": "https://www.notion.so/6af0b7be286f4ff6bd9e1dbede46fc85",
+        "data_source_id": "8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+        "data_source_url": "collection://8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+        "title": "📊 Decisions",
+        "properties": ["Title", "Code", "Date", "Module", "Status", "Source ref", "Synced at"],
+        "created_phase": "P1"
+      },
+      "plans": {
+        "page_url": "https://www.notion.so/670189804fb4424193b9880c004ba23b",
+        "data_source_id": "47fda921-85b6-43cf-a7ec-efbc03d3b953",
+        "data_source_url": "collection://47fda921-85b6-43cf-a7ec-efbc03d3b953",
+        "title": "📋 Plans",
+        "properties": ["Title", "Slug", "Decision ref", "Status", "Phases total", "Phases done", "Effort estime", "Path", "Created", "Synced at"],
+        "created_phase": "P1"
+      },
+      "sessions": {
+        "page_url": "https://www.notion.so/d4e5a345bb324fdea940021ac505efbe",
+        "data_source_id": "218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+        "data_source_url": "collection://218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+        "title": "💬 Sessions",
+        "properties": ["Title", "Date", "Duration", "Scope", "Commits", "Decisions ref", "Livraison", "Revelations", "Synced at"],
+        "created_phase": "P1"
+      },
+      "tasks": {
+        "page_url": "https://www.notion.so/094ff921bd6741beb9edd0283aeb2e38",
+        "data_source_id": "716e6844-eca0-4a33-9c40-7a52f6ed07b3",
+        "data_source_url": "collection://716e6844-eca0-4a33-9c40-7a52f6ed07b3",
+        "title": "🎯 Tasks",
+        "properties": ["Title", "Plan ref", "Phase", "Element", "Status", "Priority", "Module", "Type", "Due date", "Synced at"],
+        "relations": {"Plan ref": "collection://47fda921-85b6-43cf-a7ec-efbc03d3b953"},
+        "created_phase": "P1.5",
+        "note": "Pivot P1.5 : remplace ex-Asana kanban. Type=Phase|Element|US|Task, Status=Todo|In Progress|Done|Blocked. Views kanban a creer en P2."
+      }
+    },
+    "views": {
+      "tasks_kanban_status": {
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-812b-b464-000c6ff41456",
+        "db": "tasks",
+        "layout": "board",
+        "group_by": "Status"
+      },
+      "tasks_kanban_module": {
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8113-a706-000c8fe33035",
+        "db": "tasks",
+        "layout": "board",
+        "group_by": "Module"
+      },
+      "tasks_timeline": {
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8121-b03e-000cbb628d88",
+        "db": "tasks",
+        "layout": "timeline",
+        "date_prop": "Due date"
+      },
+      "plans_timeline": {
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8147-88c0-000c44de4437",
+        "db": "plans",
+        "layout": "timeline",
+        "date_prop": "Created"
+      }
+    }
+  },
+  "asana_abandoned": {
+    "status": "ABANDONE",
+    "decision_date": "2026-04-19",
+    "reason": "Payant (Premium requis pour custom fields) + MCP Asana ne supporte pas create_project / update_project (archive) / create_section. Setup tout manuel, pas viable full integration.",
+    "ex_workspace_gid": "1213280972575193",
+    "ex_project_gid_created_by_kevin": "1214127772370194",
+    "ex_project_name": "FoundationOS",
+    "action_kevin": "Supprimer projet Asana FoundationOS manuellement UI (si souhaite)"
+  },
+  "sync_state": {
+    "last_push": "2026-04-19T19:56:00Z",
+    "last_pull": null,
+    "conflicts_count": 0,
+    "push_history": [
+      {"timestamp": "2026-04-19T19:56:00Z", "phase": "P2", "entities": {"decisions": 16, "plans": 1, "sessions": 5, "tasks": 6}}
+    ]
+  },
+  "notes": [
+    "Ce fichier est la source de verite operationnelle pour IDs Notion.",
+    "Mis a jour par po-init.sh / po-sync.sh / po-pull.sh apres chaque execution MCP.",
+    "Lu au debut de chaque /po command pour identifier les targets.",
+    "Commit dans git (non sensitive : IDs Notion publics).",
+    "Pivot P1.5 Notion-only : Asana section conservee `asana_abandoned` pour traceabilite decision."
+  ]
+}

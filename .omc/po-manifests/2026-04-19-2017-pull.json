@@ -1,0 +1,71 @@
+{
+  "created_at": "2026-04-19T18:17:59Z",
+  "script": "po-pull.sh",
+  "version": "1.0",
+  "decision": "D-PRODUCT-01",
+  "phase": "P3+",
+  "mode": "preview",
+  "last_pull": "never",
+  "last_push": "never",
+  "targets": {
+    "db_decisions": "8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+    "db_plans": "47fda921-85b6-43cf-a7ec-efbc03d3b953",
+    "db_sessions": "218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+    "db_tasks": "716e6844-eca0-4a33-9c40-7a52f6ed07b3"
+  },
+  "actions_suggested": [
+    {
+      "order": 1,
+      "source_db": "tasks",
+      "operation": "query filtered by modified_at > last_pull (detect Kevin drag kanban Status)",
+      "mcp_tool": "notion-fetch on data_source_url + filter",
+      "map_to_fos": "TodoWrite state (Status Todo/In Progress/Done)"
+    },
+    {
+      "order": 2,
+      "source_db": "tasks",
+      "operation": "query tasks with new comments (Kevin feedback sur US/Phase)",
+      "mcp_tool": "notion-get-comments per task page_id",
+      "map_to_fos": "append commentaires dans .omc/product-state.json pour brief tuile #17"
+    },
+    {
+      "order": 3,
+      "source_db": "plans",
+      "operation": "query plans Status changed (Kevin force archive OR reactive)",
+      "mcp_tool": "notion-fetch data_source",
+      "map_to_fos": "Update docs/plans/<slug>.md frontmatter status si Kevin a change"
+    },
+    {
+      "order": 4,
+      "source_db": "decisions",
+      "operation": "query decisions Status changed (Kevin force Superseded)",
+      "mcp_tool": "notion-fetch data_source",
+      "map_to_fos": "Update CONTEXT.md table Decisions Status column"
+    }
+  ],
+  "diff_detection_rules": [
+    "Pour chaque entity Notion, comparer modified_at vs last_pull timestamp",
+    "Si modified_at > last_pull -> flag comme 'Kevin edited'",
+    "Pour DB Tasks Status : si valeur diffère de FOS TodoWrite correspondant -> diff",
+    "Pour DB Plans Status : si valeur diffère de frontmatter plan MD -> diff",
+    "Generer .omc/po-diffs/YYYY-MM-DD-HHMM-diff.json avec liste diffs"
+  ],
+  "apply_rules_if_mode_apply": [
+    "Status Todo/In Progress/Done kanban -> update TodoWrite equivalent",
+    "Comments Notion -> append dans .omc/product-state.json (pour brief #17)",
+    "Priority change -> reorder TodoWrite si High",
+    "Jamais auto-apply si conflit detecte (FOS MD modifie ET Notion modifie depuis last_push)"
+  ],
+  "conflict_rule": "last-write-wins par champ (timestamp modified_at le plus recent). Log .omc/po-conflicts.log avec diff avant/apres. Pas de 3-way merge.",
+  "rate_limit_rules": {
+    "notion_max_req_per_sec": 3,
+    "queries_estimated": "4 (1 par DB)",
+    "sleep_between_queries_ms": 350
+  },
+  "notes": [
+    "Pattern honnete P-11 : bash ne peut invoquer MCP, Claude execute queries.",
+    "Modes --preview / --apply / --interactive guident le comportement de Claude post-lecture manifest.",
+    "Apres execution, Claude ecrit resultats .omc/po-results/ + update .omc/po-last-sync.json.",
+    "Tuile brief v12 #17 PRODUCT source les donnees depuis .omc/product-state.json."
+  ]
+}

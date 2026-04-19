@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-04-19T14:22:26Z",
+  "script": "po-init.sh",
+  "version": "1.0",
+  "dry_run": true,
+  "decision": "D-PRODUCT-01",
+  "phase": "P1",
+  "state_before": {
+    "notion_existing_space_id": "33721e30-0c7b-812d-923a-f0f229508a24",
+    "asana_workspace_gid": "1213280972575193",
+    "asana_projects_existing": "verifies via MCP avant exec"
+  },
+  "actions": [
+    {
+      "id": "1-notion-archive-rename",
+      "tool": "mcp__e8eb411f-9903-4db1-86de-94c7ef74367d__notion-update-page",
+      "params": {
+        "data": {
+          "page_id": "33721e30-0c7b-812d-923a-f0f229508a24",
+          "properties": {
+            "title": "🪐 Foundation OS — Archive 2026-04"
+          }
+        }
+      },
+      "description": "Rename espace Notion existant (9 sous-pages stale preservees)",
+      "skip_if": "page renamed deja (title contient 'Archive')"
+    },
+    {
+      "id": "2-notion-create-new-root",
+      "tool": "mcp__e8eb411f-9903-4db1-86de-94c7ef74367d__notion-create-pages",
+      "params_hint": "Create page '🪐 Foundation OS' at root avec icon 🪐 + description overview",
+      "description": "Nouveau espace root propre"
+    },
+    {
+      "id": "3-notion-create-db-decisions",
+      "tool": "mcp__e8eb411f-9903-4db1-86de-94c7ef74367d__notion-create-database",
+      "params_hint": "DB 'Decisions' dans nouveau root. Proprietes : Title (title), Code (rich_text D-XXX-NN), Date (date), Module (select), Status (select: Active/Superseded/Archive), Source ref (url)",
+      "description": "DB Decisions miroir CONTEXT.md section Decisions"
+    },
+    {
+      "id": "4-notion-create-db-plans",
+      "tool": "mcp__e8eb411f-9903-4db1-86de-94c7ef74367d__notion-create-database",
+      "params_hint": "DB 'Plans' dans nouveau root. Proprietes : Title (title), Slug (rich_text), Decision ref (rich_text), Status (select: draft/active/done/archived), Phases total (number), Phases done (number), Effort (rich_text), Path (rich_text)",
+      "description": "DB Plans miroir docs/plans/ + .archive/plans-done-*/"
+    },
+    {
+      "id": "5-notion-create-db-sessions",
+      "tool": "mcp__e8eb411f-9903-4db1-86de-94c7ef74367d__notion-create-database",
+      "params_hint": "DB 'Sessions' dans nouveau root. Proprietes : Date (date), Duration (rich_text), Scope (rich_text), Commits (rich_text), Decisions ref (rich_text), Livraison (rich_text), Revelations (rich_text)",
+      "description": "DB Sessions miroir wiki/meta/sessions-recent.md"
+    },
+    {
+      "id": "6-asana-create-project-preview",
+      "tool": "mcp__4458e48d-de09-4bf1-a4d5-be4fab8409f7__create_project_preview",
+      "params_hint": "project_name='Foundation OS', sections = 6 modules (🧠 Core OS, 💻 App Builder, 🎨 Design System, 📚 Knowledge, 🤝 Cowork, 🚀 Phase 5), 1+ tasks par section avec priorite + dates",
+      "description": "Preview projet Asana → confirmation UI Kevin → projet cree",
+      "note": "MCP ne supporte pas create_project direct. Preview declenche UI confirmation."
+    }
+  ],
+  "expected_results": {
+    "notion_new_root_id": "TBD (fill after action 2)",
+    "notion_db_decisions_id": "TBD (fill after action 3)",
+    "notion_db_plans_id": "TBD (fill after action 4)",
+    "notion_db_sessions_id": "TBD (fill after action 5)",
+    "asana_new_project_gid": "TBD (fill after Kevin confirm preview action 6)",
+    "asana_project_sections_gids": "TBD (6 sections)"
+  },
+  "persist_target": ".omc/product-config.json",
+  "notes": [
+    "Pattern honnete P-11 : bash ne peut invoquer MCP, Claude execute calls.",
+    "Apres chaque action, remplir expected_results avec IDs reels.",
+    "Archive projets Asana anciens : MANUEL Kevin (MCP limite, pas update_project).",
+    "create_project_preview requiert confirmation UI Kevin (clic dans Asana app).",
+    "Idempotence : re-invoque po-init.sh -> nouveau manifest timestamp distinct. Actions MCP doivent verifier existence avant create (ex: notion-search 'Foundation OS' avant create_pages)."
+  ]
+}

@@ -24,6 +24,61 @@ related:
 >
 > **Convention 🎯 to-constitute (D-BODY-01 P3)** : si une lesson merite d'être élevée en principe constitution `P-XX`, prefixer le titre de la section avec l'emoji `🎯`. `bash scripts/constitution-suggest.sh` scanne les flags et propose des drafts P-XX formattes. Kevin refine + append manuellement dans `docs/core/constitution.md` (append-only, jamais renumerotation).
 
+## 🎯 MCP Notion create-view requires database_id AND data_source_id (2026-04-19)
+
+- **Date** : 2026-04-19 (D-PRODUCT-01 P3 session)
+- **Contexte** : Tentative creation 4 views natives Notion (Kanban by Status, Kanban by Module, Timeline Tasks, Timeline Plans) via `notion-create-view` avec seulement `data_source_id` comme parametre.
+- **Symptome** : Erreur `Exactly one of 'database_id' or 'parent_page_id' must be provided` (validation_error 400) sur les 4 calls.
+- **Cause racine** : le schema MCP notion-create-view exige **au moins un** de `database_id` ou `parent_page_id` EN PLUS de `data_source_id`. `data_source_id` seul = invalide.
+- **Fix** : fournir **les deux** : `database_id` (page ID de la DB) + `data_source_id` (collection ID). Retry a reussi sur les 4 views.
+- **Regle** : pour `notion-create-view`, toujours fournir `database_id` (format UUID de la page DB) ET `data_source_id` (format collection://UUID ou UUID). Le database_id correspond au page_url de la DB (ex: `094ff921bd6741beb9edd0283aeb2e38`).
+
+## 🎯 MCP Asana limites pour full integration automatisee (2026-04-19)
+
+- **Date** : 2026-04-19 (D-PRODUCT-01 P1 + pivot P1.5 session)
+- **Contexte** : Plan initial D-PRODUCT-01 prevoyait full integration FOS ↔ Notion + Asana. Pendant P1 execution, decouverte de 3 limites MCP Asana bloquantes :
+  1. `create_project` **absent** du MCP (seulement `create_project_preview` qui requiert confirmation UI Kevin)
+  2. `update_project archived=true` **absent** (archive projet Asana = manuel UI)
+  3. `create_tasks resource_subtype=section` **refuse** par Asana API ("You cannot create a section by setting a task's subtype")
+- **Symptome** : setup structure Asana tout manuel UI, tasks CRUD seule possible via MCP. Pas viable pour "full integration automatisee".
+- **Cause racine** : MCP Asana pense pour **gestion de tasks**, pas pour **setup de structure**. Les endpoints projet/section sont manquants du MCP mais existent dans Asana API REST native.
+- **Fix** : pivot P1.5 Notion-only. Notion MCP supporte `create_database` + `create_view` + `update_data_source` + `create_pages` = equivalent complet pour role PO. Abandon Asana, Notion absorbe le role kanban via DB Tasks + views natives.
+- **Regle** : **avant de committer a integrer 2 plateformes**, verifier le support MCP complet des **operations de setup structure** (pas juste tasks CRUD). Si plateforme A manque create_project/section/etc. → probable que plateforme B (si dispo) est plus pragmatique pour "full automation". YAGNI P-20 : 1 plateforme < 2 plateformes pour dev solo.
+
+## 🎯 Pivot en cours de session = flexibilite necessaire (2026-04-19)
+
+- **Date** : 2026-04-19 (D-PRODUCT-01 P1.5 pivot)
+- **Contexte** : Plan initial D-PRODUCT-01 avait 5 phases 22-29h pour full integration FOS ↔ Notion + Asana. Apres P1 bootstrap (80% fait), decouverte limites MCP Asana. 2 options : (a) forcer le plan initial avec workarounds UI Kevin lourds, (b) pivoter P1.5 vers Notion-only.
+- **Decision** : pivot P1.5 Notion-only (option b). Duree pivot : 10 min decision + 30 min execution (5 fichiers rewrite + 1 DB Tasks ajoutee + updates meta).
+- **Regle** : **un plan n'est pas sacre**. Si une contrainte externe (MCP limite, API down, plateforme payante) invalide une hypothese clé, **pivoter dans la meme session** est OK. Pattern : commit `P1.5 pivot <description>` atomique pour traceabilite. Mettre a jour frontmatter plan + spec + agent + scripts coherentement.
+- **Anti-pattern** : forcer le plan initial avec workarounds lourds qui degradent l'UX (plein de "Kevin doit cliquer ici, Kevin doit cliquer la"). L'honnetete P-11 dit : si la plateforme ne peut pas le faire, changer la plateforme plutot que mettre la pression sur l'utilisateur.
+
+## 🎯 Pattern manifest-driven pour honnetete P-11 MCP (2026-04-19)
+
+- **Date** : 2026-04-19 (D-PRODUCT-01 sessions P1-P4)
+- **Contexte** : Les scripts `scripts/po-*.sh` (init/sync/pull/status) doivent orchestrer des actions MCP Notion, mais **bash ne peut pas invoquer MCP directement** (limite Claude Code architecture : MCP tools callables uniquement par Claude session, pas subprocess).
+- **Cause racine** : bash peut : parser FOS state, generer JSON, log ; mais ne peut pas : call `mcp__notion__*` tools.
+- **Fix** : pattern **manifest-driven** :
+  1. Script bash parse etat FOS (CONTEXT.md, plans, sessions) + genere manifest JSON dans `.omc/po-manifests/YYYY-MM-DD-HHMM-<action>.json`
+  2. Manifest liste **actions_suggested** avec tool MCP + params hints
+  3. Claude (session principale OU subagent) lit manifest + execute MCP calls sequentiellement
+  4. Claude ecrit resultats dans `.omc/po-results/`
+  5. Script (re-invoque avec `--apply-results`) persiste IDs dans `.omc/product-config.json`
+- **Avantages** :
+  - Traceabilite complete (manifests = journal immuable)
+  - Idempotence via `--dry-run` mode
+  - Recovery post-compactage (re-read manifest apres compact)
+  - Separation bash (parse + log) vs Claude (MCP execute)
+- **Regle** : pour tout orchestrateur bash qui requiert MCP, **ne pas forcer bash a invoquer MCP** (impossible). Pattern : bash genere manifest JSON + Claude execute. Documente dans spec section "Pattern manifest-driven (honnete P-11)".
+
+## 🎯 DB select options : ALTER COLUMN SET pour extension post-creation (2026-04-19)
+
+- **Date** : 2026-04-19 (D-PRODUCT-01 P2 push)
+- **Contexte** : DB Tasks cree P1.5 avec Module select options = `Core OS / App Builder / Design System / Knowledge / Cowork / Phase 5 / Cross`. P2 tentative de push 6 phases D-PRODUCT-01 avec `Module: "Product"` → fail `Invalid select value for property "Module": "Product". Value must be one of the following...`.
+- **Cause racine** : j'avais oublie d'inclure "Product" et "Body" en creant le schema initial DB Tasks (alors que DB Decisions les avait). Asymetrie entre schemas.
+- **Fix pragmatique** : utiliser "Core OS" pour les tasks D-PRODUCT-01 (semantiquement correct : Product = 9e module Core OS). Puis en P3, update schema via `notion-update-data-source ALTER COLUMN "Module" SET SELECT('Core OS':gray, 'App Builder':blue, 'Design System':pink, 'Knowledge':green, 'Body':purple, 'Product':orange, 'Cowork':brown, 'Phase 5':yellow, 'Cross':default)` pour ajouter Body + Product.
+- **Regle** : pour ajouter une option select a une DB existante, utiliser `ALTER COLUMN "Prop" SET SELECT(...)` avec la liste **complete** des options (remplace entierement). Les valeurs existantes avec options deprecated restent mais ne peuvent plus etre assigned.
+
 ## 🎯 Stubs forward refs : pattern zero regression plan multi-phase (2026-04-19)
 
 - **Date** : 2026-04-19 (D-BODY-01 P1 session)
