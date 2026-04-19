@@ -298,6 +298,7 @@ Le brief est du **Markdown natif** (PAS du box-drawing terminal). Claude Desktop
 14. **ALIGNMENT** `🧭` (D-BODY-01 P5) : derniere rating + streak (si applicable) + top P-XX viole 7j + principe du jour (rotation top 10). Source : `bash scripts/alignment-analyze.sh --quiet` + lecture top 10 P-XX `docs/core/constitution.md`. Si 0 rated → afficher "Alignment : pas encore de trace (session 1, /plan-os intent-capture OBLIGATOIRE)".
 15. **CAP + INPUT** `🎯📥` : direction + prochaines actions + choix Kevin
 16. **PROPOSITIONS CLAUDE** `🤖` (optionnel, I-04 audit v2) : max 3 propositions proactives si triggers actifs. Table `| emoji | proposition | raison | action |`. Triggers : drift detecte, hot.md stale, plans inactifs > 7j, lessons-learned recentes, idees en parking >= 5. Si aucun trigger → tuile non affichee. Genere par `scripts/propositions-generator.sh`.
+17. **PRODUCT** `📊` (D-PRODUCT-01 P3, optionnel si module actif) : etat DB Notion (Decisions/Plans/Sessions/Tasks) + divergences FOS↔Notion + derniers commentaires Kevin Notion. Table : `| DB | Rows | Last sync | Divergences |`. Bullets : 3 derniers comments Kevin. Source : `bash scripts/po-status.sh --quiet` + lecture `.omc/product-state.json` (cache pull). Si module Product absent ou `PRODUCT_MCP_SYNC != 1` → tuile non affichee. Si pull offline (MCP down) → afficher "Product : MCP Notion offline, dernier sync <timestamp>".
 
 #### Regle plans
 

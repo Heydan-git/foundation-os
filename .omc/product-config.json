@@ -58,25 +58,29 @@
     },
     "views": {
       "tasks_kanban_status": {
-        "status": "TBD P2",
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-812b-b464-000c6ff41456",
         "db": "tasks",
         "layout": "board",
         "group_by": "Status"
       },
       "tasks_kanban_module": {
-        "status": "TBD P2",
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8113-a706-000c8fe33035",
         "db": "tasks",
         "layout": "board",
         "group_by": "Module"
       },
       "tasks_timeline": {
-        "status": "TBD P2",
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8121-b03e-000cbb628d88",
         "db": "tasks",
         "layout": "timeline",
         "date_prop": "Due date"
       },
       "plans_timeline": {
-        "status": "TBD P2",
+        "status": "created P3",
+        "url": "view://34721e30-0c7b-8147-88c0-000c44de4437",
         "db": "plans",
         "layout": "timeline",
         "date_prop": "Created"
@@ -93,9 +97,12 @@
     "action_kevin": "Supprimer projet Asana FoundationOS manuellement UI (si souhaite)"
   },
   "sync_state": {
-    "last_push": null,
+    "last_push": "2026-04-19T19:56:00Z",
     "last_pull": null,
-    "conflicts_count": 0
+    "conflicts_count": 0,
+    "push_history": [
+      {"timestamp": "2026-04-19T19:56:00Z", "phase": "P2", "entities": {"decisions": 16, "plans": 1, "sessions": 5, "tasks": 6}}
+    ]
   },
   "notes": [
     "Ce fichier est la source de verite operationnelle pour IDs Notion.",

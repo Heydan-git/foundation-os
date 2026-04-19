@@ -292,6 +292,12 @@ if [ -x scripts/alignment-analyze.sh ]; then
   echo -e "  ${DIM}[OK]${RST} ${AA_LINE}"
 fi
 
+# Product sync status (D-PRODUCT-01 P3 Module Product Notion integration)
+if [ -x scripts/po-status.sh ] && [ -f .omc/product-config.json ]; then
+  PS_LINE=$(bash scripts/po-status.sh --quiet 2>/dev/null)
+  [ -n "$PS_LINE" ] && echo -e "${PS_LINE}"
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────
