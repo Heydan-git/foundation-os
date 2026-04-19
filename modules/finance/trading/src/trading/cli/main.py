@@ -5,6 +5,9 @@ import typer
 from trading import __version__
 from trading.cli import backtest as backtest_cli
 from trading.cli import download as download_cli
+from trading.cli import montecarlo as mc_cli
+from trading.cli import pbo as pbo_cli
+from trading.cli import walkforward as wf_cli
 
 app = typer.Typer(
     name="trading",
@@ -14,6 +17,9 @@ app = typer.Typer(
 
 app.add_typer(download_cli.app, name="")
 app.add_typer(backtest_cli.app, name="")
+app.add_typer(wf_cli.app, name="")
+app.add_typer(mc_cli.app, name="")
+app.add_typer(pbo_cli.app, name="")
 
 
 def _version_callback(value: bool) -> None:
