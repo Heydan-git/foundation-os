@@ -36,7 +36,12 @@ related:
 - [[LLM Wiki Pattern]] + Trading : le pattern "pre-compiler sources en wiki" s'applique parfaitement aux whitepapers trading (Jegadeesh, Asness, etc.). Le wiki/domains/trading/ est deja scaffolde pour ca.
 - [[Hot Cache]] + Sante : un "hot cache sante" pourrait tracker les derniers biomarkers de Kevin (TSH, ferritine, vit D) pour que chaque session sante commence avec les valeurs recentes.
 
-## Insights cette session (2026-04-19 D-BODY-01 P1)
+## Insights cette session (2026-04-19 D-BODY-01 COMPLET 5/5)
+
+- **Option C ambitieuse + minutie 6-elements = faisable en 1 session Opus 4.7 1M context.** 5 phases livrees end-to-end (~10h reels) avec health SAIN a chaque phase. Pattern validation : stubs forward refs (P1) → implementation complete (P2-P4) → integration visuelle (P5). Preuve que plans ambitieux ne requierent pas forcement decoupage en N sessions separees si discipline rollback + verif par phase.
+- **Validation end-to-end vs implementation-done : orthogonal.** Les 4 couches C1-C4 du Body sont toutes livrees et compilent. MAIS test live subagent alignment-auditor + Phase 7bis enrichie 4 questions + tuile brief v12 🧭 = reporte au prochain /plan-os reel. Honnetete technique : "livre + health SAIN" ≠ "teste live end-to-end". A reevaluer dans 2-3 usages reels.
+
+## Insights precedents (2026-04-19 D-BODY-01 P1)
 
 - **Recherche externe avant architecture interne.** Avant de proposer l'architecture du module Body, 30 min de lecture de 6 sources (Constitutional AI, constitution Anthropic publique 2026, IFEval, AGENTIF, Reflection pattern 2026, AlignmentCheck Meta). Resultat : architecture 4 couches FOS-specific, pas copie brute mais inspiration. Pattern general : **pour un nouveau module core OS, 30 min de recherche externe avant 3h d'architecture = ROI infini**. Evite reinvention de roue + identifie pieges connus + donne credibilite au plan.
 - **Stubs forward refs = pattern zero regression multi-phase.** Quand un plan cree N refs avant implementation complete, creer stubs exit 0 + message "pending PN" plutot qu'accepter health DEGRADED temporaire. Cost 5 min, benefit pre-commit health SAIN + Kevin voit la completude coherence de chaque phase. Generalisable : **tout plan multi-phase qui cree des refs avant implementation complete devrait prevoir stubs forward des P1**.

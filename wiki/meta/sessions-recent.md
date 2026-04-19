@@ -23,7 +23,7 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
-## 2026-04-19 (D-BODY-01 P1 DONE) · Body module Phase 1 Constitution + Intent
+## 2026-04-19 (D-BODY-01 COMPLET 5/5) · Body module 8e Core OS livre integralement
 
 **Duree** : 1 session longue (~3h, Opus 4.7 1M context)
 

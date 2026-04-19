@@ -75,6 +75,7 @@
 
 ## En attente Kevin
 
+- **Test live D-BODY-01 end-to-end** (important — report Kevin 2026-04-19) : au prochain `/plan-os` reel, valider (1) subagent `alignment-auditor` invocation Task + rapport JSON genere, (2) Phase 7bis enrichie 4 questions AskUserQuestion live, (3) tuile brief v12 #14 🧭 ALIGNMENT rendue en `/session-start`. Tant que ces 3 valides, "Body COMPLET" = implementation-done + documente, pas teste end-to-end.
 - **Test manuel DS composants** : 46 ui Storybook (http://localhost:6006).
 - **Validation workflow Desktop** : tester /cockpit + /plan-os sur vraie tache, confirmer bloc SESSION RENAME affiche.
 - **Decision Phase 5** : Finance / Sante / Trading — lequel lancer ?
