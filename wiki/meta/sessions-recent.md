@@ -23,6 +23,61 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-19 (D-BODY-01 P1 DONE) · Body module Phase 1 Constitution + Intent
+
+**Duree** : 1 session longue (~3h, Opus 4.7 1M context)
+
+**Scope** : Kevin pose question ouverte "construire les bases d'un nouveau module core, un module corps, dont l'objectif sera de s'assurer de l'alignement entre toi et moi. En fait, il faudra qu'il soit adaptatif, qui apprenne de nouvelles choses." Session complete : recherche externe + proposition architecture + plan 5 phases approuve ExitPlanMode + Phase P1 execution avec commit + cloture.
+
+**Livraison** (1 commit atomique `5d26166` + 14 fichiers) :
+- **Spec canonique** : `docs/core/body.md` (11 sections du 8e module "Body" Core OS : Architecture / 4 couches C1 Constitution / C2 Intent / C3 Feedback / C4 Learning loop / Files / Integration 7 modules / Workflows / Regle d'or / Limites / Maintenance).
+- **Constitution** : `docs/core/constitution.md` (~41 principes P-XX numerotes seedees depuis sources existantes — CLAUDE.md L9-24 imperatifs = P-01 a P-14 ; anti-bullshit gates L148-153 = P-15 a P-19 ; wiki/meta/lessons-learned.md = P-20 a P-27 ; 5 pieges cadrage Foundation OS.md = P-28 a P-32 ; CLAUDE.md L119-128 interdits = P-33 a P-36 ; auto-memory feedback_*.md = P-37 a P-41). Format : Regle / Pourquoi / Done / Not-done / Source. Append-only, jamais renumerotation.
+- **Script intent-capture** : `scripts/intent-capture.sh` (template 5 champs `.omc/intent/YYYY-MM-DD-<slug>.md` : verbatim Kevin / comprends / scope / anti-scope / signaux drift). Valide slug `[a-z0-9-]{1,40}`. Detection worktree auto (pattern D-CONCURRENCY-01). Teste 4 cas : missing arg (exit 1), invalid slug (exit 1), valid slug avec --demand pre-fill (exit 0), already exists (exit 2).
+- **4 stubs forward refs** (zero regression) : `scripts/alignment-analyze.sh` (P2 pending) + `scripts/constitution-suggest.sh` (P3 pending) + `.claude/agents/alignment-auditor.md` (P4 stub sonnet read-only) + `docs/constitution-archive.md` (archive vide jusqu'au premier archivage Q3 2026).
+- **5 edits integration** : `docs/core/architecture-core.md` (7 → 8 modules + row Body + section Phase 8 ~10L) ; `docs/core/communication.md` (Layered Loading section 6.5 L2 ajoute constitution.md) ; `.claude/commands/plan-os.md` (Tour 1 bis intent-capture OBLIGATOIRE apres EnterPlanMode) ; `.claude/commands/session-start.md` + `.claude/commands/cockpit.md` (Tour 1 point 6 Read constitution + renumerotation).
+- **Dogfooding** : `.omc/intent/2026-04-19-body-p1-constitution.md` cree via `bash scripts/intent-capture.sh body-p1-constitution --demand "..."` (utilisation intrinseque du script).
+- **Plan dual-path** : `~/.claude/plans/non-c-est-bon-allez-abundant-owl.md` (natif Plan Mode) + `docs/plans/2026-04-19-body-module-complet.md` (versionne projet, ~900L, 5 phases × 6 elements stricts).
+
+**Verifs finales** :
+- health-check SAIN (0 critical, 0 warning) — pre-commit hook passe
+- ref-checker : 146 .md scannes / 0 refs cassees (apres creation 4 stubs + fix P-23 not-done exemple pedagogic)
+- intent-capture teste 4 cas + cleanup
+- Scripts stubs P2-P4 testes (exit 0 avec message "pending PN")
+- 14 fichiers stages + commit `5d26166` (1688 insertions, 12 deletions)
+
+**Decision** : **D-BODY-01** Module Body 8e Core OS (Proprioception Kevin-Claude). Phase P1 DONE. Phases P2-P5 en sessions dediees selon plan (~7h restants des 10h estimes).
+
+**Revelations** :
+- **Recherche externe avant architecture interne**. 30 min de recherche web (Constitutional AI, Reflexion framework, IFEval, AlignmentCheck) = ROI infini pour architecture module nouveau. Inspire sans copier, identifie pieges connus (biais LLM-as-judge, faux positifs regex matcher, YAGNI embeddings).
+- **Stubs forward refs = pattern zero regression**. Plan multi-phase cree forward refs qui cassent health-check. Solution : creer 4 stubs minimaux (scripts exit 0 + message "pending PN", agent frontmatter stub, archive vide). 5 min de travail, health SAIN pre-commit. Pattern generalisable a tout plan multi-phase.
+- **Dogfooding intrinseque = cercle vertueux validation**. intent-capture.sh utilise pour creer l'intent de sa propre phase P1. Le systeme valide le systeme des son commit initial. A generaliser : chaque nouveau script "self" doit etre use on self.
+- **Constitution seedee > constitution inventee**. Les 41 P-XX derivent 100% de sources existantes avec field "Source" traceable. Aucun principe invente. Regle : **si je ne peux pas citer la source, je n'ai pas le droit d'ecrire le principe**.
+- **Ambition Option C + minutie 6-elements = orthogonal**. Ambitieux en scope (5 phases livrees), minutieux en technique (6 elements par phase, stubs forward, verif a chaque phase). Pas de conflit : scope vs comment.
+- **Questions front-loadees Kevin + AskUserQuestion groupees**. 3 questions debut (Q1 nom / Q2 scope / Q3 intent obligatoire) + reponses rapides = zero interruption execution. Memoire `feedback_frontload_questions.md` applique.
+
+**Threads ouverts** :
+- Merge main + push origin (`/session-end` Phase 8) : a faire maintenant cette cloture
+- Phases P2-P5 en sessions dediees (~7h restants) :
+  - P2 Rating enrichi + alignment-analyze.sh implementation (~2h)
+  - P3 Pre-action check CLAUDE.md + lessons loop (~1-2h)
+  - P4 Agent alignment-auditor implementation complete (~2h)
+  - P5 Brief v12 tuile 🧭 ALIGNMENT + 3 pages wiki concepts (~1h)
+- Decision Phase 5 modules (Finance/Sante/Trading) — toujours reportee
+- OMC update v4.10.1 → v4.12.1
+
+**Pages wiki impactees** :
+- Aucune creation wiki P1 (les 3 pages concepts Body/Alignment/Constitution FOS sont prevues P5)
+- Mise a jour meta : `wiki/hot.md`, `wiki/meta/sessions-recent.md`, `wiki/meta/thinking.md`, `wiki/meta/lessons-learned.md` (cette cloture)
+
+**Sources externes citees** :
+- [Constitutional AI arxiv 2212.08073](https://arxiv.org/abs/2212.08073)
+- [Anthropic constitution publique janvier 2026](https://time.com/7354738/claude-constitution-ai-alignment/)
+- [IFEval arxiv 2311.07911](https://arxiv.org/abs/2311.07911)
+- [Reflection pattern 2026](https://stackviv.ai/blog/reflection-ai-agents-self-improvement)
+- [AlignmentCheck + 41.77% specification drift (Augment Code)](https://www.augmentcode.com/guides/why-multi-agent-llm-systems-fail-and-how-to-fix-them)
+
+---
+
 ## 2026-04-19 (D-CONCURRENCY-01 DONE) · Multi-session safety
 
 **Duree** : 1 session courte (~2h, Opus 4.7 1M context)

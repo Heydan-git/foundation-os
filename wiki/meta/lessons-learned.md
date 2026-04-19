@@ -22,6 +22,19 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## Stubs forward refs : pattern zero regression plan multi-phase (2026-04-19)
+
+- **Date** : 2026-04-19 (D-BODY-01 P1 session)
+- **Contexte** : Plan Body 5 phases cree `docs/core/body.md` et `docs/core/constitution.md` qui referent `scripts/alignment-analyze.sh` (P2 futur), `scripts/constitution-suggest.sh` (P3 futur), `.claude/agents/alignment-auditor.md` (P4 futur), `docs/constitution-archive.md` (P5 futur). Apres creation des 2 specs en P1 : ref-checker flag 22 forward refs cassees.
+- **Symptome** : health-check DEGRADED (1 warning, 22 refs cassees) alors que P1 est correctement execute. Impression fausse de travail incomplet. Pre-commit hook bloque.
+- **Cause racine** : pattern naturel "ecrire la spec canonique, puis l'implementer en phases successives" cree forward refs qui cassent pendant la periode intermediaire entre la spec et les implementations.
+- **Fix** : creer 4 stubs minimaux (~5 min) :
+  - Scripts bash `exit 0 + echo "pending PN"` avec mode `--quiet` pour chain
+  - Subagent frontmatter minimal (name, model, description) + "stub PN TBD"
+  - Docs md archive vide avec pointer vers plan + spec
+- **Regle** : **tout plan multi-phase qui cree des refs avant implementation complete doit prevoir stubs forward des P1**. Pattern : shell script stub avec message "pending PN", agent frontmatter minimal, docs vides avec pointer vers plan. Les phases suivantes remplacent le contenu stub par l'implementation reelle.
+- **Generalisation** : pattern aussi utile pour specifier des APIs en avance (function signatures + `// TODO P2`) ou des modules (imports declares + `// TODO P3`). Evite DEGRADED intermediaire + Kevin voit la completude coherence de chaque phase.
+
 ## ref-checker : backtick paths modules/X doivent avoir trailing slash (2026-04-19)
 
 - **Date** : 2026-04-19 (D-CONCURRENCY-01 session)

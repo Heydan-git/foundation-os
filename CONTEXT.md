@@ -11,6 +11,7 @@
 | Design System | ✅ Void Glass fork base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui derives `base DS/` (Figma Make) + 7 patterns Dashboard + 53 stories DS + 9 app = 62 total Storybook. 0 unit test + 5 e2e stale (a reecrire). [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
+| Body | ✅ P1 actif Phase 8 | `docs/core/body.md` | Proprioception Kevin-Claude (alignement intention-action). Constitution ~41 P-XX + intent capture. 4 stubs P2-P5 pending. D-BODY-01. |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Finance | prevu | — | Phase 5 |
 | Sante | prevu | — | Phase 5 |
@@ -19,6 +20,11 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-19 | **[DONE] D-BODY-01 P1 Constitution + Intent (Opus 4.7, 1 commit `5d26166`, ~3h)** |
+|            | Scope : 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention-action). 3 questions front-loadees (nom Body / Option C ambitieuse / intent obligatoire /plan-os). Recherche externe Constitutional AI + Reflexion + IFEval + AlignmentCheck. Plan 5 phases × 6 elements. |
+|            | Livrables : `docs/core/body.md` (spec 11 sections 4 couches C1-C4) + `docs/core/constitution.md` (~41 P-XX seedees CLAUDE+lessons+pieges+feedback) + `scripts/intent-capture.sh` (teste 4 cas) + 4 stubs forward refs zero regression (alignment-analyze/constitution-suggest/alignment-auditor/constitution-archive) + 5 edits integration (architecture-core 7→8, communication L2, plan-os Tour 1 bis, session-start/cockpit). Decision D-BODY-01. |
+|            | Verifs : health SAIN (0 critical, 0 warning), ref-checker 146/0, intent-capture teste 4 cas, stubs P2-P4 exit 0. Commit `5d26166`. Plan `docs/plans/2026-04-19-body-module-complet.md`. |
+|            | Revelations : stubs forward refs = pattern zero regression (evite DEGRADED intermediaire). Dogfooding intrinseque (intent-capture.sh cree l'intent de sa propre phase). Constitution seedee (41 P-XX derives sources existantes, zero invente). Option C ambitieuse + minutie 6-elements = orthogonal (scope vs comment). |
 | 2026-04-19 | **[DONE] D-CONCURRENCY-01 Multi-session safety (Opus 4.7, 2 commits atomiques, ~2h)** |
 |            | Scope : audit complet concurrence multi-session + livraison minimaliste (B-lite validee). Questions Kevin : "puis-je travailler N sessions en parallele sans regression ?". Reponse honnete livree (audit 7 hotspots + limites + YAGNI). |
 |            | Livrables : `scripts/hooks/pre-compaction-snapshot.sh` fix suffix worktree (evite overwrite meme minute), `docs/core/concurrency.md` (252L, spec canonique 11 sections), CLAUDE.md +4L section Multi-session. Decision D-CONCURRENCY-01 (safety via discipline documentee, pas de lock YAGNI). |
@@ -37,24 +43,22 @@
 |            | Scope : post-audit v2 S3, nettoyage complet. Plan `parsed-swimming-torvalds.md` (8 phases 6 elements). Archivage rapports audit v2 (10 fichiers -> `.archive/audit-v2-done-260417/`), recablage 31 refs cassees vers `.archive/`, resolution 1 contradiction CLAUDE<->knowledge.md, seuils TSX ajustes (800L ui/ DS shadcn, 2000L patterns/ DS showcase), CONTEXT.md compression 179->133L + trim sessions 9->5, CLAUDE.md compression 220->195L, drift-detector regex fix (worktrees Desktop hex suffix), wiki/index-wiki count sync (48->45). |
 |            | Verifs : health-check = **SAIN** (0 critical, 0 warning), ref-checker 88->0, tier-contradiction 0, drift-detector SYNC, 15/15 tests app, 0 erreur TS DS. Commits 9f9bf4c + 2f78d5c + 64fd1a7 + 205a1e4 + 570846f + c26ef46. |
 |            | Decisions implicites : tier canonique refs renommage = knowledge.md section 5 (pas CLAUDE.md), patterns/ DS accepte >1500L (template showcase reference par ligne 41 ui/). |
-| 2026-04-17 (nuit) | **[DONE] Audit v2 S3 Phase 17+18 — Contradiction + Feedback (Opus 4.7)** |
-|            | Scope : enchainement S3 apres P16. Phase 17 I-06 contradiction detector 5 tiers + Phase 18 I-10 feedback loop post-session. Plan S3 complete (3/3 phases). |
-|            | Livrables : `scripts/tier-contradiction-check.sh` (scan 40 chars min, 4 paires CLAUDE/CONTEXT/memory/docs/wiki, mode --quiet, pattern subshell-safe) chain sync-check section 9 + health-check INFO. `scripts/session-ratings-analyze.sh` (distribution Y/N/partial + streak 3N + patterns 7-derniers). `.claude/commands/session-end.md` Phase 7bis AskUserQuestion rating. `.omc/ratings.jsonl` append-only trackable. `wiki/meta/routines-setup.md` routine mensuelle ratings-monthly-review. |
-|            | Verifs : dry-run contradiction detecte 1 vraie duplication (CLAUDE<->docs/core/knowledge), ratings-analyze teste empty/injected/quiet, health baseline inchange (0 critical, 3 warn). Commits 7466910 + 8190abc. |
-|            | S3 complete : 4 mecanismes cognitifs auto-gouvernes (sessions-analyze + neuroplasticity + propositions + memory-audit + contradiction-check + feedback-loop). FONCTION estime ~7/10. |
+> Session "2026-04-17 (nuit) · Audit v2 S3 Phase 17+18 Contradiction + Feedback" trimee 2026-04-19 D-BODY-01 P1 (regle max 5). 2 commits (7466910 + 8190abc). Scripts tier-contradiction-check + session-ratings-analyze. Phase 7bis AskUserQuestion rating. S3 complete 3/3 phases, FONCTION ~7/10.
 > Session "2026-04-17 soir · Audit v2 S3 Phase 16 I-09 Memory auto-priorisation" trimee 2026-04-19 (regle max 5). 25 auto-memories `last_used:` + memory-audit.sh + hook PreToolUse Read. Commit 98817e7 merge a42b5f5.
 > Session "2026-04-17 Audit v2 execution S1+S2" trimee 2026-04-18 (regle max 5). 10 commits FORME+FONCTION. Scripts git-hooks-install + wiki-counts-sync + sessions-analyze + propositions-generator + neuroplasticity-score. Tuile #15 brief v12. Lecon CLAUDE_USER_PROMPT inexistante.
 > Sessions plus anciennes (Mega Audit V2 FORME+FONCTION 2026-04-16 166 findings, Audit profondeur + fantomes 2026-04-16 12 commits, Hygiene OS 2026-04-16 `b1d7501`, Audit Mapping + Mega Audit Final 2026-04-16 D-NAMING-02+D-VAULT-01, Adoption Wiki D-WIKI-01 2026-04-16 19 commits, Level Up OS 7 phases 2026-04-15 D-LEVELUP-01/02/03, Migration Desktop 9 phases 2026-04-15, DS iso visuel 46 composants, S0-S14 Cycle 3 + DS finition + Planner MVP + App UI refactor + Storybook S1/S2 + Audit Core OS) : voir `git log` + `.archive/audit-massif/` + `.archive/plans-done-260415/` + `.archive/plans-done-260416/` + `.archive/plans-done-260417/`.
 
 ## Cap
 
-**Direction** : **D-CONCURRENCY-01 DONE** (19-04-2026) — Multi-session safety documentee. Spec `docs/core/concurrency.md` (7 hotspots + regle cloture serie + recette resolution conflit). Fix snapshot collision multi-worktree (suffix par worktree). YAGNI assume (pas de lock par fichier — dev solo). FONCTION ~7.5/10 + MAPPING ~8.5/10 + concurrence ~8/10.
+**Direction** : **D-BODY-01 P1 DONE** (19-04-2026) — 8e module Core OS "Body" (Proprioception Kevin-Claude) Phase P1 livree. Spec `docs/core/body.md` (11 sections, 4 couches) + `docs/core/constitution.md` (~41 P-XX) + `scripts/intent-capture.sh` + 4 stubs forward (P2-P5) + 5 edits integration. Inspire Constitutional AI + Reflexion + IFEval + AlignmentCheck. Commit `5d26166`. Plan `docs/plans/2026-04-19-body-module-complet.md` (5 phases × 6 elements). Phases P2-P5 ~7h restants.
 
-**Prochaine action** (a decider Kevin) :
-  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
-  - **B** — Configurer 14 routines Desktop UI /schedule
-  - **C** — Cleanup 10 worktrees legacy
-  - **D** — OMC update v4.10.1 → v4.12.0
+**Prochaine action** (phases Body sequentielles) :
+  - **P2 Body** — Rating enrichi session-end + alignment-analyze.sh implementation (~2h)
+  - **P3 Body** — Pre-action check CLAUDE.md + lessons loop constitution-suggest (~1-2h)
+  - **P4 Body** — Agent alignment-auditor implementation complete (~2h)
+  - **P5 Body** — Brief v12 tuile 🧭 ALIGNMENT + 3 pages wiki concepts (~1h)
+
+**Post-Body** : Phase 5 modules (Finance/Sante/Trading) / 14 routines Desktop UI /schedule / Cleanup worktrees legacy / OMC update v4.10.1 → v4.12.1.
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
@@ -84,6 +88,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-BODY-01 Module Body 8e Core OS P1 | 2026-04-19 | 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention ↔ action). Phase P1 livree : spec `docs/core/body.md` (11 sections, 4 couches C1 Constitution / C2 Intent / C3 Feedback / C4 Learning loop) + `docs/core/constitution.md` (~41 P-XX seedees CLAUDE imperatifs L9-24 + anti-bullshit + lessons-learned + 5 pieges cadrage + feedback memories) + `scripts/intent-capture.sh` (teste 4 cas) + 4 stubs forward refs (alignment-analyze P2 + constitution-suggest P3 + alignment-auditor P4 + constitution-archive P5) + 5 edits integration (architecture-core 7→8, communication L2 ajoute constitution, plan-os Tour 1 bis intent-capture OBLIGATOIRE, session-start/cockpit Tour 1 point 6). Inspire Constitutional AI (Anthropic) + Reflexion framework + IFEval + AlignmentCheck (Meta). Plan `docs/plans/2026-04-19-body-module-complet.md` (5 phases × 6 elements stricts). Phases P2-P5 sessions dediees. Commit `5d26166`. |
 | D-CONCURRENCY-01 Multi-session safety | 2026-04-19 | Audit concurrence + livraison minimaliste (B-lite). Spec `docs/core/concurrency.md` (7 hotspots + regle cloture serie + recette resolution). Fix snapshot collision (suffix worktree). CLAUDE.md section Multi-session. YAGNI : pas de lock par fichier (complexite > benefit dev solo, reevaluer si equipe). Commits `4ff56e0` + `117be29`. |
 | D-MAPPING-01 Refactor mapping/routage cerveau OS | 2026-04-17 | Audit exhaustif 128 fichiers + rapport 720L + plan 15 phases. Wiki 45 pages, navigation 2 niveaux (foundation-os-map 205L->74L), sources uniques (counts.md), 4 journals->2, categories mortes supprimees (comparisons/questions/canvases), domains Phase 5 [!placeholder], SessionStart unifie cockpit+session-start (9 reads), hook session-start-wiki cat complet, graph.json 12->9 color groups. Rapport `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`. Plan apres archive : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. |
 | D-INTEG-01 Integration sources externes | 2026-04-17 | Apres audit surface SAIN + lecture 5 sources (MemPalace / Octogent / Graphify / Penpax.ai / MemPalace site). 4 enhancements integres sur 5 sessions : INT-1 pre-compaction snapshot (Phase 2), INT-2 confidence tagging systematique (Phase 3), INT-3 graph report auto (Phase 4), INS-1 layered loading formel (Phase 5). Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md`. Concepts : [[Confidence Tagging]] [[Graph Report]] [[Layered Loading]] [[Pre-compaction Snapshot]]. Spec : `docs/core/knowledge.md` section 12. Phase 1/5 DONE (preparation architecturale). |
