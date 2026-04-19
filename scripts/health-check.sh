@@ -286,6 +286,12 @@ if [ -x scripts/wiki-graph-report.sh ]; then
   echo -e "  ${DIM}[OK]${RST} Wiki graph : ${WGR_GOD:-0} god-nodes / ${WGR_ORPH:-0} orphelins / ${WGR_CROSS:-0} cross-domain (voir [[graph-report]])"
 fi
 
+# Alignment analyze (D-BODY-01 P2 Body Couche C3)
+if [ -x scripts/alignment-analyze.sh ]; then
+  AA_LINE=$(bash scripts/alignment-analyze.sh --quiet 2>/dev/null)
+  echo -e "  ${DIM}[OK]${RST} ${AA_LINE}"
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────

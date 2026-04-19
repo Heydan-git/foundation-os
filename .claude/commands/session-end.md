@@ -180,38 +180,74 @@ Appliquer le format **tuiles Markdown** defini dans `docs/core/communication.md`
 
 Les regles de rendu (tuiles blockquote, hierarchie 4 niveaux, emojis, tables) sont **dans communication.md section 6.3 (v12)**. Ne pas reinventer. NE PAS utiliser de box-drawing terminal.
 
-## Phase 7bis — Rating session (feedback loop I-10)
+## Phase 7bis — Rating session enrichi (D-BODY-01 P2)
 
-**Spec** : audit v2 S3 Phase 18 I-10 (feedback loop post-session). Mesure satisfaction Kevin pour detecter streaks negatives + patterns.
+**Spec** : module Body `docs/core/body.md` section 4 (Couche C3 Feedback structure). Evolution I-10 (rating simple Y/N/partial) vers schema enrichi qui capture drift categories + P-XX violated pour alimenter learning loop Body C4.
 
-1. **Apres le brief cloture v12** (Phase 7), demander a Kevin via `AskUserQuestion` :
-   - Question : "Comment s'est passee cette session ?"
-   - Options : `Y` (bien), `N` (mal), `partial` (mitige)
-   - Option libre "Other" : notes libres (optionnel, max 200 chars)
+### Questions AskUserQuestion (4 sequentielles)
 
-2. **Append dans `.omc/ratings.jsonl`** (format JSONL, une ligne par session) :
+1. **Rating** (1 choix) : Comment s'est passee cette session ?
+   - `Y` (bien) / `N` (mal) / `partial` (mitige)
+
+2. **Drift categories** (multi-select, optionnel) : Quelles derives detectees ?
+   - `interpretation` (ecart comprends vs verbatim Kevin)
+   - `surgonflage` (exagerer findings / metriques)
+   - `bullshit` (claim DONE sans preuve)
+   - `hallucination` (invention / verification manquee)
+   - `scope-creep` (action hors scope intent)
+   - `quality` (travail bacle, superficiel)
+   - `honnetete` (politesse diplomatique vs honnetete directe)
+   - `aucune` (zero drift detectee)
+
+3. **Principles violated** (texte libre, optionnel) : Lister P-XX violes (`docs/core/constitution.md`). Ex : "P-04, P-17" ou "aucun".
+
+4. **Notes libres** (texte libre, optionnel, max 500 chars) : Contexte additionnel pour learning loop.
+
+### Append dual-format
+
+1. **`.omc/alignment/YYYY-MM-DD-<slug>.jsonl`** (nouveau format enrichi D-BODY-01) :
    ```jsonl
-   {"id":"<session_id_or_branch>","date":"YYYY-MM-DD","rating":"Y|N|partial","notes":"<notes optionnelles>"}
+   {"id":"<branch>","date":"YYYY-MM-DD","rating":"Y|N|partial","drift_categories":[...],"principles_violated":["P-XX"],"notes":"...","intent_file":".omc/intent/... | null","auditor_report":".omc/alignment/auditor-... | null"}
    ```
-   - `id` : branche courante (`git branch --show-current`) ou timestamp si absent
-   - `date` : `date +%Y-%m-%d`
-   - `rating` : reponse Kevin
-   - `notes` : texte libre (vide si Kevin skip)
+   - `intent_file` : pointer vers intent capture si existait cette session (`/plan-os`)
+   - `auditor_report` : pointer vers rapport subagent `alignment-auditor` P4 (si invoque Phase 7ter)
 
-3. **Exemple d'append bash** :
-   ```bash
-   BRANCH=$(git branch --show-current)
-   TODAY=$(date +%Y-%m-%d)
-   NOTES="<reponse Kevin>"
-   RATING="<Y|N|partial>"
-   echo "{\"id\":\"$BRANCH\",\"date\":\"$TODAY\",\"rating\":\"$RATING\",\"notes\":\"$NOTES\"}" >> .omc/ratings.jsonl
+2. **`.omc/ratings.jsonl`** (retro-compat format simple) : continuer append pour archive historique :
+   ```jsonl
+   {"id":"<branch>","date":"YYYY-MM-DD","rating":"Y|N|partial","notes":"<notes>"}
    ```
 
-4. **Kevin peut skip** le rating (reponse vide ou refus explicite) — ne pas bloquer le workflow.
+### Exemple bash append
 
-5. **Apres append** : rappeler que `bash scripts/session-ratings-analyze.sh` donne la distribution Y/N/partial + streak detection (3 N consecutifs = alerte).
+```bash
+BRANCH=$(git branch --show-current)
+TODAY=$(date +%Y-%m-%d)
+SLUG="<session-slug>"
+RATING="<Y|N|partial>"
+NOTES="<notes>"
+DRIFT='["interpretation","scope-creep"]'   # JSON array ou []
+PRINCIPLES='["P-04","P-17"]'               # JSON array ou []
+INTENT_FILE=".omc/intent/${TODAY}-${SLUG}.md"
+[ ! -f "$INTENT_FILE" ] && INTENT_FILE="null"
 
-**Regle** : rating systematique a chaque /session-end, meme pour sessions courtes. Sans mesure, pas de detection des streaks negatives.
+# Append schema enrichi (D-BODY-01)
+mkdir -p .omc/alignment
+echo "{\"id\":\"$BRANCH\",\"date\":\"$TODAY\",\"rating\":\"$RATING\",\"drift_categories\":$DRIFT,\"principles_violated\":$PRINCIPLES,\"notes\":\"$NOTES\",\"intent_file\":\"$INTENT_FILE\",\"auditor_report\":null}" >> ".omc/alignment/${TODAY}-${SLUG:-body}.jsonl"
+
+# Append format simple (retro-compat .omc/ratings.jsonl)
+echo "{\"id\":\"$BRANCH\",\"date\":\"$TODAY\",\"rating\":\"$RATING\",\"notes\":\"$NOTES\"}" >> .omc/ratings.jsonl
+```
+
+### Kevin peut skip
+
+Toute reponse vide = skip. Ne pas bloquer le workflow. Rating = Y par defaut si total skip.
+
+### Apres append — analyze disponible
+
+- `bash scripts/alignment-analyze.sh` → distribution rating + top drift categories + top P-XX violated + streak detection + patterns 7-dernieres (si total >= 10).
+- `bash scripts/session-ratings-analyze.sh` → format simple archive (retro-compat).
+
+**Regle** : rating systematique a chaque /session-end, meme pour sessions courtes. Sans mesure, pas de learning loop Body C4.
 
 ## Phase 8 — Merge main + worktree cleanup (OBLIGATOIRE si worktree)
 
