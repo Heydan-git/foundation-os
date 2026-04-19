@@ -1,0 +1,83 @@
+{
+  "created_at": "2026-04-19T17:56:16Z",
+  "script": "po-sync.sh",
+  "version": "1.0",
+  "decision": "D-PRODUCT-01",
+  "phase": "P2+",
+  "args": {
+    "dry_run": true,
+    "plan_filter": "",
+    "since": ""
+  },
+  "targets": {
+    "db_decisions": "8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+    "db_plans": "47fda921-85b6-43cf-a7ec-efbc03d3b953",
+    "db_sessions": "218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+    "db_tasks": "716e6844-eca0-4a33-9c40-7a52f6ed07b3"
+  },
+  "fos_state_parsed": {
+    "decisions_count": 16,
+    "plans_active_count": 1,
+    "plans_archived_count": 5,
+    "sessions_recent_count": 11,
+    "todowrite_state": "voir .omc/state/mission-state.json ou TodoWrite tool live"
+  },
+  "actions_suggested": [
+    {
+      "order": 1,
+      "target_db": "decisions",
+      "source_fos": "CONTEXT.md section Decisions table",
+      "operation": "push (create si absent, update si present match par Code)",
+      "batching": "1 call create_pages max 100 pages, sleep 350ms si > 1 call",
+      "mapping": "| Title | Code | Date | Module | Status | Source ref | -> proprietes Notion"
+    },
+    {
+      "order": 2,
+      "target_db": "plans",
+      "source_fos": "docs/plans/*.md (actifs) + .archive/plans-done-*/ (optionnel)",
+      "operation": "push row par plan, parse frontmatter YAML",
+      "mapping": "title, slug, decision, status, phases_total, phases_done, effort, path -> proprietes"
+    },
+    {
+      "order": 3,
+      "target_db": "sessions",
+      "source_fos": "wiki/meta/sessions-recent.md (top 5 sections ## YYYY)",
+      "operation": "push 5 rows",
+      "mapping": "title extrait H2, date, duration, scope, commits, decisions ref, livraison, revelations"
+    },
+    {
+      "order": 4,
+      "target_db": "tasks",
+      "source_fos": "phases des plans actifs + elements 6-stricts + TodoWrite state",
+      "operation": "push rows Type=Phase (1 par phase), Type=Element (optionnel, 6 par phase), Type=Task (TodoWrite courant)",
+      "mapping": "Plan ref relation vers row Plans, Phase P1-PN, Element 1-6, Status Todo/In Progress/Done/Blocked, Priority, Module, Type"
+    }
+  ],
+  "rate_limit_rules": {
+    "notion_max_req_per_sec": 3,
+    "batch_create_pages_max": 100,
+    "sleep_between_batches_ms": 350,
+    "retry_on_429": "abort + log (pas de retry aggressif)",
+    "timeout_per_call_ms": 10000
+  },
+  "idempotence_rules": [
+    "Match par Code pour Decisions (D-XXX-NN unique)",
+    "Match par Slug pour Plans",
+    "Match par Date+Scope pour Sessions",
+    "Match par Title+Phase pour Tasks",
+    "Si match -> update via notion-update-page (properties)",
+    "Si pas match -> create via notion-create-pages",
+    "Update Synced at timestamp a chaque sync"
+  ],
+  "conflict_handling": {
+    "rule": "last-write-wins par champ (timestamp modified_at le plus recent gagne)",
+    "log_file": ".omc/po-conflicts.log",
+    "no_3_way_merge": true
+  },
+  "notes": [
+    "Pattern honnete P-11 : bash ne peut invoquer MCP, Claude execute les actions suggerees.",
+    "Apres execution, ecrire resultats dans .omc/po-results/YYYY-MM-DD-HHMM-sync-results.json.",
+    "Update .omc/product-config.json sync_state.last_push avec timestamp fin de sync.",
+    "P2 initial (2026-04-19) : 16 decisions + 1 plan + 5 sessions + 6 tasks phases deja pushes via MCP direct."
+  ]
+}
