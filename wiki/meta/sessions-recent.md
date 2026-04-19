@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sessions récentes (5 dernières)"
-updated: 2026-04-18
+updated: 2026-04-19
 tags:
   - meta
   - sessions
@@ -22,6 +22,43 @@ related:
 > Mémoire court terme : résumé des 5 dernières sessions avec decisions, pages wiki impactees, threads ouverts.
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
+
+## 2026-04-19 (D-TRADING-01) · Backtest engine crypto v1 socle 8/8
+
+**Duree** : 1 session longue (Opus 4.7 1M context, subagent-driven execution)
+
+**Scope** : livrer le module `modules/finance/trading/` — backtest engine crypto complet avec data pipeline, strategy framework, harnesses anti-biais, reports HTML, Pine Script generator + 3Commas webhook receiver. Ambition Kevin : bots de trading automatises Pine → 3Commas, backtest "ultra-solide + proche de la realite".
+
+**Livraison** (27+ commits, 8 phases) :
+- Phase 1 : scaffold module + uv + CLI stub (3 tasks, 4 commits)
+- Phase 2 : data pipeline — DataSource Protocol + CCXTSource + BinanceSource + Catalog Parquet + QualityChecker + CLI download-data + fix gitignore anchor (6 tasks + 1 fix, 7 commits)
+- Phase 3 : backtest core — BaseStrategy Pydantic + indicators EMA/RSI/ATR + fees/slippage vol-based/latency/funding + EMA cross exemple + BacktestRunner pandas + CLI backtest (4 tasks, 4 commits ; Task 3.5 Nautilus event-driven SKIPPED v1)
+- Phase 4 : harnesses anti-biais — Harness protocol + WalkForward + PurgedCV (Lopez de Prado) + MonteCarlo (1000+ runs) + PBO (Bailey-Lopez) + DeflatedSharpe + CLI 3 sub-commands (6 tasks, 6 commits)
+- Phase 5 : analysis — PerformanceMetrics (Sharpe/Sortino/Calmar/PF/WinRate) + HTMLReport tearsheet Jinja + RegimeClassifier (3 tasks, 3 commits)
+- Phase 6 : execution — PineGenerator v5 + 3Commas API HMAC + WebhookReceiver FastAPI + NautilusLive stub (3 tasks, 3 commits)
+- Phase 7 : tests smoke consolides + Store DuckDB stub + CI GitHub Actions (2 tasks, 2 commits)
+- Phase 8 : wiki 6 concepts + strategy/backtest pages + README enrichi + CONTEXT update (3 tasks)
+
+**Verifs** : 50/50 tests cumulatifs, coverage 82.86% (seuil CI 70%), ruff clean, mypy strict clean, health-check DEGRADED (refs cassees pre-existantes du design/plan pointant vers chemins futurs — non bloquant, se resolvent au fur et a mesure), zero regression build app/DS.
+
+**Decisions** : **D-TRADING-01 Backtest engine crypto v1 socle** (2026-04-19).
+
+**Pages wiki creees** : `concepts/Sharpe Ratio.md`, `concepts/PBO.md`, `concepts/Walk-Forward Analysis.md`, `concepts/Purged CV.md`, `concepts/Deflated Sharpe.md`, `concepts/Slippage Models.md`, `strategies/ema-cross-btc-4h.md`, `backtests/2026-04-19-ema-cross-btc-smoke.md`.
+
+**Revelations** :
+- Approche C hybride pragmatique (Nautilus deps + pipeline custom autour) tient la route : 8 phases livrees sans avoir besoin de Nautilus event-driven en v1. Runner pandas simplifie suffit pour piloter harnesses + reports. Nautilus event-driven devient un upgrade V1.1, pas un blocker.
+- Subagent-driven-development (superpowers skill) tres efficace pour plans longs : ~30 tasks → ~30 subagent dispatches + 2-stage review (spec + code). Contexte isole par task = zero pollution, velocity constante. Session principale reste lisible.
+- TDD rigoureux a prevenu plusieurs bugs subtils (Sharpe float-point constant returns, Binance mock pagination infini, gitignore anchor `data/` package vs `data/` dir). Les subagents ont detecte ces cas pendant leur self-review.
+- Honnetete integree au README + concepts wiki : pas de promesse de gains, limites Pine Script documentees, deploiement reste gate humaine. Kevin a valide cette posture au brainstorming initial.
+
+**Threads ouverts** :
+- Premier backtest reel sur BTC/ETH 5 ans 4h + decision deploiement strategie live
+- V1.1 Nautilus event-driven (Task 3.5 skipped) + NautilusLive execution directe
+- Strategy library : coder 3-5 vraies strategies au-dela de l'exemple `ema_cross`
+- Phase 5 autre module : Sante / Finance Patrimoine (PEA/PER/SCPI/fiscalite)
+- OMC update v4.10.1 → v4.12.1
+
+---
 
 ## 2026-04-18 (D-INTEG-01 Phases 2-5 COMPLET) · Integration sources externes 5/5
 

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache Foundation OS"
-updated: 2026-04-18
+updated: 2026-04-19
 tags:
   - meta
   - hot-cache
@@ -19,7 +19,9 @@ Navigation: [[index-wiki]] | [[overview]]
 
 ## Last Updated
 
-**2026-04-18 (D-INTEG-01 COMPLET 5/5)** : Integration sources externes MemPalace/Graphify/Octogent/Penpax aboutie. 4 enhancements absorbes organiquement en 1 session Opus 4.7 1M context (5-6h, Phases 2-5 enchainees). **Phase 2 INT-1** : hook pre-compaction snapshot (`scripts/hooks/pre-compaction-snapshot.sh`) + `.claude/settings.json` PreCompact matcher + rotation 14. **Phase 3 INT-2** : `scripts/wiki-confidence-audit.sh` + backfill 22 pages (41 high / 1 medium / 3 low placeholders Phase 5) + chain health-check. **Phase 4 INT-3** : `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). **Phase 5 INS-1** : `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee (2 tables + seuils + regles selection). Commits : `2534137` + `cc6d3c4` + `1010887` + `9418661` (+4 merges + 4 push origin main, dernier `e861abf`). Verdict : **SAIN** (48 pages, 141 .md / 0 ref cassee, health SAIN avec 2 nouvelles lignes INFO chainees, 15/15 tests, drift SYNC, tier 0, neuro 100%).
+**2026-04-19 (D-TRADING-01 Backtest engine crypto v1 COMPLET 8/8)** : socle `modules/finance/trading/` livre. Pipeline end-to-end data (ccxt + Binance direct + Catalog Parquet + QualityChecker) → strategy framework (BaseStrategy Pydantic + EMA cross + EMA/RSI/ATR) → backtest runner pandas (fees/slippage vol-based/latency/funding) → harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) → reports HTML tearsheet Void Glass → Pine v5 generator → 3Commas webhook FastAPI. **50/50 tests + cov 82.86% + ruff/mypy strict clean + CI GitHub Actions**. 27+ commits en subagent-driven execution (implementer + 2-stage review par task, 8 phases, zero compactage). Nautilus event-driven (Task 3.5) + NautilusLive direct execution (Task 6.3) reportes V1.1. Commits principaux : design `cf12c8a` + plan `4ac5bd1` + scaffold `fc22fe0` → data pipeline `0249354` → backtest core `9ec4a7f` → harnesses `d2626ae` → analysis `1fb97ff` → execution `dd94364` → tests+CI `0b61933` → wiki concepts `834e85d` → strategy+backtest pages `d03d4ca`. 6 concepts wiki (Sharpe/PBO/WF/PurgedCV/DSR/Slippage) + strategy exemple EMA cross + backtest smoke. Verdict : **SAIN** (health-check DEGRADED = refs cassees pre-existantes du plan qui pointent vers chemins futurs, 0 critical, se resolvent au fur et a mesure).
+
+### Avant (2026-04-18 D-INTEG-01 COMPLET 5/5) : Integration sources externes MemPalace/Graphify/Octogent/Penpax aboutie. 4 enhancements absorbes organiquement en 1 session Opus 4.7 1M context (5-6h, Phases 2-5 enchainees). **Phase 2 INT-1** : hook pre-compaction snapshot (`scripts/hooks/pre-compaction-snapshot.sh`) + `.claude/settings.json` PreCompact matcher + rotation 14. **Phase 3 INT-2** : `scripts/wiki-confidence-audit.sh` + backfill 22 pages (41 high / 1 medium / 3 low placeholders Phase 5) + chain health-check. **Phase 4 INT-3** : `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). **Phase 5 INS-1** : `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee (2 tables + seuils + regles selection). Commits : `2534137` + `cc6d3c4` + `1010887` + `9418661` (+4 merges + 4 push origin main, dernier `e861abf`). Verdict : **SAIN** (48 pages, 141 .md / 0 ref cassee, health SAIN avec 2 nouvelles lignes INFO chainees, 15/15 tests, drift SYNC, tier 0, neuro 100%).
 
 ### Avant (2026-04-18 Phase 1/5) : **Preparation architecturale D-INTEG-01** (session precedente). Audit surface SAIN + lecture 5 sources + synthese 3 tiers + plan 5 phases + execution Phase 1 (4 concepts wiki + spec knowledge.md section 12 + seuils thresholds.json + decision D-INTEG-01). Commit `6386823` + merge `452a342`.
 

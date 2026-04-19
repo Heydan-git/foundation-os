@@ -12,13 +12,20 @@
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
-| Finance | prevu | — | Phase 5 |
+| Trading | ✅ Backtest engine v1 | `modules/finance/trading/` | Socle Python 3.12 + NautilusTrader deps + Pine v5 bridge + 3Commas webhook FastAPI. Harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) + HTMLReport tearsheet. 50/50 tests + cov 82.86% + ruff/mypy clean + CI GH Actions. [[index-trading]] |
+| Finance Patrimoine | prevu | — | Phase 5 (PEA/PER/SCPI/fiscalite) |
 | Sante | prevu | — | Phase 5 |
 
 ## Sessions recentes
 
 | Date | Resume |
 |------|--------|
+| 2026-04-19 | **[DONE] D-TRADING-01 Backtest engine crypto v1 socle (Opus 4.7, 8 phases, 27+ commits, subagent-driven)** |
+|            | Scope : livrer `modules/finance/trading/` — data pipeline (ccxt + Binance direct + Catalog Parquet + QualityChecker) + strategy framework (BaseStrategy Pydantic + EMA cross + indicators EMA/RSI/ATR) + backtest engine (runner pandas + fees/slippage vol-based/latency/funding) + harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) + analysis (PerformanceMetrics + HTMLReport tearsheet Void Glass + RegimeClassifier) + execution (PineGenerator v5 + 3Commas API HMAC + WebhookReceiver FastAPI + NautilusLive stub) + tests + CI + wiki (6 concepts + strategy + backtest exemples). |
+|            | Livrables : design spec 471L `cf12c8a` + plan 3957L `4ac5bd1` (8 phases 30 tasks 150 steps TDD) + 27+ commits implementation (dernier : Phase 8 wrap-up). Subagent-driven (implementer + spec-review + code-review par task), contextes isoles, zero compactage. |
+|            | Verifs : 50/50 tests cumulatifs, coverage 82.86% (seuil CI 70%), ruff clean, mypy strict clean, build app/DS inchanges, CLI `trading` 6 sub-commands operationnels. Health-check DEGRADED (3 refs pre-existantes du plan pointant vers chemins futurs qui se resolvent au fur et a mesure). |
+|            | Decision : **D-TRADING-01 Backtest engine crypto v1 socle**. Nautilus event-driven (Task 3.5) + NautilusLive execution directe (Task 6.3 stub) reportes V1.1. |
+|            | Revelations : approche C hybride pragmatique tient la route (Nautilus deps + pipeline custom autour, runner pandas suffit pour v1). Subagent-driven-development tres efficace sur plan long (contexte isole par task). TDD rigoureux a prevenu plusieurs bugs subtils (fp Sharpe constant, mock pagination infini, gitignore anchor). Honnetete integree (pas de promesse de gains, deploy reste gate humaine). |
 | 2026-04-18 | **[DONE] D-INTEG-01 Phases 2-5 COMPLET (Opus 4.7, 4 commits + 4 merges, ~5-6h enchainees)** |
 |            | Scope : executer Phases 2-5 du plan D-INTEG-01 apres Phase 1 preparatoire (session precedente). 4 livrables substantiels + backfill 22 pages + graph report auto-gen. Zero regression. |
 |            | Livrables : Phase 2 `scripts/hooks/pre-compaction-snapshot.sh` + PreCompact hook + rotation 14. Phase 3 `scripts/wiki-confidence-audit.sh` + backfill 22 pages (19 high + 3 low placeholders) + chain health-check INFO. Phase 4 `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). Phase 5 `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee. |
@@ -45,13 +52,16 @@
 
 ## Cap
 
-**Direction** : **D-INTEG-01 COMPLET** (18-04-2026) — 4 enhancements MemPalace/Graphify integres (pre-compaction snapshot + confidence tagging + graph report auto + layered loading formel). Wiki 48 pages, 141 .md / 0 ref, mesh 2 niveaux, sources uniques. FONCTION ~7.5/10 + MAPPING ~8.5/10 + arsenal cognitif enrichi. Rapport audit + plan archives via hook SessionEnd.
+**Direction** : **D-TRADING-01 COMPLET** (19-04-2026) — socle `modules/finance/trading/` operationnel. Pipeline end-to-end : data (ccxt+Binance+Catalog) → strategy framework (Pydantic) → backtest runner pandas → harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) → reports HTML tearsheet → Pine v5 → 3Commas webhook. 50 tests + cov 82.86% + CI green. Design 471L + plan 3957L executes en subagent-driven.
 
 **Prochaine action** (a decider Kevin) :
-  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
-  - **B** — Configurer 14 routines Desktop UI /schedule
-  - **C** — Cleanup 10 worktrees legacy
-  - **D** — OMC update v4.10.1 → v4.12.0
+  - **A** — Premier backtest reel BTC/ETH 4h 5 ans + decision deploiement strategie Pine live
+  - **B** — V1.1 Nautilus event-driven (Task 3.5 reporte) + NautilusLive execution directe
+  - **C** — Strategy library : coder 3-5 vraies strategies (au-dela de l'exemple ema_cross)
+  - **D** — Phase 5 autre module (Finance Patrimoine PEA/PER / Sante)
+  - **E** — OMC update v4.10.1 → v4.12.1
+
+**Reporte V1.1 trading** : Nautilus event-driven integration, NautilusLive direct execution, VectorBT parameter sweeps massifs, tardis.dev L2 orderbook, ML features engineering, auto-deploy pipeline, drift monitoring live vs backtest OOS.
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
@@ -81,6 +91,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-TRADING-01 Backtest engine crypto v1 | 2026-04-19 | Socle `modules/finance/trading/` operationnel. Pipeline end-to-end : data (ccxt + Binance direct + Catalog Parquet + QualityChecker) → strategy framework (BaseStrategy Pydantic + EMA cross + EMA/RSI/ATR indicators) → backtest runner pandas (fees/slippage vol-based/latency/funding) → harnesses anti-biais (WalkForward/PurgedCV/MonteCarlo/PBO/DeflatedSharpe) → analysis (PerformanceMetrics/HTMLReport tearsheet/RegimeClassifier) → execution bridges (PineGenerator v5 + 3Commas API HMAC + WebhookReceiver FastAPI + NautilusLive stub). 50/50 tests + cov 82.86% + CI GitHub Actions + ruff/mypy strict clean. Design `docs/superpowers/specs/2026-04-18-finance-trading-backtest-engine-design.md` (471L) + plan `docs/plans/2026-04-19-finance-trading-backtest-engine.md` (3957L, 8 phases). Wiki : 6 concepts (Sharpe/PBO/WF/PurgedCV/DSR/Slippage) + strategy exemple + backtest exemple. Nautilus event-driven + NautilusLive execution directe reportes V1.1. Approche C hybride pragmatique (Nautilus deps + pipeline custom autour, runner pandas v1). Subagent-driven-development execution (implementer + spec-review + code-review par task). |
 | D-MAPPING-01 Refactor mapping/routage cerveau OS | 2026-04-17 | Audit exhaustif 128 fichiers + rapport 720L + plan 15 phases. Wiki 45 pages, navigation 2 niveaux (foundation-os-map 205L->74L), sources uniques (counts.md), 4 journals->2, categories mortes supprimees (comparisons/questions/canvases), domains Phase 5 [!placeholder], SessionStart unifie cockpit+session-start (9 reads), hook session-start-wiki cat complet, graph.json 12->9 color groups. Rapport `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`. Plan apres archive : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. |
 | D-INTEG-01 Integration sources externes | 2026-04-17 | Apres audit surface SAIN + lecture 5 sources (MemPalace / Octogent / Graphify / Penpax.ai / MemPalace site). 4 enhancements integres sur 5 sessions : INT-1 pre-compaction snapshot (Phase 2), INT-2 confidence tagging systematique (Phase 3), INT-3 graph report auto (Phase 4), INS-1 layered loading formel (Phase 5). Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md`. Concepts : [[Confidence Tagging]] [[Graph Report]] [[Layered Loading]] [[Pre-compaction Snapshot]]. Spec : `docs/core/knowledge.md` section 12. Phase 1/5 DONE (preparation architecturale). |
 | D-WIKI-01 Adoption claude-obsidian + 5 tiers memoire | 2026-04-15 | Plan `.archive/plans-done-260416/2026-04-15-wiki-obsidian-adoption.md` (12 phases, Option B inline). Vault Obsidian pre-scaffolde 5 domaines (trading/finance/sante/design/dev) + 7 cross-domain. Plugin v1.4.3 (10 skills + 4 commands + 2 agents + 5 templates). Hooks integres (auto-commit DESACTIVE). Couplage modules <-> wiki via frontmatter `implementation:`. Brief v12 enrichi (tuiles HOT + WIKI). Spec `docs/core/knowledge.md`. Repo reste prive (Phase 5 donnees perso). |
