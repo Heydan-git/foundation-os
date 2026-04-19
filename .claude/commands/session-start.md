@@ -8,14 +8,15 @@
 > 3. `Read wiki/meta/sessions-recent.md` (memoire court terme, 5 sessions)
 > 4. `Read wiki/meta/lessons-learned.md` (auto-apprentissage erreurs)
 > 5. `Read wiki/meta/thinking.md` (reflexions en cours)
-> 6. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list`
-> 7. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
-> 8. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` (sante wiki : pages, wikilinks, hot.md age)
-> 9. `Glob docs/plans/*.md`
+> 6. `Read docs/core/constitution.md` (Constitution FOS ~41 principes P-XX, Layered Loading L2, D-BODY-01)
+> 7. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list`
+> 8. `Bash bash scripts/health-check.sh 2>&1 | tail -25`
+> 9. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` (sante wiki : pages, wikilinks, hot.md age)
+> 10. `Glob docs/plans/*.md`
 >
 > **Tour 2 (OBLIGATOIRE)** :
-> 10. `Read` chaque plan actif non-archive
-> 11. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
+> 11. `Read` chaque plan actif non-archive
+> 12. `TodoWrite` avec 1 todo par plan actif (progression visible tasks pane Desktop)
 >
 > **Tour 3** : produire le brief v12 (format `docs/core/communication.md` section 6.1)
 >

@@ -1,6 +1,6 @@
 # Core OS — Architecture
 
-7 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15).
+8 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15, post-adoption Body D-BODY-01 2026-04-19).
 
 ## Couches
 
@@ -27,6 +27,7 @@ Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → rou
 | Planner | Orchestrateur skills plan + EnterPlanMode natif | 5 | actif | /plan-os + skills tiers reutilises |
 | Worktrees | Plomberie + workflow `/wt new|list|clean` | 6 | actif | scripts/worktree-*.sh + .claude/worktrees/ |
 | Knowledge | Wiki layer persistant (claude-obsidian) | 7 | actif | wiki/ + .raw/ + 10 skills + hooks integres |
+| Body | Proprioception Kevin-Claude (alignement intention ↔ action) | 8 | actif | docs/core/body.md + docs/core/constitution.md + .omc/intent/ + .omc/alignment/ |
 
 Conventions de nommage transversales : `docs/core/naming-conventions.md` (branches, worktrees, sessions, plans, specs, memoires).
 
@@ -90,6 +91,16 @@ Spec : [docs/core/knowledge.md](knowledge.md)
 - Integration brief v12 (cadres HOT + WIKI).
 - Auto-commit hook DESACTIVE (respect regle Kevin-valide).
 - 10 skills + 4 commands + 2 agents + 5 templates.
+
+## Body (Phase 8 — actif depuis 2026-04-19)
+
+Spec : [docs/core/body.md](body.md)
+- Proprioception Kevin-Claude : ancrage intention ↔ action (8e module Core OS).
+- 4 couches : Constitution (`docs/core/constitution.md`, ~41 principes P-XX) / Intent capture (`.omc/intent/YYYY-MM-DD-<slug>.md`) / Feedback structure (`.omc/alignment/YYYY-MM-DD-<session>.jsonl`) / Learning loop (subagent `alignment-auditor` + scripts `alignment-analyze.sh` + `constitution-suggest.sh`).
+- Integration : brief v12 tuile #15 `🧭 ALIGNMENT`, chain `health-check.sh` INFO, subagent clean-slate invoque `/session-end` Phase 7ter.
+- Intent capture OBLIGATOIRE sur `/plan-os` (Tour 1 bis). Opt-in ailleurs.
+- Lecture `docs/core/constitution.md` ajoutee dans Layered Loading L2 (`docs/core/communication.md` section 6.5).
+- Decision D-BODY-01 (2026-04-19). Plan execution : `docs/plans/2026-04-19-body-module-complet.md`.
 
 ## Conventions transversales
 

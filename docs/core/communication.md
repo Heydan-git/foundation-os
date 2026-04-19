@@ -372,7 +372,7 @@ Formalisation du chargement context en 4 layers (inspire MemPalace, D-INTEG-01 P
 |-------|---------|--------------|---------|
 | **L0** | `wiki/hot.md` | < 200 | Hook SessionStart (auto, pas d'action requise) |
 | **L1** | `CONTEXT.md` + `wiki/meta/sessions-recent.md` | < 2 000 | `/session-start` Tour 1 |
-| **L2** | `wiki/meta/lessons-learned.md` + `wiki/meta/thinking.md` + plans actifs `docs/plans/*.md` | < 10 000 | `/session-start` Tour 1 (suite) |
+| **L2** | `wiki/meta/lessons-learned.md` + `wiki/meta/thinking.md` + plans actifs `docs/plans/*.md` + `docs/core/constitution.md` (D-BODY-01) | < 10 000 | `/session-start` Tour 1 (suite) |
 | **L3** | Pages wiki (concepts / entities / sources / domains) | on-demand | Reflex 1 neuroplasticite (recall cible) |
 
 #### Regles de selection par type de tache

@@ -8,10 +8,11 @@
 > 3. `Read wiki/meta/sessions-recent.md` — memoire court terme
 > 4. `Read wiki/meta/lessons-learned.md` — erreurs a ne pas repeter
 > 5. `Read wiki/meta/thinking.md` — reflexions en cours
-> 6. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
-> 7. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health chain)
-> 8. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` — sante wiki (pages, hot.md age)
-> 9. `Glob docs/plans/*.md` — lister plans existants
+> 6. `Read docs/core/constitution.md` — constitution FOS ~41 principes P-XX (Layered Loading L2, D-BODY-01)
+> 7. `Bash git status --short && git log -1 --format="%cr · %h · %s" && git branch --show-current && git worktree list` — etat git + worktree
+> 8. `Bash bash scripts/health-check.sh 2>&1 | tail -25` — sante (inclut wiki-health chain)
+> 9. `Bash bash scripts/wiki-health.sh 2>&1 | tail -10` — sante wiki (pages, hot.md age)
+> 10. `Glob docs/plans/*.md` — lister plans existants
 >
 > **Tour 2 (OBLIGATOIRE apres Tour 1)** :
 > 5. `Read` chaque plan actif identifie (non-DONE, non-SUPERSEDED)

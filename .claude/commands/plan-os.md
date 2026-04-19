@@ -5,6 +5,10 @@
 > **Tour 1 (OBLIGATOIRE, tool call en premier)** :
 > 1. `EnterPlanMode()` — active la plan window Desktop IMMEDIATEMENT
 >
+> **Tour 1 bis (OBLIGATOIRE apres EnterPlanMode — Body D-BODY-01)** :
+> 1a. `Bash bash scripts/intent-capture.sh <slug> --demand "<verbatim Kevin>"` — cree `.omc/intent/YYYY-MM-DD-<slug>.md` ancrage pre-plan
+> 1b. Completer les 5 champs intent (verbatim / comprends / scope / anti-scope / signaux drift) AVANT de rediger le plan. Lu par `alignment-auditor` au `/session-end` Phase 7ter.
+>
 > **Dans PlanMode (phase exploration/questions)** :
 > 2. Si ambiguite >=2 questions : `AskUserQuestion` avec les questions groupees (pas texte chat)
 > 3. Si exploration necessaire : `Agent subagent_type="Explore"` en parallele (max 3)
