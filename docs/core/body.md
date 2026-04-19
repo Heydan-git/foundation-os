@@ -369,7 +369,7 @@ Pas de lint custom. `ref-checker.sh` existant couvre les refs de body.md + const
 
 ---
 
-Decision associee : **D-BODY-01** (2026-04-19) — Module Body 8e Core OS. Plan execution : `docs/plans/2026-04-19-body-module-complet.md`. Phases P1-P5 incrementales, 6 elements stricts par phase, zero regression.
+Decision associee : **D-BODY-01** (2026-04-19) — Module Body 8e Core OS. Plan execution : `.archive/plans-done-260419/2026-04-19-body-module-complet.md`. Phases P1-P5 incrementales, 6 elements stricts par phase, zero regression.
 
 ## Sources
 

@@ -11,7 +11,7 @@
 | Design System | ✅ Void Glass fork base DS | `modules/design-system/` | Rebuild DONE 2026-04-15. 46 ui derives `base DS/` (Figma Make) + 7 patterns Dashboard + 53 stories DS + 9 app = 62 total Storybook. 0 unit test + 5 e2e stale (a reecrire). [[index-wiki]] |
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
-| Body | ✅ P1 actif Phase 8 | `docs/core/body.md` | Proprioception Kevin-Claude (alignement intention-action). Constitution ~41 P-XX + intent capture. 4 stubs P2-P5 pending. D-BODY-01. |
+| Body | ✅ COMPLET 5/5 Phase 8 | `docs/core/body.md` | Proprioception Kevin-Claude (alignement intention-action). 4 couches C1-C4 : Constitution 41 P-XX + intent capture + rating enrichi + subagent alignment-auditor. D-BODY-01 COMPLET 2026-04-19. |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Finance | prevu | — | Phase 5 |
 | Sante | prevu | — | Phase 5 |
@@ -23,7 +23,7 @@
 | 2026-04-19 | **[DONE] D-BODY-01 P1 Constitution + Intent (Opus 4.7, 1 commit `5d26166`, ~3h)** |
 |            | Scope : 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention-action). 3 questions front-loadees (nom Body / Option C ambitieuse / intent obligatoire /plan-os). Recherche externe Constitutional AI + Reflexion + IFEval + AlignmentCheck. Plan 5 phases × 6 elements. |
 |            | Livrables : `docs/core/body.md` (spec 11 sections 4 couches C1-C4) + `docs/core/constitution.md` (~41 P-XX seedees CLAUDE+lessons+pieges+feedback) + `scripts/intent-capture.sh` (teste 4 cas) + 4 stubs forward refs zero regression (alignment-analyze/constitution-suggest/alignment-auditor/constitution-archive) + 5 edits integration (architecture-core 7→8, communication L2, plan-os Tour 1 bis, session-start/cockpit). Decision D-BODY-01. |
-|            | Verifs : health SAIN (0 critical, 0 warning), ref-checker 146/0, intent-capture teste 4 cas, stubs P2-P4 exit 0. Commit `5d26166`. Plan `docs/plans/2026-04-19-body-module-complet.md`. |
+|            | Verifs : health SAIN (0 critical, 0 warning), ref-checker 146/0, intent-capture teste 4 cas, stubs P2-P4 exit 0. Commit `5d26166`. Plan `.archive/plans-done-260419/2026-04-19-body-module-complet.md`. |
 |            | Revelations : stubs forward refs = pattern zero regression (evite DEGRADED intermediaire). Dogfooding intrinseque (intent-capture.sh cree l'intent de sa propre phase). Constitution seedee (41 P-XX derives sources existantes, zero invente). Option C ambitieuse + minutie 6-elements = orthogonal (scope vs comment). |
 | 2026-04-19 | **[DONE] D-CONCURRENCY-01 Multi-session safety (Opus 4.7, 2 commits atomiques, ~2h)** |
 |            | Scope : audit complet concurrence multi-session + livraison minimaliste (B-lite validee). Questions Kevin : "puis-je travailler N sessions en parallele sans regression ?". Reponse honnete livree (audit 7 hotspots + limites + YAGNI). |
@@ -50,15 +50,14 @@
 
 ## Cap
 
-**Direction** : **D-BODY-01 P1 DONE** (19-04-2026) — 8e module Core OS "Body" (Proprioception Kevin-Claude) Phase P1 livree. Spec `docs/core/body.md` (11 sections, 4 couches) + `docs/core/constitution.md` (~41 P-XX) + `scripts/intent-capture.sh` + 4 stubs forward (P2-P5) + 5 edits integration. Inspire Constitutional AI + Reflexion + IFEval + AlignmentCheck. Commit `5d26166`. Plan `docs/plans/2026-04-19-body-module-complet.md` (5 phases × 6 elements). Phases P2-P5 ~7h restants.
+**Direction** : **D-BODY-01 COMPLET 5/5** (19-04-2026) — 8e module Core OS "Body" (Proprioception Kevin-Claude) livre integralement en 1 session Opus 4.7 (Option C ambitieuse, 6 commits, ~10h). 4 couches C1 Constitution + C2 Intent + C3 Feedback + C4 Learning loop. Inspire Constitutional AI + Reflexion + IFEval + AlignmentCheck. Commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan archive (a deplacer `.archive/plans-done-260419/`).
 
-**Prochaine action** (phases Body sequentielles) :
-  - **P2 Body** — Rating enrichi session-end + alignment-analyze.sh implementation (~2h)
-  - **P3 Body** — Pre-action check CLAUDE.md + lessons loop constitution-suggest (~1-2h)
-  - **P4 Body** — Agent alignment-auditor implementation complete (~2h)
-  - **P5 Body** — Brief v12 tuile 🧭 ALIGNMENT + 3 pages wiki concepts (~1h)
-
-**Post-Body** : Phase 5 modules (Finance/Sante/Trading) / 14 routines Desktop UI /schedule / Cleanup worktrees legacy / OMC update v4.10.1 → v4.12.1.
+**Prochaine action** (post-Body) :
+  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
+  - **B** — Configurer 14 routines Desktop UI `/schedule`
+  - **C** — Cleanup 10 worktrees legacy
+  - **D** — OMC update v4.10.1 → v4.12.1
+  - **E** — Test live alignment-auditor subagent au prochain `/plan-os` (validation end-to-end)
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
@@ -88,7 +87,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
-| D-BODY-01 Module Body 8e Core OS P1 | 2026-04-19 | 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention ↔ action). Phase P1 livree : spec `docs/core/body.md` (11 sections, 4 couches C1 Constitution / C2 Intent / C3 Feedback / C4 Learning loop) + `docs/core/constitution.md` (~41 P-XX seedees CLAUDE imperatifs L9-24 + anti-bullshit + lessons-learned + 5 pieges cadrage + feedback memories) + `scripts/intent-capture.sh` (teste 4 cas) + 4 stubs forward refs (alignment-analyze P2 + constitution-suggest P3 + alignment-auditor P4 + constitution-archive P5) + 5 edits integration (architecture-core 7→8, communication L2 ajoute constitution, plan-os Tour 1 bis intent-capture OBLIGATOIRE, session-start/cockpit Tour 1 point 6). Inspire Constitutional AI (Anthropic) + Reflexion framework + IFEval + AlignmentCheck (Meta). Plan `docs/plans/2026-04-19-body-module-complet.md` (5 phases × 6 elements stricts). Phases P2-P5 sessions dediees. Commit `5d26166`. |
+| D-BODY-01 Module Body 8e Core OS COMPLET 5/5 | 2026-04-19 | 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention ↔ action) livre integralement. 4 couches C1-C4 : Constitution `docs/core/constitution.md` (41 P-XX) + Intent capture `.omc/intent/` + Feedback structure `.omc/alignment/*.jsonl` (schema enrichi + retro-compat ratings.jsonl) + Learning loop (`scripts/alignment-analyze.sh` chain health-check INFO + `scripts/constitution-suggest.sh` flag 🎯 to-constitute + `.claude/agents/alignment-auditor.md` subagent clean-slate sonnet READ-ONLY). Integration : `/plan-os` Tour 1 bis intent-capture OBLIGATOIRE + `/session-end` Phase 7bis enrichie 4 questions + Phase 7ter auditor + Layered Loading L2 + CLAUDE.md section pre-action check (200L) + brief v12 tuile #14 🧭 ALIGNMENT. Inspire Constitutional AI (Anthropic) + Reflexion framework + IFEval + AlignmentCheck (Meta 41.77% drift). 3 pages wiki concepts (Body + Alignment + Constitution FOS). 6 commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan `.archive/plans-done-260419/2026-04-19-body-module-complet.md` archive. |
 | D-CONCURRENCY-01 Multi-session safety | 2026-04-19 | Audit concurrence + livraison minimaliste (B-lite). Spec `docs/core/concurrency.md` (7 hotspots + regle cloture serie + recette resolution). Fix snapshot collision (suffix worktree). CLAUDE.md section Multi-session. YAGNI : pas de lock par fichier (complexite > benefit dev solo, reevaluer si equipe). Commits `4ff56e0` + `117be29`. |
 | D-MAPPING-01 Refactor mapping/routage cerveau OS | 2026-04-17 | Audit exhaustif 128 fichiers + rapport 720L + plan 15 phases. Wiki 45 pages, navigation 2 niveaux (foundation-os-map 205L->74L), sources uniques (counts.md), 4 journals->2, categories mortes supprimees (comparisons/questions/canvases), domains Phase 5 [!placeholder], SessionStart unifie cockpit+session-start (9 reads), hook session-start-wiki cat complet, graph.json 12->9 color groups. Rapport `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`. Plan apres archive : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. |
 | D-INTEG-01 Integration sources externes | 2026-04-17 | Apres audit surface SAIN + lecture 5 sources (MemPalace / Octogent / Graphify / Penpax.ai / MemPalace site). 4 enhancements integres sur 5 sessions : INT-1 pre-compaction snapshot (Phase 2), INT-2 confidence tagging systematique (Phase 3), INT-3 graph report auto (Phase 4), INS-1 layered loading formel (Phase 5). Plan : `.archive/plans-done-260418/2026-04-17-integration-sources-externes.md`. Concepts : [[Confidence Tagging]] [[Graph Report]] [[Layered Loading]] [[Pre-compaction Snapshot]]. Spec : `docs/core/knowledge.md` section 12. Phase 1/5 DONE (preparation architecturale). |

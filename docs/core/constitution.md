@@ -396,4 +396,4 @@ Rotation quotidienne 1 par jour, ou affichage "principe du jour" :
 
 ---
 
-**Decision associee** : D-BODY-01 (2026-04-19) — Module Body 8e Core OS. Constitution seedee 41 principes depuis sources existantes. Plan execution `docs/plans/2026-04-19-body-module-complet.md`.
+**Decision associee** : D-BODY-01 (2026-04-19) — Module Body 8e Core OS. Constitution seedee 41 principes depuis sources existantes. Plan execution `.archive/plans-done-260419/2026-04-19-body-module-complet.md`.

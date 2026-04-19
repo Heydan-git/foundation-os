@@ -85,5 +85,5 @@ Auditor = indicateur, Kevin reste juge final.
 
 - Spec canonique : `docs/core/body.md`
 - Constitution : `docs/core/constitution.md`
-- Plan execution : `docs/plans/2026-04-19-body-module-complet.md`
+- Plan execution : `.archive/plans-done-260419/2026-04-19-body-module-complet.md`
 - Decision : D-BODY-01 (CONTEXT.md)

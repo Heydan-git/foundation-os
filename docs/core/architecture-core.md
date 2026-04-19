@@ -100,7 +100,7 @@ Spec : [docs/core/body.md](body.md)
 - Integration : brief v12 tuile #15 `🧭 ALIGNMENT`, chain `health-check.sh` INFO, subagent clean-slate invoque `/session-end` Phase 7ter.
 - Intent capture OBLIGATOIRE sur `/plan-os` (Tour 1 bis). Opt-in ailleurs.
 - Lecture `docs/core/constitution.md` ajoutee dans Layered Loading L2 (`docs/core/communication.md` section 6.5).
-- Decision D-BODY-01 (2026-04-19). Plan execution : `docs/plans/2026-04-19-body-module-complet.md`.
+- Decision D-BODY-01 (2026-04-19). Plan execution : `.archive/plans-done-260419/2026-04-19-body-module-complet.md`.
 
 ## Conventions transversales
 

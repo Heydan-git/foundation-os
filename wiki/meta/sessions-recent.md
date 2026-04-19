@@ -36,7 +36,7 @@ related:
 - **4 stubs forward refs** (zero regression) : `scripts/alignment-analyze.sh` (P2 pending) + `scripts/constitution-suggest.sh` (P3 pending) + `.claude/agents/alignment-auditor.md` (P4 stub sonnet read-only) + `docs/constitution-archive.md` (archive vide jusqu'au premier archivage Q3 2026).
 - **5 edits integration** : `docs/core/architecture-core.md` (7 → 8 modules + row Body + section Phase 8 ~10L) ; `docs/core/communication.md` (Layered Loading section 6.5 L2 ajoute constitution.md) ; `.claude/commands/plan-os.md` (Tour 1 bis intent-capture OBLIGATOIRE apres EnterPlanMode) ; `.claude/commands/session-start.md` + `.claude/commands/cockpit.md` (Tour 1 point 6 Read constitution + renumerotation).
 - **Dogfooding** : `.omc/intent/2026-04-19-body-p1-constitution.md` cree via `bash scripts/intent-capture.sh body-p1-constitution --demand "..."` (utilisation intrinseque du script).
-- **Plan dual-path** : `~/.claude/plans/non-c-est-bon-allez-abundant-owl.md` (natif Plan Mode) + `docs/plans/2026-04-19-body-module-complet.md` (versionne projet, ~900L, 5 phases × 6 elements stricts).
+- **Plan dual-path** : `~/.claude/plans/non-c-est-bon-allez-abundant-owl.md` (natif Plan Mode) + `.archive/plans-done-260419/2026-04-19-body-module-complet.md` (versionne projet, ~900L, 5 phases × 6 elements stricts).
 
 **Verifs finales** :
 - health-check SAIN (0 critical, 0 warning) — pre-commit hook passe

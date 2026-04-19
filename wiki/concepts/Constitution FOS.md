@@ -108,7 +108,7 @@ Rotation quotidienne 1 par jour :
 
 - Operationnel : `docs/core/constitution.md`
 - Spec module : `docs/core/body.md` section 3 (Couche C1)
-- Plan execution : `docs/plans/2026-04-19-body-module-complet.md`
+- Plan execution : `.archive/plans-done-260419/2026-04-19-body-module-complet.md`
 - Decision : D-BODY-01 (CONTEXT.md)
 - Script assistant : `scripts/constitution-suggest.sh`
 - Archive future : `docs/constitution-archive.md` (vide jusqu'au premier archivage Q3 2026)
