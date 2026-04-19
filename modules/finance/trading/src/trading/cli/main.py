@@ -3,6 +3,7 @@
 import typer
 
 from trading import __version__
+from trading.cli import backtest as backtest_cli
 from trading.cli import download as download_cli
 
 app = typer.Typer(
@@ -11,7 +12,8 @@ app = typer.Typer(
     no_args_is_help=True,
 )
 
-app.add_typer(download_cli.app, name="")  # commands mountes a la racine
+app.add_typer(download_cli.app, name="")
+app.add_typer(backtest_cli.app, name="")
 
 
 def _version_callback(value: bool) -> None:

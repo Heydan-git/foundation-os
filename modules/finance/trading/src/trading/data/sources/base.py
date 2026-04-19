@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Literal, Protocol, runtime_checkable
 
-import pandas as pd
+import pandas as pd  # type: ignore[import-untyped]
 
 
 @runtime_checkable
