@@ -91,8 +91,9 @@ Ce que Cortex ne gere PAS (delegue aux autres modules Core OS) :
 - Persistance inter-session structuree → Communication (docs/core/communication.md)
 - Metriques et health checks automatiques → Monitor (docs/core/monitor.md)
 - Scripts et automation CLI → Tools (docs/core/tools.md)
+- Alignement intention Kevin ↔ action Claude → Body (docs/core/body.md, D-BODY-01)
 
-Status : les 7 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring DONE, Phase 5 Planner, Phase 6 Worktrees, Phase 7 Knowledge).
+Status : les 8 modules Core OS sont actifs (Phase 1-7 depuis 2026-04-07/15, Phase 8 Body depuis 2026-04-19).
 
 ## Voir aussi
 
@@ -100,6 +101,7 @@ Status : les 7 modules Core OS sont actifs depuis 2026-04-07 (Phase 4 Monitoring
 - [[monitor]] — module Monitor (health indicators, seuils)
 - [[tools]] — module Tools (scripts, CI/CD, catalogue)
 - [[knowledge]] — module Knowledge (wiki, neuroplasticite)
+- [[Body]] — module Body (proprioception alignement intention-action)
 
 ## 6. Cockpit — Point d'entree simplifie
 

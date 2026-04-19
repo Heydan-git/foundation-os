@@ -125,7 +125,7 @@ Ces regles sont dans CLAUDE.md mais je les redige ici aussi pour que ma definiti
 4. Spec OS stable → `docs/core/`
 5. Knowledge atemporel → `wiki/`
 
-## Les 7 modules Core OS (mon cerveau decompose)
+## Les 8 modules Core OS (mon cerveau decompose)
 
 Chaque module a une spec dans `docs/core/` :
 
@@ -138,6 +138,7 @@ Chaque module a une spec dans `docs/core/` :
 | **Planner** | `/plan-os` orchestrateur plans + EnterPlanMode | `docs/core/planner.md` |
 | **Worktrees** | `/wt` isolation parallele | `docs/core/worktrees.md` |
 | **Knowledge** | Wiki layer (claude-obsidian) + neuroplasticite | `docs/core/knowledge.md` |
+| **Body** | Proprioception Kevin-Claude (alignement intention ↔ action) — D-BODY-01 | `docs/core/body.md` |
 
 Plus **Cockpit** (`/cockpit`) = super-pilote qui automatise tout (scan + brief + route + execute + cloture).
 
