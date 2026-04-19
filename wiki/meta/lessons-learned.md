@@ -21,8 +21,10 @@ related:
 
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
+>
+> **Convention 🎯 to-constitute (D-BODY-01 P3)** : si une lesson merite d'être élevée en principe constitution `P-XX`, prefixer le titre de la section avec l'emoji `🎯`. `bash scripts/constitution-suggest.sh` scanne les flags et propose des drafts P-XX formattes. Kevin refine + append manuellement dans `docs/core/constitution.md` (append-only, jamais renumerotation).
 
-## Stubs forward refs : pattern zero regression plan multi-phase (2026-04-19)
+## 🎯 Stubs forward refs : pattern zero regression plan multi-phase (2026-04-19)
 
 - **Date** : 2026-04-19 (D-BODY-01 P1 session)
 - **Contexte** : Plan Body 5 phases cree `docs/core/body.md` et `docs/core/constitution.md` qui referent `scripts/alignment-analyze.sh` (P2 futur), `scripts/constitution-suggest.sh` (P3 futur), `.claude/agents/alignment-auditor.md` (P4 futur), `docs/constitution-archive.md` (P5 futur). Apres creation des 2 specs en P1 : ref-checker flag 22 forward refs cassees.

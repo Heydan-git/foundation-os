@@ -137,12 +137,13 @@ Spec complete + raison racine : `wiki/meta/lessons-learned.md` section "Push mai
 - **`.archive/` = POUBELLE** : `mv` vers `.archive/<contexte>-<yymmdd>/`, JAMAIS `rm` direct
 - **JAMAIS LIRE `.archive/`** sauf demande explicite Kevin (perte de tokens). Scripts excluent deja.
 
-## Multi-session (concurrence)
+## Body : pre-action check (D-BODY-01)
+Avant actions risquees (rm, mv, push, commit >3 files, refactor >1h) : relire `.omc/intent/<slug>.md` (si `/plan-os`) + top 10 P-XX `docs/core/constitution.md`. Desalignement → stop+clarifier. Spec `docs/core/body.md` + constitution.md (~41 P-XX, L2).
 
+## Multi-session (concurrence)
 Kevin peut travailler N sessions Desktop en parallele (1 par worktree). Regle d'or : **cloture en serie, jamais 2 `/session-end` dans la meme minute** (conflit garanti sur CONTEXT.md + wiki/hot.md). Verifier que le `git push origin main` de la session precedente a reussi (`git log -1 main`) avant de cloturer la suivante. Eviter 2 sessions sur le **meme module** (conflits merge). Spec complete : `docs/core/concurrency.md` (7 hotspots + workflow + recette resolution conflit).
 
 ## Token-awareness
-
 < 3 fichiers/1 domaine → direct (pas d'agent). 3+ fichiers ou 2+ domaines → agent(s). Recherche exploratoire → agent Explore. Max 3 agents paralleles. Build/tests longs → `run_in_background`.
 
 ## Anti-bullshit gates
