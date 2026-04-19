@@ -65,6 +65,8 @@
 
 **Reporte V1.2+ trading** : **3Commas maison (OMS/EMS self-hosted)** — recherche faite 2026-04-19, spec `docs/superpowers/specs/2026-04-19-3commas-alternative-research.md` (303L). Range au backlog jusqu'a V1.1 livre + 3 mois live 3Commas pour savoir precisement quoi remplacer. Hybride recommande : maison Signal Bot + 3Commas DCA/Grid. Concept wiki [[Order Execution Management System]].
 
+**Reporte V1.3+ trading** : **Finance Dashboard Maison** (portfolio tracker cross-exchange + wallets + bots monitor) — recherche faite 2026-04-19, spec `docs/superpowers/specs/2026-04-19-finance-dashboard-research.md` (314L). Range au backlog apres V1.1 livre + 1-2 mois CoinStats pour savoir ce qui manque. Option D hybride recommandee : commencer par P1 bots monitor dans App Builder (`modules/app/` routes `/dashboard/bots`), piece unique impossible a avoir chez SaaS externe. En attendant, CoinStats free ou 10$/mois. Concept wiki [[Portfolio Aggregator]].
+
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
 **Backlog** : 10e groupe couleur Obsidian graph pour `#auto-generated` (graph-report).
