@@ -55,7 +55,9 @@ related:
 - Premier backtest reel sur BTC/ETH 5 ans 4h + decision deploiement strategie live
 - V1.1 Nautilus event-driven (Task 3.5 skipped) + NautilusLive execution directe
 - Strategy library : coder 3-5 vraies strategies au-dela de l'exemple `ema_cross`
+- **V1.2+ 3Commas maison** (recherche faite meme jour, spec `docs/superpowers/specs/2026-04-19-3commas-alternative-research.md` + concept [[Order Execution Management System]]. Decision reportee apres V1.1 + 3 mois usage 3Commas reel.)
 - Phase 5 autre module : Sante / Finance Patrimoine (PEA/PER/SCPI/fiscalite)
+- 2eme element potentiel a elucider avec Kevin (mentionne "deux elements" sans le decrire)
 - OMC update v4.10.1 → v4.12.1
 
 ---

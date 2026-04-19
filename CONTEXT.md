@@ -63,6 +63,8 @@
 
 **Reporte V1.1 trading** : Nautilus event-driven integration, NautilusLive direct execution, VectorBT parameter sweeps massifs, tardis.dev L2 orderbook, ML features engineering, auto-deploy pipeline, drift monitoring live vs backtest OOS.
 
+**Reporte V1.2+ trading** : **3Commas maison (OMS/EMS self-hosted)** — recherche faite 2026-04-19, spec `docs/superpowers/specs/2026-04-19-3commas-alternative-research.md` (303L). Range au backlog jusqu'a V1.1 livre + 3 mois live 3Commas pour savoir precisement quoi remplacer. Hybride recommande : maison Signal Bot + 3Commas DCA/Grid. Concept wiki [[Order Execution Management System]].
+
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
 **Backlog** : 10e groupe couleur Obsidian graph pour `#auto-generated` (graph-report).
