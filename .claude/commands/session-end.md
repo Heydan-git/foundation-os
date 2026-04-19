@@ -249,6 +249,61 @@ Toute reponse vide = skip. Ne pas bloquer le workflow. Rating = Y par defaut si 
 
 **Regle** : rating systematique a chaque /session-end, meme pour sessions courtes. Sans mesure, pas de learning loop Body C4.
 
+## Phase 7ter — Alignment auditor (D-BODY-01 P4)
+
+**Spec** : module Body `docs/core/body.md` section 5 (Couche C4 Learning loop). Invocation optionnelle subagent clean-slate `alignment-auditor` pour audit externe intent vs actions.
+
+### Condition d'invocation
+
+Invoquer UNIQUEMENT si :
+1. `.omc/intent/<date>-<slug>.md` existe pour cette session (session `/plan-os` avec intent actif)
+2. Kevin n'a pas explicitement skip ("pas d'auditor cette fois")
+
+Si pas d'intent file → skip Phase 7ter silencieusement.
+
+### Invocation
+
+```
+Task({
+  subagent_type: "alignment-auditor",
+  description: "Audit alignement <slug>",
+  prompt: `
+    ## Intent
+    <cat .omc/intent/YYYY-MM-DD-<slug>.md>
+
+    ## Actions executees (git diff + log)
+    <git log --since="session-start" --name-status ou timestamp session>
+    <git diff --stat HEAD~N..HEAD>
+
+    ## Brief cloture draft
+    <livrables + metriques declares par primary>
+
+    ## Output path
+    .omc/alignment/auditor-YYYY-MM-DD-<slug>.json
+
+    ## Contexte disponible (read-only)
+    - CLAUDE.md : regles comportementales
+    - docs/core/constitution.md : 41+ P-XX (cross-referencer violations)
+    - docs/core/body.md : spec module Body (tu es C4 Learning loop)
+  `
+})
+```
+
+### Apres rapport auditor
+
+1. Rapport JSON append dans `.omc/alignment/auditor-YYYY-MM-DD-<slug>.json`
+2. Updater l'entry `.omc/alignment/YYYY-MM-DD-<slug>.jsonl` (field `auditor_report`) pour pointer vers le rapport
+3. **Afficher summary 2-3 lignes** dans brief cloture v12 (nouvelle tuile `🔍 ALIGNMENT AUDITOR` optionnelle, ou append a tuile CONCERNS si `recommendation: stop-and-clarify`)
+4. Si `recommendation: stop-and-clarify` → **bloquer merge + push Phase 8** tant que Kevin n'a pas valide
+
+### Limite cost
+
+Subagent = ~5-10k tokens input + 2-3k output par invocation. Si quota tight, Kevin peut skip via reponse vide a la question "Invoquer auditor ?" (optionnel AskUserQuestion avant invocation).
+
+### Regle
+
+Phase 7ter NON-bloquante par defaut. Auditor = indicateur, pas verite. Kevin juge final. Si `recommendation: stop-and-clarify`, re-ouvrir conversation.
+
 ## Phase 8 — Merge main + worktree cleanup (OBLIGATOIRE si worktree)
 
 Si on est dans un worktree (`git worktree list` != main path) :
