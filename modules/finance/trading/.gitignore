@@ -6,12 +6,12 @@ __pycache__/
 dist/
 build/
 
-# Data (regenerable via download-data CLI)
-data/
+# Data (regenerable via download-data CLI) — anchored to module root
+/data/
 *.parquet
 
-# Reports (regenerable)
-reports/
+# Reports (regenerable) — anchored to module root
+/reports/
 
 # Secrets
 .env
