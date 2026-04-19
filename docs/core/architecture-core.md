@@ -116,7 +116,7 @@ Spec : [docs/core/product.md](product.md)
 - Source of truth : FOS MD gagne sur structure, Notion gagne sur ordre/priorite humaine (kanban drag). Last-write-wins par champ sur conflit.
 - Limites honnetes : rate limit Notion 3 req/s → batching fin session. Pas de webhooks → pull session-start. Nouveau root Notion temporairement enfant archive (limite MCP workspace-level creation).
 - Config persistante : `.omc/product-config.json` (IDs 4 DB Notion + views).
-- Decision D-PRODUCT-01 (2026-04-19, pivot P1.5). Plan execution : `docs/plans/2026-04-19-product-module-full-integration.md` (5 phases post-pivot ~18-22h).
+- Decision D-PRODUCT-01 (2026-04-19, pivot P1.5). Plan execution : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md` (5 phases post-pivot ~18-22h).
 
 ## Conventions transversales
 

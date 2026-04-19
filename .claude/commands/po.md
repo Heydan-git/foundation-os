@@ -2,7 +2,7 @@
 
 > Skill qui gere l'integration bidirectionnelle FOS <-> **Notion**.
 > Decision : D-PRODUCT-01. Pivot Notion-only P1.5 (2026-04-19). Spec canonique : `docs/core/product.md`.
-> **Stub P1** : subcommandes implementees progressivement P1-P3. Plan : `docs/plans/2026-04-19-product-module-full-integration.md`.
+> **Stub P1** : subcommandes implementees progressivement P1-P3. Plan : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md`.
 
 ## Subcommandes
 

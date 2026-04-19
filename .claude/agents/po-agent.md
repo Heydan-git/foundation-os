@@ -22,7 +22,7 @@ Pas juste "technicien sync FOS ↔ Notion". **Role strategique** : roadmap, prio
 
 ## Stub P1 — Prompt complet en P2
 
-Cette version **stub P1** pose les fondations (frontmatter + tools whitelist + scope). Le **prompt complet** avec expertise Notion deep + rules + output format sera implemente en **P2** (voir `docs/plans/2026-04-19-product-module-full-integration.md`).
+Cette version **stub P1** pose les fondations (frontmatter + tools whitelist + scope). Le **prompt complet** avec expertise Notion deep + rules + output format sera implemente en **P2** (voir `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md`).
 
 ## Expertise Notion requise (P2 enrichira)
 
@@ -163,7 +163,7 @@ Bash ne peut invoquer MCP directement. Pattern **manifest-driven** :
 ## Integration
 
 - **Spec canonique** : `docs/core/product.md`
-- **Plan creation** : `docs/plans/2026-04-19-product-module-full-integration.md` (P2 = prompt complet)
+- **Plan creation** : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md` (P2 = prompt complet)
 - **Orchestrateurs bash** : `scripts/po-{init,sync,pull,status}.sh`
 - **Config persistante** : `.omc/product-config.json` (IDs 4 DB Notion + views)
 - **Manifests** : `.omc/po-manifests/` (input Claude) + `.omc/po-results/` (output)

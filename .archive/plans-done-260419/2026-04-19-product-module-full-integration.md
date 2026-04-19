@@ -3,9 +3,9 @@ title: "🪐 D-PRODUCT-01 Module Product Full Integration Notion (pivot P1.5 Not
 decision: D-PRODUCT-01
 created: 2026-04-19
 updated: 2026-04-19
-status: active
+status: done
 phases_total: 5
-phases_done: 1.5
+phases_done: 5
 effort_estimated: 18-22h (post-pivot Notion-only, reduit de 22-29h)
 dual_path: docs/plans/2026-04-19-product-module-full-integration.md
 pivot_note: "P1.5 pivot Notion-only 2026-04-19 - Asana abandonne (payant + MCP limite)"
