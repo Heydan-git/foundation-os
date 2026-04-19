@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sessions récentes (5 dernières)"
-updated: 2026-04-18
+updated: 2026-04-19
 tags:
   - meta
   - sessions
@@ -22,6 +22,40 @@ related:
 > Mémoire court terme : résumé des 5 dernières sessions avec decisions, pages wiki impactees, threads ouverts.
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
+
+## 2026-04-19 (D-CONCURRENCY-01 DONE) · Multi-session safety
+
+**Duree** : 1 session courte (~2h, Opus 4.7 1M context)
+
+**Scope** : Kevin pose question ouverte "puis-je travailler N sessions en parallele sans regression ?". Audit complet concurrence multi-session necessaire. Production reponse honnete puis livraison minimaliste apres challenge Kevin (proposition initiale A-ambitieuse → B-lite YAGNI).
+
+**Livraison** (2 commits atomiques + 0 merge pendant session) :
+- **Fix snapshot collision** (`4ff56e0` feat(os)) : `scripts/hooks/pre-compaction-snapshot.sh` +6/-2 lignes. Detection `pwd` dans `.claude/worktrees/<nom>` → suffix worktree dans nom fichier snapshot (`.omc/snapshots/YYYYMMDD-HHMM-<worktree>.md`). Evite overwrite silencieux si 2 sessions paralleles compactent dans la meme minute. Teste live : `20260419-1108-strange-dhawan-e61b96.md` cree OK.
+- **Spec `docs/core/concurrency.md`** (`117be29` docs(os)) : nouveau module Core OS (252L, 11 sections). Modele mental isole (par worktree) vs partage (7 hotspots), regles d'or (cloture en serie, 1 session = 1 module), workflow visuel ASCII (sain vs risque), ce qu'on peut / evite / ne peut pas, protections actives, recette resolution conflit (git pull + merge manuel 5-15 min). Limites explicites : pas de lock par fichier (YAGNI dev solo), pas de detection stale (gadget).
+- **CLAUDE.md +4L section "Multi-session (concurrence)"** entre Garde-fous et Token-awareness. Pointe vers spec canonique. 199L total (sous garde-fou 200L).
+
+**Verifs finales** :
+- Test manuel pre-compaction-snapshot.sh : fichier genere avec suffix worktree OK
+- ref-checker : 141 .md / 0 cassee (post-fix 2 faux positifs chemins Phase 5 sans trailing slash)
+- health-check : SAIN (0 critical, 0 warning, build 245ms app, 15/15 tests)
+- wiki-health : SAIN (48 pages, hot.md 0j)
+- CLAUDE.md : 199L (garde-fou 200L respecte)
+
+**Decision** : **D-CONCURRENCY-01 DONE** — Multi-session safety documentee via discipline + fix snapshot. Pas de lock automatique (YAGNI pour dev solo, reevaluer si Kevin equipe).
+
+**Revelations** :
+- **YAGNI > defensive engineering**. Proposition initiale "lock par fichier" sonnait bien mais : (1) jamais teste reellement, (2) ajoute point de faille (lock stale, bloquant 5 min), (3) discipline Claude requise (oublier = pas de protection), (4) benefit marginal pour dev solo. Kevin a eu raison de challenger → reduit a minimaliste.
+- **Auto-critique honnete = valeur**. Quand Kevin a demande "tu m'assures que le plan est realiste ?", l'honnetete ("non, pas pour tous les items") a ete plus utile qu'une defense.
+- **Documenter une discipline = codifier le tacite**. La regle "cloture en serie" existait implicitement (chaque session ecrit CONTEXT.md), mais jamais formalisee. Maintenant elle est dans CLAUDE.md + docs/core/concurrency.md.
+- **Le lock existant (`scripts/session-lock.sh`) = Cowork vs CLI seulement**, pas N worktrees. C'etait un angle mort. Decouverte via grep lors de l'audit.
+
+**Threads ouverts** :
+- Merge main + push origin (`/session-end` Phase 8) : a faire maintenant
+- 3 worktrees actifs (jovial-jemison + pedantic-mendel + strange-dhawan) — regle cloture serie applicable aux 2 autres
+- Decision Phase 5 (Finance/Sante/Trading) — toujours reportee
+- OMC update v4.10.1 → v4.12.1 disponible
+
+---
 
 ## 2026-04-18 (D-INTEG-01 Phases 2-5 COMPLET) · Integration sources externes 5/5
 

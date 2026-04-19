@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache Foundation OS"
-updated: 2026-04-18
+updated: 2026-04-19
 tags:
   - meta
   - hot-cache
@@ -19,19 +19,15 @@ Navigation: [[index-wiki]] | [[overview]]
 
 ## Last Updated
 
-**2026-04-18 (D-INTEG-01 COMPLET 5/5)** : Integration sources externes MemPalace/Graphify/Octogent/Penpax aboutie. 4 enhancements absorbes organiquement en 1 session Opus 4.7 1M context (5-6h, Phases 2-5 enchainees). **Phase 2 INT-1** : hook pre-compaction snapshot (`scripts/hooks/pre-compaction-snapshot.sh`) + `.claude/settings.json` PreCompact matcher + rotation 14. **Phase 3 INT-2** : `scripts/wiki-confidence-audit.sh` + backfill 22 pages (41 high / 1 medium / 3 low placeholders Phase 5) + chain health-check. **Phase 4 INT-3** : `scripts/wiki-graph-report.sh` (bash+python3) + `wiki/meta/graph-report.md` auto-gen (11 god-nodes, 1 orphelin, 6 cross-domain, 6 communities). **Phase 5 INS-1** : `docs/core/communication.md` section 6.5 Layered Loading L0-L3 formalisee (2 tables + seuils + regles selection). Commits : `2534137` + `cc6d3c4` + `1010887` + `9418661` (+4 merges + 4 push origin main, dernier `e861abf`). Verdict : **SAIN** (48 pages, 141 .md / 0 ref cassee, health SAIN avec 2 nouvelles lignes INFO chainees, 15/15 tests, drift SYNC, tier 0, neuro 100%).
+**2026-04-19 (D-CONCURRENCY-01 DONE)** : Multi-session safety documentee apres question Kevin "puis-je travailler N sessions en parallele ?". Audit complet 7 hotspots (CONTEXT.md, wiki/hot.md, wiki/meta/*, plans, push main, snapshots, memory) + livraison minimaliste B-lite (versus A ambitieux avec lock par fichier = YAGNI rejette). 3 livrables : (1) fix `scripts/hooks/pre-compaction-snapshot.sh` avec suffix worktree (evite overwrite 2 sessions meme minute) teste live (`20260419-1108-strange-dhawan-e61b96.md`), (2) nouveau `docs/core/concurrency.md` (252L, 11 sections : modele mental isole/partage + hotspots + workflow visuel ASCII + ce qu'on peut/eviter + protections + recette resolution conflit), (3) CLAUDE.md +4L section Multi-session (199L total, sous garde-fou 200L) qui pointe vers spec canonique. Regle d'or : **cloture en serie, jamais 2 `/session-end` meme minute**. Commits : `4ff56e0` feat(os) snapshot + `117be29` docs(os) spec. Verifs : health SAIN, ref-checker 141/0, wiki-health SAIN.
 
-### Avant (2026-04-18 Phase 1/5) : **Preparation architecturale D-INTEG-01** (session precedente). Audit surface SAIN + lecture 5 sources + synthese 3 tiers + plan 5 phases + execution Phase 1 (4 concepts wiki + spec knowledge.md section 12 + seuils thresholds.json + decision D-INTEG-01). Commit `6386823` + merge `452a342`.
+### Avant (2026-04-18 D-INTEG-01 COMPLET 5/5) : Integration sources externes MemPalace/Graphify/Octogent/Penpax aboutie. 4 enhancements absorbes en 1 session Opus 4.7 (Phases 2-5). INT-1 pre-compaction snapshot + INT-2 confidence tagging (41h/1m/3l) + INT-3 graph report auto + INS-1 layered loading L0-L3. Dernier merge `e861abf`.
 
-### Avant (2026-04-17 mapping refactor) : Refactor radical mapping/routage cerveau OS (14 commits Session A+B+C). Rapport 720L + 15 phases. Wiki 45 pages, mesh 2 niveaux, sources uniques (counts.md), SessionStart unifie.
+### Avant (2026-04-17 mapping refactor) : Refactor radical mapping/routage (14 commits). Rapport 720L + 15 phases. Wiki 45 pages, mesh 2 niveaux, sources uniques (counts.md), SessionStart unifie.
 
 ### Avant (2026-04-17 cleanup/nuit/soir/matin)
 
 Cleanup complet drifts + refs + TSX legacy (6 commits). Audit v2 S3 complet (P16 memory + P17 contradiction + P18 feedback loop). Audit v2 S1+S2 execute (10 commits).
-
-### Avant (2026-04-16)
-
-Mega Audit V2 COMPLET. 166 findings. Foundation OS = 70% structure + 30% fonction. Definition canonique `wiki/concepts/Foundation OS.md`.
 
 ## Plugin State
 
@@ -48,38 +44,33 @@ Mega Audit V2 COMPLET. 166 findings. Foundation OS = 70% structure + 30% fonctio
 - Foundation OS = OS travail IA-driven (code app/design-system) + second-brain knowledge (wiki/)
 - 5 tiers memoire : conversation / CONTEXT.md / auto-memory / docs/ / wiki/
 - Regle d'or : une info = un seul tier (zero duplication)
-- D-INTEG-01 COMPLET : 4 enhancements integres (pre-compaction snapshot + confidence tagging + graph report auto + layered loading formel)
+- **Multi-session (nouveau)** : N sessions paralleles OK pendant travail, cloture en serie OBLIGATOIRE
+- Spec concurrence : `docs/core/concurrency.md` (7 hotspots + workflow visuel + recette conflit)
+- D-INTEG-01 COMPLET : 4 enhancements integres (pre-compaction snapshot + confidence + graph report + layered loading)
 - Confidence tagging systematique : chaque page wiki a `confidence: high|medium|low` (41/1/3 actuel)
-- Graph report auto `wiki/meta/graph-report.md` regenere par `scripts/wiki-graph-report.sh`, chain health-check INFO
+- Graph report auto `wiki/meta/graph-report.md`, chain health-check INFO
 - Layered loading spec canonique : `docs/core/communication.md` section 6.5 (L0 hot.md / L1 CONTEXT+sessions-recent / L2 lessons+thinking+plans / L3 wiki on-demand)
-- SessionStart Tour 1 = 9 reads deterministes (CONTEXT + hot + sessions-recent + lessons-learned + thinking + git + health + wiki-health + plans) = L0+L1+L2
 
-## Recent Changes (Phase 2-5 D-INTEG-01, 2026-04-18)
+## Recent Changes (D-CONCURRENCY-01, 2026-04-19)
 
-- `e861abf` merge: Phase 5/5 INS-1 layered loading formel — D-INTEG-01 COMPLET
-- `9418661` docs(os): INS-1 layered loading formel section 6.5 (Phase 5/5)
-- `fc8ded4` merge: Phase 4/5 INT-3 graph report auto (D-INTEG-01)
-- `1010887` feat(wiki): INT-3 graph report auto + chain health-check (Phase 4/5)
-- `4f08465` merge: Phase 3/5 INT-2 confidence tagging (D-INTEG-01)
-- `cc6d3c4` feat(wiki): INT-2 confidence tagging systematique (Phase 3/5)
-- `34c259b` merge: Phase 2/5 INT-1 pre-compaction snapshot (D-INTEG-01)
-- `2534137` feat(os): INT-1 pre-compaction snapshot hook (Phase 2/5)
+- `117be29` docs(os): spec concurrency + regle cloture serie (D-CONCURRENCY-01)
+- `4ff56e0` feat(os): fix snapshot collision multi-worktree (D-CONCURRENCY-01)
+- `86f40d6` merge: archive plan D-INTEG-01 DONE + 7 refs (session precedente)
 
 ## Active Threads
 
-- **D-INTEG-01 COMPLET** (2026-04-18). Plan archive via hook auto-archive SessionEnd.
-- **Refactor mapping/routage DONE** (precurseur D-MAPPING-01, `.archive/plans-done-260417/`)
-- **Wiki operationnel** : 48 pages, 141 .md scannes, graph-report auto-gen
+- **D-CONCURRENCY-01 DONE** (2026-04-19). Merge main + push pendant.
+- **D-INTEG-01 COMPLET** (2026-04-18). Plan archive.
+- **Wiki operationnel** : 48 pages, 141 .md, 0 ref cassee
+- **3 worktrees actifs** : jovial-jemison + pedantic-mendel + strange-dhawan (celui-ci)
 - **Decision Phase 5 modules** (Finance/Sante/Trading) — reportee
-- **14 routines Desktop** documentees — a creer via `/schedule` UI
-- **10 worktrees actifs** — cleanup eventuel apres Phase 5
 
 ## Next Action
 
 **A decider Kevin** :
 - **A** — Decision Phase 5 modules (Finance / Sante / Trading — lequel lancer ?)
 - **B** — Configurer 14 routines Desktop UI `/schedule`
-- **C** — Cleanup worktrees legacy (10 actifs)
-- **D** — OMC update v4.10.1 → v4.12.0
+- **C** — Cleanup worktrees legacy (3 actifs, potentiellement plus)
+- **D** — OMC update v4.10.1 → v4.12.1
 
-D-INTEG-01 termine, FOS a son nouvel arsenal cognitif operationnel (pre-compaction snapshot + confidence + graph report + layered loading spec). Pattern `scripts + hooks + frontmatter + chain health-check` reutilisable pour futurs enhancements.
+D-CONCURRENCY-01 livre. Pattern YAGNI applique : 40 min travail pour 80% de la protection. Le 20% restant (lock automatique) serait reevalue si Kevin passe solo → equipe. Regle d'or documentee et dans CLAUDE.md.

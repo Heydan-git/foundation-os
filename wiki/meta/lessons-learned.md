@@ -22,6 +22,31 @@ related:
 > Erreurs, pièges, workarounds rencontrés. Enregistrés par Claude EN SESSION (neuroplasticité réflexe 3).
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 
+## ref-checker : backtick paths modules/X doivent avoir trailing slash (2026-04-19)
+
+- **Date** : 2026-04-19 (D-CONCURRENCY-01 session)
+- **Contexte** : Ecrit `docs/core/concurrency.md` avec exemples backtick de chemins modules Phase 5 (finance, trading) sans trailing slash, comme illustration d'isolation.
+- **Symptome** : `bash scripts/ref-checker.sh` flag 2 refs cassees car modules/finance/ et modules/trading/ **n'existent pas encore** (Phase 5 placeholders wiki uniquement).
+- **Cause racine** : `IGNORE_REFS_RE` (ligne 57 ref-checker.sh) inclut les modules Phase 5 avec trailing slash obligatoire. Sans le slash, la regex ne match pas → ref checkee → broken.
+- **Fix** : ajouter trailing slash a tous les exemples backtick de modules Phase 5. Pattern appris : **pour referencer un module Phase 5 en markdown backtick, toujours ajouter `/` final**.
+- **Regle** : avant de committer un doc avec des exemples de paths, **lancer `bash scripts/ref-checker.sh` en local**. Les faux positifs viennent souvent de conventions subtiles (trailing slash, anchors, etc.) qu'il vaut mieux respecter que debattre.
+
+## YAGNI : quand ne pas ajouter une couche de safety (2026-04-19)
+
+- **Date** : 2026-04-19 (D-CONCURRENCY-01 session)
+- **Contexte** : J'ai propose un systeme de "lock par fichier" pour empecher 2 sessions d'ecrire CONTEXT.md simultanement. Kevin a challenge : "tu m'assures que c'est realiste et pragmatique ?".
+- **Revelation** : en reevaluant honnetement, le lock :
+  1. Je ne l'avais jamais teste reellement en multi-worktree
+  2. Ajoute un point de faille (TTL 5 min = bloquant si crash)
+  3. Requiert discipline Claude (oublier l'acquire = pas de protection)
+  4. Benefice marginal pour Kevin dev **solo** (proba collision < 1%/semaine)
+- **Decision** : YAGNI (You Aren't Gonna Need It). Documenter la discipline ("cloture en serie") > automatiser une protection complexe.
+- **Regle** : **avant d'ajouter une couche de safety automatisee**, verifier :
+  (a) La frequence **reelle** du risque dans l'usage Kevin (pas le scenario theorique).
+  (b) Le cost/benefit (complexite maintenance + points de faille vs probabilite d'evenement).
+  (c) Si une discipline documentee + doc canonique (specs Core OS) couvrent 80% du besoin avec 0 code, c'est **preferable** a une protection automatisee 95% avec 10x plus de complexite.
+- **Corollaire** : si Kevin passe a une equipe (>2 devs actifs), reevaluer. Les regles YAGNI solo ≠ regles YAGNI equipe.
+
 ## Pattern etoile vs mesh : eviter hubs surdimensionnes (2026-04-17)
 
 - **Date** : 2026-04-17 (mapping refactor session)
