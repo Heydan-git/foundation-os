@@ -1,14 +1,19 @@
 ---
-title: "🪐 D-PRODUCT-01 Module Product Full Integration Notion+Asana (19-04-2026)"
+title: "🪐 D-PRODUCT-01 Module Product Full Integration Notion (pivot P1.5 Notion-only) (19-04-2026)"
 decision: D-PRODUCT-01
 created: 2026-04-19
-status: draft
+updated: 2026-04-19
+status: active
 phases_total: 5
-effort_estimated: 22-29h
+phases_done: 1.5
+effort_estimated: 18-22h (post-pivot Notion-only, reduit de 22-29h)
 dual_path: docs/plans/2026-04-19-product-module-full-integration.md
+pivot_note: "P1.5 pivot Notion-only 2026-04-19 - Asana abandonne (payant + MCP limite)"
 ---
 
-# 🪐 D-PRODUCT-01 Module Product — Full Integration Notion + Asana
+# 🪐 D-PRODUCT-01 Module Product — Full Integration Notion (pivot P1.5)
+
+> **🔄 PIVOT P1.5 Notion-only (2026-04-19)** : apres P1 bootstrap, Kevin decide d'abandonner Asana (payant + MCP limite : pas de create_project/section). Tout passe 100% Notion avec DB Tasks additionnelle (ex-kanban Asana → DB Tasks Notion avec views Kanban/Board/Timeline natives). Les sections du plan ci-dessous mentionnant Asana sont DEPRECIEES post-P1.5. Le mapping reel : **1 plan=1 row DB Plans, 1 phase=1 row DB Tasks Type=Phase, 6 elements=6 rows DB Tasks Type=Element**. Effort revise 18-22h (-4-7h du plan original). Voir `docs/core/product.md` v1.1 pour spec a jour.
 
 ## Context
 
