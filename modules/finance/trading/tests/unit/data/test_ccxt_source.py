@@ -1,6 +1,6 @@
 """Tests CCXTSource — valide parsing + structure DataFrame + gestion erreurs."""
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from unittest.mock import MagicMock
 
@@ -25,8 +25,8 @@ def test_fetch_ohlcv_returns_dataframe(sample_ohlcv: list[list[float]]) -> None:
     df = source.fetch_ohlcv(
         symbol="BTC/USDT",
         timeframe="1h",
-        start=datetime(2024, 1, 1, tzinfo=timezone.utc),
-        end=datetime(2024, 1, 2, tzinfo=timezone.utc),
+        start=datetime(2024, 1, 1, tzinfo=UTC),
+        end=datetime(2024, 1, 2, tzinfo=UTC),
     )
 
     assert isinstance(df, pd.DataFrame)
