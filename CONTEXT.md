@@ -12,7 +12,7 @@
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
-| Trading | ✅ Backtest engine v1 | `modules/finance/trading/` | Socle Python 3.12 + NautilusTrader deps + Pine v5 bridge + 3Commas webhook FastAPI. Harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) + HTMLReport tearsheet. 50/50 tests + cov 82.86% + ruff/mypy clean + CI GH Actions. [[index-trading]] |
+| Trading | ✅ Backtest engine v1.1 | `modules/finance/trading/` | Socle Python 3.12 + Pine v5 bridge + 3Commas webhook FastAPI + **Nautilus Bridge skeleton** (B1) + **NautilusLiveEngine skeleton** (B2, lifecycle + KillSwitch). **5 strategies** : EMA cross, Donchian breakout, RSI mean-reversion, Multi-TF trend, Bollinger breakout. Harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) + HTMLReport tearsheet. **94/94 tests** + ruff/mypy clean + CI GH Actions. Nautilus full migration V1.2 : [roadmap spec](docs/superpowers/specs/2026-04-19-nautilus-v12-roadmap.md). [[index-trading]] |
 | Finance Patrimoine | prevu | — | Phase 5 (PEA/PER/SCPI/fiscalite) |
 | Sante | prevu | — | Phase 5 |
 
@@ -20,6 +20,11 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-19 (soir) | **[DONE] Extension module trading v1.1 (Opus 4.7, strategy library C + Nautilus skeletons B, 8 commits)** |
+|            | Scope : livrer tout ce qui etait reporte au backlog V1.1. 4 nouvelles strategies (Donchian/RSI/Multi-TF/Bollinger) + Nautilus Bridge skeleton (B1) + NautilusLiveEngine skeleton event-driven + KillSwitch (B2) + V1.2 migration roadmap spec. |
+|            | Livrables : C.1-C.4 strategies (`5552990`/`b8748b6`/`e28bf2b`/`e938b65`), C.5 wiki pages 4 strategies + index update (`eb7f70c`), B1 nautilus_bridge transforms + runner skeleton (`f91ba58`), B2 NautilusLiveEngine + LiveOrder/Position/Fill + KillSwitch (`38ffe5a`), V1.2 roadmap spec 263L (`589d139`). |
+|            | Tests : 94/94 (72 existants + 5 Donchian + 5 RSI + 6 Multi-TF + 6 Bollinger + 6 nautilus_bridge + 10 NautilusLive + 6 KillSwitch - 22 nouveaux). ruff + mypy strict clean partout. Zero regression. |
+|            | Decision : Strategy library v1 livree. Nautilus event-driven full migration formellement **reportee V1.2** (voir roadmap 263L qui cartographie les NotImplementedError + 11-16 sessions estimees). |
 | 2026-04-19 | **[DONE] D-TRADING-01 Backtest engine crypto v1 socle (Opus 4.7, 8 phases, 27+ commits, subagent-driven)** |
 |            | Scope : livrer `modules/finance/trading/` — data pipeline (ccxt + Binance direct + Catalog Parquet + QualityChecker) + strategy framework (BaseStrategy Pydantic + EMA cross + indicators EMA/RSI/ATR) + backtest engine (runner pandas + fees/slippage vol-based/latency/funding) + harnesses anti-biais (WF/PurgedCV/MC/PBO/DSR) + analysis (PerformanceMetrics + HTMLReport tearsheet Void Glass + RegimeClassifier) + execution (PineGenerator v5 + 3Commas API HMAC + WebhookReceiver FastAPI + NautilusLive stub) + tests + CI + wiki (6 concepts + strategy + backtest exemples). |
 |            | Livrables : design spec 471L `cf12c8a` + plan 3957L `4ac5bd1` (8 phases 30 tasks 150 steps TDD) + 27+ commits implementation (dernier : Phase 8 wrap-up). Subagent-driven (implementer + spec-review + code-review par task), contextes isoles, zero compactage. |
@@ -61,7 +66,9 @@
   - **D** — Phase 5 autre module (Finance Patrimoine PEA/PER / Sante)
   - **E** — OMC update v4.10.1 → v4.12.1
 
-**Reporte V1.1 trading** : Nautilus event-driven integration, NautilusLive direct execution, VectorBT parameter sweeps massifs, tardis.dev L2 orderbook, ML features engineering, auto-deploy pipeline, drift monitoring live vs backtest OOS.
+**Reporte V1.2+ trading** (Nautilus migration complete) : voir [roadmap spec 263L](docs/superpowers/specs/2026-04-19-nautilus-v12-roadmap.md). 2 phases : A (backtest migration 6-9 sessions : data catalog Nautilus natif + Strategy adapter + BacktestNode integration + harnesses validation + CLI --engine nautilus), B (live integration 5-7 sessions : exchange adapter Binance natif ou ccxt Pro + connect_to_exchange + send_order_to_exchange + reconcile + monitoring + paper trading). Prerequis : D-TRADING-01 v1 prouve + 1-3 mois usage 3Commas live + budget paper 2 mois min par strategie. Cartographie NotImplementedError actuels B1/B2 vers V1.2 phases A/B explicite dans roadmap.
+
+**Reporte V1.2+ autres** : VectorBT parameter sweeps massifs, tardis.dev L2 orderbook, ML features engineering, auto-deploy pipeline, drift monitoring live vs backtest OOS.
 
 **Reporte V1.2+ trading** : **3Commas maison (OMS/EMS self-hosted)** — recherche faite 2026-04-19, spec `docs/superpowers/specs/2026-04-19-3commas-alternative-research.md` (303L). Range au backlog jusqu'a V1.1 livre + 3 mois live 3Commas pour savoir precisement quoi remplacer. Hybride recommande : maison Signal Bot + 3Commas DCA/Grid. Concept wiki [[Order Execution Management System]].
 
