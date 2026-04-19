@@ -15,7 +15,13 @@ SNAPSHOT_DIR=".omc/snapshots"
 mkdir -p "$SNAPSHOT_DIR" 2>/dev/null || exit 0
 
 TS=$(date +%Y%m%d-%H%M)
-OUT="$SNAPSHOT_DIR/${TS}.md"
+# Worktree-aware suffix : evite collision si 2 sessions paralleles compactent dans la meme minute
+# (D-CONCURRENCY-01). Si dans main : suffix "main". Si dans worktree : nom du worktree.
+WT_SUFFIX="main"
+case "$(pwd)" in
+  */.claude/worktrees/*) WT_SUFFIX=$(basename "$(pwd)") ;;
+esac
+OUT="$SNAPSHOT_DIR/${TS}-${WT_SUFFIX}.md"
 
 {
   echo "# Pre-compaction snapshot — $TS"
