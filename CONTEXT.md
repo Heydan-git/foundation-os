@@ -12,6 +12,7 @@
 | Core OS | 7/7 actif | `docs/core/` | Cortex, Communication, Monitor, Tools v2, Planner, Worktrees, Knowledge. + Cockpit orchestrateur. |
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Body | ✅ COMPLET 5/5 Phase 8 | `docs/core/body.md` | Proprioception Kevin-Claude (alignement intention-action). 4 couches C1-C4 : Constitution 41 P-XX + intent capture + rating enrichi + subagent alignment-auditor. D-BODY-01 COMPLET 2026-04-19. |
+| Product | ✅ P1 Phase 9 | `docs/core/product.md` | 9e Core OS — Integration FOS ↔ Notion+Asana. Agent `po-agent` (PO elargi). Skill `/po`. Notion 3 DB + Asana preview. D-PRODUCT-01. |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Finance | prevu | — | Phase 5 |
 | Sante | prevu | — | Phase 5 |
@@ -61,8 +62,6 @@
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
-**Backlog** : 10e groupe couleur Obsidian graph pour `#auto-generated` (graph-report).
-
 ## Idees & Parking
 
 - 💡 **Agent SDK Anthropic** : explorer formalisation Cortex en natif. Pre-requis : SDK mature + evaluation.
@@ -88,6 +87,7 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-PRODUCT-01 Module Product 9e Core OS Bootstrap P1 | 2026-04-19 | 9e module Core OS "Product" — Integration bidirectionnelle FOS ↔ Notion + Asana. Agent `po-agent` sonnet (PO elargi : Foundation OS + modules + apps builder + apps futures a revendre). Skill `/po init\|sync\|pull\|status`. Hooks opt-in `PRODUCT_MCP_SYNC=1` (P4). Notion : archive ancien espace "🪐 Foundation OS" (→ "Archive 2026-04") + nouveau espace + 3 DB (Decisions/Plans/Sessions) créés. Asana : 2 anciens projets supprimés Kevin, preview nouveau projet "Foundation OS" généré (6 sections par module + 10 tasks), confirmation UI Kevin requise. Mapping : 1 plan=1 EPIC, 1 phase=1 US, 6 éléments=6 subtasks. Limites honnêtes P-11 : MCP Asana sans create_project direct (preview UI required), pas de webhooks, last-write-wins conflits. Pattern orchestrateurs manifest-driven (bash ne peut invoquer MCP). Plan 5 phases 22-29h, P1 bootstrap complet. Plan : `docs/plans/2026-04-19-product-module-full-integration.md`. |
 | D-BODY-01 Module Body 8e Core OS COMPLET 5/5 | 2026-04-19 | 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention ↔ action) livre integralement. 4 couches C1-C4 : Constitution `docs/core/constitution.md` (41 P-XX) + Intent capture `.omc/intent/` + Feedback structure `.omc/alignment/*.jsonl` (schema enrichi + retro-compat ratings.jsonl) + Learning loop (`scripts/alignment-analyze.sh` chain health-check INFO + `scripts/constitution-suggest.sh` flag 🎯 to-constitute + `.claude/agents/alignment-auditor.md` subagent clean-slate sonnet READ-ONLY). Integration : `/plan-os` Tour 1 bis intent-capture OBLIGATOIRE + `/session-end` Phase 7bis enrichie 4 questions + Phase 7ter auditor + Layered Loading L2 + CLAUDE.md section pre-action check (200L) + brief v12 tuile #14 🧭 ALIGNMENT. Inspire Constitutional AI (Anthropic) + Reflexion framework + IFEval + AlignmentCheck (Meta 41.77% drift). 3 pages wiki concepts (Body + Alignment + Constitution FOS). 6 commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan `.archive/plans-done-260419/2026-04-19-body-module-complet.md` archive. |
 | D-CONCURRENCY-01 Multi-session safety | 2026-04-19 | Audit concurrence + livraison minimaliste (B-lite). Spec `docs/core/concurrency.md` (7 hotspots + regle cloture serie + recette resolution). Fix snapshot collision (suffix worktree). CLAUDE.md section Multi-session. YAGNI : pas de lock par fichier (complexite > benefit dev solo, reevaluer si equipe). Commits `4ff56e0` + `117be29`. |
 | D-MAPPING-01 Refactor mapping/routage cerveau OS | 2026-04-17 | Audit exhaustif 128 fichiers + rapport 720L + plan 15 phases. Wiki 45 pages, navigation 2 niveaux (foundation-os-map 205L->74L), sources uniques (counts.md), 4 journals->2, categories mortes supprimees (comparisons/questions/canvases), domains Phase 5 [!placeholder], SessionStart unifie cockpit+session-start (9 reads), hook session-start-wiki cat complet, graph.json 12->9 color groups. Rapport `docs/audits/2026-04-17-mapping-routage-audit/rapport.md`. Plan apres archive : `.archive/plans-done-260417/2026-04-17-mapping-routage-refactor.md`. |

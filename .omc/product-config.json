@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "created_at": "2026-04-19",
+  "decision": "D-PRODUCT-01",
+  "phase_state": "P1 bootstrap complete",
+  "notion": {
+    "workspace_user_id": "4f1b99db",
+    "archived_space": {
+      "page_id": "33721e30-0c7b-812d-923a-f0f229508a24",
+      "title": "🪐 Foundation OS — Archive 2026-04",
+      "archived_at": "2026-04-19",
+      "note": "Ancien espace initial du 2026-04-03, renomme (pas supprime) pour preserver 9 sous-pages historiques."
+    },
+    "new_space": {
+      "page_id": "34721e30-0c7b-8109-ad34-cc6baec0f265",
+      "url": "https://www.notion.so/34721e300c7b8109ad34cc6baec0f265",
+      "title": "🪐 Foundation OS",
+      "parent": "33721e30-0c7b-812d-923a-f0f229508a24",
+      "parent_note": "Temporairement enfant de l'archive (limite MCP : creation workspace-level non supportee). A deplacer manuellement au niveau racine si souhaite."
+    },
+    "databases": {
+      "decisions": {
+        "page_url": "https://www.notion.so/6af0b7be286f4ff6bd9e1dbede46fc85",
+        "data_source_id": "8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+        "data_source_url": "collection://8abb85ef-8806-49a0-ba08-c58b464ce4c9",
+        "title": "📊 Decisions",
+        "properties": ["Title", "Code", "Date", "Module", "Status", "Source ref", "Synced at"]
+      },
+      "plans": {
+        "page_url": "https://www.notion.so/670189804fb4424193b9880c004ba23b",
+        "data_source_id": "47fda921-85b6-43cf-a7ec-efbc03d3b953",
+        "data_source_url": "collection://47fda921-85b6-43cf-a7ec-efbc03d3b953",
+        "title": "📋 Plans",
+        "properties": ["Title", "Slug", "Decision ref", "Status", "Phases total", "Phases done", "Effort estime", "Path", "Created", "Synced at"]
+      },
+      "sessions": {
+        "page_url": "https://www.notion.so/d4e5a345bb324fdea940021ac505efbe",
+        "data_source_id": "218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+        "data_source_url": "collection://218baff4-e4fe-4e9d-b59d-ccdcc130d355",
+        "title": "💬 Sessions",
+        "properties": ["Title", "Date", "Duration", "Scope", "Commits", "Decisions ref", "Livraison", "Revelations", "Synced at"]
+      }
+    }
+  },
+  "asana": {
+    "workspace_gid": "1213280972575193",
+    "user_gid": "1213280972575181",
+    "user_email": "kevin.noel.divers@gmail.com",
+    "team_gid": "1213280972575195",
+    "team_name": "My workspace",
+    "archived_projects": [
+      {"gid": "1213918098666338", "name": "Foundation OS — Setup", "note": "22/22 tasks done, supprime par Kevin 2026-04-19 lors du reset D-PRODUCT-01"},
+      {"gid": "1214059589666268", "name": "Foundation OS — Build", "note": "0/0 tasks vide, supprime par Kevin 2026-04-19"}
+    ],
+    "new_project": {
+      "gid": "TBD_after_kevin_confirm_preview",
+      "name": "Foundation OS",
+      "status": "preview_generated_awaiting_kevin_confirm",
+      "sections_expected": ["🧠 Core OS", "💻 App Builder", "🎨 Design System", "📚 Knowledge / Wiki", "🤝 Cowork", "🚀 Phase 5 (reporte)"],
+      "note": "Cree via create_project_preview le 2026-04-19. Kevin doit cliquer 'Create project' dans Asana UI pour finaliser. MCP ne supporte pas create_project direct (limite API)."
+    }
+  },
+  "sync_state": {
+    "last_push": null,
+    "last_pull": null,
+    "conflicts_count": 0
+  },
+  "notes": [
+    "Ce fichier est la source de verite operationnelle pour IDs Notion + Asana.",
+    "Mis a jour par po-init.sh / po-sync.sh / po-pull.sh apres chaque execution MCP.",
+    "Lu au debut de chaque /po command pour identifier les targets.",
+    "Commit dans git (non sensitive : IDs Notion publics, Asana workspace deja connu).",
+    "Limite P1 : Asana new_project.gid = TBD. Remplir manuellement apres Kevin confirme UI."
+  ]
+}

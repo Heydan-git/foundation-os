@@ -1,6 +1,6 @@
 # Core OS — Architecture
 
-8 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15, post-adoption Body D-BODY-01 2026-04-19).
+9 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15, post-adoption Body D-BODY-01 2026-04-19, post-adoption Product D-PRODUCT-01 2026-04-19).
 
 ## Couches
 
@@ -10,7 +10,8 @@ COCKPIT        (/cockpit)               Super-pilote (point d'entree unique)
 MODULES        (app, design-system,...) Projets concrets
 CORE OS        (cortex, communication,  Intelligence methodologique
                 monitor, tools, planner,
-                worktrees)
+                worktrees, knowledge,
+                body, product)
 TOOLKIT        (OMC, BMAD, MCP)         Outils externes
 ```
 
@@ -28,6 +29,7 @@ Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → rou
 | Worktrees | Plomberie + workflow `/wt new|list|clean` | 6 | actif | scripts/worktree-*.sh + .claude/worktrees/ |
 | Knowledge | Wiki layer persistant (claude-obsidian) | 7 | actif | wiki/ + .raw/ + 10 skills + hooks integres |
 | Body | Proprioception Kevin-Claude (alignement intention ↔ action) | 8 | actif | docs/core/body.md + docs/core/constitution.md + .omc/intent/ + .omc/alignment/ |
+| Product | Integration bidirectionnelle FOS ↔ Notion + Asana | 9 | actif (P1) | docs/core/product.md + .claude/agents/po-agent.md + .claude/commands/po.md + scripts/po-*.sh + .omc/product-config.json |
 
 Conventions de nommage transversales : `docs/core/naming-conventions.md` (branches, worktrees, sessions, plans, specs, memoires).
 
@@ -101,6 +103,19 @@ Spec : [docs/core/body.md](body.md)
 - Intent capture OBLIGATOIRE sur `/plan-os` (Tour 1 bis). Opt-in ailleurs.
 - Lecture `docs/core/constitution.md` ajoutee dans Layered Loading L2 (`docs/core/communication.md` section 6.5).
 - Decision D-BODY-01 (2026-04-19). Plan execution : `.archive/plans-done-260419/2026-04-19-body-module-complet.md`.
+
+## Product (Phase 9 — actif depuis 2026-04-19)
+
+Spec : [docs/core/product.md](product.md)
+- Integration bidirectionnelle FOS ↔ Notion + Asana (9e module Core OS).
+- 3 surfaces : agent `po-agent` (Task invocable sonnet) / skill `/po` (init/sync/pull/status) / hooks opt-in `PRODUCT_MCP_SYNC=1`.
+- Mapping : 1 plan = 1 EPIC Asana, 1 phase = 1 US, 6 elements par phase = 6 subtasks.
+- Notion DB : Decisions / Plans / Sessions (miroir CONTEXT.md + docs/plans/ + wiki/meta/sessions-recent.md).
+- Pattern orchestrateurs manifest-driven : `scripts/po-*.sh` generent JSON, Claude execute MCP calls (honnete P-11 : bash ne peut invoquer MCP direct).
+- Source of truth : FOS MD gagne sur structure, Notion/Asana gagnent sur ordre/priorite humaine. Last-write-wins par champ sur conflit.
+- Limites honnetes : rate limits MCP (Notion 3 req/s, Asana 150/min) → batching fin session. Pas de webhooks → pull session-start. Archive Asana projet manuel (MCP limite).
+- Config persistante : `.omc/product-config.json` (IDs databases Notion + project Asana).
+- Decision D-PRODUCT-01 (2026-04-19). Plan execution : `docs/plans/2026-04-19-product-module-full-integration.md` (5 phases).
 
 ## Conventions transversales
 
