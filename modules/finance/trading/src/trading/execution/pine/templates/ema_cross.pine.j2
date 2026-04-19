@@ -1,0 +1,20 @@
+//@version=5
+strategy("{{ strategy_name }}", overlay=true, initial_capital=10000, default_qty_type=strategy.percent_of_equity, default_qty_value=100)
+
+ema_fast_len = input.int({{ ema_fast }}, "EMA Fast")
+ema_slow_len = input.int({{ ema_slow }}, "EMA Slow")
+
+ema_fast = ta.ema(close, ema_fast_len)
+ema_slow = ta.ema(close, ema_slow_len)
+
+long_condition = ta.crossover(ema_fast, ema_slow)
+exit_condition = ta.crossunder(ema_fast, ema_slow)
+
+if long_condition
+    strategy.entry("long", strategy.long)
+
+if exit_condition
+    strategy.close("long")
+
+alertcondition(long_condition, title="{{ strategy_name }}_entry", message='{"action":"enter_long","symbol":"{{ "{{" }}ticker{{ "}}" }}"}')
+alertcondition(exit_condition, title="{{ strategy_name }}_exit", message='{"action":"exit_long","symbol":"{{ "{{" }}ticker{{ "}}" }}"}')
