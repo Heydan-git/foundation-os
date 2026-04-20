@@ -18,13 +18,15 @@ Regles :
 
 ## Session Cowork en cours
 
-- **Date** : 2026-04-16
-- **Titre** : 🪐 - 📐 ARCHI Prompt Stitch Dashboard Monitoring FoundationOS (2026-04-16)
-- **Travail actif** : Redaction d'un prompt MD ultra-detaille a coller dans Google Stitch pour generer le visuel d'un dashboard de monitoring couvrant la totalite de FoundationOS (12 vues hierarchiques, 12 clusters de signaux, 3 verdicts universels SAIN/DEGRADED/BROKEN, zero specification visuelle — Kevin gere couleurs/typo/motion directement dans Stitch).
-- **Dossier livrables** : `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/`
+- **Date** : 2026-04-20
+- **Titre** : 🪐 - 🏗️ BUILD Morning Intelligence v3 — refonte UX/UI/accessibilite (2026-04-20)
+- **Travail actif** : Refonte v3 complete du Morning Intelligence — corrections DS tokens, accessibilite ARIA, nouvelles features, prompt scheduled task v3.
+- **Dossier livrables** : `docs/travaux-cowork/morning-intelligence/`
 
 ## Derniere action Cowork
 
+- **2026-04-20** — Refonte Morning Intelligence v2 → v3 complete. (1) Realignement 6 couleurs sur tokens DS (tokens.css) : red→#d4183d, green→#34d399, purple→#c084fc, amber→#fbbf24, orange→#fb923c, rose→#fb7185. (2) Accessibilite ARIA : tabs (role=tablist/tab/tabpanel, aria-selected, aria-controls, aria-labelledby, keyboard nav ArrowLeft/Right/Home/End), checkboxes (ID uniques, aria-label descriptifs, event delegation), alert (role=alert), progress bar (role=progressbar, aria-valuenow/min/max), filtres (aria-pressed), focus-visible global, toast (role=status, aria-live=polite). (3) Nouvelles features : estimation temps dynamique dans header (~N min, decremente), boutons "Tout cocher" par panel, priority-based card styling (critical/high/medium/low), localStorage fallback in-memory, deduplication score getUnique(), data-time sur chaque item. (4) UI : meilleur contraste (text-dim 0.65, faint 0.22), spacing tighter, border-radius clean, mobile responsive. (5) Prompt tache scheduled `morning-intelligence` mis a jour pour generer le format v3 exact (ARIA, data-*, points, structure). 30/30 checks validation passes.
+- **2026-04-19** — Creation systeme Morning Intelligence unifie + gamification. (1) HTML template `docs/travaux-cowork/morning-intelligence/morning-intelligence.html` : Void Glass, 4 tabs par jour (Urgent/Actions/Veille IA/Boite), navigation dates, filtres categories newsletters IA, JS scope par tab-shell. (2) Tache scheduled `morning-intelligence` creee (cron 0 9 * * *) : prompt complet incluant decouverte workspace, fetch Gmail `in:inbox newer_athan:2d`, classification emails, traduction/resume/highlights en francais, ecriture JSON cumulatif + regeneration HTML complet. (3) Taches `gmail-briefing-matin` et `ai-newsletters-digest` desactivees (enabled:false). (4) Gamification complete : checkboxes "Marquer traite" sur chaque email urgent (data-tid) et chaque action card (data-aid), barre de progression X/N traites, score dynamique (50 pts/email urgent + 20 pts/action + bonus 100 si tout traite), streak 🔥 calcule cote task (JSON `gamification.streak`), animation "Inbox Clear" CSS quand tous les items coches, persistence localStorage par jour (`mi_treated_YYYY-MM-DD`). Prompt tache scheduled mis a jour pour generer les data-* attributs, la section gamification JSON et le JS complet.
 - **2026-04-16** — Creation dossier `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/` avec 2 livrables : `00-INDEX.md` (sommaire + sources verifiees + ownership) et `01-prompt-stitch-dashboard-monitoring.md` (prompt final, 1207 lignes, 28 sections niveau 2, 143 sections niveau 3, 12 vues hierarchiques, 48 occurrences SAIN/DEGRADED/BROKEN, 0 emoji, frontmatter YAML valide). Verification via subagent general-purpose : verdict SAIN, zero marqueur `END-PART` residuel, terminaison propre sur `<!-- END-PROMPT -->`. Perimetre couvert : modules, plans, Core OS, wiki, worktrees, MCPs, metriques, decisions, risques, sessions, idees. Format : un seul MD a coller integralement dans Google Stitch. Pret a livrer Kevin.
 - **2026-04-14 (soir)** — Refonte v2 TDAH des specs ecrites : `01-specs-morning-brief.md` et `02-specs-hebdo-synthesis.md` entierement reecrits. Nouvelle structure alignee sur les HTML v2 (philosophie de rendu, sections HTML cards, classes CSS, interdiction formelle des cadres box-drawing et barres ASCII, Hick's law sur CTA, Vulgarisation prose). Dossier `2026-04-14-briefs-foundation-os/` est maintenant coherent : 4 livrables (01 spec morning v2, 02 spec hebdo v2, 04 exemple morning v2, 05 exemple hebdo v2) + 00-INDEX + 03-sources.
 - **2026-04-14 (fin journee)** — Refonte v2 TDAH-friendly des deux HTML d'exemple (`04-exemple-morning-2026-04-14.html` et `05-exemple-hebdo-s15.html`). Nouveau langage visuel : titres conversationnels evocateurs, sections icon+titre+sous-titre, cards backgrounds colores, progress bars / bars de velocite gradient, vulgarisation prose, Hick's law sur les CTA, whitespace genereux. Validation Kevin : "C'est bien mieux. Ok, on part la-dessus."
@@ -35,9 +37,10 @@ Regles :
 
 ## Etat pre/post-compactage
 
-- **Dernier compactage detecte** : 2026-04-16 (session Prompt Stitch, apres redaction Parts 1-2 et verification subagent)
-- **Checkpoint post-compactage** : reprise propre via summary fourni par le runtime. Tache pending identifiee = maj COWORK-CONTEXT.md (cette section). Livrable principal deja valide SAIN avant compactage. Aucune divergence detectee entre summary et etat filesystem.
-- **A reprendre si nouveau compactage** : livrable `2026-04-16-prompt-stitch-dashboard-monitoring/01-prompt-stitch-dashboard-monitoring.md` est complet et valide (1207 lignes, 28 sections, 12 vues). Reste : session close + lien computer:// livre a Kevin. Patchs CLI (2 et 3) toujours pending cote architecture parallele.
+- **Dernier compactage detecte** : 2026-04-20 (session BUILD Morning Intelligence v3, compactages multiples mid-session)
+- **Checkpoint post-compactage** : reprise post-compactage reussie, taches 1-5 completees.
+- **A reprendre si nouveau compactage** : Morning Intelligence v3 TERMINE. HTML v3 ecrit (30/30 checks PASS), prompt scheduled task v3 mis a jour. Tout livre. Clean break.
+- **Historique** : precedent compactage 2026-04-16 (session Prompt Stitch, livrable 01-prompt-stitch-dashboard-monitoring.md 1207L valide SAIN).
 
 ## Checkpoint anti-compactage (lu en priorite apres compactage)
 
@@ -52,7 +55,7 @@ Regles :
 5. Poser 1-3 questions ciblees a Kevin. Attendre validation.
 6. Mettre a jour "Dernier compactage detecte" ci-dessus avec horodatage.
 
-**Tache en cours au dernier snapshot** : Livrable `2026-04-16-prompt-stitch-dashboard-monitoring/01-prompt-stitch-dashboard-monitoring.md` complet (1207 lignes, 28 sections, 12 vues, 0 emoji) et valide via subagent. Tache pending en cours = maj de ce fichier (Session en cours, Derniere action, Travaux actifs, Checkpoint). Ensuite cloture session + lien computer:// a Kevin.
+**Tache en cours au dernier snapshot** : Rien. Refonte v3 Morning Intelligence completement close (2026-04-20). HTML v3 + prompt scheduled task v3 livres. 30/30 checks validation.
 
 **Points chauds qui peuvent etre perdus dans un resume de compactage** :
 - Kevin veut du parallelisme CLI + Cowork reel, pas un faux parallelisme avec verrou.
@@ -65,6 +68,7 @@ Regles :
 
 | Travail | Dossier | Statut |
 |---------|---------|--------|
+| Morning Intelligence | `docs/travaux-cowork/morning-intelligence/` | 🟢 v3 livre (HTML accessible ARIA + prompt scheduled v3 + gamification + DS tokens alignes). Tache `morning-intelligence` operationnelle 9h00 quotidien. |
 | Prompt Stitch Dashboard Monitoring | `docs/travaux-cowork/2026-04-16-prompt-stitch-dashboard-monitoring/` | 🟢 Livrable pret a coller dans Stitch (01, 1207 lignes, 28 sections, 12 vues) |
 | Briefs FoundationOS (morning + hebdo) | `docs/travaux-cowork/2026-04-14-briefs-foundation-os/` | 🟢 Specs 01/02 + exemples 04/05 alignes v2 TDAH. Scheduling + generator = phase 2. |
 | Plan Dashboard Monitoring | `docs/travaux-cowork/2026-04-13-plan-dashboard-monitoring/` | 🟢 Pret handoff CLI (fichier 14 source de verite) |
