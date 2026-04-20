@@ -119,7 +119,7 @@ Total 60 skills. Usage reel (session-patterns) : `Skill` 42 calls / 3846 tool ca
 
 **Gap** : Tools v2 registry MCP (13) vs reel environnement (60+). Explication : les MCP Claude Code sont environnementaux (configures par user, variables entre sessions), alors que le registry FOS liste les MCP considere "core" par Kevin.
 
-**Recommendation** : P12 candidat — ecrire `scripts/mcp-scan.sh` qui compare registry FOS vs MCP deferred tools courants. Signaler divergences.
+**Recommendation** : P12 candidat — ecrire nouveau script *mcp-scan.sh* qui compare registry FOS vs MCP deferred tools courants. Signaler divergences.
 
 ### F83 🟡 Absence de test FONCTION routing (rule coverage)
 
@@ -127,7 +127,7 @@ Total 60 skills. Usage reel (session-patterns) : `Skill` 42 calls / 3846 tool ca
 
 **Impact** : regles peuvent etre ecrites mais jamais matches. Pas de mesure.
 
-**Recommendation** : P12 candidat (faible valeur) — `scripts/routing-coverage.sh` teste les 35 regles contre exemples fixes. Ou accepter que routing est soft-guide.
+**Recommendation** : P12 candidat (faible valeur) — nouveau script *routing-coverage.sh* teste les 35 regles contre exemples fixes. Ou accepter que routing est soft-guide.
 
 ---
 
