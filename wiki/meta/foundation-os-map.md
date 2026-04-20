@@ -34,11 +34,13 @@ Navigation : [[index-wiki]] | [[hot]] | [[overview]]
 - [[CONTEXT]] — Etat operationnel (source de verite)
 - [[README|README (racine)]] — Description projet
 
-## Core OS (7 modules + Cockpit)
+## Core OS (10 modules + Cockpit)
 
 > Sous-index : [[index-core-os]]
 
 Concepts canoniques (a lire pour comprendre l'OS) : [[Foundation OS]] · [[Core OS]] · [[LLM Wiki Pattern]] · [[Neuroplasticite]] · [[Brief v12]] · [[TDAH workflow]] · [[Void Glass]]
+
+Modules etendus Phase 8+ : [[Body]] · [[Alignment]] · [[Constitution FOS]] · [[Product Management]] · [[Notion integration]]
 
 ## Documentation (docs/)
 

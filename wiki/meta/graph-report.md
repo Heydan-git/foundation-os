@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Graph Report — wiki analyse auto"
-updated: 2026-04-18
+updated: 2026-04-20
 tags:
   - meta
   - graph
@@ -20,7 +20,7 @@ related:
 
 > **Auto-regenere** par `scripts/wiki-graph-report.sh`. Source unique pattern counts.md. Ne pas editer manuellement.
 >
-> Last run: 2026-04-18 · 44 pages scannees · seuils `scripts/thresholds.json` section `wiki.graph_report`.
+> Last run: 2026-04-20 · 49 pages scannees · seuils `scripts/thresholds.json` section `wiki.graph_report`.
 
 ## God Nodes
 
@@ -28,15 +28,16 @@ Pages avec >= 10 wikilinks entrants (hubs structurants).
 
 | Page | Inbound | Domaine |
 |------|---------|---------|
+| `index-concepts` | 24 | meta |
 | `index-wiki` | 19 | meta |
-| `index-concepts` | 19 | meta |
+| `Foundation OS` | 18 | dev |
 | `LLM Wiki Pattern` | 18 | dev |
-| `foundation-os-map` | 17 | meta |
+| `foundation-os-map` | 18 | meta |
 | `Compounding Knowledge` | 13 | dev |
-| `Foundation OS` | 13 | dev |
 | `Hot Cache` | 13 | dev |
+| `Neuroplasticite` | 13 | dev |
 | `Obsidian` | 13 | meta |
-| `Neuroplasticite` | 11 | dev |
+| `Core OS` | 11 | dev |
 | `Andrej Karpathy` | 10 | meta |
 | `index-meta` | 10 | meta |
 
@@ -65,11 +66,14 @@ Wikilinks qui relient des domaines differents (hors meta). Revele insights cross
 
 Groupement des pages par premier tag frontmatter (fallback `type:` ou `untagged`).
 
-### `#concept` (15 pages)
+### `#concept` (20 pages)
 
+- `Alignment`
+- `Body`
 - `Brief v12`
 - `Compounding Knowledge`
 - `Confidence Tagging`
+- `Constitution FOS`
 - `Core OS`
 - `Foundation OS`
 - `Graph Report`
@@ -77,7 +81,9 @@ Groupement des pages par premier tag frontmatter (fallback `type:` ou `untagged`
 - `LLM Wiki Pattern`
 - `Layered Loading`
 - `Neuroplasticite`
+- `Notion integration`
 - `Pre-compaction Snapshot`
+- `Product Management`
 - `TDAH workflow`
 - `Void Glass`
 - `design-system-components`

@@ -23,6 +23,8 @@ related:
 > Consulté au SessionStart pour éviter de répéter les mêmes erreurs.
 >
 > **Convention 🎯 to-constitute (D-BODY-01 P3)** : si une lesson merite d'être élevée en principe constitution `P-XX`, prefixer le titre de la section avec l'emoji `🎯`. `bash scripts/constitution-suggest.sh` scanne les flags et propose des drafts P-XX formattes. Kevin refine + append manuellement dans `docs/core/constitution.md` (append-only, jamais renumerotation).
+>
+> Pour insights analytiques Kevin-Claude cross-session : voir [[session-patterns]] (auto-regenere par `scripts/sessions-analyze.sh`).
 
 ## 🎯 MCP Notion create-view requires database_id AND data_source_id (2026-04-19)
 

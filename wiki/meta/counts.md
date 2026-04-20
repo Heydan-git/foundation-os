@@ -1,13 +1,12 @@
 ---
 type: meta
 title: "Wiki Counts — Source unique"
-updated: 2026-04-18
+updated: 2026-04-20
 tags:
   - meta
   - counts
   - source-of-truth
 status: evergreen
-confidence: high
 related:
   - "[[index-wiki]]"
   - "[[hot]]"
@@ -20,18 +19,18 @@ related:
 > **Source unique** des compteurs wiki Foundation OS. Auto-regenere par
 > `scripts/wiki-counts-sync.sh`.
 
-## Mise a jour : 2026-04-18
+## Mise a jour : 2026-04-20
 
 ### Pages
 
 | Metrique | Valeur | Commande verification |
 |----------|--------|-----------------------|
-| Pages physiques | 47 | `find wiki -name "*.md" \| wc -l` |
-| Pages fonctionnelles (hors templates) | 44 | 47 - 3 templates |
-| Concepts racine | 13 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
+| Pages physiques | 53 | `find wiki -name "*.md" \| wc -l` |
+| Pages fonctionnelles (hors templates) | 50 | 53 - 3 templates |
+| Concepts racine | 18 | `find wiki/concepts -maxdepth 1 -name "*.md"` |
 | Entities | 5 | `find wiki/entities -maxdepth 1 -name "*.md"` |
 | Sources | 2 | `find wiki/sources -maxdepth 1 -name "*.md"` |
-| Meta (hors templates) | 14 | `find wiki/meta -maxdepth 1 -name "*.md"` |
+| Meta (hors templates) | 15 | `find wiki/meta -maxdepth 1 -name "*.md"` |
 | Templates | 3 | `find wiki/meta/templates -name "*.md"` |
 | Domain indexes | 5 | `find wiki/domains -maxdepth 2 -name "index-*.md"` |
 | Domain content (hors index) | 2 | 7 total - 5 indexes |
@@ -40,7 +39,7 @@ related:
 
 | Metrique | Valeur | Commande |
 |----------|--------|----------|
-| Wikilinks totaux | 712 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
+| Wikilinks totaux | 763 | `grep -rho "\[\[[^]]*\]\]" wiki/ \| wc -l` |
 
 ## Consumers (pages qui pointent ici, source unique)
 

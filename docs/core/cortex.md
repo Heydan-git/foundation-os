@@ -18,6 +18,8 @@ Quand une tache arrive, Cortex la route vers l'agent adapte.
 | code, composant, page, Supabase, React, build, scaffold, CSS, Tailwind | dev-agent | "Ajoute un bouton delete" |
 | documente, note, trace, journalise, met a jour CONTEXT, met a jour docs | doc-agent | "Mets a jour CONTEXT.md" |
 | verifie, audit, check, revue, regression, deployer | review-agent | "Verifie avant commit" |
+| produit, PO, roadmap, backlog, sprint, US, Notion, kanban | po-agent | "Sync FOS vers Notion" / `/po sync` |
+| alignement, drift intention-action, audit session, clean-slate review | alignment-auditor | `/session-end` Phase 7ter (D-BODY-01) |
 
 ### Regles de priorite
 
