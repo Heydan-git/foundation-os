@@ -252,7 +252,7 @@ Plan : docs/plans/2026-04-19-product-autonomie.md
   - Mode `--dry-run` pour preview
 - Dogfooding : exécuter `bash scripts/plan-os-to-notion.sh docs/plans/2026-04-19-product-autonomie.md` dans cette même session → push ce plan D-PRODUCT-02 lui-même vers Notion (1 row Plans + 5 rows Tasks phases P1-P5)
 - Update `docs/core/product.md` section 9 (Execution flow) : ajouter scenario "Push auto via /plan-os"
-- Test end-to-end : créer plan bidon `docs/plans/test-autopush.md` avec 3 phases → /plan-os → vérifier Notion peuplé → delete plan bidon
+- Test end-to-end : créer plan bidon plan bidon temporaire P2 (nom libre, sera supprime apres validation test) avec 3 phases → /plan-os → vérifier Notion peuplé → delete plan bidon
 
 **4. Vérification**
 - `scripts/plan-os-to-notion.sh` executable + `--dry-run` OK

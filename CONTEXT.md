@@ -53,12 +53,14 @@
 
 **Direction** : **D-BODY-01 COMPLET 5/5** (19-04-2026) — 8e module Core OS "Body" (Proprioception Kevin-Claude) livre integralement en 1 session Opus 4.7 (Option C ambitieuse, 6 commits, ~10h). 4 couches C1 Constitution + C2 Intent + C3 Feedback + C4 Learning loop. Inspire Constitutional AI + Reflexion + IFEval + AlignmentCheck. Commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan archive (a deplacer `.archive/plans-done-260419/`).
 
-**Prochaine action** (post-Body) :
-  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
-  - **B** — Configurer 14 routines Desktop UI `/schedule`
-  - **C** — Cleanup 10 worktrees legacy
-  - **D** — OMC update v4.10.1 → v4.12.1
-  - **E** — Test live alignment-auditor subagent au prochain `/plan-os` (validation end-to-end)
+**Prochaine action** (post D-PRODUCT-01 + prep D-PRODUCT-02) :
+  - **A** — **Execute D-PRODUCT-02** dans nouvelle conversation (plan `docs/plans/2026-04-19-product-autonomie.md` prep, 15-20h, 5 phases)
+  - **B** — Test live D-PRODUCT-01 : activer `PRODUCT_MCP_SYNC=1` + observer hooks + Kevin move card Notion
+  - **C** — Test live D-BODY-01 end-to-end (subagent auditor reel au prochain `/plan-os`)
+  - **D** — Phase 5 Trading deja lancee par session parallele (D-TRADING-01, module trading/ cree 2026-04-19/20)
+  - **E** — Configurer 14 routines Desktop UI `/schedule`
+  - **F** — Cleanup worktrees legacy
+  - **G** — OMC update v4.10.1 → v4.13.0
 
 **Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
