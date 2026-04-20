@@ -26,6 +26,40 @@ related:
 >
 > Pour insights analytiques Kevin-Claude cross-session : voir [[session-patterns]] (auto-regenere par `scripts/sessions-analyze.sh`).
 
+## 🎯 Subagent prompt > 1500 mots garantit thrashing Opus 4.7 (2026-04-19)
+
+- **Date** : 2026-04-19 (D-AUDIT-TOTAL-01 session courante)
+- **Contexte** : Agent A dispatch pour lire 24 auto-memoires actives + synthese. Prompt ~2000 mots avec contexte Foundation OS + scope + livrable + 24 fichiers path listes.
+- **Symptome** : `Autocompact is thrashing: the context refilled to the limit within 3 turns of the previous compact, 3 times in a row.` Agent fail complet. Output tronque message meta "a file being read or tool output is likely too large".
+- **Cause racine** : Claude Opus 4.7 1M context, nouveau tokenizer. Subagent inherite 0% du contexte primary mais demarre avec prompt input massif. Si prompt > 1500 mots + 20+ fichiers Read → context rempli trop vite → thrashing garanti.
+- **Fix pragmatique** : max 500 mots prompt par subagent. Scope precis (max 15 fichiers listes). Livrable structure court (table, markdown). Fallback Read direct si subagent echoue.
+- **Regle** : **tout subagent prompt > 500 mots = risk thrashing Opus 4.7 1M**. Preferer Read direct (meme si plus long de flow) si on a besoin de lire 20+ fichiers. Subagents reserves pour scope precis (3-10 fichiers) + livrable structure court.
+- **Application FOS** : documente `docs/core/model.md` section 5.2 "Subagents strategy". Reference pattern declaratif pour futurs Claude.
+
+## 🎯 Stubs forward refs pattern zero regression plan multi-phase (2026-04-19)
+
+- **Date** : 2026-04-19 (2x valide : D-BODY-01 P1 + D-AUDIT-TOTAL-01 P0)
+- **Contexte** : plan multi-phase cree docs qui referent fichiers pas encore ecrits (P1/P2/P9/P13 findings + nouveau module docs/core/model.md). ref-checker health → DEGRADED (forward refs cassees).
+- **Symptome** : pre-commit DEGRADED 1 warning, 11+ refs cassees. Impression fausse travail incomplet.
+- **Cause racine** : pattern naturel "ecrire spec + findings avant implementation complete" cree forward refs. ref-checker detecte comme casse.
+- **Fix** : creer stubs minimaux (~5 min) :
+  - Fichiers markdown 10-15 lignes : "STUB forward ref Phase P0, sera rempli en Phase PN"
+  - Pointer vers plan section phase future
+  - Scripts bash stubs : `exit 0 + echo "pending PN"` + `--quiet` mode pour chain
+- **Regle** : **tout plan multi-phase qui cree des refs avant implementation doit prevoir stubs forward des P0/P1**. 5 min travail = health SAIN pre-commit + visibilite completude coherente par phase.
+- **Application FOS** : documente body.md pattern 2x + maintenant lesson. Reutilisable pour futurs plans ambitieux.
+
+## 🎯 CONTEXT.md systematiquement en retard vs realite multi-worktree (2026-04-20)
+
+- **Date** : 2026-04-20 (D-AUDIT-TOTAL-01 P10 discovery)
+- **Contexte** : audit cross-worktree revele 3 worktrees actifs avec commits ahead main (jovial-jemison +45, determined-torvalds +14, condescending-ardinghelli +15). CONTEXT.md main dit "Phase 5 reportee" alors que Trading D-TRADING-01 Phase 8/8 DEJA livre dans jovial-jemison.
+- **Symptome** : nouvelle session Claude qui lit CONTEXT.md obtient vue **obsolete** du projet. "Phase 5 reportee" = faux depuis 12 heures.
+- **Cause racine** : CONTEXT.md est edit uniquement au `/session-end` du worktree qui l'ecrit. Si 3 worktrees travaillent en parallele, seul le dernier `/session-end` merge sa version. Les autres commits ne propagent pas vers CONTEXT.md main.
+- **Fix short-term** : cloture serie D-CONCURRENCY-01 + update CONTEXT.md explicite a chaque merge.
+- **Fix long-term** : tuile brief v12 SANTE "N worktrees (K divergent)" (appliquee P12c D-AUDIT-TOTAL-01) + potentiel D-ENFORCE-01 hook post-commit append `.omc/cross-worktree-state.json` + SessionStart Tour 1 lit ce fichier.
+- **Regle** : **apres tout merge multi-worktree, refresh CONTEXT.md section Modules + Sessions + Cap**. Sinon drift garanti. Brief v12 SANTE worktrees = warning visuel minimum.
+- **Application FOS** : documente `docs/core/concurrency.md` section 8 recette merge + `docs/core/communication.md` section 6.1 ligne SANTE worktrees.
+
 ## 🎯 MCP Notion create-view requires database_id AND data_source_id (2026-04-19)
 
 - **Date** : 2026-04-19 (D-PRODUCT-01 P3 session)
