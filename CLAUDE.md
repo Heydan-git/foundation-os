@@ -144,8 +144,28 @@ Spec complete + raison racine : `wiki/meta/lessons-learned.md` section "Push mai
 ## Body : pre-action check (D-BODY-01)
 Avant actions risquees (rm, mv, push, commit >3 files, refactor >1h) : relire `.omc/intent/<slug>.md` (si `/plan-os`) + top 10 P-XX `docs/core/constitution.md`. Desalignement → stop+clarifier. Spec `docs/core/body.md` + constitution.md (~41 P-XX, L2).
 
-## Multi-session (concurrence)
-Kevin peut travailler N sessions Desktop en parallele (1 par worktree). Regle d'or : **cloture en serie, jamais 2 `/session-end` dans la meme minute** (conflit garanti sur CONTEXT.md + wiki/hot.md). Verifier que le `git push origin main` de la session precedente a reussi (`git log -1 main`) avant de cloturer la suivante. Eviter 2 sessions sur le **meme module** (conflits merge). Spec complete : `docs/core/concurrency.md` (7 hotspots + workflow + recette resolution conflit).
+## Mono-session (D-NO-MULTI-SESSION-01)
+
+**Regle d'or : 1 seule session Claude Code active a la fois** (decision 2026-04-20).
+
+**Pourquoi** : le multi-worktree promettait de la parallelisation mais a prouve empiriquement (audit reality-check 2026-04-20) qu'il cree une **regression memoire garantie** : chaque session ecrit son propre CONTEXT.md local et seule la derniere `/session-end` merge sa version. Les autres branches restent orphelines de la memoire main jusqu'a audit manuel. Exemple prouve : 2 sessions perdues (D-CCCONFIG-01 14 commits + nice-mayer 5 commits) non visibles dans CONTEXT.md main pendant plusieurs jours. Le cout cognitif de "retrouver ce qui est perdu" > le gain de parallelisation pour dev solo.
+
+**Concretement** :
+- **Jamais 2 `claude` actifs** dans 2 fenetres/terminaux en meme temps.
+- **Jamais 2 worktrees edites** en parallele. Un seul worktree actif = celui de la session courante.
+- Si interruption (ordinateur dort, cafe, autre task) : `/session-end` propre avant de lacher.
+- Reprise plus tard = nouvelle session `/session-start` qui re-lit CONTEXT.md a jour.
+
+**Exception extreme (autorise uniquement si Kevin force)** :
+Si multi-session vraiment indispensable (ex: hotfix production pendant gros refactor), appliquer **strictement** :
+- Cloture en serie OBLIGATOIRE (jamais 2 `/session-end` meme minute).
+- Verifier `git push origin main` de la session precedente a reussi (`git log -1 main`) avant cloture suivante.
+- **Audit cross-worktree avant chaque `/session-end`** : `git branch -a | while read b; do git log main..$b --oneline; done` pour detecter commits orphelins.
+- Refresh CONTEXT.md main explicite a chaque merge.
+
+Spec historique (pre-decision) : `docs/core/concurrency.md` (7 hotspots + workflow). Partiellement supersedee par D-NO-MULTI-SESSION-01.
+
+Raison racine + preuve : `docs/audits/2026-04-20-reality-check/rapport.md` (audit factuel 490L) + `wiki/meta/lessons-learned.md` section "Multi-session = regression memoire garantie pour dev solo".
 
 ## Token-awareness
 < 3 fichiers/1 domaine → direct (pas d'agent). 3+ fichiers ou 2+ domaines → agent(s). Recherche exploratoire → agent Explore. Max 3 agents paralleles. Build/tests longs → `run_in_background`.
