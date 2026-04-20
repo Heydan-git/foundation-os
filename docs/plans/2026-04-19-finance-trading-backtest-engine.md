@@ -1,9 +1,10 @@
 ---
-status: active
+status: done
 phases_total: 8
-phases_done: 0
+phases_done: 8
 scope: modules/finance/trading/
 started: 2026-04-19
+completed: 2026-04-19
 design_doc: docs/superpowers/specs/2026-04-18-finance-trading-backtest-engine-design.md
 related:
   - "[[index-trading]]"
