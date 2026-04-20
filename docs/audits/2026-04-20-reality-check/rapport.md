@@ -13,7 +13,7 @@ Kevin avait **raison**. Plusieurs travaux substantiels sont **perdus ou non-prop
 1. **Branche `claude/determined-torvalds-903dc3` : 14 commits NON mergees** — contient **D-CCCONFIG-01** (bash firewall + config CC hardening) + **46 pages wiki ingestees** (48→94) + install UI UX Pro Max. Decision **D-CCCONFIG-01 citee nulle part dans memoire main** (0 match CLAUDE.md/hot.md/sessions-recent/lessons/thinking/decisions-log).
 2. **Branche `claude/nice-mayer-0efb94` : 5 commits NON mergees** — drifts qualite Core OS (cortex Commands, monitor dedup, worktrees historique, naming dedup, drift-detector 200→250L, template plan 6 elements, 5 .raw READMEs, thinking protocole, session-dna YAML).
 3. **Main working tree DESYNC** : 4 fichiers staged/modified + **30+ untracked** dont projets Cowork entiers (gmail-centralisation 5 MD, morning-intelligence 4 fichiers, briefs-foundation-os 6 fichiers, reorg-instructions 1 fichier).
-4. **Plan `docs/plans/2026-04-19-audit-total-foundation-os.md` supprime physiquement main mais pas commit** (deletion staged vers `.archive/plans-done-260420/` mais pas committed → hook `auto-archive-plans.sh` n'a pas tourne).
+4. **Plan `.archive/plans-done-260420/2026-04-19-audit-total-foundation-os.md` supprime physiquement main mais pas commit** (deletion staged vers `.archive/plans-done-260420/` mais pas committed → hook `auto-archive-plans.sh` n'a pas tourne).
 5. **Metriques CONTEXT.md gonflees** : "rapport-master 864L" → realite **324L**, "53 pages wiki" → realite **86 fichiers wiki main** (filesystem).
 6. **Stashes non recuperes** : `stash@{0}` pre-merge cleanup 260417 (project-memory obsolete) + `stash@{1}` wip-pptx (presentation binaire).
 
@@ -236,7 +236,7 @@ git status sur main :
    D docs/plans/2026-04-19-audit-total-foundation-os.md
 ```
 
-- Plan `docs/plans/2026-04-19-audit-total-foundation-os.md` : `status: done, phases_done: 14/14` (frontmatter)
+- Plan `.archive/plans-done-260420/2026-04-19-audit-total-foundation-os.md` : `status: done, phases_done: 14/14` (frontmatter)
 - Hook `scripts/auto-archive-plans.sh` existe (SessionEnd)
 - Quelqu'un (session precedente) a `mv` le fichier vers `.archive/plans-done-260420/` mais a **oublie `git commit`**.
 - Etat actuel : fichier existe dans 2 endroits (staged add + working tree delete), pas committed.
@@ -409,9 +409,9 @@ Au minimum : ajouter ligne table Decisions CONTEXT.md + propagate vers sessions-
 
 ### Priorite 4 — Nettoyer refs cassees (6) + drifts (3)
 
-- Rewrite `docs/plans/2026-04-19-finance-trading-backtest-engine.md` → `.archive/plans-done-260420/...` (2 refs CONTEXT + README trading)
+- Rewrite `.archive/plans-done-260420/2026-04-19-finance-trading-backtest-engine.md` → `.archive/plans-done-260420/...` (2 refs CONTEXT + README trading)
 - Fixer chemins relatifs wiki concepts trading (2 refs)
-- Decider `scripts/gen_fixtures.py` + `scripts/pre-commit.sh` : creer ou retirer refs (2 refs)
+- Decider *scripts/gen_fixtures.py* + *scripts/pre-commit.sh* : creer ou retirer refs (2 refs)
 - Update MEMORY.md pour inclure feedback_no_speculation (delta 1)
 
 ### Priorite 5 — Decider nice-mayer (5 commits drifts Core OS)

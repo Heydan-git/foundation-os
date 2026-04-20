@@ -313,7 +313,7 @@ Candidates flaguees 🎯 to-constitute dans `wiki/meta/lessons-learned.md` (Phas
 
 **Rapport genere** : 2026-04-20 (session longue Opus 4.7 1M context, D-AUDIT-TOTAL-01 P0-P13 executees en ~8-10h)
 
-**Plan execution** : `docs/plans/2026-04-19-audit-total-foundation-os.md` (sera archive apres `/session-end`)
+**Plan execution** : `.archive/plans-done-260420/2026-04-19-audit-total-foundation-os.md` (sera archive apres `/session-end`)
 
 **Findings detailles** : `docs/audits/2026-04-19-audit-total-foundation-os/findings-P*.md` (12 fichiers × 200-300L chacun)
 

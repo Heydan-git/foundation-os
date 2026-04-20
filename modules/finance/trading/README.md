@@ -15,7 +15,7 @@ Backtest engine crypto + Pine Script bridge + 3Commas execution pour Foundation 
 - **Analysis** : PerformanceMetrics (Sharpe/Sortino/Calmar/MaxDD/ProfitFactor) + HTMLReport tearsheet Void Glass + RegimeClassifier
 
 Design complet : [spec](../../../docs/superpowers/specs/2026-04-18-finance-trading-backtest-engine-design.md).
-Plan execution : [plan](../../../docs/plans/2026-04-19-finance-trading-backtest-engine.md).
+Plan execution : [plan](../../../.archive/plans-done-260420/2026-04-19-finance-trading-backtest-engine.md).
 Roadmap V1.2 Nautilus migration : [spec](../../../docs/superpowers/specs/2026-04-19-nautilus-v12-roadmap.md).
 
 ## Setup

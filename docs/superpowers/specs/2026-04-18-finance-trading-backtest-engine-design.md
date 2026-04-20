@@ -292,7 +292,7 @@ Implementations v1 : `ThreeCommasBridge`, `NautilusLiveBridge`.
 | Webhook TV ↔ 3Commas down | Retry 3x, alerte Kevin (email ou Telegram), **circuit breaker** : suspend bot apres 5 echecs consecutifs |
 | Strategy config incoherente | Validation Pydantic au init, fail au demarrage pas en live |
 | Overfitting detecte (PBO > 0.15) | Verdict FAIL, Pine gen refuse sauf `--force-override` manuel + log warning |
-| Data fixture absente en tests | Auto-generate fixture depuis `scripts/gen_fixtures.py`, idempotent |
+| Data fixture absente en tests | Auto-generate fixture depuis *scripts/gen_fixtures.py*, idempotent |
 
 **Regle absolue** : aucune erreur silencieuse. Chaque fallback = log + trace dans le QualityReport du run.
 
@@ -318,7 +318,7 @@ Implementations v1 : `ThreeCommasBridge`, `NautilusLiveBridge`.
 - `trading generate-pine <strategy>` produit un fichier qui matche `tests/fixtures/<strategy>.pine.expected`
 - Detection regression si le template change
 
-**CI** : GitHub Actions, Python 3.12, `uv sync` + `pytest` + `ruff` + `mypy` strict. Hook pre-commit local `scripts/pre-commit.sh` (lint + test smoke).
+**CI** : GitHub Actions, Python 3.12, `uv sync` + `pytest` + `ruff` + `mypy` strict. Hook pre-commit local *scripts/pre-commit.sh* (lint + test smoke).
 
 ## 10. Couplage avec le wiki (cerveau collaboratif)
 

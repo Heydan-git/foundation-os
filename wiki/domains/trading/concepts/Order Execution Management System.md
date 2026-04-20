@@ -54,7 +54,7 @@ Le chemin **alerte TradingView → ordre execute sur Binance** passe obligatoire
 
 ## Options pour Foundation OS
 
-Voir le spec de recherche [3Commas Maison](../../../docs/superpowers/specs/2026-04-19-3commas-alternative-research.md) pour l'analyse detaillee :
+Voir le spec de recherche [3Commas Maison](../../../../docs/superpowers/specs/2026-04-19-3commas-alternative-research.md) pour l'analyse detaillee :
 
 - **Option A** : Fork open-source mature (OctoBot / Superalgos / Freqtrade)
 - **Option B** : Build maison integre a `modules/finance/trading/`

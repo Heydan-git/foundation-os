@@ -171,6 +171,18 @@
       "type": "file"
     },
     {
+      "path": "docs/core/cortex.md",
+      "accessCount": 3,
+      "lastAccessed": 1776693432004,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/knowledge.md",
+      "accessCount": 3,
+      "lastAccessed": 1776693436238,
+      "type": "file"
+    },
+    {
       "path": "scripts/po-init.sh",
       "accessCount": 2,
       "lastAccessed": 1776620842583,

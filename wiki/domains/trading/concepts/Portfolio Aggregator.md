@@ -77,7 +77,7 @@ CoinGecko a des trous pour tokens exotiques ou periodes tres anciennes. Airdrops
 
 ## Architecture Foundation OS suggeree (V1.3+)
 
-Voir spec [Finance Dashboard Maison](../../../docs/superpowers/specs/2026-04-19-finance-dashboard-research.md) pour l'analyse detaillee.
+Voir spec [Finance Dashboard Maison](../../../../docs/superpowers/specs/2026-04-19-finance-dashboard-research.md) pour l'analyse detaillee.
 
 Pattern retenu :
 ```
