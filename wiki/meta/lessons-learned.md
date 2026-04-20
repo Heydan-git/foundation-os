@@ -26,6 +26,45 @@ related:
 >
 > Pour insights analytiques Kevin-Claude cross-session : voir [[session-patterns]] (auto-regenere par `scripts/sessions-analyze.sh`).
 
+## 🎯 Multi-session = regression memoire garantie pour dev solo (2026-04-20)
+
+**En bref (pour Kevin)** : Quand tu travailles dans plusieurs sessions Claude en meme temps (via des worktrees paralleles), chaque session ecrit son propre CONTEXT.md local et seule la derniere qui ferme proprement s'ecrit dans le projet principal. Les autres branches restent "oubliees" tant que personne ne fait un audit. On a perdu **2 sessions entieres** (une du 19 avril + une du 17 avril) qui n'etaient jamais revenues dans le projet principal. Decision : **on arrete le multi-session, 1 seule session a la fois**.
+
+- **Date** : 2026-04-20 (audit reality-check)
+- **Contexte** : Kevin alerte apres avoir remarque incoherences CONTEXT.md/hot.md. Audit factuel evidence-based revele 2 branches avec 14+5 commits jamais mergees + main working tree desync (30+ untracked dont 6 projets Cowork entiers).
+- **Symptome** : claim memoire main "53 pages wiki / 6 worktrees / Phase 5 DEMARREE jovial-jemison" vs realite "86 pages filesystem / 2 worktrees / Phase 5 mergee 3db42fa" = desync systematique.
+- **Cause racine** : multi-worktree sans discipline de merge post-session. `/session-end` ecrit CONTEXT.md local seulement. Si 3 worktrees travaillent en parallele, seul le dernier merge refresh memoire main. Les autres branches deviennent orphelines de la memoire. D-CCCONFIG-01 (decision entiere avec 13 commits + 46 pages wiki) perdue = 0 match dans main CLAUDE.md/hot.md/sessions-recent/lessons/thinking/decisions-log.
+- **Fix** :
+  - **Decision D-NO-MULTI-SESSION-01 2026-04-20** : pas de multi-session. 1 session a la fois. Regle durcie dans CLAUDE.md.
+  - Si multi-session inevitable (ex: hotfix parallele) : **cloture en serie OBLIGATOIRE**, **refresh CONTEXT.md a chaque merge**, **audit cross-worktree avant session-end** (`git branch -a | while b; do git log main..$b; done`).
+  - Cherry-pick Option C (copier files A sans merge) recommande pour integrer branches antecedentes sans conflits massifs CONTEXT/CLAUDE.
+- **Regle** : **UN SEUL `/plan-os` actif a la fois + UN SEUL worktree actif a la fois**. Si travail parallele indispensable, la cloture serie est NON-negociable + audit cross-worktree pre-`/session-end`.
+- **Application FOS** : Cette lesson est **constitutionalisee P-42** (a ajouter manuellement par Kevin a `docs/core/constitution.md`). CLAUDE.md section Multi-session reecrite en E6.
+
+## 🎯 Working tree desync cumulatif (2026-04-20)
+
+**En bref (pour Kevin)** : Tu peux deplacer un fichier (par exemple pour l'archiver) sans faire `git commit`. Ca laisse le projet dans un etat "en cours" qu'une session suivante peut oublier de finir. On a trouve un plan archive a moitie (fichier deplace dans `.archive/` mais jamais committee). Aussi plein de nouveaux dossiers projets (Gmail, Morning Intelligence) jamais ajoutes au projet. Il faut toujours committer ou le hook `auto-archive-plans.sh` ne tourne pas tout le temps.
+
+- **Date** : 2026-04-20 (audit reality-check E1)
+- **Contexte** : main working tree apres plusieurs sessions contient : `A .archive/plans-done-260420/audit-total.md` staged, `D docs/plans/audit-total.md` deleted non-staged (mv non-committe), 30+ untracked (6 projets Cowork jamais ajoutes, 15 sessions JSON, artifacts build tokens, donnees perso morning-intelligence.json).
+- **Cause racine** : `/session-end` ne verifie pas systematiquement tous les dirs untracked ni les mv non-committes. Hook `scripts/auto-archive-plans.sh` suppose que git add sera fait manuellement. Multi-session rend ce risque systematique.
+- **Fix** :
+  - Hook `/session-end` doit inclure **`git status --short`** check + **warning si untracked ou staged non-commit**.
+  - Ajouter `.gitignore` coverage pour artifacts runtime typique (`.claude/projects/`, `.claire/`, `modules/*/tokens/build/`, `*/morning-intelligence/*.json` donnees perso).
+  - Audit cross-session systematique `bash scripts/ref-checker.sh` + `git status --short` = CI guard.
+- **Regle** : **chaque fin de session, verifier `git status --short` doit etre vide** (ou que tous les untracked sont intentionnels). Si mv non-committe → finir commit. Si untracked projet → commit ou gitignorer explicitement.
+
+## 🎯 Option C (copier files sans merge) > Option A (merge complet) pour branches antecedentes (2026-04-20)
+
+**En bref (pour Kevin)** : Quand on veut recuperer du travail d'une vieille branche (genre 1 mois), il vaut mieux **copier les nouveaux fichiers un par un** que de faire un gros merge git. Le merge essaie de reconcilier des versions trop divergentes et casse les fichiers qui ont evolue (comme CONTEXT.md). La copie selective = zero conflit, exactement ce qu'on veut recuperer.
+
+- **Date** : 2026-04-20 (audit reality-check E3)
+- **Contexte** : branche `claude/determined-torvalds-903dc3` a 14 commits 2026-04-19 (D-CCCONFIG-01 + 46 pages wiki) mais son CONTEXT.md/CLAUDE.md/docs/core/* sont antecedents a toute la Phase 8 (Body/Product/Model) livree post.
+- **Symptome pressenti Option A (merge complet)** : conflits massifs sur CONTEXT.md + CLAUDE.md + docs/core/architecture-core.md + docs/core/commands/session-start.md + wiki/hot.md + wiki/meta/sessions-recent.md. Temps resolution 2-3h avec risque erreurs manuelles.
+- **Fix Option C** : `git diff main..branch --name-status | grep "^A"` → 47 files A new. `git checkout branch -- <file>` pour chaque. Zero conflit. Files M (CONTEXT/CLAUDE/commands) : SKIP et re-documenter en E5 coherent avec realite main.
+- **Regle** : **pour integrer branche antecedente > 3 jours old**, toujours commencer par diff A-files only + copy selective. Les files M sont souvent des reecritures divergentes, pas des additions. Merger les M = risque de regression memoire. Re-documenter en E5 est plus propre.
+- **Application FOS** : documentee dans `docs/core/concurrency.md` section "Recuperation branche antecedente" (a ajouter).
+
 ## 🎯 Subagent prompt > 1500 mots garantit thrashing Opus 4.7 (2026-04-19)
 
 - **Date** : 2026-04-19 (D-AUDIT-TOTAL-01 session courante)

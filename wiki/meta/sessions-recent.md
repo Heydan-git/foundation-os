@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Sessions récentes (5 dernières)"
-updated: 2026-04-19
+updated: 2026-04-20
 tags:
   - meta
   - sessions
@@ -22,6 +22,94 @@ related:
 > Mémoire court terme : résumé des 5 dernières sessions avec decisions, pages wiki impactees, threads ouverts.
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
+
+## 2026-04-20 (Reality Check + cleanup multi-session) · Audit factuel travail perdu + 10 commits nettoyage
+
+**En bref (pour Kevin)** : Kevin a alerte "travail perdu + briefs faux + multi-session a ecrase des choses". J'ai audite en profondeur (preuves a chaque ligne), trouve 2 sessions jamais revenues dans le projet principal (1 du 19 avril qui ajoutait 46 pages wiki + un systeme de securite bash, 1 du 17 avril qui corrigeait plein de petits details), plus 6 projets non-commit sur main (Gmail centralisation + Morning Intelligence refonte TDAH + autres briefs). J'ai tout remis en ordre en 10 commits nettes, sans rien casser. Decision prise avec Kevin : **on arrete le multi-session** (1 session a la fois).
+
+**Duree** : session en cours (~3-4h Opus 4.7 1M context)
+
+**Scope** : Kevin demande audit profondeur apres avoir remarque des incoherences dans CONTEXT.md et hot.md. Soupconnait ecrasement git multi-session. "Approfondis au max ta recherche de choses perdues. Je veux tout retrouver + nettoyer + re-documenter."
+
+**Livraison** (10 commits atomiques) :
+- **Rapport reality-check** `docs/audits/2026-04-20-reality-check/rapport.md` (490L) : audit factuel evidence-based, 6 categories pertes identifiees
+- **E1 Main working tree cleanup** (6 commits) : archive plan D-AUDIT-TOTAL-01 + gitignore additions (donnees perso morning-intelligence.json/briefings HTML/`.claire/`/build artifacts) + COWORK-CONTEXT update + commit Gmail centralisation 5 MD + Morning Intelligence shell v3 + plan TDAH v2 + 15 sessions JSON historique
+- **E2 Cherry-pick nice-mayer** (3 commits) : drifts P1-P3 Core OS 9 micro-fixes + Wiki meta (thinking protocole + session-dna YAML) + Template plan 6 elements + 5 `.raw` READMEs
+- **E3 Integre D-CCCONFIG-01** (1 commit Option C) : 47 files wiki A (8 concepts + 3 concepts trading + 1 source trading + 17 entities + 17 sources) + `scripts/hooks/bash-firewall.sh`, sans toucher CONTEXT/CLAUDE/commands divergents
+- **E4 Fix refs cassees** (1 commit) : 12 refs cassees → **0** (plan archive paths + chemins relatifs wiki trading `../../../` → `../../../../` + scripts fantomes `gen_fixtures.py`/`pre-commit.sh` en italique)
+
+**Verifs end-to-end** :
+- Reflog 100 entries main : 0 ecrasement git destructif detecte (pas de `reset --hard`, pas de `rebase -i`, pas de `push --force`)
+- ref-checker : 12 → 0 refs cassees (239 .md scannes post-E4)
+- Wiki count : 86 → **113 pages** filesystem (post-integration D-CCCONFIG-01)
+- Main working tree : DESYNC → CLEAN (0 staged, 0 modified)
+- Livrables physiques majeurs intacts : audit + trading + body + product + model + code
+
+**Decisions** : **Pas de multi-session** (regression memoire prouvee, main CONTEXT.md systematiquement en retard vs realite). `D-CCCONFIG-01` de la session perdue formellement integree.
+
+**Revelations (5 insights)** :
+- **Multi-session = regression memoire garantie pour dev solo**. Chaque worktree/session ecrit son CONTEXT.md local, seul le dernier `/session-end` merge sa version. Branches non-mergees disparaissent de la memoire main jusqu'a audit.
+- **Metriques CONTEXT.md peuvent se gonfler** : claim "rapport-master 864L" → realite 324L (2.67x inflation). Preuve : aucune commande de verification systematique.
+- **Working tree desync cumulatif** : 30+ untracked s'accumulent (dont 6 projets Cowork entiers avec contenu structure). Session `/session-end` ne regarde pas les dirs parfois untracked.
+- **Reflog git est propre**. Les "pertes" ne sont pas des ecrasements mais des **omissions** (merges non-faits, commits non-faits, gitignore non-fait).
+- **Option C (copier files sans merge)** safer que Option A (merge complet). Option A aurait cree conflits massifs CONTEXT/CLAUDE/hot sur branches antecedentes. Option C = 47 files A safe + skip M divergents + documenter en E5.
+
+**Pages wiki impactees** :
+- Nouvelles : 47 files A de D-CCCONFIG-01 batch alim (concepts shadcn + Claude Code ecosystem + prediction markets + entities Polymarket/Kalshi/RTK/UI UX Pro Max + sources refs externes)
+- Meta : `hot.md` rewrite complet verite factuelle + `sessions-recent.md` this + `lessons-learned.md` pending E5 + `thinking.md` pending E5
+
+**Threads ouverts post-E4** :
+- E5 Refresh CONTEXT.md + lessons + thinking + indexes (vulgarise)
+- E6 Imperatif "pas de multi-session" CLAUDE.md + memoire
+- E7 Push main + cleanup branches nice-mayer + determined-torvalds (sources integrees)
+- E8 **VULGARISATION systemique** : reecrire briefs + CLAUDE.md + communication.md + planner.md + commands + templates audits/plans pour Kevin designer TDAH
+
+---
+
+## 2026-04-19 (D-CCCONFIG-01 DONE, RECUPERE 2026-04-20) · Batch Alim 11 refs externes + durcissement config CC
+
+**En bref (pour Kevin)** : Cette session du 19 avril avait ete perdue (jamais mergee dans le projet principal). Tu avais ajoute 46 nouvelles pages wiki externes (des references Claude Code comme awesome-claude-code, claude-howto, Ultraplan, Paperclip, RTK, UI UX Pro Max v2.5.0) + installe un systeme de securite bash (le bash-firewall qui empeche les commandes destructrices comme `rm -rf /`). Tout a ete retrouve et re-integre le 20 avril dans la session reality-check.
+
+**Duree** : 1 session longue (~5-6h Opus 4.7, 13 commits atomiques originaux)
+
+**Scope** : conversation alim — Kevin balance 11 refs externes a analyser et stocker wiki pour decision future. Execution simultanee durcissement config Claude Code (D-CCCONFIG-01) applique 4/6 gaps identifies.
+
+**Livraison** (13 commits originaux sur `claude/determined-torvalds-903dc3`, 14e commit session-end) :
+
+**Refs wiki ingestees (11)** :
+- 6 libs shadcn (shark-ui + stow-build + cult-ui-pro + shadcncraft + cascader + flowkit)
+- Guide config CC community 24 parties
+- Trading bot prediction markets (Polymarket/Kalshi + Kelly + Brier + pipeline 5 etapes)
+- RTK (Rust Token Killer, CLI proxy 60-90% reduction tokens LLM)
+- Paperclip (agent orchestrator)
+- claude-howto (27.6k stars) + awesome-claude-code (39.7k stars)
+- gsd-2 + Claude Plugins Playground + claude-mem + skills.sh
+- UI UX Pro Max (67.7k stars) + Ultraplan (feature CC cloud)
+
+Wiki 48 → 94 pages : 7 concepts (Shadcn Landscape + Cockpit OS Dashboard hub + Claude Code Config Pattern + Cascader + Creatable Combobox + AI agent patterns + Shadcn-complement + 3 trading) + 18 entities (6 maintainers shadcn + 8 tech + Claude Code + RTK + Polymarket + Kalshi + Nolly Studio) + 20 sources.
+
+**D-CCCONFIG-01 applique** : 4/6 gaps du guide community appliques :
+- `scripts/hooks/bash-firewall.sh` : hook PreToolUse Bash, exit 2 patterns destructifs (`rm -rf /`, `git push --force`, `dd`, `mkfs`)
+- Deny list stricte `.claude/settings.json`
+- `tools:` frontmatter 4 agents FOS restrictions
+- CLAUDE.local.md template + `.gitignore` updates
+- CONTEXT.md section Outils 3 → 7 hooks
+
+**~/.claude/CLAUDE.md enrichi** : 2 blocs globaux (honnetete radicale + clarte avant technicite) applicables tous projets Kevin.
+
+**Install UI UX Pro Max** : plugin global v2.5.0 via `/plugin install` + uipro-cli 2.2.3 via npm.
+
+**Verifs session originale** : 13 commits atomiques, health SAIN, refs 188/0, wiki 94 pages.
+
+**Revelations** :
+- Pattern "alim conversation" valide pour batch refs externes (7 refs chacune analysee avec verdict honnete)
+- Mode honnetete radicale peut deriver en contrarianism mal calibre (exemple Paperclip mal cadre initialement)
+- Triangle ressources Claude Code FOS emergent : config-guide + claude-howto + awesome-claude-code
+- Cockpit OS Dashboard 3 refs alimentantes (Paperclip + RTK + SDK) + hub wiki
+
+**Integration 2026-04-20** : cette session perdue retrouvee via audit reality-check. 47 files A integres via cherry-pick Option C (pages wiki + bash-firewall + agents tools frontmatter), sans toucher CONTEXT/CLAUDE/commands divergents pour eviter conflits massifs. CONTEXT.md et hot.md updates coherents en E5 post-integration.
+
+---
 
 ## 2026-04-19/20 (D-AUDIT-TOTAL-01 COMPLET 14/14 + D-MODEL-01) · Audit total Foundation OS + 10e Core OS
 
