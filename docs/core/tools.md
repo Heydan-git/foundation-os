@@ -2,7 +2,7 @@
 
 Utilitaires et automation de Foundation OS. Validators, scripts, CI/CD helpers.
 
-## 1b. Catalogue complet (Tools v2)
+## 1b. Catalogue complet (Tools v2) — SOURCE CANONIQUE
 
 Inventaire exhaustif de tous les outils : `docs/core/tools/index.json` (109 outils, 10 categories).
 Registres par categorie : `docs/core/tools/registry/*.json`.
@@ -10,9 +10,37 @@ Routing etendu : `docs/core/tools/routing.json` (35 regles, 14 domaines).
 Vue lisible : `docs/core/tools/README-tools-catalogue.md`.
 Script CLI : `bash scripts/tool-register.sh --help`.
 
-Le catalogue est la source de verite pour le routing intelligent.
+Le catalogue est la source de verite pour le routing intelligent. **La section 1 ci-dessous est un extrait didactique de haut niveau** (scripts Foundation OS internes + hooks + CI), pas exhaustif. Pour la liste complete des 109 outils (MCP + skills + scripts + agents + commands), consulter les fichiers Tools v2 ci-dessus.
 
-## 1. Inventaire des outils existants
+### 1c. Scripts Foundation OS par categorie (42 scripts filesystem)
+
+Vue synthese bash/python dans `scripts/` (execution `find scripts -name "*.sh" -o -name "*.py"` 2026-04-20) :
+
+| Prefixe | Count | Role | Exemples |
+|---------|-------|------|----------|
+| `wiki-*` | 7 | Wiki health + counts + graph + confidence | wiki-health, wiki-counts-sync, wiki-graph-report, wiki-confidence-audit, wiki-commit |
+| `hooks/*` | 6 | Hooks Claude PreTool/Post/Session/Compact | validate-void-glass, security-reminder, pre-compaction-snapshot, session-start-wiki, product-session-start/end |
+| `po-*` | 4 | Product Owner Notion (D-PRODUCT-01) | po-init, po-sync, po-pull, po-status |
+| `worktree-*` | 3 | Worktrees workflow (/wt) | worktree-new, worktree-clean, worktree-list |
+| `session*` | 2 | Sessions analytics | sessions-analyze, session-lock |
+| `memory-*` | 2 | Memory lifecycle | memory-audit, memory-last-used-hook |
+| `health-check` / `sync-check` / `drift-detector` / `docs-sync-check` | 4 | Observabilite health + drift | chain principale |
+| `ref-checker` | 1 | Refs integrity (appele chain) | chain ref-checker |
+| `tier-contradiction-check` | 1 | 5 tiers contradictions | chain tier |
+| `tool-register` | 1 | Tools v2 catalogue CLI | `--help`, `list`, `search` |
+| `intent-capture` | 1 | Body C2 intent (/plan-os) | D-BODY-01 |
+| `alignment-analyze` | 1 | Body C4 stats ratings | D-BODY-01 |
+| `constitution-suggest` | 1 | Body C4 propose P-XX | D-BODY-01 |
+| `module-scaffold` | 1 | Scaffold nouveau module | /new-project |
+| `neuroplasticity-score` | 1 | Score reflexes 7j | chain health-check |
+| `propositions-generator` | 1 | Tuile brief #16 propositions | chain brief |
+| `git-hooks-install` | 1 | Install commit-msg + pre-commit | init |
+| `auto-archive-plans` | 1 | Hook SessionEnd archive plans done | auto |
+| `thresholds.json` | 0 (config) | Seuils CSS/JS/wiki/layered | source unique |
+
+**Total** : 40 bash + 2 python = **42 scripts actifs**.
+
+## 1. Inventaire des outils existants (didactique haut niveau)
 
 ### Validators (scripts/hooks/)
 
