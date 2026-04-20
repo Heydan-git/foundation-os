@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>{{ strategy_name }} — Tearsheet</title>
+<style>
+body { font-family: 'Figtree', system-ui, sans-serif; background: #030303; color: #eee; padding: 24px; }
+h1 { color: #fff; }
+.verdict-PASS { color: #4ade80; font-weight: bold; }
+.verdict-WARN { color: #facc15; font-weight: bold; }
+.verdict-FAIL { color: #ef4444; font-weight: bold; }
+table { border-collapse: collapse; margin: 12px 0; }
+td, th { border: 1px solid #444; padding: 6px 12px; }
+img { max-width: 800px; }
+pre { color: #aaa; }
+</style>
+</head>
+<body>
+<h1>{{ strategy_name }}</h1>
+<p>Generated: {{ generated_at }}</p>
+
+<h2>Overall verdict : <span class="verdict-{{ overall_verdict }}">{{ overall_verdict }}</span></h2>
+
+<h2>Performance metrics</h2>
+<table>
+{% for k, v in metrics.items() %}
+<tr><th>{{ k }}</th><td>{{ v }}</td></tr>
+{% endfor %}
+</table>
+
+<h2>Anti-biais harnesses</h2>
+<table>
+<tr><th>Harness</th><th>Verdict</th><th>Key metrics</th></tr>
+{% for h in harnesses %}
+<tr>
+  <td>{{ h.name }}</td>
+  <td class="verdict-{{ h.verdict }}">{{ h.verdict }}</td>
+  <td><pre>{{ h.metrics }}</pre></td>
+</tr>
+{% endfor %}
+</table>
+
+{% if equity_png %}
+<h2>Equity curve</h2>
+<img src="{{ equity_png }}" alt="equity" />
+{% endif %}
+</body>
+</html>

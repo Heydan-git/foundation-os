@@ -1,23 +1,19 @@
 ---
 type: domain-index
 title: "trading"
-updated: 2026-04-15
+updated: 2026-04-19
 tags:
   - domain-index
   - trading
   - meta
 status: evergreen
-confidence: low
+confidence: medium
 related:
   - "[[index-wiki]]"
   - "[[Compounding Knowledge]]"
 ---
 
 # Domaine : trading
-
-> [!placeholder] **Phase 5 non-demarree** (2026-04-17)
-> Ce domaine est scaffolde mais 100% vide (aucune page `concepts/`, `sources/`, `strategies/`, `backtests/`, `instruments/`). Il sera actif quand le module `modules/trading/` sera lance (decision Kevin Phase 5).
-> **Pour demarrer** : ingerer un whitepaper via `.raw/trading/` + `wiki-ingest` OU creer concept atemporel (ex: Sharpe ratio, momentum).
 
 Knowledge layer pour module `modules/trading/` (Phase 5) : backtest engine, strategies automatisees, market microstructure, regulations, instruments.
 
@@ -41,9 +37,30 @@ backtest_runs: ../../../../modules/trading/backtests/
 ---
 ```
 
-## Pages recentes
+## Strategies v1 (experimentales)
 
-Aucune pour l'instant (Phase 5 non demarree).
+> Toutes les strategies sont `status: experimental` — validation anti-biais complete requise avant trading live. Voir [[Walk-Forward Analysis]] + [[PBO]] + [[Deflated Sharpe]].
+
+| Strategie | Famille | Logique courte |
+|---|---|---|
+| [[EMA Cross 4h BTC]] | trend-following | Fast EMA > slow EMA → long, inverse → exit |
+| [[Donchian Breakout 20/10]] | momentum / breakout | Close casse high 20 bars → long ; casse low 10 bars → exit |
+| [[RSI Mean-Reversion 14/30/70]] | mean-reversion | RSI cross < 30 → long ; cross > 70 → exit |
+| [[Multi-TF Trend 10/30/200]] | trend-following filtre | EMA cross + filtre trend EMA 200 |
+| [[Bollinger Breakout 20/2]] | momentum / volatility | Close > upper band → long ; retour sous middle → exit |
+
+Implementation : `modules/finance/trading/src/trading/strategies/_examples/*.py` — classes heritant de `BaseStrategy`, toutes testees TDD (72/72 tests).
+
+## Backtest d'une strategie
+
+```bash
+cd modules/finance/trading
+uv run trading download-data --symbols BTC/USDT --timeframe 4h --start 2021-01-01
+# V1 : seul ema_cross est branche dans le CLI backtest. Autres strategies via Python REPL.
+uv run trading backtest _examples.ema_cross --venue BINANCE --symbol BTCUSDT --timeframe 4h
+uv run trading walk-forward _examples.ema_cross
+uv run trading monte-carlo _examples.ema_cross --runs 1000
+```
 
 ## Cross-references cles
 

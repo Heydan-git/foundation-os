@@ -220,6 +220,84 @@ related:
 
 ---
 
+## 2026-04-19 (soir) · Extension module trading v1.1 (strategy library + Nautilus skeletons)
+
+**Duree** : 1 session (Opus 4.7 1M context, subagent-driven execution)
+
+**Scope** : livrer tout ce qui etait reporte V1.1 du plan D-TRADING-01 — strategy library riche (4 nouvelles strategies au-dela de l'exemple ema_cross) + preparation architecture Nautilus event-driven (skeletons testables) + roadmap V1.2 complete.
+
+**Livraison** (8 commits + 22 tests nouveaux) :
+- **C Strategy library** (5 commits, 22 nouveaux tests cumules) :
+  - C.1 `5552990` Donchian Breakout (Turtle Traders, 5 tests, look-ahead-free shift+rolling)
+  - C.2 `b8748b6` RSI Mean-Reversion (14/30/70, 5 tests, cross detection)
+  - C.3 `e28bf2b` Multi-TF Trend (EMA cross + trend filter, 6 tests, simplification pragmatique sur trend_lookback)
+  - C.4 `e938b65` Bollinger Volatility Breakout (20/2, 6 tests, breakout upper + return to middle)
+  - C.5 `eb7f70c` 4 wiki strategy pages + index-trading `updated: 2026-04-19` `confidence: medium` + section "## Strategies v1" listant les 5 strategies
+- **B Nautilus skeletons** (2 commits) :
+  - B1 `f91ba58` `nautilus_bridge/` : types.py (`NautilusBar`/`OrderIntent` dataclasses) + transforms.py (`pandas_to_nautilus_bars` + `signals_to_order_intents`) + runner.py (`NautilusBridgeRunner.run()` delegue pandas + `.run_full_nautilus()` NotImplementedError V1.2). 6 tests. No `import nautilus_trader` actif (discipline : garde tests rapides).
+  - B2 `38ffe5a` `execution/live/nautilus_live.py` remplace stub par `NautilusLiveEngine` event-driven (lifecycle start/stop/pause/resume + open_orders + positions dict + submit_order/on_fill + connect_to_exchange/send_order_to_exchange NotImplementedError V1.2) + `execution/live/kill_switch.py` (3 modes : manuel/file-flag/threshold N failures). 16 tests (10 NautilusLive + 6 KillSwitch).
+- **V1.2 roadmap** : `589d139` spec 263L `docs/superpowers/specs/2026-04-19-nautilus-v12-roadmap.md` — cartographie explicite NotImplementedError B1/B2 → V1.2 phases A (backtest migration 6-9 sessions) + B (live integration 5-7 sessions + 2 mois paper trading). 8 tasks detaillees + prerequis + risques + check-points 2026-05/06/07/09.
+
+**Verifs** : 94/94 tests cumulatifs, ruff clean, mypy strict clean, build app/DS inchanges, CLI `trading` inchange (pas de regression CLI), health-check DEGRADED (3 refs cassees pre-existantes + 2 drifts cosmetiques, 0 critical).
+
+**Decisions** : Strategy library V1.1 livree. Nautilus event-driven full migration formellement **reportee V1.2** avec roadmap tangible. Approche honnete : skeletons testables + NotImplementedError explicites + spec 263L vs refactor massif risque.
+
+**Pages wiki creees** : 4 strategy pages (`donchian-breakout-20-10.md`, `rsi-mean-reversion-14-30-70.md`, `multi-tf-trend-10-30-200.md`, `bollinger-breakout-20-2.md`). Index-trading passe `confidence: low` → `medium` (domaine a contenu concret maintenant).
+
+**Revelations** :
+- Extending strategy library = 30 min / strategie via subagent-driven discipline. Scalable.
+- Nautilus full migration bien plus grosse que je l'anticipais au design D-TRADING-01 — refacter les strategies existantes + data catalog + runner = 6-10 sessions honnetement. Les skeletons B1/B2 posent l'interface sans se perdre dans un refactor incomplet.
+- Look-ahead safety : `shift(1).rolling(N)` sur indicators + `shift(1)` sur cross detection = discipline a maintenir sur chaque nouvelle strategie.
+- Position weighted avg dans NautilusLiveEngine.on_fill est naive — documente comme V1 caveat, FIFO ledger en V1.2.
+
+**Threads ouverts** :
+- V1.2 Nautilus migration (si D-TRADING-01 v1 prouve sa valeur sur donnees reelles dans les 3 mois)
+- V1.2+ 3Commas maison (spec existant, reporte apres V1.2 Nautilus qui couvre 80% du besoin)
+- V1.3+ Finance Dashboard Maison (spec existant)
+- Phase 5 autre module : Sante / Finance Patrimoine
+- OMC update v4.10.1 → v4.13.0
+
+---
+
+## 2026-04-19 (matin) · Backtest engine crypto v1 socle 8/8
+
+**Duree** : 1 session longue (Opus 4.7 1M context, subagent-driven execution)
+
+**Scope** : livrer le module `modules/finance/trading/` — backtest engine crypto complet avec data pipeline, strategy framework, harnesses anti-biais, reports HTML, Pine Script generator + 3Commas webhook receiver. Ambition Kevin : bots de trading automatises Pine → 3Commas, backtest "ultra-solide + proche de la realite".
+
+**Livraison** (27+ commits, 8 phases) :
+- Phase 1 : scaffold module + uv + CLI stub (3 tasks, 4 commits)
+- Phase 2 : data pipeline — DataSource Protocol + CCXTSource + BinanceSource + Catalog Parquet + QualityChecker + CLI download-data + fix gitignore anchor (6 tasks + 1 fix, 7 commits)
+- Phase 3 : backtest core — BaseStrategy Pydantic + indicators EMA/RSI/ATR + fees/slippage vol-based/latency/funding + EMA cross exemple + BacktestRunner pandas + CLI backtest (4 tasks, 4 commits ; Task 3.5 Nautilus event-driven SKIPPED v1)
+- Phase 4 : harnesses anti-biais — Harness protocol + WalkForward + PurgedCV (Lopez de Prado) + MonteCarlo (1000+ runs) + PBO (Bailey-Lopez) + DeflatedSharpe + CLI 3 sub-commands (6 tasks, 6 commits)
+- Phase 5 : analysis — PerformanceMetrics (Sharpe/Sortino/Calmar/PF/WinRate) + HTMLReport tearsheet Jinja + RegimeClassifier (3 tasks, 3 commits)
+- Phase 6 : execution — PineGenerator v5 + 3Commas API HMAC + WebhookReceiver FastAPI + NautilusLive stub (3 tasks, 3 commits)
+- Phase 7 : tests smoke consolides + Store DuckDB stub + CI GitHub Actions (2 tasks, 2 commits)
+- Phase 8 : wiki 6 concepts + strategy/backtest pages + README enrichi + CONTEXT update (3 tasks)
+
+**Verifs** : 50/50 tests cumulatifs, coverage 82.86% (seuil CI 70%), ruff clean, mypy strict clean, health-check DEGRADED (refs cassees pre-existantes du design/plan pointant vers chemins futurs — non bloquant, se resolvent au fur et a mesure), zero regression build app/DS.
+
+**Decisions** : **D-TRADING-01 Backtest engine crypto v1 socle** (2026-04-19).
+
+**Pages wiki creees** : `concepts/Sharpe Ratio.md`, `concepts/PBO.md`, `concepts/Walk-Forward Analysis.md`, `concepts/Purged CV.md`, `concepts/Deflated Sharpe.md`, `concepts/Slippage Models.md`, `strategies/ema-cross-btc-4h.md`, `backtests/2026-04-19-ema-cross-btc-smoke.md`.
+
+**Revelations** :
+- Approche C hybride pragmatique (Nautilus deps + pipeline custom autour) tient la route : 8 phases livrees sans avoir besoin de Nautilus event-driven en v1. Runner pandas simplifie suffit pour piloter harnesses + reports. Nautilus event-driven devient un upgrade V1.1, pas un blocker.
+- Subagent-driven-development (superpowers skill) tres efficace pour plans longs : ~30 tasks → ~30 subagent dispatches + 2-stage review (spec + code). Contexte isole par task = zero pollution, velocity constante. Session principale reste lisible.
+- TDD rigoureux a prevenu plusieurs bugs subtils (Sharpe float-point constant returns, Binance mock pagination infini, gitignore anchor `data/` package vs `data/` dir). Les subagents ont detecte ces cas pendant leur self-review.
+- Honnetete integree au README + concepts wiki : pas de promesse de gains, limites Pine Script documentees, deploiement reste gate humaine. Kevin a valide cette posture au brainstorming initial.
+
+**Threads ouverts** :
+- Premier backtest reel sur BTC/ETH 5 ans 4h + decision deploiement strategie live
+- V1.1 Nautilus event-driven (Task 3.5 skipped) + NautilusLive execution directe
+- Strategy library : coder 3-5 vraies strategies au-dela de l'exemple `ema_cross`
+- **V1.2+ 3Commas maison** (recherche faite meme jour, spec `docs/superpowers/specs/2026-04-19-3commas-alternative-research.md` + concept [[Order Execution Management System]]. Decision reportee apres V1.1 + 3 mois usage 3Commas reel.)
+- **V1.3+ Finance Dashboard Maison** (recherche faite meme jour, spec `docs/superpowers/specs/2026-04-19-finance-dashboard-research.md` 314L + concept [[Portfolio Aggregator]]. Option D hybride recommandee. Commencer par P1 bots monitor. Attendant : CoinStats SaaS.)
+- Phase 5 autre module : Sante / Finance Patrimoine (PEA/PER/SCPI/fiscalite)
+- OMC update v4.10.1 → v4.12.1
+
+---
+
 ## 2026-04-18 (D-INTEG-01 Phases 2-5 COMPLET) · Integration sources externes 5/5
 
 **Duree** : 1 session longue (~5-6h enchainees, Opus 4.7 1M context — Phases 2+3+4+5 sans compactage)
