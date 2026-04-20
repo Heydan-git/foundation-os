@@ -92,6 +92,7 @@
   - **E** — Test live D-PRODUCT-01 (`PRODUCT_MCP_SYNC=1` + observer hooks + pull Notion reel)
   - **F** — OMC update v4.10.1 → v4.13.0 (3 versions de retard)
   - **G** — Candidate D-ENFORCE-01 11e module Core OS (pattern declaratif 5e iteration)
+  - **H** — **Execute D-PRODUCT-02 Module Product Autonomie** nouvelle conversation (plan prep 2026-04-19 : `docs/plans/2026-04-19-product-autonomie.md`, 5 phases × 15-20h, po-agent prompt elargi + /plan-os auto-push + post-commit debounced 30s + 3 routines daily/weekly/monthly + smart triggers). 9 stubs forward refs scripts deja crees.
 
 **Reporte** : routines Cloud I-08 (14 documentees mais inertes), hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
