@@ -13,6 +13,7 @@
 | Knowledge | ✅ actif Phase 7 | `wiki/` | Plugin claude-obsidian v1.4.3. 5 domaines + 7 cross-domain. Couplage modules <-> wiki. Brief v12 HOT+WIKI. D-WIKI-01. [[index-wiki]] |
 | Body | ✅ COMPLET 5/5 Phase 8 | `docs/core/body.md` | Proprioception Kevin-Claude (alignement intention-action). 4 couches C1-C4 : Constitution 41 P-XX + intent capture + rating enrichi + subagent alignment-auditor. D-BODY-01 COMPLET 2026-04-19. |
 | Product | ✅ COMPLET 5/5 Phase 9 | `docs/core/product.md` | 9e Core OS — Integration FOS ↔ **Notion only** (pivot P1.5, Asana abandonne). Agent `po-agent` expert Notion 100% (PO elargi FOS + modules + apps futures). Skill `/po init\|sync\|pull\|status`. Notion 4 DB (Decisions 16 / Plans 1 / Sessions 5 / Tasks 6) + 4 views natives (Kanban by Status + Module, Timeline Tasks + Plans). Hooks opt-in PRODUCT_MCP_SYNC=1. Tuile brief v12 #17 PRODUCT. Chain health-check INFO. D-PRODUCT-01 COMPLET 2026-04-19. |
+| Model | ✅ COMPLET Phase 10 | `docs/core/model.md` | 10e Core OS — Conscience version modele IA (Claude Opus 4.7 1M context, knowledge cutoff Jan 2026). Spec 11 sections : forces/faiblesses/optimisations FOS (layered L0-L3, subagent < 500 mots, pre-compaction, caching 5-min, parallel tool calls). Integration 9 autres modules. Workflow upgrade modele. D-MODEL-01 adopte 2026-04-19. |
 | Cowork | actif (non-branche) | `docs/travaux-cowork/` | Co-work Desktop + CLI. Non branche a /session-start /session-end |
 | Finance | prevu | — | Phase 5 |
 | Sante | prevu | — | Phase 5 |
@@ -21,6 +22,12 @@
 
 | Date | Resume |
 |------|--------|
+| 2026-04-19/20 | **[DONE] D-AUDIT-TOTAL-01 Audit total FOS 14 phases + D-MODEL-01 10e Core OS (Opus 4.7 1M, 15+ commits atomiques, ~10h)** |
+|            | Scope : audit exhaustif FORME + FONCTION + META sur 11 axes (fondation / core os / wiki / automation / outils / memoire / historique / comportement / mapping routes / tokens / model awareness) + cross-worktree read-only + fixes quick-wins + refactors majeurs. Session longue Opus 4.7 1M anti-compactage proof. |
+|            | Livrables : `docs/audits/2026-04-19-audit-total-foundation-os/` (12 findings-Px + rapport-master 864L) + nouveau module Core OS `docs/core/model.md` (D-MODEL-01, Opus 4.7 doc Anthropic) + architecture-core 9→10 modules + P11 fixes (regen counts 47→53, graph 44→49, cleanup 14 branches, foundation-os-map 7→10 modules, cortex table 4→6 agents) + P12 refactors (CLAUDE.md P-01 a P-14 cross-refs, tools.md Tools v2 clarifie + 42 scripts categorie, brief v12 SANTE worktrees). |
+|            | Verifs : health SAIN chaque phase, ref-checker 0 cassee post-cleanup, wiki-health SAIN 53 pages 0 orphelin, 15+ commits atomiques P0-P13, zero regression. Preuve Opus 4.7 1M context : 50+ files lus + 12 ecrits + 3 subagents + 30+ Bash + AskUserQuestion x2 SANS compactage. |
+|            | Decisions : D-AUDIT-TOTAL-01 + D-MODEL-01. Plan `.archive/plans-done-260419/2026-04-19-audit-total-foundation-os.md` (apres archive hook). |
+|            | Revelations : (1) Pattern declaratif non-enforced = candidate D-ENFORCE-01 11e Core OS futur. (2) Phase 5 Trading deja demarree jovial-jemison 45 commits D-TRADING-01. (3) CONTEXT.md systematiquement en retard vs realite multi-worktree. (4) Subagent prompt > 1500 mots garantit thrashing (Agent A preuve). (5) Stubs forward refs = zero regression pattern valide 2x. |
 | 2026-04-19 | **[DONE] D-BODY-01 P1 Constitution + Intent (Opus 4.7, 1 commit `5d26166`, ~3h)** |
 |            | Scope : 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention-action). 3 questions front-loadees (nom Body / Option C ambitieuse / intent obligatoire /plan-os). Recherche externe Constitutional AI + Reflexion + IFEval + AlignmentCheck. Plan 5 phases × 6 elements. |
 |            | Livrables : `docs/core/body.md` (spec 11 sections 4 couches C1-C4) + `docs/core/constitution.md` (~41 P-XX seedees CLAUDE+lessons+pieges+feedback) + `scripts/intent-capture.sh` (teste 4 cas) + 4 stubs forward refs zero regression (alignment-analyze/constitution-suggest/alignment-auditor/constitution-archive) + 5 edits integration (architecture-core 7→8, communication L2, plan-os Tour 1 bis, session-start/cockpit). Decision D-BODY-01. |
@@ -51,16 +58,23 @@
 
 ## Cap
 
-**Direction** : **D-BODY-01 COMPLET 5/5** (19-04-2026) — 8e module Core OS "Body" (Proprioception Kevin-Claude) livre integralement en 1 session Opus 4.7 (Option C ambitieuse, 6 commits, ~10h). 4 couches C1 Constitution + C2 Intent + C3 Feedback + C4 Learning loop. Inspire Constitutional AI + Reflexion + IFEval + AlignmentCheck. Commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan archive (a deplacer `.archive/plans-done-260419/`).
+**Direction** : **D-AUDIT-TOTAL-01 COMPLET 14/14** (20-04-2026) + **D-MODEL-01 10e Core OS** livres en 1 session longue Opus 4.7 1M context. Foundation OS valide SAIN. Architecture : 10 modules Core OS + 1 orchestrateur Cockpit. 15 ameliorations mesurables, 0 regression. Rapport master : `docs/audits/2026-04-19-audit-total-foundation-os/rapport-master.md`.
 
-**Prochaine action** (post-Body) :
-  - **A** — Decision Phase 5 modules (Finance / Sante / Trading)
-  - **B** — Configurer 14 routines Desktop UI `/schedule`
-  - **C** — Cleanup 10 worktrees legacy
-  - **D** — OMC update v4.10.1 → v4.12.1
-  - **E** — Test live alignment-auditor subagent au prochain `/plan-os` (validation end-to-end)
+**Cross-worktree reality check** : 3 worktrees actifs avec commits ahead main :
+- `jovial-jemison-d31676` : **45 commits Phase 5 Trading** (D-TRADING-01 Phase 8/8 + extension V1.1 library + Nautilus V1.2 roadmap) = **Phase 5 DEMARREE** (non "reportee")
+- `determined-torvalds-903dc3` : 14 commits wiki ingest (awesome-claude-code + RTK + UI UX Pro Max + D-CCCONFIG-01)
+- `condescending-ardinghelli-4d7d0a` (courant) : 15 commits D-AUDIT-TOTAL-01
 
-**Reporte** : SQL migrations, routines Cloud I-08, hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
+**Prochaine action** (post-audit) :
+  - **A** — **Merge jovial-jemison trading main** (cloture serie D-CONCURRENCY-01, conflits attendus CLAUDE.md + CONTEXT.md : recette concurrency.md section 8)
+  - **B** — Decision merger determined-torvalds wiki ingest OU garder parallele
+  - **C** — Cleanup 2 worktrees legacy (bold-neumann + vibrant-poitras) : `--force` apres verif
+  - **D** — Test live alignment-auditor subagent au prochain `/plan-os` (D-BODY-01 Phase E pending)
+  - **E** — Test live D-PRODUCT-01 (`PRODUCT_MCP_SYNC=1` + observer hooks + pull Notion reel)
+  - **F** — OMC update v4.10.1 → v4.13.0 (3 versions de retard)
+  - **G** — Candidate D-ENFORCE-01 11e module Core OS (pattern declaratif 5e iteration)
+
+**Reporte** : routines Cloud I-08 (14 documentees mais inertes), hook wiki-recall I-01 (API CLAUDE_USER_PROMPT inexistante), cortex enforcement I-05, brief adaptatif I-03.
 
 ## Idees & Parking
 
@@ -87,6 +101,8 @@
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-AUDIT-TOTAL-01 Audit total Foundation OS | 2026-04-19/20 | Audit exhaustif 11 axes + fixes + refactors + nouveau module 10e. 14 phases × 6 elements stricts anti-compactage. Livrables : 12 findings-Px + rapport-master 864L dans `docs/audits/2026-04-19-audit-total-foundation-os/` + 15+ commits atomiques (df4244a → P13). 15 ameliorations mesurables (wiki regen, cleanup 14 branches, foundation-os-map 10 modules, cortex 6 agents, CLAUDE.md P-XX cross-refs, tools.md Tools v2, brief v12 SANTE worktrees). 3 worktrees divergents documentees (jovial-jemison trading 45 commits, determined-torvalds 14 commits, condescending-ardinghelli 15 commits). Plan `.archive/plans-done-260419/2026-04-19-audit-total-foundation-os.md`. |
+| D-MODEL-01 Module Model Awareness 10e Core OS | 2026-04-19 | 10e module Core OS — conscience version modele IA active. Spec `docs/core/model.md` (11 sections, Opus 4.7 1M context derive doc Anthropic officielle). Forces/faiblesses/optimisations FOS specifiques (layered loading L0-L3, subagent < 500 mots, pre-compaction snapshot, prompt caching 5-min TTL, parallel tool calls). Integration 9 autres modules Core OS. Workflow model upgrade documente. Architecture 9 → 10 modules. Pattern coherent body.md/product.md. Adopte dans le cadre D-AUDIT-TOTAL-01 Phase P9. |
 | D-PRODUCT-01 Module Product 9e Core OS COMPLET 5/5 (Notion-only) | 2026-04-19 | 9e module Core OS "Product" — Integration bidirectionnelle FOS ↔ **Notion only** (pivot P1.5 apres abandon Asana payant + MCP limite). Agent `po-agent` sonnet expert Notion 100% (PO elargi : Foundation OS + modules + apps builder + apps futures a revendre). Skill `/po init\|sync\|pull\|status`. Hooks opt-in `PRODUCT_MCP_SYNC=1` (P4). Notion : archive ancien espace "🪐 Foundation OS" (→ "Archive 2026-04") + nouveau espace + **4 DB** (Decisions / Plans / Sessions / **Tasks**). DB Tasks absorbe ex-kanban Asana (Type=Phase\|Element\|US\|Task, Status enum, relation Plans). Mapping : 1 plan=1 row Plans, 1 phase=1 row Tasks Type=Phase, 6 elements=6 rows Tasks Type=Element. Views kanban Notion natives a creer P2 (board groupe par Status ou Module, timeline). Limites honnetes P-11 : rate limit Notion 3 req/s → batching, pas webhooks → pull session-start, last-write-wins conflits. Pattern orchestrateurs manifest-driven (bash ne peut invoquer MCP). Plan 5 phases ~18-22h post-pivot. Plan : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md`. |
 | D-BODY-01 Module Body 8e Core OS COMPLET 5/5 | 2026-04-19 | 8e module Core OS "Body" (Proprioception Kevin-Claude, alignement intention ↔ action) livre integralement. 4 couches C1-C4 : Constitution `docs/core/constitution.md` (41 P-XX) + Intent capture `.omc/intent/` + Feedback structure `.omc/alignment/*.jsonl` (schema enrichi + retro-compat ratings.jsonl) + Learning loop (`scripts/alignment-analyze.sh` chain health-check INFO + `scripts/constitution-suggest.sh` flag 🎯 to-constitute + `.claude/agents/alignment-auditor.md` subagent clean-slate sonnet READ-ONLY). Integration : `/plan-os` Tour 1 bis intent-capture OBLIGATOIRE + `/session-end` Phase 7bis enrichie 4 questions + Phase 7ter auditor + Layered Loading L2 + CLAUDE.md section pre-action check (200L) + brief v12 tuile #14 🧭 ALIGNMENT. Inspire Constitutional AI (Anthropic) + Reflexion framework + IFEval + AlignmentCheck (Meta 41.77% drift). 3 pages wiki concepts (Body + Alignment + Constitution FOS). 6 commits `5d26166` + `c40a6de` + `c441b90` + `f0bf499` + `c67ffc0` + `fae30aa`. Plan `.archive/plans-done-260419/2026-04-19-body-module-complet.md` archive. |
 | D-CONCURRENCY-01 Multi-session safety | 2026-04-19 | Audit concurrence + livraison minimaliste (B-lite). Spec `docs/core/concurrency.md` (7 hotspots + regle cloture serie + recette resolution). Fix snapshot collision (suffix worktree). CLAUDE.md section Multi-session. YAGNI : pas de lock par fichier (complexite > benefit dev solo, reevaluer si equipe). Commits `4ff56e0` + `117be29`. |

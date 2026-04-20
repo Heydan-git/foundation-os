@@ -1,0 +1,39 @@
+{
+  "decision": "D-AUDIT-TOTAL-01",
+  "started_at": "2026-04-19T23:23:00Z",
+  "phases_total": 14,
+  "phases_done": ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10", "P11", "P12", "P13"],
+  "current": "DONE",
+  "completed_at": "2026-04-20T10:40:00Z",
+  "last_commit_sha": "0008783",
+  "worktree": "condescending-ardinghelli-4d7d0a",
+  "branch": "claude/condescending-ardinghelli-4d7d0a",
+  "model": "claude-opus-4-7-1m",
+  "budget_estimated_hours": 14,
+  "plan_natif": "/Users/kevinnoel/.claude/plans/jazzy-splashing-thompson.md",
+  "plan_versionne": "docs/plans/2026-04-19-audit-total-foundation-os.md",
+  "rapport_dir": "docs/audits/2026-04-19-audit-total-foundation-os/",
+  "phases_schema": {
+    "P0": "Bootstrap anti-compactage",
+    "P1": "Fondation + 9 Core OS specs",
+    "P2": "Wiki + mapping + index + noeuds",
+    "P3": "Automation + outils (scripts/hooks/commands/agents)",
+    "P4": "Memoire + neuroplasticite (5 tiers + 24 memoires)",
+    "P5": "Historique + decisions + plans archives",
+    "P6": "Comportement Claude + alignement constitution",
+    "P7": "Mapping routes + Tools v2 + Skills",
+    "P8": "Economie tokens + optimisation automation",
+    "P9": "Module Model Awareness 10e Core OS (D-MODEL-01)",
+    "P10": "Cross-worktree read-only audit",
+    "P11": "FIX quick-wins",
+    "P12": "REFACTOR majeurs",
+    "P13": "Rapport final + cloture"
+  },
+  "recovery_procedure": [
+    "1. cat .omc/audit-total/state.json",
+    "2. Relire plan natif + plan versionne",
+    "3. ls docs/audits/2026-04-19-audit-total-foundation-os/findings-P*.md pour livrables deja faits",
+    "4. git log --since=started_at --oneline pour commits",
+    "5. Reprendre a la section Phase N du plan (N = current)"
+  ]
+}

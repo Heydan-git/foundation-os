@@ -36,7 +36,15 @@ related:
 - [[LLM Wiki Pattern]] + Trading : le pattern "pre-compiler sources en wiki" s'applique parfaitement aux whitepapers trading (Jegadeesh, Asness, etc.). Le wiki/domains/trading/ est deja scaffolde pour ca.
 - [[Hot Cache]] + Sante : un "hot cache sante" pourrait tracker les derniers biomarkers de Kevin (TSH, ferritine, vit D) pour que chaque session sante commence avec les valeurs recentes.
 
-## Insights cette session (2026-04-19 D-PRODUCT-01 COMPLET 5/5)
+## Insights cette session (2026-04-19/20 D-AUDIT-TOTAL-01 COMPLET 14/14 + D-MODEL-01)
+
+- **Foundation OS est structurellement pret pour Phase 5**. Architecture 10 modules Core OS (executor/persistence/quality/integration/meta) + 41 P-XX constitution + layered loading + pre-compaction snapshot + manifest-driven MCP = plomberie solide. Trading deja demarre dans jovial-jemison le valide empiriquement.
+- **Pattern declaratif non-enforced = dette architecturale recurrente**. 5 modules Core OS expriment des "bonnes pratiques" (routing Cortex, layered Communication, reflexes Body, catalogue Tools, optimisations Model) mais depend de discipline Claude. La vraie question : pour un dev solo, discipline > enforcement (YAGNI). Pour une equipe/produit Kevin revendable, enforcement deviendrait necessaire (D-ENFORCE-01 candidate moyen terme).
+- **Opus 4.7 1M context = vraie valeur empirique**. 10h session + 50 fichiers + 3 subagents + 30+ Bash + 15 commits SANS compactage observe. Le tokenizer nouveau (555k words / 2.5M chars) tient ses promesses. Adaptive thinking suffit pour audit (pas extended thinking requis). Priority Tier confirmee.
+- **Subagent fragility = design constraint implicite**. Agent A thrashing 1/3 cette session = taux echec ~33%. Pour Foundation OS, implication : preferer Read direct pour lectures > 20 fichiers. Subagents reserves scope precis + prompt < 500 mots. Codifie docs/core/model.md section 5.2.
+- **Meta-conscience (Model Awareness) = etape logique post-10 modules**. Foundation OS sait maintenant qui l'execute (Opus 4.7 1M). Prochaine etape logique : **auto-adaptation** (routing Cortex choisit Haiku vs Opus selon task cost-awareness). Mais pas dans scope immediat.
+
+## Insights precedents (2026-04-19 D-PRODUCT-01 COMPLET 5/5)
 
 - **Pivot en cours de session = validation flexibilite FOS.** Plan D-PRODUCT-01 prevoyait 5 phases full Notion+Asana (22-29h). Apres P1 + debut P2, decouverte limites MCP Asana → pivot P1.5 Notion-only en 40 min. Nouveau plan 5 phases Notion-only (~18-22h). Preuve que FOS peut absorber un changement architectural majeur sans perdre momentum (pattern D-BODY-01 stubs forward refs + commits atomiques + plan dual-path ultra-detaille applique).
 - **Notion seule suffit pour role PO complet.** Initialement hypothese : Asana pour kanban + Notion pour databases. Apres exploration, realisation que Notion natif offre kanban (board view) + timeline + relations + databases + formulas = equivalent complet Asana Premium dans **1 seul outil**. YAGNI P-20 confirme : 1 plateforme < 2 plateformes pour dev solo. Si Kevin passe equipe, Notion multi-user + permissions granulaires suffiront (pas besoin de revenir sur Asana).

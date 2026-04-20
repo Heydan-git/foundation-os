@@ -1,6 +1,6 @@
 # Core OS — Architecture
 
-9 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15, post-adoption Body D-BODY-01 2026-04-19, post-adoption Product D-PRODUCT-01 2026-04-19).
+10 modules + 1 orchestrateur qui forment le cerveau de Foundation OS (post-migration Claude Code Desktop 2026-04-15, post-adoption Body D-BODY-01 2026-04-19, post-adoption Product D-PRODUCT-01 2026-04-19, post-adoption Model D-MODEL-01 2026-04-19).
 
 ## Couches
 
@@ -11,7 +11,7 @@ MODULES        (app, design-system,...) Projets concrets
 CORE OS        (cortex, communication,  Intelligence methodologique
                 monitor, tools, planner,
                 worktrees, knowledge,
-                body, product)
+                body, product, model)
 TOOLKIT        (OMC, BMAD, MCP)         Outils externes
 ```
 
@@ -30,6 +30,7 @@ Cockpit est un wrapper au-dessus de Cortex. Il automatise scan → brief → rou
 | Knowledge | Wiki layer persistant (claude-obsidian) | 7 | actif | wiki/ + .raw/ + 10 skills + hooks integres |
 | Body | Proprioception Kevin-Claude (alignement intention ↔ action) | 8 | actif | docs/core/body.md + docs/core/constitution.md + .omc/intent/ + .omc/alignment/ |
 | Product | Integration bidirectionnelle FOS ↔ Notion (100%, Asana abandonne) | 9 | actif (P1.5) | docs/core/product.md + .claude/agents/po-agent.md + .claude/commands/po.md + scripts/po-*.sh + .omc/product-config.json |
+| Model | Conscience version modele IA + optimisation tokens | 10 | actif (P1) | docs/core/model.md (Opus 4.7 1M context) |
 
 Conventions de nommage transversales : `docs/core/naming-conventions.md` (branches, worktrees, sessions, plans, specs, memoires).
 
@@ -117,6 +118,16 @@ Spec : [docs/core/product.md](product.md)
 - Limites honnetes : rate limit Notion 3 req/s → batching fin session. Pas de webhooks → pull session-start. Nouveau root Notion temporairement enfant archive (limite MCP workspace-level creation).
 - Config persistante : `.omc/product-config.json` (IDs 4 DB Notion + views).
 - Decision D-PRODUCT-01 (2026-04-19, pivot P1.5). Plan execution : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md` (5 phases post-pivot ~18-22h).
+
+## Model (Phase 10 — actif depuis 2026-04-19, D-MODEL-01)
+
+Spec : [docs/core/model.md](model.md)
+- Conscience version modele IA active (Claude Opus 4.7 1M context, knowledge cutoff Jan 2026).
+- 11 sections : Architecture / Version active / Forces / Faiblesses / Optimisations FOS / Files / Integration / Workflows / Regle d'or / Limites / Maintenance.
+- Transverse : informe Cortex (routing) + Communication (brief v12 + layered) + Tools (subagents strategy) + Monitor (health-check) + Planner (cost estime) + Worktrees + Knowledge + Body + Product.
+- Optimisations FOS specifiques : layered loading L0-L3, subagent prompt < 500 mots, pre-compaction snapshot, prompt caching 5-min TTL, parallel tool calls.
+- Regle d'or : chaque upgrade modele = nouvelle D-MODEL-0N + revision sections forces/faiblesses/optimisations.
+- Decision D-MODEL-01 (2026-04-19). Plan execution : `.archive/plans-done-260419/2026-04-19-audit-total-foundation-os.md` Phase P9.
 
 ## Conventions transversales
 

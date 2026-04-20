@@ -282,7 +282,7 @@ Le brief est du **Markdown natif** (PAS du box-drawing terminal). Claude Desktop
 
 #### 15 sections (ordre fixe, + 1 optionnelle)
 
-1. **SANTE** `🏥` : table 4×2 (build/tests/refs/css/wiki/drift), verdict en bold
+1. **SANTE** `🏥` : table 4×2 (build/tests/refs/css/wiki/drift/**worktrees**), verdict en bold. Ligne **Worktrees** : `"N worktrees (K divergent)"` si > 1 worktree avec `ahead main >= 1`. Source : `git worktree list` + `git -C <path> rev-list --count main..HEAD` par worktree. Cache `.omc/audit-total/state.json` si disponible. Omise si 1 worktree seul ou 0 divergent.
 2. **HOT** `🔥` : 3-5 lignes condensees de wiki/hot.md + Next action. Si hot.md absent → skip.
 3. **TRAJECTOIRE** `🧭` : table mission/focus/tendance/derniere
 4. **PLANS** `📋` : pour chaque plan actif = progression + hier + prochain + reste. Plans termines recemment = 🟢 compteur.

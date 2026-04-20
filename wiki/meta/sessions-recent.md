@@ -23,6 +23,60 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-19/20 (D-AUDIT-TOTAL-01 COMPLET 14/14 + D-MODEL-01) · Audit total Foundation OS + 10e Core OS
+
+**Duree** : 1 session longue (~10h, Opus 4.7 1M context anti-compactage proof)
+
+**Scope** : Kevin demande "audit profond et exhaustif de la totalite du projet" (architecture/fonctionnalites/liens/organicite/automaticite/memoire/outils/rangements/coherence/classification/categorisation/mapping/index/noeuds/fonctionnement/capacite/comprehension/historique/fondation/manifeste/indexation/logique) + scope "tout le projet pas juste worktree" + mapping routes + economie tokens + conscience modele Opus 4.7. "Le plan le plus ambitieux mais realiste realisable."
+
+**Livraison** (15+ commits atomiques P0-P13) :
+- **P0 Bootstrap** : infrastructure anti-compactage (docs/audits/ + docs/plans/ + .omc/audit-total/state.json + 5 stubs forward refs + TodoWrite 14 phases). Commit `df4244a`.
+- **P1 Fondation** : audit CLAUDE.md + CONTEXT.md + Foundation OS.md + architecture-core + 9 specs Core OS + constitution 41 P-XX + naming-conventions + concurrency. 18 findings. Commit `d7f48a7`.
+- **P2-P8** : audit wiki/automation/memoire/historique/comportement/routing/tokens (7 phases × findings). Commits `903cea7` → `e736700`.
+- **P9 Model Awareness** : CREATION 10e module Core OS `docs/core/model.md` (11 sections, Opus 4.7 1M doc Anthropic officielle WebFetch). Architecture 9→10 modules. D-MODEL-01 adopte. Commits `ec48271` + `16127e8` (fix ref).
+- **P10 Cross-worktree read-only** : audit 6 worktrees + 15 branches orphelines. Phase 5 Trading **deja demarree** dans jovial-jemison (45 commits, D-TRADING-01 Phase 8/8 livre). Commit `dddc9a5`.
+- **P11 Fixes quick-wins** : regen counts.md 47→53, graph-report.md 44→49, foundation-os-map.md 7→10 modules + 5 concepts Phase 8+, cortex table 4→6 agents, lessons-learned → session-patterns resolu, cleanup 14 branches claude/* MERGED-IN-MAIN. Commits `4cefcc4` + `e09b96f`. Safety P-34 respecte (2 worktrees legacy preserves).
+- **P12 Refactors majeurs** : CLAUDE.md L9-24 tagged P-01 a P-14 (cross-refs constitution, HYBRID renforce), tools.md section 1b Tools v2 SOURCE CANONIQUE + section 1c 42 scripts par categorie, brief v12 SANTE ligne Worktrees. Commit `0008783`.
+- **P13 Cloture** : rapport-master.md 864L (executive summary + scope + metriques pre/post + findings synthese + actions + decisions + recommandations + lessons + limites + conclusion). Updates CONTEXT.md (D-AUDIT-TOTAL-01 + D-MODEL-01 + session + Cap + row Model). Updates wiki meta (hot.md + sessions-recent this + lessons-learned + thinking). Frontmatter plan `status: done`. state.json `current: DONE`.
+
+**Verifs end-to-end** :
+- health SAIN chaque phase (0 critical, 0 warning, 15/15 tests app, build ~260ms)
+- ref-checker 0 cassee (167 .md scannes post-P12)
+- wiki-health SAIN (53 pages, 5 domaines, 0 orphelin, 12 god-nodes)
+- drift SYNC, tier contradictions 0, neuroplasticite 100%
+- 15+ commits atomiques P0-P13 avec prefixes coherents (chore/docs/feat/fix/refactor)
+- zero regression, zero compactage observe
+
+**Decisions** : **D-AUDIT-TOTAL-01** audit total FOS + **D-MODEL-01** module Model Awareness 10e Core OS.
+
+**Revelations (5 insights)** :
+- **Pattern declaratif non-enforced confirme a 5 modules** (Cortex/Communication/Body/Tools/Model). Discipline Claude = garant application. Candidate D-ENFORCE-01 11e Core OS.
+- **CONTEXT.md systematiquement en retard** vs realite multi-worktree. Solution = tuile brief v12 Worktrees (appliquee P12c).
+- **Subagent prompt > 1500 mots garantit thrashing** (preuve Agent A session : "Autocompact thrashing: context refilled 3 times in 3 turns"). Max 500 mots + fallback Read direct codifie docs/core/model.md.
+- **Stubs forward refs pattern valide 2x** (D-BODY-01 + D-AUDIT-TOTAL-01) : zero regression multi-phase.
+- **Opus 4.7 1M context tient sur 10h + 50+ fichiers + 3 subagents + 30+ Bash + 15+ commits SANS compactage**. Validation empirique 1M = reel (pas marketing). Adaptive thinking suffit (pas extended thinking requis).
+
+**Threads ouverts** :
+- Merge main + push origin (P13 post-cloture) : a faire maintenant cette cloture
+- Cloture jovial-jemison Trading (Kevin decide strategy 45 commits ahead + 19 behind)
+- Merge determined-torvalds 14 commits wiki OU parallele
+- Cleanup 2 worktrees legacy (apres verif state runtime)
+- Test live D-BODY-01 Phase E (alignment-auditor) + D-PRODUCT-01 (PRODUCT_MCP_SYNC=1)
+- OMC update v4.10.1 → v4.13.0 (3 versions retard)
+- Candidate D-ENFORCE-01 11e Core OS (moyen terme)
+
+**Pages wiki impactees** :
+- Regen auto : `wiki/meta/counts.md` (47→53 pages, 763 wikilinks) + `wiki/meta/graph-report.md` (12 god-nodes, 0 orphelin, 6 cross-domain)
+- Mises a jour : `wiki/hot.md` (cache cloture), `wiki/meta/sessions-recent.md` (this), `wiki/meta/lessons-learned.md` (3 lessons 🎯 candidates + pointer session-patterns), `wiki/meta/thinking.md` (5 insights), `wiki/meta/foundation-os-map.md` (7→10 modules + 5 concepts Phase 8+)
+
+**Sources externes citees** :
+- [Anthropic Models Overview](https://platform.claude.com/docs/en/docs/about-claude/models/overview) (WebFetch P9)
+- Session 2026-04-19 observations : Agent A thrashing pattern + pre-compaction proof
+
+---
+
+
+
 ## 2026-04-19 (D-PRODUCT-01 COMPLET 5/5) · Module Product 9e Core OS livre + pivot Notion-only
 
 **Duree** : 1 session longue (~6-8h, Opus 4.7 1M context) — 5 commits dont 1 pivot en cours de session
