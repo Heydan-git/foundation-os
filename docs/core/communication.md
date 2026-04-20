@@ -259,6 +259,52 @@ Ces lectures sont a la demande, pas systematiques.
 
 ## 6. Briefing — Comment on presente
 
+### 6.0 Vulgarisation obligatoire (TDAH-first, non-negociable)
+
+> **Kevin = designer TDAH**, pas ingenieur tech. Comprend vite quand bien explique, mais oublie les details. **Tout brief / rapport / audit / plan commence par une section "En bref (pour Kevin)" en langage simple**.
+
+**Regle pour CHAQUE brief / rapport / plan / audit / message chat produit** :
+
+1. **Section `## En bref (pour Kevin)` en TETE absolue** du document (avant toute autre section).
+   - 2-5 phrases maximum
+   - Langage naturel, pas de jargon non-traduit
+   - 1 idee = 1 phrase
+   - Finir par "prochaine etape" ou "a decider Kevin"
+
+2. **Tout jargon tech est traduit immediatement entre parentheses** :
+   - "cherry-pick (copier un commit d'une branche vers une autre sans tout merger)"
+   - "worktree (dossier parallele qui partage le meme git mais a sa propre copie physique)"
+   - "refs cassees (liens dans la doc qui pointent vers des fichiers inexistants)"
+   - "D-XXX-NN (code identifiant une decision, ex: D-BODY-01 = 1ere decision sur le module Body)"
+   - "MCP (Model Context Protocol, comment Claude se connecte a des services externes)"
+
+3. **Acronymes developpes 1ere fois** : FOS = Foundation OS. TDAH = Trouble Deficit Attention. DS = Design System. PO = Product Owner.
+
+4. **Nombres avec contexte** :
+   - Bon : "113 pages wiki, vs 86 avant la recuperation des sessions perdues"
+   - Mauvais : "113 pages wiki"
+
+5. **Pas de mur de texte**. Aerer avec :
+   - Listes a puces
+   - Tables
+   - Sections claires avec titres
+   - Blockquotes pour insister
+   - Bold pour mots-cles
+
+6. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple. Ne defends pas l'explication initiale. Reprends autrement.
+
+**Exemple mauvais (trop tech)** :
+> "Integration D-CCCONFIG-01 via cherry-pick Option C (47 files A) + 133 pages wiki ingestees depuis determined-torvalds-903dc3."
+
+**Exemple bon (vulgarise)** :
+> "On a retrouve une session perdue du 19 avril qui avait ajoute 46 nouvelles pages wiki externes (des references Claude Code comme awesome-claude-code, Ultraplan, RTK) + installe un systeme de securite bash (empeche `rm -rf /` et autres commandes destructrices). On a tout remis dedans en copiant juste les nouveaux fichiers, sans conflit."
+
+**Application** : cette regle s'applique dans tous les templates (`/session-start`, `/session-end`, `/plan-os`, `/cockpit`), tous les rapports (`docs/audits/*/rapport.md`), tous les plans (`docs/plans/*.md`), tous les updates CONTEXT.md/hot.md. Les templates `docs/plans/_template-plan.md` et `docs/audits/_template-audit.md` imposent la section "En bref" en tete.
+
+**Traceabilite** :
+- CLAUDE.md section "Langage & Communication (TDAH-first)"
+- Memoires `feedback_vulgarisation_obligatoire.md` + `feedback_communication_pedagogique.md`
+
 ### 6.1 Brief de debut de session (v12 — TDAH tuiles Markdown)
 
 **14 sections en tuiles.** Chaque section = 1 blockquote `>` contenant titre `####` + contenu + tables.

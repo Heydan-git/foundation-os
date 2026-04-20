@@ -11,6 +11,13 @@ estimated_duration: 0min
 
 > Genere par `/plan-os` orchestrateur. Spec : `docs/core/planner.md`. Convention nommage titre : `docs/core/naming-conventions.md` section 3.
 
+## En bref (pour Kevin)
+
+[OBLIGATOIRE — 2-5 phrases langage simple, TDAH-first. Ce qu'on va faire, pourquoi, prochaine etape ou question decisive. Pas de jargon non-traduit. Si jargon necessaire, entre parentheses. Regle spec : `docs/core/communication.md` section 6.0 Vulgarisation obligatoire.
+
+Exemple :
+"On va mettre en place un systeme qui envoie automatiquement les decisions Foundation OS dans Notion (l'app ou tu gardes tes pages). Ca prend environ 18h sur 5 etapes. Chaque etape fait un petit morceau (configurer l'agent, relier les bases de donnees, synchroniser automatiquement, etc.). Apres ca, ton PO dans Notion 'vit' avec le projet au lieu de devoir tout mettre a jour a la main. A decider : option A (tout d'un coup) ou option B (en 5 sessions separees)."]
+
 ## Context
 
 [3-6 paragraphes : pourquoi ce changement, probleme constate, intention Kevin consolidee, outcome vise. Verite du pourquoi avant le quoi.]

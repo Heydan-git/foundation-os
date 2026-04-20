@@ -1,5 +1,7 @@
 # /cockpit — Point d'entree unique Foundation OS
 
+> **VULGARISATION OBLIGATOIRE (TDAH-first)** : le brief v12 produit par cette command commence OBLIGATOIREMENT par une tuile `> **En bref (pour Kevin)**` en tete (avant tuile 🏥 SANTE). Regle spec : `docs/core/communication.md` section 6.0. Langage simple, 2-5 phrases, finir par "prochaine etape". Kevin = designer TDAH.
+
 > **IMPERATIF** — Quand cette command est invoquee, tu DOIS executer les tool calls suivants dans CET ORDRE avant toute reponse texte :
 >
 > **Tour 1 (parallele, OBLIGATOIRE — unifie avec `/session-start` depuis Phase 7 audit mapping 2026-04-17)** :

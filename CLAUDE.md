@@ -6,6 +6,31 @@
 
 OS de travail personnel IA-driven. Modules : App Builder (actif), Design System (actif), Finance/Sante/Trading (prevu Phase 5).
 
+## Langage & Communication (TDAH-first, non-negociable)
+
+> **Kevin = designer TDAH, pas ingenieur tech.** Comprend vite quand bien explique, mais oublie les details. Chaque output doit etre VULGARISE.
+
+**Regle absolue** : toute sortie vers Kevin (brief, rapport, audit, plan, message chat, update CONTEXT.md/hot.md) commence par une section `## En bref (pour Kevin)` en langage simple, sans jargon non-traduit.
+
+**Structure imposee** :
+1. **"En bref (pour Kevin)"** en tete (2-5 phrases, langage naturel, finir par "prochaine etape")
+2. **1 idee = 1 phrase**. Phrases courtes.
+3. **Jargon tech traduit entre parentheses** : "cherry-pick (copier un commit)" / "worktree (dossier parallele git)" / "refs cassees (liens doc vers fichiers inexistants)" / "D-XXX-NN (code decision)"
+4. **Acronymes developpes 1ere fois** : "FOS (Foundation OS)" / "TDAH (Trouble Deficit Attention)" / "DS (Design System)"
+5. **Nombres avec contexte** : "113 pages wiki (vs 86 avant recuperation)" > "113 pages"
+6. **Pas de mur de texte** : aerer listes/tables/sections
+7. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple, ne defends pas
+
+**Exemple mauvais** : "On integre D-CCCONFIG-01 via cherry-pick Option C (47 files A) + 133 pages wiki."
+**Exemple bon** : "On a retrouve une session perdue du 19 avril qui ajoutait 46 nouvelles pages wiki + un systeme de securite bash. On a tout remis dedans en copiant juste les nouveaux fichiers."
+
+**Codifie structurellement dans** :
+- `docs/core/communication.md` section 6.0 "Vulgarisation obligatoire"
+- `docs/core/planner.md` regle "En bref" obligatoire tout plan
+- `.claude/commands/` templates (cockpit, session-start, session-end, plan-os)
+- `docs/plans/_template-plan.md` + `docs/audits/_template-audit.md`
+- Memoires `feedback_vulgarisation_obligatoire.md` + `feedback_communication_pedagogique.md`
+
 ## Imperatifs (non-negociable)
 
 > **Traceabilite** : ces imperatifs sont codifies **P-01 a P-14** dans `docs/core/constitution.md` (spec complete 41 P-XX + sources + examples done/not-done + analyze via `bash scripts/alignment-analyze.sh`). Cette section = lecture AUTO SessionStart. Constitution.md = lecture L2 Layered Loading. **Duplication volontaire** pour impact maximum lecture instructions.

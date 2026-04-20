@@ -1,5 +1,7 @@
 # /session-end — Cloturer une session Foundation OS
 
+> **VULGARISATION OBLIGATOIRE (TDAH-first)** : le brief cloture produit par cette command commence OBLIGATOIREMENT par une tuile `> **En bref (pour Kevin)**` en tete (2-5 phrases langage simple : ce qu'on a fait + prochaine etape). Regle spec : `docs/core/communication.md` section 6.0. Kevin = designer TDAH.
+
 > **ORDRE IMPERATIF DE CLOTURE SESSION (5 phases, non-negociable)** — Decide 2026-04-20 apres une session ou l'ordre a ete sub-optimal (2 merges au lieu d'1).
 >
 > ```

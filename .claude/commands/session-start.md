@@ -1,5 +1,7 @@
 # /session-start — Demarrer une session Foundation OS
 
+> **VULGARISATION OBLIGATOIRE (TDAH-first)** : le brief v12 produit par cette command commence OBLIGATOIREMENT par une tuile `> **En bref (pour Kevin)**` en tete (avant tuile 🏥 SANTE). Regle spec : `docs/core/communication.md` section 6.0. 2-5 phrases langage simple, jargon traduit, finir par "prochaine etape". Kevin = designer TDAH.
+
 > **IMPERATIF** — tool calls en premier, avant toute reponse texte :
 >
 > **Tour 1 (parallele, OBLIGATOIRE — pas de limite tokens, Kevin Max x20)** :

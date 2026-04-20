@@ -135,21 +135,27 @@
       "type": "file"
     },
     {
+      "path": "CLAUDE.md",
+      "accessCount": 10,
+      "lastAccessed": 1776694683773,
+      "type": "file"
+    },
+    {
       "path": "docs/core/architecture-core.md",
       "accessCount": 8,
       "lastAccessed": 1776623522212,
       "type": "file"
     },
     {
-      "path": "CLAUDE.md",
-      "accessCount": 8,
-      "lastAccessed": 1776694552240,
-      "type": "file"
-    },
-    {
       "path": ".claude/agents/po-agent.md",
       "accessCount": 4,
       "lastAccessed": 1776623427116,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/communication.md",
+      "accessCount": 4,
+      "lastAccessed": 1776694711619,
       "type": "file"
     },
     {
@@ -192,12 +198,6 @@
       "path": "scripts/po-sync.sh",
       "accessCount": 2,
       "lastAccessed": 1776621375921,
-      "type": "file"
-    },
-    {
-      "path": "docs/core/communication.md",
-      "accessCount": 2,
-      "lastAccessed": 1776622140419,
       "type": "file"
     },
     {
@@ -258,6 +258,12 @@
       "path": "wiki/meta/thinking.md",
       "accessCount": 2,
       "lastAccessed": 1776623067333,
+      "type": "file"
+    },
+    {
+      "path": "docs/core/planner.md",
+      "accessCount": 2,
+      "lastAccessed": 1776694735908,
       "type": "file"
     },
     {

@@ -1,5 +1,7 @@
 # /plan-os — Orchestrateur de generation de plans Foundation OS
 
+> **VULGARISATION OBLIGATOIRE (TDAH-first)** : tout plan genere commence OBLIGATOIREMENT par une section `## En bref (pour Kevin)` en tete (avant Context). 2-5 phrases langage simple, jargon traduit, finir par "a decider" ou "prochaine etape". Template : `docs/plans/_template-plan.md`. Regle spec : `docs/core/communication.md` section 6.0 + `docs/core/planner.md` section 4.
+
 > **IMPERATIF** — Quand cette command est invoquee avec une demande (ex: `/plan-os "build auth"`) :
 >
 > **Tour 1 (OBLIGATOIRE, tool call en premier)** :

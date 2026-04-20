@@ -88,10 +88,15 @@ Reproduite a l'identique dans `feedback_plans_orchestrateur.md` (memoire auto-ch
 
 > **Plans multi-session anti-perte-de-contexte** (D-LEVELUP-02, 2026-04-15) : chaque phase DOIT contenir les 6 elements stricts (pre-conditions verifiables, etat repo attendu, actions atomiques numerotees avec snippets exacts, verification post-phase, rollback explicite, commit message preformate). Memoire : `feedback_plans_ultra_detailles.md`. Exemple reference : plan level-up Foundation OS 2026-04-15 (`.archive/plans-done-260415/2026-04-15-level-up-foundation-os.md`).
 
+> **Vulgarisation obligatoire (TDAH-first)** : chaque plan commence par une section `## En bref (pour Kevin)` en langage simple avant tout le reste. Regle : 2-5 phrases, pas de jargon non-traduit, "a decider Kevin" explicit si applicable. Spec : `docs/core/communication.md` section 6.0.
+
 Rendu dans `~/.claude/plans/<slug>.md` (natif) puis copie `docs/plans/YYYY-MM-DD-<slug>.md`.
 
 ```markdown
 # 🪐 <Mini-detail> (DD-MM-YYYY)
+
+## En bref (pour Kevin)
+2-5 phrases langage simple. Ce qu'on va faire, pourquoi, prochaine etape ou question decisive. Pas de jargon non-traduit.
 
 ## Context
 3-6 paragraphes : pourquoi ce changement, probleme constate, intention Kevin consolidee, outcome vise.
