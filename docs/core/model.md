@@ -203,7 +203,7 @@ Avant read massif ou subagent parallel :
 ## 10. Limites / Hors scope
 
 - **Pas d'auto-detection modele runtime** : Claude Code Desktop expose version dans environnement mais pas d'API MCP simple pour Claude lire. Workaround : lecture manuelle section 2.
-- **Pas de cost-tracker live** : `scripts/token-usage-report.sh` propose P12 mais pas encore implemente.
+- **Pas de cost-tracker live** : nouveau script *token-usage-report.sh* propose P12 mais pas encore implemente.
 - **Pas de model fallback dynamique** : si Opus 4.7 indisponible, user doit switcher manuellement Desktop.
 - **Pas de benchmark custom FOS** : documentation officielle Anthropic + observations session = source.
 - **Migration model version** : D-MODEL-0N workflow documente section 8.2 mais jamais execute (section 2 = premiere version).
