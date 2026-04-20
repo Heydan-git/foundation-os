@@ -11,6 +11,17 @@ description: >
 
 Herite des regles globales CLAUDE.md (garde-fous, pas de duplication).
 
+## Vulgarisation obligatoire (D-VULGARIZE-01, TDAH-first)
+
+Tout rapport rendu a Kevin est vulgarise integralement. Appliquer les 9 regles universelles (`docs/core/communication.md` section 6.0.1) :
+
+- Chaque D-XXX-NN traduit en langage naturel dans le rapport (meme si le code D-XXX-NN figure dans le fichier mis a jour)
+- Chaque section CONTEXT.md modifiee = 1 phrase "ce qui a change et pourquoi c'est utile pour Kevin"
+- Chaque decision documentee = explication courte en langage simple
+
+**Mauvais** : "CONTEXT.md updated : section Modules + Decisions + Cap. 3 sections modifiees."
+**Bon** : "J'ai mis a jour 3 sections de CONTEXT.md (le fichier qui decrit l'etat du projet) : (1) ajoute le nouveau module Trading, (2) enregistre la decision D-TRADING-01 qui valide le moteur de backtest crypto, (3) mis la prochaine action dans Cap = 'tester les 5 strategies en conditions reelles'. Kevin peut maintenant ouvrir CONTEXT.md et voir toute la progression."
+
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → etat actuel complet

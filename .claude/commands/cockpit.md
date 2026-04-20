@@ -1,6 +1,12 @@
 # /cockpit — Point d'entree unique Foundation OS
 
-> **VULGARISATION OBLIGATOIRE (TDAH-first)** : le brief v12 produit par cette command commence OBLIGATOIREMENT par une tuile `> **En bref (pour Kevin)**` en tete (avant tuile 🏥 SANTE). Regle spec : `docs/core/communication.md` section 6.0. Langage simple, 2-5 phrases, finir par "prochaine etape". Kevin = designer TDAH.
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** :
+>
+> **TOUT le brief v12 est vulgarise, PAS seulement la tuile "En bref" d'entree.** Chaque tuile (SANTE / PLANS / MODULES / CAP / INPUT / etc.) applique les 9 regles universelles (section 6.0.1 communication.md) : D-XXX-NN traduit en langage naturel, acronymes developpes, termes tech expliques entre parentheses, choix A/B/C avec "a quoi ca sert" + "combien de temps". Regles par tuile : section 6.0.2. Check-list obligatoire avant envoi : section 6.0.3.
+>
+> **Piege a eviter** : "En bref" vulgarisee mais tuiles suivantes en jargon brut = violation (observe 2026-04-20). Kevin doit pouvoir lire CHAQUE tuile isolement en mode TDAH, sans avoir besoin du contexte de la tuile precedente.
+>
+> Spec complete : `docs/core/communication.md` section 6.0 (principe + regles + vulgarisation par tuile + check-list + exemples). Kevin = designer TDAH, pas ingenieur tech.
 
 > **IMPERATIF** — Quand cette command est invoquee, tu DOIS executer les tool calls suivants dans CET ORDRE avant toute reponse texte :
 >

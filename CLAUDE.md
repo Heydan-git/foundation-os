@@ -8,27 +8,73 @@ OS de travail personnel IA-driven. Modules : App Builder (actif), Design System 
 
 ## Langage & Communication (TDAH-first, non-negociable)
 
-> **Kevin = designer TDAH, pas ingenieur tech.** Comprend vite quand bien explique, mais oublie les details. Chaque output doit etre VULGARISE.
+> **Kevin = designer TDAH, pas ingenieur tech.** Comprend vite quand bien explique, mais oublie les details. Chaque output doit etre VULGARISE **de bout en bout**.
 
-**Regle absolue** : toute sortie vers Kevin (brief, rapport, audit, plan, message chat, update CONTEXT.md/hot.md) commence par une section `## En bref (pour Kevin)` en langage simple, sans jargon non-traduit.
+### Regle absolue (D-VULGARIZE-01, 2026-04-20)
 
-**Structure imposee** :
+**La vulgarisation s'applique a la TOTALITE du document, PAS seulement a la section "En bref" en tete.**
+
+- La section `## En bref (pour Kevin)` est un **RESUME d'entree**, pas un substitut a la vulgarisation du reste.
+- Chaque **tuile / section / ligne / cellule de table** produite pour Kevin doit etre en langage simple avec jargon traduit.
+- Un brief ou rapport qui a "En bref" vulgarisee **mais le reste en jargon technique** = violation (piege observe 2026-04-20 session-start).
+
+### Structure imposee sur TOUT le document
+
 1. **"En bref (pour Kevin)"** en tete (2-5 phrases, langage naturel, finir par "prochaine etape")
 2. **1 idee = 1 phrase**. Phrases courtes.
-3. **Jargon tech traduit entre parentheses** : "cherry-pick (copier un commit)" / "worktree (dossier parallele git)" / "refs cassees (liens doc vers fichiers inexistants)" / "D-XXX-NN (code decision)"
-4. **Acronymes developpes 1ere fois** : "FOS (Foundation OS)" / "TDAH (Trouble Deficit Attention)" / "DS (Design System)"
-5. **Nombres avec contexte** : "113 pages wiki (vs 86 avant recuperation)" > "113 pages"
-6. **Pas de mur de texte** : aerer listes/tables/sections
-7. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple, ne defends pas
+3. **Jargon tech traduit entre parentheses** a sa 1ere apparition dans chaque section (pas une seule fois en haut) :
+   - "cherry-pick (copier un commit d'une branche a l'autre sans merger le reste)"
+   - "worktree (dossier parallele git qui partage le meme historique)"
+   - "refs cassees (liens doc qui pointent vers des fichiers inexistants)"
+   - "D-XXX-NN (code identifiant une decision projet)"
+   - "MCP (Model Context Protocol, pont entre Claude et services externes comme Notion/Gmail)"
+   - "health-check (script qui verifie que le projet est en bon etat)"
+   - "drift (decalage entre ce que la doc dit et la realite du code)"
+4. **Acronymes developpes 1ere fois dans CHAQUE tuile ou section** :
+   - "FOS (Foundation OS)" / "TDAH (Trouble Deficit Attention)" / "DS (Design System)" / "PO (Product Owner)" / "OMC (Oh-My-ClaudeCode, extension Claude Code)"
+5. **Nombres avec contexte** :
+   - Bon : "113 pages wiki (vs 86 avant recuperation des sessions perdues)"
+   - Mauvais : "113 pages"
+6. **Chaque code D-XXX-NN traduit en langage naturel** a sa 1ere apparition :
+   - "D-PRODUCT-02 (plan qui rend le PO Notion autonome : Notion se met a jour tout seul au lieu qu'on doive lancer une commande)"
+   - "D-BODY-01 (module qui verifie que mes actions correspondent a ce que Kevin m'a demande)"
+7. **Chaque choix A/B/C** doit expliquer **POUR QUOI FAIRE** et **A QUOI CA SERT** :
+   - Bon : "**A — Executer D-PRODUCT-02** : pour que ton Notion se mette a jour tout seul quand tu fais un plan ou un commit. 15-20h de travail."
+   - Mauvais : "A — D-PRODUCT-02 plan pret"
+8. **Pas de mur de texte** : aerer listes/tables/sections/bold
+9. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple, ne defends pas
 
-**Exemple mauvais** : "On integre D-CCCONFIG-01 via cherry-pick Option C (47 files A) + 133 pages wiki."
-**Exemple bon** : "On a retrouve une session perdue du 19 avril qui ajoutait 46 nouvelles pages wiki + un systeme de securite bash. On a tout remis dedans en copiant juste les nouveaux fichiers."
+### Check-list mentale avant d'envoyer un brief/rapport
 
-**Codifie structurellement dans** :
-- `docs/core/communication.md` section 6.0 "Vulgarisation obligatoire"
+Avant chaque output vers Kevin, relire en se posant ces questions :
+- [ ] Chaque D-XXX-NN est traduit en langage naturel au moins 1 fois ?
+- [ ] Chaque acronyme (FOS, MCP, OMC, etc.) est developpe au moins 1 fois dans le document ?
+- [ ] Chaque terme tech (worktree, hook, cherry-pick, scheduled task, etc.) a son explication entre parentheses ?
+- [ ] Les choix A/B/C expliquent ce que ca fait concretement pour Kevin, pas juste le code interne ?
+- [ ] Les metriques chiffrees ont un contexte ("X vs Y avant") ?
+- [ ] Zero section non-vulgarisee qui passe en jargon brut ?
+
+**Si une seule case n'est pas cochee → ne pas envoyer, reecrire.**
+
+### Exemples
+
+**Mauvais (jargon non-traduit dans la tuile, meme si "En bref" est OK)** :
+> #### 📋 PLANS ACTIFS
+> | D-PRODUCT-02 | draft | 0/5 phases · 15-20h |
+
+**Bon (vulgarise a chaque ligne)** :
+> #### 📋 PLANS ACTIFS (plans de travail en cours)
+> **D-PRODUCT-02** — Rendre ton Product Owner Notion (le tableau de bord des decisions/plans/taches) autonome. Aujourd'hui tu dois lancer `/po sync` a la main, apres ce plan il se mettra a jour tout seul.
+> Status : ecrit, pas encore demarre. Dure : 15 a 20 heures reparties sur 5 etapes.
+
+### Codifie structurellement dans
+
+- `docs/core/communication.md` section 6.0 "Vulgarisation obligatoire" + 6.0.1 "Vulgarisation par tuile"
 - `docs/core/planner.md` regle "En bref" obligatoire tout plan
-- `.claude/commands/` templates (cockpit, session-start, session-end, plan-os)
+- `docs/core/constitution.md` P-42 "Vulgarisation integrale briefs"
+- `.claude/commands/` templates (cockpit, session-start, session-end, plan-os) — disclaimer renforce
 - `docs/plans/_template-plan.md` + `docs/audits/_template-audit.md`
+- `wiki/meta/lessons-learned.md` section "Vulgarisation = tout le document, pas juste l'en-tete"
 - Memoires `feedback_vulgarisation_obligatoire.md` + `feedback_communication_pedagogique.md`
 
 ## Imperatifs (non-negociable)

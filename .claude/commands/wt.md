@@ -1,5 +1,7 @@
 # /wt — Gestion worktrees Foundation OS
 
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** : tout rapport `/wt` rendu a Kevin est vulgarise. "Worktree" = dossier parallele git qui partage le meme historique mais a sa propre copie physique de fichiers (permet de travailler sur 2 branches en meme temps sans conflit). Tables avec headers vulgarises (pas juste PATH/BRANCH/STATUS). Chaque action explique **ce que ca fait concretement pour Kevin** (creer un nouveau dossier de travail, fermer un ancien, etc.). Spec : `docs/core/communication.md` section 6.0.
+
 Wrapper slash-command autour des scripts `scripts/worktree-*.sh`. Applique la convention de nommage `wt/<desc>-<yymmdd>` (voir `docs/core/naming-conventions.md`).
 
 ## Usage

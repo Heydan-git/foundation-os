@@ -1,5 +1,7 @@
 # /new-project — Creer un nouveau module Foundation OS
 
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** : tout rapport `/new-project` rendu a Kevin est vulgarise. Explique ce qu'un "module" veut dire (un dossier isole du projet avec son code et ses tests), ce qui a ete cree, et ce que Kevin peut faire avec maintenant. Spec : `docs/core/communication.md` section 6.0.
+
 ## Usage
 /new-project [nom-du-module]
 

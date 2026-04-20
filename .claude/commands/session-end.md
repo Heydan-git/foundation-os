@@ -1,6 +1,14 @@
 # /session-end — Cloturer une session Foundation OS
 
-> **VULGARISATION OBLIGATOIRE (TDAH-first)** : le brief cloture produit par cette command commence OBLIGATOIREMENT par une tuile `> **En bref (pour Kevin)**` en tete (2-5 phrases langage simple : ce qu'on a fait + prochaine etape). Regle spec : `docs/core/communication.md` section 6.0. Kevin = designer TDAH.
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** :
+>
+> **TOUT le brief de cloture est vulgarise, PAS seulement la tuile "En bref" d'entree.** Chaque tuile (ETAT TECHNIQUE / CE QUI A ETE FAIT / PLANS TERMINES / IDEES CAPTUREES / CAP / CONCERNS) applique les 9 regles universelles (section 6.0.1 communication.md) : D-XXX-NN traduit en langage naturel, acronymes developpes, termes tech expliques entre parentheses, decisions/plans resumes en langage simple (ce qu'on a fait + pourquoi + impact pour Kevin).
+>
+> **Regle specifique cloture** : la tuile "CE QUI A ETE FAIT" doit raconter la session en **phrases completes** pour que Kevin se souvienne en relisant 1 semaine plus tard. Pas de liste telegraphique avec SHAs bruts.
+>
+> **Piege a eviter** : "En bref" vulgarisee mais tuiles suivantes en jargon brut = violation (observe 2026-04-20). Check-list obligatoire avant envoi : section 6.0.3 communication.md.
+>
+> Spec complete : `docs/core/communication.md` section 6.0 + 6.2 (brief cloture). Kevin = designer TDAH, pas ingenieur tech.
 
 > **ORDRE IMPERATIF DE CLOTURE SESSION (5 phases, non-negociable)** — Decide 2026-04-20 apres une session ou l'ordre a ete sub-optimal (2 merges au lieu d'1).
 >

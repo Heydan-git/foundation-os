@@ -298,6 +298,18 @@ if [ -x scripts/po-status.sh ] && [ -f .omc/product-config.json ]; then
   [ -n "$PS_LINE" ] && echo -e "${PS_LINE}"
 fi
 
+# Vulgarisation check (D-VULGARIZE-01, 2026-04-20, garde-fou briefs/plans Kevin-facing)
+if [ -x scripts/vulgarization-check.sh ]; then
+  VC_OUT=$(bash scripts/vulgarization-check.sh --self-test 2>&1); VC_RC=$?
+  VC_TOTAL=$(echo "$VC_OUT" | grep -oE "[0-9]+ violations total" | head -1 | grep -oE "^[0-9]+")
+  VC_FILES=$(echo "$VC_OUT" | grep -oE "[0-9]+ fichiers scannes" | head -1 | grep -oE "^[0-9]+")
+  if [ "$VC_RC" -eq 0 ]; then
+    echo -e "  ${DIM}[OK]${RST} Vulgarisation : ${VC_FILES:-?} briefs/templates conformes D-VULGARIZE-01"
+  else
+    echo -e "  ${DIM}[OK]${RST} Vulgarisation : ${VC_TOTAL:-?} violations sur ${VC_FILES:-?} briefs (voir bash scripts/vulgarization-check.sh --self-test)"
+  fi
+fi
+
 echo ""
 
 # ── VERDICT ────────────��──────────────────────────────────────────

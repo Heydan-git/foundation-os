@@ -23,6 +23,56 @@ related:
 > hot.md = cache flash (dernière session, overwrite). sessions-recent.md = mémoire court terme (5 sessions, append).
 > Mis a jour par Claude en /session-end (neuroplasticite reflexe 4).
 
+## 2026-04-20 (D-VULGARIZE-01 Vulgarisation integrale briefs ancree racine OS) · 2 commits atomiques E9+E10
+
+**En bref (pour Kevin)** : Tu as pointe "je comprends rien a tes briefs, a chaque fois c'est ca qui saoule, ancre-le dans la racine de l'OS". J'ai grave la regle de vulgarisation **de bout en bout** (pas juste la section "En bref" en tete) dans **13 endroits du projet**, et j'ai cree un **garde-fou automatique** : un script qui scanne mes briefs et detecte si je recommence a parler en jargon technique. Decision formelle = **D-VULGARIZE-01**.
+
+**Duree** : ~2h (Opus 4.7, 1M context, session en cours 2026-04-20 post-reality-check)
+
+**Scope** : Kevin produit un brief `/session-start` qui avait "En bref (pour Kevin)" en tete correctement vulgarisee **mais les 14 tuiles suivantes** (SANTE / PLANS / MODULES / CAP / INPUT / etc.) en jargon brut (D-XXX-NN non-traduits, termes tech sans parentheses explicatives, variables env brutes comme `PRODUCT_MCP_SYNC=1`, hash git bruts comme `fce4175`, choix A-H sans explication "ce que ca fait"). Kevin reagit : "je comprends rien a chaque fois, c'est ca qui saoule, je veux que ce soit ancre dans la racine de l'OS et que tout ce que tu me partages soit vulgarise, pas que maintenant".
+
+**Livraison** (2 commits atomiques) :
+
+**E9 (commit `673aace`)** — codification base (6 endroits) :
+- `CLAUDE.md` section "Langage & Communication (TDAH-first, non-negociable)" refondue : 9 regles universelles + check-list 8 questions avant envoi + exemples mauvais/bon concrets
+- `docs/core/communication.md` section 6.0 refondue : 6.0.0 principe fondamental + 6.0.1 regles universelles + 6.0.2 table vulgarisation **par tuile** (15 tuiles du brief v12) + 6.0.3 check-list 8 questions + 6.0.4 exemples + 6.0.5 application + 6.0.6 traceabilite
+- `docs/core/constitution.md` : principe **P-42 "Vulgarisation integrale brief"** (regle/pourquoi/done/not-done/source) + ajout Top 10 critiques (remplace P-38)
+- 4 commands principaux (`/session-start`, `/session-end`, `/cockpit`, `/plan-os`) : disclaimers renforces pointant vers section 6.0 communication.md
+- `wiki/meta/lessons-learned.md` : section 🎯 "Vulgarisation = tout le document, pas juste l'en-tete" (contexte + cause racine + fix)
+- Memoire auto `~/.claude/projects/.../memory/feedback_vulgarisation_obligatoire.md` : renforcee avec 9 regles + check-list + exemples
+
+**E10 (commit `dc3d9ae`)** — 4 gaps restants apres audit complet (7 endroits) :
+- 6 sous-agents (`.claude/agents/`) : `dev-agent`, `doc-agent`, `os-architect`, `review-agent`, `po-agent`, `alignment-auditor` — bloc "Vulgarisation obligatoire (D-VULGARIZE-01)" ajoute dans chaque frontmatter + exemples mauvais/bon pour leurs rapports (ex: os-architect pattern decision Probleme/Options/Recommande en langage naturel, review-agent rapport OK/Warning/Erreur avec traduction, po-agent rapport Notion qui decrit ce que Kevin voit cote UI)
+- 4 commands restantes (`/po`, `/new-project`, `/sync`, `/wt`) : disclaimers D-VULGARIZE-01 ajoutes. `sync.md` section "Interpretation" reecrite en langage naturel (SAIN/DEGRADED/BROKEN traduit)
+- Template `docs/plans/_template-plan.md` : 7e element obligatoire "Impact pour Kevin" ajoute **en tete** de chaque phase (avant les 6 elements techniques Pre-conditions/Etat repo/Actions/Verification/Rollback/Commit). Force chaque phase a expliquer ce qu'elle change pour Kevin.
+- Template `docs/audits/_template-audit.md` : disclaimer renforce + reference check-list 6.0.3 obligatoire
+- **`scripts/vulgarization-check.sh`** (nouveau garde-fou 200L) : script bash qui detecte 5 types de violations (D-XXX-NN sans parenthese explicative proche, acronymes FOS/MCP/OMC/DB/PO/TDAH/DS jamais developpes, termes tech sans parentheses, variables env brutes, hash git bruts). Modes : fichier cible, `--self-test` (scan `wiki/hot.md` + 2 templates + plans actifs), `--quiet` (chain). Chainé dans `health-check.sh` ligne INFO non-bloquant.
+
+**Verifs end-to-end** :
+- Baseline garde-fou : 28 violations sur 4 briefs actuels (le script voit les vrais drifts du projet)
+- health-check : DEGRADED 0 critical 1 warning cosmetique (identique avant), refs 0 cassee, 15/15 tests app, Void Glass 0 violation
+- 2 commits atomiques propres sur `claude/admiring-franklin-e61dd2`
+
+**Decisions** : **D-VULGARIZE-01** (2026-04-20) — Vulgarisation integrale briefs ancree racine OS + **P-42** constitution.
+
+**Revelations (3 insights)** :
+- **"En bref en tete" ≠ "tout le document vulgarise"**. J'avais interprete litteralement la regle precedente qui disait "commence par En bref en tete". Je l'ai lue comme "la regle s'applique a En bref seulement". Kevin a pointe le piege explicite. Lesson structurelle : regles ambigues doivent etre reecrites pour couvrir tout le perimetre, pas seulement l'entete.
+- **Sous-agents = zone d'ombre**. Mes 6 sous-agents (dev/doc/os-architect/review/po/alignment-auditor) produisent du contenu pour Kevin mais aucun n'avait la regle vulgarisation dans son prompt. Gap critique identifie par audit systematique. Fix : disclaimer + exemples dans chaque frontmatter.
+- **Discipline seule ne suffit pas pour les regles critiques**. Sans garde-fou automatique, un Claude futur peut oublier d'appliquer P-42 (cas observe ce matin : je l'ai oublie moi-meme 2h apres l'avoir codifiee). Script `vulgarization-check.sh` = filet de securite. Pattern general : chaque regle critique devrait avoir un check automatique.
+
+**Pages wiki impactees** :
+- Meta : `hot.md` (rewrite complet sections Last Updated + Key Recent Facts + Active Threads) + `sessions-recent.md` this + `lessons-learned.md` 🎯 section vulgarisation + `thinking.md` insights
+- Core : CLAUDE.md + communication.md + constitution.md (P-42 append) + 8 commands + 6 agents + 2 templates = 17 fichiers + 1 nouveau script
+
+**Threads ouverts** :
+- Plan D-PRODUCT-02 toujours pret (rendre PO Notion autonome, 15-20h)
+- Projet Gmail centralisation Phase D (Kevin reactive MCP Gmail)
+- Morning Intelligence v3 deploy scheduled task cron
+- Test live D-BODY-01 alignment-auditor (Phase E pending)
+- OMC update v4.10.1 → v4.13.0
+
+---
+
 ## 2026-04-20 (Reality Check + cleanup multi-session) · Audit factuel travail perdu + 10 commits nettoyage
 
 **En bref (pour Kevin)** : Kevin a alerte "travail perdu + briefs faux + multi-session a ecrase des choses". J'ai audite en profondeur (preuves a chaque ligne), trouve 2 sessions jamais revenues dans le projet principal (1 du 19 avril qui ajoutait 46 pages wiki + un systeme de securite bash, 1 du 17 avril qui corrigeait plein de petits details), plus 6 projets non-commit sur main (Gmail centralisation + Morning Intelligence refonte TDAH + autres briefs). J'ai tout remis en ordre en 10 commits nettes, sans rien casser. Decision prise avec Kevin : **on arrete le multi-session** (1 session a la fois).

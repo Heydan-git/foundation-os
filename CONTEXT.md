@@ -5,9 +5,9 @@
 
 ## En bref (pour Kevin)
 
-Foundation OS = OS travail IA + second-brain. **10 modules Core OS** + projets metier (App Builder, Design System, Trading v1). **1 seule session a la fois** (le multi-session creait trop de regressions — regle D-NO-MULTI-SESSION-01 du 2026-04-20).
+Foundation OS = OS travail IA + second-brain. **10 modules Core OS** + projets metier (App Builder, Design System, Trading v1). **1 seule session a la fois** (D-NO-MULTI-SESSION-01 du 2026-04-20). **Tout ce que je te dis est maintenant vulgarise de bout en bout** (D-VULGARIZE-01 du 2026-04-20 : regle ancree dans 13 endroits + garde-fou automatique `scripts/vulgarization-check.sh`).
 
-**Prochaines actions** : (1) executer **D-PRODUCT-02** plan pret (rendre le PO Notion autonome), (2) finir projet **Gmail centralisation** (3 boites → 1), (3) deployer **Morning Intelligence v3** scheduled task.
+**Prochaines actions** : (1) executer **D-PRODUCT-02** plan pret (rendre le PO Notion autonome), (2) finir projet **Gmail centralisation** (3 boites → 1), (3) deployer **Morning Intelligence v3** scheduled task (tache programmee qui lance le briefing matinal).
 
 ## Modules
 
@@ -29,6 +29,7 @@ Foundation OS = OS travail IA + second-brain. **10 modules Core OS** + projets m
 
 | Date | Resume |
 |------|--------|
+| 2026-04-20 | **[DONE] D-VULGARIZE-01 Vulgarisation integrale briefs ancree racine OS (Opus 4.7, ~2h, 2 commits)** Kevin alerte : "je comprends rien a tes briefs, c'est ca qui saoule, ancre-le dans la racine OS". Audit complet + codification en 13 endroits + garde-fou automatique. E9 (commit `673aace`) : CLAUDE.md + communication.md 6.0 + P-42 constitution + 4 commands principaux + lesson wiki + memoire auto. E10 (commit `dc3d9ae`) : 6 agents + 4 commands restantes + 2 templates + `scripts/vulgarization-check.sh` chain health-check. Script detecte 28 violations sur 4 briefs actuels (baseline). Non-regression verifiee. |
 | 2026-04-20 | **[DONE] Reality Check + cleanup multi-session (Opus 4.7, ~4h, 10 commits)** Audit factuel apres alerte Kevin "travail perdu". 2 branches non-mergees retrouvees (D-CCCONFIG-01 + nice-mayer drifts) + 6 dirs cowork untracked commits (Gmail, Morning Intel, briefs). Wiki 86 → 113 pages. 12 refs cassees → 0. Regle **D-NO-MULTI-SESSION-01**. Rapport : `docs/audits/2026-04-20-reality-check/rapport.md`. |
 | 2026-04-19 (recup 2026-04-20) | **[DONE] D-CCCONFIG-01 + Batch Alim 11 refs externes** (Opus 4.7, 13 commits, session perdue retrouvee 2026-04-20) Durcissement config Claude Code : bash-firewall hook + deny list + tools frontmatter + CLAUDE.local.md. Wiki 48→94 pages (awesome-claude-code, claude-howto, Ultraplan, Paperclip, RTK, UI UX Pro Max v2.5.0, 6 libs shadcn, prediction markets). Integre main via Option C (47 files A). |
 | 2026-04-19/20 | **[DONE] D-AUDIT-TOTAL-01 COMPLET 14/14 + D-MODEL-01** (Opus 4.7 1M context, ~10h, 15+ commits) Audit exhaustif 11 axes. Creation 10e module Core OS "Model Awareness". 15 ameliorations mesurables. Rapport master 324L + 11 findings-Px : `docs/audits/2026-04-19-audit-total-foundation-os/`. Plan archive `.archive/plans-done-260420/`. |
@@ -77,6 +78,7 @@ Foundation OS = OS travail IA + second-brain. **10 modules Core OS** + projets m
 
 | Decision | Date | Detail |
 |----------|------|--------|
+| D-VULGARIZE-01 | 2026-04-20 | **Vulgarisation integrale briefs ancree racine OS**. Regle : TOUT document produit pour Kevin (brief, rapport, audit, plan, message chat, update CONTEXT.md/hot.md) vulgarise **de bout en bout**, pas juste la section "En bref" en tete. Raison : piege observe 2026-04-20 `/session-start` (En bref OK, 14 tuiles suivantes en jargon brut, Kevin : "je comprends rien"). Codification 13 endroits : CLAUDE.md + communication.md 6.0 (principe + regles + table par tuile + check-list + exemples) + P-42 constitution + 8 commands (.claude/commands/) + 6 agents (.claude/agents/) + 2 templates (plan + audit) + lesson wiki + memoire auto. Garde-fou auto : `scripts/vulgarization-check.sh` chain health-check. Commits : `673aace` (E9) + `dc3d9ae` (E10). |
 | D-NO-MULTI-SESSION-01 | 2026-04-20 | **Arret multi-session**. Regle : 1 session a la fois. Raison : 2 sessions perdues (D-CCCONFIG-01 + nice-mayer) decouvertes par audit reality-check 2026-04-20 (desync memoire main garantie si >=2 worktrees paralleles). Spec : `wiki/meta/lessons-learned.md` section "Multi-session = regression memoire". Supersede partiellement D-CONCURRENCY-01 (cloture serie → cloture unique). |
 | D-CCCONFIG-01 | 2026-04-19 | **Durcissement config Claude Code** (recupere 2026-04-20 via cherry-pick Option C depuis `claude/determined-torvalds-903dc3`). 4/6 gaps : `scripts/hooks/bash-firewall.sh` hook PreToolUse Bash exit 2 patterns destructifs (rm -rf /, push --force, dd, mkfs), deny list stricte `.claude/settings.json`, `tools:` frontmatter 4 agents FOS restrictions, CLAUDE.local.md template + `.gitignore`. + Batch alim 11 refs externes wiki (48→94 pages : awesome-claude-code + claude-howto + Ultraplan + Paperclip + RTK + UI UX Pro Max v2.5.0 + 6 libs shadcn + prediction markets Polymarket/Kalshi + Kelly + Brier). Install UI UX Pro Max v2.5.0 global. 13 commits originaux session perdue. |
 | D-AUDIT-TOTAL-01 | 2026-04-19/20 | Audit total 11 axes + fixes + refactors + 10e module Core OS. 14 phases × 6 elements stricts. Livrables : 11 findings-Px + rapport-master.md **324L** (`docs/audits/2026-04-19-audit-total-foundation-os/`) + 15+ commits atomiques (df4244a → P13). 15 ameliorations mesurables. Plan archive `.archive/plans-done-260420/`. |

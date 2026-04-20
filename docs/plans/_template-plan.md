@@ -28,17 +28,20 @@ Exemple :
 
 ## Phases (sessions courtes, regle "jamais monolithe" CLAUDE.md)
 
-> Chaque phase DOIT contenir les **6 elements obligatoires** (spec `docs/core/planner.md`, memoire `feedback_plans_ultra_detailles.md`) pour etre resistante au compactage contexte :
-> 1. **Pre-conditions** (etat attendu avant phase)
-> 2. **Etat repo** (branche, worktree, fichiers modifies)
-> 3. **Actions atomiques** (commandes + snippets exacts)
-> 4. **Verification** (commandes + resultat attendu)
-> 5. **Rollback** (comment annuler si echec)
-> 6. **Commit message** (preformate, conventional commits)
+> Chaque phase DOIT contenir les **7 elements obligatoires** (spec `docs/core/planner.md`, memoire `feedback_plans_ultra_detailles.md`, P-42 vulgarisation D-VULGARIZE-01) pour etre resistante au compactage contexte ET lisible par Kevin (TDAH, non-tech) :
+> 1. **Impact pour Kevin** (1-2 phrases langage simple : ce que cette phase change concretement pour lui, pourquoi il devrait s'y interesser) **[OBLIGATOIRE D-VULGARIZE-01]**
+> 2. **Pre-conditions** (etat attendu avant phase)
+> 3. **Etat repo** (branche, worktree, fichiers modifies)
+> 4. **Actions atomiques** (commandes + snippets exacts)
+> 5. **Verification** (commandes + resultat attendu)
+> 6. **Rollback** (comment annuler si echec)
+> 7. **Commit message** (preformate, conventional commits)
 
 ### Phase 1 — [Titre court] (~Xmin)
 
 Objectif : [phrase courte].
+
+**Impact pour Kevin** : [1-2 phrases en langage simple, TDAH-first. Ce que cette phase change concretement pour lui dans son quotidien, pas le "quoi technique" mais le "pourquoi ca te sert a toi". Exemple : "Apres cette phase, quand tu crees un plan, Notion se peuplera tout seul avec les etapes du plan. Tu n'auras plus a ouvrir Notion pour recopier les taches a la main."]
 
 **Pre-conditions** :
 - [Etat repo attendu avant]
@@ -78,11 +81,11 @@ Body optionnel si phase majeure.
 
 ### Phase 2 — [Titre court] (~Xmin)
 
-[meme structure : 6 elements obligatoires]
+[meme structure : 7 elements obligatoires incluant Impact pour Kevin en tete]
 
 ### Phase N — [Titre court] (~Xmin)
 
-[meme structure : 6 elements obligatoires]
+[meme structure : 7 elements obligatoires incluant Impact pour Kevin en tete]
 
 ## Fichiers critiques (recap)
 

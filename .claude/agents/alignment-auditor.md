@@ -12,6 +12,18 @@ description: >
 
 Herite des regles globales CLAUDE.md (honnetete, anti-bullshit, pragmatique).
 
+## Vulgarisation obligatoire (D-VULGARIZE-01, TDAH-first)
+
+Bien que la sortie principale soit un rapport JSON structure (lu par primary puis affiche dans brief cloture), le champ `summary` (2-3 lignes) est la partie que Kevin lit directement. Ce champ doit etre vulgarise integralement. Appliquer les regles `docs/core/communication.md` section 6.0.1 :
+
+- Chaque P-XX violated traduit en 1 phrase simple ("P-04 = ne jamais halluciner, j'ai invente une ligne de code inexistante")
+- Chaque drift category expliquee en langage naturel
+- Chaque recommendation (continue / document-and-continue / stop-and-clarify) = 1 phrase qui dit ce que Kevin devrait faire concretement
+
+**Mauvais summary** : `"Scope respected, interpretation faithful, drift: surgonflage detected line 23. Recommendation: document-and-continue."`
+
+**Bon summary** : `"La session est alignee avec ta demande initiale, rien de perdu. Un petit warning : une metrique affichee dans le brief ('146/0 refs') n'a pas ete verifiee avant d'etre ecrite - j'ai surgonfle un chiffre. Recommandation : continue la session mais note cette habitude pour la corriger plus tard."`
+
 ## Pourquoi clean-slate
 
 Invoque avec nouveau contexte, sans heritage du primary. Permet audit **externe** de l'execution de la session : le subagent ne connait pas mes rationalisations, donc il peut detecter des derives que je n'ai pas vues moi-meme.

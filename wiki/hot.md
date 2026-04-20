@@ -19,17 +19,36 @@ Navigation: [[index-wiki]] | [[overview]]
 
 ## En bref (pour Kevin)
 
-Le projet est **SAIN**. On a retrouve **2 travaux perdus** (une session du 19 avril + une du 17 avril qui n'etaient jamais revenues dans le projet principal) et on a tout remis dedans. **On arrete le multi-session** : on travaille dans **une seule session a la fois**. Le projet contient maintenant **113 pages wiki** (vs 86 avant la recuperation).
+Le projet est **SAIN**. Derniere session : Kevin a pointe "je comprends rien a tes briefs". J'ai grave la regle **"tout ce que je te dis doit etre comprehensible"** dans 13 endroits du projet + cree un **garde-fou automatique** (script `scripts/vulgarization-check.sh` qui scanne mes briefs et detecte si je recommence a parler en jargon). Decision formelle : **D-VULGARIZE-01** (vulgarisation integrale). Le projet contient toujours **113 pages wiki** (pages de connaissance).
 
 **Choses prochaines a faire** (dans l'ordre) :
 1. Finir le **projet Gmail centralisation** (3 boites → 1 seule)
-2. Finir le **projet Morning Intelligence v3** (dashboard briefing matinal)
-3. Executer **D-PRODUCT-02** (le PO Notion devient autonome)
-4. Relever OMC a la derniere version
+2. Finir le **projet Morning Intelligence v3** (le dashboard du briefing matinal)
+3. Executer **D-PRODUCT-02** (le plan qui rend ton Notion autonome : il se met a jour tout seul au lieu que tu doives lancer `/po sync` a la main)
+4. Relever **OMC** (Oh-My-ClaudeCode, extension Claude Code) a la derniere version (4.10.1 → 4.13.0)
 
 ## Last Updated
 
-**2026-04-20 (Reality Check + cleanup multi-session)** : audit factuel apres alerte "travail perdu + briefs faux". Decouvert 2 branches jamais mergees (`determined-torvalds` 14 commits D-CCCONFIG-01 + batch alim 11 refs externes, `nice-mayer` 5 commits drifts Core OS) + main working tree desync (plan audit-total non archive, 6 dirs cowork untracked : Gmail centralisation + Morning Intelligence + briefs-foundation-os + reorg-instructions). Nettoyage 10 commits atomiques : archive plan, gitignore donnees perso (morning-intelligence.json, briefings HTML daily, .claire/), commit Gmail + Morning Intelligence shell, cherry-pick nice-mayer 3 commits techniques, integre D-CCCONFIG-01 + 47 files wiki via Option C, fix 12 refs cassees → 0 casse. Wiki 86 → **113 pages**.
+**2026-04-20 (D-VULGARIZE-01 Vulgarisation integrale briefs ancree racine OS)** : Kevin alerte apres brief `/session-start` illisible — "En bref (pour Kevin)" en tete OK, **mais les 14 tuiles suivantes** (SANTE / PLANS / MODULES / CAP / etc.) en jargon brut (D-XXX-NN non-traduits, termes tech sans explication, variables env brutes, hash git bruts). Kevin : "je comprends rien a chaque fois, c'est ca qui saoule, je veux que ce soit ancre dans la racine de l'OS". 2 passes de commits atomiques :
+
+**E9 (commit `673aace`)** — codification base :
+- `CLAUDE.md` section "Langage & Communication" refondue (9 regles universelles + check-list 8 questions + exemples mauvais/bon)
+- `docs/core/communication.md` section 6.0 refondue : 6.0.0 principe + 6.0.1 regles + 6.0.2 table vulgarisation par tuile + 6.0.3 check-list + 6.0.4 exemples
+- `docs/core/constitution.md` : principe **P-42 "Vulgarisation integrale brief"** + ajout Top 10 critiques
+- 4 commands principaux (`/session-start`, `/session-end`, `/cockpit`, `/plan-os`) : disclaimers renforces
+- `wiki/meta/lessons-learned.md` : section 🎯 "Vulgarisation = tout le document, pas juste l'en-tete"
+- Memoire auto `feedback_vulgarisation_obligatoire.md` : renforcee
+
+**E10 (commit `dc3d9ae`)** — 4 gaps restants apres audit complet :
+- 6 sous-agents (`.claude/agents/`) : `dev-agent`, `doc-agent`, `os-architect`, `review-agent`, `po-agent`, `alignment-auditor` — bloc "Vulgarisation obligatoire" ajoute dans chaque frontmatter
+- 4 commands restantes (`/po`, `/new-project`, `/sync`, `/wt`) : disclaimers ajoutes
+- Templates `docs/plans/_template-plan.md` (7e element obligatoire "Impact pour Kevin" par phase) + `docs/audits/_template-audit.md` (check-list renforcee)
+- **`scripts/vulgarization-check.sh`** (nouveau garde-fou) : detecte 5 types de violations (D-XXX-NN non-traduits, acronymes bruts, termes tech sans parentheses, variables env brutes, hash git bruts). Modes : fichier cible, `--self-test` (scan hot.md + templates + plans), `--quiet` (chain). Chainé dans `health-check.sh` ligne INFO non-bloquant.
+
+**Baseline garde-fou** : 28 violations sur 4 briefs actuels (wiki/hot.md + 2 templates + plan D-PRODUCT-02 actif). Script detecte les vrais drifts.
+
+### Avant (2026-04-20 Reality Check + cleanup multi-session)
+Audit factuel apres alerte "travail perdu + briefs faux". 2 branches jamais mergees retrouvees (D-CCCONFIG-01 + nice-mayer) + 6 dirs cowork untracked integres. Wiki 86 → **113 pages**. Decision **D-NO-MULTI-SESSION-01** : 1 seule session a la fois.
 
 ### Avant (2026-04-19/20 D-AUDIT-TOTAL-01 COMPLET 14/14 + D-MODEL-01 + Trading v1.1)
 Audit exhaustif 11 axes + 15 ameliorations + 10e module Core OS "Model Awareness". Rapport master 324L + 11 findings-Px. Architecture 9 → 10 modules Core OS + 1 Cockpit. Trading Phase 5 D-TRADING-01 v1 (94/94 tests, 5 strategies, Nautilus skeletons V1.2 roadmap).
@@ -55,15 +74,16 @@ Durcissement config Claude Code : bash-firewall hook + deny list + tools frontma
 
 ## Key Recent Facts (2026-04-20)
 
-- Foundation OS = OS travail IA-driven + second-brain knowledge + **10 modules Core OS**
+- Foundation OS (le projet) = OS de travail IA-driven + second-brain (cerveau a long terme) + **10 modules Core OS** (les 10 briques architecturales du systeme)
 - Architecture 4 layers : executor (Cortex/Tools/Planner/Worktrees) + persistence (Communication/Knowledge) + quality (Monitor/Body) + integration (Product) + meta (Model)
 - 5 tiers memoire : conversation / CONTEXT.md / auto-memory / docs/ / wiki/
 - Regle d'or : une info = un seul tier (zero duplication)
-- **Multi-session ABANDONNE 2026-04-20** : cause regression memoire. **Regle : 1 session a la fois**.
-- Wiki : **113 pages** reel filesystem main (post-integration D-CCCONFIG-01)
-- Worktrees : **2 actifs** (main + lucid-moore session courante, a cleanup E7)
-- D-TRADING-01 + D-BODY-01 + D-PRODUCT-01 + D-MODEL-01 + D-CCCONFIG-01 + D-AUDIT-TOTAL-01 tous livres
-- D-PRODUCT-02 plan pret (draft, 5 phases 15-20h) : `docs/plans/2026-04-19-product-autonomie.md`
+- **Multi-session ABANDONNE 2026-04-20** : cause regression memoire garantie. **Regle : 1 session a la fois**.
+- **Vulgarisation integrale 2026-04-20 (D-VULGARIZE-01)** : tout document pour Kevin vulgarise de bout en bout (pas juste En bref en tete). Ancree dans 13 endroits + garde-fou `scripts/vulgarization-check.sh`.
+- Wiki : **113 pages** reel filesystem main (vs 86 avant recuperation sessions perdues)
+- Worktrees : **2 actifs** (main + admiring-franklin-e61dd2 session courante, a cleanup phase 5)
+- Decisions livrees : D-TRADING-01 + D-BODY-01 + D-PRODUCT-01 + D-MODEL-01 + D-CCCONFIG-01 + D-AUDIT-TOTAL-01 + D-NO-MULTI-SESSION-01 + **D-VULGARIZE-01**
+- D-PRODUCT-02 plan pret (draft, 5 phases 15-20h, rendre PO Notion autonome) : `docs/plans/2026-04-19-product-autonomie.md`
 
 ## Active Threads
 
