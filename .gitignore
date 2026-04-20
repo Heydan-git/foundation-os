@@ -41,3 +41,24 @@ modules/*/backtests/raw/
 
 # Manifest delta tracking claude-obsidian (regenerable)
 .raw/.manifest.json
+
+# ── Multi-session leftovers (cleanup 2026-04-20 reality-check) ──
+
+# Dossier parallele mystere (duplicates trading indicators, origin inconnue, safe exclude)
+.claire/
+
+# Auto-memory Claude Code locale (duplique hors repo, pas pour commit)
+.claude/projects/
+
+# Dashboard routines Desktop (config user-specific port 3333, pas pour commit partage)
+.claude/launch.json
+
+# Build artifacts tokens Design System (regenerables, hors source)
+modules/*/tokens/build/
+
+# ── Donnees personnelles Cowork (emails, transactions, briefings quotidiens) ──
+# Le shell HTML/MD est tracke, les DATA quotidiennes sont privees
+docs/travaux-cowork/morning-intelligence/*.json
+docs/travaux-cowork/morning-intelligence/*backup*.html
+docs/travaux-cowork/2026-04-*-briefing-gmail/
+docs/travaux-cowork/briefs-archives/
