@@ -26,6 +26,29 @@ related:
 >
 > Pour insights analytiques Kevin-Claude cross-session : voir [[session-patterns]] (auto-regenere par `scripts/sessions-analyze.sh`).
 
+## 🎯 Vulgarisation = tout le document, pas juste l'en-tete (2026-04-20)
+
+**En bref (pour Kevin)** : La regle "section En bref en tete en langage simple" ne suffit pas. Si le reste du brief (tuiles SANTE / PLANS / MODULES / CAP / etc.) reste en jargon technique brut (D-XXX-NN non-traduits, termes tech sans parentheses explicatives, choix A/B/C sans "a quoi ca sert"), Kevin ne comprend pas le brief et reste bloque. Erreur commise 2026-04-20 session-start : tuile d'entete claire, 14 tuiles suivantes illisibles. Fix : vulgarisation DE BOUT EN BOUT, codifiee P-42 constitution + D-VULGARIZE-01.
+
+- **Date** : 2026-04-20 (session apres reality-check)
+- **Contexte** : Kevin invoque `/session-start`. Je produis un brief v12 avec tuile "En bref (pour Kevin)" en tete OK (2-5 phrases langage naturel comme specifie). **Mais** les 14 tuiles suivantes (SANTE / HOT / TRAJECTOIRE / PLANS / WIKI / MODULES / ATTENTION / DERNIER TRAVAIL / STATUT / IDEES / REFLEXION / HISTORIQUE / CAP / INPUT) contiennent du jargon brut non-traduit :
+  - Codes `D-PRODUCT-02` / `D-BODY-01` / `D-CCCONFIG-01` cites sans traduction en langage naturel
+  - Variables `PRODUCT_MCP_SYNC=1`, `OMC v4.10.1`, hash git `fce4175` bruts
+  - Termes tech `alignment-auditor`, `scheduled task`, `worktree`, `MCP Gmail`, `bash-firewall`, `drift SYNC` sans explication
+  - Choix A/B/C/D/E/F/G/H listes sans dire ce que ca fait concretement pour Kevin ni combien de temps
+  - Cellules de table telegraphiques : "D-PRODUCT-02 | draft | 0/5 phases · 15-20h"
+- **Symptome** : Kevin repond "ton brief de debut de session est incomprehensible. T'as oublie de verbaliser ou comment ca se passe ?". Reagit fort : "je suis TDA et je comprends rien a ce que tu me dis. La vulgarisation doit etre ancree dans la racine de l'OS, pas ponctuelle."
+- **Cause racine** : la regle existante (`CLAUDE.md` section "Langage & Communication" + `docs/core/communication.md` section 6.0 + memoires) disait "toute sortie commence par une section En bref en tete en langage simple". J'ai interprete litteralement = "je mets une section En bref vulgarisee et le reste peut rester en jargon". Biais d'economie + raccourci tech-to-tech. **La regle etait ambigue** : "commence par En bref" implique juste l'entete, pas le corps entier du document. Kevin a pointe le piege : piege 4 piege-lessons-learned (ne pas ecouter mots exacts) applique a moi-meme.
+- **Fix structurel (codifie dans la racine OS, pas ponctuel)** :
+  - **P-42 constitution** : "Vulgarisation integrale du brief" avec regle/pourquoi/done/not-done
+  - **D-VULGARIZE-01** decision formelle
+  - **CLAUDE.md section Langage & Communication** reecrite avec "LA VULGARISATION S'APPLIQUE A LA TOTALITE DU DOCUMENT, PAS JUSTE EN BREF"
+  - **communication.md section 6.0.0** principe fondamental + **6.0.1** regles universelles + **6.0.2** vulgarisation par tuile (table avec regle specifique pour chaque tuile du brief v12) + **6.0.3** check-list obligatoire avant envoi (8 questions) + **6.0.4** exemples mauvais/bon
+  - **4 commands disclaimers renforces** (session-start / session-end / cockpit / plan-os) : "TOUT le brief est vulgarise, PAS seulement la tuile En bref"
+  - **Memoire `feedback_vulgarisation_obligatoire.md`** renforcee
+- **Regle** : pour chaque document produit pour Kevin, relire avec la check-list 6.0.3 communication.md (8 questions). Si une seule case n'est pas cochee, **ne pas envoyer, reecrire**. Tester mentalement : "est-ce que Kevin peut lire CHAQUE tuile isolement et comprendre, sans avoir a se referer a la tuile En bref d'entete ?"
+- **Application FOS** : la regle vulgarisation integrale est maintenant non-contournable. Tous les futurs briefs `/session-start`, `/session-end`, `/cockpit`, plans `/plan-os`, rapports audits, messages chat appliqueront P-42 sur chaque tuile individuellement.
+
 ## 🎯 Multi-session = regression memoire garantie pour dev solo (2026-04-20)
 
 **En bref (pour Kevin)** : Quand tu travailles dans plusieurs sessions Claude en meme temps (via des worktrees paralleles), chaque session ecrit son propre CONTEXT.md local et seule la derniere qui ferme proprement s'ecrit dans le projet principal. Les autres branches restent "oubliees" tant que personne ne fait un audit. On a perdu **2 sessions entieres** (une du 19 avril + une du 17 avril) qui n'etaient jamais revenues dans le projet principal. Decision : **on arrete le multi-session, 1 seule session a la fois**.

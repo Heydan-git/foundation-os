@@ -259,51 +259,158 @@ Ces lectures sont a la demande, pas systematiques.
 
 ## 6. Briefing — Comment on presente
 
-### 6.0 Vulgarisation obligatoire (TDAH-first, non-negociable)
+### 6.0 Vulgarisation obligatoire (TDAH-first, non-negociable, D-VULGARIZE-01)
 
-> **Kevin = designer TDAH**, pas ingenieur tech. Comprend vite quand bien explique, mais oublie les details. **Tout brief / rapport / audit / plan commence par une section "En bref (pour Kevin)" en langage simple**.
+> **Kevin = designer TDAH**, pas ingenieur tech. Comprend vite quand bien explique, mais oublie les details. **Tout document produit pour Kevin doit etre vulgarise DE BOUT EN BOUT**, pas juste a l'entree.
 
-**Regle pour CHAQUE brief / rapport / plan / audit / message chat produit** :
+#### 6.0.0 Principe fondamental (D-VULGARIZE-01, 2026-04-20)
 
-1. **Section `## En bref (pour Kevin)` en TETE absolue** du document (avant toute autre section).
+**La section "En bref (pour Kevin)" en tete est un RESUME d'entree, PAS un substitut a la vulgarisation du reste du document.**
+
+Un brief qui a "En bref" vulgarisee mais le reste en jargon technique = **violation structurelle**. Piege observe 2026-04-20 `/session-start` : la tuile d'entete etait claire mais toutes les 14 tuiles suivantes (SANTE / PLANS / MODULES / CAP / etc.) contenaient D-XXX-NN non-traduits, noms de variables (`PRODUCT_MCP_SYNC=1`), termes techniques (`alignment-auditor`, `scheduled task`, `worktree`) sans explication. Kevin n'a rien compris.
+
+**Regle** : chaque tuile / section / ligne / cellule de table produite pour Kevin applique les 9 regles ci-dessous **independamment** (chacune auto-suffisante pour lecture isolee TDAH).
+
+#### 6.0.1 Regles universelles (s'appliquent a TOUT le document)
+
+1. **Section `## En bref (pour Kevin)` en TETE** du document (avant toute autre section).
    - 2-5 phrases maximum
    - Langage naturel, pas de jargon non-traduit
    - 1 idee = 1 phrase
    - Finir par "prochaine etape" ou "a decider Kevin"
 
-2. **Tout jargon tech est traduit immediatement entre parentheses** :
+2. **Tout jargon tech est traduit immediatement entre parentheses** a sa 1ere apparition **dans chaque section** (pas une seule fois en haut) :
    - "cherry-pick (copier un commit d'une branche vers une autre sans tout merger)"
    - "worktree (dossier parallele qui partage le meme git mais a sa propre copie physique)"
    - "refs cassees (liens dans la doc qui pointent vers des fichiers inexistants)"
    - "D-XXX-NN (code identifiant une decision, ex: D-BODY-01 = 1ere decision sur le module Body)"
-   - "MCP (Model Context Protocol, comment Claude se connecte a des services externes)"
+   - "MCP (Model Context Protocol, pont qui permet a Claude de parler a des services externes comme Notion ou Gmail)"
+   - "health-check (script qui verifie que le projet est en bon etat)"
+   - "hook (script qui tourne automatiquement quand un evenement arrive, ex: avant un commit)"
+   - "scheduled task (tache programmee qui se lance toute seule tous les jours a une heure precise)"
+   - "drift (decalage entre ce que la doc dit et la realite du code/projet)"
 
-3. **Acronymes developpes 1ere fois** : FOS = Foundation OS. TDAH = Trouble Deficit Attention. DS = Design System. PO = Product Owner.
+3. **Acronymes developpes 1ere fois** :
+   - FOS = Foundation OS (le projet)
+   - TDAH = Trouble Deficit Attention
+   - DS = Design System (bibliotheque de composants visuels reutilisables)
+   - PO = Product Owner (celui qui dit quoi construire et dans quel ordre)
+   - OMC = Oh-My-ClaudeCode (extension/plugin pour Claude Code)
+   - DB = database (base de donnees)
 
-4. **Nombres avec contexte** :
+4. **Chaque code D-XXX-NN traduit en langage naturel** a sa 1ere apparition dans CHAQUE section ou il apparait (pas une seule fois) :
+   - `D-PRODUCT-02` → "plan qui rend le PO Notion autonome (Notion se met a jour tout seul au lieu qu'on doive lancer une commande manuelle)"
+   - `D-BODY-01` → "module qui verifie que mes actions correspondent a ce que Kevin m'a demande"
+   - `D-CCCONFIG-01` → "durcissement de la config Claude Code avec systeme de securite bash (empeche `rm -rf /`)"
+   - `D-NO-MULTI-SESSION-01` → "decision du 20 avril : 1 seule session Claude Code active a la fois (le multi-session creait de la perte de travail)"
+
+5. **Nombres avec contexte** :
    - Bon : "113 pages wiki, vs 86 avant la recuperation des sessions perdues"
    - Mauvais : "113 pages wiki"
 
-5. **Pas de mur de texte**. Aerer avec :
+6. **Chaque choix A/B/C propose a Kevin doit expliquer** :
+   - **Ce que ca fait concretement** (langage naturel)
+   - **A quoi ca sert pour lui** (impact sur son quotidien)
+   - **Combien de temps** (si estime)
+   - **Pre-requis eventuels** (ce qu'il doit faire avant)
+   - Bon : "**A — Executer D-PRODUCT-02** : pour que ton Notion se mette a jour tout seul quand tu fais un plan ou un commit. 15-20h de travail. Pre-requis : aucun."
+   - Mauvais : "A — D-PRODUCT-02 plan pret"
+
+7. **Pas de mur de texte**. Aerer avec :
    - Listes a puces
-   - Tables
+   - Tables (avec en-tetes explicites, pas abrevies)
    - Sections claires avec titres
    - Blockquotes pour insister
-   - Bold pour mots-cles
+   - **Bold** pour mots-cles
 
-6. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple. Ne defends pas l'explication initiale. Reprends autrement.
+8. **Si Kevin dit "je comprends pas"** → REFORMULE plus simple. Ne defends pas l'explication initiale. Reprends autrement.
 
-**Exemple mauvais (trop tech)** :
-> "Integration D-CCCONFIG-01 via cherry-pick Option C (47 files A) + 133 pages wiki ingestees depuis determined-torvalds-903dc3."
+9. **Pas de hash git bruts** (ex: `fce4175`) sans explication. Remplacer par "le dernier commit (l'enregistrement du dernier lot de modifications)".
 
-**Exemple bon (vulgarise)** :
-> "On a retrouve une session perdue du 19 avril qui avait ajoute 46 nouvelles pages wiki externes (des references Claude Code comme awesome-claude-code, Ultraplan, RTK) + installe un systeme de securite bash (empeche `rm -rf /` et autres commandes destructrices). On a tout remis dedans en copiant juste les nouveaux fichiers, sans conflit."
+#### 6.0.2 Vulgarisation par tuile du brief v12 (spec par section)
 
-**Application** : cette regle s'applique dans tous les templates (`/session-start`, `/session-end`, `/plan-os`, `/cockpit`), tous les rapports (`docs/audits/*/rapport.md`), tous les plans (`docs/plans/*.md`), tous les updates CONTEXT.md/hot.md. Les templates `docs/plans/_template-plan.md` et `docs/audits/_template-audit.md` imposent la section "En bref" en tete.
+Chaque tuile du brief v12 a ses regles de vulgarisation specifiques :
 
-**Traceabilite** :
-- CLAUDE.md section "Langage & Communication (TDAH-first)"
+| Tuile | Regle de vulgarisation |
+|---|---|
+| **En bref** | 2-5 phrases langage naturel. Aucun D-XXX-NN non-traduit. Finir par "prochaine etape". |
+| **🏥 SANTE** | Chaque check explique ce qu'il verifie. "Build OK" → "L'application compile sans erreur". "Refs intactes" → "0 lien casse dans la documentation". |
+| **🔥 HOT** | Resumer la derniere session en 3-5 phrases langage naturel, pas en codes D-XXX-NN bruts. |
+| **🧭 TRAJECTOIRE** | Mission et focus en phrase complete. "▲ tendance" → "Evolution positive depuis X". |
+| **📋 PLANS** | Pour chaque plan : **objectif en langage naturel** ("rendre X autonome") + status + temps estime. Jamais juste le code D-XXX-NN. |
+| **📚 WIKI** | "Pages wiki" → "pages de connaissances". Expliquer ce qu'un domaine wiki contient. |
+| **📦 MODULES** | Pour chaque module : **a quoi il sert** en 1 phrase. "App Builder" → "le module de code de l'application React principale". |
+| **⚠️ ATTENTION** | Pour chaque ligne en attente : **explication de ce que c'est** + **pourquoi c'est en attente** + **qui doit faire quoi**. |
+| **🔨 DERNIER TRAVAIL** | Resumer en langage naturel avec contexte. Pas juste "N commits + table batches". Expliquer l'intention. |
+| **📊 STATUT** | Expliquer ce que represente le pourcentage. "Trading v1.1 95%" → "moteur de backtest crypto fonctionne, il reste l'integration Nautilus (librairie de backtest pro) reporte". |
+| **💡 IDEES** | Pour chaque idee : **ce que ca serait** + **pourquoi c'est en parking** (pas urgent, dependance, etc.). |
+| **🤔 REFLEXION** | Phrases completes. Pas de bullets telegraphiques avec jargon. |
+| **📜 HISTORIQUE** | Chaque decision D-XXX-NN traduite : **ce qui a ete decide** + **pourquoi**. |
+| **🎯 CAP** | Direction en 1 phrase langage naturel. Chaque prochaine action A/B/C : ce que ca fait + a quoi ca sert + temps. |
+| **📥 INPUT** | Proposer "On fait quoi ?" avec rappel des 3-4 choix principaux reformules. Pas juste "A/B/C/D/E/F/G/H" sans contexte. |
+
+#### 6.0.3 Check-list obligatoire avant envoi brief/rapport
+
+Avant chaque output vers Kevin, relire en se posant ces questions :
+
+- [ ] Chaque D-XXX-NN est traduit en langage naturel au moins 1 fois dans sa tuile d'apparition ?
+- [ ] Chaque acronyme (FOS, MCP, OMC, DB, PO, etc.) est developpe au moins 1 fois dans le document ?
+- [ ] Chaque terme tech (worktree, hook, cherry-pick, scheduled task, drift, refs, etc.) a son explication entre parentheses ?
+- [ ] Les choix A/B/C expliquent ce que ca fait concretement pour Kevin + pourquoi + temps ?
+- [ ] Les metriques chiffrees ont un contexte ("X vs Y avant") ?
+- [ ] Aucune cellule de table en jargon brut sans explication ?
+- [ ] Aucun hash git brut sans explication ?
+- [ ] Zero section qui passe en mode technique brut en supposant que "l'En bref d'entree suffit" ?
+
+**Si une seule case n'est pas cochee → ne pas envoyer, reecrire.**
+
+#### 6.0.4 Exemples
+
+**Exemple MAUVAIS (piege observe 2026-04-20)** — En bref OK mais tuiles suivantes en jargon :
+> #### 📋 PLANS ACTIFS
+> | Plan | Status | Progression |
+> |---|---|---|
+> | D-PRODUCT-02 Product Autonomie | draft | 0/5 phases · 15-20h |
+
+**Exemple BON** — Vulgarisation a chaque ligne :
+> #### 📋 PLANS EN COURS (plans de travail demarres)
+>
+> **D-PRODUCT-02 (rendre le Product Owner Notion autonome)**
+> Aujourd'hui, pour que ton Notion se synchronise avec le projet, tu dois lancer la commande `/po sync` manuellement. Ce plan automatise ca : chaque nouveau plan / commit / session met a jour Notion tout seul.
+> - Status : ecrit mais pas encore demarre
+> - Duree estimee : 15 a 20 heures, reparties sur 5 etapes
+> - Pre-requis pour lancer : aucun (plan auto-contenu)
+
+**Exemple MAUVAIS (tuile CAP)** :
+> | A | D-PRODUCT-02 plan pret |
+> | B | Gmail centralisation Phase D |
+
+**Exemple BON (tuile CAP)** :
+> **A — Executer D-PRODUCT-02** (rendre ton Notion autonome)
+> Pour que Notion se mette a jour tout seul quand tu crees un plan ou fais un commit, au lieu que tu doives lancer une commande a la main. 15-20h de travail.
+>
+> **B — Finir le projet Gmail centralisation**
+> Tu as 3 boites Gmail, l'objectif est de tout centraliser dans une seule. Le plan est bloque a la Phase D : il faut que tu reactives l'acces MCP Gmail (MCP = pont entre Claude et Gmail) avant qu'on puisse continuer.
+
+#### 6.0.5 Application
+
+Cette regle s'applique a :
+- Tous les briefs (`/session-start`, `/session-end`, `/cockpit`)
+- Tous les rapports (`docs/audits/*/rapport.md`)
+- Tous les plans (`docs/plans/*.md`)
+- Tous les updates CONTEXT.md / wiki/hot.md / wiki/meta/*.md
+- Tous les messages chat
+- Tous les templates (`docs/plans/_template-plan.md`, `docs/audits/_template-audit.md`)
+
+Les 4 commands (`session-start`, `session-end`, `cockpit`, `plan-os`) ont un disclaimer renforce pointant vers cette section.
+
+#### 6.0.6 Traceabilite
+
+- `CLAUDE.md` section "Langage & Communication (TDAH-first, non-negociable)"
+- `docs/core/constitution.md` principe P-42 "Vulgarisation integrale brief"
+- `wiki/meta/lessons-learned.md` section "Vulgarisation = tout le document, pas juste l'en-tete"
 - Memoires `feedback_vulgarisation_obligatoire.md` + `feedback_communication_pedagogique.md`
+- Decision associee : **D-VULGARIZE-01** (2026-04-20)
 
 ### 6.1 Brief de debut de session (v12 — TDAH tuiles Markdown)
 

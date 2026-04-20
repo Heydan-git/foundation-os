@@ -1,6 +1,14 @@
 # /plan-os — Orchestrateur de generation de plans Foundation OS
 
-> **VULGARISATION OBLIGATOIRE (TDAH-first)** : tout plan genere commence OBLIGATOIREMENT par une section `## En bref (pour Kevin)` en tete (avant Context). 2-5 phrases langage simple, jargon traduit, finir par "a decider" ou "prochaine etape". Template : `docs/plans/_template-plan.md`. Regle spec : `docs/core/communication.md` section 6.0 + `docs/core/planner.md` section 4.
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** :
+>
+> **TOUT le plan est vulgarise, PAS seulement la section "En bref" en tete.** Chaque section (Context / Findings / Phases / Fichiers critiques / Hors scope / Verification / Risques) applique les 9 regles universelles (section 6.0.1 communication.md) : D-XXX-NN traduit en langage naturel, acronymes developpes, termes tech expliques entre parentheses, chaque phase explique "ce que ca fait" + "pourquoi" + "impact pour Kevin".
+>
+> **Regle specifique plan** : chaque phase doit avoir 1 phrase "a quoi ca sert pour Kevin" en langage naturel, pas juste un titre technique. Exemple phase P2 de D-PRODUCT-02 : "Creer le pont qui fait que `/plan-os` (la commande de creation de plan) pousse automatiquement le plan dans Notion en tant que tableau de bord avec 1 EPIC + 5 user stories. **A quoi ca sert** : tu n'auras plus a structurer manuellement ton Notion apres chaque plan, il se remplit tout seul."
+>
+> **Piege a eviter** : "En bref" vulgarisee mais Findings + Phases + Risques en jargon brut = violation. Check-list obligatoire avant envoi : section 6.0.3 communication.md.
+>
+> Template : `docs/plans/_template-plan.md`. Spec complete : `docs/core/communication.md` section 6.0 + `docs/core/planner.md`. Kevin = designer TDAH, pas ingenieur tech.
 
 > **IMPERATIF** — Quand cette command est invoquee avec une demande (ex: `/plan-os "build auth"`) :
 >

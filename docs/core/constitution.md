@@ -360,6 +360,35 @@
 
 ---
 
+## Section G — Vulgarisation TDAH-first (D-VULGARIZE-01, 2026-04-20)
+
+## P-42 Vulgarisation integrale du brief
+
+**Regle** : Tout document produit pour Kevin (brief /session-start, brief /session-end, rapport audit, plan, message chat, update CONTEXT.md, update wiki/hot.md) est vulgarise **DE BOUT EN BOUT**. La section `## En bref (pour Kevin)` en tete est un **RESUME d'entree**, PAS un substitut a la vulgarisation du reste. Chaque tuile / section / ligne / cellule de table applique les 9 regles universelles (section 6.0.1 communication.md) : D-XXX-NN traduit en langage naturel, acronymes developpes, termes tech expliques entre parentheses, choix A/B/C avec "ce que ca fait" + "a quoi ca sert" + "combien de temps".
+
+**Pourquoi** : Kevin = designer TDAH, pas ingenieur tech. Oublie les details techniques. Un brief qui a "En bref" claire mais le reste en jargon = inutilisable (il ne comprend rien, reste bloque, me redemande les memes choses). Piege observe 2026-04-20 `/session-start` : tuile d'entete OK mais 14 tuiles suivantes (SANTE / PLANS / MODULES / CAP / INPUT) contenaient D-XXX-NN non-traduits, noms de variables (`PRODUCT_MCP_SYNC=1`), termes tech bruts (`alignment-auditor`, `scheduled task`, `worktree`, `hash git fce4175`) sans aucune explication. Kevin a explicitement dit "je comprends rien, refais une passe". Le fix one-shot ne suffit pas : doit etre ancre dans la racine OS.
+
+**Done** :
+- Chaque D-XXX-NN est traduit en langage naturel au moins 1 fois dans sa tuile d'apparition ("D-PRODUCT-02 = plan qui rend le PO Notion autonome, Notion se met a jour tout seul")
+- Chaque acronyme (FOS, MCP, OMC, DB, PO, TDAH, DS) developpe au moins 1 fois
+- Chaque terme tech (worktree, hook, cherry-pick, scheduled task, drift, refs cassees) a son explication entre parentheses
+- Chaque choix A/B/C/D... explique "ce que ca fait concretement pour Kevin" + "a quoi ca sert" + "combien de temps" + "pre-requis"
+- Chaque metrique chiffree a un contexte ("X vs Y avant")
+- Aucun hash git brut sans explication
+- Check-list section 6.0.3 communication.md cochee avant envoi (8 questions)
+
+**Not-done** :
+- Brief avec "En bref" claire mais tuiles suivantes en jargon technique brut (piege 2026-04-20)
+- Tuile PLANS avec juste "D-PRODUCT-02 | draft | 0/5 · 15-20h" sans expliquer ce que c'est
+- Tuile CAP avec "A — D-PRODUCT-02 plan pret" sans expliquer pourquoi ca interesserait Kevin
+- Cellule table avec jargon brut en supposant que "la premiere tuile suffit a tout expliquer"
+- Decision D-XXX-NN citee 5 fois dans 5 sections mais traduite 1 seule fois
+- Message "La session est DONE, commits verts, 0 regression" sans expliquer ce que ca veut dire concretement pour Kevin
+
+**Source** : `CLAUDE.md` section "Langage & Communication (TDAH-first, non-negociable)". `docs/core/communication.md` section 6.0 (principe fondamental + regles universelles + vulgarisation par tuile + check-list + exemples). `wiki/meta/lessons-learned.md` section "Vulgarisation = tout le document, pas juste l'en-tete" (2026-04-20). Memoires `feedback_vulgarisation_obligatoire.md` + `feedback_communication_pedagogique.md`. Decision D-VULGARIZE-01 (2026-04-20).
+
+---
+
 ## Top 10 principes critiques (affichage brief v12 tuile ALIGNMENT)
 
 Rotation quotidienne 1 par jour, ou affichage "principe du jour" :
@@ -373,7 +402,7 @@ Rotation quotidienne 1 par jour, ou affichage "principe du jour" :
 7. **P-28** Ne pas confondre FORME et FONCTION
 8. **P-31** Ecouter mots exacts Kevin
 9. **P-32** Admettre erreur, pas vendre correction
-10. **P-38** TodoWrite systematique >= 3 etapes
+10. **P-42** Vulgarisation integrale brief (tout le brief, pas juste l'entete)
 
 ## Maintenance
 
