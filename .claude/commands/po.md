@@ -1,5 +1,7 @@
 # /po — Module Product Foundation OS (Notion only)
 
+> **VULGARISATION INTEGRALE OBLIGATOIRE (TDAH-first, D-VULGARIZE-01 2026-04-20)** : tout rapport rendu par `/po` est vulgarise integralement. Termes Notion (DB, view, kanban, timeline, rollup, data source, property) expliques entre parentheses a leur 1ere apparition. Chaque action MCP decrit ce qui change **cote Kevin dans Notion** (pas juste l'API call). Chaque divergence = (a) ce qui ne matche pas, (b) impact, (c) proposition. Spec : `docs/core/communication.md` section 6.0 + regle agent `.claude/agents/po-agent.md`.
+
 > Skill qui gere l'integration bidirectionnelle FOS <-> **Notion**.
 > Decision : D-PRODUCT-01. Pivot Notion-only P1.5 (2026-04-19). Spec canonique : `docs/core/product.md`.
 > **Stub P1** : subcommandes implementees progressivement P1-P3. Plan : `.archive/plans-done-260419/2026-04-19-product-module-full-integration.md`.

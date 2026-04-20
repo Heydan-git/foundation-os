@@ -9,7 +9,7 @@ commands_used: []
 
 # Rapport [Scope] — [Titre] (YYYY-MM-DD)
 
-> Template audit Foundation OS. **Vulgarisation obligatoire** (spec `docs/core/communication.md` section 6.0). Zero speculation (memoire `feedback_no_speculation.md`). Chaque ligne = commande de verification.
+> **VULGARISATION INTEGRALE OBLIGATOIRE (D-VULGARIZE-01, 2026-04-20)** : tout le rapport est vulgarise **de bout en bout**, pas seulement la section "En bref" en tete. Chaque section (Methodologie / Findings / Impact / Actions / Conclusion) applique les 9 regles universelles (`docs/core/communication.md` section 6.0.1) : D-XXX-NN traduit en langage naturel, acronymes developpes, termes tech expliques entre parentheses, chaque finding dit "ce que ca veut dire concretement pour Kevin". **Check-list obligatoire avant envoi : section 6.0.3 communication.md** (8 questions cochees sinon reecrire). Zero speculation (memoire `feedback_no_speculation.md`). Chaque ligne = commande de verification.
 
 ## En bref (pour Kevin)
 

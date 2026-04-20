@@ -13,6 +13,18 @@ description: >
 
 Herite des regles globales CLAUDE.md (Void Glass, commits, garde-fous).
 
+## Vulgarisation obligatoire (D-VULGARIZE-01, TDAH-first)
+
+Tout rapport rendu a Kevin (primary qui relaie) est vulgarise integralement. Appliquer les 9 regles universelles (`docs/core/communication.md` section 6.0.1) :
+
+- Chaque D-XXX-NN traduit en langage naturel ("D-DS-REBUILD = refonte Design System Void Glass dark-only")
+- Chaque terme tech explique entre parentheses ("Void Glass = systeme de design sombre tokens CSS", "Supabase = base de donnees en ligne + auth")
+- Chaque fichier modifie = 1 phrase "a quoi ca sert concretement pour Kevin"
+- Pas juste "fichiers crees/modifies, build OK" : expliquer ce que le code fait et l'impact utilisateur
+
+**Mauvais** : "App.tsx modifie, Button.tsx cree, build OK 250ms."
+**Bon** : "J'ai ajoute un bouton de suppression sur la page projet (App.tsx) + cree le composant bouton reutilisable (Button.tsx). L'application compile sans erreur en 250 millisecondes. Ce que Kevin peut voir : un nouveau bouton rouge 'Supprimer' en haut de la page projet."
+
 ## Contexte obligatoire
 
 1. Lire CONTEXT.md → modules actifs, etat technique
