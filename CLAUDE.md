@@ -55,6 +55,7 @@ Tool calls NON optionnels. Interpretation alternative = violation.
 3. **TodoWrite systematique** pour >= 3 etapes. Une seule `in_progress`, update immediat (memoire `feedback_todowrite_systematique.md`)
 4. Fin session : zero todo `in_progress` orpheline + update CONTEXT.md
 5. **Thinking en francais** (memoire `feedback_thinking_francais.md`)
+6. **Ordre cloture session (5 phases non-negociable)** : (1) session-end content dans worktree [CONTEXT + hot + sessions + README + plan status:done] → (2) merge --no-ff sur main + resolve conflicts → (3) archive plan mv vers .archive/plans-done-YYMMDD/ directement sur main → (4) push origin main → (5) cleanup worktree optionnel. Jamais archive avant merge (force 2e merge inutile). Spec detaillee : `.claude/commands/session-end.md` en-tete.
 
 ## Briefs session (format v12)
 

@@ -1,5 +1,60 @@
 # /session-end — Cloturer une session Foundation OS
 
+> **ORDRE IMPERATIF DE CLOTURE SESSION (5 phases, non-negociable)** — Decide 2026-04-20 apres une session ou l'ordre a ete sub-optimal (2 merges au lieu d'1).
+>
+> ```
+> ┌─────────────────────────────────────────────────────────────┐
+> │ PHASE 1 — SESSION-END CONTENT (branche worktree active)     │
+> │   1.1  Update CONTEXT.md (sessions + cap + decisions)       │
+> │   1.2  Update wiki/hot.md (entree Last Updated)             │
+> │   1.3  Update wiki/meta/sessions-recent.md (append, max 5)  │
+> │   1.4  Update wiki/meta/thinking.md + lessons-learned.md    │
+> │   1.5  Update README module si applicable                   │
+> │   1.6  Plan : marque status:done + phases_done:N            │
+> │   1.7  Commit "docs(os): session-end <titre>"               │
+> │   ⚠ NE PAS archiver le plan ici (phase 3)                   │
+> └─────────────────────────────────────────────────────────────┘
+>                            ↓
+> ┌─────────────────────────────────────────────────────────────┐
+> │ PHASE 2 — MERGE sur main (repo principal)                   │
+> │   2.1  cd /Users/kevinnoel/foundation-os (repo principal)   │
+> │   2.2  git merge --no-ff <worktree-branch> -m "merge: ..."  │
+> │   2.3  Si conflits CONTEXT/hot/sessions → resoudre (fusion  │
+> │        chronologique sans perte, ni main ni worktree)       │
+> │   2.4  Commit merge                                         │
+> └─────────────────────────────────────────────────────────────┘
+>                            ↓
+> ┌─────────────────────────────────────────────────────────────┐
+> │ PHASE 3 — ARCHIVE PLAN (directement sur main)               │
+> │   3.1  mkdir -p .archive/plans-done-YYMMDD/                 │
+> │   3.2  mv docs/plans/<plan>.md .archive/plans-done-YYMMDD/  │
+> │   3.3  Commit "chore(plans): archive <plan> DONE"           │
+> │   (ou laisser hook SessionEnd auto-archive si setup OK)     │
+> └─────────────────────────────────────────────────────────────┘
+>                            ↓
+> ┌─────────────────────────────────────────────────────────────┐
+> │ PHASE 4 — PUSH origin main                                  │
+> │   4.1  git push origin main                                 │
+> │   (Autorise automatiquement — regle CLAUDE.md "Push main")  │
+> └─────────────────────────────────────────────────────────────┘
+>                            ↓
+> ┌─────────────────────────────────────────────────────────────┐
+> │ PHASE 5 — CLEANUP worktree (optionnel, apres push reussi)   │
+> │   5.1  git worktree remove .claude/worktrees/<nom>          │
+> │   5.2  git branch -d <branch>                               │
+> └─────────────────────────────────────────────────────────────┘
+> ```
+>
+> **Pourquoi cet ordre** :
+> - **Phase 1 AVANT Phase 2** : les updates CONTEXT/hot/sessions sont le travail de session → doivent etre dans la branche qui merge (pas des commits directs sur main).
+> - **Plan marque done Phase 1, archive Phase 3** : le status:done dans frontmatter est du contenu (commit sur branche), l'archive est un `mv` qui profite d'etre fait **directement sur main** (evite 2e merge inutile).
+> - **Push en Phase 4 uniquement** : on verifie localement que tout est coherent avant de pousser. Permet rollback simple si probleme detecte.
+> - **Cleanup Phase 5 en dernier** : apres le push origin main, on sait que tout est safe a distance. Retirer le worktree avant serait dangereux.
+>
+> **Faute classique a eviter** : faire l'archive du plan dans le worktree **apres** avoir deja merge → force un 2e merge inutile. L'archive doit etre directement sur main.
+>
+> ---
+>
 > **IMPERATIF** — tool calls en premier :
 >
 > **Tour 1 (parallele, OBLIGATOIRE)** :
