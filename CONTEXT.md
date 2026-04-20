@@ -57,7 +57,7 @@ Foundation OS = OS travail IA + second-brain. **10 modules Core OS** + projets m
 - 💡 **D-ENFORCE-01 candidate** : pattern declaratif non-enforced (5 modules) → candidat 11e module Core OS enforcement runtime.
 - 💡 Agent SDK Anthropic : explorer formalisation Cortex en natif. Pre-requis : SDK mature.
 - 💡 MCP custom CONTEXT.md : anti-compactage via contexte a la demande.
-- 🔮 `modules/shared` : extraction auth+DB quand 2e module.
+- 🔮 *modules/shared* : extraction auth+DB quand 2e module (futur, pas encore cree).
 - ❓ **Cowork** : methodo ou produit ? A trancher avant Sprint 1.
 
 ## En attente Kevin
